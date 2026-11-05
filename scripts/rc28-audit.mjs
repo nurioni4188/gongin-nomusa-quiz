@@ -8,7 +8,7 @@ const outPath = path.join(evidenceDir, "question-audit.json");
 const result = {
   schema:"rc28-question-audit-v1",
   dataScope:"2022-2026 1차 기출, 목표 1020문항",
-  targetCount:1020, status:"HOLD", totals:{}, byYear:{}, failures:[], samples:{}
+  targetCount:1020, status:"HOLD", totals:{}, byYear:{}, failures:{}, samples:{}
 };
 function error(code, message, key){
   if(!result.samples[code]) result.samples[code]=[];
