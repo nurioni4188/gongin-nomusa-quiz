@@ -23,8 +23,11 @@ on:
       - 'data/rc29-current-1020-source-state.json'
       - 'data/rc29-final-source-answer-batch.json'
       - 'data/rc30-source-choice-answer-evidence.json'
+      - 'data/rc30-v2-source-audit.json'
+      - 'data/rc30-v2-32-source-page-locations.json'
       - 'scripts/rc29-*'
       - 'scripts/rc30-source-answer-check.mjs'
+      - 'scripts/rc30-v2-source-audit-check.mjs'
       - '.github/workflows/rc29-offline-validation.yml'
       - 'vercel.json'
   workflow_dispatch:
@@ -47,6 +50,8 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
+      - name: RC30 V2 correct 32 false source-missing status and review metadata
+        run: node scripts/rc30-v2-source-audit-check.mjs
       - name: RC30 verify-only question options answers public metadata (scoring HOLD)
         run: node scripts/rc30-source-answer-check.mjs
       - name: RC29 final 1020 source-text risk queues and answer image crosscheck metadata

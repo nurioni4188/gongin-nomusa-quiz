@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+import fs from "node:fs";
+const s=JSON.parse(fs.readFileSync("data/rc30-v2-source-audit.json","utf8"));
+const l=JSON.parse(fs.readFileSync("data/rc30-v2-32-source-page-locations.json","utf8"));
+const previous=JSON.parse(fs.readFileSync("data/rc30-source-choice-answer-evidence.json","utf8"));
+const v=JSON.parse(fs.readFileSync("vercel.json","utf8"));
+const errors=[];const ok=(b,n)=>{if(!b)errors.push(n)};
+ok(s.schema==="rc30-v2-1020-original-choice-answer-batch-meta-v1"&&s.scope===1020,"schema/scope");
+ok(s.priorClassifications.TEXT_SAME_PAGE_MATCH===715&&s.priorClassifications.TEXT_REVIEW_REQUIRED===123&&s.priorClassifications.OCR_DRAFT_REVIEW===150&&s.priorClassifications.SOURCE_MISSING===32,"original buckets");
+ok(Object.values(s.priorClassifications).reduce((a,b)=>a+b,0)===1020,"partition");
+ok(s.correctedOldSOURCE_MISSING.reclassified===32&&s.correctedOldSOURCE_MISSING.questionNumberPageAnchorsLocated===32&&s.correctedOldSOURCE_MISSING.unverifiedFirstPassFiveChoiceExtracted===32,"32 page markers");
+ok(s.correctedOldSOURCE_MISSING.mathPrivateUseGlyphRisk===12,"math risk");
+ok(l.length===32&&new Set(l.map(x=>x.key)).size===32&&l.every(x=>x.pdfPage>=1&&!x.scoringApproved),"all 32 located unique");
+ok(s.priorityIndependentReview===305&&123+150+32===305,"priority review 305");
+ok(s.sourcePDFPresentLocally===1020&&s.answerSourceFilesDistinct===5&&s.firstPassAnswerSourceFileHashMatches===1020,"private local source provenance reported");
+ok(previous.sourcePDFPresentButAutomaticChoiceParsingFailed===undefined || previous.sourcePDFPresentButAutomaticChoiceParsingFailed===32,"baseline no change");
+ok(previous.sourcePDFPresentBut5OptionsUnstructured===32,"previous counter conserved");
+ok(s.independentlyVerifiedQuestionTextAndOptions===0&&s.independentlyVerifiedAFormFinalAnswers===0&&s.gradingApproved===0,"official signoff absent");
+ok(s.releaseDecision==="HOLD"&&!s.userFacingUIChanges&&!s.vercelDeployed&&v.git?.deploymentEnabled===false,"release hold");
+ok(!s.publicRepoContainsExamStemsOrAnswerLabels&&!s.privateFullSourceDocumentsInCI,"no source leak");
+const out={schema:"rc30-v2-safe-metadata-ci-v1",technicalStatus:errors.length?"FAIL":"PASS",originalPDFsAvailableInCI:false,sourcePageLocations:32,scoringRelease:"HOLD",errors};
+fs.mkdirSync("rc29-evidence",{recursive:true});fs.writeFileSync("rc29-evidence/rc30-v2-safe-source-audit.json",JSON.stringify(out,null,2)+"\n");console.log(JSON.stringify(out,null,2));
+if(errors.length)process.exitCode=2;
