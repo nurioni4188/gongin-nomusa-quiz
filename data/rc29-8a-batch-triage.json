@@ -1,0 +1,89 @@
+{
+  "schema": "rc29-8a-2023-batch-triage-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "scope": "First-pass OCR review, no final grading authorization",
+  "priorFirstPassDrafts": 43,
+  "newFirstPassDrafts": 4,
+  "totalFirstPassDrafts": 47,
+  "newManuallyComparedQuestionNumbers": [
+    15,
+    16,
+    17,
+    18
+  ],
+  "newManualSourcePages": [
+    6,
+    6,
+    6,
+    7
+  ],
+  "sourceUploadedPaperSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "remainingOcrUnverified": 103,
+  "remainingHighRisk": 43,
+  "remainingNormalRisk": 60,
+  "total2023QuestionSlots": 150,
+  "previousOcrUnverified": 107,
+  "previousHighRisk": 47,
+  "previousNormalRisk": 60,
+  "autoTriageAppliedToRemaining": 103,
+  "autoTriageMethod": "TEXT_ONLY_HEURISTIC_NO_NEW_OCR_NO_SCAN_PIXEL_CHECK",
+  "autoTriageFlagCounts": {
+    "insufficientReliableCircledOptionMarkers": 103,
+    "likelyCorruptionTokens": 50,
+    "duplicatedAdjacentLine": 17,
+    "veryShortOcrText": 11
+  },
+  "triageCaveat": "OCR marker detection has no discriminatory value in this source; all 103 are flagged, so absence does NOT prove 103 defective options. Heuristic results require manual source visual review.",
+  "newVisualFindings": [
+    {
+      "num": 15,
+      "page": 6,
+      "categories": [
+        "QUESTION_STEM_MISSPELLING",
+        "OPTION_MARKERS_LOST"
+      ]
+    },
+    {
+      "num": 16,
+      "page": 6,
+      "categories": [
+        "OPTION_MARKERS_LOST",
+        "SENTENCE_TRUNCATION"
+      ]
+    },
+    {
+      "num": 17,
+      "page": 6,
+      "categories": [
+        "12_VS_19_HOUR_OCR_ERROR",
+        "15_VS_16_HOUR_OCR_ERROR",
+        "OPTION_MARKERS_LOST"
+      ]
+    },
+    {
+      "num": 18,
+      "page": 7,
+      "categories": [
+        "CHARACTER_DISTORTION",
+        "BROKEN_WORD_BOUNDARIES"
+      ]
+    }
+  ],
+  "offlinePackage": "RC29_8A_2023_OCR_47초안_43고위험_일괄검수.zip",
+  "browserEmulatedWidths": [
+    1365,
+    768,
+    390,
+    360
+  ],
+  "browserEmulationPass": 4,
+  "realAndroidTested": false,
+  "sourcePdfBytesAvailableInGitHubCI": false,
+  "fullOriginalQuestionsPubliclyPublished": false,
+  "independentQuestionVerificationApproved": 0,
+  "finalAnswerBookletPairingApproved": 0,
+  "scoringApproved": 0,
+  "release": "HOLD",
+  "vercelDeployPerformed": false
+}

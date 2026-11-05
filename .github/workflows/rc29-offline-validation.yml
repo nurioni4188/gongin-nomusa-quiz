@@ -14,6 +14,7 @@ on:
       - 'data/rc29-6-progress.json'
       - 'data/rc29-7-firstpass-manifest.json'
       - 'data/rc29-8-ocr-review-progress.json'
+      - 'data/rc29-8a-batch-triage.json'
       - 'scripts/rc29-*'
       - '.github/workflows/rc29-offline-validation.yml'
       - 'vercel.json'
@@ -37,6 +38,8 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
+      - name: RC29.8A validate 103 text-only OCR triage and four first-pass corrections (HOLD)
+        run: node scripts/rc29-8a-batch-check.mjs
       - name: RC29.8 check four corrected OCR drafts and remaining unverified queue
         run: node scripts/rc29-8-review-check.mjs
       - name: RC29.7 verify completed first-pass draft metadata (not official)
