@@ -12,6 +12,7 @@ on:
       - 'data/rc29-4-2023-answer-table-reference.json'
       - 'data/rc29-5-visual-draft-progress.json'
       - 'data/rc29-6-progress.json'
+      - 'data/rc29-7-firstpass-manifest.json'
       - 'scripts/rc29-*'
       - '.github/workflows/rc29-offline-validation.yml'
       - 'vercel.json'
@@ -35,6 +36,8 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
+      - name: RC29.7 verify completed first-pass draft metadata (not official)
+        run: node scripts/rc29-7-draft-coverage.mjs
       - name: RC29.6 verify first-pass source progress without certifying original paper
         run: node scripts/rc29-6-progress-check.mjs
       - name: RC29.5 validate staged 2023 visual draft metadata (no source text in repo)

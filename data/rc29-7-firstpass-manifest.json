@@ -1,0 +1,119 @@
+{
+  "schema": "rc29-7-firstpass-manifest-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "source": "User provided 2023 A-type scanned papers (private offline images)",
+  "sourcePdfSha256": {
+    "management": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+    "economics": "b483e625d7d7fa917b22b00920a2225ca2db77f51273287b378c0c2dc007108a"
+  },
+  "totalSlots": 150,
+  "originalOCRTextPresent": 112,
+  "originalOCRBlank": 38,
+  "priorDrafts": 22,
+  "newDrafts": 17,
+  "totalDrafts": 39,
+  "originalBlanksFilledWithFirstPassDraft": 38,
+  "remainingBlanks": 0,
+  "replacedCorruptOCR": 1,
+  "legacyOCRPendingVisualReview": 111,
+  "newDraftLocations": [
+    [
+      "민법",
+      54,
+      20
+    ],
+    [
+      "민법",
+      56,
+      20
+    ],
+    [
+      "민법",
+      60,
+      22
+    ],
+    [
+      "민법",
+      61,
+      22
+    ],
+    [
+      "민법",
+      64,
+      23
+    ],
+    [
+      "민법",
+      65,
+      23
+    ],
+    [
+      "민법",
+      66,
+      23
+    ],
+    [
+      "민법",
+      71,
+      25
+    ],
+    [
+      "사회보험법",
+      85,
+      30
+    ],
+    [
+      "사회보험법",
+      86,
+      30
+    ],
+    [
+      "사회보험법",
+      96,
+      33
+    ],
+    [
+      "사회보험법",
+      98,
+      33
+    ],
+    [
+      "경영학개론",
+      111,
+      37
+    ],
+    [
+      "경영학개론",
+      112,
+      37
+    ],
+    [
+      "경영학개론",
+      117,
+      38
+    ],
+    [
+      "경제학원론",
+      112,
+      37
+    ],
+    [
+      "경제학원론",
+      116,
+      38
+    ]
+  ],
+  "visualDraftsSecondReviewed": 0,
+  "actualScoringApproved": 0,
+  "offlineChromiumScreens": 4,
+  "offlineChromiumPassed": 4,
+  "realAndroidTested": false,
+  "sourcePDFsCommitted": false,
+  "fullQuestionsPubliclyCommitted": false,
+  "githubActionsSourcePDFCheck": false,
+  "releaseGate": "HOLD",
+  "vercelDeployPerformed": false,
+  "attachment": "RC29_7_2023_전사빈칸0_39문항_검수패키지.zip",
+  "note": "All new material is first-pass transcription and requires independent comparison including diagrams and formulas. This is not official verification."
+}
