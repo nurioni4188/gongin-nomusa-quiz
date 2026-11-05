@@ -1,0 +1,34 @@
+{
+  "schema": "rc29-3-2023-scan-source-v1",
+  "year": 2023,
+  "status": "VISUAL_REVIEW_PENDING_RELEASE_HOLD",
+  "sourceType": "user-uploaded scanned exam PDFs",
+  "ocrUsed": false,
+  "scoringApproved": 0,
+  "officialAnswerVerified": 0,
+  "booklets": [
+    {
+      "type": "경영학개론 선택",
+      "filename": "2023년 제32회 공인노무사 1차  문제지(경영학)-hwp(1).pdf",
+      "sha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+      "pages": 39,
+      "zeroTextPages": 34
+    },
+    {
+      "type": "경제학원론 선택",
+      "filename": "2023년 제32회 공인노무사 1차시험(경제학)-hwp(1).pdf",
+      "sha256": "b483e625d7d7fa917b22b00920a2225ca2db77f51273287b378c0c2dc007108a",
+      "pages": 41,
+      "zeroTextPages": 33
+    }
+  ],
+  "officialAnswer": {
+    "filename": "2023년 제32회 공인노무사 1차 시험 최종정답.hwp",
+    "sha256": "3648842dc21edad047a60f4409111c6fdf8314ed13d0556933f8499d0c2d1e74",
+    "status": "UNPARSED_PENDING_VERIFICATION"
+  },
+  "visualReviewPages": 80,
+  "sourceDocumentCount": 3,
+  "limitations": "PDF text-layer sparse, 2023 OCR draft not official; 80 page images and CSV provided separately, not committed to public GitHub",
+  "release": "HOLD"
+}
