@@ -1,0 +1,65 @@
+{
+  "schema": "rc29-8c-2023-civil-firstpass-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "sourcePdf": "2023년 제32회 공인노무사 1차  문제지(경영학)-hwp(1).pdf",
+  "originalSourceSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "paperPageRenders": {
+    "p19": "16e9659477328d0d54ba7e3931597bd7a1a6b51a4a9a4d0636a8ec2d2b00bf0a",
+    "p26": "3a2d3454992eb877ea23c87bdc48a05239eec4868a3ae8fbfbf0bb77daebaca3"
+  },
+  "firstPassCompared": [
+    {
+      "num": 51,
+      "page": 19
+    },
+    {
+      "num": 52,
+      "page": 19
+    },
+    {
+      "num": 53,
+      "page": 19
+    },
+    {
+      "num": 73,
+      "page": 26
+    },
+    {
+      "num": 74,
+      "page": 26
+    },
+    {
+      "num": 75,
+      "page": 26
+    }
+  ],
+  "previousDrafts": 53,
+  "newDrafts": 6,
+  "cumulativeDrafts": 59,
+  "previousOCRPending": 97,
+  "remainingOCRPending": 91,
+  "previousHighRisk": 37,
+  "remainingHighRisk": 31,
+  "remainingNormalRisk": 60,
+  "total2023QuestionSlots": 150,
+  "sourceQuality": "FIRST_PASS_VISUAL_DRAFTS_NOT_INDEPENDENTLY_VERIFIED",
+  "newDraftsSecondReviewed": 0,
+  "officialQuestionVerified": 0,
+  "scoringApproved": 0,
+  "sourceDirectPdfInGithubCI": false,
+  "browserMode": "CHROMIUM_VIEWPORT_SIMULATION",
+  "browserViewportWidths": [
+    1365,
+    768,
+    390,
+    360
+  ],
+  "browserTestsPassed": 4,
+  "realAndroidDeviceTested": false,
+  "privateArtifact": "RC29_8C_2023_민법6문항_59초안_91OCR검수.zip",
+  "copyrightedSourcePdfOrQuestionTextsPubliclyCommitted": false,
+  "releaseGate": "HOLD",
+  "vercelDeploymentPerformed": false,
+  "caveat": "New six first-pass transcriptions have not passed independent reviewer signoff, including Chinese characters, numbers, lists and choices. GitHub CI checks metadata only, never PDF content."
+}
