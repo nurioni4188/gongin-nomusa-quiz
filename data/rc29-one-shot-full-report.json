@@ -1,0 +1,69 @@
+{
+  "schema": "rc29-one-shot-full-scope-technical-result-v1",
+  "asOf": "2026-11-05",
+  "scope": 1020,
+  "userPrivateOfflineZip": "RC29_2022-2026_1020문항_원샷통합검증_최종패키지.zip",
+  "localSourcePdfsReopened": 5,
+  "missingOriginalPdfAttachments": 6,
+  "existingCandidateTexts": 715,
+  "unavailableQuestionTexts": 305,
+  "pdfTextStemAndFiveChoicesSamePageNormalized": 444,
+  "pdfTextLayerMismatchOrCheckNeeded": 121,
+  "sourceScan2023Unverified": 150,
+  "firstpass2023": 59,
+  "rawOCR2023": 91,
+  "answer2023HwpReferenceRows": 150,
+  "answer2023IndependentSignoffs": 0,
+  "chromiumViewportPx": [
+    1365,
+    768,
+    390,
+    360
+  ],
+  "localViewportQA": "PASS",
+  "realAndroidDeviceTested": false,
+  "localContractTests": "PASS",
+  "technicalStatus": "PASS_WITH_SOURCE_GAPS",
+  "sourcePdfBytesAvailableForMissing305": false,
+  "independentQuestionOfficialVerification": 0,
+  "verifiedOfficialAnswerToBooklet": 0,
+  "gradedQuestionCount": 0,
+  "sourceReviewResultsByYear": {
+    "2022": {
+      "exact": 70,
+      "review": 55,
+      "sourceMissing": 25
+    },
+    "2023": {
+      "ocrOrDraft": 150
+    },
+    "2024": {
+      "exact": 86,
+      "review": 34,
+      "sourceMissing": 120
+    },
+    "2025": {
+      "exact": 118,
+      "review": 2,
+      "sourceMissing": 120
+    },
+    "2026": {
+      "exact": 170,
+      "review": 30,
+      "sourceMissing": 40
+    }
+  },
+  "originalQnetNoticesConfirmed": [
+    "https://www.q-net.or.kr/cst003.do?artlSeq=5210183&boardId=Q004&gId=05&gSite=L&id=cst00302",
+    "https://www.q-net.or.kr/cst003.do?artlSeq=5213344&boardId=Q004&gId=05&gSite=L&id=cst00302",
+    "https://www.q-net.or.kr/cst003.do?artlSeq=5213345&boardId=Q004&gId=05&gSite=L&id=cst00302",
+    "https://www.q-net.or.kr/cst003.do?artlSeq=5235524&boardId=Q004&gId=05&gSite=L&id=cst00302",
+    "https://www.q-net.or.kr/cst003.do?gId=05&gSite=L&id=cst00309"
+  ],
+  "lastAction": "Official Q-Net PDFs may be downloaded by user's local browser with the private bundle one-shot Windows PowerShell; any failures remain HOLD.",
+  "release": "HOLD",
+  "autoDeployDisabled": true,
+  "vercelDeploymentPerformed": false,
+  "uploadedExamSourcePdfOrFullTextsToPublicGithub": false,
+  "assessmentCaveat": "444 are PDF same-page normalized string matches, NOT official image/table/formula independently verified; 305 question-text slots remain absent."
+}

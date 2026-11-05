@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+import fs from "node:fs";
+const r=JSON.parse(fs.readFileSync("data/rc29-one-shot-full-report.json","utf8"));
+const baseline=JSON.parse(fs.readFileSync("data/rc29-integrated-1020.json","utf8"));
+const prev=JSON.parse(fs.readFileSync("data/rc29-8c-2023-firstpass.json","utf8"));
+const v=JSON.parse(fs.readFileSync("vercel.json","utf8"));
+const errors=[];const ok=(x,label)=>{if(!x)errors.push(label)};
+ok(r.scope===1020&&r.existingCandidateTexts===715&&r.unavailableQuestionTexts===305,"scope/candidates/missing");
+ok(baseline.slots.length===1020&&new Set(baseline.slots.map(t=>t.key)).size===1020,"baseline unique slots");
+ok(r.pdfTextStemAndFiveChoicesSamePageNormalized===444&&r.pdfTextLayerMismatchOrCheckNeeded===121,"PDF re-extracted comparison");
+ok(r.pdfTextStemAndFiveChoicesSamePageNormalized+r.pdfTextLayerMismatchOrCheckNeeded===565,"2022-26 PDF text candidates total");
+ok(r.sourceScan2023Unverified===150&&r.firstpass2023===59&&r.rawOCR2023===91,"2023 OCR counts");
+ok(prev.cumulativeDrafts===59&&prev.remainingOCRPending===91,"baseline 2023 integrity");
+ok(r.answer2023HwpReferenceRows===150&&r.answer2023IndependentSignoffs===0,"HWP reference not approval");
+ok(r.missingOriginalPdfAttachments===6&&r.localSourcePdfsReopened===5&&!r.sourcePdfBytesAvailableForMissing305,"original PDF gaps remain stated");
+ok(r.chromiumViewportPx.join(",")==="1365,768,390,360"&&r.localViewportQA==="PASS"&&!r.realAndroidDeviceTested,"local browser scope");
+ok(r.independentQuestionOfficialVerification===0&&r.verifiedOfficialAnswerToBooklet===0&&r.gradedQuestionCount===0,"release data not fabricated");
+ok(r.release==="HOLD"&&r.autoDeployDisabled&&v.git?.deploymentEnabled===false&&!r.vercelDeploymentPerformed,"no Vercel");
+ok(!r.uploadedExamSourcePdfOrFullTextsToPublicGithub,"question source privacy");
+const out={schema:"rc29-one-shot-ci-metadata-v1",structuralStatus:errors.length?"FAIL":"PASS",sourceTextPdfComparedInPublicCI:false,localPdfReauditReported:565,sourceMissing:305,officialSourceIndependentSignoff:0,scoringEnabled:false,releaseDecision:"HOLD",errors};
+fs.mkdirSync("rc29-evidence",{recursive:true});fs.writeFileSync("rc29-evidence/rc29-one-shot-metadata.json",JSON.stringify(out,null,2)+"\n");
+console.log(JSON.stringify(out,null,2));if(errors.length)process.exitCode=2;
