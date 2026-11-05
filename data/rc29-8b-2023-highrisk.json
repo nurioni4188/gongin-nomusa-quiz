@@ -1,0 +1,127 @@
+{
+  "schema": "rc29-8b-2023-highrisk-manifest-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "sourceOrigin": "user-uploaded 2023 management-choice A-type original scanned exam PDF",
+  "sourcePDFSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "priorFirstPassDrafts": 47,
+  "newFirstPassCorrections": 6,
+  "totalFirstPassDrafts": 53,
+  "priorLegacyOCRPending": 103,
+  "remainingLegacyOCR": 97,
+  "priorHighRisk": 43,
+  "remainingHighRisk": 37,
+  "remainingNormalRisk": 60,
+  "total2023Slots": 150,
+  "firstPassCorrections": [
+    {
+      "key": "2023-민법-063",
+      "subject": "민법",
+      "num": 63,
+      "paperPage": 22,
+      "pageRenderSha256": "e8f2ed4fb0eec1232c62c3b1bda551c597ade8f158c5075a76d2f099fdf4e749",
+      "defects": [
+        "OCR_MISSING_FOURTH_STATEMENT",
+        "OCR_MISSING_ALL_FIVE_OPTION_COMBINATIONS"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "key": "2023-경영학개론-104",
+      "subject": "경영학개론",
+      "num": 104,
+      "paperPage": 35,
+      "pageRenderSha256": "578507e52e62d2b460082cb10558c56075087ed4133123dcfbad4838d37c8c1a",
+      "defects": [
+        "OCR_LATIN_NAME_CORRUPTED",
+        "OCR_OPTION_MARKERS_CORRUPTED"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "key": "2023-경영학개론-108",
+      "subject": "경영학개론",
+      "num": 108,
+      "paperPage": 36,
+      "pageRenderSha256": "57563beaf51c1e6dbc740738820e6a6b44379048c9aeb2a5676894a458b6877c",
+      "defects": [
+        "OCR_BIG5_TERM_CORRUPTED",
+        "OCR_OPTION_MARKERS_CORRUPTED"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "key": "2023-경영학개론-110",
+      "subject": "경영학개론",
+      "num": 110,
+      "paperPage": 36,
+      "pageRenderSha256": "57563beaf51c1e6dbc740738820e6a6b44379048c9aeb2a5676894a458b6877c",
+      "defects": [
+        "OCR_MEANINGFULNESS_TERM_CORRUPTED",
+        "OCR_ONLY_THREE_OF_FIVE_LIST_ITEMS",
+        "OCR_MISSING_ALL_FIVE_OPTION_COMBINATIONS"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "key": "2023-경영학개론-119",
+      "subject": "경영학개론",
+      "num": 119,
+      "paperPage": 38,
+      "pageRenderSha256": "ba70feeda77db96a03f6d46570bf4b3757b0db696a9d7b988fa7185094fb9584",
+      "defects": [
+        "OCR_MISSING_LAST_LIST_ITEM",
+        "OCR_MISSING_ALL_FIVE_OPTION_COMBINATIONS",
+        "OCR_KOREAN_WORDS_CORRUPTED"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "key": "2023-경영학개론-123",
+      "subject": "경영학개론",
+      "num": 123,
+      "paperPage": 39,
+      "pageRenderSha256": "265d3913577a84b44dec4b8c4e5cc025e17a56f932938932a9ce7542256797e1",
+      "defects": [
+        "OCR_K_IFRS_TERM_CORRUPTED",
+        "OCR_OPTION_MARKERS_CORRUPTED"
+      ],
+      "status": "FIRST_PASS_CORRECTION_NEEDS_INDEPENDENT_REVIEW",
+      "officiallyVerified": false,
+      "scoringApproved": false
+    }
+  ],
+  "remainingOCRPageHintCount": 97,
+  "remainingOCRPageHintWithinPDFRange": 97,
+  "remainingOCRPageHintIndividuallyVerifiedOnPDF": 0,
+  "remainingOCRPageBatchCount": 37,
+  "independentSecondVisualReviewApproved": 0,
+  "finalAnswerToBookletApproved": 0,
+  "scoringApproved": 0,
+  "offlinePrivatePackage": "RC29_8B_고위험6문항_원문대조_37문항검수.zip",
+  "privateHTMLReviewRows": 150,
+  "chromiumViewportTested": [
+    1365,
+    768,
+    390,
+    360
+  ],
+  "browserViewportTestsPassed": 4,
+  "actualAndroidDeviceTested": false,
+  "publicRepositoryContainsOriginalSourcePDF": false,
+  "publicRepositoryContainsFullQuestionText": false,
+  "ciReadsOriginalSourcePDF": false,
+  "warning": "Only six first-pass source comparisons; 97 OCR page hints in bounds are not proof questions appear at those pages. Original PDF images unavailable in GitHub Actions.",
+  "releaseGate": "HOLD",
+  "vercelDeploymentPerformed": false
+}
