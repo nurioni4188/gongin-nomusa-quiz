@@ -1,0 +1,42 @@
+{
+  "schema": "rc28-baseline-v1",
+  "recordedDate": "2026-11-05",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "protectedMainSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+  "protectionPolicy": "Do not change main, production aliases, existing RC27 deployment, or project settings.",
+  "vercelTeamId": "team_9yqmbClGzw0BPGCsoS6CNXUB",
+  "projects": [
+    {
+      "role": "production_preserve",
+      "name": "gongin-nomusa-quiz",
+      "projectId": "prj_O2HGzRp5q4Qfsw5zOKmIXAwaMCds",
+      "mainDomain": "gongin-nomusa-quiz.vercel.app",
+      "observedDeployments": 26
+    },
+    {
+      "role": "rc27_preserve",
+      "name": "gongin-nomusa-rc27-preview",
+      "projectId": "prj_J1hv2uJ6EzuWEcYtb6x4GYKpXV0i",
+      "deploymentId": "dpl_C3UoeToNVQeZEymcMCsrtKj5ygFu",
+      "deploymentUrl": "gongin-nomusa-rc27-preview-1dj1ecu7q.vercel.app",
+      "observedDeployments": 1
+    },
+    {
+      "role": "duplicate_candidate_no_delete",
+      "name": "gongin-nomusa-quiz-ibup",
+      "projectId": "prj_wpMHa2g4Ms07CNFEFRzw6RURpypS",
+      "sourceSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+      "observedDeployments": 1
+    },
+    {
+      "role": "duplicate_candidate_no_delete",
+      "name": "gongin-nomusa-quiz-6r1q",
+      "projectId": "prj_ZMndfQbSxIgjNeiQBmCDj3IzEWF3",
+      "sourceSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+      "observedDeployments": 1
+    }
+  ],
+  "gitStatus": "Git-based deployment evidence exists for production and imported duplicates; current project-level auto-deployment switches not exposed by inspection.",
+  "branchGuard": "Development branch has git.deploymentEnabled=false to prevent auto-deploy by Vercel; no Vercel settings/API mutation performed.",
+  "baselineStatus": "LOCKED"
+}
