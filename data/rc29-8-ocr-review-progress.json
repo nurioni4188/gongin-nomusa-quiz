@@ -1,0 +1,86 @@
+{
+  "schema": "rc29-8-2023-ocr-firstpass-corrections-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "source": "User previously uploaded 2023 first exam scanned management PDF; source page 4 and 5 visually inspected in private environment",
+  "sourceSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "originalExpectedSlots": 150,
+  "priorDrafts": 39,
+  "previousOCRPending": 111,
+  "newDraftsFromOCR": 4,
+  "totalDrafts": 43,
+  "ocrStillPending": 107,
+  "originalBlankStillPending": 0,
+  "previousPriorityCount": 50,
+  "previousNormalCount": 61,
+  "priorityCorrections": 3,
+  "normalCorrections": 1,
+  "priorityStillPending": 47,
+  "normalStillPending": 60,
+  "firstPassManuallyCompared": [
+    {
+      "questionKey": "2023-노동법(1)-010",
+      "paperPage": 4,
+      "priorTriage": "REVIEW_FIRST",
+      "defects": [
+        "OCR_NEXT_QUESTION_MERGED",
+        "OCR_2_OVER_1_MISREAD_AS_3_OVER_1"
+      ],
+      "fixedAsDraft": true,
+      "independentlyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "questionKey": "2023-노동법(1)-012",
+      "paperPage": 4,
+      "priorTriage": "REVIEW_REQUIRED",
+      "defects": [
+        "OCR_BOX_AND_CHOICES_LOST",
+        "RISK_HEURISTIC_FALSE_NEGATIVE"
+      ],
+      "fixedAsDraft": true,
+      "independentlyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "questionKey": "2023-노동법(1)-013",
+      "paperPage": 5,
+      "priorTriage": "REVIEW_FIRST",
+      "defects": [
+        "OCR_SPELLING_AND_OPTION_MARKERS"
+      ],
+      "fixedAsDraft": true,
+      "independentlyVerified": false,
+      "scoringApproved": false
+    },
+    {
+      "questionKey": "2023-노동법(1)-014",
+      "paperPage": 5,
+      "priorTriage": "REVIEW_FIRST",
+      "defects": [
+        "OCR_2_YEARS_MISREAD_AS_3_YEARS",
+        "OCR_NEGATION_OMITTED"
+      ],
+      "fixedAsDraft": true,
+      "independentlyVerified": false,
+      "scoringApproved": false
+    }
+  ],
+  "browserQA": {
+    "chromiumPC": true,
+    "chromiumTablet": true,
+    "chromiumMobile390": true,
+    "chromiumMobile360": true,
+    "realAndroidDeviceVerified": false
+  },
+  "publicRepoSourcePDFUploaded": false,
+  "publicRepoFullQuestionsUploaded": false,
+  "localPackage": "RC29_8_2023_OCR_4문항_교정_검수패키지.zip (only conversation, source images and text not committed publicly)",
+  "officialSourceAndBookletFullyVerified": 0,
+  "independentSecondReviewerSignoffs": 0,
+  "officialFinalAnswerPerQuestionApproved": 0,
+  "scoringApproved": 0,
+  "githubCILimit": "Metadata checks only: original scanned PDF and private question review package absent from public repository",
+  "status": "HOLD",
+  "vercelDeploymentPerformed": false
+}
