@@ -1,0 +1,213 @@
+{
+  "schema": "rc29-2-source-manifest-v1",
+  "created": "2026-11-05",
+  "source": "user-supplied PDFs and legacy RC27/RC17 archives",
+  "target": 1020,
+  "candidateRows": 565,
+  "uniqueKeys": 565,
+  "rc17AReferenceRows": 1020,
+  "textLayerCompleteMatches": 443,
+  "textLayerMismatchRows": 122,
+  "pendingVisualReview": 565,
+  "scoringApproved": 0,
+  "missingFromCandidatePool": 455,
+  "releaseStatus": "HOLD",
+  "scope": "Only exact normalized stem + five options in source PDF same-page text, not visually certified",
+  "byYear": [
+    {
+      "year": 2022,
+      "candidates": 125,
+      "textMatch": 70,
+      "needsReview": 55
+    },
+    {
+      "year": 2023,
+      "candidates": 0,
+      "textMatch": 0,
+      "needsReview": 0,
+      "note": "scan, manual inspection required"
+    },
+    {
+      "year": 2024,
+      "candidates": 120,
+      "textMatch": 86,
+      "needsReview": 34
+    },
+    {
+      "year": 2025,
+      "candidates": 120,
+      "textMatch": 118,
+      "needsReview": 2
+    },
+    {
+      "year": 2026,
+      "candidates": 200,
+      "textMatch": 169,
+      "needsReview": 31
+    }
+  ],
+  "bySubject": [
+    [
+      2022,
+      "노동법(1)",
+      25,
+      16
+    ],
+    [
+      2022,
+      "노동법(2)",
+      25,
+      7
+    ],
+    [
+      2022,
+      "민법",
+      25,
+      13
+    ],
+    [
+      2022,
+      "사회보험법",
+      25,
+      19
+    ],
+    [
+      2022,
+      "경영학개론",
+      25,
+      15
+    ],
+    [
+      2024,
+      "민법",
+      40,
+      40
+    ],
+    [
+      2024,
+      "사회보험법",
+      40,
+      24
+    ],
+    [
+      2024,
+      "경영학개론",
+      40,
+      22
+    ],
+    [
+      2025,
+      "민법",
+      40,
+      39
+    ],
+    [
+      2025,
+      "사회보험법",
+      40,
+      39
+    ],
+    [
+      2025,
+      "경영학개론",
+      40,
+      40
+    ],
+    [
+      2026,
+      "노동법(1)",
+      40,
+      33
+    ],
+    [
+      2026,
+      "노동법(2)",
+      40,
+      28
+    ],
+    [
+      2026,
+      "민법",
+      40,
+      32
+    ],
+    [
+      2026,
+      "사회보험법",
+      40,
+      36
+    ],
+    [
+      2026,
+      "경영학개론",
+      40,
+      40
+    ]
+  ],
+  "pdfSources": [
+    {
+      "year": 2022,
+      "subjects": [
+        "노동법(1)",
+        "노동법(2)",
+        "민법",
+        "사회보험법",
+        "경영학개론"
+      ],
+      "name": "2022년도 제31회 공인노무사 1차 시험(경영학).pdf",
+      "sha": "383c82bb49f1343cd9c59abf0daeb1025c53ca08d3ae3ea69d5fae7e622d4d3f",
+      "pages": 39
+    },
+    {
+      "year": 2024,
+      "subjects": [
+        "민법",
+        "사회보험법",
+        "경영학개론"
+      ],
+      "name": "2024년도 제33회 공인노무사 1차시험 2교시(경영학개론).pdf",
+      "sha": "61ceb922e8efdcc6ccba169cbda6da517061a956703aa990a0279bd5af53925c",
+      "pages": 36
+    },
+    {
+      "year": 2025,
+      "subjects": [
+        "민법",
+        "사회보험법",
+        "경영학개론"
+      ],
+      "name": "2025년도 제34회 공인노무사 1차시험 2교시(경영학).pdf",
+      "sha": "d827948f08f4739742b905822228e6e5287937629ae18ddf7a9a6f092cf9ea10",
+      "pages": 36
+    },
+    {
+      "year": 2026,
+      "subjects": [
+        "노동법(1)",
+        "노동법(2)"
+      ],
+      "name": "★공인노무사(1교시)_시험지.pdf",
+      "sha": "bffa5e1293d45b3feeed42ad1f88f731e9055dfa1c36c7ef14be8a1422bff828",
+      "pages": 29
+    },
+    {
+      "year": 2026,
+      "subjects": [
+        "민법",
+        "사회보험법",
+        "경영학개론"
+      ],
+      "name": "★공인노무사(2교시)_시험지(경영학개론).pdf",
+      "sha": "0be1040e64b9897136691ecb72adfdc06aa0edf32e38fbb05b7c860355e7e971",
+      "pages": 36
+    }
+  ],
+  "missing": [
+    "2022 경제학원론 선택과목 원문",
+    "2023 1차 스캔 문항 전사",
+    "2024 1교시 원문",
+    "2025 1교시 원문",
+    "2026 경제학원론 선택과목 원문"
+  ],
+  "caveat": "No OCR used; official A-type final-answer reference numbers are NOT scoring approval."
+}
