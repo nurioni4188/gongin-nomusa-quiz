@@ -1,0 +1,102 @@
+{
+  "schema": "rc29-5-visual-draft-progress-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "subject": "노동법(1)",
+  "sourcePdf": "2023년 제32회 공인노무사 1차  문제지(경영학)-hwp(1).pdf",
+  "sourcePdfSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "scannedSourcePagesFirstPass": [
+    1,
+    2,
+    3
+  ],
+  "targetQuestionSlots": 150,
+  "priorOcrNonemptyCandidateSlots": 112,
+  "priorOcrBlankSlots": 38,
+  "firstPassVisualTranscriptionDrafts": 9,
+  "newlyFilledPreviouslyBlankDrafts": 8,
+  "previouslyNonblankButCorruptedDraftReplaced": 1,
+  "priorOcrStillAwaitingOriginalComparison": 111,
+  "remainingBlankWithoutDraft": 30,
+  "verifiedAfterIndependentVisualReview": 0,
+  "approvedForScoring": 0,
+  "priorPageHintDefect": {
+    "questionKey": "2023-노동법(1)-002",
+    "priorCandidateSourcePage": 2,
+    "manuallyLocatedSourcePage": 1,
+    "defect": "Old OCR text cross-contaminated by later questions; page clue not reliable."
+  },
+  "firstPassDraftLocationMap": [
+    {
+      "questionNum": 1,
+      "sourcePage": 1,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 2,
+      "sourcePage": 1,
+      "priorOcrBlank": false
+    },
+    {
+      "questionNum": 3,
+      "sourcePage": 1,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 4,
+      "sourcePage": 2,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 5,
+      "sourcePage": 2,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 6,
+      "sourcePage": 2,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 7,
+      "sourcePage": 3,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 8,
+      "sourcePage": 3,
+      "priorOcrBlank": true
+    },
+    {
+      "questionNum": 9,
+      "sourcePage": 3,
+      "priorOcrBlank": true
+    }
+  ],
+  "artifact": "RC29_5_2023_원문1차전사_9문항_모바일검수.zip (conversation attachment only)",
+  "offlineReviewHTML": "2023_150_offline_review_with_9_firstpass.html",
+  "browserCheck": {
+    "status": "PASS",
+    "mode": "CHROMIUM_VIEWPORT_EMULATION_ONLY",
+    "testedWidths": [
+      1365,
+      768,
+      390,
+      360
+    ],
+    "checks": [
+      "9 unverified first-pass drafts",
+      "Q2 source page corrected",
+      "image viewer zoom open/close",
+      "review memo JSON export",
+      "no horizontal overflow"
+    ],
+    "realAndroidDeviceTested": false
+  },
+  "originalQuestionTextPublishedToPublicGitHub": false,
+  "officialFinalAnswerHwpAlreadyReferenceCrosschecked": 150,
+  "officialAnswerForScoringApproved": 0,
+  "release": "HOLD",
+  "vercelDeploymentPerformed": false,
+  "note": "Metadata only. First-pass visual drafts are subject to independent double check of every stem, option and diagram before scoring approval. This GitHub CI cannot re-read original PDFs."
+}
