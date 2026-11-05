@@ -1,0 +1,98 @@
+{
+  "schema": "rc29-6-progress-v1",
+  "asOf": "2026-11-05",
+  "sourceYear": 2023,
+  "expectedQuestionSlots": 150,
+  "originalOCREntriesWithText": 112,
+  "originalOCRBlankSlots": 38,
+  "priorFirstPassDrafts": 9,
+  "newFirstPassDrafts": 13,
+  "totalFirstPassDrafts": 22,
+  "newlyRestoredOriginallyBlankCount": 21,
+  "replacedOriginallyNonblankCorruptedOCR": 1,
+  "remainingBlankSlots": 17,
+  "legacyOCRStillPendingVisualCheck": 111,
+  "zeroOfficialGradingApproval": true,
+  "officialQuestionVerifications": 0,
+  "officialAnswerReferenceRows": 150,
+  "independentSecondReviewerSignoffs": 0,
+  "previewAuthorized": false,
+  "productionAuthorized": false,
+  "sourcePdfSha256": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+  "newDrafts": [
+    {
+      "subject": "노동법(1)",
+      "nums": [
+        11,
+        21,
+        25
+      ],
+      "pages": [
+        4,
+        7,
+        9
+      ]
+    },
+    {
+      "subject": "노동법(2)",
+      "nums": [
+        29,
+        34,
+        35,
+        36,
+        39,
+        44,
+        45,
+        46,
+        48,
+        50
+      ],
+      "pages": [
+        11,
+        13,
+        13,
+        13,
+        15,
+        16,
+        17,
+        17,
+        18,
+        18
+      ]
+    }
+  ],
+  "historicalOCRHeuristicTriage": {
+    "remainingOCR": 111,
+    "reviewFirst": 50,
+    "normalReview": 61,
+    "likelyCorruptionTokenFlagCount": 45,
+    "veryShortTextFlagCount": 6,
+    "method": "Unverified text-only substring heuristics; no OCR re-run, no PDF comparison, false positives possible"
+  },
+  "offlineReviewHTMLArtifact": "RC29_6_2023_22문항_1차전사_원문검수.zip (conversation-only, no public original question content)",
+  "offlineMobileTest": {
+    "testedWidths": [
+      1365,
+      768,
+      390,
+      360
+    ],
+    "status": "PASS",
+    "engine": "LOCAL_CHROMIUM_VIEWPORT_EMULATION",
+    "realAndroidDeviceTested": false,
+    "tests": [
+      "source images",
+      "draft/source-page link",
+      "5 options drafted",
+      "review notes export",
+      "zoom",
+      "zero scoring",
+      "no horizontal overflow"
+    ]
+  },
+  "githubCITestingScope": "Manifest consistency only; original uploaded PDFs/HWP and private HTML not available to GitHub Actions",
+  "releaseGate": "HOLD",
+  "vercelDeployRequested": false,
+  "noMainModification": true,
+  "noRC27Modification": true
+}
