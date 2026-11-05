@@ -1,0 +1,114 @@
+{
+  "schema": "rc29-3-2023-ocr-review-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "dataSources": "Previously user-uploaded 2023 management/economics scanned PDFs, final-answer HWP, and historical RC20 OCR draft",
+  "sourceVisibility": "Sources and OCR draft are held in user-provided local attachments; NOT committed to public GitHub",
+  "sourceSha256": {
+    "managementPdf": "5aa0c21397ffcb7a106b76c9b80aaf07a88bf2a03f5591273623870bc8408e11",
+    "economicsPdf": "b483e625d7d7fa917b22b00920a2225ca2db77f51273287b378c0c2dc007108a",
+    "officialAnswerHwp": "3648842dc21edad047a60f4409111c6fdf8314ed13d0556933f8499d0c2d1e74",
+    "historicalOCRHtml": "faee6886a2ee6a65c69129311796f48ad27d85945ab4e1733c5bb6031320fe48"
+  },
+  "totalQuestionSlots": 150,
+  "existingOCRSlots": 150,
+  "existingOCRTextPresent": 112,
+  "existingOCRTextAbsent": 38,
+  "existingOCRPageHints": 112,
+  "officialVerifiedQuestions": 0,
+  "liveScoringAllowed": 0,
+  "manualVisualReviewCompleted": 0,
+  "questionTextAuthenticity": "UNVERIFIED",
+  "commonPageComparison": {
+    "pages": [
+      1,
+      34
+    ],
+    "grayscaleMeanPixelDifferenceMaximum": 0.0181,
+    "changeStartsPage": 35
+  },
+  "pageCounts": {
+    "management": 39,
+    "economics": 41
+  },
+  "fullPageImages": 80,
+  "sharedPageImageDeduplication": {
+    "shared": 34,
+    "managementUnique": 5,
+    "economicsUnique": 7,
+    "total": 46
+  },
+  "subjectBreakdown": [
+    {
+      "subject": "노동법(1)",
+      "range": [
+        1,
+        25
+      ],
+      "ocrPresent": 14,
+      "ocrAbsent": 11,
+      "ocrPageHints": 14
+    },
+    {
+      "subject": "노동법(2)",
+      "range": [
+        26,
+        50
+      ],
+      "ocrPresent": 15,
+      "ocrAbsent": 10,
+      "ocrPageHints": 15
+    },
+    {
+      "subject": "민법",
+      "range": [
+        51,
+        75
+      ],
+      "ocrPresent": 17,
+      "ocrAbsent": 8,
+      "ocrPageHints": 17
+    },
+    {
+      "subject": "사회보험법",
+      "range": [
+        76,
+        100
+      ],
+      "ocrPresent": 21,
+      "ocrAbsent": 4,
+      "ocrPageHints": 21
+    },
+    {
+      "subject": "경영학개론",
+      "range": [
+        101,
+        125
+      ],
+      "ocrPresent": 22,
+      "ocrAbsent": 3,
+      "ocrPageHints": 22
+    },
+    {
+      "subject": "경제학원론",
+      "range": [
+        101,
+        125
+      ],
+      "ocrPresent": 23,
+      "ocrAbsent": 2,
+      "ocrPageHints": 23
+    }
+  ],
+  "offlineHTML": "Separate conversation ZIP RC29_3_2023_150문항_모바일원문검수.zip with 46 embedded page images; not uploaded here",
+  "browserSimulation": [
+    "1365x900",
+    "768x1024",
+    "390x844",
+    "360x780"
+  ],
+  "browserResult": "LOCAL_CHROMIUM_4_OF_4_PASS",
+  "realAndroidDevice": "UNTESTED",
+  "status": "METADATA_VALIDATION_ONLY_RELEASE_HOLD",
+  "noVercelDeploy": true
+}
