@@ -1,0 +1,92 @@
+{
+  "schema": "rc29-exam-scope-v1",
+  "asOf": "2026-11-05",
+  "targetCount": 1020,
+  "officialQuestionPage": "https://www.q-net.or.kr/cst003.do?gId=05&gSite=L&id=cst00309",
+  "officialAnswerPage": "https://www.q-net.or.kr/cst003.do?id=cst00310",
+  "years": [
+    {
+      "year": 2022,
+      "n": 25,
+      "finalAnswer": "2022년도 제31회 공인노무사 1차시험 최종정답.pdf"
+    },
+    {
+      "year": 2023,
+      "n": 25,
+      "finalAnswer": "2023년 제32회 공인노무사 1차 시험 최종정답.hwp"
+    },
+    {
+      "year": 2024,
+      "n": 40,
+      "finalAnswer": "2024년 제33회 공인노무사 1차 시험 최종정답.hwp"
+    },
+    {
+      "year": 2025,
+      "n": 40,
+      "finalAnswer": "2025년 제34회 공인노무사 1차시험 최종정답.pdf"
+    },
+    {
+      "year": 2026,
+      "n": 40,
+      "finalAnswer": "2026년 제35회 공인노무사 1차시험 최종정답.pdf"
+    }
+  ],
+  "subjects": [
+    {
+      "name": "노동법(1)",
+      "session": 1,
+      "slot": 0
+    },
+    {
+      "name": "노동법(2)",
+      "session": 1,
+      "slot": 1
+    },
+    {
+      "name": "민법",
+      "session": 2,
+      "slot": 0
+    },
+    {
+      "name": "사회보험법",
+      "session": 2,
+      "slot": 1
+    },
+    {
+      "name": "경영학개론",
+      "session": 2,
+      "slot": 2
+    },
+    {
+      "name": "경제학원론",
+      "session": 2,
+      "slot": 2
+    }
+  ],
+  "specialAnswerRecords": [
+    {
+      "year": 2022,
+      "subject": "민법",
+      "num": 51,
+      "officialLabels": [
+        4,
+        5
+      ],
+      "status": "OFFICIAL_PDF_SEEN_UNMATCHED_TO_EXACT_PAPER"
+    },
+    {
+      "year": 2022,
+      "subject": "민법",
+      "num": 72,
+      "officialLabels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "OFFICIAL_PDF_SEEN_UNMATCHED_TO_EXACT_PAPER"
+    }
+  ],
+  "note": "2022-23: 25 per subject; 2024-26: 40 per subject; 6 subjects including both elective options. Official answers must not be inferred from unverified old bank fields."
+}
