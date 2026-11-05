@@ -1,0 +1,133 @@
+{
+  "schema": "rc29-final-1020-source-answer-batch-metadata-v1",
+  "asOf": "2026-11-05",
+  "privateBundleFull": "RC29_1020_전체원문포함_종합검수.zip",
+  "privateBundleLight": "RC29_1020_핵심검수_이미지포함.zip",
+  "originalQuestionSourcesAvailable": true,
+  "sourceScope": {
+    "totalUniqueQuestionSlots": 1020,
+    "sourcePdfExistingCandidate": 565,
+    "sourcePdfNewExtracted": 305,
+    "year2023FirstpassDraft": 59,
+    "year2023OCRRaw": 91,
+    "sourceMissingSlots": 0
+  },
+  "sourceTextRecheck": {
+    "year2022to2026Legacy565SourceShaMatches": 565,
+    "samePDFPageStemAndFiveOptionsTextNormalized": 454,
+    "legacyNeedsAdditionalSourceReview": 111,
+    "normalizationTextOnlyNotVisualSignoff": true
+  },
+  "mathFormula": {
+    "privateUseGlyphRisk": 47,
+    "sourceQuestionCrops": 49,
+    "formulaFullyRetranscribedAndReviewed": 0,
+    "highRiskSubject": "경제학원론"
+  },
+  "year2023": {
+    "unstructuredOCR": 91,
+    "sourcePageImages": 35,
+    "firstpassDraftsSecondReviewerApproved": 0,
+    "sourcePDFScanPageHintsInRange": 91,
+    "ocrStructurallyCorrectedToFiveChoices": 0
+  },
+  "answerKeyCrosscheck": {
+    "booklet": "A",
+    "recordCount": 1020,
+    "distinctAnswerKeyMap": 1020,
+    "sourceSHA256MatchedYears": 5,
+    "sourceImagesCrosscheckedSingleChoiceDigits": 1015,
+    "sourceImageExceptionsVisuallyChecked": 5,
+    "sourceImageNumericMismatchUnresolved": 0,
+    "sourceIsUserUploadedNotIndependentQNetDownload": true,
+    "sourceSHA256": {
+      "2022": "c856d9f0bed0de888967d29872b9ffed09124ebfb1204042f75495127bf41c21",
+      "2023": "3648842dc21edad047a60f4409111c6fdf8314ed13d0556933f8499d0c2d1e74",
+      "2024": "7424ca402c323427729a0a2beae10b81820e159f729d7acbb4f91c8042d56a1a",
+      "2025": "86cc394496165796195610bdd43b0e564c33e3219e2b1498992f5532832727da",
+      "2026": "95d63fa0b8547509cd9f096c1cfcec4ab557b39018200618b319124c3510ee98"
+    },
+    "manualExceptions": [
+      {
+        "year": 2022,
+        "subject": "민법",
+        "num": 51,
+        "answers": [
+          4,
+          5
+        ]
+      },
+      {
+        "year": 2022,
+        "subject": "민법",
+        "num": 72,
+        "answers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "year": 2024,
+        "subject": "노동법(2)",
+        "num": 43,
+        "answers": [
+          2,
+          4
+        ]
+      },
+      {
+        "year": 2025,
+        "subject": "민법",
+        "num": 26,
+        "answers": [
+          3,
+          5
+        ]
+      },
+      {
+        "year": 2026,
+        "subject": "민법",
+        "num": 29,
+        "answers": [
+          5
+        ],
+        "reason": "numeric-template false classification, source-image inspected"
+      }
+    ]
+  },
+  "prioritySourceTextBuckets": {
+    "math47": 47,
+    "ocr91": 91,
+    "existing565Unmatched111": 111,
+    "year2023Draft59": 59,
+    "newPDFNonMath258": 258,
+    "existing565TextMatch454": 454
+  },
+  "browserSimulation": {
+    "widths": [
+      1365,
+      768,
+      390,
+      360
+    ],
+    "passed": 4,
+    "utf8NotesJSONExport": true,
+    "imagePreviewLoaded": true,
+    "horizontalOverflow": false,
+    "realAndroidDeviceTested": false,
+    "mode": "Chromium set_content with inline image-equivalent due runtime denying local file navigation; no Android physical test"
+  },
+  "officialFullQuestionTextVisualSecondReviewerApproved": 0,
+  "officiallyScorable": 0,
+  "answerKeyOriginIndependentQNetVerified": false,
+  "publicRepositoryContainsOriginalExamText": false,
+  "originalPDFBytesAvailableInGitHubCI": false,
+  "technicalStatus": "PASS_LOCAL_WITH_OPEN_SOURCE_REVIEW",
+  "releaseDecision": "HOLD",
+  "productionApproved": false,
+  "previewApproved": false,
+  "vercelDeploymentPerformed": false
+}

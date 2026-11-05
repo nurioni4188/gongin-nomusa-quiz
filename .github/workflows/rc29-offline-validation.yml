@@ -21,6 +21,7 @@ on:
       - 'data/rc29-integrated-1020.json'
       - 'data/rc29-one-shot-full-report.json'
       - 'data/rc29-current-1020-source-state.json'
+      - 'data/rc29-final-source-answer-batch.json'
       - 'scripts/rc29-*'
       - '.github/workflows/rc29-offline-validation.yml'
       - 'vercel.json'
@@ -44,6 +45,8 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
+      - name: RC29 final 1020 source-text risk queues and answer image crosscheck metadata
+        run: node scripts/rc29-final-source-answer-check.mjs
       - name: RC29 305 newly uploaded PDFs source metadata & HOLD guard
         run: node scripts/rc29-305-source-ingest-check.mjs
       - name: RC29 ONE-SHOT 1020-source audit results and explicit HOLD
