@@ -23,11 +23,15 @@
   #score { text-align: center; font-size: 18px; margin: 10px 0; }
   .hidden { display: none; }
   .note { text-align: center; color: #888; font-size: 14px; margin: 10px 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  .option { overflow-wrap: anywhere; }
+  .verified-hint { border-left: 4px solid #218838; padding:8px; background:#edf8ed; font-size:14px; }
+  .unverified-hint { border-left: 4px solid #af791b; padding:8px; background:#fff6e7; font-size:14px; }
 </style>
 </head>
 <body>
 <h1>공인노무사 1차 기출 문제 웹</h1>
-<p class="note">총 395문제 (자동 생성 문제 제거됨). 해설 포함. 정답은 확인 후 수정 필요</p>
+<p class="note">RC29 공식 원문·최종정답 검증 진행 중 · 미검증 정답은 채점하지 않습니다.</p>
 
 <div class="filters">
   <select id="yearFilter">
@@ -49,6 +53,7 @@
     <option value="민법">민법</option>
     <option value="사회보험법">사회보험법</option>
   </select>
+  <select id="verificationFilter" aria-label="검증 상태"><option value="all">전체 (미검증 포함)</option><option value="verified">검증 완료만</option><option value="unverified">미검증만</option></select>
   <button onclick="startQuiz()">시작 / 다시풀기</button>
 </div>
 
@@ -6026,78 +6031,114 @@ const questions = [
   }
 ];
 
-let currentQuestions = [];
-let currentIndex = 0;
-let score = 0;
-let answered = false;
 
+let currentQuestions = [];
+let currentIndex = 0, score = 0, gradedCount = 0, answered = false;
+
+// Only a reviewer-attested match to BOTH official question paper and final answer is scoreable.
+// Multiple officially accepted answers are represented by acceptedAnswers: [0,1,...].
+function approvedAnswers(q) {
+  if (!q || q.verificationStatus !== "VERIFIED_OFFICIAL_FINAL") return null;
+  const p = q.provenance;
+  if (!p || !p.questionFile || !Number.isInteger(p.questionPage) || p.questionPage < 1 ||
+      !p.answerFile || typeof p.officialAnswerURL !== "string" ||
+      !p.officialAnswerURL.startsWith("https://www.q-net.or.kr/") ||
+      p.booklet !== "A" || !p.checkedBy || !p.checkedAt) return null;
+  if (!Array.isArray(q.options) || q.options.length !== 5) return null;
+  const a = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers :
+    (Number.isInteger(q.answer) ? [q.answer] : null);
+  if (!a || a.length < 1 || a.length > 5 ||
+      a.some(x => !Number.isInteger(x) || x < 0 || x > 4) ||
+      new Set(a).size !== a.length) return null;
+  return a;
+}
+function safeText(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+function scoreLabel() {
+  return "진행: "+Math.min(currentIndex+1,currentQuestions.length)+" / "+currentQuestions.length+
+    " | 검증 문항 채점: "+score+" / "+gradedCount;
+}
+function message(s) {
+  const el = document.getElementById("validationMessage");
+  if (el) el.textContent = s;
+}
 function startQuiz() {
   const year = document.getElementById("yearFilter").value;
   const subject = document.getElementById("subjectFilter").value;
-  currentQuestions = questions.filter(q => 
-    (year === "all" || q.year === year) && 
-    (subject === "all" || q.subject === subject)
+  const vf = document.getElementById("verificationFilter").value;
+  currentQuestions = questions.filter(q =>
+    (year === "all" || q.year === year) &&
+    (subject === "all" || q.subject === subject) &&
+    (vf === "all" || (vf === "verified") === Boolean(approvedAnswers(q)))
   );
-  if (currentQuestions.length === 0) {
-    alert("해당 조건의 문제가 없습니다.");
-    return;
-  }
-  currentIndex = 0;
-  score = 0;
-  answered = false;
-  document.getElementById("score").innerText = "";
-  showQuestion();
-}
-
-function showQuestion() {
-  if (currentIndex >= currentQuestions.length) {
-    document.getElementById("quiz").innerHTML = `<div class="question-box"><h2>완료!</h2><p>점수: ${score} / ${currentQuestions.length}</p></div>`;
+  currentIndex=0; score=0; gradedCount=0; answered=false;
+  if(!currentQuestions.length) {
+    document.getElementById("quiz").innerHTML='<div class="question-box">해당 조건의 문제가 없습니다. 공식 정답 검증 전 문항은 채점할 수 없습니다.</div>';
+    document.getElementById("score").textContent="검증된 문제 없음 (HOLD)";
     document.getElementById("nextBtn").classList.add("hidden");
     document.getElementById("showAnswerBtn").classList.add("hidden");
     return;
   }
-  const q = currentQuestions[currentIndex];
-  answered = false;
-  let html = `<div class="question-box">
-    <div class="meta">${q.year}년 | ${q.subject} | 문제 ${q.num}</div>
-    <div class="q-text">${q.question}</div>`;
-  q.options.forEach((opt, i) => {
-    html += `<div class="option" onclick="selectOption(${i})" data-idx="${i}">${i+1}. ${opt}</div>`;
-  });
-  html += `</div>`;
-  document.getElementById("quiz").innerHTML = html;
-  document.getElementById("nextBtn").classList.add("hidden");
-  document.getElementById("showAnswerBtn").classList.remove("hidden");
-  document.getElementById("score").innerText = `진행: ${currentIndex + 1} / ${currentQuestions.length} | 현재 점수: ${score}`;
-}
-
-function selectOption(idx) {
-  if (answered) return;
-  document.querySelectorAll(".option").forEach(el => el.classList.remove("selected"));
-  document.querySelector(`.option[data-idx="${idx}"]`).classList.add("selected");
-}
-
-function showAnswer() {
-  if (answered) return;
-  const q = currentQuestions[currentIndex];
-  const selected = document.querySelector(".option.selected");
-  answered = true;
-  document.querySelectorAll(".option").forEach((el, i) => {
-    if (q.answer !== null && i === q.answer) el.classList.add("correct");
-    else if (el.classList.contains("selected")) el.classList.add("wrong");
-  });
-  if (selected && q.answer !== null && parseInt(selected.dataset.idx) === q.answer) score++;
-  document.getElementById("showAnswerBtn").classList.add("hidden");
-  document.getElementById("nextBtn").classList.remove("hidden");
-  document.getElementById("score").innerText = `진행: ${currentIndex + 1} / ${currentQuestions.length} | 현재 점수: ${score}`;
-}
-
-function nextQuestion() {
-  currentIndex++;
   showQuestion();
 }
-
+function showQuestion() {
+  if(currentIndex>=currentQuestions.length) {
+    document.getElementById("quiz").innerHTML=
+      '<div class="question-box"><h2>완료</h2>공식 검증된 문항만 채점: '+score+' / '+gradedCount+'</div>';
+    document.getElementById("score").textContent="채점 완료: "+score+" / "+gradedCount;
+    document.getElementById("nextBtn").classList.add("hidden");
+    document.getElementById("showAnswerBtn").classList.add("hidden");
+    return;
+  }
+  const q=currentQuestions[currentIndex], verified=Boolean(approvedAnswers(q));
+  answered=false;
+  let out='<div class="question-box"><div class="meta">'+safeText(q.year)+'년 | '+
+    safeText(q.subject)+' | 문제 '+safeText(q.num)+'</div><div class="q-text">'+
+    safeText(q.question)+'</div><p id="validationMessage" class="'+
+    (verified?'verified-hint':'unverified-hint')+'">'+
+    (verified?'공식 최종정답 대조 완료 · 채점 가능':'HOLD · 원문·최종정답 미검증: 점수에 반영하지 않습니다.')+'</p>';
+  q.options.forEach((opt,i)=>{
+    out+='<div class="option" onclick="selectOption('+i+')" data-idx="'+i+'">'+(i+1)+'. '+safeText(opt)+'</div>';
+  });
+  document.getElementById("quiz").innerHTML=out+'</div>';
+  document.getElementById("nextBtn").classList.add("hidden");
+  document.getElementById("showAnswerBtn").classList.remove("hidden");
+  document.getElementById("showAnswerBtn").textContent=verified?"채점하기":"검증상태 확인";
+  document.getElementById("score").textContent=scoreLabel();
+}
+function selectOption(idx) {
+  if(answered)return;
+  document.querySelectorAll(".option").forEach(el=>el.classList.remove("selected"));
+  const item=document.querySelector('.option[data-idx="'+idx+'"]');
+  if(item)item.classList.add("selected");
+}
+function showAnswer() {
+  if(answered)return;
+  const q=currentQuestions[currentIndex], keys=approvedAnswers(q);
+  const selected=document.querySelector(".option.selected");
+  if(!selected){message("보기를 먼저 선택하세요.");return;}
+  answered=true;
+  if(keys) {
+    const idx=Number(selected.dataset.idx), correct=keys.includes(idx);
+    gradedCount++;if(correct)score++;
+    document.querySelectorAll(".option").forEach((el,i)=>{
+      if(keys.includes(i))el.classList.add("correct");
+      else if(i===idx)el.classList.add("wrong");
+    });
+    message(correct?"공식 검증 정답입니다.":"공식 검증 정답을 표시합니다.");
+  } else {
+    message("HOLD · 공식 최종정답과 대조되지 않아 채점하지 않았습니다.");
+  }
+  document.getElementById("showAnswerBtn").classList.add("hidden");
+  document.getElementById("nextBtn").classList.remove("hidden");
+  document.getElementById("score").textContent=scoreLabel();
+}
+function nextQuestion(){currentIndex++;showQuestion();}
 startQuiz();
+
 </script>
 </body>
 </html>
