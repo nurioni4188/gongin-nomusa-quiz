@@ -1,0 +1,1522 @@
+{
+  "schema": "rc29-4-2023-hwp-table-reference-v1",
+  "year": 2023,
+  "sourceNotice": "https://www.q-net.or.kr/cst003.do?artlSeq=5211969&boardId=Q004&gId=05&gSite=L&id=cst00302",
+  "sourceFilename": "2023년 제32회 공인노무사 1차 시험 최종정답.hwp",
+  "userUploadSha256": "3648842dc21edad047a60f4409111c6fdf8314ed13d0556933f8499d0c2d1e74",
+  "sourceAuthenticity": "TITLE_MATCHES_QNET_OFFICIAL_LISTING_NOT_DIRECT_DOWNLOAD_SHA_MATCH",
+  "imageStreams": [
+    "BIN0001.bmp",
+    "BIN0002.bmp"
+  ],
+  "sourceReadMethod": "HWP5 OLE compressed BMP streams extracted; visually transcribed labels",
+  "rc17PreviousReferenceAgreement": 150,
+  "conflictsWithRc17": 0,
+  "sourceQuestionExamOriginals": "2023 scanned PDFs retained offline; not verified per question",
+  "questionStemsAndFiveOptionsApproved": 0,
+  "liveScoringApproved": 0,
+  "finalReleaseGate": "HOLD",
+  "records": [
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 1,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 2,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 3,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 4,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 5,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 6,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 7,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 8,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 9,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 10,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 11,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 12,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 13,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 14,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 15,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 16,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 17,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 18,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 19,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 20,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 21,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 22,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 23,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 24,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(1)",
+      "num": 25,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 26,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 27,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 28,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 29,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 30,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 31,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 32,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 33,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 34,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 35,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 36,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 37,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 38,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 39,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 40,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 41,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 42,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 43,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 44,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 45,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 46,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 47,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 48,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 49,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "노동법(2)",
+      "num": 50,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 51,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 52,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 53,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 54,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 55,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 56,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 57,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 58,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 59,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 60,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 61,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 62,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 63,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 64,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 65,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 66,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 67,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 68,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 69,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 70,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 71,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 72,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 73,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 74,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "민법",
+      "num": 75,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 76,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 77,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 78,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 79,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 80,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 81,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 82,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 83,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 84,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 85,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 86,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 87,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 88,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 89,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 90,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 91,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 92,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 93,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 94,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 95,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 96,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 97,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 98,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 99,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "사회보험법",
+      "num": 100,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0001.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 101,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 102,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 103,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 104,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 105,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 106,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 107,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 108,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 109,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 110,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 111,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 112,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 113,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 114,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 115,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 116,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 117,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 118,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 119,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 120,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 121,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 122,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 123,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 124,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경제학원론",
+      "num": 125,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 101,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 102,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 103,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 104,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 105,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 106,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 107,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 108,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 109,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 110,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 111,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 112,
+      "officialAnswerLabelReference": 5,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 113,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 114,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 115,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 116,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 117,
+      "officialAnswerLabelReference": 4,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 118,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 119,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 120,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 121,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 122,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 123,
+      "officialAnswerLabelReference": 1,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 124,
+      "officialAnswerLabelReference": 2,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    },
+    {
+      "year": 2023,
+      "booklet": "A",
+      "subject": "경영학개론",
+      "num": 125,
+      "officialAnswerLabelReference": 3,
+      "sourceHwpImageStream": "BIN0002.bmp",
+      "verificationStatus": "HWP_IMAGE_REFERENCE_MATCHED_QUESTION_UNVERIFIED",
+      "scoringApproved": false
+    }
+  ],
+  "note": "Do not promote these answer labels to numeric scoring answers without A-booklet original question and option review. Qnet original HWP direct-download SHA has not been independently verified."
+}
