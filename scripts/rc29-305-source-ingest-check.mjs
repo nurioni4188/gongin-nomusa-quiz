@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+import fs from "node:fs";
+const m=JSON.parse(fs.readFileSync("data/rc29-current-1020-source-state.json","utf8"));
+const history=JSON.parse(fs.readFileSync("data/rc29-integrated-1020.json","utf8"));
+const v=JSON.parse(fs.readFileSync("vercel.json","utf8"));
+const errors=[];const ok=(b,n)=>{if(!b)errors.push(n)};
+const n=m.slots.reduce((o,q)=>(o[q.status]=(o[q.status]||0)+1,o),{});
+ok(m.schema==="rc29-current-1020-source-state-v1"&&m.slots.length===1020,"1020 scope");
+ok(new Set(m.slots.map(q=>q.key)).size===1020,"unique IDs");
+ok(n.TEXT_CANDIDATE===565&&n.PDF_TEXT_EXTRACTED_UNVERIFIED===305&&n.OCR_AND_DRAFT_UNVERIFIED===150&&!n.SOURCE_MISSING,"new source coverage");
+ok(history.slots.filter(q=>q.status==="SOURCE_MISSING").length===305,"historical missing snapshot remains intact");
+ok(m.sourceFiles.length===6&&m.sourceFiles.reduce((k,x)=>k+x.records,0)===305,"original PDF six groups");
+ok(m.sourceFiles.every(x=>/^[a-f0-9]{64}$/.test(x.sha256)&&x.pages>0),"PDF digest references");
+ok(m.slots.every(x=>x.officialVerified===false&&x.scoringApproved===false),"no false source approval");
+ok(m.slots.every(x=>!("question" in x)&&!("options" in x)&&!("answer" in x)),"public repo excludes exam question content");
+ok(m.counts.mathFontCorruptionRiskQuestions===47&&m.counts.questionsWithTwoSourcePages===2&&m.counts.inlineStatutoryCircledMarkerCases===1,"manual visual exceptions");
+ok(m.counts.firstPass2023===59&&m.counts.rawOCR2023===91,"2023 review baseline");
+ok(m.counts.sourceFileMissingSlots===0&&m.counts.officialIndependentContentVerified===0&&m.counts.officialAnswerBookletApproved===0&&m.counts.scoringApproved===0,"new source != official signoff");
+ok(!m.sourceOriginalPDFBytesInCI&&m.sourceMaterialStored==="USER_PRIVATE_OFFLINE_PACKAGE_ONLY","CI scope no source bytes");
+ok(m.release==="HOLD"&&!m.vercelDeploymentPerformed&&v.git?.deploymentEnabled===false,"no release");
+const report={schema:"rc29-305-source-ingest-ci-v1",structuralStatus:errors.length?"FAIL":"PASS",currentQuestionSlots:1020,sourceFileMissingSlots:0,newSourceTextCandidates:305,mathFontCandidatesRequireVisualReview:47,independentlyVerified:0,scoringApproved:0,releaseDecision:"HOLD",sourcePDFContentCheckedInGitHubCI:false,errors};
+fs.mkdirSync("rc29-evidence",{recursive:true});fs.writeFileSync("rc29-evidence/rc29-305-source-ingest.json",JSON.stringify(report,null,2)+"\n");
+console.log(JSON.stringify(report,null,2));if(errors.length)process.exitCode=2;
