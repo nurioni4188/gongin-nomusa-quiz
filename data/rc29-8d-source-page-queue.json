@@ -1,0 +1,22 @@
+{
+  "schema": "rc29-8d-source-page-review-queue-v1",
+  "asOf": "2026-11-05",
+  "year": 2023,
+  "highRiskQueue": 31,
+  "distinctPageHints": 23,
+  "pageHintsInBounds": 31,
+  "individuallyQuestionLocationConfirmed": 1,
+  "confirmedKey": "2023-노동법(1)-024",
+  "individuallyQuestionTextAndOptionsApproved": 0,
+  "firstPassDrafts": 59,
+  "legacyOCRReviewPending": 91,
+  "highRiskReviewPending": 31,
+  "normalRiskReviewPending": 60,
+  "officialScoringApproved": 0,
+  "localOfflineZip": "RC29_8D_고위험31_원본페이지검수.zip",
+  "githubCIOriginalPdfAvailable": false,
+  "publicRepoCopyrightSourceUploaded": false,
+  "releaseGate": "HOLD",
+  "vercelDeployed": false,
+  "explanation": "31 source page hints in range; 23 images embedded privately; only Q24 question location visually confirmed. No new question text or official answer verification."
+}
