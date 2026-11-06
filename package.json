@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "nomusa-quiz-rc36-preview",
+  "version": "36.0.0",
+  "scripts": {
+    "test:rc36": "node --test tests/rc36/server.test.js",
+    "audit:1020": "node scripts/rc36_audit_1020.js"
+  }
+}
