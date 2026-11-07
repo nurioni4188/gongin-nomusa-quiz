@@ -1,3 +1,21 @@
 rc28-evidence/
 
 rc29-evidence/
+
+# RC36 local secrets and build artifacts (Preview branch only)
+.env
+.env.*
+!.env.example
+node_modules/
+.vercel/
+*.pem
+*.key
+*.p12
+*.pfx
+__pycache__/
+*.pyc
+playwright-report/
+test-results/
+*.log
+Thumbs.db
+.DS_Store
