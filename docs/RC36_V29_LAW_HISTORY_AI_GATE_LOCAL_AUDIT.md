@@ -42,3 +42,11 @@
 - 이번 실행환경 오프라인 재검증: server/history/AI-gate 14/14, scoring 11/11, UI law controls 20/20, 1,020문항 integrity 0 errors; zip source manifest PASS.
 - **실제 Windows 실행 미실시**, V2.9 Preview URL 미생성, 연혁 API 라이브 응답 미확인; 과거 V2.8 Preview 유지. 새 배포 시도 뒤 오류면 결과 JSON과 Vercel Deployments를 확인하고 절대 중복 요청하지 말 것.
 - 공식 API 규격 근거: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdListGuide ; https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdInfoGuide ; 인증된 Preview 검증 문서: https://vercel.com/docs/cli/curl
+
+## V2.9 Windows Node REPL 실행기 핫픽스 (2026-11-10)
+- Windows 사용자 출력: 1,066 소스 및 1,020 이미지·문항 무결성 PASS 다음 `CHECK: V2.9 law and AI-gate mocks`에서 `Welcome to Node.js v24.18.0. >` 대화형 실행 모드 진입.
+- 원인: `RC36_V29_PREVIEW_ONLY.ps1`의 `Run-Test` 및 `Run-Vercel`에서 PowerShell 자동 변수 `$args`를 인수 매개변수 이름으로 사용해 외부 실행명령 인수가 비어버림. V2.8 정상 실행기의 `$arguments` 방식과 비교해 확인.
+- 변경: 두 함수 매개변수를 `$arguments`로 바꾸고 `node --test` 및 `npx.cmd vercel ...` 호출에 스플랫 전달. 전달 인수가 0개면 즉시 HOLD. 기타 원본 V2.9 소스 및 게이트 무변경.
+- 원본 실행기 SHA256 `472dc7c2933ddea684b8f3c07c88113f29db71ff1e7a6549933c57d5bf33e5f6`; 교체 실행기 SHA256 `45c1781bc9d3f6fc015906eb0aca7c4987e01c4ad4bab01390a5b44feaadf7ce`. 파일 diff는 함수 인수 이름과 2개 누락 검사뿐임.
+- 비공개 산출물 `RC36_V29_NODE_REPL_오류수정_원클릭패치.zip` SHA256 `b45e87898cd55a2f71e245ba23c9d29648753ecbc484d3f7ac11933fb59adba5` (약 8 KB). 한 번 압축 풀고 `RC36_V29_FIX_AND_CONTINUE.cmd` 실행. 파일은 정확히 한 개의 기존 V2.9 폴더만 찾아 원본 SHA 확인 후 백업·교체; `attemptStarted=true`이거나 결과 JSON 오류/중복 폴더면 중단.
+- 오프라인 확인: Node 법령·AI 시험 14/14 PASS, Python 패치 반복적용/원본 해시/배포이력 재시도 차단 모의시험 PASS, ZIP 내부 무결성 PASS. **Windows 최종 실행은 미검증**, **V2.9 Preview 미배포**, 법령 연혁 실제 API HOLD, 공식정답 독립검증 HOLD, AI disabled 유지.
