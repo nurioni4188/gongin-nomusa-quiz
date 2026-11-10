@@ -41,3 +41,12 @@ RC36 감사 데이터 요약: 1,020개, 현행법 검색 후보 462개, 법령�
 5. 공식 문제·선택지·최종정답 독립 대조 완료 전 1,020개 자동채점 최종승인 금지
 
 **검증 결론**: LOCAL_TECHNICAL_PASS / GITHUB_FULL_IMPORT_HOLD / VERCEL_PREVIEW_HOLD / OFFICIAL_ANSWER_HOLD.
+
+## 2026-11-10 추가 실제 재검증 및 배포안전 판정
+- 기존 ZIP SHA256 `584a179be7e1df598d4a964ffc08bcbbbac55bba607abd0acb89b5a6e3ea10cb` 일치. 1,092개 파일, 문제 이미지 `img/` 1,020개 확인
+- 이번 실행: 채점 11/11, 서버 격리시험 6/6, DOM 15/15, 반응형 16/16 모두 PASS
+- 실제 `http://127.0.0.1` Playwright는 `net::ERR_BLOCKED_BY_ADMINISTRATOR`로 HOLD. 단순 렌더링 PASS를 실제 HTTP E2E PASS로 대체하지 않음
+- 사용자 Vercel 대시보드 화면에서는 기존 `gongin-nomusa-rc27-preview`의 Production이 Ready로 보임. 그러나 연결된 Vercel API에서는 이름·ID 조회 모두 404, 팀 내 프로젝트 목록에는 `comwel-ai-stt-poc`만 표시. **대시보드 존재와 연결 접근 미확인을 구별할 것**
+- 공개 GitHub 브랜치에 전체 기출 문제 이미지/정답 데이터를 일괄 업로드하면 원문이 공개될 위험이 있으므로 업로드 HOLD. 현재 로컬 전체 소스는 별도 보존
+- CLI Preview 전용 테스트·팀/ID/보호 설정 검증 패키지를 준비했으나, 원격 Preview 업로드는 아직 실행하지 않음
+- `main`, Production, DB, AI 설명 활성화, 공식 채점 승인: 변경 없음
