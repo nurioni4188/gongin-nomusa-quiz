@@ -74,3 +74,10 @@ RC36 감사 데이터 요약: 1,020개, 현행법 검색 후보 462개, 법령�
 - V2.5 안전 패치: 임시 `.vercel` 생성 제거, 로컬 CLI의 `vercel project inspect` 읽기 전용 선행, 문서화된 `VERCEL_ORG_ID` + `VERCEL_PROJECT_ID`를 검증된 기존 프로젝트 값으로 설정, `vercel deploy --yes` 제거, Preview만 요청. CLI가 원격 대상 확인 불가 시 HOLD.
 - 기존 전체 ZIP 및 실사용 코드 불변, V2.4 UTF-8 시험 파일 패치 유지. ZIP 정적 검사·무결성 PASS, Windows 실제 V2.5 실행은 미확인.
 - 배포 요청 이후 오류는 재시도 전 원격 Deployments 확인 필요. GitHub main·Production·DB·공식 채점 승인 변경 없음.
+
+## 2026-11-10 V2.6 기존 Preview 배포 완료 및 자동검증 판정 오류
+- 사용자 Windows V2.5 CLI 출력: 기존 프로젝트 `prj_J1hv2uJ6EzuWEcYtb6x4GYKpXV0i` 읽기전용 조회 성공, Preview URL `https://gongin-nomusa-rc27-preview-jn2cnfe5p.vercel.app`, CLI `Ready in 2m` 보고.
+- V2.5 POST-deploy Gate는 `$deployment.target -eq 'preview'`만 허용함. Vercel REST API Preview `target:null` 가능성을 미처 반영하지 못해, 실제 배포 성공 후 `HOLD: Deployment was not Preview of target project`로 잘못 판정했을 개연성 높음.
+- 확정 사실: **CLI가 Preview Ready를 보고함**. 단, 연결된 Vercel 서버 도구가 404를 반환하므로 실제 배포 API `target` 값과 모바일 실사용 HTTP는 현 환경에서 독립 확인하지 못함.
+- V2.6은 새 배포를 만들지 않는 **읽기 전용 검증기**: 위 URL과 배포 ID `9JjUXv2XsTfMKrhWBVoKXYdgcyEm`을 고정, 기존 프로젝트/팀 검증, Preview 보호 검증, Preview `target:null` 또는 `preview`만 인정, `READY` 및 Production 도메인 별칭 미할당 확인, 인증된 `vercel curl` HTTP 가능 여부 확인.
+- 배포 중복 방지: V2.5 CMD 다시 실행하지 말 것. GitHub main/Production/DB/원문 이미지/정답 승인 변경 없음. 공식 독립 채점 승인 HOLD.
