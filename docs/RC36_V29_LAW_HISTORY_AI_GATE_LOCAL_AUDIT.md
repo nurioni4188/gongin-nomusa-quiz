@@ -66,3 +66,13 @@
 - 제어시험: 현행 법령 검색 1건, 5개 연도 시험 당시 법령, 모두 실패하면 2022년 JO 필터 없는 검색 1건. `RC36_V29_HISTORY_DIAG_V2_RESULT.json`로 기록.
 - 소스/Static Gate PASS, Windows PowerShell 실제 실행 및 실제 API 진단 결과 미확인. 기존 Preview는 보존. Q-Net 공식 정답 검증/역사법령 독립 검수/AI 활성화 HOLD 유지.
 - Vercel 공식 curl 문서: https://vercel.com/docs/cli/curl; 법령 연혁 API 가이드: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdListGuide
+
+## 2026-11-11: HTTP 000 / CLI_EXIT_1 공통 오류의 V3 읽기 전용 수정
+- 사용자 Windows 라이브 결과: 보호 Preview READY·프로젝트 API·health PASS. 현행 법령 검색 CONTROL와 시험연도 2022–2026 전체, JO 제외 CONTROL에서 공통 `HTTP 000 | NON_JSON_RESPONSE`, 연혁 5건 `HOLD_CLI_EXIT_1`. 문제는 과거 시행법 응답 검증 이전의 **HTTP 요청 실행 단계**로 국한됨.
+- 코드 대조: V2 진단기가 Windows PowerShell → `npx.cmd`로 `/api/law?action=exam&year=...&query=...`의 원시 `&`와 `-w %{http_code}`를 넘김. Windows 배치의 명령 인수 재해석 위험이 있음(가능성, 실제 오류 원인 미확정).
+- 수정 전용 비공개 파일 `RC36_V29_연혁법령_HTTP000_원인수정_읽기전용_V3.zip` SHA256 `9808006a1477a8d0262f73c878bb6f6a75d3d68c68376601273f7d0dcf9bf4c1`, 약 6.2KB, ZIP 무결성 PASS.
+- V3는 정확한 기존 V2.9 URL·배포 ID·온누리 프로젝트·보호 /api/health 검증 후 `vercel curl /api/law --deployment <URL> --scope <team> -- --silent --show-error --include --max-time 40 --get --data-urlencode action=search --data-urlencode query=근로기준법` 형태를 사용. curl에서 쿼리를 생성하므로 `npx.cmd`에 `&`가 포함된 URL을 직접 넘기지 않으며, `%{http_code}`도 사용하지 않음. 응답 헤더와 본문은 저장하지 않고 HTTP 상태와 정제된 API 상태만 저장.
+- bare `/api/law` 및 현행법 검색 관문이 실패하면 연혁법 5건을 시도하지 않아 반복 실패를 줄임. 성공하면 2022–2026 다섯 시험일 후보를 순서대로 조회.
+- 배포, API 키 관리, AI 실행, main 변경/Production 변경 명령 없음. 전체 문제 소스 업로드 없음. ZIP의 세 파일 검증 PASS; Windows PowerShell 실행 **미확인**. 이전 Preview 유지.
+- 참고: Vercel CLI의 `vercel curl`에서 `--` 뒤 curl 기본 옵션 전달이 지원됨(<https://vercel.com/docs/cli/curl>), PowerShell 5.1에서 Windows 배치 파일로 인수 전달은 cmd.exe 재해석을 거침(<https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parsing?view=powershell-5.1>).
+- **공식 최종정답·시험 당시 법령 및 AI 해설은 계속 HOLD**. V3 결과를 보기 전 실제 연혁 API PASS 주장하지 않음.
