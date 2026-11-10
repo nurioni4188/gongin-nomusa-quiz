@@ -48,3 +48,11 @@
 - 오프라인 회귀: 서버 6/6, 채점 11/11, DOM 15/15, 디자인 16/16, V2.8 UI 16/16, 문항 정합성 PASS. localhost HTTP 시험은 현 컨테이너 환경 정책으로 HOLD.
 - 산출물: `RC36_V28_FLAT_ONECLICK_FIXED.zip` (대화의 비공개 다운로드 파일; 공개 GitHub에 기출 원본 미업로드). 실제 Windows 실행 및 Preview 배포는 미실행이므로 READY로 표기하지 않음.
 - 고정 대상: 온누리 Vercel 팀·기존 프로젝트의 **Preview만**. RC27 Production, GitHub main, DB 변경 없음.
+
+## 2026-11-10 V2.8.1 CLI 프로젝트 출력 검사 오류 수정
+- 사용자의 Windows CLI 실제 실행에서 `HOLD: CLI project inspect did not show expected ID`. V2.8 실행기 순서상, 이 메시지는 이미 실행된 Vercel `/v9/projects/{id}` API의 프로젝트 ID·명칭·팀 일치 검사 및 Preview 보호 설정 검사를 통과한 뒤 발생함. **배포 요청 전 HOLD**, 신규 Preview 없음.
+- 원인: 사람용 `vercel project inspect` 텍스트 출력에 프로젝트 ID가 반드시 들어 있어야 한다고 잘못 가정한 중복 검사. API 검사와 달리 버전/출력 스트림에 영향을 받음.
+- V2.8.1 수정: `$cliInspect=Run-Vercel @('project','inspect',...)` 및 해당 텍스트 기반 Gate만 삭제. 인증된 Vercel REST API의 **프로젝트 ID·이름·팀** 일치 검증과 보호 설정 Gate는 그대로 유지.
+- 원본 런처 SHA256 `d92245e6a7fe874112d3edeeb16667b768c577850b6d9579585deb0ead227e1d`, 패치 런처 SHA256 `23f12cd915bc760fd2eb8bda80c3d18db88c72683546c5a841a28ee79f11adb8`.
+- 소형 ZIP `RC36_V281_CLI_프로젝트확인_원클릭수정.zip`은 사용자 PC의 기존 `Downloads/RC36_V28_FLAT_ONECLICK_FIXED/RC36_V28_ONECLICK` 폴더 한 곳만 검색하고 기존 실행 결과의 `attemptStarted=true`를 먼저 차단한 뒤 런처만 백업·교체하도록 구성. 실제 Windows 실행은 아직 미확인.
+- 정적 Gate 유지 검사 및 ZIP 무결성 PASS. 소스·기출 이미지·정답·GitHub main·Production·DB 무변경. 이번 세션에서 새 Vercel Preview 요청하지 않음.
