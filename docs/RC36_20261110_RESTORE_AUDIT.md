@@ -67,3 +67,10 @@ RC36 감사 데이터 요약: 1,020개, 현행법 검색 후보 462개, 법령�
 - 패치 2회 연속 멱등 시험 PASS; Python 문법 PASS; 서버 모의 6/6, 채점 11/11, DOM 15/15, 화면 16/16 PASS; PATCH ZIP 무결성 PASS.
 - 이 실행환경의 **real localhost HTTP E2E**는 `net::ERR_BLOCKED_BY_ADMINISTRATOR`로 HOLD. 사용자 Windows V2.4 재실행 전 8/8 PASS를 주장하지 않음.
 - 기존 Vercel 프로젝트 접근 404, Preview 배포는 계속 HOLD. 공식 정답 승인 HOLD.
+
+## 2026-11-10 V2.5 Vercel project-settings 배포 연결 진단
+- 사용자 Windows RC36 V2.4 로그: 원격 프로젝트 GET 단계 통과 후 `vercel deploy`에서 `Project Settings could not be retrieved` (기존 임시 `.vercel/project.json` 연결 조회 실패). Preview URL 반환 없음.
+- 원인 후보: 임시 링크 설정 불일치 또는 Vercel CLI 실제 프로젝트 설정/권한 조회 실패. 정확한 계정 원인은 현장 CLI 로그로 판정해야 함.
+- V2.5 안전 패치: 임시 `.vercel` 생성 제거, 로컬 CLI의 `vercel project inspect` 읽기 전용 선행, 문서화된 `VERCEL_ORG_ID` + `VERCEL_PROJECT_ID`를 검증된 기존 프로젝트 값으로 설정, `vercel deploy --yes` 제거, Preview만 요청. CLI가 원격 대상 확인 불가 시 HOLD.
+- 기존 전체 ZIP 및 실사용 코드 불변, V2.4 UTF-8 시험 파일 패치 유지. ZIP 정적 검사·무결성 PASS, Windows 실제 V2.5 실행은 미확인.
+- 배포 요청 이후 오류는 재시도 전 원격 Deployments 확인 필요. GitHub main·Production·DB·공식 채점 승인 변경 없음.
