@@ -59,3 +59,11 @@ RC36 감사 데이터 요약: 1,020개, 현행법 검색 후보 462개, 법령�
 - 지정 Vercel 계정/팀의 기존 프로젝트명 및 ID 조회 재시도 모두 404, 팀 필터 목록 결과 0개 → Preview 배포 실행하지 않음.
 - V2 Windows 원클릭 자동검증/Preview 전용 패키지는 원본 전체 ZIP을 동봉하여 구성했고, **읽기 전용 프로젝트 조회→정확한 ID/팀·접근 보호 확인→Preview 전용 배포** 순서로만 수행하도록 함. 잠재적으로 새 프로젝트를 만들 수 있는 `vercel link --yes` 제거.
 - Windows cmd/ps1 실제 실행 및 원격 배포는 아직 검증되지 않음. GitHub 공개 저장소에 1,020문항 원본/정답 업로드 금지. main, Production, DB 변경 없음.
+
+## 2026-11-10 V2.4 Windows UTF-8 다운로드 테스트 보정
+- 사용자 Windows 실제 localhost E2E: 앞 6단계 PASS 후 `backup_download_json`에서 cp949 기본 파일 디코딩 오류로 HOLD.
+- `portability_patch.py`가 ZIP 압축 해제 후 **시험 파일만** 수정하도록 확장: `tests/smoke_ui.py` JSON 다운로드 읽기 및 검사결과 쓰기 인코딩 `utf-8` 명시.
+- 원본 RC36 ZIP, 채점/런타임 파일, GitHub main, 운영판 변경 없음.
+- 패치 2회 연속 멱등 시험 PASS; Python 문법 PASS; 서버 모의 6/6, 채점 11/11, DOM 15/15, 화면 16/16 PASS; PATCH ZIP 무결성 PASS.
+- 이 실행환경의 **real localhost HTTP E2E**는 `net::ERR_BLOCKED_BY_ADMINISTRATOR`로 HOLD. 사용자 Windows V2.4 재실행 전 8/8 PASS를 주장하지 않음.
+- 기존 Vercel 프로젝트 접근 404, Preview 배포는 계속 HOLD. 공식 정답 승인 HOLD.
