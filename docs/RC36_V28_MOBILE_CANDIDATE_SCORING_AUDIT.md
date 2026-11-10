@@ -39,3 +39,12 @@
 - 직접 배포는 수행하지 못함. 대신 **원본 V2.8 ZIP이 포함된 단일 Windows CLI 실행패키지**를 생성 (기존 계정/프로젝트 정확 일치 및 Preview 보호 확인 후에만 배포, CLI Project Inspect, 자동시험, POST-deploy Ready 검사; GET failure/권한 에러 시 HOLD). 패키지명 `RC36_V28_기존프로젝트_Preview_자동배포_안전패키지.zip`.
 - **사용자 Windows 실기기에서 신규 실행파일을 돌린 결과는 없음**. 따라서 V2.8 Preview READY로 표기하지 않음. 이전 V2.5 Preview 그대로 보존.
 - GitHub 공개 repo에 원문/이미지/전체 ZIP 업로드 금지; main, Production, DB 무변경; 공식 정답 독립검수/AI 해설/법령 실제 API HOLD.
+
+## V2.8 단일 압축 해제 버전: 소스 ZIP 누락 오류 개선
+- 기존 Windows 실행 로그: `HOLD: V2.8 source ZIP is missing beside this runner.` 해당 단계에서 신규 배포 미시도.
+- 기존 패키지를 검사한 결과 원본 ZIP은 있었지만 실행기와 같은 폴더에서만 찾는 방식 때문에 불완전 압축 해제/부분 이동에 취약함.
+- 수정: 내부 중첩 ZIP을 **0개**로 제거하고 `RC36_V28_ONECLICK/nomusa-quiz-web/` 전체 소스 및 `RC36_V28_PREVIEW_ONLY.cmd`가 함께 추출되도록 평탄화.
+- 소스 파일 정적 SHA-256 **1,061개 PASS**, PNG **1,020개 PASS**, ZIP 무결성 PASS. 가변 생성 파일 `audit/rc36_1020_audit.json`은 정적 해시 대상에서만 제외하고 파일 보존. 자동감사 실행 뒤 반복 검증도 PASS.
+- 오프라인 회귀: 서버 6/6, 채점 11/11, DOM 15/15, 디자인 16/16, V2.8 UI 16/16, 문항 정합성 PASS. localhost HTTP 시험은 현 컨테이너 환경 정책으로 HOLD.
+- 산출물: `RC36_V28_FLAT_ONECLICK_FIXED.zip` (대화의 비공개 다운로드 파일; 공개 GitHub에 기출 원본 미업로드). 실제 Windows 실행 및 Preview 배포는 미실행이므로 READY로 표기하지 않음.
+- 고정 대상: 온누리 Vercel 팀·기존 프로젝트의 **Preview만**. RC27 Production, GitHub main, DB 변경 없음.
