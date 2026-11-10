@@ -58,3 +58,11 @@
 - 사후검증 코드 점검: 기존 `RC36_V29_PREVIEW_ONLY.ps1`은 `vercel curl https://<hostname>/api/health --scope ...`로 전체 URL을 사용했음. 공식 문서에서는 특정 배포 요청에 `vercel curl /api/health --deployment https://<hostname> --scope ...` 사용. 이 차이는 실패 원인 후보이며, 원래 오류 stderr가 없으므로 확정할 수 없음. <https://vercel.com/docs/cli/curl>.
 - 비공개 검증 전용 ZIP `RC36_V29_배포없이_5개년_연혁API_검증전용.zip` 생성 (약 5KB, SHA256 `3e5a6c0bc305357f207d748d572fd204bc8a5dc1be1df54062502432a295cebb`). 배포완료 결과와 정확한 팀/프로젝트/배포 URL 검증 후 Vercel CLI 읽기 전용 API·인증된 `curl`만 호출. 5개년 후보 응답은 연도별 요약만 `RC36_V29_HISTORY_ONLY_RESULT.json`에 기록. 배포·Production·GitHub·API 키·AI 호출·보호 설정 변경 기능 없음. Windows 실기기 실행 및 실제 연혁 조회 결과는 현재 미확인.
 - 사후검증 파일이 생성되더라도 `PASS_HISTORY_CANDIDATES_5_OF_5`는 독립검증된 시험법/공식 정답에 대한 승인 의미가 아님. 본문·부칙·적용례 및 공식 Q-Net 정답 검수는 HOLD.
+
+## 2026-11-10 V2.9 5개 연혁법령 요청 모두 HOLD: 오류 분류 진단
+- 사용자 Windows 읽기 전용 로그: 원본 V2.9 Preview Ready·프로젝트 ID/배포 ID·인증된 Vercel API·보호 Preview health PASS, 2022~2026년 법령 요청 5/5 `HOLD_LIVE_REQUEST_FAILED`. AI disabled. 신규 배포 없음.
+- 기존 검사 스크립트의 `Invoke-CLI`는 CLI 비정상 종료를 즉시 throw하고, 연도 루프의 catch에서 **HTTP 상태/서버 JSON 상태를 전부 숨겨** 동일한 HOLD 문구로 기록함. 해당 출력만으로 Vercel CLI 인수 오류인지, API 422(연혁 선정 HOLD)인지, API 502(법령정보센터 upstream 오류)인지 판단 불가.
+- 새 비공개 진단 ZIP `RC36_V29_연혁법령_실패원인진단_읽기전용_V2.zip` SHA256 `1b377a34fa32d9eb5896011fb9a664667f7cb834ae827ed1e38c339bf6a86b8d`, ZIP 무결성 PASS. 독립 실행 `RC36_V29_HISTORY_DIAG_V2.cmd`. 기존 배포파일 및 팀·프로젝트 인증 확인 후, `vercel curl`의 native curl `-w`를 사용해 HTTP 상태와 API `status`만 기록하고 **응답본문·인증 토큰·헤더는 기록하지 않음**.
+- 제어시험: 현행 법령 검색 1건, 5개 연도 시험 당시 법령, 모두 실패하면 2022년 JO 필터 없는 검색 1건. `RC36_V29_HISTORY_DIAG_V2_RESULT.json`로 기록.
+- 소스/Static Gate PASS, Windows PowerShell 실제 실행 및 실제 API 진단 결과 미확인. 기존 Preview는 보존. Q-Net 공식 정답 검증/역사법령 독립 검수/AI 활성화 HOLD 유지.
+- Vercel 공식 curl 문서: https://vercel.com/docs/cli/curl; 법령 연혁 API 가이드: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdListGuide
