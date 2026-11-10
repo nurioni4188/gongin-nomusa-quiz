@@ -50,3 +50,11 @@
 - 원본 실행기 SHA256 `472dc7c2933ddea684b8f3c07c88113f29db71ff1e7a6549933c57d5bf33e5f6`; 교체 실행기 SHA256 `45c1781bc9d3f6fc015906eb0aca7c4987e01c4ad4bab01390a5b44feaadf7ce`. 파일 diff는 함수 인수 이름과 2개 누락 검사뿐임.
 - 비공개 산출물 `RC36_V29_NODE_REPL_오류수정_원클릭패치.zip` SHA256 `b45e87898cd55a2f71e245ba23c9d29648753ecbc484d3f7ac11933fb59adba5` (약 8 KB). 한 번 압축 풀고 `RC36_V29_FIX_AND_CONTINUE.cmd` 실행. 파일은 정확히 한 개의 기존 V2.9 폴더만 찾아 원본 SHA 확인 후 백업·교체; `attemptStarted=true`이거나 결과 JSON 오류/중복 폴더면 중단.
 - 오프라인 확인: Node 법령·AI 시험 14/14 PASS, Python 패치 반복적용/원본 해시/배포이력 재시도 차단 모의시험 PASS, ZIP 내부 무결성 PASS. **Windows 최종 실행은 미검증**, **V2.9 Preview 미배포**, 법령 연혁 실제 API HOLD, 공식정답 독립검증 HOLD, AI disabled 유지.
+
+## 2026-11-10 23:26 KST V2.9 Preview READY / 연혁 API 사후검증 HOLD
+- Windows 실제 배포 결과(사용자 제공 `RC36_V29_DEPLOY_RESULT.json`): `PASS_PREVIEW_READY_HISTORY_HOLD`; `sourceVerified=true`, `remotePreflight=true`, `protectionVerified=true`, `attemptStarted=true`, `previewReady=true`. 배포된 URL: `https://gongin-nomusa-rc27-preview-m0v8o5fdh.vercel.app`, 배포 ID `dpl_4Ysy6uYNYGHwhF9dXPvd6k7dgypj`. 배포 후 브라우저/API 실증은 별도.
+- 원본 자동검증: 소스/문항 1,020, 도메인 테스트, 1365/768/390/360 로컬 HTTP E2E 모두 PASS. 공식 정답 독립검증은 false, AI 활성화 false, Production 변경 false, Git main 변경 false.
+- **연혁법령 0/5 HOLD**: `message: HOLD: Vercel CLI failed: curl`; 배포 후 `vercel curl` 실행이 실패했고 실제 연혁 API 응답은 단 한 건도 수집하지 못함. 기존 Ready Preview를 다시 배포하지 말 것.
+- 사후검증 코드 점검: 기존 `RC36_V29_PREVIEW_ONLY.ps1`은 `vercel curl https://<hostname>/api/health --scope ...`로 전체 URL을 사용했음. 공식 문서에서는 특정 배포 요청에 `vercel curl /api/health --deployment https://<hostname> --scope ...` 사용. 이 차이는 실패 원인 후보이며, 원래 오류 stderr가 없으므로 확정할 수 없음. <https://vercel.com/docs/cli/curl>.
+- 비공개 검증 전용 ZIP `RC36_V29_배포없이_5개년_연혁API_검증전용.zip` 생성 (약 5KB, SHA256 `3e5a6c0bc305357f207d748d572fd204bc8a5dc1be1df54062502432a295cebb`). 배포완료 결과와 정확한 팀/프로젝트/배포 URL 검증 후 Vercel CLI 읽기 전용 API·인증된 `curl`만 호출. 5개년 후보 응답은 연도별 요약만 `RC36_V29_HISTORY_ONLY_RESULT.json`에 기록. 배포·Production·GitHub·API 키·AI 호출·보호 설정 변경 기능 없음. Windows 실기기 실행 및 실제 연혁 조회 결과는 현재 미확인.
+- 사후검증 파일이 생성되더라도 `PASS_HISTORY_CANDIDATES_5_OF_5`는 독립검증된 시험법/공식 정답에 대한 승인 의미가 아님. 본문·부칙·적용례 및 공식 Q-Net 정답 검수는 HOLD.
