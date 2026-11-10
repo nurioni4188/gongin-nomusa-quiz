@@ -31,3 +31,11 @@
 1. 기존 Vercel 계정으로 실제 프로젝트 연결 복구 후 Preview 전용 새 배포.
 2. 배포된 URL에서 원문 이미지, 후보 정답·잠정 점수, PWA 캐시, 데이터 백업, 법령 API 설정 및 모바일 360/390 실제 접속 검증.
 3. Q-Net 정답 독립 검수 전까지 '공식 채점 승인' 및 AI 해설 활성화 금지.
+
+## 2026-11-10 V2.8 기존 프로젝트 Preview 실행 준비
+- V2.8 비공개 전체 소스 ZIP SHA-256 확인: `4f6fa3b476270dc0c54eefdbee29444f75cb9141dba7a1c2adc54a6246b1637b` / ZIP 무결성 PASS.
+- 동일 파일을 이번 세션에서 재실행: 서버 모의 6/6, 채점 11/11, 1,020문항 무결성 0 errors, V2.8 잠정판정 UI (360/390/768/1365px) 16/16 PASS.
+- 기존 프로젝트 `prj_J1hv2uJ6EzuWEcYtb6x4GYKpXV0i`, 팀 `team_9yqmbClGzw0BPGCsoS6CNXUB`에 대해 Vercel MCP: 프로젝트 GET 404, 배포목록 GET 403. 사용자의 대시보드에는 기존 Preview Ready가 확인됨. 연결 접근과 프로젝트 존재를 혼동하지 말 것.
+- 직접 배포는 수행하지 못함. 대신 **원본 V2.8 ZIP이 포함된 단일 Windows CLI 실행패키지**를 생성 (기존 계정/프로젝트 정확 일치 및 Preview 보호 확인 후에만 배포, CLI Project Inspect, 자동시험, POST-deploy Ready 검사; GET failure/권한 에러 시 HOLD). 패키지명 `RC36_V28_기존프로젝트_Preview_자동배포_안전패키지.zip`.
+- **사용자 Windows 실기기에서 신규 실행파일을 돌린 결과는 없음**. 따라서 V2.8 Preview READY로 표기하지 않음. 이전 V2.5 Preview 그대로 보존.
+- GitHub 공개 repo에 원문/이미지/전체 ZIP 업로드 금지; main, Production, DB 무변경; 공식 정답 독립검수/AI 해설/법령 실제 API HOLD.
