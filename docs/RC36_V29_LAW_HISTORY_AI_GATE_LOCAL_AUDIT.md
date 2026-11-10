@@ -33,3 +33,12 @@
 - 시행일 목록: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdListGuide
 - 조항호목: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdJoListGuide
 - 공공데이터포털: https://www.data.go.kr/data/15000115/openapi.do
+
+## 2026-11-10: 기존 온누리 Vercel Preview 원클릭 배포·연혁 API 실증 준비
+- Vercel MCP 읽기 권한 재조회: 기존 온누리 프로젝트/배포 모두 404. 브라우저 및 사용자 CLI에서 확인한 프로젝트 존재와 구별. 연결에서 직접 배포 미수행.
+- 단일 압축 해제 산출물(비공개): `RC36_V29_ONNURI_PREVIEW_원클릭배포_연혁5개년검증.zip` (약 30.4 MB), SHA256 `70e2ed41a9d2a6e362e8674093c5498415f16ece609f7e51debe4ecadeeb23c2`, ZIP 무결성 PASS, 이미지 1,020개, 정적 소스 해시 1,066개 PASS.
+- Windows 배포기: `RC36_V29_PREVIEW_ONLY.cmd`, Vercel CLI 58.5.1 고정; 사용자 소유 기존 프로젝트 ID `prj_J1hv2uJ6EzuWEcYtb6x4GYKpXV0i` 및 팀 `team_9yqmbClGzw0BPGCsoS6CNXUB`의 REST 응답 ID·이름·소유팀과 Preview 보호 설정 확인 후 `vercel deploy --target=preview`만 허용. 과거 V2.8에서 문제였던 사람이 읽는 `vercel project inspect` 텍스트 기반 ID 중복검사 제거. 재실행 방지를 위해 배포 요청 **전에** `attemptStarted=true`를 디스크에 기록함.
+- Ready 후 Vercel CLI의 보호된 배포용 `vercel curl`을 사용해 Preview `/api/health` 및 시험일 기준 근로기준법 조회 2022~2026년 5건 `/api/law?action=exam&year=YYYY&query=근로기준법&jo=000100` 자동 시험 설계. 인증 보호 해제/키 출력 없음. 연혁 조회 실패는 **Preview Ready와 별개로 HOLD**. AI 설명은 명시적 `EXPLANATION_ENABLED=false`.
+- 이번 실행환경 오프라인 재검증: server/history/AI-gate 14/14, scoring 11/11, UI law controls 20/20, 1,020문항 integrity 0 errors; zip source manifest PASS.
+- **실제 Windows 실행 미실시**, V2.9 Preview URL 미생성, 연혁 API 라이브 응답 미확인; 과거 V2.8 Preview 유지. 새 배포 시도 뒤 오류면 결과 JSON과 Vercel Deployments를 확인하고 절대 중복 요청하지 말 것.
+- 공식 API 규격 근거: https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdListGuide ; https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=lsEfYdInfoGuide ; 인증된 Preview 검증 문서: https://vercel.com/docs/cli/curl
