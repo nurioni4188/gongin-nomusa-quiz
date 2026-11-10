@@ -50,3 +50,12 @@ RC36 감사 데이터 요약: 1,020개, 현행법 검색 후보 462개, 법령�
 - 공개 GitHub 브랜치에 전체 기출 문제 이미지/정답 데이터를 일괄 업로드하면 원문이 공개될 위험이 있으므로 업로드 HOLD. 현재 로컬 전체 소스는 별도 보존
 - CLI Preview 전용 테스트·팀/ID/보호 설정 검증 패키지를 준비했으나, 원격 Preview 업로드는 아직 실행하지 않음
 - `main`, Production, DB, AI 설명 활성화, 공식 채점 승인: 변경 없음
+
+## 2026-11-10 Preview V2 자동화 추가 결과
+- 원본 RC36 ZIP SHA-256 재확인 PASS: `584a179be7e1df598d4a964ffc08bcbbbac55bba607abd0acb89b5a6e3ea10cb`.
+- Playwright Chromium 하드코딩된 Linux 실행 경로를 별도 검증용 복사본의 테스트 파일 2개에서만 호환 수정. 원본 ZIP 및 runtime source 변경하지 않음.
+- 수정된 검증용 복사본 재실행: Node 서버 모의시험 6/6, 채점 11/11, DOM 15/15, 디자인 16/16 PASS. 문항·정답·PNG 1,020개 구조 검사 PASS_TECHNICAL_ONLY.
+- 실 localhost Playwright는 실행환경 정책 `net::ERR_BLOCKED_BY_ADMINISTRATOR` → HOLD.
+- 지정 Vercel 계정/팀의 기존 프로젝트명 및 ID 조회 재시도 모두 404, 팀 필터 목록 결과 0개 → Preview 배포 실행하지 않음.
+- V2 Windows 원클릭 자동검증/Preview 전용 패키지는 원본 전체 ZIP을 동봉하여 구성했고, **읽기 전용 프로젝트 조회→정확한 ID/팀·접근 보호 확인→Preview 전용 배포** 순서로만 수행하도록 함. 잠재적으로 새 프로젝트를 만들 수 있는 `vercel link --yes` 제거.
+- Windows cmd/ps1 실제 실행 및 원격 배포는 아직 검증되지 않음. GitHub 공개 저장소에 1,020문항 원본/정답 업로드 금지. main, Production, DB 변경 없음.
