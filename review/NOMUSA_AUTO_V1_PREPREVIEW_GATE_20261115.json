@@ -1,7 +1,7 @@
 {
   "schema": "nomusa-auto-v1.3-prepreview-gate",
   "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
-  "inspectedHead": "76fc04b5f2f034f475502017b0a495e273cc9310",
+  "inspectedHead": "a3979c4eb34341e91aa8833c79ddb4c2f6fe32ab",
   "stage": "PREVIEW_DEPLOYMENT_NOT_AUTHORIZED",
   "staticChecks": {
     "executedViaConnectedGitHubSource": true,
@@ -28,7 +28,9 @@
     "mobile360": "HOLD_NOT_EXECUTED",
     "draftAutosaveAndRefresh": "HOLD_NOT_EXECUTED",
     "questionNavigation": "HOLD_NOT_EXECUTED",
-    "JSONBackupRestore": "HOLD_NOT_EXECUTED"
+    "JSONBackupRestore": "HOLD_NOT_EXECUTED",
+    "scriptHardening": "Both second-stage and hub draft tests now wait for persisted essay localStorage and check post-reload restoration at desktop1440/mobile390/mobile360",
+    "scriptStatus": "COMMITTED_NOT_EXECUTED"
   },
   "githubActions": {
     "currentCommitPrWorkflowRuns": 0,
@@ -41,6 +43,6 @@
     "newPreviewCreated": false,
     "productionChanged": false
   },
-  "nextGate": "Obtain full exact PR checkout in runnable browser environment; execute scripts/nomusa-auto-v1-ui-gate.mjs and scripts/nomusa-auto-v12-browser-gate.py; repair failures only on review branch; do not deploy preview without new instruction",
+  "nextGate": "Full exact review-branch checkout unavailable in local runtime; no E2E PASS claim or new Preview.",
   "final": "HOLD_PREVIEW_GATE"
 }
