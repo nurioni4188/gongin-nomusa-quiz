@@ -58,7 +58,10 @@
     "browserMobile360": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
     "browserMobile390": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
     "saveReload": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
-    "detailedAnswerApproval": "HOLD"
+    "detailedAnswerApproval": "HOLD",
+    "browserTestScript": "scripts/nomusa-auto-v12-browser-gate.py",
+    "browserAutomationCode": "COMMITTED_NOT_EXECUTED",
+    "blocker": "Cloud GitHub connector gives repo source, local container lacks complete checkout; git clone remote DNS failed. Existing Vercel Preview does not contain proposed changes and must not be used as evidence."
   },
   "release": {
     "preview": "NOT_DEPLOYED",
