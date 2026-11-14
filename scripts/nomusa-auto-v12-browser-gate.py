@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""NOMUSA-AUTO 1.2 local Chromium gate. Run against the exact review branch checkout.
+"""NOMUSA-AUTO 1.3 local Chromium gate. Run against the exact review branch checkout.
 Does not change files, GitHub, Vercel or localStorage outside temporary Chromium contexts.
 Requires: python -m playwright install chromium, playwright Python module.
 """
@@ -39,6 +39,12 @@ def check(page, view, width):
    page.evaluate('(id)=>window.N27_ESSAY_TEST.select(id)',target)
    page.locator('[data-pane="write"]').first.click()
    page.locator('#n27-draft').fill('nomusa-v12-save-'+str(width))
+   page.wait_for_function('''(value) => {
+    try {
+      return JSON.parse(localStorage.getItem('nomusa_rc27_v103_essay_records_v1')||'{}')
+        .drafts?.['legacy2-2007-labor1-q1']===value;
+    } catch { return false; }
+   }''','nomusa-v12-save-'+str(width),timeout=10000)
    page.reload(wait_until='domcontentloaded')
    page.wait_for_function('window.N27_ESSAY_TEST?.count === 309',timeout=30000)
    page.evaluate('(id)=>window.N27_ESSAY_TEST.select(id)',target)
@@ -50,6 +56,21 @@ def check(page, view, width):
    page.locator('#search').fill(target)
    page.locator('[data-question="'+target+'"]').click()
    assert page.locator('[data-selected-id="'+target+'"]').count()==1
+   page.locator('[data-pane="write"]').first.click()
+   page.locator('#draft').fill('hub-v12-save-'+str(width))
+   page.wait_for_function('''(value) => {
+    try {
+      return JSON.parse(localStorage.getItem('nomusa_rc27_v103_essay_records_v1')||'{}')
+        .drafts?.['legacy2-2007-labor1-q1']===value;
+    } catch { return false; }
+   }''','hub-v12-save-'+str(width),timeout=10000)
+   page.reload(wait_until='domcontentloaded')
+   page.wait_for_selector('#search',timeout=30000)
+   if page.locator('[data-stage="essay"]').count():page.locator('[data-stage="essay"]').click()
+   page.locator('#search').fill(target)
+   page.locator('[data-question="'+target+'"]').click()
+   page.locator('[data-pane="write"]').first.click()
+   assert page.locator('#draft').input_value()=='hub-v12-save-'+str(width)
   overflow=page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')
   assert overflow<=1,f'overflow={overflow}'
   assert not errors,errors[:2]
@@ -65,5 +86,5 @@ with sync_playwright() as p:
    context.close()
  browser.close()
 server.shutdown()
-out={'schema':'nomusa-auto-v1.2-browser-gate','status':'PASS' if all(x['status']=='PASS' for x in results) else 'HOLD','results':results,'actualPreview':'NOT_DEPLOYED','production':'NOT_TOUCHED','legalApproval':'HOLD'}
+out={'schema':'nomusa-auto-v1.3-browser-gate','status':'PASS' if all(x['status']=='PASS' for x in results) else 'HOLD','results':results,'actualPreview':'NOT_DEPLOYED','production':'NOT_TOUCHED','legalApproval':'HOLD'}
 print(json.dumps(out,ensure_ascii=False,indent=2));sys.exit(0 if out['status']=='PASS' else 1)
