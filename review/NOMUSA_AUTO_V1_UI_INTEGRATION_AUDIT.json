@@ -12,11 +12,20 @@
     ],
     "majorQuestions": 94,
     "subQuestions": 76,
-    "missingMajorPoints": 5,
-    "missingSubPoints": 3,
+    "missingMajorPoints": 0,
+    "missingSubPoints": 0,
     "sourcePageKnown": 0,
     "originalHwpVisualChecked": false,
-    "status": "HOLD"
+    "status": "HOLD_VISUAL_SOURCE_PAGES_AND_FULL_TEXT",
+    "pointsReconciledAgainstHwpText": {
+      "major": 5,
+      "sub": 3,
+      "status": "PASS_TEXT_ONLY",
+      "sourceYears": [
+        2008,
+        2011
+      ]
+    }
   },
   "catalogReview": {
     "originalAnswerItems": 128,
@@ -28,7 +37,8 @@
       2007,
       2026
     ],
-    "status": "PASS_STATIC_DATA_CHECK"
+    "status": "PASS_STATIC_DATA_CHECK",
+    "pointAgreementBetweenProposalsAndOverlay": "PASS"
   },
   "uiChanges": [
     "second/index.html",
@@ -43,11 +53,11 @@
   },
   "tests": {
     "connectorBasedStructuralCheck": "PASS",
-    "nodeCliScriptExecution": "NOT_RUN",
-    "browserDesktop": "NOT_RUN",
-    "browserMobile360": "NOT_RUN",
-    "browserMobile390": "NOT_RUN",
-    "saveReload": "NOT_RUN",
+    "nodeCliScriptExecution": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
+    "browserDesktop": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
+    "browserMobile360": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
+    "browserMobile390": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
+    "saveReload": "NOT_RUN_SOURCE_CHECKOUT_UNAVAILABLE",
     "detailedAnswerApproval": "HOLD"
   },
   "release": {
@@ -56,5 +66,6 @@
     "main": "NOT_MODIFIED",
     "draftPR": 3
   },
-  "decision": "SOURCE_STAGE_INTEGRATION_IMPLEMENTED_BUT_BROWSER_AND_CONTENT_HOLD"
+  "decision": "POINTS_TEXT_RECONCILED_PASS; FULL_VISUAL_REVIEW_HOLD; REAL_PC_MOBILE_E2E_HOLD; NO_PREVIEW_DEPLOYMENT",
+  "originalRendering": "HWP5 user originals confirmed SHA-256; LibreOffice HWP conversion failed SOURCE_FILE_COULD_NOT_BE_LOADED; no page or figure assertions"
 }
