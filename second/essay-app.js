@@ -325,6 +325,8 @@ function render(){stopExpired();if(locked()&&pane!=='write')pane='write';const f
  root.querySelectorAll('[data-mnem-rate]').forEach(el=>el.onclick=()=>{const k=el.dataset.mnemKey,sec=Number(k.split('::').at(-1)),section=(current.sections?.length?current.sections:[{title:'내 키워드'}])[sec];if(!section)return;const c={...cardFor(current,section,sec),review:el.dataset.mnemRate};saved.memoryCards[k]=c;syncQuestionReview(current);store();render()});
  const ta=root.querySelector('#n27-draft');if(ta&&current){ta.oninput=e=>{saved.drafts[current.id]=e.target.value;const ok=store();const x=root.querySelector('#n27-save-state');if(x)x.textContent=ok?'임시저장 완료':'저장 불가';const counter=root.querySelector('#n106-count');if(counter)counter.textContent=Array.from(e.target.value).length+'자';updateWritingProgress(current);};
  root.querySelector('#n106-outline').onclick=()=>{if(ta.value.trim()&&!confirm('현재 작성한 답안 뒤에 구성 틀을 추가하시겠습니까?'))return;const addition=outline(current);ta.value+=(ta.value.trim()?'\n\n':'')+addition;ta.dispatchEvent(new Event('input',{bubbles:true}));ta.focus();};
+ }
+ if(current){
  root.querySelectorAll('[data-check]').forEach(el=>el.onchange=()=>{if(!saved.checks[current.id])saved.checks[current.id]={};saved.checks[current.id][el.dataset.check]=el.checked;store();render()});
  root.querySelector('#n27-flag').onclick=()=>{setQuestionReviewed(current,!questionReviewed(current));store();render()};
  root.querySelector('#n27-bookmark').onclick=()=>{saved.bookmarks[current.id]=!saved.bookmarks[current.id];store();render()};
