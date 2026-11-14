@@ -1,0 +1,12 @@
+# RC34: deploy only runtime web app assets, never test outputs or local scripts.
+.git/
+.vercel/
+tests/
+scripts/
+uat-evidence/
+CHECKSUMS_SHA256.txt
+README_KO.md
+CHANGELOG_*.md
+ANSWER_SECOND_READ_1020.csv
+*.cmd
+*.ps1

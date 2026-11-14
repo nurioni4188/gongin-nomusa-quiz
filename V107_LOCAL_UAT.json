@@ -1,0 +1,101 @@
+{
+  "version": "V10.7",
+  "test_type": "Chromium in-memory DOM + mocked localStorage, NOT real navigation",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "14개년·215개 항목",
+      "status": "PASS"
+    },
+    {
+      "name": "최신 2026 원본 PDF 연결",
+      "status": "PASS"
+    },
+    {
+      "name": "PDF 뷰어 버튼",
+      "status": "PASS"
+    },
+    {
+      "name": "PDF 인라인 뷰어 표시",
+      "status": "PASS"
+    },
+    {
+      "name": "원문 대조 개인 체크",
+      "status": "PASS"
+    },
+    {
+      "name": "라힘 기본 두음자 통순지회타",
+      "status": "PASS"
+    },
+    {
+      "name": "문제별 복수 암기카드",
+      "status": "PASS"
+    },
+    {
+      "name": "암기팁 편집·두음자 자동 업데이트",
+      "status": "PASS"
+    },
+    {
+      "name": "두음자 눈가림 회상",
+      "status": "PASS"
+    },
+    {
+      "name": "핵심어 재표시",
+      "status": "PASS"
+    },
+    {
+      "name": "복습 필요 기록",
+      "status": "PASS"
+    },
+    {
+      "name": "나의 답안 자동저장 모의",
+      "status": "PASS"
+    },
+    {
+      "name": "저장값 재주입 후 복원",
+      "status": "PASS"
+    },
+    {
+      "name": "두음자 암기팁 복원",
+      "status": "PASS"
+    },
+    {
+      "name": "비교·키워드 포함 확인",
+      "status": "PASS"
+    },
+    {
+      "name": "실전 중 해설 잠금",
+      "status": "PASS"
+    },
+    {
+      "name": "실전 중 두음자 접근 차단",
+      "status": "PASS"
+    },
+    {
+      "name": "원문 연습 87개에도 두음자 직접 작성",
+      "status": "PASS"
+    },
+    {
+      "name": "백업에 새 필드 저장",
+      "status": "PASS"
+    },
+    {
+      "name": "모바일 390px 가로넘침 없음",
+      "status": "PASS"
+    },
+    {
+      "name": "모바일 360px 가로넘침 없음",
+      "status": "PASS"
+    },
+    {
+      "name": "JS 콘솔 실행 오류 없음",
+      "status": "PASS"
+    }
+  ],
+  "jsErrors": [],
+  "limitations": [
+    "실제 HTTP/File 탐색은 브라우저 환경의 ERR_BLOCKED_BY_ADMINISTRATOR로 차단",
+    "브라우저 새로고침 지속성은 실제 HTTPS Preview에서 별도로 확인해야 함",
+    "임베디드 PDF 바이트 로딩은 이 브라우저 시험에서 직접 확인하지 못함"
+  ]
+}

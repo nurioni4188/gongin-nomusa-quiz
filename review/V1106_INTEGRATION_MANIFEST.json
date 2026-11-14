@@ -1,0 +1,41 @@
+{
+  "schema": "nomusa-v1106-hub-integration-gate/1",
+  "timestamp": "2026-11-14",
+  "basedOnArchive": "NOMUSA_V1099_LEGAL_GATED_INTEGRATED_NOT_DEPLOYED.zip",
+  "baseArchiveSha256": "1821b25e23070712c92dcaf5f64bc3680d01d895d2b52bbcc7b624fdd0b47e32",
+  "sourceLegalDraftJsSha256": "7d0bac4e82a812c2e59171573fa4f09bc3c45de310599b5f54fc0ad1c42df48c",
+  "sourceLegalDraftJsonSha256": "4667f2bee7f1ad053062f0cd34badbf243949cf1d8c3ef9bc4169e56b94821ab",
+  "answerIds": 47,
+  "corrections": 18,
+  "targetQuestions": 6,
+  "otherQuestions": 41,
+  "approved": 0,
+  "modifiedFromBase": [
+    "study-hub/index.html",
+    "second/index.html"
+  ],
+  "additive": [
+    "second/v1105-law-review-sidecar.js",
+    "second/v1106-law-review-bridge.js",
+    "review/v1105-47-answer-correction-map.json"
+  ],
+  "protected": [
+    "index.html",
+    "data.js",
+    "rc27_essay_catalog.js",
+    "study-hub/app.js",
+    "study-hub/state.js",
+    "second/essay-app.js",
+    "second/v1098-law-47-autodrafts.js"
+  ],
+  "integration": "LOCAL_PREVIEW_CANDIDATE",
+  "production": "UNCHANGED",
+  "githubMain": "UNCHANGED",
+  "existingPreview": "UNCHANGED",
+  "releaseApproval": "HOLD",
+  "contentApproval": "0/47 HOLD",
+  "remoteHttpsE2E": "NOT_RUN",
+  "browserDomRegression": "6/6 PASS (Chromium in-memory JS/DOM)",
+  "webStorageValidation": "STUB_ONLY, real F5 restore HOLD",
+  "httpBrowserE2E": "HOLD: browser administrator denies local navigation"
+}

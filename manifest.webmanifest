@@ -1,0 +1,19 @@
+{
+  "name": "공인노무사 기출학습 RC35 · Warm Light Study",
+  "short_name": "노무사 기출",
+  "description": "2022~2026년 공인노무사 1차 기출 1,020문항을 연습·실전으로 학습하는 개인용 앱",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#f7f6f2",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

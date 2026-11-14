@@ -1,0 +1,15 @@
+/* V10.9.9 historical legal accuracy notes — PARTIAL CHECKS ONLY, NO APPROVAL */
+(function(){'use strict';
+const notes={"2023-admin-1":{"heading":"[V10.9.9 법령 준용구조 교정] 무효확인소송 판결과 간접강제","text":"이 문제의 물음 2는 1차 거부결정에 대한 무효확인소송의 인용판결이 확정된 경우이다. 행정소송법 제38조 제1항은 무효등 확인소송에 제30조(취소판결 등의 기속력)를 준용하므로 재처분의무 여부를 검토해야 한다. 그러나 같은 조 제1항의 준용 목록에는 제34조(거부처분취소판결의 간접강제)가 포함되지 않는다. 따라서 거부처분 무효확인 판결에 관하여 제34조의 간접강제를 당연히 허용한다고 쓰면 안 된다. 제38조 제2항의 부작위위법확인소송과 구분해야 한다. 이는 법조문 준용관계의 확인이며, 2023년 시험 당시 공식 시행본·이주대책 관련 직접판례·원문 사안포섭의 최종 심사는 여전히 HOLD다.","refs":[{"lawOrCase":"행정소송법 제38조 제1항·제30조·제34조","url":"https://www.law.go.kr/LSW/lsInfoP.do?lsId=001218","scope":"무효확인소송에는 제30조 준용, 제34조 미준용","limit":"2023년 시행본/직접 판례 및 구체적 취소·무효 분리 검토 필요"}]},"2022-civil-1":{"heading":"[V10.9.9 판례 적용범위] 예비적 병합·선정당사자 별도 검토","text":"대법원 2021. 5. 7. 선고 2020다292411 판결은 주위적 청구를 배척하면서 예비적 청구를 판단하지 않은 경우의 심판누락과 상소심 이심을 설명하는 데 참고할 수 있다. 그러나 이 판결의 원사안은 손해배상 청구의 부진정 예비적 병합이다. 출제문 물음 2의 선정당사자·소송상 자백에 관한 직접 판례로 오인해서는 안 된다. 물음 2는 민사소송법 제53조 및 소송행위 효력 관련 법리와 별도 판례를 검토해야 한다.","refs":[{"lawOrCase":"대법원 2021. 5. 7. 선고 2020다292411","url":"https://lx.scourt.go.kr/search/detail/precedent/0/3261183","scope":"예비적 병합·판단누락·이심 범위 일반법리","limit":"원문 토지매매·선정당사자 사안의 직접 판례 아님"}]},"2023-civil-1":{"heading":"[V10.9.9 조문 확인] 상계항변의 기판력","text":"민사소송법 제216조 제1항은 확정판결 주문에 기판력이 미치는 것을 원칙으로 하고, 같은 조 제2항은 상계항변으로 대항한 액수에 한하여 판단의 기판력을 인정한다. 자동채권 전액에 무조건 기판력이 미친다고 기재하지 않는다. 원문 물음별 금액과 선행 소송의 주문·이유를 대조한 개별 포섭은 미검증으로 유지한다.","refs":[{"lawOrCase":"민사소송법 제216조 제1·2항","url":"https://www.law.go.kr/lsEfInfoP.do?lsiSeq=113154","scope":"상계항변 기판력은 대항한 액수에 한정","limit":"시험일 시행본·물음별 금액 포섭 확인 필요"}]},"2022-labor1-2":{"heading":"[V10.9.9 판례 시점] 2022 통상임금","text":"2024년 12월 19일 선고된 통상임금 전원합의체 2020다247190·2023다302838 판결의 새로운 고정성 배제 법리는 2022년 공인노무사 2차 시험 당시 존재하지 않았다. 2022년 답안은 당시 유효했던 2013년 전원합의체 법리와 지급조건별 적용을 기준으로 다시 검토해야 한다.","refs":[{"lawOrCase":"대법원 2024.12.19. 2020다247190/2023다302838","url":"https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=702&seqnum=1616","scope":"시험 이후 고정성 폐기 기준, 역사적 비교만","limit":"2022년 시험 근거로 소급 불가"}]},"2025-labor2-1":{"heading":"[V10.9.9 법률 시행시점] 2025 교섭단위·부당노동행위","text":"2025년 시험에 관해서는 2026년 3월 10일 시행된 노동조합법 개정 제2조·제3조를 시험 당시 시행 조문처럼 인용하지 않는다. 교섭단위 분리와 부당노동행위 구제기간의 독립적 요건 및 당시 시행본을 먼저 확인해야 한다.","refs":[{"lawOrCase":"노동조합법 법률 제21045호","url":"https://law.go.kr/LSW/lsInfoP.do?lsId=000143","scope":"2026.3.10 시행 개정, 2025년 시험 당시 시행본과 분리","limit":"2025년 시행 법령 원문 미대조"}]}};
+const bank=window.N1078_ESSAYS;
+if(bank&&bank.items){for(const [id,n] of Object.entries(notes)){
+ const item=bank.items[id];if(!item||item.v1099AccuracyNote)continue;
+ if(!Array.isArray(item.parts))item.parts=[];
+ const idx=item.parts.findIndex(p=>String(p.heading||'').includes('시험장 압축'));
+ const entry={heading:n.heading,text:n.text};
+ if(idx>=0)item.parts.splice(idx,0,entry);else item.parts.push(entry);
+ item.v1099AccuracyNote=true;
+ item.approval='HOLD_EXAM_DATE_ARTICLE_DIRECT_CASE_AND_SUBSUMPTION';
+}}
+window.N1099_LEGAL_ACCURACY=Object.freeze({scope:47,finalApprovalCount:0,verifiedPrincipleNotes:5,notes,status:'PARTIAL_STATUTE_PRINCIPLE_VERIFICATION_NO_FINAL_APPROVAL'});
+})();

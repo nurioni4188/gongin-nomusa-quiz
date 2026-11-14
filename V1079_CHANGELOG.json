@@ -1,0 +1,19 @@
+{
+  "version": "V10.7.9",
+  "change": [
+    "learner-first layout",
+    "source/reference/quality collapsed by default",
+    "one integrated detailed answer per question",
+    "distinguish custom page goal from default and reset"
+  ],
+  "preserve": [
+    "root RC35",
+    "catalog 215",
+    "answer drafts 128",
+    "source PDF 57",
+    "image 1020",
+    "storage key nomusa_rc27_v103_essay_records_v1",
+    "JSON backup schema 1"
+  ],
+  "deployment": "not performed"
+}
