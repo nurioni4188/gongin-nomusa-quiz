@@ -19,7 +19,7 @@
     topic: row.n + '번 문제', sourceText: row.q,
   }));
   const essayRows = E.map(row => ({...row, stage: 'essay', key: row.id, r: row.year - 1991}));
-  const essayYears = essayRows.map(row => row.year);
+  const essayYears = [...new Set(essayRows.map(row => row.year))].sort((a, b) => b - a);
   const essayYearRange = `${Math.min(...essayYears)}–${Math.max(...essayYears)}`;
   const essaySourceCount = essayRows.filter(row => row.sourceOnly).length;
   const all = new Map([...essayRows, ...firstRows].map(row => [row.key, row]));
@@ -190,7 +190,7 @@
       </section>
       <div class="grid-main"><div>
         <section class="card"><div class="section-head"><div><h2>2차 연도별 기출</h2><p>연도를 선택하면 해당 기출문제를 볼 수 있습니다.</p></div></div>
-          <div class="year-grid">${Array.from({length: 14}, (_, i) => 2026 - i).map(year => {
+          <div class="year-grid">${essayYears.map(year => {
             const rows = essayRows.filter(item => item.year === year);
             return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
           }).join('')}</div>
@@ -356,6 +356,11 @@
         <p class="muted small">${esc(row.src)} · 원본 ${esc((row.pg || []).join(', ') || '미확인')}쪽</p>
         <img class="source-image" src="${esc(url)}" alt="${esc(row.key)} 원본 문항 이미지">
         ${link(url, '이미지 확대')}<p class="footer-note">시험지에서 잘라낸 문항 이미지입니다. 전체 시험지 PDF 경로는 미확인입니다.</p>`;
+    }
+    if (row.pageStatus === 'VERIFIED_HWP_DOCUMENT_ORDINAL') {
+      const range = row.sourcePageEnd > row.sourcePage ? row.sourcePage + '–' + row.sourcePageEnd : row.sourcePage;
+      return `<h3 class="panel-title">원본 HWP ${range}쪽</h3>
+        <p class="muted">${esc(row.basis)}</p><p class="footer-note">파일 첫 페이지부터 센 쪽수입니다.</p>`;
     }
     if (!row.pdfPath) return `<h3 class="panel-title">원본 페이지</h3>${notice('원본 PDF 연결 HOLD', '')}`;
     const page = Number(row.pdfPage) || 1;

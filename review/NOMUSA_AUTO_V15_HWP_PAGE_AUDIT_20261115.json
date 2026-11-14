@@ -1,0 +1,667 @@
+{
+  "schema": "nomusa-legacy-hwp-page-audit/1",
+  "sourceCommit": "3fe8f8173249bf16fb91f4e411bae2759ab8edd0",
+  "method": "HWP5 stored top-level line Y-coordinate resets, matched against rhwp 0.9.0 page text exports and visually inspected PDF renderings",
+  "pageSemantics": "One-based ordinal in the original HWP pagination; no printed numeric footer observed. Renderer substitutes fonts where original fonts are unavailable.",
+  "reference2012": "https://renew.primeedunet.com/public/file/board/8b50101e-da0e-47b0-8463-c0b62a7ad85b.pdf",
+  "visualStatus": "PASS_SOURCE_HWP_RECORDS_AND_RENDERED_PAGES",
+  "documents": [
+    {
+      "year": 2007,
+      "file": "2007년 제16회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "3897982544908991603a2de076fd455a9149944acb99360bb15f74bc1e3d4cc3",
+      "pages": 3,
+      "majorQuestions": 13,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 0
+    },
+    {
+      "year": 2008,
+      "file": "2008년 제17회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "be7f6e8c1896cf490127b96cd8e4d64549a1b360c5b1559a2cf8e206493fe058",
+      "pages": 3,
+      "majorQuestions": 14,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 0
+    },
+    {
+      "year": 2009,
+      "file": "2009년 제18회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "9c277bae2acd961b57df366b2827427bfee7ef13bace619f54883cccb10dc8fe",
+      "pages": 3,
+      "majorQuestions": 14,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 0
+    },
+    {
+      "year": 2010,
+      "file": "2010년 제19회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "73d4b571d119335dba6a3bcf6f956765c54d08b744ab4c3834fb9dea226fb4d4",
+      "pages": 3,
+      "majorQuestions": 17,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 0
+    },
+    {
+      "year": 2011,
+      "file": "2011년 제20회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "af61a2c6abb5c498190b55e7e69dd8b4b5c18b48f2460408852f1160d0d3836d",
+      "pages": 4,
+      "majorQuestions": 17,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 0
+    },
+    {
+      "year": 2012,
+      "file": "2012년 제21회 공인노무사 2차 시험문제지.hwp",
+      "sha256": "5ea416a47d82e673789807800e8f8aa59f7d0946d9b5338491fbd7992674a53a",
+      "pages": 7,
+      "majorQuestions": 19,
+      "equationObjects": 0,
+      "chartObjects": 0,
+      "pictureObjects": 0,
+      "tableObjects": 8
+    }
+  ],
+  "items": [
+    {
+      "id": "legacy2-2007-labor1-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-labor1-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-labor2-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-labor2-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-hrm-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-hrm-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-organization-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-organization-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-administrative-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-administrative-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-labor-economics-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2007-labor-economics-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2007-labor-economics-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2008-labor1-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor1-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor2-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor2-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor2-q3",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-hrm-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-hrm-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-organization-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-organization-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-administrative-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-administrative-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor-economics-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2008-labor-economics-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2008-labor-economics-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2009-labor1-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-labor1-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-labor2-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-labor2-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-labor2-q3",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-hrm-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-hrm-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-organization-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-organization-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-administrative-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-administrative-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2009-labor-economics-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2009-labor-economics-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2009-labor-economics-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2010-labor-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-labor-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-labor-q3",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-labor-q4",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-hrm-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-hrm-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-organization-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-organization-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-organization-q3",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-administrative-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-administrative-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-administrative-q3",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-labor-economics-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2010-labor-economics-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2010-labor-economics-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-civil-procedure-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2010-civil-procedure-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-labor1-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-labor1-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-labor2-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-labor2-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-hrm-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-hrm-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-administrative-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-administrative-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-administrative-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-organization-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-organization-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-organization-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-civil-procedure-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-civil-procedure-q2",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2011-labor-economics-q1",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2011-labor-economics-q2",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2011-labor-economics-q3",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2012-labor1-q1",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-labor1-q2",
+      "sourcePage": 1,
+      "sourcePageEnd": 1,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-labor2-q1",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-labor2-q2",
+      "sourcePage": 2,
+      "sourcePageEnd": 2,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-hrm-q1",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-hrm-q2",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-hrm-q3",
+      "sourcePage": 3,
+      "sourcePageEnd": 3,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-administrative-q1",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-administrative-q2",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-administrative-q3",
+      "sourcePage": 4,
+      "sourcePageEnd": 4,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-organization-q1",
+      "sourcePage": 5,
+      "sourcePageEnd": 5,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-organization-q2",
+      "sourcePage": 5,
+      "sourcePageEnd": 5,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-organization-q3",
+      "sourcePage": 5,
+      "sourcePageEnd": 5,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-labor-economics-q1",
+      "sourcePage": 6,
+      "sourcePageEnd": 6,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2012-labor-economics-q2",
+      "sourcePage": 6,
+      "sourcePageEnd": 6,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-labor-economics-q3",
+      "sourcePage": 6,
+      "sourcePageEnd": 6,
+      "graphOrFormulaPrompt": true
+    },
+    {
+      "id": "legacy2-2012-civil-procedure-q1",
+      "sourcePage": 7,
+      "sourcePageEnd": 7,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-civil-procedure-q2",
+      "sourcePage": 7,
+      "sourcePageEnd": 7,
+      "graphOrFormulaPrompt": false
+    },
+    {
+      "id": "legacy2-2012-civil-procedure-q3",
+      "sourcePage": 7,
+      "sourcePageEnd": 7,
+      "graphOrFormulaPrompt": false
+    }
+  ],
+  "embedReview": "No exam-body equation, graph or image object detected; 2007–2011 drawing object is the visual title box. 2012 contains tables, including the boxed labor-law agreement, separately inspected.",
+  "answerApproval": "HOLD",
+  "previewDeployment": "HOLD_PENDING_USER_APPROVAL",
+  "result": {
+    "hwpPages": 23,
+    "mappedMajorQuestions": 94,
+    "crossPageQuestions": 3,
+    "graphOrFormulaPrompts": 14,
+    "browser": "149.0.7827.22",
+    "viewportChecks": {
+      "first_1440": "PASS",
+      "second_1440": "PASS",
+      "hub_1440": "PASS",
+      "first_390": "PASS",
+      "second_390": "PASS",
+      "hub_390": "PASS",
+      "first_360": "PASS",
+      "second_360": "PASS",
+      "hub_360": "PASS",
+      "existing_hub_qa": "PASS"
+    },
+    "existingHubRegressionChecks": 21,
+    "sourceGate": "PASS",
+    "staticUiGate": "PASS_STATIC_ONLY"
+  }
+}

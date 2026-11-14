@@ -185,7 +185,12 @@ function keywordComparison(r){const sections=r.sections?.length?r.sections:[{tit
  const matched=words.filter(w=>mine.includes(w));const unmatched=words.filter(w=>!mine.includes(w));return `<div class="n107-keyword-result"><b>${esc(section.title||'핵심어')}</b><p>문자열 포함 ${matched.length}/${words.length} · 의미·동의어·정답 여부는 판정하지 않습니다.</p><div>${words.map(w=>`<span class="n107-word ${mine.includes(w)?'seen':'unseen'}">${esc(w)} ${mine.includes(w)?'✓':'—'}</span>`).join('')}</div></div>`;}).filter(Boolean);
  return groups.length?`<section class="n107-keyword-review"><h3>내 답안의 키워드 확인</h3>${groups.join('')}</section>`:'';
 }
-function sourcePanel(r){const rel=typeof r.pdfPath==='string'&&/^source_pdf\/\d{4}\/[a-zA-Z0-9_-]+\.pdf$/.test(r.pdfPath)?'../'+r.pdfPath:null;
+function sourcePanel(r){
+ if(r.pageStatus==='VERIFIED_HWP_DOCUMENT_ORDINAL'){
+  const range=r.sourcePageEnd>r.sourcePage?`${r.sourcePage}–${r.sourcePageEnd}`:r.sourcePage;
+  return `<section class="n107-source-panel" aria-label="원본문제지 검토"><h3>원본 HWP ${range}쪽</h3><p class="n27-note">${esc(r.basis)} · 파일 첫 페이지부터 센 쪽수입니다.</p><label class="n107-source-check"><input type="checkbox" id="n107-source-checked" ${saved.sourceChecks[r.id]===true?'checked':''}> 내 원본 확인 기록</label></section>`;
+ }
+ const rel=typeof r.pdfPath==='string'&&/^source_pdf\/\d{4}\/[a-zA-Z0-9_-]+\.pdf$/.test(r.pdfPath)?'../'+r.pdfPath:null;
  const link=rel?`<a href="${esc(rel)}#page=${Number(r.pdfPage)||1}" target="_blank" rel="noopener noreferrer">PDF 새 창으로 열기</a>`:`<a href="https://www.q-net.or.kr/cst003.do?gId=05&amp;gSite=L&amp;id=cst00309" target="_blank" rel="noopener noreferrer">Q-Net 공식 문제지 자료실</a>`;
  const check=saved.sourceChecks[r.id]===true;
  return `<section class="n107-source-panel" aria-label="원본문제지 검토"><h3>원본문제지 확인</h3><p class="n27-note">${rel?'보유 PDF 파일 · 첫 페이지부터 이동 가능':'앱에 PDF가 없어 공식 자료실에서 확인 필요'}${r.pdfPageVerification?' · 세부 문항의 시작 쪽 미확정':''} / <strong>문항별 전사·수식·페이지의 독립대조는 미완료</strong></p><div class="n107-source-actions">${link} <a href="https://www.q-net.or.kr/cst003.do?gId=05&amp;gSite=L&amp;id=cst00309" target="_blank" rel="noopener noreferrer">Q-Net 공식 게시목록</a>${rel?`<button type="button" class="btn" id="n107-pdf-toggle" aria-expanded="${pdfOpen}">${pdfOpen?'PDF 화면 닫기':'화면 안에서 PDF 보기'}</button>`:''}</div>${pdfOpen&&rel?`<iframe class="n107-pdf-frame" title="${esc(r.year+'년 '+r.subject+' 원본문제지')}" src="${esc(rel)}#page=${Number(r.pdfPage)||1}&toolbar=1" loading="lazy"></iframe><p class="n27-note">모바일에서 PDF가 보이지 않으면 위의 ‘PDF 새 창으로 열기’를 이용하세요.</p>`:''}<label class="n107-source-check"><input type="checkbox" id="n107-source-checked" ${check?'checked':''}> <span>내가 원본 PDF와 문제·수식·배점을 직접 대조했습니다 (개인 학습 기록, 공식 검증 아님)</span></label></section>`;

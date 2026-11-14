@@ -50,6 +50,8 @@ def check(page, view, width):
     page.locator('#n27-subject').select_option('노동법Ⅰ')
     assert page.evaluate('N27_ESSAY_TEST.selected')==target
    select_second()
+   page.locator('#n1079-advanced summary').first.click()
+   assert page.get_by_role('heading',name='원본 HWP 1쪽',exact=True).is_visible()
    editor=page.locator('#v1090-editor')
    editor.fill(answer)
    page.locator('#n27-next').click()
@@ -87,6 +89,8 @@ def check(page, view, width):
     page.locator('#filter-subject').select_option('노동법Ⅰ')
     assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==target
    select_hub()
+   page.locator('[data-trace="1"]').click()
+   assert page.get_by_role('heading',name='원본 HWP 1쪽',exact=True).is_visible()
    page.locator('[data-pane="write"]').click()
    editor=page.locator('#draft')
    editor.fill(answer)

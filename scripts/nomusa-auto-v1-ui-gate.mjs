@@ -28,7 +28,8 @@ const proposed=JSON.parse(load('review/NOMUSA_AUTO_V1_PROPOSED_QUESTIONS.json'))
 const byId=new Map(added.map(row=>[row.id,row]));
 for(const row of proposed){
  const item=byId.get(row.id);
- if(item?.points!==row.points||item?.subject!==row.subject||item?.year!==row.year||
+ if(item?.points!==row.points||item?.subject!==row.subject||item?.sourcePage!==row.sourcePage||
+    item?.sourcePageEnd!==row.sourcePageEnd||item?.year!==row.year||
     item?.sourceText!==[row.questionText,...row.subquestions.map(sub=>sub.text)].join('\n')||
     JSON.stringify(item?.subquestions)!==JSON.stringify(row.subquestions.map(({id,number,points,text})=>({id,number,points,text})))){
   errors.push('SOURCE_OVERLAY_MISMATCH:'+row.id);
@@ -47,6 +48,6 @@ for(const f of pages){
  if(!s.includes(loader)||s.indexOf(loader)>s.indexOf('src="'+app+'"'))errors.push('SCRIPT_LOADING_ORDER:'+f);
 }
 if(!load('second/index.html').includes('2007~2026'))errors.push('YEAR_LABEL_MISSING');
-if(status.added!==94||status.status!=='UNVERIFIED_SOURCE_ONLY')errors.push('LEGACY_GATE_MISMATCH');
-const out={status:errors.length?'FAIL':'PASS_STATIC_ONLY',total:items.length,baselineCatalog:128,archival:87,newSourceOnly:added.length,uniqueIds:unique.size,totalDistinctIds:new Set(allIds).size,years:[...new Set(items.map(x=>x.year))].sort(),errors,realBrowser:'NOT_TESTED',sourceVisualAccuracy:'HOLD',legalContentApproval:'HOLD',deploy:'NOT_REQUESTED'};
+if(status.added!==94||status.pageVerified!==94||status.status!=='SOURCE_ONLY_ANSWER_HOLD')errors.push('LEGACY_GATE_MISMATCH');
+const out={status:errors.length?'FAIL':'PASS_STATIC_ONLY',total:items.length,baselineCatalog:128,archival:87,newSourceOnly:added.length,uniqueIds:unique.size,totalDistinctIds:new Set(allIds).size,years:[...new Set(items.map(x=>x.year))].sort(),errors,realBrowser:'NOT_TESTED',sourceVisualAccuracy:'NOT_TESTED_BY_THIS_SCRIPT',legalContentApproval:'HOLD',deploy:'NOT_REQUESTED'};
 console.log(JSON.stringify(out,null,2));if(errors.length)process.exitCode=1;
