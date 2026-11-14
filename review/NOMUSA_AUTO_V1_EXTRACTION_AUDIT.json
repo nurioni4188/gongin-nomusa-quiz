@@ -1,0 +1,37 @@
+{
+  "name": "NOMUSA-AUTO V1.1 staged-intake audit",
+  "status": "PASS_STRUCTURAL_JSON_ONLY",
+  "yearRange": "2007-2012",
+  "majorQuestions": 94,
+  "subquestions": 76,
+  "yearBreakdown": {
+    "2007": 13,
+    "2008": 14,
+    "2009": 14,
+    "2010": 17,
+    "2011": 17,
+    "2012": 19
+  },
+  "missingMajorPoints": [
+    "legacy2-2008-hrm-q2",
+    "legacy2-2008-labor-economics-q1",
+    "legacy2-2011-labor1-q2",
+    "legacy2-2011-labor2-q1",
+    "legacy2-2011-labor-economics-q1"
+  ],
+  "missingSubPoints": [
+    "legacy2-2008-hrm-q2-s1",
+    "legacy2-2008-labor-economics-q1-s1",
+    "legacy2-2011-labor-economics-q1-s3"
+  ],
+  "pageReviewRequired": 94,
+  "issues": [],
+  "sourceTextReview": "HOLD",
+  "existingIdCrossCheck": "HOLD",
+  "originalHwpVisualReview": "HOLD",
+  "UIIntegration": "HOLD",
+  "desktopMobileE2E": "NOT_RUN",
+  "previewDeployment": "NOT_RUN",
+  "legalApproval": "HOLD",
+  "sourceDataFile": "review/NOMUSA_AUTO_V1_PROPOSED_QUESTIONS.json"
+}
