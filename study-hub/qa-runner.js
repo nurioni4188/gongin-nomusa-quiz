@@ -202,6 +202,19 @@
         assert(find('[data-selected-id]').dataset.selectedId === mainId, '새로고침 후 문항 불일치');
         checkWidth(width);
       },
+      navigation: async () => {
+        click('[data-action="q-next"]');
+        assert(find('[data-selected-id]').dataset.selectedId !== mainId, '다음 문항 이동 실패');
+        click('[data-action="q-prev"]');
+        click('[data-pane="write"]');
+        assert(find('#draft').value === answer, '문항 이동 후 저장 답안 불일치');
+        click('[data-action="wrong"]');
+        await reload();
+        assert(text('[data-action="wrong"]').includes('해제'), '검토 플래그 복원 실패');
+        click('[data-trace="5"]');
+        assert(find('#memo').value === 'PDF 1쪽 대조', '검토 메모 복원 실패');
+        click('[data-action="wrong"]');
+      },
       exam: async () => {
         click('[data-action="exam"]');
         click('[data-action="exam-start"]');
@@ -277,6 +290,24 @@
         click('[data-nav="verify"]');
         checkWidth(width);
       },
+      legacy: async () => {
+        click('[data-nav="home"]');
+        assert(text('main').includes('309') && text('main').includes('181'), '20개년 자료 수량 불일치');
+        click('[data-year="2007"]');
+        const id = find('[data-selected-id]').dataset.selectedId;
+        assert(id.startsWith('legacy2-2007-'), '추가 문항 필터 실패');
+        click('[data-trace="0"]');
+        assert(text('.source-text').trim().length > 0, '문제 원문 누락');
+        click('[data-trace="1"]');
+        assert(text('#trace-content').includes('원본 HWP 1쪽'), 'HWP 쪽수 표시 불일치');
+        assert(find('[data-pane="detail"]').disabled, '원문 연습 문항의 상세답안 차단 실패');
+        click('[data-pane="write"]');
+        input('#draft', '2007년 검증용 답안');
+        await reload();
+        assert(find('[data-selected-id]').dataset.selectedId === id, '추가 문항 ID 복원 실패');
+        assert(find('#draft').value === '2007년 검증용 답안', '추가 문항 답안 복원 실패');
+        checkWidth(width);
+      },
     };
 
     try {
@@ -304,6 +335,16 @@
       status.textContent = 'HOLD · ' + error.message;
     }
   });
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(config.resultKey) || 'null');
+    if (saved?.revision === config.revision && saved.origin === location.origin) {
+      display(saved.checks);
+      status.textContent = '최근 검증 · ' + new Date(saved.checkedAt).toLocaleString('ko-KR');
+    }
+  } catch {
+    status.textContent = '이전 검증 기록을 읽을 수 없습니다.';
+  }
 
   run.onclick = async () => {
     const buttons = [run, ...document.querySelectorAll('[data-width]')];

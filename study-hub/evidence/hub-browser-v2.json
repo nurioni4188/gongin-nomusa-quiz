@@ -1,7 +1,7 @@
 {
-  "revision": "2026.11.13.2",
-  "checkedAt": "2026-11-13T06:43:22.174Z",
-  "scope": "Sites preview, Chromium over HTTP, same-origin frame viewports",
+  "revision": "2026.11.15.2",
+  "checkedAt": "2026-11-14T22:13:05.500Z",
+  "scope": "Sites 검토본 · Chromium · 로컬 HTTP",
   "checks": [
     {
       "width": 1440,
@@ -20,6 +20,11 @@
     },
     {
       "width": 1440,
+      "id": "navigation",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
       "id": "exam",
       "status": "PASS"
     },
@@ -36,6 +41,11 @@
     {
       "width": 1440,
       "id": "first",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "legacy",
       "status": "PASS"
     },
     {
@@ -55,6 +65,11 @@
     },
     {
       "width": 360,
+      "id": "navigation",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
       "id": "exam",
       "status": "PASS"
     },
@@ -71,6 +86,11 @@
     {
       "width": 360,
       "id": "first",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "legacy",
       "status": "PASS"
     },
     {
@@ -90,6 +110,11 @@
     },
     {
       "width": 390,
+      "id": "navigation",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
       "id": "exam",
       "status": "PASS"
     },
@@ -106,6 +131,11 @@
     {
       "width": 390,
       "id": "first",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "legacy",
       "status": "PASS"
     }
   ]

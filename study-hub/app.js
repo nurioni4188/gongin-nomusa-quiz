@@ -26,6 +26,7 @@
   const defaultId = essayRows.find(row => row.origin === 'V103_57' && row.year === 2025).key;
   const explanations = window.NOMUSA_V108_EXPLANATIONS?.entries || {};
   const dataCounts = {
+    mathChecked: Object.values(explanations).filter(entry => entry.validationStatus === 'PASS_IMAGE_AND_DERIVATION').length,
     explanations: Object.keys(explanations).length,
     incomplete: firstRows.filter(row => row.o?.length !== 5).length,
     scanned: firstRows.filter(row => row.tx !== 'pdf').length,
@@ -326,7 +327,7 @@
         ${button('← 이전 문항', 'q-prev', 'mini', index > 0 ? '' : 'disabled')}
         ${button('다음 문항 →', 'q-next', 'mini', index + 1 < rows.length ? '' : 'disabled')}
         <div class="spacer"></div>
-        ${isExam ? '' : button(needsReview(row) ? '복습 필요 해제' : '복습 필요 표시', 'wrong', 'mini')}
+        ${isExam ? '' : button(needsReview(row) ? '검토 플래그 해제' : '검토 플래그 표시', 'wrong', 'mini')}
         ${isExam || (!essay && !round) ? '' : button((round ? round.completed?.[row.key] : complete(row)) ? '복습 완료 취소' : '복습 완료', 'done', 'mini')}
       </div>`;
   }
@@ -360,7 +361,7 @@
     if (row.pageStatus === 'VERIFIED_HWP_DOCUMENT_ORDINAL') {
       const range = row.sourcePageEnd > row.sourcePage ? row.sourcePage + '–' + row.sourcePageEnd : row.sourcePage;
       return `<h3 class="panel-title">원본 HWP ${range}쪽</h3>
-        <p class="muted">${esc(row.basis)}</p><p class="footer-note">파일 첫 페이지부터 센 쪽수입니다.</p>`;
+        <p class="muted">${esc(row.basis)}</p><p class="footer-note">파일 첫 페이지부터 센 쪽수입니다. 이 화면에서 HWP 파일 열기는 제공하지 않습니다.</p>`;
     }
     if (!row.pdfPath) return `<h3 class="panel-title">원본 페이지</h3>${notice('원본 PDF 연결 HOLD', '')}`;
     const page = Number(row.pdfPage) || 1;
@@ -418,7 +419,12 @@
     if (locked()) return '';
     const entry = explanations[row.key];
     if (!entry) return '<div class="empty">이 문항의 선택지 해설은 작성 대기 중입니다.</div>';
-    return `<h3 class="panel-title">선택지별 해설</h3>${notice('학습용 해설 초안 · 승인 HOLD', '')}
+    const academic = /경영학|경제학/.test(row.subject);
+    const math = entry.validationStatus === 'PASS_IMAGE_AND_DERIVATION' ? '원본 이미지·풀이 검산 PASS' :
+      entry.validationStatus === 'HOLD_MATH_LOGIC_DISCREPANCY' ? '수식과 수록 정답 불일치 · 검산 HOLD' : '검산 기록 미연결 · HOLD';
+    return `<h3 class="panel-title">선택지별 해설</h3>${notice('학습용 해설 초안 · 해설 검토 중 · 승인 HOLD', '')}
+      ${academic ? `<div class="mini-row"><span>이론·수식·그래프 참고</span>${badge(math)}</div>
+        <div class="row source-actions">${button('수식·그래프 원본 확인', 'source', 'mini')}</div>` : ''}
       <p class="answer">${esc(entry.summary)}</p>
       <ol class="explanation-list">${(entry.options || []).map(value => `<li>${esc(value)}</li>`).join('')}</ol>
       ${entry.mnemonic ? `<p class="answer">${esc(entry.mnemonic)}</p>` : ''}
@@ -587,8 +593,8 @@
   function renderVerify() {
     const matrix = window.HUB_QA;
     const remote = isVercelPreview ? currentVerification() : D.deployment?.browser;
-    const verified = remote?.checks.filter(check => check.status === 'PASS').length || 0;
-    const local = localReport?.checks || [];
+    const verified = remote?.checks?.filter(check => check.status === 'PASS').length || 0;
+    const local = (!isVercelPreview && currentVerification()?.checks) || localReport?.checks || [];
     const prior = local.filter(check => check.status === 'PASS').length;
     const cell = (data, width, id) => {
       const check = data?.find(entry => entry.width === width && entry.id === id);
@@ -601,7 +607,7 @@
     return pageTitle('Preview 검증 대시보드', '답안 작성·저장·복원·실전 모드·JSON 백업을 화면 폭별로 확인합니다.',
       `<a class="button primary" href="qa.html">${icon('check')} 검증 실행</a>`) +
       `<section class="card">
-        <div class="section-head"><div><h2>Vercel Preview 브라우저</h2><p>${esc(D.project)}</p></div>${badge(verified === matrix.widths.length * matrix.checks.length ? 'PASS' : 'HOLD')}</div>
+        <div class="section-head"><div><h2>Vercel Preview 브라우저</h2><p>${esc(D.project)}</p></div>${badge(verified === matrix.widths.length * matrix.checks.length ? 'PASS' : 'Preview 검증 HOLD')}</div>
         <p class="muted">${isVercelPreview ? '현재 Preview에서 검증을 실행하면 이 브라우저의 결과를 아래 표에 기록합니다.' :
           'Vercel의 Preview 전용 경로에서 기능을 확인할 수 있습니다.'}</p>
         ${D.deployment?.url && !isVercelPreview ? `<p>${link(D.deployment.url, '기존 Vercel 프로젝트의 학습 Preview 열기')}</p>` : ''}
@@ -614,12 +620,17 @@
       </section>
       <section class="card">
         <div class="section-head"><h2>자료 검토</h2></div>
+        <div class="mini-row"><span>2차 학습 ${essayRows.length}항목 확보 · 원문 연습 ${essaySourceCount}개 포함</span>${badge('PASS')}</div>
+        <div class="mini-row"><span>2007–2012 원문 연습 94개 · HWP 페이지 순번 대조 완료</span>${badge('답안 승인 HOLD')}</div>
+        <div class="mini-row"><span>1차 문제은행 ${firstRows.length.toLocaleString('ko-KR')}문항 확보</span>${badge('PASS')}</div>
+        <div class="mini-row"><span>기준 Vercel Preview 배포 상태</span>${badge(D.deployment?.status === 'READY' ? '배포 READY' : 'HOLD')}</div>
         <div class="mini-row"><span>2차 시험지 PDF ${D.sourcePdfs}개 연결</span>${badge('PASS')}</div>
-        <div class="mini-row"><span>2차 학습용 초안 128개 · 독립 승인 0개</span>${badge('HOLD')}</div>
-        <div class="mini-row"><span>1차 학습용 해설 ${dataCounts.explanations}개 · 미작성 ${firstRows.length - dataCounts.explanations}개</span>${badge('HOLD')}</div>
+        <div class="mini-row"><span>2차 학습용 초안 128개 · 독립 승인 0개</span>${badge('내용 최종승인 HOLD')}</div>
+        <div class="mini-row"><span>1차 학습용 해설 ${dataCounts.explanations}개 · 해설 검토 중 · 미작성 ${firstRows.length - dataCounts.explanations}개</span>${badge('HOLD')}</div>
+        <div class="mini-row"><span>경영학·경제학 원본·검산 ${dataCounts.mathChecked}개 PASS · 정답과 수식 불일치 1개</span>${badge('내용 최종승인 HOLD')}</div>
         <div class="mini-row"><span>1차 스캔·이미지형 ${dataCounts.scanned}개 · 선택지 5개 미충족 ${dataCounts.incomplete}개</span>${badge('HOLD')}</div>
         <div class="mini-row"><span>Android·iOS 실기기</span>${badge('HOLD')}</div>
-        <p class="footer-note">${esc(D.sourceVersion)} 원본 ${D.baselineFiles.toLocaleString('ko-KR')}개 대조 · 해설 자료 ${esc(D.explanationVersion)}</p>
+        <p class="footer-note">${esc(D.sourceVersion)} 기준 소스 ${D.baselineFiles.toLocaleString('ko-KR')}개 · 해설 자료 ${esc(D.explanationVersion)}</p>
       </section>${verificationNotes()}`;
   }
 
@@ -1034,7 +1045,10 @@
 
   renderShell();
   fetch('evidence/hub-browser-v2.json', {cache: 'no-store'}).then(async response => {
-    if (response.ok) localReport = await response.json();
+    if (response.ok) {
+      const report = await response.json();
+      if (report.revision === D.version) localReport = report;
+    }
     if (view === 'verify') renderMain();
   }).catch(() => {});
 })();
