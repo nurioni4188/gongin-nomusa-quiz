@@ -69,8 +69,8 @@ function renderContent(r){const host=root.querySelector('.v1090-shell[data-v1090
   const a=modelIndex(r);const basis=[...new Set([r.topic,...(r.sections||[]).map(x=>x.title||'')].flatMap(x=>String(x).split(/[·,／:：()\s]+/)).filter(x=>x.length>1&&!/^물음|문제|제\d+문$/.test(x)))].slice(0,16);
   const matches=basis.filter(w=>text.includes(w)),missing=basis.filter(w=>!text.includes(w));
   const outlineTests=buckets(r).map(([l])=>({label:l,checked:l.split(/[·과 ]/).some(x=>x.length>=2&&text.includes(x))}));
-  el.innerHTML=`<h4>내 답안과 학습 초안의 논점 점검</h4><p>기계적인 키워드 문자열 대조입니다. AI 채점·공식 채점은 제공하지 않으며, 판례·학설의 적합성도 판단하지 않습니다. 표현이 달라도 실제로는 같은 내용일 수 있습니다.</p>
-  <p><b>표현 포함 ${matches.length}/${basis.length}</b> · 누락 후보 ${missing.length}개</p><div class="v1090-words">${basis.map(w=>`<span class="${text.includes(w)?'present':'absent'}">${esc(w)} ${text.includes(w)?'✓':'· 검토'}</span>`).join('')}</div>
+  el.innerHTML=`<h4>${a.status==='SOURCE_ONLY'?'내 답안 작성 구조 점검':'내 답안과 학습 초안의 논점 점검'}</h4>${a.status==='SOURCE_ONLY'?'':`<p>기계적인 키워드 문자열 대조입니다. AI 채점·공식 채점은 제공하지 않으며, 판례·학설의 적합성도 판단하지 않습니다. 표현이 달라도 실제로는 같은 내용일 수 있습니다.</p>
+  <p><b>표현 포함 ${matches.length}/${basis.length}</b> · 누락 후보 ${missing.length}개</p><div class="v1090-words">${basis.map(w=>`<span class="${text.includes(w)?'present':'absent'}">${esc(w)} ${text.includes(w)?'✓':'· 검토'}</span>`).join('')}</div>`}
   <h5>과목별 작성 구조 점검</h5><ul>${outlineTests.map(x=>`<li>${x.checked?'✓':'□'} ${esc(x.label)} — ${x.checked?'제목 표현 발견':'관련 내용 직접 확인'}</li>`).join('')}</ul>
   <p class="v1090-warning">${a.status==='SOURCE_ONLY'?'대조할 승인 답안 없음 · 원문과 수동 비교 필요':'기존 학습답안도 검증 전 초안입니다. 자동 비교 결과를 점수·정답으로 사용하지 마세요.'}</p>`;
  } else {
