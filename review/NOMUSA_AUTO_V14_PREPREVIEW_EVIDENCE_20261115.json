@@ -1,0 +1,1253 @@
+{
+  "schema": "nomusa-auto-v1.4-prepreview-evidence",
+  "dateKST": "2026-11-15",
+  "inputCommit": "58f8d72c2d8c90de7feff2b8588625e3db99fa95",
+  "baselineCommit": "966f59e205c406f33ebe3c4c70e4ebb2db88dab9",
+  "draftPR": 3,
+  "browserEnvironment": "Chromium headless shell, local HTTP, fresh browser contexts",
+  "browser": {
+    "schema": "nomusa-auto-v1.4-browser-gate",
+    "status": "PASS",
+    "chromiumVersion": "149.0.7827.22",
+    "results": [
+      {
+        "name": "first_1440",
+        "status": "PASS",
+        "questions": 1020,
+        "choicePersisted": true
+      },
+      {
+        "name": "second_1440",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "hub_1440",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "first_390",
+        "status": "PASS",
+        "questions": 1020,
+        "choicePersisted": true
+      },
+      {
+        "name": "second_390",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "hub_390",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "first_360",
+        "status": "PASS",
+        "questions": 1020,
+        "choicePersisted": true
+      },
+      {
+        "name": "second_360",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "hub_360",
+        "status": "PASS",
+        "counts": {
+          "all": 309,
+          "added": 94,
+          "old": 215,
+          "years": [
+            2007,
+            2026
+          ],
+          "approvals": 0,
+          "yearCount": 20
+        },
+        "overflow": 0
+      },
+      {
+        "name": "existing_hub_qa",
+        "status": "PASS",
+        "checks": [
+          {
+            "width": 1440,
+            "id": "detail",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "source",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "save",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "exam",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "backup",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "review",
+            "status": "PASS"
+          },
+          {
+            "width": 1440,
+            "id": "first",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "detail",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "source",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "save",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "exam",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "backup",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "review",
+            "status": "PASS"
+          },
+          {
+            "width": 360,
+            "id": "first",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "detail",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "source",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "save",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "exam",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "backup",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "review",
+            "status": "PASS"
+          },
+          {
+            "width": 390,
+            "id": "first",
+            "status": "PASS"
+          }
+        ]
+      }
+    ],
+    "actualPreview": "NOT_DEPLOYED",
+    "production": "NOT_TOUCHED",
+    "legalApproval": "HOLD"
+  },
+  "staticUI": {
+    "status": "PASS_STATIC_ONLY",
+    "total": 309,
+    "baselineCatalog": 128,
+    "archival": 87,
+    "newSourceOnly": 94,
+    "uniqueIds": 309,
+    "totalDistinctIds": 1405,
+    "years": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "errors": [],
+    "realBrowser": "NOT_TESTED",
+    "sourceVisualAccuracy": "HOLD",
+    "legalContentApproval": "HOLD",
+    "deploy": "NOT_REQUESTED"
+  },
+  "legalSidecarStatic": {
+    "schema": "nomusa-v1107-source-gate-v1",
+    "status": "PASS_STATIC_ONLY",
+    "counts": {
+      "sourceAnswers": 47,
+      "untouched": 41,
+      "targets": 6,
+      "corrections": 18
+    },
+    "failures": [],
+    "legalContentApproval": "0/47 HOLD",
+    "httpsPreview": "NOT_TESTED"
+  },
+  "hwpText": {
+    "status": "PASS_HWP_TEXT_AND_POINTS",
+    "method": "SHA-256, HWP5 ViewText/BodyText paragraph extraction, NFKC and whitespace comparison after removing intervening subject headers; compare printed points and per-question totals",
+    "sources": 6,
+    "majorQuestions": 94,
+    "subquestions": 76,
+    "boundary2013": "PASS_SHA256",
+    "sourcePageAndVisualMathGraph": "HOLD",
+    "questions": [
+      {
+        "id": "legacy2-2007-labor1-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-labor1-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2007-labor2-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-labor2-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2007-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-hrm-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2007-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-organization-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2007-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-administrative-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2007-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          20,
+          10,
+          20
+        ],
+        "subPoints": [
+          20,
+          10,
+          20
+        ]
+      },
+      {
+        "id": "legacy2-2007-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2007-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          10,
+          15
+        ],
+        "subPoints": [
+          10,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2008-labor1-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-labor1-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2008-labor2-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-labor2-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-labor2-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-hrm-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2008-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-organization-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2008-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-administrative-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2008-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          15,
+          15,
+          20
+        ],
+        "subPoints": [
+          15,
+          15,
+          20
+        ]
+      },
+      {
+        "id": "legacy2-2008-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2008-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          15,
+          10
+        ],
+        "subPoints": [
+          15,
+          10
+        ]
+      },
+      {
+        "id": "legacy2-2009-labor1-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-labor1-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2009-labor2-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-labor2-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-labor2-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-hrm-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2009-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-organization-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2009-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2009-administrative-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2009-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          30,
+          10,
+          10
+        ],
+        "subPoints": [
+          30,
+          10,
+          10
+        ]
+      },
+      {
+        "id": "legacy2-2009-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          15,
+          10
+        ],
+        "subPoints": [
+          15,
+          10
+        ]
+      },
+      {
+        "id": "legacy2-2009-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-labor-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-labor-q2",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-labor-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-labor-q4",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-hrm-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2010-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-organization-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-organization-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-administrative-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-administrative-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          10,
+          25,
+          15
+        ],
+        "subPoints": [
+          10,
+          25,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2010-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          10,
+          15
+        ],
+        "subPoints": [
+          10,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2010-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          16,
+          9
+        ],
+        "subPoints": [
+          16,
+          9
+        ]
+      },
+      {
+        "id": "legacy2-2010-civil-procedure-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2010-civil-procedure-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2011-labor1-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-labor1-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-labor2-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-labor2-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-hrm-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2011-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-administrative-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-administrative-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-organization-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-organization-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-civil-procedure-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2011-civil-procedure-q2",
+        "total": 50,
+        "printedPoints": [
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2011-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          15,
+          25,
+          5,
+          5
+        ],
+        "subPoints": [
+          15,
+          25,
+          10
+        ]
+      },
+      {
+        "id": "legacy2-2011-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          10,
+          15
+        ],
+        "subPoints": [
+          10,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2011-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          10,
+          15
+        ],
+        "subPoints": [
+          10,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2012-labor1-q1",
+        "total": 50,
+        "printedPoints": [
+          50,
+          30,
+          20
+        ],
+        "subPoints": [
+          30,
+          20
+        ]
+      },
+      {
+        "id": "legacy2-2012-labor1-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-labor2-q1",
+        "total": 50,
+        "printedPoints": [
+          50,
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2012-labor2-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-hrm-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-hrm-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-hrm-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-administrative-q1",
+        "total": 50,
+        "printedPoints": [
+          50,
+          25,
+          25
+        ],
+        "subPoints": [
+          25,
+          25
+        ]
+      },
+      {
+        "id": "legacy2-2012-administrative-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-administrative-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-organization-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-organization-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-organization-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-labor-economics-q1",
+        "total": 50,
+        "printedPoints": [
+          50,
+          10,
+          20,
+          20
+        ],
+        "subPoints": [
+          10,
+          20,
+          20
+        ]
+      },
+      {
+        "id": "legacy2-2012-labor-economics-q2",
+        "total": 25,
+        "printedPoints": [
+          25,
+          10,
+          15
+        ],
+        "subPoints": [
+          10,
+          15
+        ]
+      },
+      {
+        "id": "legacy2-2012-labor-economics-q3",
+        "total": 25,
+        "printedPoints": [
+          25,
+          15,
+          10
+        ],
+        "subPoints": [
+          15,
+          10
+        ]
+      },
+      {
+        "id": "legacy2-2012-civil-procedure-q1",
+        "total": 50,
+        "printedPoints": [
+          50
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-civil-procedure-q2",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      },
+      {
+        "id": "legacy2-2012-civil-procedure-q3",
+        "total": 25,
+        "printedPoints": [
+          25
+        ],
+        "subPoints": []
+      }
+    ]
+  },
+  "preservation": {
+    "existingEssayCatalogAndArchiveRecords": "215 identical records, including 128 existing answer items",
+    "ids": "1,405 distinct across 1,020 first-stage questions, 309 second-stage major items and 76 subquestions",
+    "unchangedFiles": [
+      "index.html",
+      "rc35_original_index.html",
+      "data.js",
+      "rc27_essay_catalog.js",
+      "second/archive_2013_2021.js",
+      "study-hub/state.js",
+      "second/v1090-practice.js"
+    ],
+    "existingStorageKeys": [
+      "nomu1-progress-v2",
+      "nomusa_rc27_v103_essay_records_v1",
+      "nomusa_preview_hub_v1"
+    ],
+    "storage": "First-stage selection and pre-seeded existing essay draft coexisted with new-key writes under isolated browser testing"
+  },
+  "fixes": [
+    "Bind second-stage navigation, bookmark and review controls independently from the hidden basic draft editor.",
+    "Preserve open mobile study filters across immediate selection and search re-render.",
+    "Calculate second-stage year span and counts from the loaded catalog.",
+    "Drive the visible editor and mobile controls in real Chromium, with separate first-stage and existing-hub regression cases.",
+    "Check cross-stage ID uniqueness, unchanged existing essay records and exact source overlay agreement."
+  ],
+  "previewReadiness": "HOLD",
+  "holdReasons": [
+    "94 major items still have no verified original print page",
+    "Visual verification of formulas, graphs and HWP page layout remains pending",
+    "Preview deployment requires separate approval"
+  ],
+  "release": {
+    "team": "onnuri4188gmailcoms-projects",
+    "project": "gongin-nomusa-rc27-preview",
+    "newPreview": "NOT_DEPLOYED",
+    "production": "NOT_CHANGED",
+    "main": "NOT_CHANGED"
+  }
+}

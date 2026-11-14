@@ -19,6 +19,9 @@
     topic: row.n + '번 문제', sourceText: row.q,
   }));
   const essayRows = E.map(row => ({...row, stage: 'essay', key: row.id, r: row.year - 1991}));
+  const essayYears = essayRows.map(row => row.year);
+  const essayYearRange = `${Math.min(...essayYears)}–${Math.max(...essayYears)}`;
+  const essaySourceCount = essayRows.filter(row => row.sourceOnly).length;
   const all = new Map([...essayRows, ...firstRows].map(row => [row.key, row]));
   const defaultId = essayRows.find(row => row.origin === 'V103_57' && row.year === 2025).key;
   const explanations = window.NOMUSA_V108_EXPLANATIONS?.entries || {};
@@ -55,7 +58,7 @@
   const notice = (message, style = 'gray') => `<div class="notice ${style}">${icon(style ? 'shield' : 'warn')}<div>${message}</div></div>`;
   const pageTitle = (heading, description, action = '') =>
     `<div class="page-title"><div><h1>${heading}</h1><p>${description}</p></div>${action}</div>`;
-  const groups = [['all', '모든 학습 단위'], ['new', '신규 57개 대문제'], ['old', '기존 71개 답안'], ['source', '원문 연습 87개']];
+  const groups = [['all', '모든 학습 단위'], ['new', '신규 57개 대문제'], ['old', '기존 71개 답안'], ['source', `원문 연습 ${essaySourceCount}개`]];
   const filtersFor = stage => ({stage, year: 'all', subject: 'all', round: 'all', group: 'all', query: ''});
   const examEnd = () => Math.max(Number(S.essay.examEnd) || 0, Number(S.hub.exam?.end) || 0);
   const locked = () => examEnd() > Date.now();
@@ -171,7 +174,7 @@
     const doneFirst = firstRows.filter(complete).length;
     return pageTitle('공인노무사 기출 학습', '2차 논술 답안 작성과 1차 기출 문제풀이를 이어가세요.') +
       `<section class="hero">
-        <div><p class="hero-kicker">2013–2026 · 2차 답안학습</p>
+        <div><p class="hero-kicker">${essayYearRange} · 2차 답안학습</p>
           <h2>기출문제 풀이부터<br>답안 작성과 복습까지</h2>
           <p>상세답안 → 시험장 압축답안 → 직접 작성 → 비교·복습</p>
           <div class="hero-actions">
@@ -181,7 +184,7 @@
         </div>
       </section>
       <section class="stats" aria-label="학습 자료 범위">
-        <div class="stat"><div class="stat-top">2차 · 2013–2026 ${icon('book')}</div><strong>215</strong><span class="unit">개 연습 단위</span><p>학습 초안 128개 · 원문 연습 87개</p></div>
+        <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>학습 초안 ${essayRows.length - essaySourceCount}개 · 원문 연습 ${essaySourceCount}개</p></div>
         <div class="stat"><div class="stat-top">1차 · 2022–2026 ${icon('layers')}</div><strong>1,020</strong><span class="unit">문항</span><p>${button('1차 문제풀이', 'start-first', 'mini')}</p></div>
         <div class="stat"><div class="stat-top">2차 · 신규 대문제 ${icon('note')}</div><strong>57</strong><span class="unit">개 대문제</span><p>${button('신규 대문제 보기', 'new57', 'mini')}</p></div>
       </section>
@@ -249,7 +252,7 @@
     const pages = Math.max(1, Math.ceil(rows.length / 30));
     listPage = Math.min(Math.max(0, listPage), pages - 1);
     return pageTitle(essay ? '2차 답안학습' : '1차 기출 문제풀이',
-      essay ? '2013–2026년 · 215개 연습 단위' : '2022–2026년 · 1,020문항',
+      essay ? `${essayYearRange}년 · ${essayRows.length}개 연습 단위` : '2022–2026년 · 1,020문항',
       button(icon('clock') + ' 실전 모드', 'exam', '', row && !locked() ? '' : 'disabled')) +
       `<div class="study-toolbar">
         <div class="segmented" aria-label="시험 단계">
@@ -665,6 +668,7 @@
     for (const key of ['year', 'subject', 'round', 'group']) {
       const field = document.getElementById('filter-' + key);
       if (field) field.onchange = () => {
+        filterOpen = fieldset.open;
         filters[key] = field.value;
         if (key === 'year' && filters.round !== 'all' && Number(field.value) - 1991 !== Number(filters.round)) filters.round = 'all';
         if (key === 'round' && filters.year !== 'all' && Number(field.value) + 1991 !== Number(filters.year)) filters.year = 'all';
@@ -676,6 +680,7 @@
     const search = document.getElementById('search');
     if (search) search.oninput = event => {
       if (event.isComposing) return;
+      filterOpen = fieldset.open;
       const at = search.selectionStart;
       filters.query = search.value;
       listPage = 0;
