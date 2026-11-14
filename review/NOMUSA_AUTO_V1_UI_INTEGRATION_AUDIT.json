@@ -1,0 +1,60 @@
+{
+  "schema": "nomusa-v1.2-integration-audit",
+  "scope": "2007-2026 second-stage PREVIEW_SOURCE_ONLY",
+  "sourceReview": {
+    "stagedYears": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ],
+    "majorQuestions": 94,
+    "subQuestions": 76,
+    "missingMajorPoints": 5,
+    "missingSubPoints": 3,
+    "sourcePageKnown": 0,
+    "originalHwpVisualChecked": false,
+    "status": "HOLD"
+  },
+  "catalogReview": {
+    "originalAnswerItems": 128,
+    "existingArchiveSourceItems": 87,
+    "newLegacySourceItems": 94,
+    "totalUniqueIds": 309,
+    "idCollisions": 0,
+    "yearRange": [
+      2007,
+      2026
+    ],
+    "status": "PASS_STATIC_DATA_CHECK"
+  },
+  "uiChanges": [
+    "second/index.html",
+    "study-hub/index.html",
+    "second/legacy_2007_2012_source_only.js"
+  ],
+  "preservation": {
+    "existingAnswerCatalogUnmodified": true,
+    "existingStorageKeyUnmodified": true,
+    "firstStageAppUnmodified": true,
+    "existingSourceArchiveUnmodified": true
+  },
+  "tests": {
+    "connectorBasedStructuralCheck": "PASS",
+    "nodeCliScriptExecution": "NOT_RUN",
+    "browserDesktop": "NOT_RUN",
+    "browserMobile360": "NOT_RUN",
+    "browserMobile390": "NOT_RUN",
+    "saveReload": "NOT_RUN",
+    "detailedAnswerApproval": "HOLD"
+  },
+  "release": {
+    "preview": "NOT_DEPLOYED",
+    "production": "NOT_DEPLOYED",
+    "main": "NOT_MODIFIED",
+    "draftPR": 3
+  },
+  "decision": "SOURCE_STAGE_INTEGRATION_IMPLEMENTED_BUT_BROWSER_AND_CONTENT_HOLD"
+}
