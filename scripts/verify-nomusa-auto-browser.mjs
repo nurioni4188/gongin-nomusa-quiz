@@ -105,7 +105,9 @@ try {
       select('2007');
       click('[data-answer="nomusa-auto-2007-labor1-q1"]');
       click('[data-pane="detail"]');
-      if (!find('.n1079-empty')?.textContent.includes('HOLD')) throw Error('Answer HOLD');
+      if (!find('.n27-tag.hold')?.textContent.includes('HOLD')) throw Error('Answer HOLD');
+      click('[data-pane="compact"]');
+      if (!find('[aria-label="학습용 압축답안"]')) throw Error('Historical compact answer');
       click('#n1079-advanced summary');
       click('[aria-label="문항별 원본 위치"] summary');
       if (!find('[aria-label="문항별 원본 위치"]').textContent.includes('HWP 페이지 HOLD') || !layout()) throw Error('Source panel layout');

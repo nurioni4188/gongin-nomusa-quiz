@@ -36,8 +36,12 @@ for (const q of historical) {
   const row = byId.get(q.id);
   assert.equal(row.approved, false);
   assert.equal(row.answerStatus, "HOLD");
-  assert.equal(row.sourceOnly, true);
-  assert.equal(row.sections.length, 0);
+  assert.equal(row.sourceOnly, false);
+  assert.equal(row.sections.length, q.subquestions.length || 1);
+  for (const section of row.sections) {
+    assert.ok(section.detailed.trim(), q.id);
+    assert.ok(section.compressed.trim(), q.id);
+  }
   assert.equal(q.page, null);
   assert.equal(q.pageStatus, "HOLD");
 }
