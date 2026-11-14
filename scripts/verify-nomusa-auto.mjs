@@ -37,7 +37,12 @@ for (const q of historical) {
   assert.equal(row.approved, false);
   assert.equal(row.answerStatus, "HOLD");
   assert.equal(row.sourceOnly, false);
-  assert.equal(row.sections.length, q.subquestions.length || 1);
+  if (row.studyPilot) {
+    assert.ok(row.sections.length >= (q.subquestions.length || 2));
+    assert.ok(row.studyPilot.evidence.every(entry => entry.url.startsWith('https://')));
+  } else {
+    assert.equal(row.sections.length, q.subquestions.length || 1);
+  }
   for (const section of row.sections) {
     assert.ok(section.detailed.trim(), q.id);
     assert.ok(section.compressed.trim(), q.id);

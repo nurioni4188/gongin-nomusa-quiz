@@ -21,7 +21,7 @@
       id: question.id, year: question.year, subject: question.subject,
       topic: "제" + question.round + "회 · 문제 " + question.number + " · " + draft.topic,
       points: question.points ?? "미확정", sourceOnly: false, approved: false,
-      answerStatus: "HOLD", sourceStatus: "HWP_EXTRACT_REVIEW_PENDING", sections: draft.sections,
+      answerStatus: "HOLD", sourceStatus: "HWP_EXTRACT_REVIEW_PENDING", sections: draft.sections, studyPilot: draft.studyPilot,
       basis: filename + " · 추출문 " + question.lines[0] + "행부터 · 원본 쪽·시각자료 HOLD · 학습 초안 · 시험일 법령·판례 및 학술 근거 대조 HOLD",
       sourceText: [question.text, ...question.subquestions.map(part => part.text)].join("\n\n"),
       historicalSource: [question],

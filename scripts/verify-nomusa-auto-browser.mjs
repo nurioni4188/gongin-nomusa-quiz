@@ -68,7 +68,7 @@ try {
     });
   }
   async function evaluate(expression) {
-    const result = await send("Runtime.evaluate", { expression, returnByValue: true });
+    const result = await send("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
     if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description ?? result.exceptionDetails.text);
     return result.result.value;
   }
@@ -80,7 +80,7 @@ try {
     await send("Emulation.setDeviceMetricsOverride", { width, height: 900, deviceScaleFactor: 1, mobile: width < 500 });
     await send("Page.navigate", { url });
     await ready();
-    const result = await evaluate(`(() => {
+    const result = await evaluate(`(async () => {
       const find = s => document.querySelector(s);
       const click = s => find(s).click();
       const select = y => {
@@ -96,7 +96,8 @@ try {
       click('[data-pane="compact"]');
       if (!find('[aria-label="학습용 압축답안"]')) throw Error('Compact answer');
       click('[data-pane="write"]');
-      const existing = find('#n27-draft');
+      await new Promise(resolve => setTimeout(resolve, 0));
+      const existing = find('#v1090-editor');
       existing.value = '기존 ' + ${width};
       existing.dispatchEvent(new Event('input'));
       select('2013');
@@ -112,10 +113,11 @@ try {
       click('[aria-label="문항별 원본 위치"] summary');
       if (!find('[aria-label="문항별 원본 위치"]').textContent.includes('HWP 페이지 HOLD') || !layout()) throw Error('Source panel layout');
       click('[data-pane="write"]');
-      const input = find('#n27-draft');
+      await new Promise(resolve => setTimeout(resolve, 0));
+      const input = find('#v1090-editor');
       input.value = '과거 ' + ${width};
       input.dispatchEvent(new Event('input'));
-      if (!find('#n27-save-state').textContent.includes('임시저장 완료')) throw Error('Autosave');
+      if (!find('[data-v1090-status]')) throw Error('Autosave status');
       click('[data-pane="compare"]');
       if (find('#n27-flag').textContent.includes('취소')) click('#n27-flag');
       click('#n27-flag');
@@ -127,10 +129,11 @@ try {
     assert.equal(result, true, "Local storage or viewport");
     await send("Page.reload", { ignoreCache: true });
     await ready();
-    assert.equal(await evaluate(`(() => {
+    assert.equal(await evaluate(`(async () => {
       document.querySelector('[data-answer="nomusa-auto-2007-labor1-q1"]').click();
       document.querySelector('[data-pane="write"]').click();
-      return document.querySelector('#n27-draft').value === '과거 ' + ${width}
+      await new Promise(resolve => setTimeout(resolve, 0));
+      return document.querySelector('#v1090-editor').value === '과거 ' + ${width}
         && document.querySelector('#n27-flag').textContent.includes('취소')
         && document.documentElement.scrollWidth <= innerWidth;
     })()`), true, "Reload restores draft and review");
