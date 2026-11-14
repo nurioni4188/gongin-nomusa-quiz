@@ -52,3 +52,13 @@
 }
 /* One authoritative editor on each question: original pane remains in DOM for compatibility but is not simultaneously displayed. */
 #n27-essay-root .n27-detail:has(.v1090-shell) > .n106-workspace.n106-write{display:none}
+
+@media (max-width: 600px) {
+  #n27-essay-root .n1079-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--surface, #fff);
+    padding-block: .4rem;
+  }
+}

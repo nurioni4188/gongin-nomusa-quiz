@@ -185,6 +185,18 @@ function keywordComparison(r){const sections=r.sections?.length?r.sections:[{tit
  const matched=words.filter(w=>mine.includes(w));const unmatched=words.filter(w=>!mine.includes(w));return `<div class="n107-keyword-result"><b>${esc(section.title||'핵심어')}</b><p>문자열 포함 ${matched.length}/${words.length} · 의미·동의어·정답 여부는 판정하지 않습니다.</p><div>${words.map(w=>`<span class="n107-word ${mine.includes(w)?'seen':'unseen'}">${esc(w)} ${mine.includes(w)?'✓':'—'}</span>`).join('')}</div></div>`;}).filter(Boolean);
  return groups.length?`<section class="n107-keyword-review"><h3>내 답안의 키워드 확인</h3>${groups.join('')}</section>`:'';
 }
+function historicalSourcePanel(r){
+ const qs=r.historicalSource;
+ if(!qs?.length)return '';
+ const file=window.NOMUSA_AUTO_SOURCE.sources.find(entry=>entry.year===r.year);
+ const describe=q=>[
+   q.points===null?'배점 HOLD':q.points+'점'+(q.pointBasis.startsWith('sum_')?' (표기 배점 합산)':''),
+   '추출문 '+q.lines.join('–')+'행',
+   q.graphPrompt?'도식·그래프 요구':'',
+   q.formulaPrompt?'수식·조건 요구 후보':''
+ ].filter(Boolean).join(' · ');
+ return `<details class="n27-note" aria-label="문항별 원본 위치" style="overflow-wrap:anywhere"><summary>문항별 원본 위치와 배점</summary><p>${esc(file.filename)} · ${qs[0].page?'PDF '+qs[0].page+'쪽':'HWP 페이지 HOLD'} · 수식·그래프 시각 대조 HOLD</p><ol>${qs.map(q=>`<li>문제 ${esc(q.number)} · ${esc(describe(q))}${q.subquestions.length?`<ul>${q.subquestions.map(p=>`<li>소문항 ${esc(p.number)} · ${esc(describe(p))}</li>`).join('')}</ul>`:''}</li>`).join('')}</ol></details>`;
+}
 function sourcePanel(r){const rel=typeof r.pdfPath==='string'&&/^source_pdf\/\d{4}\/[a-zA-Z0-9_-]+\.pdf$/.test(r.pdfPath)?'../'+r.pdfPath:null;
  const link=rel?`<a href="${esc(rel)}#page=${Number(r.pdfPage)||1}" target="_blank" rel="noopener noreferrer">PDF 새 창으로 열기</a>`:`<a href="https://www.q-net.or.kr/cst003.do?gId=05&amp;gSite=L&amp;id=cst00309" target="_blank" rel="noopener noreferrer">Q-Net 공식 문제지 자료실</a>`;
  const check=saved.sourceChecks[r.id]===true;
@@ -246,7 +258,7 @@ function unifiedLearningAnswer(r){
 function modelBody(r,lock,isOnly){
  if(lock)return '<div class="n27-hidden-answer" role="status">20분 실전 진행 중: 학습답안·암기·비교를 숨겼습니다. 직접 작성만 가능합니다.</div>';
  if(pane==='memory')return memoryBody(r);
- if(isOnly)return '<section class="n1079-empty"><h3>원문 중심 직접 작성</h3><p>검토된 학습답안이 없습니다. 원본문제지를 확인하고 직접 작성하세요. 없는 정답을 생성하지 않습니다.</p></section>';
+ if(isOnly)return '<section class="n1079-empty"><h3>원문 중심 직접 작성</h3><p>학습답안 HOLD · 원본문제지를 확인하고 직접 작성하세요.</p></section>';
  if(pane==='write')return '';
  if(pane==='compact')return `<section aria-label="학습용 압축답안"><h3>시험장 압축답안 <small>학습 초안</small></h3>${r.sections.map(t=>`<h4>${esc(t.title)}</h4>${!t.compressed?'<p class="n27-note">기존 상세답안 발췌 · 완성된 압축 모범답안 아님</p>':''}<div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</section>`;
  if(pane==='compare')return `<section aria-label="내 답안 비교"><h3>내 답안과 학습내용 비교</h3><p class="n27-note">문자열 일치 여부는 정답 채점과 다릅니다.</p><div class="n106-compare"><div class="n106-side"><h4>내 답안</h4><div class="n106-own">${esc(saved.drafts[r.id]||'직접 작성 탭에서 답안을 작성해 주세요.')}</div></div><div class="n106-side"><h4>학습용 압축답안</h4>${r.sections.map(t=>`<h5>${esc(t.title)}</h5><div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</div></div>${keywordComparison(r)}</section>`;
@@ -269,21 +281,22 @@ function detail(r,found){
  <div class="n27-tags"><span class="n27-tag">${r.year}년</span><span class="n27-tag">${esc(r.subject)}</span><span class="n27-tag">${esc(r.points)}점</span><span class="n27-tag hold">${isOnly?'원문 연습':'학습용 초안 · 승인 HOLD'}</span></div>
  <h2>${esc(r.topic)}</h2>
  <div class="n27-actions n27-nav"><button class="btn" id="n27-prev" ${ix<=0?'disabled':''}>이전</button><button class="btn" id="n27-next" ${ix>=found.length-1?'disabled':''}>다음</button><button class="btn" id="n27-bookmark">${saved.bookmarks[r.id]?'★ 즐겨찾기 해제':'☆ 즐겨찾기'}</button></div>
- <section class="n1079-question" aria-label="기출문제"><div class="n1079-question-head"><h3>기출문제</h3><span class="n27-note">${esc(r.points)}점 · ${esc(targetLabel)}</span></div><div class="n1079-question-text">${esc(requirement||r.sourceText||'원본 PDF에서 질문을 확인하세요.')}</div><div class="n1079-question-tools">${pdf?`<a href="${esc(pdf)}" target="_blank" rel="noopener noreferrer">원본문제지 PDF 열기</a>`:''}<span class="n27-note">문제 텍스트·배점은 원본 대조가 필요합니다.</span></div></section>
+ <section class="n1079-question" aria-label="기출문제"><div class="n1079-question-head"><h3>기출문제</h3><span class="n27-note">${esc(r.points)}점 · ${esc(targetLabel)}</span></div><div class="n1079-question-text">${esc((r.historicalSource?.length?r.sourceText:requirement)||r.sourceText||'원본 PDF에서 질문을 확인하세요.')}</div><div class="n1079-question-tools">${pdf?`<a href="${esc(pdf)}" target="_blank" rel="noopener noreferrer">원본문제지 PDF 열기</a>`:''}<span class="n27-note">문제 텍스트·배점은 원본 대조가 필요합니다.</span></div></section>
  <div class="n106-tabs n1079-tabs" role="group" aria-label="학습 단계">${panes.map(([id,title])=>`<button type="button" class="n106-tab ${pane===id?'current':''}" data-pane="${id}" aria-pressed="${pane===id}" ${lock&&id!=='write'?'disabled title="실전에서는 작성만 가능"':''}>${id==='compact'?'압축답안':id==='memory'?'암기':title}</button>`).join('')}</div>
  ${pane==='write'||lock?`<section class="n106-workspace n106-write" aria-label="나의 답안 작성"><div class="n106-work-head"><h3>내 답안 <span class="n27-note">· 자동저장</span></h3><span id="n106-count" class="n27-note">${lengthOf(saved.drafts[r.id]||'')}자</span></div><textarea id="n27-draft" rows="16" placeholder="쟁점 → 법리·이론 → 사안 적용·분석 → 결론">${esc(saved.drafts[r.id]||'')}</textarea><div class="n106-work-foot"><button type="button" class="btn" id="n106-outline">답안 틀 삽입</button><span id="n27-save-state" role="status" class="n27-note">${saved.drafts[r.id]?'저장된 답안 있음':'새 답안'}</span></div><p class="n27-note">브라우저에 자동 저장됩니다. 로그인·기기 간 동기화는 제공하지 않습니다.</p></section>`:''}
  ${modelBody(r,lock,isOnly)}
+ ${!lock&&pane==='detail'&&r.studyPilot?`<details class="n1079-bibliography"><summary>학습 목표와 참고 근거</summary><p>${esc(r.studyPilot.goal)} · 근거 적용 및 답안 승인 HOLD</p><ul>${r.studyPilot.evidence.map(link=>`<li><a href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${esc(link.label)}</a></li>`).join('')}</ul></details>`:''}
  ${!lock&&pane==='compare'?checklistBody(r,lock):''}
  ${!lock?`<details class="n1079-length" id="n1079-length"><summary>답안지 분량 · ${esc(targetLabel)} ${planLabel} <span class="n27-note">설정 변경</span></summary>${writingPlanPanel(r,lock)}<button type="button" class="btn" id="n1079-reset-length">권장 장수로 초기화</button></details>`:''}
- ${!lock?`<details class="n1079-advanced" id="n1079-advanced"><summary>원본문제지 · 근거·검증 기록 자세히 보기</summary><div class="n1079-advanced-body">${sourcePanel(r)}${referencePanel(r)}${evidence1076Panel(r)}${qualityAuditPanel(r)}${answerGuide(r)}${curatedQualityPanel(r)}<details class="n107-transcript"><summary>원본 추출 텍스트 전체 보기</summary><div class="n27-source">${esc(r.sourceText)}</div></details></div></details>`:''}
+ ${!lock?`<details class="n1079-advanced" id="n1079-advanced"><summary>원본문제지 · 근거·검증 기록 자세히 보기</summary><div class="n1079-advanced-body">${sourcePanel(r)}${historicalSourcePanel(r)}${referencePanel(r)}${evidence1076Panel(r)}${qualityAuditPanel(r)}${answerGuide(r)}${curatedQualityPanel(r)}<details class="n107-transcript"><summary>원본 추출 텍스트 전체 보기</summary><div class="n27-source">${esc(r.sourceText)}</div></details></div></details>`:''}
  <p class="n1079-disclaimer">학습용 검토 초안입니다. 공식 모범답안이나 채점기준이 아니며, 법령·판례·학술자료와의 직접 적용은 별도 확인이 필요합니다.</p>
  <div class="n27-actions"><button type="button" class="btn" id="n27-flag">${questionReviewed(r)?'복습 완료 취소':'복습 완료 표시'}</button></div></article>`;
 }
 function render(){stopExpired();if(locked()&&pane!=='write')pane='write';const found=getRows();if(!found.some(r=>r.id===selected)){selected=found[0]?.id||null;pdfOpen=false;}const current=selected?byId.get(selected):null;
  const done=Object.keys(saved.flags).filter(k=>byId.has(k)&&questionReviewed(byId.get(k))).length;
  const drafts=Object.keys(saved.drafts).filter(k=>byId.has(k)&&saved.drafts[k]?.trim()).length;
- root.innerHTML=`<div class="n27-alert"><strong>2013~2026년 공인노무사 2차 통합 학습</strong> · ${rows.length}개 연습 항목 중 상세·압축답안 제공 ${answerCount}개, 원문 중심 직접작성 ${sourceCount}개. 승인된 공식 모범답안은 0개입니다.</div>
- <div class="n27-metrics"><div><strong>${years.length}</strong><small>수록 연도</small></div><div><strong>${rows.length}</strong><small>연습 항목</small></div><div><strong>${drafts}</strong><small>내 답안 저장</small></div><div><strong>${done}</strong><small>복습 완료</small></div></div>
+ root.innerHTML=`<div class="n27-alert"><strong>2007~2026년 공인노무사 2차 통합 학습</strong> · ${rows.length}개 연습 항목 중 상세·압축답안 제공 ${answerCount}개, 원문 중심 직접작성 ${sourceCount}개. 승인된 공식 모범답안은 0개입니다.</div>
+ <div class="n27-metrics"><div><strong>${years.length}</strong><small>수록 연도</small></div><div><strong>${rows.length}</strong><small>연습 항목</small></div><div><strong>${drafts}</strong><small>내 답안 저장</small></div><div><strong>${done} · ${Math.round(100*done/rows.length)}%</strong><small>복습 완료</small></div></div>
  <div class="n27-panel"><div class="n27-filters"><label>연도<select id="n27-year">${opt('all','전체 연도',year)}${years.map(y=>opt(String(y),String(y)+'년',year)).join('')}</select></label><label>과목<select id="n27-subject">${opt('all','전체 과목',subject)}${subjects.map(s=>opt(s,s,subject)).join('')}</select></label><label>학습자료<select id="n27-type">${opt('all','모두',answerType)}${opt('draft','답안 초안 있음',answerType)}${opt('source','원문 연습',answerType)}</select></label><label>검색<input type="search" id="n27-find" placeholder="문제·논점·연도별 검색" value="${esc(query)}"></label></div>
  <div class="n27-actions"><button type="button" class="btn primary" id="n27-timer">${locked()?'실전 종료':'20분 실전 시작'}</button><span id="n27-clock" class="n27-note">${locked()?'실전 진행 중':'학습 모드'}</span><button type="button" class="btn" id="n27-random" ${found.length?'':'disabled'}>무작위 문제</button><button type="button" class="btn" id="n27-export">기록 JSON 내보내기</button><label class="btn" style="cursor:pointer">기록 가져오기<input type="file" id="n27-import" accept=".json,application/json" hidden></label></div>
  <p class="n27-status" id="n27-status" role="status">${esc(message)}</p><div class="n27-cols"><aside class="n27-list" aria-label="문제 목록"><p class="n27-note">조건에 맞는 문제 ${found.length}개 · 점수 확정 및 공식 채점 아님</p>${found.map(r=>`<button type="button" class="n27-choice ${selected===r.id?'active':''}" data-answer="${esc(r.id)}"><b>${r.year} · ${esc(r.subject)}</b> ${esc(r.topic)}<small>${r.sourceOnly?'원문 연습':'학습 초안'}${questionReviewed(r)?' · 복습완료':''}${saved.bookmarks[r.id]?' · ★':''}${saved.drafts[r.id]?.trim()?' · 작성중':''}</small></button>`).join('')}</aside>${detail(current,found)}</div></div>`;
@@ -293,7 +306,7 @@ function render(){stopExpired();if(locked()&&pane!=='write')pane='write';const f
  root.querySelector('#n27-find').oninput=e=>{const p=e.target.selectionStart;query=e.target.value;render();const x=root.querySelector('#n27-find');x.focus();x.setSelectionRange(p,p)};
  const jump=root.querySelector('#n1079-jump');if(jump)jump.onchange=e=>{selected=e.target.value;pdfOpen=false;render();};
  root.querySelectorAll('[data-answer]').forEach(el=>el.onclick=()=>{selected=el.dataset.answer;pdfOpen=false;render()});
- root.querySelectorAll('[data-pane]').forEach(el=>el.onclick=()=>{if(locked()&&el.dataset.pane!=='write')return;pane=el.dataset.pane;render();if(pane==='write')root.querySelector('#n27-draft')?.focus();});
+ root.querySelectorAll('[data-pane]').forEach(el=>el.onclick=()=>{if(locked()&&el.dataset.pane!=='write')return;pane=el.dataset.pane;render();if(pane==='write')queueMicrotask(()=>(root.querySelector('#v1090-editor')||root.querySelector('#n27-draft'))?.focus());});
  const resetPg=root.querySelector('#n1079-reset-length');if(resetPg&&current)resetPg.onclick=()=>{saved.writingPlans[current.id]={...(saved.writingPlans[current.id]||{}),perPage:writingPlan(current).perPage};delete saved.writingPlans[current.id].pages;store();render();};
  const pg=root.querySelector('#n1077-pages'),pp=root.querySelector('#n1077-per-page');
  if(pg&&pp&&current){
