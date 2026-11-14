@@ -1,0 +1,46 @@
+{
+  "schema": "nomusa-auto-v1.3-prepreview-gate",
+  "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "inspectedHead": "76fc04b5f2f034f475502017b0a495e273cc9310",
+  "stage": "PREVIEW_DEPLOYMENT_NOT_AUTHORIZED",
+  "staticChecks": {
+    "executedViaConnectedGitHubSource": true,
+    "checksTotal": 12,
+    "checksPassed": 12,
+    "checksFailed": 0,
+    "scope": "source-only item counts/IDs/points/HOLD/script loading order/expected viewports",
+    "status": "PASS_STATIC_ONLY"
+  },
+  "rawHwpReview": {
+    "sourceFilesReceived": 6,
+    "sourcePageNumberVerification": "HOLD",
+    "visualMathGraphVerification": "HOLD",
+    "all94QuestionsVisualApproval": "HOLD"
+  },
+  "browser": {
+    "chromiumAvailableInLocalContainer": true,
+    "playwrightPythonAvailable": true,
+    "fullCheckoutAvailable": false,
+    "cloneError": "github.com DNS resolution failed",
+    "runAgainstExactPRHead": false,
+    "desktop1440": "HOLD_NOT_EXECUTED",
+    "mobile390": "HOLD_NOT_EXECUTED",
+    "mobile360": "HOLD_NOT_EXECUTED",
+    "draftAutosaveAndRefresh": "HOLD_NOT_EXECUTED",
+    "questionNavigation": "HOLD_NOT_EXECUTED",
+    "JSONBackupRestore": "HOLD_NOT_EXECUTED"
+  },
+  "githubActions": {
+    "currentCommitPrWorkflowRuns": 0,
+    "autoStart": false
+  },
+  "release": {
+    "draftPr": 3,
+    "mainChanged": false,
+    "baselinePreviewBranchChanged": false,
+    "newPreviewCreated": false,
+    "productionChanged": false
+  },
+  "nextGate": "Obtain full exact PR checkout in runnable browser environment; execute scripts/nomusa-auto-v1-ui-gate.mjs and scripts/nomusa-auto-v12-browser-gate.py; repair failures only on review branch; do not deploy preview without new instruction",
+  "final": "HOLD_PREVIEW_GATE"
+}
