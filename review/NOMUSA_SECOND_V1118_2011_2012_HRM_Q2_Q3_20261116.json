@@ -1,0 +1,97 @@
+{
+  "schema": "nomusa-second-essay-v1118-2011-2012-hrm-25pt/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "description": "Written original source-driven detailed learning drafts for four 25-point 2011–2012 HRM subquestions; published on existing review branch only.",
+  "answers": [
+    {
+      "sourceId": "legacy2-2011-hrm-q2",
+      "subId": "legacy2-2011-hrm-q2-s1",
+      "year": 2011,
+      "topic": "카페테리아 복리후생제도 효과와 한계",
+      "points": 25,
+      "detailChars": 2126,
+      "sourcePage": 2,
+      "file": "second/deep-essay-2011-hrm-q2.js"
+    },
+    {
+      "sourceId": "legacy2-2011-hrm-q2",
+      "subId": "legacy2-2011-hrm-q2-s2",
+      "year": 2011,
+      "topic": "팀 단위 성과평가의 필요성·요소·단계",
+      "points": 25,
+      "detailChars": 2022,
+      "sourcePage": 2,
+      "file": "second/deep-essay-2011-hrm-q2.js"
+    },
+    {
+      "sourceId": "legacy2-2012-hrm-q2",
+      "year": 2012,
+      "topic": "멘토링의 내용·한계·효율적 활용",
+      "points": 25,
+      "detailChars": 2264,
+      "sourcePage": 3,
+      "file": "second/deep-essay-2012-hrm-q2.js"
+    },
+    {
+      "sourceId": "legacy2-2012-hrm-q3",
+      "year": 2012,
+      "topic": "전직지원서비스의 효과와 한계",
+      "points": 25,
+      "detailChars": 2092,
+      "sourcePage": 3,
+      "file": "second/deep-essay-2012-hrm-q3.js"
+    }
+  ],
+  "primaryBibliography": [
+    "Milkovich & Newman (2008), Compensation, 9th ed.",
+    "Cohen & Bailey (1997), What Makes Teams Work",
+    "Valle & Davis (1999), Teams and Performance Appraisal",
+    "Kram (1985), Mentoring at Work",
+    "Latack & Dozier (1986), After the Ax Falls",
+    "Aquilanti & Leroux (1999), An Integrated Model of Outplacement Counseling"
+  ],
+  "integration": {
+    "entrypoint": "study-hub/index.html",
+    "newScriptImports": [
+      "../second/deep-essay-2011-hrm-q2.js",
+      "../second/deep-essay-2012-hrm-q2.js",
+      "../second/deep-essay-2012-hrm-q3.js"
+    ],
+    "parentIDsPreserved": true,
+    "originalSourceCatalogPreserved": true,
+    "storageKeysPreserved": true,
+    "legacyRegistry181Preserved": true,
+    "other169OriginalDraftsUnchanged": true,
+    "split2013And2014Items38Preserved": true,
+    "deepenedLegacyParentCount12": true
+  },
+  "validation": {
+    "methods": "GitHub-connected static in-memory JS evaluation of source scripts; actual browser E2E not performed",
+    "fullRegistryAssertions": 310,
+    "splitRegistryAssertions": 82,
+    "totalStaticAssertions": 392,
+    "failures": 0,
+    "result": "PASS_STATIC_ONLY"
+  },
+  "holds": {
+    "historicalReferencesFullTextReview": "HOLD",
+    "individual25PointHandwriting4Sheets": "HOLD",
+    "scoringApproved": false,
+    "actualPcMobileBrowserE2E": "HOLD_NOT_RUN",
+    "saveRestoreE2E": "HOLD_NOT_RUN",
+    "newPreviewDeployment": "NOT_DEPLOYED"
+  },
+  "protected": {
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "RC27": "UNCHANGED",
+    "RC35": "UNCHANGED",
+    "previousPreview": "UNCHANGED",
+    "originalDocuments": "UNCHANGED"
+  },
+  "decision": "FOUR_25POINT_LEARNING_DRAFTS_AUTHORED_AND_INTEGRATED / STATIC_REGRESSION_PASS / CONTENT_APPROVAL_HOLD",
+  "nextContentPriority": "2010–2012 earlier 25-point HRM and labor-economics source-specific drafts; verify exact question IDs and source before writing"
+}
