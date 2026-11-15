@@ -264,8 +264,8 @@
     const rows = questionRows();
     if (rows.length && !rows.some(row => row.key === selected)) {
       selected = rows[0].key;
-      trace = 0;
       pane = rows[0].sourceOnly || activeRetest() ? 'write' : 'detail';
+      trace = rows[0].stage === 'essay' && !locked() ? 4 : 0;
       remember(selected, pane);
     }
     const row = rows.find(item => item.key === selected);
