@@ -1,0 +1,121 @@
+{
+  "schema": "nomusa-first-legacy-v2-qa/2026-11-15",
+  "dateKST": "2026-11-15",
+  "draftPR": 3,
+  "mode": "SOURCE_ONLY_NO_SCORING",
+  "data": {
+    "existingBaseline": 250,
+    "additionalStaged": 1950,
+    "totalStaged": 2200,
+    "uniqueIds": 2200,
+    "duplicates": 0,
+    "newBitmapExact": 1949,
+    "exception2011EconomicsQ20": "A형 ③·⑤",
+    "distribution": {
+      "2008A": 125,
+      "2009A": 125,
+      "2011A": 150,
+      "2013A": 150,
+      "2013B": 150,
+      "2015A": 150,
+      "2015B": 150,
+      "2016A": 150,
+      "2016B": 150,
+      "2017A": 150,
+      "2017B": 150,
+      "2018A": 150,
+      "2018B": 150,
+      "2019A": 150,
+      "2019B": 150
+    }
+  },
+  "pendingSourceOnlyYears": [
+    2010,
+    2012,
+    2014,
+    2020,
+    2021
+  ],
+  "pendingReasons": {
+    "2010": "HWP image readable but 150-answer extraction independent QC missing",
+    "2012": "Scanned HWP answer bitmap requires quality review and full item mapping",
+    "2014": "Scanned PDFs A/B: digit-classifier ambiguous; no values merged",
+    "2020": "Split PDF images A/B: classifier uncertain; no values merged",
+    "2021": "Scanned PDFs A/B: complete 150-per-form extraction unapproved; exceptional answers recorded separately"
+  },
+  "exceptions2021": [
+    {
+      "type": "A",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "B",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "A",
+      "subject": "민법",
+      "number": 70,
+      "answers": [
+        3,
+        4
+      ]
+    },
+    {
+      "type": "B",
+      "subject": "민법",
+      "number": 72,
+      "answers": [
+        3,
+        4
+      ]
+    }
+  ],
+  "questionTextAlignment": "HOLD - only file-level source pointers, no per-question source text/page approval",
+  "officialApproval": "0 items",
+  "staticChecks": [
+    "Baseline data.js blob SHA unchanged from preview source branch",
+    "2200 staged IDs unique",
+    "viewer loads isolated historic staging alongside old 250 items",
+    "2011 and 2021 multi-answer exceptions retained"
+  ],
+  "isolatedViewerBrowser": {
+    "runtime": "Chromium page.set_content against standalone local copy, not deployed GitHub checkout",
+    "desktop1440": "PASS",
+    "mobile390": "PASS",
+    "mobile360": "PASS",
+    "screenOverflow": "NONE",
+    "jsErrors": 0,
+    "tested": [
+      "2011 multi-answer",
+      "2015 B 150 records",
+      "2020 HOLD absence"
+    ]
+  },
+  "sourceRepoBrowserE2E": "HOLD_NOT_EXECUTED",
+  "preview": "NOT_DEPLOYED",
+  "main": "NOT_CHANGED_BY_THIS_TASK",
+  "production": "NOT_CHANGED_BY_THIS_TASK",
+  "requiredNext": [
+    "2010/2012/2014/2020/2021 answer image independent QC",
+    "link source question text and printed-page for each record",
+    "historical A/B original question issue number reconciliation",
+    "full existing-hub Playwright E2E before Preview approval"
+  ]
+}
