@@ -22,6 +22,16 @@
   const essayYears = [...new Set(essayRows.map(row => row.year))].sort((a, b) => b - a);
   const essayYearRange = `${Math.min(...essayYears)}–${Math.max(...essayYears)}`;
   const essaySourceCount = essayRows.filter(row => row.sourceOnly).length;
+  const essayDraftCount = essayRows.length - essaySourceCount;
+  // The user's writing is a learning record, not an approved model answer.
+  const writingSheets = row => {
+    const points = Number(row.points);
+    if (points === 50) return '50점 · 답안지 8~10장 참고';
+    if (points === 25) return '25점 · 답안지 4장 참고';
+    if (points === 15) return '15점 · 답안지 3장 참고';
+    if (points > 0 && points <= 10) return points + '점 · 답안지 2장 참고';
+    return points > 0 ? points + '점 · 소문항 배점별 분량 배분' : '배점·소문항 확인 필요';
+  };
   // Source ledger V6.6: legacy counts are an intake inventory, not scoring approval.
   // Do not mix imported A-form questions into the original RC35/HubState 1,020-key store.
   const firstLegacyCounts = Object.freeze({
@@ -195,7 +205,7 @@
         </div>
       </section>
       <section class="stats" aria-label="학습 자료 범위">
-        <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>학습 초안 ${essayRows.length - essaySourceCount}개 · 원문 연습 ${essaySourceCount}개</p></div>
+        <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>학습용 답안 초안 ${essayDraftCount}개 · 원문 중심 직접작성 ${essaySourceCount}개</p></div>
         <div class="stat"><div class="stat-top">1차 · 2008–2026 ${icon('layers')}</div><strong>${firstCoverageTotal.toLocaleString('ko-KR')}</strong><span class="unit">문항 · 수록된 연도 기준</span><p><a class="button mini" href="${esc(sourcePath('index.html'))}">1차 전체 문제풀이</a></p></div>
         <div class="stat"><div class="stat-top">2차 · 신규 대문제 ${icon('note')}</div><strong>57</strong><span class="unit">개 대문제</span><p>${button('신규 대문제 보기', 'new57', 'mini')}</p></div>
       </section>
@@ -203,7 +213,7 @@
         <section class="card"><div class="section-head"><div><h2>2차 연도별 기출</h2><p>연도를 선택하면 해당 기출문제를 볼 수 있습니다.</p></div></div>
           <div class="year-grid">${essayYears.map(year => {
             const rows = essayRows.filter(item => item.year === year);
-            return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
+            return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개 · ${rows.every(item => item.sourceOnly) ? '원문·직접작성' : '학습답안 초안'}</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
           }).join('')}</div>
         </section>
         <section class="card"><div class="section-head"><div><h2>1차 연도별 수록 현황</h2><p>2008~2026년 · A형 편입 장부와 기존 1,020문항 기준</p></div></div>
@@ -266,8 +276,8 @@
     const rounds = [...new Set(pool.map(item => item.r))].sort((a, b) => b - a);
     const pages = Math.max(1, Math.ceil(rows.length / 30));
     listPage = Math.min(Math.max(0, listPage), pages - 1);
-    return pageTitle(essay ? '2차 답안학습' : '1차 기출 문제풀이',
-      essay ? `${essayYearRange}년 · ${essayRows.length}개 연습 단위` : `2022–2026년 · 기존 ${firstRows.length.toLocaleString('ko-KR')}문항`,
+    return pageTitle(essay ? '2차 논술 원문·답안·직접작성' : '1차 기출 문제풀이',
+      essay ? `${essayYearRange}년 · ${essayRows.length}개 학습 단위 (답안 초안 ${essayDraftCount} · 원문 직접작성 ${essaySourceCount})` : `2022–2026년 · 기존 ${firstRows.length.toLocaleString('ko-KR')}문항`,
       button(icon('clock') + ' 실전 모드', 'exam', '', row && !locked() ? '' : 'disabled')) +
       `<div class="study-toolbar">
         <div class="segmented" aria-label="시험 단계">
@@ -360,7 +370,7 @@
         return `<h3 class="panel-title">기출문제 원문</h3>
           ${transcribed ? notice(transcribed, '') : ''}
           <div class="source-text">${esc(row.sourceText || '추출 텍스트 미확보 · 원본 페이지를 열어 보세요.')}</div>
-          <div class="row source-actions">${button('원본 페이지 확인', 'source', 'mini')}</div>`;
+          <div class="row source-actions">${button('원본 페이지 확인', 'source', 'mini')}${row.stage === 'essay' && !locked() ? button('원문 보면서 직접 작성 →', 'write', 'mini primary') : ''}</div>`;
       }
     }
   }
@@ -480,12 +490,14 @@
       return `<h3 class="panel-title">내 답안과 비교·복습</h3>
         <div class="split">
           <div><h4>내가 작성한 답안</h4><div class="answer">${esc(draftFor(row) || '작성 기록이 없습니다.')}</div></div>
-          <div><h4>${row.sourceOnly ? '비교 자료' : '학습용 압축답안'}</h4>
-            ${row.sourceOnly ? '<p class="answer">원본 시험지와 작성한 답안을 직접 대조하세요.</p>' : compactAnswers(row)}</div>
+          <div><h4>${row.sourceOnly ? '원문 대조 · 모범답안 HOLD' : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
+            ${row.sourceOnly ? '<p class="answer">공식 모범답안은 아직 확보되지 않았습니다. 원문 요구사항·배점을 확인해 직접 작성한 답안을 점검하세요. 정답 판정이나 자동채점은 제공하지 않습니다.</p>' : compactAnswers(row)}</div>
         </div>${checklist(row)}`;
     }
-    if (row.sourceOnly) return `<h3 class="panel-title">원문 연습</h3><p>원본 PDF를 확인하고 답안을 직접 작성하세요.</p>
-      ${button('직접 작성하기', 'write', 'primary')}`;
+    if (row.sourceOnly) return `<h3 class="panel-title">원문 중심 직접작성</h3>
+      ${notice('공식 모범답안 미확보 · 독립 승인 HOLD', '')}
+      <p>원문을 확인한 뒤 내 답안을 작성할 수 있습니다. 모범답안은 수록되지 않았으며 자동채점하지 않습니다.</p>
+      ${button('원문 보면서 직접 작성 →', 'write', 'primary')}`;
     const detail = pane === 'detail';
     return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}</h3>
       ${notice('학습용 초안 · 독립 승인 HOLD', '')}
@@ -516,9 +528,17 @@
 
   function renderWriter(row) {
     const draft = draftFor(row);
+    const original = locked() ? '' : `<details class="writer-original" open>
+      <summary>문제 원문 · 배점을 확인하면서 작성</summary>
+      <p class="muted small">${esc(row.year)}년 · ${esc(row.subject)} · ${esc(writingSheets(row))}</p>
+      <div class="writer-original-text">${esc(row.sourceText || '원문 텍스트 미확보 · 원본 페이지에서 확인하세요.')}</div>
+      <p class="muted small">${row.sourceOnly ? '모범답안 미수록 · 직접 작성 가능 · 채점 HOLD' : '학습답안 초안 · 독립 승인 HOLD · 직접 작성 기록은 개인 학습자료'}</p>
+    </details>`;
     return `<div class="writer">
-      <div class="section-head"><h3>${retestFor(row) ? '재시험 답안 작성' : '내 답안 작성'}</h3>
+      ${original}
+      <div class="section-head"><h3>${retestFor(row) ? '재시험 답안 작성' : '내 답안 직접 작성'}</h3>
         <span class="save-state" id="save-state" aria-live="polite">${draft ? '저장된 답안 복원됨' : '입력 즉시 자동저장'}</span></div>
+      <p class="muted small writer-guide">${esc(writingSheets(row))} · 소문항 배점에 따라 분량을 배분하세요.</p>
       <textarea id="draft" aria-label="내 답안" maxlength="299999" placeholder="쟁점 → 관련 법리·이론 → 사안 적용 → 결론">${esc(draft)}</textarea>
       <div class="row">${button('답안 구성 틀 넣기', 'outline', 'mini')}
         <span class="muted small" id="char-count">${Array.from(draft).length.toLocaleString('ko-KR')}자</span>
