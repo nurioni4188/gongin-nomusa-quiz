@@ -1,0 +1,57 @@
+{
+  "schema": "nomusa-first-v6-execution-result/2026-11-15",
+  "mode": "EXISTING_DRAFT_PR_ONLY",
+  "pr": 3,
+  "sourceManifest": "review/NOMUSA_FIRST_V6_SOURCE_AND_E2E_GATE_20261115.json",
+  "reusableFullHubGate": "scripts/nomusa-first-v6-fullhub-gate.py",
+  "originalQuestion": {
+    "yearForms": [
+      "2014A",
+      "2014B",
+      "2020A",
+      "2020B",
+      "2021A",
+      "2021B"
+    ],
+    "officialLandingPagesVerified": true,
+    "originalPDFBytesInExecutionEnvironment": false,
+    "matchedQuestionTextAndPage": 0,
+    "status": "HOLD"
+  },
+  "actualBrowser": {
+    "source": "existing locally available standalone V5 HTML",
+    "viewport": [
+      1440,
+      390,
+      360
+    ],
+    "records": 3400,
+    "checks": [
+      "2021 B civil 62 answer 1",
+      "2021 A labor2 26 all answers",
+      "no horizontal overflow",
+      "no runtime errors"
+    ],
+    "status": "PASS_ISOLATED_VIEWER_ONLY"
+  },
+  "fullHub": {
+    "existingScript": "scripts/nomusa-auto-v12-browser-gate.py",
+    "executionAttempt": "PRE_FLIGHT_FAILED_MISSING_FULL_CHECKOUT",
+    "newBrowserResult": "HOLD",
+    "reason": "Container unable to resolve GitHub/Vercel/Q-net hosts; full repo files not present in model runtime"
+  },
+  "sourceRepo": {
+    "dataJs": "PRESERVED",
+    "indexHtml": "PRESERVED",
+    "hubStateJs": "PRESERVED",
+    "main": "NOT_CHANGED",
+    "production": "NOT_CHANGED",
+    "preview": "NOT_DEPLOYED"
+  },
+  "approval": {
+    "stagedAnswers": 3400,
+    "approvedForScoring": 0,
+    "newOriginalQuestionMatches": 0
+  },
+  "nextStep": "In a Work cloud-computer with the complete review branch checkout and exact source PDF bytes, run python3 scripts/nomusa-first-v6-fullhub-gate.py . ; retain HOLD for question text/page until 900 exact joins verified"
+}
