@@ -22,6 +22,17 @@
   const essayYears = [...new Set(essayRows.map(row => row.year))].sort((a, b) => b - a);
   const essayYearRange = `${Math.min(...essayYears)}–${Math.max(...essayYears)}`;
   const essaySourceCount = essayRows.filter(row => row.sourceOnly).length;
+  // Source ledger V6.6: legacy counts are an intake inventory, not scoring approval.
+  // Do not mix imported A-form questions into the original RC35/HubState 1,020-key store.
+  const firstLegacyCounts = Object.freeze({
+    2008: 125, 2009: 125, 2010: 125, 2011: 149, 2012: 149,
+    2014: 150, 2015: 150, 2017: 144, 2019: 142,
+  });
+  const firstYearCoverage = Array.from({length: 19}, (_, i) => 2008 + i).map(year => ({
+    year,
+    count: firstLegacyCounts[year] ?? firstRows.filter(row => row.year === year).length,
+  }));
+  const firstCoverageTotal = firstYearCoverage.reduce((total, row) => total + row.count, 0);
   const all = new Map([...essayRows, ...firstRows].map(row => [row.key, row]));
   const defaultId = essayRows.find(row => row.origin === 'V103_57' && row.year === 2025).key;
   const explanations = window.NOMUSA_V108_EXPLANATIONS?.entries || {};
@@ -104,8 +115,8 @@
   function needsReview(row) {
     if (Object.hasOwn(S.hub.wrong, row.key)) return Boolean(S.hub.wrong[row.key]);
     if (row.stage !== 'first') return false;
-    const chosen = S.hub.choices[row.key];
-    if (chosen) return !locked() && Array.isArray(row.a) && row.a.length > 0 && !row.a.includes(chosen);
+    // A candidate answer is not a verified key: only explicit user review or
+    // preserved RC35 history may populate the review list.
     return S.first.att[row.key]?.ok === false;
   }
 
@@ -146,7 +157,7 @@
         <nav class="nav" aria-label="주 메뉴">${navigation('nav')}</nav>
         <div class="sidebar-bottom">
           <div class="protect">${icon('shield')}<div><b>Preview 전용</b><br>이 브라우저에 학습 기록 저장</div></div>
-          ${locked() || S.qa ? '' : link(sourcePath('index.html'), '기존 1차 RC35 열기')}
+          ${locked() || S.qa ? '' : link(sourcePath('index.html'), '1차 전체 문제풀이 · RC35')}
         </div>
       </aside>
       <div class="page">
@@ -185,7 +196,7 @@
       </section>
       <section class="stats" aria-label="학습 자료 범위">
         <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>학습 초안 ${essayRows.length - essaySourceCount}개 · 원문 연습 ${essaySourceCount}개</p></div>
-        <div class="stat"><div class="stat-top">1차 · 2022–2026 ${icon('layers')}</div><strong>1,020</strong><span class="unit">문항</span><p>${button('1차 문제풀이', 'start-first', 'mini')}</p></div>
+        <div class="stat"><div class="stat-top">1차 · 2008–2026 ${icon('layers')}</div><strong>${firstCoverageTotal.toLocaleString('ko-KR')}</strong><span class="unit">문항 · 수록된 연도 기준</span><p><a class="button mini" href="${esc(sourcePath('index.html'))}">1차 전체 문제풀이</a></p></div>
         <div class="stat"><div class="stat-top">2차 · 신규 대문제 ${icon('note')}</div><strong>57</strong><span class="unit">개 대문제</span><p>${button('신규 대문제 보기', 'new57', 'mini')}</p></div>
       </section>
       <div class="grid-main"><div>
@@ -195,9 +206,13 @@
             return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
           }).join('')}</div>
         </section>
+        <section class="card"><div class="section-head"><div><h2>1차 연도별 수록 현황</h2><p>2008~2026년 · A형 편입 장부와 기존 1,020문항 기준</p></div></div>
+          <div class="year-grid">${firstYearCoverage.map(item => `<div class="year-card" aria-label="${item.year}년 ${item.count ? item.count + '문항 수록' : '미편입'}"><b>${item.year}</b><small>${item.count ? item.count + '문항' : '편입 대기'}</small></div>`).join('')}</div>
+          <p class="muted small">수록된 문항만 합산한 수치입니다. 일부 연도·선택과목·원문 배치가 미편입 또는 HOLD이며, 이 표는 실제 브라우저 전수검증이나 공식 채점 승인을 의미하지 않습니다.</p>
+        </section>
         <section class="card"><div class="section-head"><h2>내 학습 진도</h2></div>
           ${progressLine('2차 복습 완료', doneEssay, essayRows.length)}
-          ${progressLine('1차 풀이 기록', doneFirst, firstRows.length)}
+          ${progressLine('1차 기존 허브 풀이 기록(2022~2026)', doneFirst, firstRows.length)}
           <p class="muted small">최근 문항 · ${row.year}년 ${esc(row.subject)} · ${esc(row.topic)}</p>
         </section></div>
         <div><section class="card"><div class="section-head"><h2>Preview 검증</h2></div>
@@ -252,7 +267,7 @@
     const pages = Math.max(1, Math.ceil(rows.length / 30));
     listPage = Math.min(Math.max(0, listPage), pages - 1);
     return pageTitle(essay ? '2차 답안학습' : '1차 기출 문제풀이',
-      essay ? `${essayYearRange}년 · ${essayRows.length}개 연습 단위` : '2022–2026년 · 1,020문항',
+      essay ? `${essayYearRange}년 · ${essayRows.length}개 연습 단위` : `2022–2026년 · 기존 ${firstRows.length.toLocaleString('ko-KR')}문항`,
       button(icon('clock') + ' 실전 모드', 'exam', '', row && !locked() ? '' : 'disabled')) +
       `<div class="study-toolbar">
         <div class="segmented" aria-label="시험 단계">
@@ -261,6 +276,7 @@
         </div>
         ${!essay && !locked() && !S.qa ? link(sourcePath('index.html'), '기존 RC35') : ''}
       </div>
+      ${!essay ? `<div class="notice gray"><div><b>1차 확장 문제은행 안내</b><p>현재 허브 내부 선택지는 2022~2026년 기존 ${firstRows.length.toLocaleString('ko-KR')}문항입니다. 2008~2026년 수록 ${firstCoverageTotal.toLocaleString('ko-KR')}문항은 <a href="${esc(sourcePath('index.html'))}">1차 전체 문제풀이 화면</a>에서 연도·과목을 선택하세요. 미편입 문항과 정답 검증 HOLD는 별도로 유지되며, 수록 후보를 공식 채점 승인으로 간주하지 않습니다.</p></div></div>` : ''}
       <details class="study-filters" id="study-filters" ${filterOpen ? 'open' : ''}>
         <summary>연도·과목·회차 필터 <span>${rows.length.toLocaleString('ko-KR')}개</span></summary>
         <label class="search-field">${icon('search')}<input id="search" type="search" aria-label="문항 검색" placeholder="문제 · 논점 · ID 검색" value="${esc(filters.query)}"></label>
@@ -390,7 +406,7 @@
     const heading = '<h3 class="panel-title">공식 정답 근거</h3>';
     if (row.stage === 'first') {
       const picked = choiceFor(row);
-      const comparison = picked ? `<p class="muted small">선택 ${picked}번 · 수록 후보와 ${row.a?.includes(picked) ? '일치' : '불일치'} · 연습용 대조</p>` : '';
+      const comparison = picked ? `<p class="muted small">선택 ${picked}번 기록 · 정답 승인 전이므로 이 화면에서 자동채점하지 않습니다.</p>` : '';
       return heading + notice('문항별 공식 정답 원본 및 페이지 대조 HOLD', '') +
         `<div class="source-text">수록 정답 후보 ${esc(row.a?.join(', ') || '미확보')}번
 원장 대조 표기 ${esc(row.chk || '미확인')}
@@ -544,7 +560,7 @@
     const labels = [['all', '전체'], ['essay', '2차 복습'], ['first', '1차 오답·복습']];
     const reason = row => {
       if (row.stage !== 'first' || Object.hasOwn(S.hub.wrong, row.key)) return '';
-      return S.hub.choices[row.key] ? ' · 수록 후보와 불일치' : ' · RC35 오답 이력';
+      return S.first.att[row.key]?.ok === false ? ' · 기존 RC35 오답 기록' : ' · 수동 복습 표시';
     };
     return pageTitle('오답·복습노트', '복습이 필요한 문항을 모아 다시 풀고 회차별 답안을 확인하세요.',
       button(icon('refresh') + ' 재시험 시작', 'retest', 'primary', rows.length && !locked() && !activeRetest() ? '' : 'disabled')) +
