@@ -81,6 +81,16 @@ for (const [id, a] of Object.entries(answers.items)) {
     citationReview: 'HOLD', scoringApproved: false,
   });
 }
+// 2014 historical-law guard: direct disposition referenced §49(2), not post-2017 §49(3).
+const admin2014 = answers.items['2014_p4_q3'];
+check(Boolean(admin2014), '2014_p4_q3: authored draft missing');
+if (admin2014) {
+  const refs2014 = admin2014.academicOrLawReferences.join(' ');
+  check(refs2014.includes('제49조제2항') && !refs2014.includes('제49조제3항'),
+    '2014_p4_q3: historical 행정심판법 제50조제1항 must cite 제49조제2항 (2014)');
+  check(admin2014.scoringApproved === false && admin2014.citationReview === 'HOLD',
+    '2014_p4_q3: substantive approval stays HOLD');
+}
 check(report.length === answers.stats.authored, 'stats.authored mismatch');
 
 const preserved = PROTECTED.map(file => {
