@@ -8,7 +8,26 @@ const visualPages={
   'legacy1-2021-A-economics-113': [36,36],
   'legacy1-2021-B-economics-111': [36,36]
 };
-const verifiedPage=visualPages[x.id];
+// V7.1: question headings visually located in exact SHA256-matched official PDF pages.
+ // Printed-page numbers and full stem/option verification remain HOLD.
+const visualPdfPagesV71={
+  'legacy1-2020-A-civil-072':24,
+  'legacy1-2020-A-civil-075':25,
+  'legacy1-2020-A-social-078':26,
+  'legacy1-2020-A-economics-114':36,
+  'legacy1-2020-B-labor1-004':3,
+  'legacy1-2020-B-labor1-005':3,
+  'legacy1-2020-B-labor1-006':3,
+  'legacy1-2020-B-labor1-010':4,
+  'legacy1-2020-B-labor2-036':12,
+  'legacy1-2020-B-civil-075':25,
+  'legacy1-2020-B-social-078':26,
+  'legacy1-2020-B-management-112':34,
+  'legacy1-2020-B-management-117':35,
+  'legacy1-2021-A-management-102':34
+};
+const v71PdfPage=visualPdfPagesV71[x.id];
+const verifiedPage=visualPages[x.id]||(Number.isInteger(v71PdfPage)?[v71PdfPage,null]:null);
 function addLink(url, label) {
   const link=document.createElement('a');
   link.href=url;
@@ -27,7 +46,9 @@ if(item) {
   addLink(booklet.download, `${x.type}형 ${option} 문제지${paperPage}`);
   const linkStatus=document.createElement('span');
   linkStatus.className='muted';
-  if(verifiedPage) {
+  if(Number.isInteger(v71PdfPage)) {
+    linkStatus.textContent=`PDF ${v71PdfPage}쪽 · 문항번호 원본 시각확인 · 인쇄 쪽수·전체 지문 검증 HOLD`;
+  } else if(verifiedPage) {
     linkStatus.textContent=`PDF ${verifiedPage[0]}쪽 · 원본 화면 확인`;
   } else if(item.status==='OCR_PAGE_CANDIDATE') {
     linkStatus.textContent=`PDF ${item.pdfPage}쪽 · 자동 판독 후보`;
