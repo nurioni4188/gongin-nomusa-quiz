@@ -7,6 +7,16 @@
   const S = window.HubState;
   const Q = window.QDATA;
   const E = window.N27_CATALOG?.items;
+  const legacyEssayDrafts = window.NOMUSA_LEGACY_181_DRAFTS?.items || {};
+  const legacyDraftFor = row => row?.stage === 'essay' && row.sourceOnly ? legacyEssayDrafts[row.key] : null;
+  const hasLegacyEssay = row => {
+    const entry = legacyDraftFor(row);
+    return entry?.draftStatus === 'DRAFT_UNVERIFIED' && (entry.conceptTitles?.length || 0) > 0;
+  };
+  const legacyDraftRegistryCount = Object.keys(legacyEssayDrafts).length;
+  const legacyIndividualDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED').length;
+  const legacySpecificDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED' && x.conceptTitles?.length).length;
+  const legacyNeedsOriginalCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus !== 'DRAFT_UNVERIFIED').length;
   const app = document.getElementById('app');
   const modal = document.getElementById('modal');
   if (!S || !Q?.length || !E?.length) {
@@ -205,7 +215,7 @@
         </div>
       </section>
       <section class="stats" aria-label="학습 자료 범위">
-        <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>학습용 답안 초안 ${essayDraftCount}개 · 원문 중심 직접작성 ${essaySourceCount}개</p></div>
+        <div class="stat"><div class="stat-top">2차 · ${essayYearRange} ${icon('book')}</div><strong>${essayRows.length}</strong><span class="unit">개 연습 단위</span><p>기존 학습답안 ${essayDraftCount}개 · 과거 원문 181개 자동초안 관리 ${legacyDraftRegistryCount}개</p></div>
         <div class="stat"><div class="stat-top">1차 · 2008–2026 ${icon('layers')}</div><strong>${firstCoverageTotal.toLocaleString('ko-KR')}</strong><span class="unit">문항 · 수록된 연도 기준</span><p><a class="button mini" href="${esc(sourcePath('index.html'))}">1차 전체 문제풀이</a></p></div>
         <div class="stat"><div class="stat-top">2차 · 신규 대문제 ${icon('note')}</div><strong>57</strong><span class="unit">개 대문제</span><p>${button('신규 대문제 보기', 'new57', 'mini')}</p></div>
       </section>
@@ -213,7 +223,7 @@
         <section class="card"><div class="section-head"><div><h2>2차 연도별 기출</h2><p>연도를 선택하면 해당 기출문제를 볼 수 있습니다.</p></div></div>
           <div class="year-grid">${essayYears.map(year => {
             const rows = essayRows.filter(item => item.year === year);
-            return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개 · ${rows.every(item => item.sourceOnly) ? '원문·직접작성' : '학습답안 초안'}</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
+            return `<button class="year-card ${year === 2026 ? 'current' : ''}" data-year="${year}"><b>${year}</b><small>${rows.length}개 · ${rows.every(item => item.sourceOnly) ? (rows.some(hasLegacyEssay) ? '초안·직접작성' : '원문·직접작성') : '기존 답안'}</small><div class="tinybar"><span style="width:${rows.filter(complete).length / rows.length * 100}%"></span></div></button>`;
           }).join('')}</div>
         </section>
         <section class="card"><div class="section-head"><div><h2>1차 연도별 수록 현황</h2><p>2008~2026년 · A형 편입 장부와 기존 1,020문항 기준</p></div></div>
@@ -264,7 +274,7 @@
     const rows = questionRows();
     if (rows.length && !rows.some(row => row.key === selected)) {
       selected = rows[0].key;
-      pane = rows[0].sourceOnly || activeRetest() ? 'write' : 'detail';
+      pane = (rows[0].sourceOnly && !hasLegacyEssay(rows[0])) || activeRetest() ? 'write' : 'detail';
       trace = rows[0].stage === 'essay' && !locked() ? 4 : 0;
       remember(selected, pane);
     }
@@ -277,7 +287,7 @@
     const pages = Math.max(1, Math.ceil(rows.length / 30));
     listPage = Math.min(Math.max(0, listPage), pages - 1);
     return pageTitle(essay ? '2차 논술 원문·답안·직접작성' : '1차 기출 문제풀이',
-      essay ? `${essayYearRange}년 · ${essayRows.length}개 학습 단위 (답안 초안 ${essayDraftCount} · 원문 직접작성 ${essaySourceCount})` : `2022–2026년 · 기존 ${firstRows.length.toLocaleString('ko-KR')}문항`,
+      essay ? `${essayYearRange}년 · ${essayRows.length}개 단위 · 기존답안 ${essayDraftCount} · 자동작성 대상 ${legacyDraftRegistryCount} (개별 ${legacyIndividualDraftCount} · 원문분할 ${legacyNeedsOriginalCount})` : `2022–2026년 · 기존 ${firstRows.length.toLocaleString('ko-KR')}문항`,
       button(icon('clock') + ' 실전 모드', 'exam', '', row && !locked() ? '' : 'disabled')) +
       `<div class="study-toolbar">
         <div class="segmented" aria-label="시험 단계">
@@ -315,7 +325,7 @@
   }
 
   function renderQuestion(row) {
-    const kind = row.stage === 'first' ? '1차 기출' : row.sourceOnly ? '원문 연습' :
+    const kind = row.stage === 'first' ? '1차 기출' : row.sourceOnly ? (hasLegacyEssay(row) ? '자동작성 초안 · 검증 HOLD' : '원문·작성틀 · 근거 HOLD') :
       row.origin === 'V103_57' ? '신규 대문제 · 학습 초안' : '기존 학습 초안';
     return `<button class="question-item ${selected === row.key ? 'active' : ''}" data-question="${esc(row.key)}" aria-pressed="${selected === row.key}">
       <small>${row.year}년 · ${esc(row.subject)}</small><b>${esc(row.topic)}</b>
@@ -329,7 +339,7 @@
     const round = retestFor(row);
     const isExam = locked();
     const index = rows.indexOf(row);
-    const status = essay ? (row.sourceOnly ? '원문 중심 직접 작성' : '학습용 답안 초안 · 독립 승인 HOLD') : '수록 정답 근거 확인 HOLD';
+    const status = essay ? (hasLegacyEssay(row) ? 'AI 보조 학습용 답안 초안 · 학술·판례 근거 HOLD' : row.sourceOnly ? '원문 기반 답안 작성틀 · 원문/근거 HOLD' : '학습용 답안 초안 · 독립 승인 HOLD') : '수록 정답 근거 확인 HOLD';
     if (isExam && trace > 2) trace = 0;
     const points = typeof row.points === 'number' ? row.points + '점' : row.points;
     return `
@@ -344,7 +354,7 @@
           `<button type="button" data-trace="${index}" class="${trace === index ? 'active' : ''}" aria-pressed="${trace === index}" ${isExam && index > 2 ? 'disabled' : ''}>${label}</button>`).join('')}
       </div>
       ${essay && !isExam ? `<div class="learning-flow" role="group" aria-label="2차 답안학습 단계">
-        ${steps.map(([id, label]) => `<button type="button" data-pane="${id}" class="${trace === 4 && pane === id ? 'active' : ''}" aria-pressed="${trace === 4 && pane === id}" ${row.sourceOnly && ['detail', 'compressed'].includes(id) ? 'disabled' : ''}>${label}</button>`).join('')}
+        ${steps.map(([id, label]) => `<button type="button" data-pane="${id}" class="${trace === 4 && pane === id ? 'active' : ''}" aria-pressed="${trace === 4 && pane === id}" ${row.sourceOnly && !hasLegacyEssay(row) && ['detail', 'compressed'].includes(id) ? 'disabled' : ''}>${label}</button>`).join('')}
       </div>` : ''}
       <div id="trace-content">${traceContent(row)}</div>
       ${essay ? (isExam ? renderWriter(row) : '') : renderChoices(row)}
@@ -465,13 +475,38 @@
   }
 
   function compactAnswers(row) {
+    if (hasLegacyEssay(row)) {
+      const entry = legacyDraftFor(row);
+      return entry.sections.map(section => `<article class="answer">
+        <h4>${esc(section.title)}</h4><div>${esc(section.compressed)}</div>
+      </article>`).join('');
+    }
     return row.sections.map(section => `<article class="answer">
       <h4>${esc(section.title)}</h4>${section.compressed ? '' : '<small class="answer-label">상세답안 발췌 · 학습용</small>'}
       ${esc(section.compressed || compactExcerpt(section) || '압축답안 미수록')}
     </article>`).join('');
   }
 
+  function legacyMemoryPanel(row) {
+    const entry = legacyDraftFor(row);
+    if (!entry || !hasLegacyEssay(row)) return '';
+    const groups = entry.keywords333 || [];
+    return `<section class="memory-box" aria-label="3·3·3 핵심 회상">
+      <h4>3·3·3 암기·회상 키워드</h4>
+      <p class="muted small">초안의 핵심 논점을 기억하기 위한 키워드이며, 실제 답안의 정확성 검토는 별도입니다.</p>
+      <div class="memory-groups">${groups.map((group,index) =>
+        `<div><b>${index+1}묶음</b><span>${group.map(esc).join(' · ')}</span></div>`).join('')}</div>
+      <p class="muted small">참고원전·법률근거: ${esc(entry.academicOrLawReferences.join(' / ') || '시험 당시 원전·법령·판례 확인 HOLD')}</p>
+    </section>`;
+  }
+
   function detailedAnswers(row) {
+    if (hasLegacyEssay(row)) {
+      const entry = legacyDraftFor(row);
+      return entry.sections.map(section => `<article class="answer">
+        <h4>${esc(section.title)}</h4><div>${esc(section.detailed)}</div>
+      </article>`).join('');
+    }
     const expanded = window.N1078_ESSAYS?.items?.[row.key];
     const improved = window.N1074_QUALITY?.items?.[row.key]?.improvedDraft;
     const original = row.sections.map(section =>
@@ -490,18 +525,28 @@
       return `<h3 class="panel-title">내 답안과 비교·복습</h3>
         <div class="split">
           <div><h4>내가 작성한 답안</h4><div class="answer">${esc(draftFor(row) || '작성 기록이 없습니다.')}</div></div>
-          <div><h4>${row.sourceOnly ? '원문 대조 · 모범답안 HOLD' : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
-            ${row.sourceOnly ? '<p class="answer">공식 모범답안은 아직 확보되지 않았습니다. 원문 요구사항·배점을 확인해 직접 작성한 답안을 점검하세요. 정답 판정이나 자동채점은 제공하지 않습니다.</p>' : compactAnswers(row)}</div>
-        </div>${checklist(row)}`;
+          <div><h4>${row.sourceOnly ? (hasLegacyEssay(row) ? '자동작성 압축답안 · 검증 HOLD' : '원문 대조 · 모범답안 HOLD') : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
+            ${row.sourceOnly && !hasLegacyEssay(row) ? '<p class="answer">공식 모범답안과 문제별 검증된 학습답안은 아직 확보되지 않았습니다. 원문과 배점·근거 검토 후 직접 작성 내용을 점검하세요. 자동채점하지 않습니다.</p>' : compactAnswers(row)}</div>
+        </div>${legacyMemoryPanel(row)}${checklist(row)}`;
     }
-    if (row.sourceOnly) return `<h3 class="panel-title">원문 중심 직접작성</h3>
-      ${notice('공식 모범답안 미확보 · 독립 승인 HOLD', '')}
-      <p>원문을 확인한 뒤 내 답안을 작성할 수 있습니다. 모범답안은 수록되지 않았으며 자동채점하지 않습니다.</p>
-      ${button('원문 보면서 직접 작성 →', 'write', 'primary')}`;
+    if (row.sourceOnly && !hasLegacyEssay(row)) {
+      const entry = legacyDraftFor(row);
+      return `<h3 class="panel-title">원문 확인·답안 작성틀</h3>
+        ${notice(entry?.draftStatus === 'IMAGE_TEXT_VERIFICATION_REQUIRED' ?
+          '이미지 원문 전사 HOLD · 모범답안 미작성' :
+          '여러 대문항이 포함된 과목별 원본 묶음 · 문항 분리 HOLD', '')}
+        <p>181개 대상에 대한 작성틀은 준비됐지만, 이 자료는 개별 문항 맞춤 모범답안이 아닙니다. 문제의 실제 지문·소문항·배점을 먼저 확인해야 합니다.</p>
+        <details class="original-answer"><summary>자동 생성 답안 구성틀 보기</summary>
+          <div class="answer-pane">${entry?.sections?.map(section => `<article class="answer"><h4>${esc(section.title)}</h4>${esc(section.detailed)}</article>`).join('') || ''}</div>
+        </details>
+        ${button('원문 보면서 직접 작성 →', 'write', 'primary')}`;
+    }
     const detail = pane === 'detail';
-    return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}</h3>
-      ${notice('학습용 초안 · 독립 승인 HOLD', '')}
+    const isNewDraft = hasLegacyEssay(row);
+    return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}${isNewDraft ? ' · 자동작성 초안' : ''}</h3>
+      ${notice(isNewDraft ? 'AI 보조 학습 초안 · 원문 정확성·학술·판례 독립검증 HOLD · 공식 모범답안 아님' : '학습용 초안 · 독립 승인 HOLD', '')}
       <div class="answer-pane">${detail ? detailedAnswers(row) : compactAnswers(row)}</div>
+      ${isNewDraft ? legacyMemoryPanel(row) : ''}
       <div class="row source-actions">${button(detail ? '시험장 압축답안 보기 →' : '직접 작성하기 →',
         detail ? 'compressed' : 'write', 'primary')}</div>`;
   }
@@ -777,7 +822,7 @@
       listPage = 0;
     }
     selected = id;
-    pane = row.sourceOnly && targetPane === 'detail' ? 'write' : targetPane;
+    pane = row.sourceOnly && !hasLegacyEssay(row) && targetPane === 'detail' ? 'write' : targetPane;
     trace = row.stage === 'first' || locked() ? 0 : 4;
     listOpen = false;
     remember(id, pane);
