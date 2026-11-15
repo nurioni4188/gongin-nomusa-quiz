@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""NOMUSA-AUTO 1.4 local Chromium gate. Run against the exact review branch checkout.
+"""NOMUSA-AUTO V6.8 local Chromium gate. Run against the exact review branch checkout.
 Does not change files, GitHub, Vercel or localStorage outside temporary Chromium contexts.
 Requires Playwright and Chromium. Set NOMUSA_CHROMIUM for a custom binary.
 """
@@ -183,16 +183,22 @@ def check_first(page, width):
   assert page.locator('#choices button').count()==5
   assert '5011154' in page.get_by_role('link',name='Q-Net 제17회 A형 원문').get_attribute('href')
   page.locator('#choices [data-v="1"]').click()
-  assert page.locator('.fb.ok').is_visible()
+  assert page.locator('.fb.info').is_visible()
   page.locator('#nx').click()
   assert '2번' in page.locator('.qmeta').inner_text()
   page.reload(wait_until='domcontentloaded')
   page.locator('#resumeBtn').click()
   assert '2번' in page.locator('.qmeta').inner_text()
   page.locator('#pv').click()
-  assert page.locator('.fb.ok').is_visible()
+  assert page.locator('.fb.info').is_visible()
+  page.locator('#markReview').click()
+  assert page.locator('#markReview').get_attribute('aria-pressed')=='true'
   state=page.evaluate('key=>JSON.parse(localStorage.getItem(key))',key)
-  assert state['att']['legacy1-2008-A-labor1-001']['ok']
+  assert state['ungraded']['legacy1-2008-A-labor1-001']['last']==1
+  assert state['ungraded']['legacy1-2008-A-labor1-001']['review'] is True
+  assert 'legacy1-2008-A-labor1-001' not in state['att']
+  assert page.locator('.fb.ok,.fb.bad').count()==0
+  assert '최종정답 <strong>' not in page.locator('#app').inner_html()
   assert all(record in state['att'] for record in json.loads(snapshot)['att'])
   page.locator('#tabs [data-v="home"]').click()
   page.get_by_role('button',name='실전 · 끝나고 채점',exact=True).click()
@@ -205,6 +211,8 @@ def check_first(page, width):
   page.locator('#fin').click()
   page.locator('#mOk').click()
   page.locator('#reW').wait_for(state='visible')
+  assert '채점 보류' in page.locator('#app').inner_text()
+  assert '100점 만점' not in page.locator('#app').inner_text()
   assert page.evaluate('window.NOMUSA_FIRST_2008.length')==125
   assert page.evaluate("NOMUSA_FIRST_2008.filter(q=>q.s==='영어').length")==25
   assert page.evaluate("NOMUSA_FIRST_2008.find(q=>q.s==='경제학원론'&&q.n===5).paperHtml.includes('<table')")
@@ -224,7 +232,8 @@ def check_first(page, width):
   assert page.evaluate('NOMUSA_FIRST_2010.length')==125
   assert '5021186' in page.get_by_role('link',name='Q-Net 정답 출처').get_attribute('href')
   page.locator('#choices [data-v="5"]').click()
-  assert page.locator('.fb.ok').is_visible()
+  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.ok,.fb.bad').count()==0
   page.locator('#tabs [data-v="home"]').click()
   page.locator('[data-y="2009"][data-s="노동법(2)"]').click()
   page.locator('#mOk').click()
@@ -234,7 +243,7 @@ def check_first(page, width):
   page.locator('#jumpN').fill('5')
   page.locator('#jumpGo').click()
   page.locator('#choices [data-v="4"]').click()
-  assert page.locator('.fb.ok').is_visible()
+  assert page.locator('.fb.info').is_visible()
   page.locator('#tabs [data-v="home"]').click()
   assert page.get_by_text('2,279문항',exact=True).is_visible()
   page.locator('[data-y="2014"][data-s="경제학원론"]').click()
@@ -246,11 +255,12 @@ def check_first(page, width):
   assert page.locator('.source-layout img').evaluate('img => img.complete && img.naturalWidth > 0')
   assert '5098606' in page.get_by_role('link',name='Q-Net 제23회 A형 원문').get_attribute('href')
   page.locator('#choices [data-v="5"]').click()
-  assert page.locator('.fb.ok').is_visible()
+  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.ok,.fb.bad').count()==0
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2009Questions':125,'added2010Questions':125,'earlyExamBatch':884,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2009Questions':125,'added2010Questions':125,'earlyExamBatch':884,'legacyHoldAndResume':True,'legacyExam':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})
@@ -316,5 +326,5 @@ with sync_playwright() as p:
  version=browser.version
  browser.close()
 server.shutdown()
-out={'schema':'nomusa-auto-v1.4-browser-gate','status':'PASS' if all(x['status']=='PASS' for x in results) else 'HOLD','chromiumVersion':version,'results':results,'actualPreview':'NOT_DEPLOYED','production':'NOT_TOUCHED','legalApproval':'HOLD'}
+out={'schema':'nomusa-auto-v6.8-browser-gate','status':'PASS' if all(x['status']=='PASS' for x in results) else 'HOLD','chromiumVersion':version,'results':results,'actualPreview':'NOT_DEPLOYED','production':'NOT_TOUCHED','legalApproval':'HOLD'}
 print(json.dumps(out,ensure_ascii=False,indent=2));sys.exit(0 if out['status']=='PASS' else 1)
