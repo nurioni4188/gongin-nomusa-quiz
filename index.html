@@ -559,6 +559,12 @@ try { FIRST_BATCH=await readPracticeBatch(); } catch (error) { console.error("1�
 const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010, ...FIRST_BATCH];
 const BY = Object.fromEntries(Q.map(q=>[q.k,q]));
 const YEARS=[...new Set(Q.map(q=>q.y))].sort((a,b)=>b-a);
+// V6.8: Imported historical A-form answer candidates are NOT approved scoring keys.
+// Keep original 2022-2026 RC35 grading separate from 2008-2021 practice records.
+const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021);
+const scoredAttempt=q=>isUngraded(q)?null:ST.att[q.k];
+const ungradedAttempt=q=>ST.ungraded[q.k]||(isUngraded(q)&&ST.att[q.k]?{n:ST.att[q.k].n,last:ST.att[q.k].last,review:false,previous:true}:null);
+const attemptFor=q=>isUngraded(q)?ungradedAttempt(q):ST.att[q.k];
 const SUBJ=["영어","노동법(1)","노동법(2)","민법","사회보험법","경영학개론","경제학원론"];
 const SHORT={"영어":"영어","노동법(1)":"노동법1","노동법(2)":"노동법2","민법":"민법","사회보험법":"사회보험","경영학개론":"경영","경제학원론":"경제"};
 const C=["①","②","③","④","⑤"];
@@ -569,12 +575,20 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const SKEY="nomu1-progress-v2";
 function cleanProgress(input){
   if(!input||typeof input!=="object"||Array.isArray(input)||!input.att||typeof input.att!=="object")throw new Error("기록 구조 오류");
-  const out={att:{},star:{},memo:{},prefs:{}};
+  const out={att:{},star:{},memo:{},prefs:{},ungraded:{}};
   for(const [k,a] of Object.entries(input.att)){
     if(!Object.hasOwn(BY,k)||!a||typeof a!=="object"||Array.isArray(a))continue;
     const n=Number(a.n),w=Number(a.w),last=Number(a.last);
     if(!Number.isSafeInteger(n)||n<1||n>1000000||!Number.isSafeInteger(w)||w<0||w>n||!Number.isInteger(last)||last<1||last>5||typeof a.ok!=="boolean")continue;
     out.att[k]={n,w,last,ok:a.ok,t:Number.isFinite(Number(a.t))?Number(a.t):0};
+  }
+  // Never migrate an old historical score as a verified right/wrong verdict.
+  // Preserve its legacy att entry for lossless backups, but display choice only.
+  for(const [k,a] of Object.entries(input.ungraded||{})){
+    if(!Object.hasOwn(BY,k)||!isUngraded(BY[k])||!a||typeof a!=="object"||Array.isArray(a))continue;
+    const n=Number(a.n),last=Number(a.last);
+    if(!Number.isSafeInteger(n)||n<0||n>1000000||!Number.isInteger(last)||last<0||last>5||typeof a.review!=="boolean")continue;
+    out.ungraded[k]={n,last,review:a.review,t:Number.isFinite(Number(a.t))?Number(a.t):0};
   }
   for(const k of Object.keys(input.star||{})){if(Object.hasOwn(BY,k)&&input.star[k])out.star[k]=1}
   for(const [k,v] of Object.entries(input.memo||{})){if(Object.hasOwn(BY,k)&&typeof v==="string")out.memo[k]=v.slice(0,5000)}
@@ -587,7 +601,7 @@ function cleanProgress(input){
     out.prefs.setup={
       years:Array.isArray(p.years)?p.years.filter(y=>YEARS.includes(y)): [2026],
       subs:Array.isArray(p.subs)?p.subs.filter(v=>SUBJ.includes(v)): ["노동법(1)"],
-      scope:["all","new","wrong","everwrong","star"].includes(p.scope)?p.scope:"all",
+      scope:["all","new","wrong","everwrong","star","review"].includes(p.scope)?p.scope:"all",
       order:["seq","rand"].includes(p.order)?p.order:"seq",
       count:[0,10,20,40].includes(p.count)?p.count:0,
       mode:["practice","exam"].includes(p.mode)?p.mode:"practice"
@@ -606,14 +620,20 @@ function validSession(raw){
 }
 function load(){try{
   const raw=JSON.parse(localStorage.getItem(SKEY)||"null");if(raw&&raw.att){const s=cleanProgress(raw);s.session=validSession(raw.session);return s}
-}catch(e){}return{att:{},star:{},memo:{},prefs:{},session:null}}
+}catch(e){}return{att:{},star:{},memo:{},prefs:{},ungraded:{},session:null}}
 function saveSession(){if(S&&!S.done){ST.session={ks:S.ks,i:S.i,mode:S.mode,ans:S.ans,done:false,t0:S.t0,limit:S.limit}};save()}
 let ST=load();
 function save(){try{localStorage.setItem(SKEY,JSON.stringify(ST))}catch(e){}}
+function recordUngraded(k,choice){
+  const a=ST.ungraded[k]||{n:0,last:0,review:false,t:0};
+  a.n++;a.last=choice;a.t=Date.now();ST.ungraded[k]=a;save();
+}
 function record(k,choice,ok){
+  // Last-line guard: never write a grade to legacy answer-candidate records.
+  if(isUngraded(BY[k])){recordUngraded(k,choice);return;}
   const a=ST.att[k]||{n:0,w:0};a.n++;if(!ok)a.w++;a.last=choice;a.ok=ok;a.t=Date.now();ST.att[k]=a;save();
 }
-const isOk=(q,c)=>q.a.includes(c);
+const isOk=(q,c)=>!isUngraded(q)&&q.a.includes(c);
 
 /* ---------- theme ---------- */
 function applyTheme(){
@@ -646,10 +666,11 @@ function render(){
 const P=Object.assign({years:[2026],subs:["노동법(1)"],scope:"all",order:"seq",count:0,mode:"practice"},ST.prefs.setup||{});
 function pool(){
   return Q.filter(q=>P.years.includes(q.y)&&P.subs.includes(q.s)).filter(q=>{
-    const a=ST.att[q.k];
-    if(P.scope==="new")return !a;
-    if(P.scope==="wrong")return a&&a.ok===false;
-    if(P.scope==="everwrong")return a&&a.w>0;
+    const a=attemptFor(q);
+    if(P.scope==="new")return !a||!a.n;
+    if(P.scope==="wrong")return !isUngraded(q)&&a&&a.ok===false;
+    if(P.scope==="everwrong")return !isUngraded(q)&&a&&a.w>0;
+    if(P.scope==="review")return isUngraded(q)&&Boolean(a?.review);
     if(P.scope==="star")return ST.star[q.k];
     return true;
   });
@@ -658,9 +679,10 @@ function chipRow(list,isOn,label,onTap){
   return list.map((v,i)=>`<button type="button" class="chip ${isOn(v)?"on":""}" data-i="${i}" aria-pressed="${isOn(v)}">${esc(label(v))}</button>`).join("");
 }
 function vHome(){
-  const tot=Q.length,done=Object.keys(ST.att).filter(k=>BY[k]).length;
-  const okN=Object.entries(ST.att).filter(([k,a])=>BY[k]&&a.ok).length;
-  const wrongN=Object.entries(ST.att).filter(([k,a])=>BY[k]&&a.ok===false).length;
+  const tot=Q.length,done=Q.filter(q=>attemptFor(q)?.n>0).length;
+  const gradedAttempts=BASE.filter(q=>ST.att[q.k]);
+  const okN=gradedAttempts.filter(q=>ST.att[q.k].ok).length;
+  const wrongN=gradedAttempts.filter(q=>ST.att[q.k].ok===false).length;
   const pl=pool();
   const paused=validSession(ST.session);
   $("#app").innerHTML=`
@@ -681,15 +703,16 @@ function vHome(){
   <div class="section-heading"><div><span class="section-kicker">01 / YOUR PROGRESS</span><h2>나의 학습 현황</h2></div><span class="section-side">학습 기록은 이 기기에만 저장돼요</span></div>
   <div class="stats">
     <div class="stat"><span class="stat-icon">▦</span><b>${done.toLocaleString()} <small>/ ${tot.toLocaleString()}</small></b><span>누적 학습 문항</span></div>
-    <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${done?Math.round(okN/done*100):0}<small>%</small></b><span>최근 정답률</span></div>
+    <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${gradedAttempts.length?Math.round(okN/gradedAttempts.length*100):0}<small>%</small></b><span>기존 2022~2026 채점 정답률</span></div>
     <div class="stat"><span class="stat-icon stat-icon--amber">◎</span><b>${wrongN.toLocaleString()}</b><span>복습할 오답</span></div>
   </div>
+  <p class="muted" role="status">2008~2021년 수록 문항은 공식 정답 근거 승인 HOLD로 선택·저장·수동 복습만 지원합니다. 기존의 과거 채점 기록은 백업에 보존하되 점수 계산에는 사용하지 않습니다.</p>
   <div class="section-heading"><div><span class="section-kicker">02 / PRACTICE BUILDER</span><h2>나만의 학습 세트</h2></div><span class="section-side">연도와 과목을 고르면 바로 시작할 수 있어요</span></div>
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<2022?" A형":""))}</div>
     <p class="muted">과거 기출 풀이 ${(FIRST_2008.length+FIRST_2009.length+FIRST_2010.length+FIRST_BATCH.length).toLocaleString()}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
     <div class="lbl">과목</div><div class="row" id="cSub">${chipRow(SUBJ,v=>P.subs.includes(v),v=>SHORT[v])}</div>
-    <div class="lbl">범위</div><div class="row" id="cScope">${chipRow(["all","new","wrong","everwrong","star"],v=>P.scope===v,v=>({all:"전체",new:"안 푼 문제",wrong:"지금 틀린 문제",everwrong:"한 번이라도 틀림",star:"별표"})[v])}</div>
+    <div class="lbl">범위</div><div class="row" id="cScope">${chipRow(["all","new","wrong","everwrong","star","review"],v=>P.scope===v,v=>({all:"전체",new:"안 푼 문제",wrong:"지금 틀린 문제",everwrong:"한 번이라도 틀림",star:"별표",review:"수동 복습"})[v])}</div>
     <div class="lbl">순서 · 문항 수</div><div class="row" id="cOrder">${chipRow(["seq","rand"],v=>P.order===v,v=>v==="seq"?"번호순":"섞기")}<span style="width:8px"></span>${chipRow([0,10,20,40],v=>P.count===v,v=>v?v+"문항":"모두")}</div>
     <div class="lbl">방식</div><div class="row" id="cMode">${chipRow(["practice","exam"],v=>P.mode===v,v=>v==="practice"?"연습 · 바로 채점":"실전 · 끝나고 채점")}</div>
     <button class="btn pri big" id="startBtn" ${pl.length?"":"disabled"}>${pl.length?`${Math.min(pl.length,P.count||pl.length)}문항 시작`:"조건에 맞는 문제가 없습니다"} &nbsp; ↗</button>
@@ -699,15 +722,15 @@ function vHome(){
   <div class="card course-card ${YEARS.length>8?"course-many":""}" style="--year-count:${YEARS.length}">
     <div class="grid"><div></div>${YEARS.map(y=>`<div class="h">${y}</div>`).join("")}
     ${SUBJ.map(s=>`<div class="s">${SHORT[s]}</div>`+YEARS.map(y=>{
-      const qs=Q.filter(q=>q.y===y&&q.s===s),d=qs.filter(q=>ST.att[q.k]),o=d.filter(q=>ST.att[q.k].ok);
-      return `<div class="cell" data-y="${y}" data-s="${esc(s)}" title="${y} ${s}"><b>${d.length?Math.round(o.length/d.length*100)+"%":"–"}</b><small>${d.length}/${qs.length}</small><div class="bar"><i style="width:${qs.length?d.length/qs.length*100:0}%"></i></div></div>`}).join("")).join("")}
+      const qs=Q.filter(q=>q.y===y&&q.s===s),d=qs.filter(q=>attemptFor(q)?.n>0),o=d.filter(q=>!isUngraded(q)&&ST.att[q.k]?.ok);
+      return `<div class="cell" data-y="${y}" data-s="${esc(s)}" title="${y} ${s}"><b>${y<2022?"HOLD":d.length?Math.round(o.length/d.length*100)+"%":"–"}</b><small>${d.length}/${qs.length}</small><div class="bar"><i style="width:${qs.length?d.length/qs.length*100:0}%"></i></div></div>`}).join("")).join("")}
     </div>
     <p class="muted" style="margin:10px 0 0">칸을 누르면 그 회차·과목을 번호순으로 바로 풉니다. 위 숫자는 정답률, 아래는 푼 문항/전체.</p>
   </div>`;
   const bind=(id,list,fn)=>$(id).onclick=e=>{const c=e.target.closest(".chip");if(!c)return;fn(list[+c.dataset.i]);ST.prefs.setup=P;save();vHome()};
   const tog=(arr,v)=>{const i=arr.indexOf(v);if(i>=0){if(arr.length>1)arr.splice(i,1)}else arr.push(v)};
   bind("#cYear",YEARS,v=>tog(P.years,v));bind("#cSub",SUBJ,v=>tog(P.subs,v));
-  bind("#cScope",["all","new","wrong","everwrong","star"],v=>P.scope=v);
+  bind("#cScope",["all","new","wrong","everwrong","star","review"],v=>P.scope=v);
   $("#cOrder").onclick=e=>{const c=e.target.closest(".chip");if(!c)return;const idx=[...$("#cOrder").querySelectorAll(".chip")].indexOf(c);
     if(idx<2)P.order=["seq","rand"][idx];else P.count=[0,10,20,40][idx-2];ST.prefs.setup=P;save();vHome()};
   bind("#cMode",["practice","exam"],v=>P.mode=v);
@@ -764,21 +787,25 @@ function explanationPanel(q){
 function vQuiz(){
   if(!S){go("home");return}
   const k=S.ks[S.i],q=BY[k],chosen=S.ans[k],revealed=!!S.review||(S.mode==="practice"&&chosen!=null);
-  const multi=q.a.length>1, starOn=!!ST.star[k];
+  const ungraded=isUngraded(q),multi=q.a.length>1, starOn=!!ST.star[k];
   const left=S.limit?S.limit-Math.floor((Date.now()-S.t0)/1000):0;
   const answered=Object.keys(S.ans).length;
   let fb="";
   if(revealed){
-    const ok=chosen!=null&&isOk(q,chosen), unanswered=chosen==null;
-    fb=`<div class="fb ${ok?"ok":unanswered?"info":"bad"}"><b>${ok?"정답":unanswered?"미응답":"오답"}</b><div>최종정답 <strong>${q.a.length===5?"전항 정답":q.a.map(x=>C[x-1]).join(", ")}</strong>${multi?` <span class="tag warn">복수정답 인정</span>`:""}${unanswered?"":ok?"":` · 내 답 ${C[chosen-1]}`}</div></div>`;
+    if(ungraded){
+      fb=`<div class="fb info" role="status"><b>채점 보류 · 선택 기록만 저장</b><div>원문 및 정답 근거 독립 검토 HOLD${chosen!=null?` · 내 선택 ${C[chosen-1]}`:" · 미응답"}. 정답·오답 판정이나 점수를 제공하지 않습니다.</div></div>`;
+    }else{
+      const ok=chosen!=null&&isOk(q,chosen), unanswered=chosen==null;
+      fb=`<div class="fb ${ok?"ok":unanswered?"info":"bad"}"><b>${ok?"정답":unanswered?"미응답":"오답"}</b><div>최종정답 <strong>${q.a.length===5?"전항 정답":q.a.map(x=>C[x-1]).join(", ")}</strong>${multi?` <span class="tag warn">복수정답 인정</span>`:""}${unanswered?"":ok?"":` · 내 답 ${C[chosen-1]}`}</div></div>`;
+    }
   }
   const textBlock=(q.q||q.o.length)?`<details><summary>자동 추출 텍스트 (검색용 · 원문 이미지가 기준)</summary><div class="in">${q.tx==="scan"?`<p class="tag warn">2023년은 스캔본이라 텍스트가 OCR 결과입니다</p>`:""}<p style="margin:6px 0">${esc(q.q)}</p>${q.o.length?`<ol>${q.o.map(o=>`<li>${esc(o)}</li>`).join("")}</ol>`:`<p class="muted">선택지 텍스트 없음 – 원문 이미지를 보세요.</p>`}</div></details>`:"";
-  const a=ST.att[k];
+  const a=attemptFor(q);
   const useText=!q.img||!!q.t&&viewMode()==="text";
   const imgHTML=q.img?`<div class="paper ${S.zoom?"zoom":""}" id="paper"><img src="img/${q.img}" width="${q.w}" height="${q.h}" style="width:${(q.w/1067*100).toFixed(1)}%" alt="${esc(q.y+"년 "+q.s+" "+q.n+"번 원문")}" decoding="async"></div>`:"";
   const stemHTML=()=>{if(!q.img)return `<p class="stem" style="white-space:pre-wrap"><span class="qn">${q.n}.</span> ${esc(q.q)}</p>`;const lines=q.q.split("\n");const head=[],box=[];lines.forEach((l,i)=>{if(i&&(q.box||/^([ㄱ-ㅎ]\.|○|◦)/.test(l)))box.push(l);else if(box.length)box.push(l);else head.push(l)});
     return `<p class="stem"><span class="qn">${q.n}.</span>${esc(head.join(" "))}</p>${box.length?`<div class="box">${box.map(l=>`<div>${esc(l)}</div>`).join("")}</div>`:""}`};
-  const optCls=v=>revealed?(q.a.includes(v)?"ok":v===chosen?"bad":""):(chosen===v?"sel":"");
+  const optCls=v=>ungraded?(chosen===v?"sel":""):revealed?(q.a.includes(v)?"ok":v===chosen?"bad":""):(chosen===v?"sel":"");
   const body=q.paperHtml?`<div class="tcard source-layout">${q.paperHtml}</div>
       <div class="choices" id="choices">${C.map((choice,i)=>`<button class="choice ${optCls(i+1)}" data-v="${i+1}" aria-label="${i+1}번" ${S.review?"disabled":""}>${choice}</button>`).join("")}</div>`:useText?`<div class="tcard">${stemHTML()}<div class="opts" id="choices">${q.o.map((o,i)=>`<button class="opt ${optCls(i+1)}" data-v="${i+1}" ${S.review?"disabled":""}><span class="m">${C[i]}</span><span>${esc(o)}</span></button>`).join("")}</div>
       ${q.img?`<button class="linkbtn" id="showImg">${S.showImg?"원문 이미지 접기":"원문 이미지로 확인 ▾"}</button>${S.showImg?imgHTML.replace('id="paper"','id="paper" style="margin-bottom:12px"'):""}`:""}</div>`
@@ -787,15 +814,17 @@ function vQuiz(){
   ${S.review?`<div class="reviewbanner"><b>결과 재검토 모드</b> · 답을 변경하거나 학습 이력을 중복 저장하지 않습니다.</div>`:""}
   <div class="prog"><i style="width:${(S.i+1)/S.ks.length*100}%"></i></div>
   <div class="qhead">
-    <div class="qmeta">${q.y}년 ${q.form? q.form+"형 ":""}${SHORT[q.s]} ${q.n}번<small>제${q.r}회 · ${S.i+1} / ${S.ks.length}${S.mode==="exam"?` · 답함 ${answered}`:""}${a&&S.mode==="practice"&&!revealed?` · 이전 기록 ${a.ok?"정답":"오답"}`:""}</small></div>
+    <div class="qmeta">${q.y}년 ${q.form? q.form+"형 ":""}${SHORT[q.s]} ${q.n}번<small>제${q.r}회 · ${S.i+1} / ${S.ks.length}${S.mode==="exam"?` · 답함 ${answered}`:""}${a&&S.mode==="practice"&&!revealed?` · ${ungraded?"이전 선택 기록(채점 HOLD)":`이전 기록 ${a.ok?"정답":"오답"}`}`:""}</small></div>
     <span style="flex:1"></span>
     ${S.mode==="exam"&&!S.done?`<span class="timer" id="timer" aria-label="남은 시간">${fmt(Math.max(0,left))}</span>`:""}
     <button class="iconbtn" id="starBtn" aria-label="별표"><span class="star ${starOn?"on":""}">★</span></button>
     ${q.img?`<span class="seg" id="vmode"><button data-m="img" class="${useText?"":"on"}">원문</button><button data-m="text" class="${useText?"on":""}" ${q.t?"":"disabled title='표·수식이 있어 원문으로만 제공'"}>글자</button></span>`:""}
   </div>
+  ${ungraded?`<div class="fb info" role="note">2008~2021년 정답 검증 HOLD · 문제를 풀고 복습 표시할 수 있지만 채점하지 않습니다.</div>`:""}
   ${body}
   ${fb}
-  ${revealed?explanationPanel(q):""}
+  ${ungraded?`<div class="row" style="margin:10px 0"><button class="btn ghost" id="markReview" aria-pressed="${Boolean(ST.ungraded[k]?.review)}">${ST.ungraded[k]?.review?"복습 표시 해제":"복습 필요 표시"}</button><span class="muted">수동 복습 목록에 저장</span></div>`:""}
+  ${revealed?(ungraded?`<section class="n108-explanation"><h3>학습 근거</h3><p class="n108-pending-copy">공식 정답·해설 승인 HOLD. 원문과 선택 기록을 검토하세요.</p></section>`:explanationPanel(q)):""}
   ${revealed||S.mode==="exam"?"":`<p class="kbd">${useText?"글자 보기는 PDF에서 자동 변환한 것입니다 · 의심되면 원문 이미지로 확인":"키보드 1~5 선택 · ← → 이동 · S 별표 · 이미지를 누르면 확대"}</p>`}
   ${useText?"":textBlock}
   <details id="jumper" ${S.paletteOpen?"open":""}><summary>문항 바로 이동 · 답한 ${answered}/${S.ks.length}</summary><div class="in">
@@ -810,6 +839,11 @@ function vQuiz(){
   const toggle=$("#vmode");if(toggle)toggle.onclick=e=>{const b=e.target.closest("button");if(!b||b.disabled)return;ST.prefs.view=b.dataset.m;save();vQuiz()};
   $("#choices").onclick=e=>{const b=e.target.closest("[data-v]");if(b)choose(+b.dataset.v)};
   $("#starBtn").onclick=toggleStar;
+  const reviewButton=$("#markReview");
+  if(reviewButton)reviewButton.onclick=()=>{
+    const old=ST.ungraded[k]||{n:0,last:0,review:false,t:0};
+    old.review=!old.review;old.t=Date.now();ST.ungraded[k]=old;save();vQuiz();
+  };
   $("#jumper").ontoggle=e=>{S.paletteOpen=e.target.open};
   const jumpTo=i=>{if(Number.isInteger(i)&&i>=0&&i<S.ks.length){S.i=i;S.zoom=false;S.showImg=false;if(!S.review)saveSession();vQuiz();window.scrollTo(0,0)}else toast("유효한 문항 위치를 입력하세요")};
   $("#jumpGo").onclick=()=>jumpTo(Number($("#jumpN").value)-1);
@@ -831,7 +865,7 @@ function navbar(){
   const needAns=S.mode==="practice"&&S.ans[k]==null;
   $("#navin").innerHTML=`<button class="btn ghost" id="pv" ${S.i?"":"disabled"}>이전</button>
     ${S.mode==="exam"?`<button class="btn ghost" id="fin">제출</button>`:""}
-    <button class="btn pri" id="nx">${last?(S.mode==="exam"?"제출하고 채점":"결과 보기"):(needAns?"건너뛰기":"다음")}</button>`;
+    <button class="btn pri" id="nx">${last?(S.mode==="exam"?(S.ks.some(k=>isUngraded(BY[k]))?"제출 · 채점 보류":"제출하고 채점"):"결과 보기"):(needAns?"건너뛰기":"다음")}</button>`;
   $("#pv").onclick=()=>move(-1);
   $("#nx").onclick=()=>last?submitSession():move(1);
   const f=$("#fin");if(f)f.onclick=submitSession;
@@ -839,7 +873,7 @@ function navbar(){
 function choose(v){
   if(!S||S.done||S.review||view!=="quiz")return;
   const k=S.ks[S.i],q=BY[k];
-  if(S.mode==="practice"){if(S.ans[k]!=null)return;S.ans[k]=v;record(k,v,isOk(q,v))}
+  if(S.mode==="practice"){if(S.ans[k]!=null)return;S.ans[k]=v;record(k,v,isUngraded(q)?null:isOk(q,v))}
   else S.ans[k]=v;
   saveSession();vQuiz();
 }
@@ -848,12 +882,13 @@ function toggleStar(){const k=S?S.ks[S.i]:null;if(!k)return;if(ST.star[k])delete
 function submitSession(){
   if(!S||S.done)return;
   const un=S.ks.length-Object.keys(S.ans).length;
-  ask(un?`미응답 ${un}문항이 있습니다. 결과를 제출하시겠습니까?`:"시험을 제출하고 채점할까요?","제출").then(ok=>{if(ok&&S&&!S.done)finish()});
+  const hasHold=S.ks.some(k=>isUngraded(BY[k]));
+  ask(un?`미응답 ${un}문항이 있습니다. 결과를 제출하시겠습니까?`:hasHold?"과거 문항은 채점 보류로 선택 기록만 저장됩니다. 제출할까요?":"시험을 제출하고 채점할까요?","제출").then(ok=>{if(ok&&S&&!S.done)finish()});
 }
 function finish(timeout=false){
   if(!S||S.done)return;
   stopTimer();$("#modal").hidden=true;
-  if(S.mode==="exam"){for(const k of S.ks){const v=S.ans[k];if(v!=null)record(k,v,isOk(BY[k],v))}}
+  if(S.mode==="exam"){for(const k of S.ks){const v=S.ans[k];if(v!=null)record(k,v,isUngraded(BY[k])?null:isOk(BY[k],v))}}
   S.done=true;S.timeout=!!timeout;S.secs=Math.floor((Date.now()-S.t0)/1000);ST.session=null;save();go("result");
 }
 function vResult(){
