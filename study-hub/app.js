@@ -696,7 +696,9 @@
       <section class="card">
         <div class="section-head"><h2>자료 검토</h2></div>
         <div class="mini-row"><span>2차 시험지 PDF ${D.sourcePdfs}개 연결</span>${badge('PASS')}</div>
-        <div class="mini-row"><span>2차 학습용 초안 128개 · 독립 승인 0개</span>${badge('HOLD')}</div>
+        <div class="mini-row"><span>2차 기존 학습용 초안 ${essayDraftCount}개 · 신규 자동작성 개별 초안 ${legacyIndividualDraftCount}개</span>${badge('HOLD')}</div>
+        <div class="mini-row"><span>2차 이미지형·과목별 원문 분할 재검토 ${legacyNeedsOriginalCount}개 · 최종 근거 승인 0개</span>${badge('HOLD')}</div>
+        <div class="mini-row"><span>2차 자동작성 초안: 배점별 장수 충족·시험일 법리·학술 원전 검증 미완료</span>${badge('HOLD')}</div>
         <div class="mini-row"><span>1차 학습용 해설 ${dataCounts.explanations}개 · 미작성 ${firstRows.length - dataCounts.explanations}개</span>${badge('HOLD')}</div>
         <div class="mini-row"><span>1차 스캔·이미지형 ${dataCounts.scanned}개 · 선택지 5개 미충족 ${dataCounts.incomplete}개</span>${badge('HOLD')}</div>
         <div class="mini-row"><span>Android·iOS 실기기</span>${badge('HOLD')}</div>
