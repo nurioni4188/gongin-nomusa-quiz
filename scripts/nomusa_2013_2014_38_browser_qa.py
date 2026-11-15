@@ -16,6 +16,21 @@ TARGETS=[
     (2014,"2014_p5_q1",50,"2014_p5"),
     (2014,"2014_p5_q3",25,"2014_p5"),
 ]
+# Batch 1 authored answers (detail / compressed / 3-3-3 / compare panes).
+ANSWERED=[("2013_p1_q1","2013_p1"),("2013_p1_q2","2013_p1"),("2013_p2_q1","2013_p2")]
+
+def open_question(page,width,year,id):
+    if not page.locator('[data-year="'+str(year)+'"]').is_visible():
+        page.locator('[data-nav="home"]:visible').first.click()
+    page.locator(f'[data-year="{year}"]').click()
+    if width<701:
+        page.locator('[data-action="list-toggle"]').click()
+    page.locator(f'[data-question="{id}"]').click()
+
+def ensure_writer(page):
+    # Answered children open on the detail pane; switch to the writer.
+    if page.locator("#draft").count()==0 and page.locator('[data-pane="write"]').count():
+        page.locator('[data-pane="write"]').click()
 class Quiet(SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
 
@@ -51,12 +66,8 @@ def main():
                 passed+=1
                 for year,id,points,parent in TARGETS:
                     try:
-                        if not page.locator('[data-year="'+str(year)+'"]').is_visible():
-                            page.locator('[data-nav="home"]:visible').first.click()
-                        page.locator(f'[data-year="{year}"]').click()
-                        if width<701:
-                            page.locator('[data-action="list-toggle"]').click()
-                        page.locator(f'[data-question="{id}"]').click()
+                        open_question(page,width,year,id)
+                        ensure_writer(page)
                         assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==id
                         assert f"({points}점)" in page.locator("#trace-content").inner_text() or f"{points}점" in page.locator("#trace-content").inner_text()
                         assert parent in page.locator('.detail-id').inner_text()
@@ -70,6 +81,7 @@ def main():
                             page.locator(f'[data-year="{year}"]').click()
                             if width<701:page.locator('[data-action="list-toggle"]').click()
                             page.locator(f'[data-question="{id}"]').click()
+                        ensure_writer(page)
                         assert page.locator("#draft").input_value()==note
                         assert page.evaluate("document.documentElement.scrollWidth-document.documentElement.clientWidth")<=1
                         cases.append({"width":width,"id":id,"test":"open_and_save_restore","status":"PASS"})
@@ -77,13 +89,31 @@ def main():
                     except Exception as exc:
                         cases.append({"width":width,"id":id,"status":"HOLD","error":str(exc)[-420:]})
                         break
+                for id,parent in ANSWERED:
+                    try:
+                        open_question(page,width,2013,id)
+                        assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==id
+                        assert parent in page.locator('.detail-id').inner_text()
+                        page.locator('[data-pane="detail"]').click()
+                        detail=page.locator("#trace-content").inner_text()
+                        assert "상세 학습답안" in detail and ". 결론" in detail and "HOLD" in detail,detail[:200]
+                        assert page.locator(".memory-groups > div").count()==3
+                        page.locator('[data-pane="compressed"]').click()
+                        assert "시험장 압축답안" in page.locator("#trace-content").inner_text()
+                        page.locator('[data-pane="compare"]').click()
+                        assert page.locator(".checklist .check-item").count()>=5
+                        assert page.evaluate("document.documentElement.scrollWidth-document.documentElement.clientWidth")<=1
+                        cases.append({"width":width,"id":id,"test":"authored_answer_panes","status":"PASS"})
+                        passed+=1
+                    except Exception as exc:
+                        cases.append({"width":width,"id":id,"test":"authored_answer_panes","status":"HOLD","error":str(exc)[-420:]})
                 context.close()
             browser.close()
     finally:server.shutdown()
     result={
       "schema":"nomusa-2013-2014-38-browser-local/1",
-      "expected":15,"passed":passed,
-      "status":"PASS" if passed==15 and not errors else "HOLD",
+      "expected":24,"passed":passed,
+      "status":"PASS" if passed==24 and not errors else "HOLD",
       "cases":cases,"errors":errors,
       "sourceAndAnswerFinalApproval":"HOLD",
       "preview":"NOT_DEPLOYED",
