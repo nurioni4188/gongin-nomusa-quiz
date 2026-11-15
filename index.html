@@ -894,20 +894,35 @@ function finish(timeout=false){
 function vResult(){
   $("#navbar").hidden=true;
   const rows=S.ks.map(k=>({q:BY[k],v:S.ans[k]}));
-  const ans=rows.filter(r=>r.v!=null),ok=ans.filter(r=>isOk(r.q,r.v));
-  const pct=S.ks.length?Math.round(ok.length/S.ks.length*100):0;
-  const bySub={};rows.forEach(r=>{const b=bySub[r.q.s]||(bySub[r.q.s]={n:0,o:0});b.n++;if(r.v!=null&&isOk(r.q,r.v))b.o++});
-  const wrongKs=rows.filter(r=>r.v==null||!isOk(r.q,r.v)).map(r=>r.q.k);
+  const graded=rows.filter(r=>!isUngraded(r.q));
+  const held=rows.filter(r=>isUngraded(r.q));
+  const answered=graded.filter(r=>r.v!=null);
+  const ok=answered.filter(r=>isOk(r.q,r.v));
+  const pct=graded.length?Math.round(ok.length/graded.length*100):null;
+  const bySub={};
+  graded.forEach(r=>{
+    const b=bySub[r.q.s]||(bySub[r.q.s]={n:0,o:0});
+    b.n++;if(r.v!=null&&isOk(r.q,r.v))b.o++;
+  });
+  // Never label an unapproved answer candidate as wrong, even in mixed-year sessions.
+  const retryKs=rows.filter(r=>isUngraded(r.q)||r.v==null||!isOk(r.q,r.v)).map(r=>r.q.k);
   $("#app").innerHTML=`<div class="card res" style="margin-top:18px">
     <div class="muted">${S.timeout?"시간 종료 · ":""}${S.mode==="exam"?"실전":"연습"} 결과 · ${fmt(S.secs)}</div>
-    <div class="score">${ok.length} / ${S.ks.length}</div>
-    <div>100점 만점 환산 ${pct}점 ${Object.keys(bySub).length===1&&S.ks.length===40?(pct>=40?"· 과락 면함(40점 이상)":"· <span style='color:var(--bad)'>과락 기준(40점) 미만</span>"):""}</div>
+    ${graded.length?
+      `<div class="score">${ok.length} / ${graded.length}</div><div>기존 2022~2026년 채점 범위 ${pct}점 (100점 환산)${Object.keys(bySub).length===1&&graded.length===40?(pct>=40?" · 과락 면함(40점 이상)":" · <span style='color:var(--bad)'>과락 기준(40점) 미만</span>"):""}</div>`:
+      '<div class="score">채점 보류</div><div>2008~2021년은 정답 근거 승인 전이므로 점수를 표시하지 않습니다.</div>'}
+    ${held.length?`<div class="fb info" role="status">과거 수록 문항 ${held.length}개 · 답변 ${held.filter(r=>r.v!=null).length}개 · 채점 제외 (공식 정답 근거 HOLD)</div>`:""}
   </div>
-  ${Object.keys(bySub).length>1?`<h2>과목별</h2><div class="card"><table><tr><th>과목</th><th>맞음</th><th>문항</th><th>점수</th></tr>${Object.entries(bySub).map(([s,b])=>`<tr><td>${SHORT[s]}</td><td>${b.o}</td><td>${b.n}</td><td>${Math.round(b.o/b.n*100)}</td></tr>`).join("")}</table></div>`:""}
-  <div class="row" style="margin-top:14px"><button class="btn pri" id="reW" style="flex:1" ${wrongKs.length?"":"disabled"}>오답·미응답 ${wrongKs.length}문항 다시</button><button class="btn" id="home" style="flex:1">홈</button></div>
-  <h2>문항별</h2><div class="list">${rows.map((r,i)=>{const st=r.v==null?"no":isOk(r.q,r.v)?"ok":"bad";
-    return `<button type="button" class="li" data-i="${i}"><span class="pill ${st}">${st==="ok"?"O":st==="bad"?"X":"–"}</span><div class="t"><div>${esc(r.q.q||"(원문 이미지 참조)")}</div><small>${r.q.y} ${SHORT[r.q.s]} ${r.q.n}번 · 정답 ${r.q.a.map(x=>C[x-1]).join(",")}${r.v!=null?" · 내 답 "+C[r.v-1]:""}</small></div></button>`}).join("")}</div>`;
-  $("#reW").onclick=()=>start(wrongKs.map(k=>BY[k]),"practice","seq",0);
+  ${Object.keys(bySub).length>1?`<h2>기존 채점 대상 과목별</h2><div class="card"><table><tr><th>과목</th><th>맞음</th><th>문항</th><th>점수</th></tr>${Object.entries(bySub).map(([s,b])=>`<tr><td>${SHORT[s]}</td><td>${b.o}</td><td>${b.n}</td><td>${Math.round(b.o/b.n*100)}</td></tr>`).join("")}</table></div>`:""}
+  <div class="row" style="margin-top:14px"><button class="btn pri" id="reW" style="flex:1" ${retryKs.length?"":"disabled"}>오답·미응답·채점보류 ${retryKs.length}문항 다시</button><button class="btn" id="home" style="flex:1">홈</button></div>
+  <h2>문항별</h2><div class="list">${rows.map((r,i)=>{
+    const hold=isUngraded(r.q);
+    const st=hold?"no":r.v==null?"no":isOk(r.q,r.v)?"ok":"bad";
+    const verdict=hold?"HOLD":st==="ok"?"O":st==="bad"?"X":"–";
+    const detail=hold?" · 채점 보류":` · 정답 ${r.q.a.map(x=>C[x-1]).join(",")}`;
+    return `<button type="button" class="li" data-i="${i}"><span class="pill ${st}">${verdict}</span><div class="t"><div>${esc(r.q.q||"(원문 이미지 참조)")}</div><small>${r.q.y} ${SHORT[r.q.s]} ${r.q.n}번${detail}${r.v!=null?" · 내 답 "+C[r.v-1]:""}</small></div></button>`;
+  }).join("")}</div>`;
+  $("#reW").onclick=()=>start(retryKs.map(k=>BY[k]),"practice","seq",0);
   $("#home").onclick=()=>go("home");
   document.querySelectorAll(".li").forEach(el=>el.onclick=()=>{S.review=true;S.i=+el.dataset.i;S.zoom=false;S.showImg=false;go("quiz")});
 }
@@ -915,19 +930,26 @@ function vResult(){
 /* ---------- lists ---------- */
 function listHTML(qs,showState=true){
   if(!qs.length)return `<div class="empty">아직 없습니다.</div>`;
-  return `<div class="list">${qs.map((q,i)=>{const a=ST.att[q.k];const st=!a?"no":a.ok?"ok":"bad";
-    return `<button type="button" class="li" data-i="${i}">${showState?`<span class="pill ${st}">${st==="ok"?"O":st==="bad"?"X":"–"}</span>`:""}<div class="t"><div>${esc(q.q||"(원문 이미지 참조)")}</div><small>${q.y} ${SHORT[q.s]} ${q.n}번${a?` · ${a.n}회 풀이, ${a.w}회 틀림`:""}${ST.star[q.k]?" · ★":""}</small></div></button>`}).join("")}</div>`;
+  return `<div class="list">${qs.map((q,i)=>{
+    const held=isUngraded(q),a=attemptFor(q);
+    const st=held?"no":!a?"no":a.ok?"ok":"bad";
+    const label=held?"HOLD":st==="ok"?"O":st==="bad"?"X":"–";
+    const info=held?(a?.n?` · ${a.n}회 선택 기록`:"")+" · 채점 보류"+(ST.ungraded[q.k]?.review?" · 수동 복습":""):
+      a?` · ${a.n}회 풀이, ${a.w}회 틀림`:"";
+    return `<button type="button" class="li" data-i="${i}">${showState?`<span class="pill ${st}">${label}</span>`:""}<div class="t"><div>${esc(q.q||"(원문 이미지 참조)")}</div><small>${q.y} ${SHORT[q.s]} ${q.n}번${info}${ST.star[q.k]?" · ★":""}</small></div></button>`;
+  }).join("")}</div>`;
 }
 function bindList(qs){document.querySelectorAll(".li").forEach(el=>el.onclick=()=>start(qs,"practice","seq",0,+el.dataset.i))}
 let wrongTab="now";
 function vWrong(){
   const sortK=(a,b)=>a.y-b.y||SUBJ.indexOf(a.s)-SUBJ.indexOf(b.s)||a.n-b.n;
-  const sets={now:Q.filter(q=>ST.att[q.k]&&ST.att[q.k].ok===false).sort(sortK),
-    ever:Q.filter(q=>ST.att[q.k]&&ST.att[q.k].w>0).sort((a,b)=>ST.att[b.k].w-ST.att[a.k].w||sortK(a,b)),
+  const sets={now:Q.filter(q=>!isUngraded(q)&&ST.att[q.k]?.ok===false).sort(sortK),
+    ever:Q.filter(q=>!isUngraded(q)&&ST.att[q.k]?.w>0).sort((a,b)=>ST.att[b.k].w-ST.att[a.k].w||sortK(a,b)),
+    review:Q.filter(q=>isUngraded(q)&&ST.ungraded[q.k]?.review).sort(sortK),
     star:Q.filter(q=>ST.star[q.k]).sort(sortK),memo:Q.filter(q=>ST.memo[q.k]).sort(sortK)};
   const qs=sets[wrongTab];
-  $("#app").innerHTML=`<section class="page-intro" aria-label="오답 복습 요약"><div class="page-eyebrow">MY REVIEW NOTE</div><h1>오답노트</h1><p>다시 확인할 문제를 모아두었습니다. 마지막 풀이를 맞히면 지금 틀린 목록에서 빠집니다.</p><div class="counter-row"><span>현재 오답 ${sets.now.length}</span><span>한 번 이상 틀림 ${sets.ever.length}</span><span>별표 ${sets.star.length}</span></div></section>
-  <div class="row" style="margin:14px 0" id="wt">${[["now","지금 틀림"],["ever","자주 틀림"],["star","별표"],["memo","메모"]].map(([v,l])=>`<span class="chip ${wrongTab===v?"on":""}" data-v="${v}">${l} ${sets[v].length}</span>`).join("")}</div>
+  $("#app").innerHTML=`<section class="page-intro" aria-label="오답 복습 요약"><div class="page-eyebrow">MY REVIEW NOTE</div><h1>오답·복습노트</h1><p>2022~2026년 오답과 2008~2021년의 수동 복습 기록을 구분합니다. 과거 정답 후보는 채점하지 않습니다.</p><div class="counter-row"><span>기존 채점 오답 ${sets.now.length}</span><span>수동 복습 ${sets.review.length}</span><span>별표 ${sets.star.length}</span></div></section>
+  <div class="row" style="margin:14px 0" id="wt">${[["now","지금 틀림"],["ever","자주 틀림"],["review","수동 복습"],["star","별표"],["memo","메모"]].map(([v,l])=>`<span class="chip ${wrongTab===v?"on":""}" data-v="${v}">${l} ${sets[v].length}</span>`).join("")}</div>
   ${qs.length?`<button class="btn pri big" id="go" style="margin:0 0 12px">${qs.length}문항 다시 풀기</button>`:""}
   ${listHTML(qs)}`;
   $("#wt").onclick=e=>{const c=e.target.closest(".chip");if(c){wrongTab=c.dataset.v;vWrong()}};
@@ -945,16 +967,20 @@ function vSearch(){
   $("#sq").oninput=run;run();
 }
 function vStats(){
-  const rows=[];
-  for(const s of SUBJ){const qs=Q.filter(q=>q.s===s),d=qs.filter(q=>ST.att[q.k]),o=d.filter(q=>ST.att[q.k].ok);rows.push([SHORT[s],qs.length,d.length,o.length])}
-  const yrows=YEARS.map(y=>{const qs=Q.filter(q=>q.y===y),d=qs.filter(q=>ST.att[q.k]),o=d.filter(q=>ST.att[q.k].ok);return[y+"년",qs.length,d.length,o.length]});
-  const tb=(h,rs)=>`<div class="card"><table><tr><th>${h}</th><th>전체</th><th>푼 문제</th><th>정답</th><th>정답률</th></tr>${rs.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[2]?Math.round(r[3]/r[2]*100)+"%":"–"}</td></tr>`).join("")}</table></div>`;
-  $("#app").innerHTML=`<h1>통계</h1><p class="sub">각 문항의 마지막 풀이 기준입니다. 기록은 이 기기 브라우저에만 저장됩니다.</p>
+  const summary=(label,qs)=>{
+    const d=qs.filter(q=>attemptFor(q)?.n>0);
+    const graded=d.filter(q=>!isUngraded(q));
+    return [label,qs.length,d.length,graded.filter(q=>ST.att[q.k]?.ok).length,graded.length];
+  };
+  const rows=SUBJ.map(subject=>summary(SHORT[subject],Q.filter(q=>q.s===subject)));
+  const yrows=YEARS.map(y=>summary(y+"년",Q.filter(q=>q.y===y)));
+  const tb=(h,rs)=>`<div class="card"><table><tr><th>${h}</th><th>전체</th><th>선택 기록</th><th>기존 채점 정답</th><th>채점대상 정답률</th></tr>${rs.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]?Math.round(r[3]/r[4]*100)+"%":r[2]?"HOLD":"–"}</td></tr>`).join("")}</table></div>`;
+  $("#app").innerHTML=`<h1>통계</h1><p class="sub">2008~2021년 수록 문항의 선택은 횟수만 집계하고 정답률에서 제외합니다. 기존 2022~2026년 채점은 유지합니다. 기록은 이 기기 브라우저에만 저장됩니다.</p>
   <h2>과목별</h2>${tb("과목",rows)}<h2>연도별</h2>${tb("연도",yrows)}
   <h2>기록 관리</h2><div class="card"><p class="muted" style="margin-top:0">다른 기기로 옮기거나 백업하려면 파일로 내보내세요.</p>
-  <div class="backup-actions"><button class="btn pri" id="ex">JSON 백업 다운로드</button><label class="btn" style="cursor:pointer">백업 가져오기<input type="file" id="im" accept=".json,application/json" hidden></label><button class="btn ghost" id="rs" style="color:var(--bad)">기록 초기화</button></div><p class="muted">백업 파일에는 풀이 기록·별표·메모가 포함됩니다. 다른 사람과 공유하지 마세요.</p></div>`;
+  <div class="backup-actions"><button class="btn pri" id="ex">JSON 백업 다운로드</button><label class="btn" style="cursor:pointer">백업 가져오기<input type="file" id="im" accept=".json,application/json" hidden></label><button class="btn ghost" id="rs" style="color:var(--bad)">기록 초기화</button></div><p class="muted">백업 파일에는 기존 채점·미채점 선택·수동 복습·별표·메모가 포함됩니다. 다른 사람과 공유하지 마세요.</p></div>`;
   $("#ex").onclick=()=>{
-    const payload={schema:"nomusa-quiz-progress-rc32",exportedAt:new Date().toISOString(),sourceQuestions:Q.length,progress:{att:ST.att,star:ST.star,memo:ST.memo,prefs:ST.prefs}};
+    const payload={schema:"nomusa-quiz-progress-rc32",exportedAt:new Date().toISOString(),sourceQuestions:Q.length,progress:{att:ST.att,ungraded:ST.ungraded,star:ST.star,memo:ST.memo,prefs:ST.prefs}};
     const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json;charset=utf-8"});
     const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`nomusa-quiz-backup-${new Date().toISOString().slice(0,10)}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("백업 파일을 내려받았습니다");
   };
@@ -967,15 +993,17 @@ function vStats(){
       ST={...progress,session:null};S=null;save();applyTheme();toast("백업을 가져왔습니다");vStats();
     }catch(err){toast("백업 형식이 올바르지 않습니다")}
   };
-  $("#rs").onclick=()=>ask("풀이 기록·별표·메모를 모두 지울까요?","모두 지우기",true).then(ok=>{if(ok){const p=ST.prefs;ST={att:{},star:{},memo:{},prefs:p};save();vStats();toast("초기화했습니다")}});
+  $("#rs").onclick=()=>ask("풀이 기록·별표·메모를 모두 지울까요?","모두 지우기",true).then(ok=>{if(ok){const p=ST.prefs;ST={att:{},ungraded:{},star:{},memo:{},prefs:p};save();vStats();toast("초기화했습니다")}});
 }
+
 function vAbout(){
-  const multi=Q.filter(q=>q.a.length>1);
+  const multi=BASE.filter(q=>q.a.length>1);
   const corr=(META.corrections||[]);
   $("#app").innerHTML=`<h1>출처와 검증</h1>
   <div class="card" style="margin-top:14px">
     <p style="margin-top:0"><b>문제</b> · Q-Net 공개 공인노무사 1차 시험 문제지(A형) PDF에서 문항 영역을 그대로 잘라낸 이미지입니다. 지문·선택지·수식·표·그래프를 원본 그대로 보여주므로 텍스트 추출 오류의 영향을 받지 않습니다. 2008~2010년 A형은 HWP에서 추출해 확인한 지문과 선택지를 제공합니다. 영어의 공통 지문과 표도 원본 문서 구조에 맞춰 표시합니다.</p>
-    <p><b>정답 데이터</b> · 첨부 RC31에 포함된 A형 정답 자료를 그대로 사용했습니다. 2차 판독 결과는 원본 패키지의 작업 기록에 근거하며, 이번 RC32에서는 답을 임의로 바꾸지 않고 파일·정답 매핑을 프로그램으로 검사했습니다. 공식 원본 대조의 독립 검수는 별도입니다.</p>
+    <p><b>미승인 과거 정답</b> · 2008~2021년 수록 정답 후보는 독립 승인 HOLD 상태입니다. 원문과 선택 기록은 제공하지만 자동채점·점수·정답 강조·오답 판정에서는 제외합니다. 기존 이전 버전의 채점 흔적은 백업 데이터에 보존하되 신뢰 가능한 점수로 표시하지 않습니다.</p>
+    <p><b>정답 데이터</b> · 2022~2026년 기존 RC35 자료는 첨부 RC31에 포함된 A형 정답 자료를 그대로 사용했습니다. 2차 판독 결과는 원본 패키지의 작업 기록에 근거하며, 이번 RC32에서는 답을 임의로 바꾸지 않고 파일·정답 매핑을 프로그램으로 검사했습니다. 공식 원본 대조의 독립 검수는 별도입니다.</p>
     <ul style="padding-left:20px;margin:0">
       <li>첨부 대조 CSV의 1·2차 전사값 일치: <b>${BASE.length-corr.length}</b>문항</li>
       <li>첨부 RC31 기록상 원본 PDF 재확인 후 정정: <b>${corr.length}</b>문항 ${corr.map(c=>`(${esc(c.key)}: ${c.firstPass.map(x=>C[x-1]).join(",")} → <b>${c.official.map(x=>C[x-1]).join(",")}</b>)`).join(" ")}</li>
