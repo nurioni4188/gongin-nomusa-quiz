@@ -1,0 +1,118 @@
+{
+  "schema": "nomusa-2013-2014-essay-batch10-summary/1",
+  "checkedOn": "2026-11-15",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceVersion": "2026-11-15-batch10",
+  "sourceAnswerFile": "second/historical-2013-2014-answers-v1.js",
+  "newQuestions": [
+    {
+      "id": "2014_p2_q1",
+      "subject": "노동법2",
+      "points": 50,
+      "detailedChars": 4668
+    },
+    {
+      "id": "2014_p2_q2",
+      "subject": "노동법2",
+      "points": 25,
+      "detailedChars": 3149
+    },
+    {
+      "id": "2014_p3_q1",
+      "subject": "인사노무관리론",
+      "points": 50,
+      "detailedChars": 7266
+    },
+    {
+      "id": "2014_p3_q2",
+      "subject": "인사노무관리론",
+      "points": 25,
+      "detailedChars": 3811
+    },
+    {
+      "id": "2014_p3_q3",
+      "subject": "인사노무관리론",
+      "points": 25,
+      "detailedChars": 3232
+    }
+  ],
+  "counts": {
+    "catalog": 309,
+    "preservedOriginalParents": 181,
+    "split2013_2014": 38,
+    "authoredLearningDrafts": 26,
+    "remainingLearningDrafts": 12
+  },
+  "qa": {
+    "answerGate": {
+      "status": "PASS",
+      "authored": 26,
+      "remaining": 12,
+      "allProtectedFilesPreserved": true,
+      "errors": []
+    },
+    "browser": {
+      "status": "PASS",
+      "passed": 93,
+      "expected": 93,
+      "viewports": [
+        1440,
+        390,
+        360
+      ],
+      "note": "Fixed long bibliography URL overflow using app.css wrap rules"
+    },
+    "original181": {
+      "status": "PASS",
+      "passed": 12,
+      "expected": 12
+    },
+    "hub": {
+      "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+      "browserChecks": 13,
+      "passed": 13,
+      "sourceAlignmentIndependentReview": "HOLD"
+    }
+  },
+  "evidence": [
+    {
+      "case": "2010다38007",
+      "scope": "2014_p2_q1",
+      "status": "CASE_SUMMARY_MATCHED_FINAL_LEGAL_APPLICATION_HOLD"
+    },
+    {
+      "case": "2011두20406",
+      "scope": "2014_p2_q1",
+      "status": "CASE_SUMMARY_MATCHED_FINAL_LEGAL_APPLICATION_HOLD"
+    },
+    {
+      "case": "2011도15497",
+      "scope": "2014_p2_q2",
+      "status": "CASE_SUMMARY_MATCHED_FINAL_LEGAL_APPLICATION_HOLD"
+    },
+    {
+      "case": "2012도3475",
+      "scope": "2014_p2_q2",
+      "status": "CASE_SUMMARY_MATCHED_FINAL_LEGAL_APPLICATION_HOLD"
+    }
+  ],
+  "safety": {
+    "originalPdf": "UNCHANGED",
+    "original181Ledger": "UNCHANGED",
+    "rc35": "UNCHANGED",
+    "existingStorageKeys": "UNCHANGED",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "preview": "NOT_DEPLOYED",
+    "scoringApproved": false,
+    "citationReview": "HOLD",
+    "humanApproval": "PENDING"
+  },
+  "next": [
+    "2014_p4_q1",
+    "2014_p4_q2",
+    "2014_p4_q3"
+  ],
+  "note": "All texts are learning drafts, not official model answers. Historical law amendments and decisions require substantive independent legal review."
+}
