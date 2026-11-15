@@ -18,6 +18,7 @@
     return entry?.draftStatus === 'DRAFT_UNVERIFIED' && (entry.conceptTitles?.length || 0) > 0;
   };
   const hasSplitAnswer = row => Boolean(row?.parentId) && hasLegacyEssay(row);
+  const hasIndividuallyAuthoredEssay = row => !row?.parentId && legacyDraftFor(row)?.authoring === 'INDIVIDUAL_SOURCE_GROUNDED_ESSAY';
   const legacyDraftRegistryCount = Object.keys(legacyEssayDrafts).length;
   const legacyIndividualDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED').length;
   const legacySpecificDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED' && x.conceptTitles?.length).length;
@@ -335,7 +336,7 @@
   }
 
   function renderQuestion(row) {
-    const kind = row.stage === 'first' ? '1차 기출' : row.parentId ? (hasSplitAnswer(row) ? '분리된 개별 대문항 · 상세·압축·3·3·3 작성 · 인용 검증 HOLD' : '분리된 개별 대문항 · 원문·배점 확인 · 답안 HOLD') : row.sourceOnly ? (hasLegacyEssay(row) ? '자동작성 초안 · 검증 HOLD' : '원문·작성틀 · 근거 HOLD') :
+    const kind = row.stage === 'first' ? '1차 기출' : row.parentId ? (hasSplitAnswer(row) ? '분리된 개별 대문항 · 상세·압축·3·3·3 작성 · 인용 검증 HOLD' : '분리된 개별 대문항 · 원문·배점 확인 · 답안 HOLD') : row.sourceOnly ? (hasIndividuallyAuthoredEssay(row) ? '문항별 심화답안 · 원전 검토 HOLD' : hasLegacyEssay(row) ? '자동작성 초안 · 검증 HOLD' : '원문·작성틀 · 근거 HOLD') :
       row.origin === 'V103_57' ? '신규 대문제 · 학습 초안' : '기존 학습 초안';
     return `<button class="question-item ${selected === row.key ? 'active' : ''}" data-question="${esc(row.key)}" aria-pressed="${selected === row.key}">
       <small>${row.year}년 · ${esc(row.subject)}</small><b>${esc(row.topic)}</b>
@@ -349,7 +350,7 @@
     const round = retestFor(row);
     const isExam = locked();
     const index = rows.indexOf(row);
-    const status = essay ? (row.parentId ? (hasSplitAnswer(row) ? '기존 부모 ID 보존 · 문항별 작성 모범답안 초안 · 판례·조문 대조 HOLD' : '기존 부모 ID 보존 · 개별 대문항 원문·배점 확인 · 모범답안 HOLD') : hasLegacyEssay(row) ? 'AI 보조 학습용 답안 초안 · 학술·판례 근거 HOLD' : row.sourceOnly ? '원문 기반 답안 작성틀 · 원문/근거 HOLD' : '학습용 답안 초안 · 독립 승인 HOLD') : '수록 정답 근거 확인 HOLD';
+    const status = essay ? (row.parentId ? (hasSplitAnswer(row) ? '기존 부모 ID 보존 · 문항별 작성 모범답안 초안 · 판례·조문 대조 HOLD' : '기존 부모 ID 보존 · 개별 대문항 원문·배점 확인 · 모범답안 HOLD') : hasIndividuallyAuthoredEssay(row) ? '문항별 심화 집필답안 · 학술원전 검토 HOLD' : hasLegacyEssay(row) ? 'AI 보조 학습용 답안 초안 · 학술·판례 근거 HOLD' : row.sourceOnly ? '원문 기반 답안 작성틀 · 원문/근거 HOLD' : '학습용 답안 초안 · 독립 승인 HOLD') : '수록 정답 근거 확인 HOLD';
     if (isExam && trace > 2) trace = 0;
     const points = typeof row.points === 'number' ? row.points + '점' : row.points;
     return `
@@ -554,7 +555,7 @@
       return `<h3 class="panel-title">내 답안과 비교·복습</h3>
         <div class="split">
           <div><h4>내가 작성한 답안</h4><div class="answer">${esc(draftFor(row) || '작성 기록이 없습니다.')}</div></div>
-          <div><h4>${row.sourceOnly ? (hasSplitAnswer(row) ? '문항별 압축답안 · 인용 검증 HOLD' : hasLegacyEssay(row) ? '자동작성 압축답안 · 검증 HOLD' : '원문 대조 · 모범답안 HOLD') : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
+          <div><h4>${row.sourceOnly ? (hasSplitAnswer(row) ? '문항별 압축답안 · 인용 검증 HOLD' : hasIndividuallyAuthoredEssay(row) ? '문항별 시험장 압축답안 · 학술 검토 HOLD' : hasLegacyEssay(row) ? '자동작성 압축답안 · 검증 HOLD' : '원문 대조 · 모범답안 HOLD') : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
             ${row.sourceOnly && !hasLegacyEssay(row) ? '<p class="answer">공식 모범답안과 문제별 검증된 학습답안은 아직 확보되지 않았습니다. 원문과 배점·근거 검토 후 직접 작성 내용을 점검하세요. 자동채점하지 않습니다.</p>' : compactAnswers(row)}</div>
         </div>${legacyMemoryPanel(row)}${checklist(row)}`;
     }
@@ -578,9 +579,9 @@
     const detail = pane === 'detail';
     const isNewDraft = hasLegacyEssay(row);
     const split = hasSplitAnswer(row);
-    return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}${split ? ' · 문항별 작성' : isNewDraft ? ' · 자동작성 초안' : ''}</h3>
+    return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}${split || hasIndividuallyAuthoredEssay(row) ? ' · 문항별 작성' : isNewDraft ? ' · 자동작성 초안' : ''}</h3>
       ${notice(split ? '문항별 작성 모범답안 초안 · 판례 사건번호·조문 원문 대조 HOLD · 공식 모범답안 아님 · 자동채점 없음' :
-        isNewDraft ? 'AI 보조 학습 초안 · 원문 정확성·학술·판례 독립검증 HOLD · 공식 모범답안 아님' : '학습용 초안 · 독립 승인 HOLD', '')}
+        hasIndividuallyAuthoredEssay(row) ? '문항별 심화답안 초안 · 학술원전·실제 답안지 분량 검토 HOLD · 공식 모범답안 아님' : isNewDraft ? 'AI 보조 학습 초안 · 원문 정확성·학술·판례 독립검증 HOLD · 공식 모범답안 아님' : '학습용 초안 · 독립 승인 HOLD', '')}
       ${split ? splitAllocation(row) : ''}
       <div class="answer-pane">${detail ? detailedAnswers(row) : compactAnswers(row)}</div>
       ${isNewDraft ? legacyMemoryPanel(row) : ''}
