@@ -1,0 +1,22 @@
+{
+  "questions": 125,
+  "layoutRestored": 125,
+  "bySubject": {
+    "노동법(1)": 25,
+    "노동법(2)": 25,
+    "경제학원론": 25,
+    "민법": 25,
+    "영어": 25
+  },
+  "held": {},
+  "year": 2009,
+  "answerCellsCompared": 125,
+  "answerDifferences": 0,
+  "answerProvenance": "2009-09-23 repost of Q-Net question and answer package; embedded answer screen uses 가답안 조회 heading",
+  "questionMatchesUserHwp": true,
+  "sourceSHA256": {
+    "question": "9202fda95f7e6dd19ecf0ed844c329da24f988b3551bab8d962e4ea218922cf8",
+    "answer": "7cc8ac7f0c10712743cb82b16f49296ea1c77c68d6715ea3dc81b5a48df7f878"
+  },
+  "archiveNotice": "https://court.lawschool.co.kr/nlawschool/board/infomation/view.asp?bbsCode=1502&num=23633"
+}

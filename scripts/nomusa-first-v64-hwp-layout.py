@@ -123,7 +123,7 @@ if __name__ == "__main__":
     p.add_argument("xhtml", type=Path)
     p.add_argument("baseline", type=Path)
     p.add_argument("answer_report", type=Path)
-    p.add_argument("--year", type=int, choices=(2008, 2010), default=2008)
+    p.add_argument("--year", type=int, choices=(2008, 2009, 2010), default=2008)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     bank = json.loads(args.baseline.read_text().split(" = ", 1)[1].strip().removesuffix(";"))

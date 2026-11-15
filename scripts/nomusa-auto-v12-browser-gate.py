@@ -225,10 +225,20 @@ def check_first(page, width):
   assert '5021186' in page.get_by_role('link',name='Q-Net 정답 출처').get_attribute('href')
   page.locator('#choices [data-v="5"]').click()
   assert page.locator('.fb.ok').is_visible()
+  page.locator('#tabs [data-v="home"]').click()
+  page.locator('[data-y="2009"][data-s="노동법(2)"]').click()
+  page.locator('#mOk').click()
+  assert '2009년 A형' in page.locator('.qmeta').inner_text()
+  assert page.evaluate('NOMUSA_FIRST_2009.length')==125
+  page.locator('#jumper summary').click()
+  page.locator('#jumpN').fill('5')
+  page.locator('#jumpGo').click()
+  page.locator('#choices [data-v="4"]').click()
+  assert page.locator('.fb.ok').is_visible()
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2010Questions':125,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2009Questions':125,'added2010Questions':125,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})

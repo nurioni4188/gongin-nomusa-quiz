@@ -539,13 +539,15 @@ nav.tabs .n27-essay-entry:focus-visible{outline:3px solid var(--warn);outline-of
 <script src="source-corrections-v1089.js"></script>
 <script src="explanations-v108.js"></script>
 <script src="study-hub/first-2008-a.js"></script>
+<script src="study-hub/first-2009-a.js"></script>
 <script src="study-hub/first-2010-a.js"></script>
 <script>
 "use strict";
 const BASE = window.QDATA || [], META = window.QMETA || {};
 const FIRST_2008 = window.NOMUSA_FIRST_2008 || [];
+const FIRST_2009 = window.NOMUSA_FIRST_2009 || [];
 const FIRST_2010 = window.NOMUSA_FIRST_2010 || [];
-const Q = [...BASE, ...FIRST_2008, ...FIRST_2010];
+const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010];
 const BY = Object.fromEntries(Q.map(q=>[q.k,q]));
 const YEARS=[...new Set(Q.map(q=>q.y))].sort((a,b)=>b-a);
 const SUBJ=["영어","노동법(1)","노동법(2)","민법","사회보험법","경영학개론","경제학원론"];
@@ -657,7 +659,7 @@ function vHome(){
     <div class="hero-main">
       <div class="hero-eyebrow"><span class="live-dot"></span> WARM LIGHT STUDY <span class="hero-version">RC35</span></div>
       <h1>차분하게 한 문제씩,<br><em>합격에 가까워지기.</em></h1>
-      <p class="sub">공인노무사 1차 기출 · <strong>${tot.toLocaleString()}문항</strong><br>2022~2026년 · 2008년·2010년 A형</p>
+      <p class="sub">공인노무사 1차 기출 · <strong>${tot.toLocaleString()}문항</strong><br>2022~2026년 · 2008~2010년 A형</p>
       <div class="hero-points"><span>✓ 연습·실전</span><span>✓ 자동 저장</span><span>✓ 오답 복습</span></div>
     </div>
     <div class="hero-side" aria-label="전체 학습 진행률 ${Math.round(done/tot*100)}퍼센트">
@@ -665,7 +667,7 @@ function vHome(){
       <p><strong>${done.toLocaleString()}</strong> / ${tot.toLocaleString()}문항 완료</p>
     </div>
   </section>
-  ${BASE.length!==1020||!FIRST_2008.length||!FIRST_2010.length?`<div class="fb bad" role="alert">문항 데이터를 일부 불러오지 못했습니다. 페이지를 새로고침해 주세요.</div>`:""}
+  ${BASE.length!==1020||!FIRST_2008.length||!FIRST_2009.length||!FIRST_2010.length?`<div class="fb bad" role="alert">문항 데이터를 일부 불러오지 못했습니다. 페이지를 새로고침해 주세요.</div>`:""}
   ${paused?`<div class="card resume-card" style="margin-top:18px"><b>↗ &nbsp; 진행 중인 ${paused.mode==="exam"?"실전시험":"연습"}</b><p class="muted" style="margin:5px 0">${paused.i+1}/${paused.ks.length}번 · ${Object.keys(paused.ans).length}문항 답변${paused.mode==="exam"?" · 제한시간 계속 진행":""}</p><div class="row"><button class="btn pri" id="resumeBtn">이어서 풀기</button><button class="btn ghost" id="discardBtn">새로 시작</button></div></div>`:""}
   <div class="section-heading"><div><span class="section-kicker">01 / YOUR PROGRESS</span><h2>나의 학습 현황</h2></div><span class="section-side">학습 기록은 이 기기에만 저장돼요</span></div>
   <div class="stats">
@@ -676,7 +678,7 @@ function vHome(){
   <div class="section-heading"><div><span class="section-kicker">02 / PRACTICE BUILDER</span><h2>나만의 학습 세트</h2></div><span class="section-side">연도와 과목을 고르면 바로 시작할 수 있어요</span></div>
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<=2010?" A형":""))}</div>
-    <p class="muted">2008년 A형 ${FIRST_2008.length}문항 · 2010년 A형 경영학 책자 ${FIRST_2010.length}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
+    <p class="muted">2008년 A형 ${FIRST_2008.length}문항 · 2009년 A형 ${FIRST_2009.length}문항 · 2010년 A형 경영학 책자 ${FIRST_2010.length}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
     <div class="lbl">과목</div><div class="row" id="cSub">${chipRow(SUBJ,v=>P.subs.includes(v),v=>SHORT[v])}</div>
     <div class="lbl">범위</div><div class="row" id="cScope">${chipRow(["all","new","wrong","everwrong","star"],v=>P.scope===v,v=>({all:"전체",new:"안 푼 문제",wrong:"지금 틀린 문제",everwrong:"한 번이라도 틀림",star:"별표"})[v])}</div>
     <div class="lbl">순서 · 문항 수</div><div class="row" id="cOrder">${chipRow(["seq","rand"],v=>P.order===v,v=>v==="seq"?"번호순":"섞기")}<span style="width:8px"></span>${chipRow([0,10,20,40],v=>P.count===v,v=>v?v+"문항":"모두")}</div>
@@ -793,7 +795,7 @@ function vQuiz(){
     <p class="muted">연한색: 답변함 · 테두리: 현재 위치 · ★: 별표</p>
   </div></details>
   <details ${ST.memo[k]?"open":""}><summary>내 메모${ST.memo[k]?" ✎":""}</summary><div class="in"><textarea id="memo" maxlength="5000" placeholder="암기 포인트, 관련 조문 등을 적어두세요 (이 기기에만 저장)">${esc(ST.memo[k]||"")}</textarea></div></details>
-  <p class="muted" style="margin-top:12px">${q.sourceImageTextRestored?"원본 이미지 직접 대조하여 OCR 교정 · ":""}${q.sourceUrl?`<a href="${esc(q.sourceUrl)}" target="_blank" rel="noopener noreferrer">Q-Net 제17회 A형 원문</a> · 2008년 최종정답 HWP 대조` :q.answerSourceUrl?`2010년 제19회 A형 원문 HWP · <a href="${esc(q.answerSourceUrl)}" target="_blank" rel="noopener noreferrer">Q-Net 정답 출처</a>`:`원본 ${esc(q.src)} ${q.pg.join("·")}쪽 · 정답 출처 ${esc((META.answerSources||{})[q.y]||"")}`}${q.chk==="CORRECTED"?` · <span class="tag warn">이전 데이터 정답 정정됨</span>`:""}</p>`;
+  <p class="muted" style="margin-top:12px">${q.sourceImageTextRestored?"원본 이미지 직접 대조하여 OCR 교정 · ":""}${q.sourceUrl?`<a href="${esc(q.sourceUrl)}" target="_blank" rel="noopener noreferrer">Q-Net 제17회 A형 원문</a> · 2008년 최종정답 HWP 대조` :q.answerSourceUrl?`${q.y}년 제${q.r}회 A형 원문 HWP · <a href="${esc(q.answerSourceUrl)}" target="_blank" rel="noopener noreferrer">${q.y===2009?"2009년 공개 보관본":"Q-Net 정답 출처"}</a>`:`원본 ${esc(q.src)} ${q.pg.join("·")}쪽 · 정답 출처 ${esc((META.answerSources||{})[q.y]||"")}`}${q.chk==="CORRECTED"?` · <span class="tag warn">이전 데이터 정답 정정됨</span>`:""}</p>`;
   const pp=$("#paper");if(pp)pp.onclick=()=>{S.zoom=!S.zoom;pp.classList.toggle("zoom",S.zoom)};
   const si=$("#showImg");if(si)si.onclick=()=>{S.showImg=!S.showImg;vQuiz()};
   const toggle=$("#vmode");if(toggle)toggle.onclick=e=>{const b=e.target.closest("button");if(!b||b.disabled)return;ST.prefs.view=b.dataset.m;save();vQuiz()};
@@ -928,7 +930,7 @@ function vAbout(){
   const corr=(META.corrections||[]);
   $("#app").innerHTML=`<h1>출처와 검증</h1>
   <div class="card" style="margin-top:14px">
-    <p style="margin-top:0"><b>문제</b> · Q-Net 공개 공인노무사 1차 시험 문제지(A형) PDF에서 문항 영역을 그대로 잘라낸 이미지입니다. 지문·선택지·수식·표·그래프를 원본 그대로 보여주므로 텍스트 추출 오류의 영향을 받지 않습니다. 2008·2010년 A형은 HWP에서 추출해 확인한 지문과 선택지를 제공합니다. 영어의 공통 지문과 표도 원본 문서 구조에 맞춰 표시합니다.</p>
+    <p style="margin-top:0"><b>문제</b> · Q-Net 공개 공인노무사 1차 시험 문제지(A형) PDF에서 문항 영역을 그대로 잘라낸 이미지입니다. 지문·선택지·수식·표·그래프를 원본 그대로 보여주므로 텍스트 추출 오류의 영향을 받지 않습니다. 2008~2010년 A형은 HWP에서 추출해 확인한 지문과 선택지를 제공합니다. 영어의 공통 지문과 표도 원본 문서 구조에 맞춰 표시합니다.</p>
     <p><b>정답 데이터</b> · 첨부 RC31에 포함된 A형 정답 자료를 그대로 사용했습니다. 2차 판독 결과는 원본 패키지의 작업 기록에 근거하며, 이번 RC32에서는 답을 임의로 바꾸지 않고 파일·정답 매핑을 프로그램으로 검사했습니다. 공식 원본 대조의 독립 검수는 별도입니다.</p>
     <ul style="padding-left:20px;margin:0">
       <li>첨부 대조 CSV의 1·2차 전사값 일치: <b>${BASE.length-corr.length}</b>문항</li>
