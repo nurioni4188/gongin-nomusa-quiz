@@ -1,0 +1,299 @@
+{
+  "schema": "nomusa-first-v70-official-qnet-raster-audit/1",
+  "dateKST": "2026-11-15",
+  "source": {
+    "repository": "nurioni4188/gongin-nomusa-quiz",
+    "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+    "baseEvidence": "review/NOMUSA_FIRST_V69_QNET_OFFICIAL_INDEPENDENT_AUDIT_20261115.json",
+    "sourceCommit": "5cf0cc88e9c06e3be8d275060378d4d960ec2364",
+    "draftPR": 3
+  },
+  "pdfSourceProof": {
+    "scope": "2020 and 2021; 8 problem booklets and 4 official answer-table PDF",
+    "freshDirectQNetDownloads": 12,
+    "sha256ExactMatches": 12
+  },
+  "hold44": {
+    "status": "HOLD_ALL_UNTIL_MANUAL_VISUAL_SIGNOFF",
+    "originalIndexStatus": "BOOKLET_LINKED_PAGE_HOLD",
+    "targets": 44,
+    "candidatePdfPagesIndependentlyRendered": 50,
+    "method": "Official SHA-matched scanned PDFs rendered to grayscale images. Independent Tesseract 5.5 digit OCR with English PSM 11 and PSM 6 for question-number candidates. Neighbor page bounds from existing source index. OCR agreement is a candidate, not independent visual signoff.",
+    "twoModeUniquePageCandidates": {
+      "count": 30,
+      "items": [
+        {
+          "id": "legacy1-2020-A-labor1-013",
+          "candidatePdfPage": 5
+        },
+        {
+          "id": "legacy1-2020-A-labor2-036",
+          "candidatePdfPage": 12
+        },
+        {
+          "id": "legacy1-2020-A-civil-063",
+          "candidatePdfPage": 21
+        },
+        {
+          "id": "legacy1-2020-A-civil-073",
+          "candidatePdfPage": 25
+        },
+        {
+          "id": "legacy1-2020-A-civil-074",
+          "candidatePdfPage": 25
+        },
+        {
+          "id": "legacy1-2020-A-social-086",
+          "candidatePdfPage": 28
+        },
+        {
+          "id": "legacy1-2020-A-social-092",
+          "candidatePdfPage": 30
+        },
+        {
+          "id": "legacy1-2020-A-management-110",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2020-A-economics-102",
+          "candidatePdfPage": 33
+        },
+        {
+          "id": "legacy1-2020-A-economics-109",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2020-A-economics-111",
+          "candidatePdfPage": 35
+        },
+        {
+          "id": "legacy1-2020-A-economics-113",
+          "candidatePdfPage": 35
+        },
+        {
+          "id": "legacy1-2020-A-economics-117",
+          "candidatePdfPage": 36
+        },
+        {
+          "id": "legacy1-2020-A-economics-118",
+          "candidatePdfPage": 37
+        },
+        {
+          "id": "legacy1-2020-A-economics-122",
+          "candidatePdfPage": 38
+        },
+        {
+          "id": "legacy1-2020-A-economics-123",
+          "candidatePdfPage": 38
+        },
+        {
+          "id": "legacy1-2020-B-labor1-013",
+          "candidatePdfPage": 5
+        },
+        {
+          "id": "legacy1-2020-B-social-086",
+          "candidatePdfPage": 28
+        },
+        {
+          "id": "legacy1-2020-B-management-110",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2020-B-economics-113",
+          "candidatePdfPage": 35
+        },
+        {
+          "id": "legacy1-2020-B-economics-119",
+          "candidatePdfPage": 37
+        },
+        {
+          "id": "legacy1-2020-B-economics-124",
+          "candidatePdfPage": 38
+        },
+        {
+          "id": "legacy1-2021-A-economics-113",
+          "candidatePdfPage": 36
+        },
+        {
+          "id": "legacy1-2021-A-management-101",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2021-A-management-103",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2021-A-management-104",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2021-A-management-105",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2021-B-economics-111",
+          "candidatePdfPage": 36
+        },
+        {
+          "id": "legacy1-2021-B-management-102",
+          "candidatePdfPage": 34
+        },
+        {
+          "id": "legacy1-2021-B-management-121",
+          "candidatePdfPage": 38
+        }
+      ]
+    },
+    "ambiguousOrOneModeOnly": {
+      "count": 13,
+      "items": [
+        {
+          "id": "legacy1-2020-A-civil-072",
+          "mode11Pages": [
+            24
+          ],
+          "mode6Pages": [
+            24,
+            27
+          ]
+        },
+        {
+          "id": "legacy1-2020-A-civil-075",
+          "mode11Pages": [],
+          "mode6Pages": [
+            25
+          ]
+        },
+        {
+          "id": "legacy1-2020-A-social-078",
+          "mode11Pages": [],
+          "mode6Pages": [
+            26
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-labor1-004",
+          "mode11Pages": [
+            3
+          ],
+          "mode6Pages": [
+            2
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-labor1-005",
+          "mode11Pages": [],
+          "mode6Pages": [
+            3
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-labor1-006",
+          "mode11Pages": [],
+          "mode6Pages": [
+            3
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-labor1-010",
+          "mode11Pages": [
+            4
+          ],
+          "mode6Pages": []
+        },
+        {
+          "id": "legacy1-2020-B-labor2-036",
+          "mode11Pages": [
+            12,
+            13
+          ],
+          "mode6Pages": [
+            13
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-civil-075",
+          "mode11Pages": [
+            25
+          ],
+          "mode6Pages": []
+        },
+        {
+          "id": "legacy1-2020-B-social-078",
+          "mode11Pages": [
+            26
+          ],
+          "mode6Pages": []
+        },
+        {
+          "id": "legacy1-2020-B-management-112",
+          "mode11Pages": [],
+          "mode6Pages": [
+            34
+          ]
+        },
+        {
+          "id": "legacy1-2020-B-management-117",
+          "mode11Pages": [
+            35
+          ],
+          "mode6Pages": []
+        },
+        {
+          "id": "legacy1-2021-A-management-102",
+          "mode11Pages": [
+            34
+          ],
+          "mode6Pages": []
+        }
+      ]
+    },
+    "noMatch": {
+      "count": 1,
+      "ids": [
+        "legacy1-2020-A-economics-114"
+      ]
+    },
+    "outcome": "Provisional page candidates only, none approved to source index or grading"
+  },
+  "answerTable": {
+    "officialFinalAnswerPDFsFreshHashMatched": 4,
+    "year2014": {
+      "thisRunStrictOCRRows": 22,
+      "strictMandatoryAnswerPairs": 55,
+      "matchedExistingCandidate": 55,
+      "conflictingStrictReadings": 0,
+      "previousRunStrictReadings": 65,
+      "overlapUnknown": true,
+      "approval": "HOLD_OCR_NOT_HUMAN_VALIDATION"
+    },
+    "year2020": {
+      "officialFinalAnswerPDFPages": 2,
+      "strictFiveConsecutiveQuestionNumberPlusAnswerRows": 0,
+      "perItemApproved": 0,
+      "status": "HOLD_GRID_IMAGE"
+    },
+    "year2021": {
+      "officialFinalAnswerPDFPages": 2,
+      "strictFiveConsecutiveQuestionNumberPlusAnswerRows": 0,
+      "perItemApproved": 0,
+      "status": "HOLD_GRID_IMAGE"
+    },
+    "totalIndependentApprovedAnswerKeys": 0,
+    "warning": "Prior 2014 65 and current 55 readings overlap; never add as 120 or call independently certified. All 2020/2021 grid-derived answer values remain unverified."
+  },
+  "releaseGate": {
+    "legacyAutoScoringDisabled": "PASS_FROM_V6.8",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "existingPreview": "UNCHANGED",
+    "newPreview": "NOT_DEPLOYED",
+    "scoringApproval": "HOLD"
+  },
+  "followup": [
+    "Visually review 30 page candidates and 14 ambiguous/missing items at native image resolution",
+    "Independently read official 2014 remaining answer cells and 2020/2021 scanned A/B answer grids per question including full-credit and multiple answer exceptions",
+    "Record exact per-item source PDF SHA, page, question and answer-table cell before proposing approval",
+    "Do not enable scoring without separate approval"
+  ]
+}
