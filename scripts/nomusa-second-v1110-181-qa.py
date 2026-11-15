@@ -2,6 +2,7 @@
 """V11.10 preview-only source/draft/compressed/write/review E2E; no scoring approvals."""
 from __future__ import annotations
 import json
+import traceback
 import sys
 import threading
 from functools import partial
@@ -42,6 +43,7 @@ def main():
                     assert inventory["approved"]==0
                     results.append({"viewport":width,"check":"original_catalog_309_and_181_registry","status":"PASS"})
                     page.locator('[data-year="2010"]').click()
+                    if width<701:page.locator('[data-action="list-toggle"]').click()
                     page.locator(f'[data-question="{key}"]').click()
                     assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==key
                     assert '수요독점' in page.locator('#trace-content').inner_text()
@@ -67,6 +69,7 @@ def main():
                     results.append({"viewport":width,"check":"detailed_compressed_333_write_refresh_compare_review","status":"PASS"})
                     page.locator('[data-nav="home"]').first.click()
                     page.locator('[data-year="2015"]').click()
+                    if width<701:page.locator('[data-action="list-toggle"]').click()
                     page.locator('[data-question="2015_p1"]').click()
                     assert '문항 분리 HOLD' in page.locator('#trace-content').inner_text() or '이미지 원문 전사 HOLD' in page.locator('#trace-content').inner_text()
                     assert page.locator('[data-pane="detail"]').is_disabled()
@@ -76,6 +79,7 @@ def main():
                     results.append({"viewport":width,"check":"image_source_HOLD_and_manual_writing","status":"PASS"})
                     page.locator('[data-nav="home"]').first.click()
                     page.locator('[data-year="2026"]').click()
+                    if width<701:page.locator('[data-action="list-toggle"]').click()
                     current=page.locator('[data-question]').first
                     assert current.count()==1
                     current.click()
@@ -86,7 +90,7 @@ def main():
                     assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
                     results.append({"viewport":width,"check":"existing_2026_answers_and_mobile_overflow","status":"PASS"})
                 except Exception as exc:
-                    results.append({"viewport":width,"check":"runtime_E2E","status":"HOLD","reason":str(exc)[-600:]})
+                    results.append({"viewport":width,"check":"runtime_E2E","status":"HOLD","reason":traceback.format_exc()[-1600:]})
                 if errors:results.append({"viewport":width,"check":"runtime_console","status":"HOLD","errors":errors[:8]})
                 ctx.close()
             browser.close()
