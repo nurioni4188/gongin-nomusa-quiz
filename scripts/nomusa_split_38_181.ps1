@@ -106,6 +106,11 @@ console.log('PASS: no approval of generated answer / no RC35 scoring changes.');
     )
     if ($CommitAndPush) {
         if ($CheckOnly) { throw 'Do not combine -CommitAndPush with -CheckOnly.' }
+        $preStaged = @(git diff --cached --name-only)
+        Assert-Exit 'Check existing staged files'
+        if ($preStaged.Count -gt 0) {
+            throw 'SAFETY HOLD: staged files already exist. Commit/review them separately to avoid accidental changes.'
+        }
         git add -- $generated
         Assert-Exit 'Stage generated artifacts'
         git diff --cached --check
