@@ -205,11 +205,30 @@ def check_first(page, width):
   page.locator('#fin').click()
   page.locator('#mOk').click()
   page.locator('#reW').wait_for(state='visible')
-  assert page.evaluate('window.NOMUSA_FIRST_2008.length')==85
+  assert page.evaluate('window.NOMUSA_FIRST_2008.length')==125
+  assert page.evaluate("NOMUSA_FIRST_2008.filter(q=>q.s==='영어').length")==25
+  assert page.evaluate("NOMUSA_FIRST_2008.find(q=>q.s==='경제학원론'&&q.n===5).paperHtml.includes('<table')")
+  page.locator('#tabs [data-v="home"]').click()
+  page.locator('[data-y="2008"][data-s="영어"]').click()
+  assert page.locator('.source-layout').is_visible()
+  page.locator('#jumper summary').click()
+  page.locator('#jumpN').fill('18')
+  page.locator('#jumpGo').click()
+  assert 'No country can give itself a new past.' in page.locator('.source-layout').inner_text()
+  assert page.locator('#choices button').count()==5
+
+  page.locator('#tabs [data-v="home"]').click()
+  page.locator('[data-y="2010"][data-s="경영학개론"]').click()
+  page.locator('#mOk').click()
+  assert '2010년 A형' in page.locator('.qmeta').inner_text()
+  assert page.evaluate('NOMUSA_FIRST_2010.length')==125
+  assert '5021186' in page.get_by_role('link',name='Q-Net 정답 출처').get_attribute('href')
+  page.locator('#choices [data-v="5"]').click()
+  assert page.locator('.fb.ok').is_visible()
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':85,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2010Questions':125,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})

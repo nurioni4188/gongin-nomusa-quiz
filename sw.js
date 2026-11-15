@@ -1,7 +1,7 @@
 /* RC35: cache shell on HTTPS and cache problem images only after viewing.
    Never fetch or publish content to any third-party endpoint. */
-const CACHE_VERSION="nomusa-rc35-v63";
-const SHELL=["./","./index.html","./data.js","./study-hub/first-2008-a.js","./manifest.webmanifest","./icon.svg"];
+const CACHE_VERSION="nomusa-rc35-v64";
+const SHELL=["./","./index.html","./data.js","./study-hub/first-2008-a.js","./study-hub/first-2010-a.js","./manifest.webmanifest","./icon.svg"];
 self.addEventListener("install",e=>{
   e.waitUntil(caches.open(CACHE_VERSION).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()));
 });
