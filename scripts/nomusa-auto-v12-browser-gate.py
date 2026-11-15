@@ -235,10 +235,22 @@ def check_first(page, width):
   page.locator('#jumpGo').click()
   page.locator('#choices [data-v="4"]').click()
   assert page.locator('.fb.ok').is_visible()
+  page.locator('#tabs [data-v="home"]').click()
+  assert page.get_by_text('2,279문항',exact=True).is_visible()
+  page.locator('[data-y="2014"][data-s="경제학원론"]').click()
+  page.locator('#mOk').click()
+  assert '2014년 A형' in page.locator('.qmeta').inner_text()
+  page.locator('#jumper summary').click()
+  page.locator('#jumpN').fill('7')
+  page.locator('#jumpGo').click()
+  assert page.locator('.source-layout img').evaluate('img => img.complete && img.naturalWidth > 0')
+  assert '5098606' in page.get_by_role('link',name='Q-Net 제23회 A형 원문').get_attribute('href')
+  page.locator('#choices [data-v="5"]').click()
+  assert page.locator('.fb.ok').is_visible()
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2009Questions':125,'added2010Questions':125,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':125,'added2009Questions':125,'added2010Questions':125,'earlyExamBatch':884,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})

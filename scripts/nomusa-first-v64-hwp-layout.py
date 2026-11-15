@@ -52,7 +52,7 @@ def blocks(document):
     elements = [p for section in sections for p in section if string(p)]
     starts = [(i, int(m[1])) for i, element in enumerate(elements)
               if name(element) == "p" and (m := NUMBER.match(string(element)))]
-    if [number for _, number in starts] != list(range(1, 26)) * 5:
+    if [number for _, number in starts] not in (list(range(1, 26)) * 5, list(range(1, 126))):
         raise ValueError("Unexpected HWP question numbering")
     context = {}
     boundaries = [i for i, _ in starts]
@@ -81,12 +81,15 @@ def blocks(document):
         yield number, context.get(index, []), body
 
 
-def generate(xhtml, baseline, report, year):
+def generate(xhtml, baseline, report, year, elective="management"):
     subjects = ("노동법(1)", "노동법(2)", "경제학원론", "민법", "영어")
     codes = ("labor1", "labor2", "economics", "civil", "english")
-    if year == 2010:
+    if year >= 2010:
         subjects = ("노동법(1)", "노동법(2)", "민법", "사회보험법", "경영학개론")
         codes = ("labor1", "labor2", "civil", "social", "management")
+        if elective == "economics":
+            subjects = (*subjects[:-1], "경제학원론")
+            codes = (*codes[:-1], "economics")
     css = xhtml.with_name("styles.css").read_text()
     underlines = set(re.findall(r"\.(charshape-\d+)\s*\{[^}]*text-decoration:\s*underline", css))
     existing = {q["k"]: q for q in baseline}
@@ -95,6 +98,8 @@ def generate(xhtml, baseline, report, year):
     doc = etree.parse(str(xhtml), etree.XMLParser(resolve_entities=False, no_network=True))
     for index, (number, lead, body) in enumerate(blocks(doc)):
         group = index // 25
+        if elective == "economics" and group != 4:
+            continue
         key = f"legacy1-{year}-A-{codes[group]}-{number:03}"
         if key in existing:
             output.append(existing[key])
@@ -123,11 +128,12 @@ if __name__ == "__main__":
     p.add_argument("xhtml", type=Path)
     p.add_argument("baseline", type=Path)
     p.add_argument("answer_report", type=Path)
-    p.add_argument("--year", type=int, choices=(2008, 2009, 2010), default=2008)
+    p.add_argument("--year", type=int, choices=(2008, 2009, 2010, 2011, 2012, 2015), default=2008)
+    p.add_argument("--elective", choices=("management", "economics"), default="management")
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     bank = json.loads(args.baseline.read_text().split(" = ", 1)[1].strip().removesuffix(";"))
-    rows, held = generate(args.xhtml, bank, json.loads(args.answer_report.read_text()), args.year)
+    rows, held = generate(args.xhtml, bank, json.loads(args.answer_report.read_text()), args.year, args.elective)
     args.output.write_text(f"window.NOMUSA_FIRST_{args.year} = " +
                            json.dumps(rows, ensure_ascii=False, separators=(",", ":")) + ";\n")
     print(json.dumps({"questions": len(rows), "layoutRestored": sum("paperHtml" in r for r in rows),
