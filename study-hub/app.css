@@ -83,3 +83,13 @@
   .answer-pane{max-height:none;overflow:visible;padding-right:0}
   .qa-frame-wrap #frame{margin-inline:auto}
 }
+
+/* V11.10 - generated draft reading and 3-3-3 recall on mobile */
+.memory-box{border:1px solid var(--line);border-radius:12px;padding:14px;margin:14px 0;background:var(--mint)}
+.memory-box h4{margin:0 0 5px;font-size:14px}
+.memory-box .small{margin:4px 0 9px}
+.memory-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.memory-groups>div{display:flex;flex-direction:column;gap:6px;min-width:0;border:1px solid var(--line);border-radius:9px;padding:10px;background:var(--paper);font-size:12px;overflow-wrap:anywhere}
+.memory-groups b{color:var(--green)}
+.answer-pane .answer{white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:700px){.memory-box{padding:11px}.memory-groups{grid-template-columns:1fr}.memory-groups>div{flex-direction:row;justify-content:flex-start;gap:14px}.memory-groups b{flex:none}}
