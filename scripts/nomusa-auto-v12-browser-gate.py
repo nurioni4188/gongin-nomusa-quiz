@@ -174,8 +174,41 @@ def check_first(page, width):
   page.locator('#mOk').click()
   page.locator('#reW').wait_for(state='visible')
   assert not errors,errors
+  page.locator('#tabs [data-v="home"]').click()
+  page.get_by_role('button',name='2008 · 17회 A형',exact=True).click()
+  page.get_by_role('button',name='2026 · 35회',exact=True).click()
+  page.get_by_role('button',name='연습 · 바로 채점',exact=True).click()
+  page.locator('#startBtn').click()
+  assert '2008년 A형' in page.locator('.qmeta').inner_text()
+  assert page.locator('#choices button').count()==5
+  assert '5011154' in page.get_by_role('link',name='Q-Net 제17회 A형 원문').get_attribute('href')
+  page.locator('#choices [data-v="1"]').click()
+  assert page.locator('.fb.ok').is_visible()
+  page.locator('#nx').click()
+  assert '2번' in page.locator('.qmeta').inner_text()
+  page.reload(wait_until='domcontentloaded')
+  page.locator('#resumeBtn').click()
+  assert '2번' in page.locator('.qmeta').inner_text()
+  page.locator('#pv').click()
+  assert page.locator('.fb.ok').is_visible()
+  state=page.evaluate('key=>JSON.parse(localStorage.getItem(key))',key)
+  assert state['att']['legacy1-2008-A-labor1-001']['ok']
+  assert all(record in state['att'] for record in json.loads(snapshot)['att'])
+  page.locator('#tabs [data-v="home"]').click()
+  page.get_by_role('button',name='실전 · 끝나고 채점',exact=True).click()
+  page.locator('#startBtn').click()
+  assert '2008년 A형' in page.locator('.qmeta').inner_text()
+  assert page.locator('#timer').is_visible()
+  page.locator('#choices [data-v="1"]').click()
+  assert not page.locator('.fb').count()
+  page.locator('#fin').click()
+  page.locator('#mOk').click()
+  page.locator('#reW').wait_for(state='visible')
+  assert page.evaluate('window.NOMUSA_FIRST_2008.length')==85
+  assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
+  assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':85,'legacyGradeAndResume':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})
