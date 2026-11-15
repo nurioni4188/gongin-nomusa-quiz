@@ -49,7 +49,7 @@ def main():
                     assert '수요독점' in page.locator('#trace-content').inner_text()
                     assert '공식 모범답안 아님' in page.locator('#trace-content').inner_text()
                     page.locator('[data-pane="compressed"]').click()
-                    assert '한계지출' in page.locator('#trace-content').inner_text()
+                    assert 'ME=MRP' in page.locator('#trace-content').inner_text()
                     assert page.locator(".memory-box .memory-groups > div").count()==3
                     page.locator('[data-pane="write"]').click()
                     assert '수요독점' in page.locator('.writer-original-text').inner_text()
