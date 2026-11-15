@@ -1,0 +1,107 @@
+{
+  "schema": "nomusa-second-v1115-2007-2008-hrm-content-batch/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "pr": 3,
+  "title": "2007·2008 인사노무관리론 50점 답안 실질 고도화",
+  "answerImprovements": [
+    {
+      "questionId": "legacy2-2007-hrm-q1",
+      "year": 2007,
+      "subject": "인사노무관리론",
+      "points": 50,
+      "originalDetailedChars": 842,
+      "detailedChars": 6801,
+      "sections": 7,
+      "source": "2007 제16회 공인노무사 2차 인사노무관리론 제1문",
+      "sourceHwpPage": 1,
+      "script": "second/deep-essay-2007-hrm-q1.js",
+      "focus": [
+        "임금피크제 정의·2007년 도입 배경",
+        "정년보장형·정년연장형·재고용형 비교",
+        "근로자·기업·사회 효과와 제한",
+        "시행 필요성·노사합의·직무 재설계",
+        "연령 획일성·임금삭감·고용효과 반론",
+        "Lazear 1979 임금 프로필 모형의 한계"
+      ],
+      "sourceUrls": [
+        "https://www.kli.re.kr/kli/nscvrgView.es?b_list=10&keyField=&keyWord=&keyYear=&mid=a10305000000&nPage=20&nscvrg_data_sn=629",
+        "https://www.moel.go.kr/local/chungju/news/reportexplan/view.do?bbs_seq=37585",
+        "https://www.korea.kr/briefing/policyBriefingView.do?newsId=115085736",
+        "https://doi.org/10.1086/260835"
+      ],
+      "academicApproval": "HOLD",
+      "historicalLawApproval": "HOLD"
+    },
+    {
+      "questionId": "legacy2-2008-hrm-q1",
+      "year": 2008,
+      "subject": "인사노무관리론",
+      "points": 50,
+      "originalDetailedChars": 972,
+      "detailedChars": 6965,
+      "sections": 7,
+      "source": "2008 제17회 공인노무사 2차 인사노무관리론 제1문",
+      "sourceHwpPage": 1,
+      "script": "second/deep-essay-2008-hrm-q1.js",
+      "focus": [
+        "전통적 직무설계 특징과 한계",
+        "노동의 인간화 정의·근로생활의 질",
+        "Trist-Bamforth 1951 사회기술시스템",
+        "Hackman-Oldham 1976 5특성·3심리상태",
+        "직무확대·충실화·순환·자율팀·참여·안전",
+        "효과 및 한계·안전·개인차"
+      ],
+      "sourceUrls": [
+        "https://doi.org/10.1177/001872675100400101",
+        "https://doi.org/10.1016/0030-5073(76)90016-7",
+        "https://hbr.org/1969/03/job-enrichment-pays-off"
+      ],
+      "academicApproval": "HOLD"
+    }
+  ],
+  "integration": {
+    "preservedLegacyFile": "second/legacy-181-answer-drafts-v1110.js",
+    "entrypoint": "study-hub/index.html",
+    "loadOrder": "After base legacy registry and after prior V11.14 essays, before hub app.js",
+    "presentation": "study-hub/app.js recognizes individually authored essay label from V11.14",
+    "userAnswerStorageKeys": "UNCHANGED",
+    "otherLegacyAnswersPreserved": 176,
+    "previouslyDeepenedEssaysPreserved": 3,
+    "archivedSplit38Preserved": true
+  },
+  "validation": {
+    "method": "Connected GitHub source fetched on review branch; 18 JS source/HTML files inspected, JS evaluated in isolated window object, 284 explicit assertions",
+    "assertionCount": 284,
+    "failures": 0,
+    "status": "PASS_STATIC_INTEGRATION_ONLY",
+    "legacyRegistryCount": 181,
+    "archivedSplitDrafts": 38,
+    "deepenedLegacyCount": 5,
+    "scoringApprovedCount": 0
+  },
+  "holds": {
+    "scholarlyFullTextVerification": "HOLD",
+    "historic2007StatuteTextAndCaseLaw": "HOLD",
+    "handwrittenSheets8To10": "HOLD",
+    "PC1440Playwright": "NOT_RUN",
+    "Mobile390Playwright": "NOT_RUN",
+    "Mobile360Playwright": "NOT_RUN",
+    "saveRestoreE2E": "NOT_RUN",
+    "previewDeployment": "NOT_DEPLOYED",
+    "contentApproval": "HOLD"
+  },
+  "changesToOtherTargets": {
+    "main": false,
+    "production": false,
+    "RC27": false,
+    "RC35": false,
+    "saveKeys": false
+  },
+  "decision": "TWO_NEW_SOURCE_SPECIFIC_ESSAYS_COMMITTED / 284_STATIC_ASSERTIONS_PASS / SUBSTANTIVE_APPROVAL_HOLD / NO_NEW_PREVIEW",
+  "nextContentPriority": [
+    "2009 인사노무관리론 지속가능경영 50점",
+    "2010 인사노무관리론 경력개발 단계별 관리 50점"
+  ]
+}
