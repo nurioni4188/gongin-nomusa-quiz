@@ -59,7 +59,7 @@ def main():
                         page.locator(f'[data-question="{id}"]').click()
                         assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==id
                         assert f"({points}점)" in page.locator("#trace-content").inner_text() or f"{points}점" in page.locator("#trace-content").inner_text()
-                        assert parent in page.locator("#trace-content").inner_text()
+                        assert parent in page.locator('.detail-id').inner_text()
                         assert page.locator("#draft").count()==1
                         note=f"{id} 개별 답안 임시저장 {width} 테스트"
                         page.locator("#draft").fill(note)
