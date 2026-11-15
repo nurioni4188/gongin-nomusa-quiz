@@ -183,14 +183,14 @@ def check_first(page, width):
   assert page.locator('#choices button').count()==5
   assert '5011154' in page.get_by_role('link',name='Q-Net 제17회 A형 원문').get_attribute('href')
   page.locator('#choices [data-v="1"]').click()
-  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.info').first.is_visible()
   page.locator('#nx').click()
   assert '2번' in page.locator('.qmeta').inner_text()
   page.reload(wait_until='domcontentloaded')
   page.locator('#resumeBtn').click()
   assert '2번' in page.locator('.qmeta').inner_text()
   page.locator('#pv').click()
-  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.info').first.is_visible()
   page.locator('#markReview').click()
   assert page.locator('#markReview').get_attribute('aria-pressed')=='true'
   state=page.evaluate('key=>JSON.parse(localStorage.getItem(key))',key)
@@ -232,7 +232,7 @@ def check_first(page, width):
   assert page.evaluate('NOMUSA_FIRST_2010.length')==125
   assert '5021186' in page.get_by_role('link',name='Q-Net 정답 출처').get_attribute('href')
   page.locator('#choices [data-v="5"]').click()
-  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.info').first.is_visible()
   assert page.locator('.fb.ok,.fb.bad').count()==0
   page.locator('#tabs [data-v="home"]').click()
   page.locator('[data-y="2009"][data-s="노동법(2)"]').click()
@@ -243,7 +243,7 @@ def check_first(page, width):
   page.locator('#jumpN').fill('5')
   page.locator('#jumpGo').click()
   page.locator('#choices [data-v="4"]').click()
-  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.info').first.is_visible()
   page.locator('#tabs [data-v="home"]').click()
   assert page.get_by_text('2,279문항',exact=True).is_visible()
   page.locator('[data-y="2014"][data-s="경제학원론"]').click()
@@ -255,7 +255,7 @@ def check_first(page, width):
   assert page.locator('.source-layout img').evaluate('img => img.complete && img.naturalWidth > 0')
   assert '5098606' in page.get_by_role('link',name='Q-Net 제23회 A형 원문').get_attribute('href')
   page.locator('#choices [data-v="5"]').click()
-  assert page.locator('.fb.info').is_visible()
+  assert page.locator('.fb.info').first.is_visible()
   assert page.locator('.fb.ok,.fb.bad').count()==0
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
