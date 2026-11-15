@@ -353,7 +353,7 @@
         ${essay && points ? `<span class="tag">${esc(points)}</span>` : ''}${badge('HOLD')}
       </div>
       <h2 class="detail-title">${esc(row.topic)}</h2>
-      <p class="detail-id">${esc(row.key)} · ${status}</p>
+      <p class="detail-id">${esc(row.key)}${row.parentId ? ` · 원본 묶음 ${esc(row.parentId)}` : ''} · ${status}</p>
       <div class="trace" role="group" aria-label="문항 근거 추적">
         ${traceLabels.map((label, index) =>
           `<button type="button" data-trace="${index}" class="${trace === index ? 'active' : ''}" aria-pressed="${trace === index}" ${isExam && index > 2 ? 'disabled' : ''}>${label}</button>`).join('')}
