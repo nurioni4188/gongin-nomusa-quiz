@@ -207,7 +207,8 @@ def check_first(page, width):
   assert '2008년 A형' in page.locator('.qmeta').inner_text()
   assert page.locator('#timer').is_visible()
   page.locator('#choices [data-v="1"]').click()
-  assert not page.locator('.fb').count()
+  assert page.locator('.fb[role="note"]').is_visible()
+  assert page.locator('.fb[role="status"]').count()==0
   page.locator('#fin').click()
   page.locator('#mOk').click()
   page.locator('#reW').wait_for(state='visible')
