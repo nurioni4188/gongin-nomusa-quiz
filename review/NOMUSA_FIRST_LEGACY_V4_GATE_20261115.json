@@ -1,0 +1,134 @@
+{
+  "schema": "nomusa-first-legacy-v4-validation/1",
+  "dateKST": "2026-11-15",
+  "pr": 3,
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "scope": "2008-2021 source-only first-stage answer-key review, 2014/2020/2021 A/B additions",
+  "baselineRecords": 2500,
+  "addedRecords": 900,
+  "totalRecords": 3400,
+  "recordKey": "year+form+subject+printedQuestionNumber",
+  "static": {
+    "recordCount": "PASS",
+    "uniqueIds": 3400,
+    "duplicateIds": 0,
+    "range1to5": "PASS",
+    "formTotals": {
+      "2014A": 150,
+      "2014B": 150,
+      "2020A": 150,
+      "2020B": 150,
+      "2021A": 150,
+      "2021B": 150
+    }
+  },
+  "visualReview": {
+    "method": "Human visual transcription of uploaded original answer-page renderings; compared with previous template CV",
+    "previousCVConflicts": {
+      "2014": 33,
+      "2020": 40,
+      "2021": 54,
+      "total": 127
+    },
+    "approval": "HOLD_PENDING_INDEPENDENT_SECOND_READ",
+    "conflictsFile": "review/NOMUSA_FIRST_2014_2020_2021_CORRECTION_CANDIDATES_20261115.csv"
+  },
+  "specialAnswers": [
+    {
+      "year": 2021,
+      "type": "A",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "B",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "A",
+      "subject": "민법",
+      "number": 70,
+      "answers": [
+        3,
+        4
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "B",
+      "subject": "민법",
+      "number": 72,
+      "answers": [
+        3,
+        4
+      ]
+    }
+  ],
+  "sourceDocuments": [
+    {
+      "year": 2014,
+      "type": "A",
+      "answerPdfSHA256": "8db082443b2d2d7ecc93baf4ac813184852bca3ab48700f887b16cf612bed3be"
+    },
+    {
+      "year": 2014,
+      "type": "B",
+      "answerPdfSHA256": "9aa4816c32fab80ddaefba8f32c61ff5c17617ad263a97f3668264dcf3bce184"
+    },
+    {
+      "year": 2020,
+      "type": "A/B",
+      "answerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b"
+    },
+    {
+      "year": 2021,
+      "type": "A/B",
+      "answerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad"
+    }
+  ],
+  "originalQuestionLink": {
+    "status": "SOURCE_LANDING_URLS_ONLY",
+    "notes": "Official/public first-exam question landing URL recorded at record level where available. Original PDF content and question text, answer option ordering and individual printed page NOT YET crosschecked.",
+    "itemTextLinked": 0,
+    "itemPrintedPageVerified": 0
+  },
+  "standaloneBrowser": {
+    "chromium1440": "PASS",
+    "chromium390": "PASS",
+    "chromium360": "PASS",
+    "formSwitch": "PASS",
+    "specialAnswers": "PASS",
+    "horizontalOverflow": false,
+    "scriptErrors": 0
+  },
+  "fullHubBrowser": "HOLD_NOT_EXECUTED_ON_COMPLETE_CHECKOUT",
+  "release": {
+    "approvedForScoring": 0,
+    "main": "NOT_CHANGED",
+    "production": "NOT_CHANGED",
+    "newVercelPreview": "NOT_DEPLOYED",
+    "existingRC35": "PRESERVED"
+  },
+  "nextGate": [
+    "127 differing cells independent second reader review",
+    "Load exact official/public exam-question PDFs for 2014/2020/2021 A/B and confirm item number/text/option/page (not just landing URL)",
+    "Full RC35/hub source checkout Playwright save/restore and mobile E2E before any Preview deployment"
+  ]
+}
