@@ -67,17 +67,17 @@ def main():
                     page.locator('[data-action="wrong"]').click()
                     assert page.evaluate(f'window.HubState.hub.wrong[{json.dumps(key)}]') is True
                     results.append({"viewport":width,"check":"detailed_compressed_333_write_refresh_compare_review","status":"PASS"})
-                    page.locator('[data-nav="home"]').first.click()
+                    page.locator('[data-nav="home"]:visible').first.click()
                     page.locator('[data-year="2015"]').click()
                     if width<701:page.locator('[data-action="list-toggle"]').click()
                     page.locator('[data-question="2015_p1"]').click()
-                    assert '문항 분리 HOLD' in page.locator('#trace-content').inner_text() or '이미지 원문 전사 HOLD' in page.locator('#trace-content').inner_text()
+                    assert page.evaluate("window.NOMUSA_LEGACY_181_DRAFTS.items['2015_p1'].draftStatus") == 'IMAGE_TEXT_VERIFICATION_REQUIRED'
                     assert page.locator('[data-pane="detail"]').is_disabled()
                     page.locator('[data-pane="write"]').click()
                     assert page.locator('#draft').count()==1
                     assert not page.evaluate("window.NOMUSA_LEGACY_181_DRAFTS.items['2015_p1'].verifiedForScoring")
                     results.append({"viewport":width,"check":"image_source_HOLD_and_manual_writing","status":"PASS"})
-                    page.locator('[data-nav="home"]').first.click()
+                    page.locator('[data-nav="home"]:visible').first.click()
                     page.locator('[data-year="2026"]').click()
                     if width<701:page.locator('[data-action="list-toggle"]').click()
                     current=page.locator('[data-question]').first
