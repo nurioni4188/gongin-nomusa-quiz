@@ -1,0 +1,90 @@
+{
+  "schema": "nomusa-first-v6-source-and-fullhub-e2e-gate/1",
+  "dateKST": "2026-11-15",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceCommit": "1e07faf6ddadc89f53cf02385c36d307338395a4",
+  "scope": {
+    "years": [
+      2014,
+      2020,
+      2021
+    ],
+    "forms": [
+      "A",
+      "B"
+    ],
+    "reviewAnswers": 3400,
+    "targetAnswerKeys": 900,
+    "scoringApproved": 0
+  },
+  "originalSourceFiles": [
+    {
+      "year": 2014,
+      "form": "A",
+      "entry": "https://www.q-net.or.kr/cst003.do?gId=05&gSite=L&id=cst00309",
+      "entryStatus": "OFFICIAL_LIST_ONLY_EXACT_A_NOT_CONFIRMED",
+      "expectedInput": "incoming/first/2014_A_original.pdf"
+    },
+    {
+      "year": 2014,
+      "form": "B",
+      "entry": "https://www.q-net.or.kr/cst003.do?artlSeq=5098605&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "entryStatus": "QNET_B_BUSINESS_ATTACHMENT_LISTED",
+      "expectedInput": "incoming/first/2014_B_original.pdf"
+    },
+    {
+      "year": 2020,
+      "form": "A",
+      "entry": "https://www.q-net.or.kr/cst003.do?artlSeq=5207203&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "entryStatus": "QNET_A_B_BUSINESS_ATTACHMENTS_LISTED",
+      "expectedInput": "incoming/first/2020_A_original.pdf"
+    },
+    {
+      "year": 2020,
+      "form": "B",
+      "entry": "https://www.q-net.or.kr/cst003.do?artlSeq=5207203&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "entryStatus": "QNET_A_B_BUSINESS_ATTACHMENTS_LISTED",
+      "expectedInput": "incoming/first/2020_B_original.pdf"
+    },
+    {
+      "year": 2021,
+      "form": "A",
+      "entry": "https://www.q-net.or.kr/cst003.do?artlSeq=5208528&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "entryStatus": "QNET_ECONOMICS_A_B_ONLY_MANAGEMENT_NOT_CONFIRMED",
+      "expectedInput": "incoming/first/2021_A_original.pdf"
+    },
+    {
+      "year": 2021,
+      "form": "B",
+      "entry": "https://www.q-net.or.kr/cst003.do?artlSeq=5208528&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "entryStatus": "QNET_ECONOMICS_A_B_ONLY_MANAGEMENT_NOT_CONFIRMED",
+      "expectedInput": "incoming/first/2021_B_original.pdf"
+    }
+  ],
+  "validation": {
+    "originalPDFBytesPresent": 0,
+    "questionTextOptionAndPrintedPageLinked": 0,
+    "sourceAlignment": "HOLD",
+    "browserFullHub": "HOLD_MISSING_FULL_CHECKOUT_IN_CURRENT_EXECUTION",
+    "browserStandaloneV5": {
+      "desktop1440": "PASS",
+      "mobile390": "PASS",
+      "mobile360": "PASS"
+    },
+    "existingEndToEndScript": "scripts/nomusa-auto-v12-browser-gate.py",
+    "release": "HOLD_NO_PREVIEW"
+  },
+  "rules": [
+    "Never claim page or choice matching from landing-page URLs",
+    "Economics and management are separate optional subjects at 101-125",
+    "A/B types must match source PDF",
+    "Do not change data.js/index.html/state.js or scoring until independent content review",
+    "No Production/main/Preview changes"
+  ],
+  "nextGate": [
+    "Resolve original PDF bytes for both forms, 2014/2020/2021",
+    "Strict original question text/option/page join by subject/year/form/no",
+    "Run existing full repository Chromium gate on exact branch checkout",
+    "Report PASS/HOLD with JSON artifacts, no deploy"
+  ]
+}
