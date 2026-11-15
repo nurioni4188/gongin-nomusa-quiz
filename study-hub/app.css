@@ -84,6 +84,10 @@
   .qa-frame-wrap #frame{margin-inline:auto}
 }
 
+/* V11.14: prevent long source and DOI/academic URLs expanding mobile viewport */
+.study-detail,.study-detail #trace-content,.study-detail .memory-box{min-width:0}
+.study-detail #trace-content p.muted.small,.study-detail #trace-content .citation-status li{overflow-wrap:anywhere;word-break:break-word}
+
 /* V11.10 - generated draft reading and 3-3-3 recall on mobile */
 .memory-box{border:1px solid var(--line);border-radius:12px;padding:14px;margin:14px 0;background:var(--mint)}
 .memory-box h4{margin:0 0 5px;font-size:14px}
