@@ -1,0 +1,404 @@
+{
+  "schema": "nomusa-first-v6-existing-source-browser-gate/1",
+  "reviewOnly": true,
+  "expectedHistoricalAnswers": 3400,
+  "approvedForScoring": 0,
+  "sourceQuestions": {
+    "status": "PASS_INTERNAL_CONSISTENCY",
+    "records": 900,
+    "booklets": 12,
+    "answerPdfs": 4,
+    "counts": {
+      "TEXT_AND_FIVE_MARKERS": 300,
+      "OCR_PAGE_CANDIDATE": 556,
+      "BOOKLET_LINKED_PAGE_HOLD": 44
+    }
+  },
+  "missingCheckoutFiles": [],
+  "browser": {
+    "status": "PASS",
+    "checks": {
+      "first_1440": "PASS",
+      "second_1440": "PASS",
+      "hub_1440": "PASS",
+      "legacy_first_1440": "PASS",
+      "first_390": "PASS",
+      "second_390": "PASS",
+      "hub_390": "PASS",
+      "legacy_first_390": "PASS",
+      "first_360": "PASS",
+      "second_360": "PASS",
+      "hub_360": "PASS",
+      "legacy_first_360": "PASS",
+      "existing_hub_qa": "PASS"
+    },
+    "exitCode": 0,
+    "originalReport": {
+      "schema": "nomusa-auto-v1.4-browser-gate",
+      "status": "PASS",
+      "chromiumVersion": "153.0.8010.0",
+      "results": [
+        {
+          "name": "first_1440",
+          "status": "PASS",
+          "questions": 1020,
+          "choicePersisted": true,
+          "backupRoundTrip": true,
+          "examNavigationAndResume": true,
+          "overflow": 0
+        },
+        {
+          "name": "second_1440",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "hub_1440",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "legacy_first_1440",
+          "status": "PASS",
+          "sourceRecords": 900,
+          "overflow": 0
+        },
+        {
+          "name": "first_390",
+          "status": "PASS",
+          "questions": 1020,
+          "choicePersisted": true,
+          "backupRoundTrip": true,
+          "examNavigationAndResume": true,
+          "overflow": 0
+        },
+        {
+          "name": "second_390",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "hub_390",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "legacy_first_390",
+          "status": "PASS",
+          "sourceRecords": 900,
+          "overflow": 0
+        },
+        {
+          "name": "first_360",
+          "status": "PASS",
+          "questions": 1020,
+          "choicePersisted": true,
+          "backupRoundTrip": true,
+          "examNavigationAndResume": true,
+          "overflow": 0
+        },
+        {
+          "name": "second_360",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "hub_360",
+          "status": "PASS",
+          "counts": {
+            "all": 309,
+            "added": 94,
+            "old": 215,
+            "years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "approvals": 0
+          },
+          "overflow": 0
+        },
+        {
+          "name": "legacy_first_360",
+          "status": "PASS",
+          "sourceRecords": 900,
+          "overflow": 0
+        },
+        {
+          "name": "existing_hub_qa",
+          "status": "PASS",
+          "checks": [
+            {
+              "width": 1440,
+              "id": "detail",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "source",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "save",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "exam",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "backup",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "review",
+              "status": "PASS"
+            },
+            {
+              "width": 1440,
+              "id": "first",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "detail",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "source",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "save",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "exam",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "backup",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "review",
+              "status": "PASS"
+            },
+            {
+              "width": 360,
+              "id": "first",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "detail",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "source",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "save",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "exam",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "backup",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "review",
+              "status": "PASS"
+            },
+            {
+              "width": 390,
+              "id": "first",
+              "status": "PASS"
+            }
+          ]
+        }
+      ],
+      "actualPreview": "NOT_DEPLOYED",
+      "production": "NOT_TOUCHED",
+      "legalApproval": "HOLD"
+    }
+  },
+  "sourceAlignment": "HOLD_QUESTION_TEXT_OPTIONS_PRINTED_PAGE",
+  "release": "NOT_DEPLOYED",
+  "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD"
+}

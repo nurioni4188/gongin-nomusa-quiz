@@ -134,20 +134,93 @@ def check_first(page, width):
   assert snapshot and json.loads(snapshot)['att']
   page.reload(wait_until='domcontentloaded')
   assert page.evaluate('key=>localStorage.getItem(key)',key)==snapshot
+  page.locator('#resumeBtn').click()
+  assert page.locator('.fb').is_visible()
+  page.locator('#tabs [data-v="stats"]').click()
+  with page.expect_download() as backup:
+   page.locator('#ex').click()
+  backup_data=backup.value.path().read_bytes()
+  assert json.loads(backup_data)['progress']['att']==json.loads(snapshot)['att']
+  page.locator('#rs').click()
+  page.locator('#mOk').click()
+  assert not page.evaluate('key=>JSON.parse(localStorage.getItem(key)).att && Object.keys(JSON.parse(localStorage.getItem(key)).att).length',key)
+  page.locator('#im').set_input_files(
+   {'name':'nomusa-first.json','mimeType':'application/json','buffer':backup_data}
+  )
+  page.locator('#mOk').click()
+  assert page.evaluate('key=>JSON.parse(localStorage.getItem(key)).att',key)==json.loads(snapshot)['att']
+
+  page.locator('#tabs [data-v="home"]').click()
+  page.locator('#cOrder').get_by_role('button',name='10문항',exact=True).click()
+  page.locator('#cMode').get_by_role('button',name='실전 · 끝나고 채점',exact=True).click()
+  page.locator('#startBtn').click()
+  assert page.locator('#timer').is_visible()
+  first=page.locator('.qmeta').inner_text().splitlines()[0]
+  page.locator('#choices [data-v="2"]').click()
+  assert not page.locator('.fb').count()
+  page.locator('#nx').click()
+  assert page.locator('.qmeta').inner_text().splitlines()[0]!=first
+  page.locator('#pv').click()
+  assert page.locator('.qmeta').inner_text().splitlines()[0]==first
+  assert page.locator('#choices [data-v="2"]').evaluate("button=>button.classList.contains('sel')")
+  page.reload(wait_until='domcontentloaded')
+  page.locator('#resumeBtn').click()
+  assert page.locator('#timer').is_visible()
+  assert page.locator('#choices [data-v="2"]').evaluate("button=>button.classList.contains('sel')")
+  assert not page.locator('.fb').count()
+  overflow=page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')
+  assert overflow<=1,f'overflow={overflow}'
+  page.locator('#fin').click()
+  page.locator('#mOk').click()
+  page.locator('#reW').wait_for(state='visible')
   assert not errors,errors
-  results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True})
+  results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})
 
+def check_legacy_sources(page, width):
+ name=f'legacy_first_{width}'
+ errors=[]
+ page.on('pageerror',lambda error:errors.append(str(error)))
+ try:
+  page.goto(base+'/study-hub/first-legacy-answers.html',wait_until='domcontentloaded')
+  assert page.evaluate('Object.keys(NOMUSA_FIRST_V61_SOURCES.records).length')==900
+  assert page.evaluate('NOMUSA_FIRST_LEGACY_V5.records.length')==3400
+  page.locator('#year').select_option('2014')
+  page.locator('#subject').select_option('경제학원론')
+  page.locator('#number').fill('101')
+  row=page.locator('#rows tr')
+  assert row.count()==1
+  assert 'fileSeq=2089750' in row.get_by_role('link',name='A형 경제 문제지',exact=False).get_attribute('href')
+  assert 'fileSeq=2091154' in row.get_by_role('link',name='최종정답 PDF',exact=False).get_attribute('href')
+  page.locator('#year').select_option('2021')
+  page.locator('#type').select_option('B')
+  page.locator('#subject').select_option('민법')
+  page.locator('#number').fill('62')
+  assert row.locator('.ans').inner_text()=='1'
+  assert 'fileSeq=2200446' in row.get_by_role('link',name='최종정답 PDF',exact=False).get_attribute('href')
+  assert '2쪽' in row.get_by_role('link',name='최종정답 PDF',exact=False).inner_text()
+  overflow=page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')
+  assert overflow<=1,f'overflow={overflow}'
+  assert not errors,errors
+  results.append({'name':name,'status':'PASS','sourceRecords':900,'overflow':overflow})
+ except Exception:
+  results.append({'name':name,'status':'HOLD','errors':errors,
+                  'detail':traceback.format_exc(limit=2)[-1700:]})
+
+
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=os.environ.get('NOMUSA_CHROMIUM'),headless=True,args=['--no-sandbox'])
  for width in (1440,390,360):
-  for view in ('first','second','hub'):
+  for view in ('first','second','hub','legacy_first'):
    with browser.new_context(viewport={'width':width,'height':860}) as context:
     page=context.new_page()
     if view=='first':
      check_first(page,width)
+    elif view=='legacy_first':
+     check_legacy_sources(page,width)
     else:
      check(page,view,width)
  qa_page=browser.new_page(viewport={'width':1440,'height':900})
