@@ -197,6 +197,7 @@ def check_first(page, width):
   page.locator('#tabs [data-v="home"]').click()
   page.get_by_role('button',name='실전 · 끝나고 채점',exact=True).click()
   page.locator('#startBtn').click()
+  page.locator("#mOk").click()
   assert '2008년 A형' in page.locator('.qmeta').inner_text()
   assert page.locator('#timer').is_visible()
   page.locator('#choices [data-v="1"]').click()
@@ -208,7 +209,7 @@ def check_first(page, width):
   assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
   assert not errors,errors
   results.append({'name':name,'status':'PASS','questions':1020,'choicePersisted':True,
-                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':85,'legacyGradeAndResume':True,'overflow':overflow})
+                  'backupRoundTrip':True,'examNavigationAndResume':True,'added2008Questions':85,'legacyGradeAndResume':True,'legacyExam':True,'overflow':overflow})
  except Exception:
   results.append({'name':name,'status':'HOLD','errors':errors,
                   'detail':traceback.format_exc(limit=2)[-1700:]})
