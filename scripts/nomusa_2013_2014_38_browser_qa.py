@@ -17,7 +17,15 @@ TARGETS=[
     (2014,"2014_p5_q3",25,"2014_p5"),
 ]
 # Batch 1 authored answers (detail / compressed / 3-3-3 / compare panes).
-ANSWERED=[("2013_p1_q1","2013_p1"),("2013_p1_q2","2013_p1"),("2013_p2_q1","2013_p2")]
+def answered_ids():
+    # Every authored split answer is checked; the list grows batch by batch.
+    import subprocess
+    js=("const fs=require('fs'),vm=require('vm');const c=vm.createContext({window:{}});"
+        "vm.runInContext(fs.readFileSync('second/historical-2013-2014-answers-v1.js','utf8'),c);"
+        "process.stdout.write(JSON.stringify(Object.values(c.window.NOMUSA_2013_2014_ANSWERS_V1.items)"
+        ".map(x=>[x.id,x.parentId,x.year])))")
+    return json.loads(subprocess.run(["node","-e",js],cwd=ROOT,check=True,capture_output=True,text=True).stdout)
+ANSWERED=answered_ids()
 
 def open_question(page,width,year,id):
     if not page.locator('[data-year="'+str(year)+'"]').is_visible():
@@ -89,15 +97,17 @@ def main():
                     except Exception as exc:
                         cases.append({"width":width,"id":id,"status":"HOLD","error":str(exc)[-420:]})
                         break
-                for id,parent in ANSWERED:
+                for id,parent,year in ANSWERED:
                     try:
-                        open_question(page,width,2013,id)
+                        open_question(page,width,year,id)
                         assert page.locator('[data-selected-id]').get_attribute('data-selected-id')==id
                         assert parent in page.locator('.detail-id').inner_text()
                         page.locator('[data-pane="detail"]').click()
                         detail=page.locator("#trace-content").inner_text()
                         assert "상세 학습답안" in detail and ". 결론" in detail and "HOLD" in detail,detail[:200]
                         assert page.locator(".memory-groups > div").count()==3
+                        assert page.locator(f'[data-allocation="{id}"] li').count()>=1
+                        assert page.locator(".citation-status li").count()>=1
                         page.locator('[data-pane="compressed"]').click()
                         assert "시험장 압축답안" in page.locator("#trace-content").inner_text()
                         page.locator('[data-pane="compare"]').click()
@@ -112,8 +122,8 @@ def main():
     finally:server.shutdown()
     result={
       "schema":"nomusa-2013-2014-38-browser-local/1",
-      "expected":24,"passed":passed,
-      "status":"PASS" if passed==24 and not errors else "HOLD",
+      "expected":15+3*len(ANSWERED),"passed":passed,
+      "status":"PASS" if passed==15+3*len(ANSWERED) and not errors else "HOLD",
       "cases":cases,"errors":errors,
       "sourceAndAnswerFinalApproval":"HOLD",
       "preview":"NOT_DEPLOYED",

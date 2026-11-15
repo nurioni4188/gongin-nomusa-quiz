@@ -507,7 +507,26 @@
       <div class="memory-groups">${groups.map((group,index) =>
         `<div><b>${index+1}묶음</b><span>${group.map(esc).join(' · ')}</span></div>`).join('')}</div>
       <p class="muted small">참고원전·법률근거: ${esc(entry.academicOrLawReferences.join(' / ') || '시험 당시 원전·법령·판례 확인 HOLD')}</p>
+      ${citationStatus(entry)}${entry.laterLawNotes?.length ? `<p class="muted small">시험 이후 변경(당시 법리와 구분): ${esc(entry.laterLawNotes.join(' / '))}</p>` : ''}
     </section>`;
+  }
+
+  // Points and answer-sheet allocation per sub-question for authored split answers.
+  function splitAllocation(row) {
+    const entry = legacyDraftFor(row);
+    return `<div class="split-allocation" data-allocation="${esc(row.key)}">
+      <p class="muted small">${esc(row.year)}년 ${esc(row.subject)} 제${esc(row.questionNo)}문(${esc(row.points)}점) · ${esc(writingSheets(row))} · 원본 묶음 ${esc(row.parentId)} 보존</p>
+      <ul class="small">${(entry.allocation || []).map(item =>
+        `<li>${esc(item.part)} · ${esc(item.points)}점 · ${esc(item.sheets)}</li>`).join('')}</ul>
+    </div>`;
+  }
+
+  function citationStatus(entry) {
+    if (!entry.citations?.length) return '';
+    const label = status => status === 'SECONDARY_DB_MATCHED' ? '판례DB 요지 대조' : '대조 HOLD';
+    return `<details class="citation-status"><summary>인용 근거 대조 상태 (공식 원문 최종 대조 HOLD)</summary>
+      <ul class="small">${entry.citations.map(item =>
+        `<li>${esc(item.cite)} · <b>${label(item.status)}</b>${item.note ? ` · ${esc(item.note)}` : ''}</li>`).join('')}</ul></details>`;
   }
 
   function detailedAnswers(row) {
@@ -562,7 +581,7 @@
     return `<h3 class="panel-title">${detail ? '상세 학습답안' : '시험장 압축답안'}${split ? ' · 문항별 작성' : isNewDraft ? ' · 자동작성 초안' : ''}</h3>
       ${notice(split ? '문항별 작성 모범답안 초안 · 판례 사건번호·조문 원문 대조 HOLD · 공식 모범답안 아님 · 자동채점 없음' :
         isNewDraft ? 'AI 보조 학습 초안 · 원문 정확성·학술·판례 독립검증 HOLD · 공식 모범답안 아님' : '학습용 초안 · 독립 승인 HOLD', '')}
-      ${split ? `<p class="muted small">${esc(row.year)}년 ${esc(row.subject)} 제${esc(row.questionNo)}문(${esc(row.points)}점) · ${esc(legacyDraftFor(row).subQuestions.join(' / '))} · 원본 묶음 ${esc(row.parentId)} 보존</p>` : ''}
+      ${split ? splitAllocation(row) : ''}
       <div class="answer-pane">${detail ? detailedAnswers(row) : compactAnswers(row)}</div>
       ${isNewDraft ? legacyMemoryPanel(row) : ''}
       <div class="row source-actions">${button(detail ? '시험장 압축답안 보기 →' : '직접 작성하기 →',

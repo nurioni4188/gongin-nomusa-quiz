@@ -17,7 +17,8 @@ const PROTECTED = [
   'review/NOMUSA_SECOND_181_AUTO_DRAFTS_V1110_20261115.json',
   'scripts/nomusa_split_38_181.py',
 ];
-const OUT = 'review/NOMUSA_SECOND_2013_2014_ANSWERS_BATCH1_GATE_20261115.json';
+// One record per answers version so earlier batch results are preserved.
+const outFile = version => `review/NOMUSA_SECOND_2013_2014_ANSWERS_${version}_GATE.json`;
 const sha = text => crypto.createHash('sha256').update(text, 'utf8').digest('hex');
 const errors = [];
 const check = (ok, message) => { if (!ok) errors.push(message); };
@@ -53,19 +54,25 @@ for (const [id, a] of Object.entries(answers.items)) {
     `${id}: each section needs detailed and compressed text`);
   check(a.keywords333.length === 3 && a.keywords333.every(g => g.length === 3 && g.every(k => k.trim())), `${id}: 3·3·3 keywords`);
   check(a.reviewChecklist.length >= 5, `${id}: review checklist`);
+  const allocated = (a.allocation || []).reduce((n, x) => n + Number(x.points), 0);
+  check(allocated === a.points && a.allocation.every(x => x.part && x.sheets), `${id}: allocation ${allocated} != ${a.points}`);
+  check(Array.isArray(a.citations) && a.citations.length > 0 &&
+    a.citations.every(c => c.cite && ['SECONDARY_DB_MATCHED', 'HOLD'].includes(c.status)), `${id}: citations need status`);
   // Every sub-question score stated in the answer must appear in the original split text.
   for (const sub of a.subQuestions) {
     const m = sub.match(/\((\d+)점\)/);
     check(Boolean(m) && src.sourceText.replace(/\s/g, '').includes(`(${m[1]}점)`), `${id}: sub-question points "${sub}" not in source`);
   }
   const detailedChars = a.sections.reduce((n, s) => n + Array.from(s.detailed).length, 0);
-  const minimum = a.points === 50 ? 3500 : 1800;
+  // 50 points ~ 8-10 answer sheets, 25 points ~ 4 sheets.
+  const minimum = a.points === 50 ? 4000 : 2000;
   check(detailedChars >= minimum, `${id}: detailed answer ${detailedChars} chars < ${minimum}`);
   report.push({
     id, parentId: a.parentId, subject: a.subject, points: a.points,
     sourceTextSha256: sha(src.sourceText), detailedChars,
     compressedChars: a.sections.reduce((n, s) => n + Array.from(s.compressed).length, 0),
-    sections: a.sections.length, keywords333: a.keywords333, references: a.academicOrLawReferences.length,
+    sections: a.sections.length, allocation: a.allocation, keywords333: a.keywords333,
+    citations: a.citations, references: a.academicOrLawReferences.length,
     citationReview: 'HOLD', scoringApproved: false,
   });
 }
@@ -91,6 +98,6 @@ const result = {
   scoringApproved: 0,
   deployment: 'NOT_DEPLOYED (review branch only; main, Production, RC35, existing Preview untouched)',
 };
-if (process.argv.includes('--write')) fs.writeFileSync(OUT, JSON.stringify(result, null, 2) + '\n', 'utf8');
+if (process.argv.includes('--write')) fs.writeFileSync(outFile(answers.version), JSON.stringify(result, null, 2) + '\n', 'utf8');
 console.log(JSON.stringify(result, null, 2));
 process.exit(errors.length ? 1 : 0);
