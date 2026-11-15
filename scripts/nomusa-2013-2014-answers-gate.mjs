@@ -28,6 +28,11 @@ for (const file of [
   'rc27_essay_catalog.js', 'second/archive_2013_2021.js', 'second/legacy_2007_2012_source_only.js',
   'second/historical-2013-2014-38.js', 'second/legacy-181-answer-drafts-v1110.js',
   'second/historical-2013-2014-answers-v1.js',
+  'second/historical-2014-batch11-p4.js',
+  'second/historical-2014-batch11-p5.js',
+  'second/historical-2014-batch11-p6.js',
+  'second/historical-2014-batch11-p7.js',
+  'second/historical-2014-batch11-expansion.js',
 ]) vm.runInContext(fs.readFileSync(file, 'utf8'), context, { filename: file });
 const w = context.window;
 
