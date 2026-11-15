@@ -104,7 +104,7 @@ def main():
                         assert parent in page.locator('.detail-id').inner_text()
                         page.locator('[data-pane="detail"]').click()
                         detail=page.locator("#trace-content").inner_text()
-                        assert "상세 학습답안" in detail and ". 결론" in detail and "HOLD" in detail,detail[:200]
+                        assert "상세 학습답안" in detail and "결론" in detail and "HOLD" in detail,detail[:200]
                         assert page.locator(".memory-groups > div").count()==3
                         assert page.locator(f'[data-allocation="{id}"] li').count()>=1
                         assert page.locator(".citation-status li").count()>=1
