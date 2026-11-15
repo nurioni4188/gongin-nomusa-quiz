@@ -1,0 +1,126 @@
+{
+  "schema": "nomusa-first-v68-scoring-guard-executed/2026-11-15",
+  "execution": {
+    "dateKST": "2026-11-15",
+    "gitBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+    "sourceCommit": "daadf85436cced5baafcf56b43e1c757c356dda4",
+    "changedSource": "index.html",
+    "sourceBlobSha": "d80bae1cc9b14c549bbea24ca37789a1af9b91af",
+    "testScript": "scripts/nomusa-auto-v12-browser-gate.py",
+    "environment": "Vercel Sandbox; existing project; isolated local HTTP; Chromium 159.0.8154.6",
+    "project": "onnuri4188gmailcoms-projects/gongin-nomusa-rc27-preview",
+    "runCommand": "python3 scripts/nomusa-first-v6-fullhub-gate.py .",
+    "sourceVerifiedByGitCheckout": true
+  },
+  "result": {
+    "syntax": {
+      "inlineRc35JS": "PASS",
+      "pythonTestScript": "PASS"
+    },
+    "originalFullHubGate": {
+      "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+      "browser": "PASS",
+      "checkCount": 13,
+      "checks": [
+        "first_1440",
+        "first_390",
+        "first_360",
+        "second_1440",
+        "second_390",
+        "second_360",
+        "hub_1440",
+        "hub_390",
+        "hub_360",
+        "legacy_first_1440",
+        "legacy_first_390",
+        "legacy_first_360",
+        "existing_hub_qa"
+      ],
+      "allPASS": true
+    },
+    "additionalRegression": {
+      "status": "PASS",
+      "backupAndManualReview": [
+        {
+          "viewport": 1440,
+          "status": "PASS",
+          "tests": [
+            "2008 ungraded choice saved; no graded att",
+            "manual review persists after refresh",
+            "JSON export/reset/import restores legacy ungraded record",
+            "no horizontal overflow"
+          ]
+        },
+        {
+          "viewport": 390,
+          "status": "PASS",
+          "tests": [
+            "same as 1440"
+          ]
+        },
+        {
+          "viewport": 360,
+          "status": "PASS",
+          "tests": [
+            "same as 1440"
+          ]
+        }
+      ],
+      "mixedYear": {
+        "status": "PASS",
+        "years": [
+          2008,
+          2026
+        ],
+        "subject": "노동법(1)",
+        "baseline2026ScoredQuestions": 40,
+        "legacy2008HeldQuestions": 25,
+        "scoreDenominator": 40,
+        "heldCandidatesDoNotEnterScore": true
+      }
+    },
+    "firstStageCoverage": {
+      "legacyYearRange": "2008-2021",
+      "legacyIncluded": 1259,
+      "existing2022_2026": 1020,
+      "totalIncluded": 2279
+    },
+    "secondStage": {
+      "years": "2007-2026",
+      "catalogue": 309,
+      "browserGate": "PASS"
+    },
+    "sourceAnswerLedger": {
+      "status": "PASS_INTERNAL_CONSISTENCY",
+      "reviewRecords": 900,
+      "booklets": 12,
+      "answerPdfs": 4,
+      "printedPageStatus": {
+        "textWithFiveMarkers": 300,
+        "ocrPageCandidates": 556,
+        "bookletLinkedPageHold": 44
+      }
+    },
+    "safety": {
+      "legacy2008_2021AutoScoring": "BLOCKED_FOR_ALL_CURRENT_LEGACY_ITEMS",
+      "legacy2008_2021OptionsHistory": "PRESERVED_IN_ungraded_WITHOUT_RIGHT_WRONG_OR_SCORE",
+      "legacyManualReview": "PASS",
+      "legacyHistoricalAttRecords": "PRESERVED_BUT_EXCLUDED_FROM_SCORE_AND_WRONG_LISTS",
+      "baseline2022_2026Scoring": "UNCHANGED_AND_E2E_PASS",
+      "storageKey": "nomu1-progress-v2",
+      "originalQuestionIds": "PRESERVED",
+      "legacyStagedAnswersApprovedForScoring": 0,
+      "independentQuestionPageAnswerAudit": "HOLD",
+      "reviewPR": "DRAFT",
+      "sourceCommitDeployedToVercel": "NO",
+      "newPreviewDeployment": "NOT_DEPLOYED",
+      "mainSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+      "main": "UNCHANGED",
+      "production": "UNCHANGED",
+      "latestPriorPreview": "https://gongin-nomusa-rc27-preview-3x0ku5lvz.vercel.app/",
+      "latestPriorPreviewId": "dpl_6ckptUDaSHwXSV8WyDUXjATKvKY1",
+      "latestPriorPreviewState": "READY"
+    }
+  },
+  "nextGate": "Keep Draft PR and Preview deployment HOLD pending formal review; do not merge to main or alter Production. Independent original text/page verification remains separate from technical E2E."
+}
