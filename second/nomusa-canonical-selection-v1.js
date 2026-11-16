@@ -25,7 +25,7 @@ for(const src of split){
     approved:false,scoringApproved:false,contentApproval:'HOLD'};
   c.items.push(item);map.set(item.id,item);appended.push(item.id);
 }
-const normalize=s=>String(s||'').trim();
+const normalize=s=>String(s||'').replace(/\\r\\n|\\n|\\r/g,'\n').trim();
 const fromSections=(sections,key)=>Array.isArray(sections)?
   sections.map(s=>[s.title, s[key]].filter(Boolean).join('\n')).filter(Boolean).join('\n\n'):'';
 const selected={}; const empty=[];const withoutRow=[];
@@ -67,6 +67,8 @@ for(const [id,meta] of Object.entries(pref)){
      compressed=normalize(side.compressed)||fromSections(side.sections,'compressed');
      basis='individual-historical-sidecar';
   }
+  // Fix display-only escaped line breaks from older study drafts; source and save keys stay unchanged.
+  detailed=normalize(detailed);compressed=normalize(compressed);
   const renderable=!!detailed&&!!compressed;
   if(!renderable)empty.push(id);
   selected[id]=Object.freeze({id,year:row.year,subject:row.subject,
