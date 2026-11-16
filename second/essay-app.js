@@ -246,6 +246,7 @@ function unifiedLearningAnswer(r){
  if(q?.improvedDraft){
   return `<section class="n1079-answer" aria-label="통합 상세 학습답안"><h3>통합 상세 학습답안 <small>학습 초안 · 승인 HOLD</small></h3><div class="n27-answer">${esc(q.improvedDraft)}</div><details><summary>원본 상세답안 보기</summary>${r.sections.map(t=>`<h4>${esc(t.title)}</h4><div class="n27-answer">${esc(t.detailed)}</div>`).join('')}</details></section>`;
  }
+ if(r.examOutlineVersion==='V11.38_DEDUP_V1')return `<section class="n1079-answer" aria-label="통합 상세 학습답안"><h3>V11.38 중복 정리형 상세논술 <small>학습 초안 · 분량 검증 HOLD</small></h3><div class="n27-answer">${esc(r.examFullLengthDraft)}</div><details><summary>기존 상세답안과 교정 기록 보존본</summary>${r.sections.map(t=>`<h4>${esc(t.title)}</h4><div class="n27-answer">${esc(t.detailed)}</div>`).join('')}</details></section>`;
  return `<section class="n1079-answer" aria-label="통합 상세 학습답안"><h3>상세 학습답안 <small>검토 초안</small></h3>${r.sections.map(t=>`<section class="n1079-answer-part"><h4>${esc(t.title)}</h4><div class="n27-answer">${esc(t.detailed)}</div></section>`).join('')}${r.extra?`<details><summary>보충자료</summary><div class="n27-answer">${esc(r.extra)}</div></details>`:''}</section>`;
 }
 function modelBody(r,lock,isOnly){
@@ -253,8 +254,8 @@ function modelBody(r,lock,isOnly){
  if(pane==='memory')return memoryBody(r);
  if(isOnly)return '<section class="n1079-empty"><h3>원문 중심 직접 작성</h3><p>검토된 학습답안이 없습니다. 원본문제지를 확인하고 직접 작성하세요. 없는 정답을 생성하지 않습니다.</p></section>';
  if(pane==='write')return '';
- if(pane==='compact')return `<section aria-label="학습용 압축답안"><h3>시험장 압축답안 <small>학습 초안</small></h3>${r.sections.map(t=>`<h4>${esc(t.title)}</h4>${!t.compressed?'<p class="n27-note">기존 상세답안 발췌 · 완성된 압축 모범답안 아님</p>':''}<div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</section>`;
- if(pane==='compare')return `<section aria-label="내 답안 비교"><h3>내 답안과 학습내용 비교</h3><p class="n27-note">문자열 일치 여부는 정답 채점과 다릅니다.</p><div class="n106-compare"><div class="n106-side"><h4>내 답안</h4><div class="n106-own">${esc(saved.drafts[r.id]||'직접 작성 탭에서 답안을 작성해 주세요.')}</div></div><div class="n106-side"><h4>학습용 압축답안</h4>${r.sections.map(t=>`<h5>${esc(t.title)}</h5><div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</div></div>${keywordComparison(r)}</section>`;
+ if(pane==='compact')return `<section aria-label="학습용 압축답안"><h3>시험장 압축답안 <small>학습 초안</small></h3>${r.examOutlineVersion==='V11.38_DEDUP_V1'?`<p class="n27-note">중복 논증 정리본 · 원문/분량 승인 HOLD</p><div class="n27-answer">${esc(r.examCompressedAnswer)}</div>`:r.sections.map(t=>`<h4>${esc(t.title)}</h4><div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</section>`;
+ if(pane==='compare')return `<section aria-label="내 답안 비교"><h3>내 답안과 학습내용 비교</h3><p class="n27-note">문자열 일치 여부는 정답 채점과 다릅니다.</p><div class="n106-compare"><div class="n106-side"><h4>내 답안</h4><div class="n106-own">${esc(saved.drafts[r.id]||'직접 작성 탭에서 답안을 작성해 주세요.')}</div></div><div class="n106-side"><h4>학습용 압축답안</h4>${r.examOutlineVersion==='V11.38_DEDUP_V1'?`<div class="n27-answer">${esc(r.examCompressedAnswer)}</div>`:r.sections.map(t=>`<h5>${esc(t.title)}</h5><div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</div></div>${keywordComparison(r)}</section>`;
  return unifiedLearningAnswer(r);
 }
 function checklistBody(r,lock){const items=checklist(r);if(lock||!items.length||pane!=='compare'||r.sourceOnly)return '';
