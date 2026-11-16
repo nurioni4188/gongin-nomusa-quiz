@@ -22,7 +22,7 @@
     "baseCandidateRecords": 260,
     "childCandidateRecords": 68,
     "sourceMissingFromBothRoutes": 0,
-    "preferredSourceRouteMismatchCount": 71,
+    "preferredSourceRouteMismatchCount": 83,
     "approvals": 0
   },
   "selectionRules": [
@@ -486,6 +486,78 @@
         "source": "second/deep-essay-2012-organization-q3.js",
         "second": false,
         "hub": true
+      },
+      {
+        "id": "2014_p4_q1",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p4_q2",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p4_q3",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p5_q1",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p5_q2",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p5_q3",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p6_q1",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p6_q2",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p6_q3",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p7_q1",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p7_q2",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
+      },
+      {
+        "id": "2014_p7_q3",
+        "source": "second/historical-2014-batch11-expansion.js",
+        "second": false,
+        "hub": true
       }
     ],
     "staticIdCollisionCount": 0,
@@ -525,7 +597,34 @@
         "after": "second/essay-2017-longform-v1126.js"
       }
     ],
-    "selectedPathResolution": "PASS_SECOND_DIRECTORY_LIST_AND_BASE_CATALOG"
+    "selectedPathResolution": "PASS_ALL_328_SELECTED_SOURCE_PATHS_EXCEPT_RUNTIME_EVALUATION_UNCHECKED",
+    "sourceIdPresence": {
+      "staticLiteralIdMatched": 212,
+      "dynamicV1110Generated": 92,
+      "dynamicV1138FromV1137Registry": 24,
+      "manualContentApproval": "HOLD"
+    },
+    "correction2014Batch11": {
+      "ids": [
+        "2014_p4_q1",
+        "2014_p4_q2",
+        "2014_p4_q3",
+        "2014_p5_q1",
+        "2014_p5_q2",
+        "2014_p5_q3",
+        "2014_p6_q1",
+        "2014_p6_q2",
+        "2014_p6_q3",
+        "2014_p7_q1",
+        "2014_p7_q2",
+        "2014_p7_q3"
+      ],
+      "count": 12,
+      "sourceFile": "second/historical-2014-batch11-expansion.js",
+      "sourceDependents": "2014 page scripts p4..p7 plus expansion; only hub HTML imports them"
+    },
+    "candidatePathMatch": "PASS_STATIC_PATH_AND_LITERAL_FOR_NON_DYNAMIC; DYNAMIC_ID_REGISTRY_REQUIRES_RUNTIME_CHECK",
+    "routeMismatchNote": "Different HTML script lists, not confirmed actual rendered answer differences"
   },
   "preservation": {
     "previousAnswerFiles": "UNCHANGED",
@@ -7978,15 +8077,20 @@
       "parentId": "2014_p4",
       "points": 50,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p4_q1",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p4.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -7997,15 +8101,20 @@
       "parentId": "2014_p4",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p4_q2",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p4.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8016,15 +8125,20 @@
       "parentId": "2014_p4",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p4_q3",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p4.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8035,15 +8149,20 @@
       "parentId": "2014_p5",
       "points": 50,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p5_q1",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p5.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8054,15 +8173,20 @@
       "parentId": "2014_p5",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p5_q2",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p5.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8073,15 +8197,20 @@
       "parentId": "2014_p5",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p5_q3",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p5.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8092,15 +8221,20 @@
       "parentId": "2014_p6",
       "points": 50,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p6_q1",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p6.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8111,15 +8245,20 @@
       "parentId": "2014_p6",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p6_q2",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p6.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8130,15 +8269,20 @@
       "parentId": "2014_p6",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p6_q3",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p6.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8149,15 +8293,20 @@
       "parentId": "2014_p7",
       "points": 50,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p7_q1",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p7.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8168,15 +8317,20 @@
       "parentId": "2014_p7",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p7_q2",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p7.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
@@ -8187,15 +8341,20 @@
       "parentId": "2014_p7",
       "points": 25,
       "selectedDraft": {
-        "path": "second/historical-2013-2014-answers-v1.js",
+        "path": "second/historical-2014-batch11-expansion.js",
         "key": "2014_p7_q3",
-        "tier": "AUTHOR_CHILD_DRAFT",
+        "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": true,
+          "second": false,
           "hub": true
-        }
+        },
+        "dependencies": [
+          "second/historical-2013-2014-answers-v1.js",
+          "second/historical-2014-batch11-p7.js",
+          "second/historical-2014-batch11-expansion.js"
+        ]
       },
       "preserveParent": true
     },
