@@ -56,23 +56,15 @@ function shell(r){const p=plan(r),ans=modelIndex(r),actual=charCount(api.saved?.
  <p class="v1090-audit">${r.sourceOnly?'원문 연습 항목: 검토된 상세답안 없음 · 답안 생성·승인 금지':complete?'초안의 글자 수가 설정 목표 이상입니다. 내용 정확성은 별도 검증해야 합니다.':`기존 학습답안이 분량 목표보다 ${Math.max(0,goal-ans.length).toLocaleString('ko-KR')}자 부족합니다. 실제 논점 보강 필요.`}</p>
  <div class="v1090-config"><label>목표 장수 <select data-v1090-pages>${Array.from({length:12},(_,i)=>`<option value="${i+1}" ${p.pages===i+1?'selected':''}>${i+1}장</option>`).join('')}</select></label><label>장당 글자 수 <select data-v1090-density>${allowedDensity.map(n=>`<option value="${n}" ${p.density===n?'selected':''}>${n}자</option>`).join('')}</select></label></div>
  <details class="v1090-allocation"><summary>과목별 논점·분량 배분표</summary><div class="v1090-table-wrap"><table><thead><tr><th>논점</th><th>비중</th><th>분량</th><th>글자 수</th></tr></thead><tbody>${allocation(r,p)}</tbody></table></div></details>
- <div class="v1090-actions"><button type="button" data-v1090-tab="editor" aria-pressed="${states[r.id]?.tab!=='preview'&&states[r.id]?.tab!=='compare'}">답안 작성</button><button type="button" data-v1090-tab="preview" aria-pressed="${states[r.id]?.tab==='preview'}">답안지 미리보기</button><button type="button" data-v1090-tab="compare" aria-pressed="${states[r.id]?.tab==='compare'}" ${api.locked?'disabled':''}>논점 비교</button><button type="button" data-v1090-print>인쇄 / PDF 저장</button></div>
+ <div class="v1090-actions"><button type="button" data-v1090-tab="editor" aria-pressed="${states[r.id]?.tab!=='preview'}">답안 작성</button><button type="button" data-v1090-tab="preview" aria-pressed="${states[r.id]?.tab==='preview'}">답안지 미리보기</button><button type="button" data-v1090-print>인쇄 / PDF 저장</button></div>
  <div class="v1090-panel" data-v1090-content></div><p class="v1090-foot">개인 작성 내용은 기존 브라우저 저장키를 사용합니다. 파일·서버 전송 및 AI 채점은 하지 않습니다. 공식 모범답안·전문가 승인 여부는 별도 HOLD로 관리합니다.</p>
  </section>`;
 }
-function renderContent(r){const host=root.querySelector('.v1090-shell[data-v1090-id="'+CSS.escape(r.id)+'"]');if(!host)return;const p=plan(r),state=states[r.id]||(states[r.id]={tab:'editor'});if(api.locked&&state.tab==='compare')state.tab='editor';const text=String(api.saved?.drafts?.[r.id]||'');const el=host.querySelector('[data-v1090-content]');
+function renderContent(r){const host=root.querySelector('.v1090-shell[data-v1090-id="'+CSS.escape(r.id)+'"]');if(!host)return;const p=plan(r),state=states[r.id]||(states[r.id]={tab:'editor'});const text=String(api.saved?.drafts?.[r.id]||'');const el=host.querySelector('[data-v1090-content]');
  host.querySelectorAll('[data-v1090-tab]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v1090Tab===state.tab)));
  if(state.tab==='preview'){
   const pg=segments(text,p.density),pages=Math.max(p.pages,pg.length);
   el.innerHTML=`<p class="v1090-summary">개인 작성 ${charCount(text)}자 · 예상 ${Math.max(1,pg.length)}장 / 목표 ${p.pages}장. 실제 출력 페이지 수는 브라우저 글꼴·줄바꿈에 따라 달라질 수 있습니다.</p><div class="v1090-page-list">${Array.from({length:pages},(_,i)=>paper(r,i+1,pages,pg[i]||'',false)).join('')}</div>`;
- } else if(state.tab==='compare'){
-  const a=modelIndex(r);const basis=[...new Set([r.topic,...(r.sections||[]).map(x=>x.title||'')].flatMap(x=>String(x).split(/[·,／:：()\s]+/)).filter(x=>x.length>1&&!/^물음|문제|제\d+문$/.test(x)))].slice(0,16);
-  const matches=basis.filter(w=>text.includes(w)),missing=basis.filter(w=>!text.includes(w));
-  const outlineTests=buckets(r).map(([l])=>({label:l,checked:l.split(/[·과 ]/).some(x=>x.length>=2&&text.includes(x))}));
-  el.innerHTML=`<h4>내 답안과 학습 초안의 논점 점검</h4><p>기계적인 키워드 문자열 대조입니다. AI 채점·공식 채점은 제공하지 않으며, 판례·학설의 적합성도 판단하지 않습니다. 표현이 달라도 실제로는 같은 내용일 수 있습니다.</p>
-  <p><b>표현 포함 ${matches.length}/${basis.length}</b> · 누락 후보 ${missing.length}개</p><div class="v1090-words">${basis.map(w=>`<span class="${text.includes(w)?'present':'absent'}">${esc(w)} ${text.includes(w)?'✓':'· 검토'}</span>`).join('')}</div>
-  <h5>과목별 작성 구조 점검</h5><ul>${outlineTests.map(x=>`<li>${x.checked?'✓':'□'} ${esc(x.label)} — ${x.checked?'제목 표현 발견':'관련 내용 직접 확인'}</li>`).join('')}</ul>
-  <p class="v1090-warning">${a.status==='SOURCE_ONLY'?'대조할 승인 답안 없음 · 원문과 수동 비교 필요':'기존 학습답안도 검증 전 초안입니다. 자동 비교 결과를 점수·정답으로 사용하지 마세요.'}</p>`;
  } else {
   el.innerHTML=`<label class="v1090-editor-label" for="v1090-editor">나의 답안 (자동저장 · ${esc(r.year)}년 ${esc(r.subject)})</label><textarea id="v1090-editor" data-v1090-editor spellcheck="false" rows="13" maxlength="300000" placeholder="Ⅰ. 문제의 제기\n\nⅡ. 관련 법리·학설·모형\n\nⅢ. 사안의 분석과 적용\n\nⅣ. 결론">${esc(text)}</textarea><div class="v1090-edit-foot"><span data-v1090-status role="status">${charCount(text)}자 / ${p.pages*p.density}자(학습 목표)</span><button type="button" data-v1090-outline>과목별 답안 틀 넣기</button></div><p class="v1090-warning">답안지 페이지 수는 필기량 추정치이며 문항별 공식 분량 규정이 아닙니다. 원본·법령·판례의 정확성은 직접 확인하세요.</p>`;
  }
@@ -83,16 +75,16 @@ function doPrint(r){const p=plan(r),text=String(api.saved?.drafts?.[r.id]||''),p
  const lay=document.createElement('div');lay.className='v1090-print-layer';lay.innerHTML=Array.from({length:count},(_,i)=>paper(r,i+1,count,pg[i]||'',true)).join('');document.body.appendChild(lay);
  const clear=()=>{lay.remove();window.removeEventListener('afterprint',clear)};window.addEventListener('afterprint',clear);window.print();setTimeout(clear,1800);
 }
-function mount(){const r=byId.get(api.selected);const detail=root.querySelector('.n27-detail');if(!r||!detail)return;
+function mount(){const r=byId.get(api.selected);const detail=root.querySelector('.n27-detail');if(!r||!detail||api.pane!=='write')return;
  if(detail.querySelector('.v1090-shell[data-v1090-id="'+CSS.escape(r.id)+'"]'))return;
  const old=detail.querySelector('.v1090-shell');if(old)old.remove();
- const tpl=document.createElement('div');tpl.innerHTML=shell(r);const v=tpl.firstElementChild;const after=detail.querySelector('.n1079-question')||detail.querySelector('.n1077-plan');if(after)after.insertAdjacentElement('afterend',v);else detail.prepend(v);renderContent(r);
+ const tpl=document.createElement('div');tpl.innerHTML=shell(r);const v=tpl.firstElementChild;const after=detail.querySelector('.n1079-tabs');if(after)after.insertAdjacentElement('afterend',v);else detail.prepend(v);renderContent(r);
 }
 let pending=false;const observer=new MutationObserver(()=>{if(pending)return;pending=true;queueMicrotask(()=>{pending=false;mount()});});observer.observe(root,{childList:true,subtree:true});mount();
 root.addEventListener('click',event=>{
  const b=event.target.closest('button[data-v1090-tab],button[data-v1090-print],button[data-v1090-outline]');if(!b)return;
  const r=byId.get(api.selected);if(!r)return;
- if(b.dataset.v1090Tab){if(api.locked&&b.dataset.v1090Tab==='compare')return;states[r.id]={tab:b.dataset.v1090Tab};renderContent(r);}
+ if(b.dataset.v1090Tab){states[r.id]={tab:b.dataset.v1090Tab};renderContent(r);}
  else if(b.hasAttribute('data-v1090-print'))doPrint(r);
  else if(b.hasAttribute('data-v1090-outline')){const ta=root.querySelector('[data-v1090-editor]');if(!ta)return;
  const parts=buckets(r).map(([n],i)=>`${['Ⅰ','Ⅱ','Ⅲ','Ⅳ'][i]}. ${n}\n`).join('\n');
