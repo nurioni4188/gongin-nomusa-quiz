@@ -3,6 +3,7 @@
 const data=window.N27_CATALOG, root=document.getElementById('n27-essay-root');
 if(!data||!root||!Array.isArray(data.items)){console.error('HOLD_RC27_ESSAY_CATALOG');return;}
 const rows=data.items, byId=new Map(rows.map(r=>[r.id,r]));
+const canonicalFor=r=>window.NOMUSA_CANONICAL_SELECTION_V1?.items?.[r.id]||null;
 if(byId.size!==rows.length)throw Error('DUPLICATED_STUDY_IDS');
 const sk='nomusa_rc27_v103_essay_records_v1';
 const defaultState=()=>({drafts:{},flags:{},bookmarks:{},checks:{},memoryCards:{},sourceChecks:{},researchCards:{},writingPlans:{},examEnd:0});
@@ -237,6 +238,15 @@ function compactExcerpt(s){
 }
 function compactText(s){return String(s?.compressed||'').trim()||compactExcerpt(s);}
 function unifiedLearningAnswer(r){
+ const canonical=canonicalFor(r);
+ if(canonical?.renderable){
+  const previous=(r.sections||[]).map(t=>`<h4>${esc(t.title)}</h4><div class="n27-answer">${esc(t.detailed)}</div>`).join('');
+  return `<section class="n1079-answer nomusa-canonical-draft" data-canonical-id="${esc(r.id)}" aria-label="대표 상세 학습답안">
+   <h3>대표 상세 학습답안 <small>검토 초안 · 승인 HOLD</small></h3>
+   <div class="n27-answer">${esc(canonical.detailed)}</div>
+   ${previous?`<details><summary>기존 상세답안 확인 · 변경 전 보존</summary>${previous}</details>`:''}
+   <p class="n27-note">시험 당시 법령·학술원전·원본문구·실전 답안지 장수는 별도 검증이 필요합니다.</p></section>`;
+ }
  const expanded=expandedSet[r.id],q=qualityFor(r),plan=writingPlan(r);
  if(expanded){
   const table=expanded.table?`<div class="n1073-table-scroll" role="region" tabindex="0" aria-label="학습 비교표"><table class="n1073-table"><thead><tr>${expanded.table.headers.map(v=>`<th scope="col">${esc(v)}</th>`).join('')}</tr></thead><tbody>${expanded.table.rows.map(row=>`<tr>${row.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:'';
@@ -250,8 +260,15 @@ function unifiedLearningAnswer(r){
  return `<section class="n1079-answer" aria-label="통합 상세 학습답안"><h3>상세 학습답안 <small>검토 초안</small></h3>${r.sections.map(t=>`<section class="n1079-answer-part"><h4>${esc(t.title)}</h4><div class="n27-answer">${esc(t.detailed)}</div></section>`).join('')}${r.extra?`<details><summary>보충자료</summary><div class="n27-answer">${esc(r.extra)}</div></details>`:''}</section>`;
 }
 function modelBody(r,lock,isOnly){
+ const canonical=canonicalFor(r);
  if(lock)return '<div class="n27-hidden-answer" role="status">20분 실전 진행 중: 학습답안·암기·비교를 숨겼습니다. 직접 작성만 가능합니다.</div>';
  if(pane==='memory')return memoryBody(r);
+ if(canonical?.renderable&&pane==='compact')return `<section aria-label="대표 시험장 압축답안" data-canonical-id="${esc(r.id)}">
+  <h3>대표 시험장 압축답안 <small>학습 초안 · 승인 HOLD</small></h3><div class="n27-answer">${esc(canonical.compressed)}</div></section>`;
+ if(canonical?.renderable&&pane==='compare')return `<section aria-label="내 답안과 대표 압축답안 비교" data-canonical-id="${esc(r.id)}">
+  <h3>내 답안과 학습내용 비교 <small>자동채점 아님</small></h3>
+  <div class="n106-compare"><div class="n106-side"><h4>내 답안</h4><div class="n106-own">${esc(saved.drafts[r.id]||'직접 작성한 답안 없음')}</div></div>
+   <div class="n106-side"><h4>대표 압축답안 · 검토 초안</h4><div class="n27-answer">${esc(canonical.compressed)}</div></div></div></section>`;
  if(isOnly)return '<section class="n1079-empty"><h3>원문 중심 직접 작성</h3><p>검토된 학습답안이 없습니다. 원본문제지를 확인하고 직접 작성하세요. 없는 정답을 생성하지 않습니다.</p></section>';
  if(pane==='write')return '';
  if(pane==='compact')return `<section aria-label="학습용 압축답안"><h3>시험장 압축답안 <small>학습 초안</small></h3>${r.examOutlineVersion==='V11.38_DEDUP_V1'?`<p class="n27-note">중복 논증 정리본 · 원문/분량 승인 HOLD</p><div class="n27-answer">${esc(r.examCompressedAnswer)}</div>`:r.sections.map(t=>`<h4>${esc(t.title)}</h4><div class="n27-answer">${esc(compactText(t))}</div>`).join('')}</section>`;
@@ -265,7 +282,7 @@ function checklistBody(r,lock){const items=checklist(r);if(lock||!items.length||
 const verifyNote='<strong>학습자료 유의:</strong> 원본 PDF의 무결성과 해설의 법률·학술 정확성은 별개입니다. 모든 기존 상세·압축답안은 학습용 검토 초안이며 공식 모범답안·채점기준이 아닙니다. 과거 연도의 원본 전사는 미검수된 경우가 있습니다.';
 function detail(r,found){
  if(!r)return '<article class="n27-detail"><h2>검색 결과가 없습니다.</h2><p>연도·과목·검색어를 변경해 주세요.</p></article>';
- const isOnly=!!r.sourceOnly,lock=locked(),ix=found.findIndex(x=>x.id===r.id), plan=writingPlan(r),defaults=pageDefaults(r.points);
+ const isOnly=!!r.sourceOnly&&!canonicalFor(r)?.renderable,lock=locked(),ix=found.findIndex(x=>x.id===r.id), plan=writingPlan(r),defaults=pageDefaults(r.points);
  const requirement=sourceRequirements(r).join('\n').trim();
  const pdf=typeof r.pdfPath==='string'&&/^source_pdf\/\d{4}\/[a-zA-Z0-9_-]+\.pdf$/.test(r.pdfPath)?'../'+r.pdfPath+'#page='+ (Number(r.pdfPage)||1):null;
  const targetLabel=plan.custom?`개인 설정 ${plan.pages}장 (기본 권장 ${defaults.pages}장)`:`권장 ${defaults.pages}장`;
