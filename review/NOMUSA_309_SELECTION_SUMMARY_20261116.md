@@ -1,5 +1,8 @@
 # 공인노무사 2차 2007~2026년 309개 기본항목 대표 초안 선정 보고서
 
+> **후속 통합 작업 결과(2026-11-16):** 아래의 83개 진입점 연결 차이는 초기 점검 당시 기록입니다. 이후 `second/index.html`과 `study-hub/index.html`의 데이터 로딩 순서를 공통 135개로 통일하여 **현재 정적 기준 0건**입니다. 공통 대표 답안 328개와 부모 원문 49개는 보존했습니다. **전체 Chromium PC·모바일 E2E는 아직 HOLD**입니다. 상세 결과는 [공통 로더 정적 검증 보고서](./NOMUSA_CANONICAL_SHARED_V1_STATIC_GATE_20261116.md)를 우선 확인하세요.
+
+
 - 점검일: 2026-11-16
 - 저장소: `nurioni4188/gongin-nomusa-quiz`
 - 검토 브랜치: `review/nomusa-auto-v1-20year-gate-20261115`; Draft PR #3
