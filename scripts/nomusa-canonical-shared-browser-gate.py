@@ -60,6 +60,7 @@ def inventory(page):
       return {status:c?.status,gate:c?.gate,
          batch:(()=>{const q=window.NOMUSA_20YEAR_QUALITY_BATCH_V1;return q&&{schema:q.schema,changed:q.changed,candidateCount:q.candidateCount,totalCatalog:q.totalCatalog,counts:q.counts,hold:q.contentApproval,storageKeyChanged:q.storageKeyChanged,status:q.status,idParity:q.rows.length===Object.keys(c.items).length,regressionNoShrink:q.rows.every(x=>x.currentChars>=x.existingChars)};})(),
          thin:(()=>{const q=window.NOMUSA_THIN_ENRICHMENT_V2;return q&&{schema:q.schema,authored:q.authored,targets:q.targets,remainingOtherHold:q.remainingOtherHold,remainingPointsHold:q.remainingPointsHold,contentApproval:q.contentApproval,sourceCatalogChanged:q.sourceCatalogChanged,storageKeyChanged:q.storageKeyChanged,uniqueIds:new Set(q.rows.map(x=>x.id)).size===q.rows.length,changed:q.rows.every(x=>x.newDetailChars>x.oldDetailChars&&x.newCompactChars>x.oldCompactChars),preserved:q.rows.every(x=>Boolean(c.items[x.id]?.beforeThinV2Compressed))};})(),
+         v3:(()=>{const q=window.NOMUSA_20YEAR_V3_GATE,a=window.NOMUSA_V3_SOURCE_POINTS_AUDIT;return q&&a&&{schema:q.schema,count:q.v3Manuscripts,candidates:q.candidates,baselineV2:q.previousV2IssueDrafts,audit:a.total,points:a.unverifiedNumeric,possible:a.parentCandidatesResolvedFromExtractedText,verified:a.verifiedAgainstOriginalPDF,changedRaw:q.rawCatalogAndStoredKeysChanged,approval:q.contentApproval,priorPreserved:q.rows.every(x=>Boolean(c.items[x.id]?.priorDetailedV3)&&Boolean(c.items[x.id]?.priorCompressedV3))};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -85,6 +86,14 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v3=inv["v3"]
+    assert v3 and v3["schema"]=="nomusa-20year-writing-gate/3",v3
+    assert v3["count"]==7 and v3["candidates"]==328,v3
+    assert v3["baselineV2"]==61 and v3["audit"]==29,v3
+    assert v3["points"]==26 and v3["possible"]==26,v3
+    assert v3["verified"]==0 and v3["changedRaw"] is False,v3
+    assert v3["approval"]=="HOLD" and v3["priorPreserved"] is True,v3
+
     thin=inv["thin"]
     assert thin and thin["schema"]=="nomusa-20year-thin-issue-enrichment/2",thin
     assert thin["targets"]==61 and thin["authored"]==61,thin
