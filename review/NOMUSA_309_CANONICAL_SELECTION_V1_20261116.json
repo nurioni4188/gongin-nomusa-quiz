@@ -22,8 +22,10 @@
     "baseCandidateRecords": 260,
     "childCandidateRecords": 68,
     "sourceMissingFromBothRoutes": 0,
-    "preferredSourceRouteMismatchCount": 83,
-    "approvals": 0
+    "preferredSourceRouteMismatchCount": 0,
+    "approvals": 0,
+    "preferredSourceRouteMismatchCountBefore": 83,
+    "preferredSourceRouteMismatchCountAfterStatic": 0
   },
   "selectionRules": [
     "Preserve all 309 original IDs and 68 child IDs without de-duplication by year or title",
@@ -60,7 +62,73 @@
       "2020_p5_q3"
     ],
     "absentDirectEssaySources": [],
-    "routeMismatches": [
+    "routeMismatches": [],
+    "staticIdCollisionCount": 0,
+    "actualBrowserE2E": "NOT_RUN",
+    "finalContentApproval": "HOLD",
+    "runtimeSelectionEnforced": false,
+    "allSelectedPathsExist": true,
+    "child2017SourcePathCorrection": [
+      {
+        "id": "2017_p3_q1",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p3_q2",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p3_q3",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q1",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q2",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q3",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      }
+    ],
+    "selectedPathResolution": "PASS_ALL_328_SELECTED_SOURCE_PATHS_EXCEPT_RUNTIME_EVALUATION_UNCHECKED",
+    "sourceIdPresence": {
+      "staticLiteralIdMatched": 212,
+      "dynamicV1110Generated": 92,
+      "dynamicV1138FromV1137Registry": 24,
+      "manualContentApproval": "HOLD"
+    },
+    "correction2014Batch11": {
+      "ids": [
+        "2014_p4_q1",
+        "2014_p4_q2",
+        "2014_p4_q3",
+        "2014_p5_q1",
+        "2014_p5_q2",
+        "2014_p5_q3",
+        "2014_p6_q1",
+        "2014_p6_q2",
+        "2014_p6_q3",
+        "2014_p7_q1",
+        "2014_p7_q2",
+        "2014_p7_q3"
+      ],
+      "count": 12,
+      "sourceFile": "second/historical-2014-batch11-expansion.js",
+      "sourceDependents": "2014 page scripts p4..p7 plus expansion; only hub HTML imports them"
+    },
+    "candidatePathMatch": "PASS_STATIC_PATH_AND_LITERAL_FOR_NON_DYNAMIC; DYNAMIC_ID_REGISTRY_REQUIRES_RUNTIME_CHECK",
+    "routeMismatchNote": "Different HTML script lists, not confirmed actual rendered answer differences",
+    "routeMismatchHistory": [
       {
         "id": "2022-org-2",
         "source": "second/deep-essay-2022-2025-academic-v1139.js",
@@ -560,79 +628,26 @@
         "hub": true
       }
     ],
-    "staticIdCollisionCount": 0,
-    "actualBrowserE2E": "NOT_RUN",
-    "finalContentApproval": "HOLD",
-    "runtimeSelectionEnforced": false,
-    "allSelectedPathsExist": true,
-    "child2017SourcePathCorrection": [
-      {
-        "id": "2017_p3_q1",
-        "before": "second/essay-2017-hrm-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      },
-      {
-        "id": "2017_p3_q2",
-        "before": "second/essay-2017-hrm-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      },
-      {
-        "id": "2017_p3_q3",
-        "before": "second/essay-2017-hrm-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      },
-      {
-        "id": "2017_p5_q1",
-        "before": "second/essay-2017-organization-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      },
-      {
-        "id": "2017_p5_q2",
-        "before": "second/essay-2017-organization-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      },
-      {
-        "id": "2017_p5_q3",
-        "before": "second/essay-2017-organization-longform-v1126.js",
-        "after": "second/essay-2017-longform-v1126.js"
-      }
-    ],
-    "selectedPathResolution": "PASS_ALL_328_SELECTED_SOURCE_PATHS_EXCEPT_RUNTIME_EVALUATION_UNCHECKED",
-    "sourceIdPresence": {
-      "staticLiteralIdMatched": 212,
-      "dynamicV1110Generated": 92,
-      "dynamicV1138FromV1137Registry": 24,
-      "manualContentApproval": "HOLD"
-    },
-    "correction2014Batch11": {
-      "ids": [
-        "2014_p4_q1",
-        "2014_p4_q2",
-        "2014_p4_q3",
-        "2014_p5_q1",
-        "2014_p5_q2",
-        "2014_p5_q3",
-        "2014_p6_q1",
-        "2014_p6_q2",
-        "2014_p6_q3",
-        "2014_p7_q1",
-        "2014_p7_q2",
-        "2014_p7_q3"
-      ],
-      "count": 12,
-      "sourceFile": "second/historical-2014-batch11-expansion.js",
-      "sourceDependents": "2014 page scripts p4..p7 plus expansion; only hub HTML imports them"
-    },
-    "candidatePathMatch": "PASS_STATIC_PATH_AND_LITERAL_FOR_NON_DYNAMIC; DYNAMIC_ID_REGISTRY_REQUIRES_RUNTIME_CHECK",
-    "routeMismatchNote": "Different HTML script lists, not confirmed actual rendered answer differences"
+    "resolvedRouteMismatchCount": 83,
+    "unifiedCoreScripts": 135,
+    "unifiedCoreSequenceSame": true,
+    "scriptPathsAllExist": true,
+    "canonicalProjection": "second/nomusa-canonical-selection-v1.js",
+    "runtimeContractStatus": "PASS_STATIC_SHARED_LOADER_AND_ID_MAPPING; BROWSER_E2E_HOLD",
+    "browserQA": "scripts/nomusa-canonical-shared-browser-gate.py",
+    "e2eActualExecuted": false
   },
   "preservation": {
     "previousAnswerFiles": "UNCHANGED",
     "rc27_rc35": "UNCHANGED",
     "main": "UNCHANGED_BY_THIS_TASK",
     "production": "UNCHANGED_BY_THIS_TASK",
-    "preview": "NOT_DEPLOYED",
-    "existingIdsAndStorageKeys": "UNCHANGED"
+    "preview": "NOT_DEPLOYED_BY_THIS_TASK",
+    "existingIdsAndStorageKeys": "UNCHANGED",
+    "originalSourceAndAnswerFiles": "PRESERVED",
+    "userSavedStorageKey": "nomusa_rc27_v103_essay_records_v1",
+    "draftApproval": "HOLD",
+    "mainSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8"
   },
   "primary": [
     {
@@ -648,7 +663,7 @@
         "key": "legacy2-2007-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -670,7 +685,7 @@
         "key": "legacy2-2007-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -692,8 +707,12 @@
         "key": "legacy2-2007-hrm-q1",
         "tier": "V12_SINGLE50_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -714,8 +733,12 @@
         "key": "legacy2-2007-hrm-q2",
         "tier": "V12_COMPOSITE25_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -736,7 +759,7 @@
         "key": "legacy2-2007-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -758,7 +781,7 @@
         "key": "legacy2-2007-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -780,7 +803,7 @@
         "key": "legacy2-2007-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -802,7 +825,7 @@
         "key": "legacy2-2007-labor1-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -824,7 +847,7 @@
         "key": "legacy2-2007-labor1-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -846,7 +869,7 @@
         "key": "legacy2-2007-labor2-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -868,7 +891,7 @@
         "key": "legacy2-2007-labor2-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -890,8 +913,12 @@
         "key": "legacy2-2007-organization-q1",
         "tier": "V12_SINGLE50_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -912,8 +939,12 @@
         "key": "legacy2-2007-organization-q2",
         "tier": "V12_COMPOSITE25_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -934,7 +965,7 @@
         "key": "legacy2-2008-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -956,7 +987,7 @@
         "key": "legacy2-2008-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -978,8 +1009,12 @@
         "key": "legacy2-2008-hrm-q1",
         "tier": "V12_SINGLE50_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -1000,8 +1035,12 @@
         "key": "legacy2-2008-hrm-q2",
         "tier": "REBUILT_INDEPENDENT_25PT_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -1022,7 +1061,7 @@
         "key": "legacy2-2008-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1044,7 +1083,7 @@
         "key": "legacy2-2008-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1066,7 +1105,7 @@
         "key": "legacy2-2008-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1088,7 +1127,7 @@
         "key": "legacy2-2008-labor1-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1110,7 +1149,7 @@
         "key": "legacy2-2008-labor1-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1132,7 +1171,7 @@
         "key": "legacy2-2008-labor2-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1154,7 +1193,7 @@
         "key": "legacy2-2008-labor2-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1176,7 +1215,7 @@
         "key": "legacy2-2008-labor2-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1198,8 +1237,12 @@
         "key": "legacy2-2008-organization-q1",
         "tier": "V12_SINGLE50_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -1220,8 +1263,12 @@
         "key": "legacy2-2008-organization-q2",
         "tier": "V12_COMPOSITE25_STRUCTURED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -1242,7 +1289,7 @@
         "key": "legacy2-2009-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1264,7 +1311,7 @@
         "key": "legacy2-2009-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1286,8 +1333,12 @@
         "key": "legacy2-2009-hrm-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1308,8 +1359,12 @@
         "key": "legacy2-2009-hrm-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1330,7 +1385,7 @@
         "key": "legacy2-2009-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1352,7 +1407,7 @@
         "key": "legacy2-2009-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1374,7 +1429,7 @@
         "key": "legacy2-2009-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1396,7 +1451,7 @@
         "key": "legacy2-2009-labor1-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1418,7 +1473,7 @@
         "key": "legacy2-2009-labor1-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1440,7 +1495,7 @@
         "key": "legacy2-2009-labor2-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1462,7 +1517,7 @@
         "key": "legacy2-2009-labor2-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1484,7 +1539,7 @@
         "key": "legacy2-2009-labor2-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1506,8 +1561,12 @@
         "key": "legacy2-2009-organization-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1528,8 +1587,12 @@
         "key": "legacy2-2009-organization-q2",
         "tier": "REBUILT_INDEPENDENT_25PT_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -1550,7 +1613,7 @@
         "key": "legacy2-2010-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1572,7 +1635,7 @@
         "key": "legacy2-2010-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1594,7 +1657,7 @@
         "key": "legacy2-2010-administrative-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1616,7 +1679,7 @@
         "key": "legacy2-2010-civil-procedure-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1638,7 +1701,7 @@
         "key": "legacy2-2010-civil-procedure-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1660,8 +1723,12 @@
         "key": "legacy2-2010-hrm-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1682,8 +1749,12 @@
         "key": "legacy2-2010-hrm-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1704,7 +1775,7 @@
         "key": "legacy2-2010-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1726,7 +1797,7 @@
         "key": "legacy2-2010-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1748,7 +1819,7 @@
         "key": "legacy2-2010-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1770,7 +1841,7 @@
         "key": "legacy2-2010-labor-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1792,7 +1863,7 @@
         "key": "legacy2-2010-labor-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1814,7 +1885,7 @@
         "key": "legacy2-2010-labor-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1836,7 +1907,7 @@
         "key": "legacy2-2010-labor-q4",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1858,8 +1929,12 @@
         "key": "legacy2-2010-organization-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1880,8 +1955,12 @@
         "key": "legacy2-2010-organization-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1902,8 +1981,12 @@
         "key": "legacy2-2010-organization-q3",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -1924,7 +2007,7 @@
         "key": "legacy2-2011-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1946,7 +2029,7 @@
         "key": "legacy2-2011-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1968,7 +2051,7 @@
         "key": "legacy2-2011-administrative-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -1990,7 +2073,7 @@
         "key": "legacy2-2011-civil-procedure-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2012,7 +2095,7 @@
         "key": "legacy2-2011-civil-procedure-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2034,8 +2117,12 @@
         "key": "legacy2-2011-hrm-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2056,8 +2143,12 @@
         "key": "legacy2-2011-hrm-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2078,7 +2169,7 @@
         "key": "legacy2-2011-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2100,7 +2191,7 @@
         "key": "legacy2-2011-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2122,7 +2213,7 @@
         "key": "legacy2-2011-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2144,7 +2235,7 @@
         "key": "legacy2-2011-labor1-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2166,7 +2257,7 @@
         "key": "legacy2-2011-labor1-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2188,7 +2279,7 @@
         "key": "legacy2-2011-labor2-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2210,7 +2301,7 @@
         "key": "legacy2-2011-labor2-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2232,8 +2323,12 @@
         "key": "legacy2-2011-organization-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2254,8 +2349,12 @@
         "key": "legacy2-2011-organization-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2276,8 +2375,12 @@
         "key": "legacy2-2011-organization-q3",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2298,7 +2401,7 @@
         "key": "legacy2-2012-administrative-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2320,7 +2423,7 @@
         "key": "legacy2-2012-administrative-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2342,7 +2445,7 @@
         "key": "legacy2-2012-administrative-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2364,7 +2467,7 @@
         "key": "legacy2-2012-civil-procedure-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2386,7 +2489,7 @@
         "key": "legacy2-2012-civil-procedure-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2408,7 +2511,7 @@
         "key": "legacy2-2012-civil-procedure-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2430,8 +2533,12 @@
         "key": "legacy2-2012-hrm-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2452,8 +2559,12 @@
         "key": "legacy2-2012-hrm-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2474,8 +2585,12 @@
         "key": "legacy2-2012-hrm-q3",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2496,7 +2611,7 @@
         "key": "legacy2-2012-labor-economics-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2518,7 +2633,7 @@
         "key": "legacy2-2012-labor-economics-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2540,7 +2655,7 @@
         "key": "legacy2-2012-labor-economics-q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2562,7 +2677,7 @@
         "key": "legacy2-2012-labor1-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2584,7 +2699,7 @@
         "key": "legacy2-2012-labor1-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2606,7 +2721,7 @@
         "key": "legacy2-2012-labor2-q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2628,7 +2743,7 @@
         "key": "legacy2-2012-labor2-q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -2650,8 +2765,12 @@
         "key": "legacy2-2012-organization-q1",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2672,8 +2791,12 @@
         "key": "legacy2-2012-organization-q2",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -2694,8 +2817,12 @@
         "key": "legacy2-2012-organization-q3",
         "tier": "INDIVIDUALLY_AUTHORED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": false,
           "hub": true
         }
@@ -3766,7 +3893,7 @@
         "key": "2019_p1_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3788,7 +3915,7 @@
         "key": "2019_p1_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3810,7 +3937,7 @@
         "key": "2019_p1_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3832,8 +3959,12 @@
         "key": "2019_p2_q1",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -3854,8 +3985,12 @@
         "key": "2019_p2_q2",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -3876,8 +4011,12 @@
         "key": "2019_p2_q3",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -3898,7 +4037,7 @@
         "key": "2019_p3_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3920,7 +4059,7 @@
         "key": "2019_p3_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3942,7 +4081,7 @@
         "key": "2019_p3_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3964,7 +4103,7 @@
         "key": "2019_p4_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -3986,7 +4125,7 @@
         "key": "2019_p4_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4008,7 +4147,7 @@
         "key": "2019_p4_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4030,7 +4169,7 @@
         "key": "2019_p5_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4052,7 +4191,7 @@
         "key": "2019_p5_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4074,7 +4213,7 @@
         "key": "2019_p6_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4096,7 +4235,7 @@
         "key": "2019_p6_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4118,8 +4257,12 @@
         "key": "2019_p7_q1",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4140,8 +4283,12 @@
         "key": "2019_p7_q2",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4162,8 +4309,12 @@
         "key": "2019_p7_q3",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4184,7 +4335,7 @@
         "key": "2020_p1_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4206,7 +4357,7 @@
         "key": "2020_p1_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4228,7 +4379,7 @@
         "key": "2020_p2_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4250,7 +4401,7 @@
         "key": "2020_p2_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4272,8 +4423,12 @@
         "key": "2020_p3_q1",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4294,8 +4449,12 @@
         "key": "2020_p3_q2",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4316,8 +4475,12 @@
         "key": "2020_p3_q3",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4338,7 +4501,7 @@
         "key": "2020_p4_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4360,7 +4523,7 @@
         "key": "2020_p4_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4382,7 +4545,7 @@
         "key": "2020_p4_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4404,8 +4567,12 @@
         "key": "2020_p5_q1",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4426,8 +4593,12 @@
         "key": "2020_p5_q2",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4448,8 +4619,12 @@
         "key": "2020_p5_q3",
         "tier": "AUTHORED_BRIDGED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -4470,7 +4645,7 @@
         "key": "2020_p6_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4492,7 +4667,7 @@
         "key": "2020_p6_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4514,7 +4689,7 @@
         "key": "2020_p6_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4536,7 +4711,7 @@
         "key": "2020_p7_q1",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4558,7 +4733,7 @@
         "key": "2020_p7_q2",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4580,7 +4755,7 @@
         "key": "2020_p7_q3",
         "tier": "BASE_SOURCE_LINKED_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4771,7 +4946,7 @@
         "key": "2022-admin-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4793,7 +4968,7 @@
         "key": "2022-admin-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4815,7 +4990,7 @@
         "key": "2022-admin-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4837,7 +5012,7 @@
         "key": "2022-civil-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4859,7 +5034,7 @@
         "key": "2022-civil-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4881,7 +5056,7 @@
         "key": "2022-civil-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4903,7 +5078,7 @@
         "key": "2022-econ-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4925,7 +5100,7 @@
         "key": "2022-econ-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4947,7 +5122,7 @@
         "key": "2022-econ-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4969,7 +5144,7 @@
         "key": "2022-hr-1",
         "tier": "V1123_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -4991,7 +5166,7 @@
         "key": "2022-hr-2",
         "tier": "V1124_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5013,7 +5188,7 @@
         "key": "2022-hr-3",
         "tier": "V1124_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5035,7 +5210,7 @@
         "key": "2022-labor1-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5057,7 +5232,7 @@
         "key": "2022-labor1-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5079,7 +5254,7 @@
         "key": "2022-labor2-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5101,7 +5276,7 @@
         "key": "2022-labor2-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5123,7 +5298,7 @@
         "key": "2022-org-1",
         "tier": "V1131_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5145,8 +5320,12 @@
         "key": "2022-org-2",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5167,8 +5346,12 @@
         "key": "2022-org-3",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5189,7 +5372,7 @@
         "key": "2023-admin-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5211,7 +5394,7 @@
         "key": "2023-admin-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5233,7 +5416,7 @@
         "key": "2023-admin-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5255,7 +5438,7 @@
         "key": "2023-civil-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5277,7 +5460,7 @@
         "key": "2023-civil-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5299,7 +5482,7 @@
         "key": "2023-civil-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5321,7 +5504,7 @@
         "key": "2023-econ-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5343,7 +5526,7 @@
         "key": "2023-econ-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5365,7 +5548,7 @@
         "key": "2023-econ-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5387,7 +5570,7 @@
         "key": "2023-hr-1",
         "tier": "V1123_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5409,7 +5592,7 @@
         "key": "2023-hr-2",
         "tier": "V1124_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5431,7 +5614,7 @@
         "key": "2023-hr-3",
         "tier": "V1124_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5453,7 +5636,7 @@
         "key": "2023-labor1-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5475,7 +5658,7 @@
         "key": "2023-labor1-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5497,7 +5680,7 @@
         "key": "2023-labor2-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5519,7 +5702,7 @@
         "key": "2023-labor2-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5541,7 +5724,7 @@
         "key": "2023-org-1",
         "tier": "V1131_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5563,8 +5746,12 @@
         "key": "2023-org-2",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5585,8 +5772,12 @@
         "key": "2023-org-3",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5607,8 +5798,12 @@
         "key": "2024-경영조직론|1|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5629,8 +5824,12 @@
         "key": "2024-경영조직론|1|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5651,8 +5850,12 @@
         "key": "2024-경영조직론|1|3",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5673,8 +5876,12 @@
         "key": "2024-경영조직론|2|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5695,8 +5902,12 @@
         "key": "2024-경영조직론|2|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5717,8 +5928,12 @@
         "key": "2024-경영조직론|3|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5739,8 +5954,12 @@
         "key": "2024-경영조직론|3|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -5761,7 +5980,7 @@
         "key": "2024-노동경제학|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5783,7 +6002,7 @@
         "key": "2024-노동경제학|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5805,7 +6024,7 @@
         "key": "2024-노동경제학|1|3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5827,7 +6046,7 @@
         "key": "2024-노동경제학|1|4",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5849,7 +6068,7 @@
         "key": "2024-노동경제학|2|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5871,7 +6090,7 @@
         "key": "2024-노동경제학|2|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5893,7 +6112,7 @@
         "key": "2024-노동경제학|3|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5915,7 +6134,7 @@
         "key": "2024-노동경제학|3|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5937,7 +6156,7 @@
         "key": "2024-노동법1|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5959,7 +6178,7 @@
         "key": "2024-노동법1|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -5981,7 +6200,7 @@
         "key": "2024-노동법1|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6003,7 +6222,7 @@
         "key": "2024-노동법2|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6025,7 +6244,7 @@
         "key": "2024-노동법2|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6047,7 +6266,7 @@
         "key": "2024-노동법2|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6069,7 +6288,7 @@
         "key": "2024-민사소송법|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6091,7 +6310,7 @@
         "key": "2024-민사소송법|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6113,7 +6332,7 @@
         "key": "2024-민사소송법|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6135,7 +6354,7 @@
         "key": "2024-민사소송법|3|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6157,8 +6376,12 @@
         "key": "2024-인사노무관리론|1|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6179,8 +6402,12 @@
         "key": "2024-인사노무관리론|1|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6201,8 +6428,12 @@
         "key": "2024-인사노무관리론|2|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6223,8 +6454,12 @@
         "key": "2024-인사노무관리론|2|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6245,8 +6480,12 @@
         "key": "2024-인사노무관리론|3|0",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6267,7 +6506,7 @@
         "key": "2024-행정쟁송법|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6289,7 +6528,7 @@
         "key": "2024-행정쟁송법|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6311,7 +6550,7 @@
         "key": "2024-행정쟁송법|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6333,7 +6572,7 @@
         "key": "2024-행정쟁송법|3|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6355,7 +6594,7 @@
         "key": "2025-admin-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6377,7 +6616,7 @@
         "key": "2025-admin-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6399,7 +6638,7 @@
         "key": "2025-admin-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6421,7 +6660,7 @@
         "key": "2025-civil-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6443,7 +6682,7 @@
         "key": "2025-civil-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6465,7 +6704,7 @@
         "key": "2025-civil-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6487,7 +6726,7 @@
         "key": "2025-econ-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6509,7 +6748,7 @@
         "key": "2025-econ-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6531,7 +6770,7 @@
         "key": "2025-econ-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6553,8 +6792,12 @@
         "key": "2025-hr-1",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6575,7 +6818,7 @@
         "key": "2025-hr-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6597,7 +6840,7 @@
         "key": "2025-hr-3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6619,7 +6862,7 @@
         "key": "2025-labor1-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6641,7 +6884,7 @@
         "key": "2025-labor1-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6663,7 +6906,7 @@
         "key": "2025-labor2-1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6685,7 +6928,7 @@
         "key": "2025-labor2-2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6707,7 +6950,7 @@
         "key": "2025-org-1",
         "tier": "V1124_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6729,8 +6972,12 @@
         "key": "2025-org-2",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6751,8 +6998,12 @@
         "key": "2025-org-3",
         "tier": "V1139_AUTHOR_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6773,8 +7024,12 @@
         "key": "2026-경영조직론|1|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6795,8 +7050,12 @@
         "key": "2026-경영조직론|1|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6817,8 +7076,12 @@
         "key": "2026-경영조직론|1|3",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6839,8 +7102,12 @@
         "key": "2026-경영조직론|2|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6861,8 +7128,12 @@
         "key": "2026-경영조직론|2|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6883,8 +7154,12 @@
         "key": "2026-경영조직론|3|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6905,8 +7180,12 @@
         "key": "2026-경영조직론|3|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6927,8 +7206,12 @@
         "key": "2026-경영조직론|3|3",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -6949,7 +7232,7 @@
         "key": "2026-노동경제학|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6971,7 +7254,7 @@
         "key": "2026-노동경제학|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -6993,7 +7276,7 @@
         "key": "2026-노동경제학|1|3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7015,7 +7298,7 @@
         "key": "2026-노동경제학|1|4",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7037,7 +7320,7 @@
         "key": "2026-노동경제학|2|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7059,7 +7342,7 @@
         "key": "2026-노동경제학|2|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7081,7 +7364,7 @@
         "key": "2026-노동경제학|2|3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7103,7 +7386,7 @@
         "key": "2026-노동경제학|3|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7125,7 +7408,7 @@
         "key": "2026-노동경제학|3|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7147,7 +7430,7 @@
         "key": "2026-노동경제학|3|3",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7169,7 +7452,7 @@
         "key": "2026-노동법1|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7191,7 +7474,7 @@
         "key": "2026-노동법1|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7213,7 +7496,7 @@
         "key": "2026-노동법1|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7235,7 +7518,7 @@
         "key": "2026-노동법2|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7257,7 +7540,7 @@
         "key": "2026-노동법2|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7279,7 +7562,7 @@
         "key": "2026-노동법2|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7301,7 +7584,7 @@
         "key": "2026-민사소송법|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7323,7 +7606,7 @@
         "key": "2026-민사소송법|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7345,7 +7628,7 @@
         "key": "2026-민사소송법|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7367,7 +7650,7 @@
         "key": "2026-민사소송법|3|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7389,8 +7672,12 @@
         "key": "2026-인사노무관리론|1|1",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -7411,8 +7698,12 @@
         "key": "2026-인사노무관리론|1|2",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -7433,8 +7724,12 @@
         "key": "2026-인사노무관리론|2|0",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -7455,8 +7750,12 @@
         "key": "2026-인사노무관리론|3|0",
         "tier": "V1138_SOURCE_LINKED_DEDUP_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
+          "second": true,
+          "hub": true
+        },
+        "routeImportedBeforeUnified": {
           "second": true,
           "hub": false
         }
@@ -7477,7 +7776,7 @@
         "key": "2026-행정쟁송법|1|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7499,7 +7798,7 @@
         "key": "2026-행정쟁송법|1|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7521,7 +7820,7 @@
         "key": "2026-행정쟁송법|2|0",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7543,7 +7842,7 @@
         "key": "2026-행정쟁송법|3|1",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7565,7 +7864,7 @@
         "key": "2026-행정쟁송법|3|2",
         "tier": "BASE_EXISTING_ANSWER",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7587,7 +7886,7 @@
         "key": "2013_p1_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7606,7 +7905,7 @@
         "key": "2013_p1_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7625,7 +7924,7 @@
         "key": "2013_p2_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7644,7 +7943,7 @@
         "key": "2013_p2_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7663,7 +7962,7 @@
         "key": "2013_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7682,7 +7981,7 @@
         "key": "2013_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7701,7 +8000,7 @@
         "key": "2013_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7720,7 +8019,7 @@
         "key": "2013_p4_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7739,7 +8038,7 @@
         "key": "2013_p4_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7758,7 +8057,7 @@
         "key": "2013_p4_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7777,7 +8076,7 @@
         "key": "2013_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7796,7 +8095,7 @@
         "key": "2013_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7815,7 +8114,7 @@
         "key": "2013_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7834,7 +8133,7 @@
         "key": "2013_p6_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7853,7 +8152,7 @@
         "key": "2013_p6_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7872,7 +8171,7 @@
         "key": "2013_p6_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7891,7 +8190,7 @@
         "key": "2013_p7_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7910,7 +8209,7 @@
         "key": "2013_p7_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7929,7 +8228,7 @@
         "key": "2013_p7_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7948,7 +8247,7 @@
         "key": "2014_p1_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7967,7 +8266,7 @@
         "key": "2014_p1_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -7986,7 +8285,7 @@
         "key": "2014_p2_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8005,7 +8304,7 @@
         "key": "2014_p2_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8024,7 +8323,7 @@
         "key": "2014_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8043,7 +8342,7 @@
         "key": "2014_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8062,7 +8361,7 @@
         "key": "2014_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8081,16 +8380,20 @@
         "key": "2014_p4_q1",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p4.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8105,16 +8408,20 @@
         "key": "2014_p4_q2",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p4.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8129,16 +8436,20 @@
         "key": "2014_p4_q3",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p4.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8153,16 +8464,20 @@
         "key": "2014_p5_q1",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p5.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8177,16 +8492,20 @@
         "key": "2014_p5_q2",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p5.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8201,16 +8520,20 @@
         "key": "2014_p5_q3",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p5.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8225,16 +8548,20 @@
         "key": "2014_p6_q1",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p6.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8249,16 +8576,20 @@
         "key": "2014_p6_q2",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p6.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8273,16 +8604,20 @@
         "key": "2014_p6_q3",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p6.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8297,16 +8632,20 @@
         "key": "2014_p7_q1",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p7.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8321,16 +8660,20 @@
         "key": "2014_p7_q2",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p7.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8345,16 +8688,20 @@
         "key": "2014_p7_q3",
         "tier": "V1112_2014_BATCH11_ENHANCED_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
-          "second": false,
+          "second": true,
           "hub": true
         },
         "dependencies": [
           "second/historical-2013-2014-answers-v1.js",
           "second/historical-2014-batch11-p7.js",
           "second/historical-2014-batch11-expansion.js"
-        ]
+        ],
+        "routeImportedBeforeUnified": {
+          "second": false,
+          "hub": true
+        }
       },
       "preserveParent": true
     },
@@ -8369,7 +8716,7 @@
         "key": "2015_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8388,7 +8735,7 @@
         "key": "2015_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8407,7 +8754,7 @@
         "key": "2015_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8426,7 +8773,7 @@
         "key": "2015_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8445,7 +8792,7 @@
         "key": "2015_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8464,7 +8811,7 @@
         "key": "2015_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8483,7 +8830,7 @@
         "key": "2016_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8502,7 +8849,7 @@
         "key": "2016_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8521,7 +8868,7 @@
         "key": "2016_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8540,7 +8887,7 @@
         "key": "2016_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8559,7 +8906,7 @@
         "key": "2016_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8578,7 +8925,7 @@
         "key": "2016_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8597,7 +8944,7 @@
         "key": "2017_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8616,7 +8963,7 @@
         "key": "2017_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8635,7 +8982,7 @@
         "key": "2017_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8654,7 +9001,7 @@
         "key": "2017_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8673,7 +9020,7 @@
         "key": "2017_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8692,7 +9039,7 @@
         "key": "2017_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8711,7 +9058,7 @@
         "key": "2018_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8730,7 +9077,7 @@
         "key": "2018_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8749,7 +9096,7 @@
         "key": "2018_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8768,7 +9115,7 @@
         "key": "2018_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8787,7 +9134,7 @@
         "key": "2018_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8806,7 +9153,7 @@
         "key": "2018_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8825,7 +9172,7 @@
         "key": "2021-경영조직론-q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8844,7 +9191,7 @@
         "key": "2021-경영조직론-q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8863,7 +9210,7 @@
         "key": "2021-경영조직론-q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8882,7 +9229,7 @@
         "key": "2021-인사노무관리론-q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8901,7 +9248,7 @@
         "key": "2021-인사노무관리론-q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
@@ -8920,7 +9267,7 @@
         "key": "2021-인사노무관리론-q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
-        "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
+        "selection": "SHARED_RUNTIME_SOURCE_LOADER_STATIC_APPLIED_BROWSER_HOLD",
         "routeImported": {
           "second": true,
           "hub": true
