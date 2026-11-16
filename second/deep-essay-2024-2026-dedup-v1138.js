@@ -25,7 +25,8 @@ for(const id of registry){
  const detailed=unique.map((s,i)=>(i===0?'Ⅰ. 기출 요구와 기본 논증':'Ⅱ-'+i+'. '+norm(s.title))+'\n'+String(s.detailed||'').trim()).join('\n\n');
  const compact=[row.sections.find(s=>/^시험장 독립 압축답안/.test(s.title||''))?.detailed||''].filter(Boolean).join('\n\n');
  const study=compact||norm(row.examCompressedAnswer);
- const body=detailed+'\n\nⅢ. 논점 정리\n'+study;
+ const specific=id==='2026-경영조직론|3|1'?'국제기업은 본사와 해외자회사 사이의 권한 배분, 국가별 법률과 문화 차이, 지리적 분산에 따른 정보지연, 글로벌 표준과 현지 고객요구의 충돌을 동시에 관리해야 한다. 이를 해결하기 위해 권한의 범위와 보고체계를 명확히 하고, 지역별 정보공유 및 기능 간 협업을 설계해야 한다.':'';
+ const body=detailed+(specific?'\n\nⅡ. 국제기업의 조직적 과제에 대한 보충\n'+specific:'')+'\n\nⅢ. 논점 정리\n'+study;
  const estimate=norm(detailed).length,bodyLength=norm(body).length;
  const corrected={...row,examFullLengthDraft:body,examCompressedAnswer:study,examOutlineVersion:'V11.38_DEDUP_V1',examHandwritingTarget:pageTarget(row.points),examCharacterCount:bodyLength,examCharacterWarning:bodyLength<threshold(row.points)?'SHORT_OF_HEURISTIC':'HEURISTIC_MET_NOT_HANDWRITING_VERIFIED',contentRevision:'V11.38_DEDUP_STUDY_DRAFT',approved:false,scoringApproved:false,contentApproval:'HOLD',citationReview:'HOLD'};
  c.items=c.items.map(v=>v.id===id?corrected:v);
