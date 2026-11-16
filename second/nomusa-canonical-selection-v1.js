@@ -34,7 +34,13 @@ for(const [id,meta] of Object.entries(pref)){
   if(!row){withoutRow.push(id);continue;}
   const preferredSidecar=meta[0]==='second/legacy-181-answer-drafts-v1110.js';
   let detailed='',compressed='',basis='catalog';
-  if(preferredSidecar&&side?.draftStatus==='DRAFT_UNVERIFIED'&&side?.sourceReady&&side?.conceptTitles?.length){
+  if(/^2014_p[4-7]_q[1-3]$/.test(id)&&child?.draftStatus==='DRAFT_UNVERIFIED'&&child?.sections?.length){
+     // Latest 2014 batch-11 authored draft lives in a preserved sidecar, not
+     // the earlier V11.4x catalog overlay. Keep older catalog unchanged.
+     detailed=normalize(child.detailed)||fromSections(child.sections,'detailed');
+     compressed=normalize(child.compressed)||fromSections(child.sections,'compressed');
+     basis='2014-v1112-sidecar-current';
+  } else if(preferredSidecar&&side?.draftStatus==='DRAFT_UNVERIFIED'&&side?.sourceReady&&side?.conceptTitles?.length){
      detailed=normalize(side.detailed)||fromSections(side.sections,'detailed');
      compressed=normalize(side.compressed)||fromSections(side.sections,'compressed');
      basis='source-aware-study-outline';
