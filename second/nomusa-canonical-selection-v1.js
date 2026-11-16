@@ -40,6 +40,14 @@ for(const [id,meta] of Object.entries(pref)){
      basis='source-aware-study-outline';
   } else if(preferredSidecar){
      basis='source-review-hold';
+  } else if(row.rebuiltIndependent25EssaysV122?.length===2){
+     // V12.2 already keeps the prior draft in previousDetailedDraftV122.
+     // Display only the two separately authored 25-point essays, not the
+     // old full text again as an appended duplicate.
+     detailed=row.rebuiltIndependent25EssaysV122.map(p=>
+       '[제'+p.part+'물음 | 25점] '+p.topic+'\n'+p.fullText).join('\n\n');
+     compressed=fromSections(row.sections.filter(s=>!s.title?.startsWith('기존 상세논술 보존')),'compressed');
+     basis='V12.2-independent-25pt-current';
   } else if(row.examFullLengthDraft||row.sections?.length){
      detailed=normalize(row.examFullLengthDraft)||fromSections(row.sections,'detailed');
      compressed=normalize(row.examCompressedAnswer)||fromSections(row.sections,'compressed');
