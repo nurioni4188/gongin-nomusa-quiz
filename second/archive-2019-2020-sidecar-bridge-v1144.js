@@ -1,0 +1,10 @@
+/* V11.44 — Reuse pre-authored 2019/2020 12 HRM/organization essays from the legacy draft sidecar.
+   Do not overwrite learner answer IDs/storage keys. Keep ALL legal, scholarly and original-PDF approvals HOLD. */
+(function(){'use strict';const c=window.N27_CATALOG,b=window.NOMUSA_LEGACY_181_DRAFTS;if(!c||!b)throw Error('V1144_SIDECAR_MISSING');
+const ids=['2019_p2_q1','2019_p2_q2','2019_p2_q3','2019_p7_q1','2019_p7_q2','2019_p7_q3','2020_p3_q1','2020_p3_q2','2020_p3_q3','2020_p5_q1','2020_p5_q2','2020_p5_q3'];const before=c.items.map(x=>x.id),report=[];
+for(const id of ids){const a=b.items[id],r=c.items.find(x=>x.id===id);if(!r||!a||a.draftStatus!=='DRAFT_UNVERIFIED'||!a.sourceReady||!Array.isArray(a.sections)||!a.sections.length||!Number.isInteger(a.points))throw Error('V1144_INVALID_'+id);
+if(!String(r.sourceText).includes('('+a.points+'점)'))throw Error('V1144_POINTS_UNCONFIRMED_'+id);if(!r.sourceOnly||r.sections?.length)throw Error('V1144_PREVIOUS_ANSWER_'+id);
+const next={...r,points:a.points,sourceOnly:false,sections:a.sections,deepSections:a.sections,examFullLengthDraft:a.detailed,examCompressedAnswer:a.compressed,keywords333:a.keywords333,academicReferenceDraft:a.academicOrLawReferences,contentRevision:'V11.44_EXISTING_SIDECAR_ESSAY_DRAFT',enhancementStatus:'DRAFT_UNVERIFIED',approved:false,scoringApproved:false,contentApproval:'HOLD',citationReview:'HOLD',sourceStatus:'REPRINT_TEXT_POINTS_CONFIRMED_ORIGINAL_PDF_VISUAL_HOLD'};
+c.items=c.items.map(x=>x.id===id?next:x);report.push({id,year:r.year,points:a.points,chars:a.detailed.length});}
+if(c.items.length!==before.length||before.some((id,i)=>c.items[i].id!==id))throw Error('V1144_ID_PRESERVATION');
+window.NOMUSA_V1144_BRIDGE=Object.freeze({count:report.length,rows:report,storageKeysPreserved:true,handwriting:'NOT_VERIFIED',sourceVisual:'HOLD',contentApproval:'HOLD'});})();
