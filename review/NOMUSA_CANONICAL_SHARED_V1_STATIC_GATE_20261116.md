@@ -1,5 +1,14 @@
 # NOMUSA 2차 20개년 공통 대표초안 연결 검증 — 2026-11-16
 
+## 2026-11-16 실제 GitHub Actions Chromium 검증 추가 기록
+
+- [검증 실행 #43856485178](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43856485178): 377개 카탈로그/328개 후보/9개 표본 데이터, PC 1440과 모바일 390·360 비교 PASS. 구형 숨김 textarea를 선택하여 저장 테스트 HOLD(테스트 선택자 결함).
+- [검증 실행 #43856948303](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43856948303): 세 뷰포트에서 실제 표시, V10.9 작성기, 저장/재로드, 두 화면 비교까지 진행; 하지만 과거 중복 로더에서 발생한 13개 고유 JavaScript 런타임 오류로 전체 게이트 HOLD. 오류 예시: V1142_ALREADY_EXISTS(2014년 중복), V1168_TARGET, V122_SOURCE.
+- 개선: 2014년 배치 V11.12 5개 스크립트를 구버전 V11.40~V12.2가 완료된 뒤 로드하도록 재배치. 읽기 전용 대표 초안 선택기는 2014년 p4~p7 최신 sidecar 12개를 우선 사용. 이전 자바스크립트 파일 삭제 없음.
+- [최신 재검증 실행 #43857575539](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43857575539): 최종 수정 커밋 `df0543f48e0ab8c591bc689e8e7ec4cf02ee329c` 기준으로 대기 중. **결과 확정 전까지 최종 PASS 불가, 보호 Preview 배포 HOLD.**
+- 테스트는 GitHub hosted Chromium으로 실제 수행했으며, 테스트 결과를 정적 확인이나 이전 버전의 PASS로 대신하지 않음.
+
+
 **결과: 정적 연결 PASS / 실제 PC·모바일 브라우저 E2E HOLD / 내용승인 HOLD.**
 
 ## 변경 없이 보존한 사항
