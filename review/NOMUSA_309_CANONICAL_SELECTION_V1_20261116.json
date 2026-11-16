@@ -491,7 +491,41 @@
     "staticIdCollisionCount": 0,
     "actualBrowserE2E": "NOT_RUN",
     "finalContentApproval": "HOLD",
-    "runtimeSelectionEnforced": false
+    "runtimeSelectionEnforced": false,
+    "allSelectedPathsExist": true,
+    "child2017SourcePathCorrection": [
+      {
+        "id": "2017_p3_q1",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p3_q2",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p3_q3",
+        "before": "second/essay-2017-hrm-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q1",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q2",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      },
+      {
+        "id": "2017_p5_q3",
+        "before": "second/essay-2017-organization-longform-v1126.js",
+        "after": "second/essay-2017-longform-v1126.js"
+      }
+    ],
+    "selectedPathResolution": "PASS_SECOND_DIRECTORY_LIST_AND_BASE_CATALOG"
   },
   "preservation": {
     "previousAnswerFiles": "UNCHANGED",
@@ -8400,14 +8434,14 @@
       "parentId": "2017_p3",
       "points": 50,
       "selectedDraft": {
-        "path": "second/essay-2017-hrm-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p3_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
@@ -8419,14 +8453,14 @@
       "parentId": "2017_p3",
       "points": 25,
       "selectedDraft": {
-        "path": "second/essay-2017-hrm-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p3_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
@@ -8438,14 +8472,14 @@
       "parentId": "2017_p3",
       "points": 25,
       "selectedDraft": {
-        "path": "second/essay-2017-hrm-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p3_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
@@ -8457,14 +8491,14 @@
       "parentId": "2017_p5",
       "points": 50,
       "selectedDraft": {
-        "path": "second/essay-2017-organization-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p5_q1",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
@@ -8476,14 +8510,14 @@
       "parentId": "2017_p5",
       "points": 25,
       "selectedDraft": {
-        "path": "second/essay-2017-organization-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p5_q2",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
@@ -8495,14 +8529,14 @@
       "parentId": "2017_p5",
       "points": 25,
       "selectedDraft": {
-        "path": "second/essay-2017-organization-longform-v1126.js",
+        "path": "second/essay-2017-longform-v1126.js",
         "key": "2017_p5_q3",
         "tier": "AUTHOR_CHILD_DRAFT",
         "approval": "HOLD_UNVERIFIED",
         "selection": "REVIEW_CANONICAL_CANDIDATE_NOT_RUNTIME_ENFORCED",
         "routeImported": {
-          "second": false,
-          "hub": false
+          "second": true,
+          "hub": true
         }
       },
       "preserveParent": true
