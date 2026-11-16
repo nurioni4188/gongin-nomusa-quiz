@@ -55,7 +55,9 @@ def capture(page):
 def inventory(page):
     return page.evaluate("""() => {
       const c=window.NOMUSA_CANONICAL_SELECTION_V1, rows=window.N27_CATALOG?.items||[];
-      return {status:c?.status,gate:c?.gate,yearCount:new Set(rows.map(x=>x.year)).size,
+      return {status:c?.status,gate:c?.gate,
+         batch:(()=>{const q=window.NOMUSA_20YEAR_QUALITY_BATCH_V1;return q&&{schema:q.schema,changed:q.changed,candidateCount:q.candidateCount,totalCatalog:q.totalCatalog,counts:q.counts,hold:q.contentApproval,storageKeyChanged:q.storageKeyChanged,status:q.status,idParity:q.rows.length===Object.keys(c.items).length,regressionNoShrink:q.rows.every(x=>x.currentChars>=x.existingChars)};})(),
+         yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
          drafts:Object.fromEntries(%s.map(id=>[id, c?.items?.[id] ?
@@ -72,6 +74,13 @@ def check_inventory(inv):
     assert not gate["missingIds"] and not gate["unexpectedIds"] and not gate["notRenderable"],gate
     assert len(gate["originalParentIds"])==49
     assert inv["yearCount"]==20 and inv["legacyCount"]==181
+    batch=inv["batch"]
+    assert batch and batch["schema"]=="nomusa-20year-quality-batch/1",batch
+    assert batch["totalCatalog"]==377 and batch["candidateCount"]==328,batch
+    assert batch["changed"]>=200 and sum(batch["counts"].values())==328,batch
+    assert batch["counts"]["HOLD_POINTS_UNKNOWN"]==26,batch
+    assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
+    assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
     # Question-specific content regression: 2026 organizational bargaining, 12 points.
     # Four comparison axes must be substantive, not a one-paragraph placeholder.
