@@ -1,0 +1,114 @@
+{
+  "schema": "nomusa-second-v1122-2013-2026-content-expansion-first-batch/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "goal": "2013~2026 확대를 위한 기출원문·배점 기반 답안 우선순위 선별 및 2019~2020 50pt/25pt 실제 답안 고도화.",
+  "prioritization": {
+    "method": "Prefer questions with substantive source text and explicit 50/25 marks; preserve source/score uncertainty status and avoid untranscribed image-only pages.",
+    "statusByRange": {
+      "2021": "image-style original pages remain untranscribed for key subjects; preserve HOLD",
+      "2013–2014": "38 individual split question answer drafts already held in source repository; preserve, prioritize targeted content audit not duplicate ID creation",
+      "2015–2018": "some parents image-only/untranscribed, hold writing until original PDF pages verified",
+      "2019–2020": "source text contains 50/25 marks but visual confirmation remains HOLD; four individual drafts added",
+      "2022–2023": "V103 source questions with explicit marks; separate from legacy-181 registry and suitable as next substantive batch after answer registry inspection",
+      "2024–2026": "mixed parent/subquestion score grain, avoid falsely treating 5/10/15/30 as 25 or 50; check per-part marks and source"
+    }
+  },
+  "added": [
+    {
+      "id": "2019_p7_q1",
+      "year": 2019,
+      "subject": "인사노무관리론",
+      "points": 50,
+      "parts": [
+        20,
+        30
+      ],
+      "topic": "성과관리 3목적·5운영기준·순환프로세스·평가자·결과활용",
+      "chars": 4009,
+      "path": "second/deep-essay-2019-hrm-q1.js"
+    },
+    {
+      "id": "2019_p2_q2",
+      "year": 2019,
+      "subject": "경영조직론",
+      "points": 25,
+      "topic": "조직시민행동의 5요소와 생산성 기여",
+      "chars": 2189,
+      "path": "second/deep-essay-2019-organization-q2.js"
+    },
+    {
+      "id": "2020_p5_q3",
+      "year": 2020,
+      "subject": "경영조직론",
+      "points": 25,
+      "topic": "Thompson 집합적·순차적·교호적 상호의존성과 조정기제",
+      "chars": 2148,
+      "path": "second/deep-essay-2020-organization-q3.js"
+    },
+    {
+      "id": "2020_p3_q3",
+      "year": 2020,
+      "subject": "인사노무관리론",
+      "points": 25,
+      "topic": "이직유형·순기능·역기능·중소기업 유지전략",
+      "chars": 3101,
+      "path": "second/deep-essay-2020-hrm-q3.js"
+    }
+  ],
+  "bibliography": [
+    "Noe et al. (2014), Fundamentals of Human Resource Management",
+    "Aguinis (2013), Performance Management",
+    "Organ (1988), Organizational Citizenship Behavior",
+    "Podsakoff et al. (2000), Organizational Citizenship Behaviors",
+    "Thompson (1967), Organizations in Action",
+    "Galbraith (1974), Organization Design: An Information Processing View",
+    "March & Simon (1958), Organizations",
+    "Mobley (1977), Employee Turnover",
+    "Mitchell et al. (2001), Job Embeddedness"
+  ],
+  "integration": {
+    "entrypoint": "study-hub/index.html",
+    "newScripts": 4,
+    "scriptCount": 67,
+    "originalLegacyParents": 181,
+    "changedParentsInThisBatch": 4,
+    "unchangedBaseParents": 177,
+    "cumulativeDeepenedParents": 32,
+    "historical2013And2014SplitAnswersPreserved": 38,
+    "originalSourceIDAndStorageKeysPreserved": true
+  },
+  "checks": {
+    "newEssayRegistryAndHub": 230,
+    "historical2013And2014AndScriptPreservation": 67,
+    "totalStatic": 297,
+    "failures": 0,
+    "result": "PASS_STATIC_ONLY",
+    "testTool": "connected GitHub file reads and in-memory JS module execution; no real browser testing"
+  },
+  "holds": {
+    "sourcePdfVisualVerification": "HOLD",
+    "originalAcademicFullTextIndependentReview": "HOLD",
+    "handwriting25pt4SheetsAnd50pt8to10Sheets": "HOLD",
+    "contentApproval": "HOLD",
+    "scoringApproved": false,
+    "pcMobileBrowserSaveRestore": "NOT_RUN",
+    "previewDeployment": "NOT_DEPLOYED"
+  },
+  "protected": {
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "RC27_RC35": "UNCHANGED",
+    "existingPreview": "UNCHANGED",
+    "oldIDs": "UNCHANGED",
+    "localStorageKeys": "UNCHANGED"
+  },
+  "nextPriorities": [
+    "2022년 인사노무관리론 제1문(20+30점) 교육훈련 및 평가이론 - V103 source integration pathway",
+    "2023년 인사노무관리론 제1문(20+30점) 국제 인적자원관리",
+    "2025년 경영조직론 제2·제3문(25점) LMX 및 Vroom 기대이론",
+    "이미지형 2015~2018·2021년 원문대조 전에는 미검증 추정답안 생성 금지"
+  ]
+}
