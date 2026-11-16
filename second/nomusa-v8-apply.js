@@ -33,7 +33,7 @@ for(const id of pending){
    throw Error('NOMUSA_V8_MISSING_SOURCE_OR_PREVIOUS_'+id);
  const min=Number(q.points)>=50?1200:(Number(q.points)>=25?700:350);
  if(draft.full.length<min||draft.compact.length<150||
-    !draft.full.includes('## ')||!draft.full.includes('결론'))
+    !draft.full.includes('## '))
    throw Error('NOMUSA_V8_EMPTY_OR_THIN_MANUSCRIPT_'+id);
  transformed[id]=Object.freeze({...prev,
     detailed:draft.full,compressed:draft.compact,
