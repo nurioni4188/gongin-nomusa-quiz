@@ -1,0 +1,43 @@
+{
+  "schema": "nomusa-v1138-dedup-and-gate/1",
+  "date": "2026-11-16",
+  "scope": "2024 and 2026 HRM and organization, 24 source-linked subquestions",
+  "changed": [
+    "second/deep-essay-2024-2026-dedup-v1138.js",
+    "second/essay-app.js",
+    "second/index.html"
+  ],
+  "verified": {
+    "runtimeStaticJS": "PASS",
+    "targetCount": 24,
+    "duplicatePresentation": "PATCHED",
+    "sourceIDs": "PRESERVED",
+    "marks": "PRESERVED",
+    "sourceSections": "PRESERVED",
+    "storageKey": "nomusa_rc27_v103_essay_records_v1 (unchanged)",
+    "viewModes": "detail/compact/compare wired",
+    "heuristicCharacterTarget": "24/24 met after 5-point academic expansion",
+    "handwrittenPages": "HOLD - no physical handwriting measurement",
+    "actualBrowserE2E": "HOLD - no full deployed build and browser execution",
+    "desktop1440": "NOT_RUN",
+    "mobile390": "NOT_RUN",
+    "mobile360": "NOT_RUN",
+    "saveRestore": "SOURCE_INSPECTED_ONLY; E2E_NOT_RUN",
+    "originalPDFVisualMatch": "HOLD",
+    "academicApproval": "HOLD"
+  },
+  "safety": {
+    "gitBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+    "main": "NOT_MODIFIED_BY_THIS_TASK",
+    "production": "NOT_DEPLOYED",
+    "preview": "NOT_DEPLOYED",
+    "draftPR": 3
+  },
+  "next": [
+    "Run static source integrity gate on complete checkout",
+    "Run local Playwright Chromium 1440/390/360 exercising detail/compact/write/compare across 24 IDs",
+    "Enter drafts, reload, verify storage-key content per ID; export/import backup",
+    "Handwrite samples for 5/10/15/20/25 point groups, record actual pages and elapsed time",
+    "Reconcile official source scans and citations before approval"
+  ]
+}
