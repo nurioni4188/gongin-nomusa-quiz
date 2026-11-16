@@ -1,0 +1,54 @@
+/* V10.9.0 supplemental study only; no reproduction of Q-Net official form */
+#n27-essay-root .v1090-shell{background:#fff;border:1px solid #acc2c9;border-radius:15px;margin:15px 0;padding:18px;color:#263b43;max-width:100%;min-width:0;overflow:hidden}
+#n27-essay-root .v1090-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+#n27-essay-root .v1090-head h3{font-size:1.13rem;margin:4px 0 0;color:#193e43}
+#n27-essay-root .v1090-overline{font-size:.7rem;color:#4a7377;letter-spacing:.07em;font-weight:750}
+#n27-essay-root .v1090-label{font-weight:700;border:1px solid #a7c9cb;background:#ecf5f5;color:#194b4e;border-radius:999px;padding:7px 10px;font-size:.85rem}
+#n27-essay-root .v1090-intro{font-size:.86rem;color:#506871;line-height:1.7}
+#n27-essay-root .v1090-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
+#n27-essay-root .v1090-kpis div{min-width:0;background:#f4f7f7;border-radius:9px;padding:11px;overflow-wrap:anywhere}
+#n27-essay-root .v1090-kpis small{display:block;color:#677980;font-size:.76rem}
+#n27-essay-root .v1090-kpis strong{display:block;font-size:1rem;margin-top:4px}
+#n27-essay-root .v1090-audit{background:#fff9e9;border-left:3px solid #c89e52;padding:10px 12px;line-height:1.6;font-size:.85rem}
+#n27-essay-root .v1090-config{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}
+#n27-essay-root .v1090-config label{display:grid;gap:5px;font-size:.81rem;color:#50626a;font-weight:700;flex:1 1 125px}
+#n27-essay-root .v1090-config select{width:100%;min-width:0}
+#n27-essay-root .v1090-actions{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+#n27-essay-root .v1090-actions button,#n27-essay-root .v1090-edit-foot button{padding:10px 12px;border:1px solid #b2c8c8;border-radius:9px;background:#f8fbfb;font:inherit;cursor:pointer;color:#204a4e;font-size:.85rem;font-weight:750}
+#n27-essay-root .v1090-actions button[aria-pressed=true]{background:#225c61;color:#fff}
+#n27-essay-root .v1090-actions button:focus-visible{outline:2px solid #b18325;outline-offset:2px}
+#n27-essay-root .v1090-actions button:disabled{opacity:.45;cursor:not-allowed}
+#n27-essay-root .v1090-allocation summary{cursor:pointer;font-weight:700;color:#254d57;padding:5px 0}
+#n27-essay-root .v1090-table-wrap{overflow-x:auto}
+#n27-essay-root .v1090-table-wrap table{border-collapse:collapse;width:100%;font-size:.83rem}
+#n27-essay-root .v1090-table-wrap th,#n27-essay-root .v1090-table-wrap td{border-bottom:1px solid #d8e0e1;padding:8px;text-align:left}
+#n27-essay-root .v1090-panel{min-width:0;overflow-wrap:anywhere}
+#n27-essay-root .v1090-editor-label{font-weight:750;color:#204d51;display:block;margin:10px 0 7px}
+#n27-essay-root #v1090-editor{display:block;width:100%;max-width:100%;min-height:275px;line-height:1.9;font-size:.95rem;resize:vertical;background:#fffefc}
+#n27-essay-root .v1090-edit-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin:10px 0}
+#n27-essay-root .v1090-summary{font-size:.82rem;color:#4f6871;line-height:1.7}
+#n27-essay-root .v1090-words{display:flex;flex-wrap:wrap;gap:6px}
+#n27-essay-root .v1090-words span{padding:5px 9px;border-radius:18px;font-size:.8rem;background:#edf3f5}
+#n27-essay-root .v1090-words span.present{background:#e5f2e8;color:#2e6048}
+#n27-essay-root .v1090-words span.absent{background:#fbefdf;color:#8d5d2a}
+#n27-essay-root .v1090-warning,#n27-essay-root .v1090-foot{color:#6a6963;font-size:.78rem;line-height:1.65}
+#n27-essay-root .v1090-page-list{max-height:600px;overflow-y:auto;border:1px solid #dae0e2;border-radius:8px;padding:10px;background:#e9eeee}
+.v1090-paper{background:#fff;color:#253a40;margin:0 auto 14px;padding:12mm 11mm;width:190mm;max-width:100%;min-height:260mm;box-shadow:0 3px 8px #0001;box-sizing:border-box;display:flex;flex-direction:column;font:14px/1.8 'Malgun Gothic',system-ui,sans-serif}
+.v1090-paper header{display:flex;justify-content:space-between;gap:6px;border-bottom:2px solid #334f54;padding-bottom:7px;flex-wrap:wrap}
+.v1090-paper header small{font-size:.72em;color:#7a807c}
+.v1090-paper .v1090-meta{display:flex;justify-content:space-between;gap:5px;font-size:.75em;margin:7px 0 10px;flex-wrap:wrap}
+.v1090-paper .v1090-lines{flex:1;line-height:9mm;min-height:205mm;background:repeating-linear-gradient(to bottom, transparent 0,transparent calc(9mm - 1px),#d4dfe0 calc(9mm - 1px),#d4dfe0 9mm)}
+.v1090-paper .v1090-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:9mm;letter-spacing:0;font-size:12.5px}
+.v1090-paper .v1090-empty{color:#b1bec1;text-align:center;margin-top:20px}
+.v1090-paper footer{font-size:.65em;border-top:1px solid #d2d8d9;margin-top:8px;padding:7px 0 0;text-align:center;color:#7e8582}
+.v1090-print-layer{display:none}
+@media(max-width:700px){#n27-essay-root .v1090-shell{padding:12px}#n27-essay-root .v1090-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}#n27-essay-root .v1090-actions button{flex:1 1 43%;padding:9px 6px}#n27-essay-root .v1090-page-list{padding:4px}#n27-essay-root .v1090-page-list .v1090-paper{min-height:520px;padding:14px;width:100%}#n27-essay-root .v1090-page-list .v1090-paper .v1090-lines{min-height:410px;line-height:27px;background-size:auto 27px}#n27-essay-root .v1090-page-list .v1090-paper .v1090-text{line-height:27px}}
+@media print{
+ @page{size:A4 portrait;margin:10mm}
+ body>*:not(.v1090-print-layer){display:none!important}
+ body .v1090-print-layer{display:block!important}
+ body .v1090-print-layer .v1090-paper{width:100%;height:270mm;min-height:0;box-shadow:none;margin:0;padding:7mm;break-after:page;page-break-after:always}
+ body .v1090-print-layer .v1090-paper:last-child{break-after:auto;page-break-after:auto}
+}
+/* One authoritative editor on each question: original pane remains in DOM for compatibility but is not simultaneously displayed. */
+#n27-essay-root .n27-detail:has(.v1090-shell) > .n106-workspace.n106-write{display:none}

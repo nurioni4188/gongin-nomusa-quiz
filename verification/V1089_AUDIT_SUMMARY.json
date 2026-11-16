@@ -1,0 +1,16 @@
+{
+  "sourceRecords": 1020,
+  "preExistingExplanations": 321,
+  "newExplanationDrafts": 41,
+  "totalDrafts": 362,
+  "imageChecks": 41,
+  "explicitCalculations": 34,
+  "holdList": [
+    "2026-경제학원론-096"
+  ],
+  "otherItemsNotOfficiallyApproved": true,
+  "sourceDataSHA256": "7f46005c29e7a56a0ec64a98427df32cda41efc923bf8eadf66ca29c842570fa",
+  "assetsImages": 1020,
+  "assetsSecondPDF": 57,
+  "policy": "Preview only, no main/Production edits"
+}

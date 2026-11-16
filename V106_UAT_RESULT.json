@@ -1,0 +1,70 @@
+{
+  "version": "V10.6",
+  "status": "PASS_MEMORY_BROWSER",
+  "passed": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "215개/14개년/128개 답안초안/87개 원문연습",
+      "status": "PASS"
+    },
+    {
+      "name": "상세/압축/핵심암기 3단계 전환",
+      "status": "PASS"
+    },
+    {
+      "name": "직접 작성/자동저장/글자수",
+      "status": "PASS"
+    },
+    {
+      "name": "새 화면 초기화 후 저장 복원 및 과목별 답안 틀",
+      "status": "PASS"
+    },
+    {
+      "name": "나란히 비교/자가점검 체크/복원",
+      "status": "PASS"
+    },
+    {
+      "name": "20분 실전 답안 숨김/재초기화 후 잠금 유지/종료",
+      "status": "PASS"
+    },
+    {
+      "name": "원문 연습 87개 학습답안 오표기 방지",
+      "status": "PASS"
+    },
+    {
+      "name": "JSON 다운로드/복원/잘못된 ID/오류 보호",
+      "status": "PASS"
+    },
+    {
+      "name": "구 버전 JSON 백업 호환성",
+      "status": "PASS"
+    },
+    {
+      "name": "PC/모바일 1440px 화면 비교/가로넘침",
+      "status": "PASS"
+    },
+    {
+      "name": "PC/모바일 768px 화면 비교/가로넘침",
+      "status": "PASS"
+    },
+    {
+      "name": "PC/모바일 390px 화면 비교/가로넘침",
+      "status": "PASS"
+    },
+    {
+      "name": "PC/모바일 360px 화면 비교/가로넘침",
+      "status": "PASS"
+    },
+    {
+      "name": "기존 1차 RC35 소스/이미지1020 원본보존·PDF43 원본보존",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Chromium set_content in-memory, not a real HTTP origin because ERR_BLOCKED_BY_ADMINISTRATOR",
+    "Remote Vercel Preview E2E not executed",
+    "Android/iOS real device not tested",
+    "Official legal/academic model answer verification HOLD"
+  ]
+}

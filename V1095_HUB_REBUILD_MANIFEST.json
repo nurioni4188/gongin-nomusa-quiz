@@ -1,0 +1,21 @@
+{
+  "files": {
+    "qa.html": "a1bcb4b7736d571bd66e9366d5abbdf54ce4acce",
+    "app.css": "21d3de12dfe4c28318ec3c0dd4191b19b9058960",
+    "index.html": "cb48421453927b4e904f7376ec7214006e7cb7be",
+    "hub-qa.js": "669e1657fa27d60276432ade3511d9b4aa31932c",
+    "state.js": "60017d35104a2b88c8a7130b53d41994ee3c8d62",
+    "app.js": "57275609eabb8e2e997f727d85d294896ba4251d",
+    "review-data.js": "7085e7a8ebc74500ab27a15dcb283dec56cb3d24",
+    "qa-runner.js": "a77901c2ae61ec0b3fbc1379889ea1e23175c4c6",
+    "brand.svg": "4635cf338cbed2cfd848cdc3bd3b5ea12b8f7125",
+    "evidence/hub-browser-v2.json": "a4486e6515dc4a3483658e9fdd384f8f73746380",
+    "updates/explanations-v108.js": "16010cc15925b8b19cd46dfa1f686258ae4c01cd",
+    "updates/source-corrections-v1087.js": "d59db5e8772bc82551f7fd99f5c94592177099be",
+    "updates/source-corrections-v1088.js": "641dee706b16c3374661e10f6ec405b6361c60dd"
+  },
+  "file_count": 13,
+  "sourceType": "LOCAL_RECONSTRUCTION_NOT_ORIGINAL_HUB_BYTES",
+  "originalHub13SHAComparison": "HOLD_DIFFERENT_BUT_FUNCTIONAL_EQUIVALENCE_TO_BE_VERIFIED",
+  "noProxyOrRewrite": true
+}

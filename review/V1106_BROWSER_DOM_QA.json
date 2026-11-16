@@ -1,0 +1,42 @@
+{
+  "schema": "nomusa-v1106-inmemory-browser-dom-regression/1",
+  "mode": "CHROMIUM_MEMORY_ONLY_NOT_HTTP",
+  "checks": [
+    {
+      "test": "second_1440",
+      "status": "PASS",
+      "detail": "JScount=20; overflow=0; errors=0"
+    },
+    {
+      "test": "study-hub_1440",
+      "status": "PASS",
+      "detail": "JScount=26; overflow=0; errors=0"
+    },
+    {
+      "test": "second_390",
+      "status": "PASS",
+      "detail": "JScount=20; overflow=0; errors=0"
+    },
+    {
+      "test": "study-hub_390",
+      "status": "PASS",
+      "detail": "JScount=26; overflow=0; errors=0"
+    },
+    {
+      "test": "second_360",
+      "status": "PASS",
+      "detail": "JScount=20; overflow=0; errors=0"
+    },
+    {
+      "test": "study-hub_360",
+      "status": "PASS",
+      "detail": "JScount=26; overflow=0; errors=0"
+    }
+  ],
+  "passed": 6,
+  "held": 0,
+  "webStorageTest": "SHIM_ONLY",
+  "localHttp": "HOLD_BLOCKED_BY_ADMINISTRATOR",
+  "httpsPreview": "NOT_RUN",
+  "contentApproval": "0/47 HOLD"
+}

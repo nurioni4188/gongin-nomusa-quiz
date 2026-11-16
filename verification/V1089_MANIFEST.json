@@ -1,0 +1,36 @@
+{
+  "scope": "existing Vercel project preview only",
+  "base": "RC35_V107_FULL source+V1088 patch index",
+  "files": {
+    "index.html": {
+      "size": 82716,
+      "sha256": "3de55c61e877ffe7ea92700f9a3184b4ca2f0e8d4f59e85ea744e26ef97547ed"
+    },
+    "data.js": {
+      "size": 985783,
+      "sha256": "7f46005c29e7a56a0ec64a98427df32cda41efc923bf8eadf66ca29c842570fa"
+    },
+    "source-corrections-v1087.js": {
+      "size": 2815,
+      "sha256": "f966923fa19588fd10ca6da7b58cf97beba44868b4753635b2670442442953a7"
+    },
+    "source-corrections-v1088.js": {
+      "size": 16604,
+      "sha256": "30908285e9d267166254bdd3179b5b847b20ee57c85cfb8fb928d0486a23e2b2"
+    },
+    "source-corrections-v1089.js": {
+      "size": 16373,
+      "sha256": "8b3c66614d9ac56f519e4449e4830695824523d62b424f2403252cff16a39c47"
+    },
+    "explanations-v108.js": {
+      "size": 683513,
+      "sha256": "a4a55ab9fac1b637d626c6613a2938ee349213f180f8f99dca80dfb2e0fd9453"
+    }
+  },
+  "counts": {
+    "images": 1020,
+    "secondPDF": 57,
+    "drafts": 362,
+    "holds": 1
+  }
+}

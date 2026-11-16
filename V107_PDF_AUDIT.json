@@ -1,0 +1,145 @@
+{
+  "version": "V10.7",
+  "result": "PASS_PDF_BYTES_LINKS_HOLD_TEXT_PROVENANCE",
+  "total_rows": 215,
+  "rows_with_local_pdf": 215,
+  "missing_pdf_links": [],
+  "pdf_file_count": 57,
+  "new_pdf_files_count": 14,
+  "page_index_out_of_range": [],
+  "year_pdf_coverage": {
+    "2026": 37,
+    "2025": 19,
+    "2024": 34,
+    "2023": 19,
+    "2022": 19,
+    "2021": 7,
+    "2020": 19,
+    "2019": 19,
+    "2018": 7,
+    "2017": 7,
+    "2016": 7,
+    "2015": 7,
+    "2014": 7,
+    "2013": 7
+  },
+  "new_pdf_metadata": {
+    "source_pdf/2024/2024_labor1.pdf": {
+      "source_zip": "1일차(8.31).zip",
+      "original_filename": "1일차(8.31)/노동법(1교시, 8.31).pdf",
+      "sha256": "456ba1b1df3d3ce4606718500c4c367e1f782a434e42b7c5e8cf789301e8c4c7",
+      "bytes": 857515,
+      "pages": 2,
+      "first_page_has_searchable_text": false
+    },
+    "source_pdf/2024/2024_labor2.pdf": {
+      "source_zip": "1일차(8.31).zip",
+      "original_filename": "1일차(8.31)/노동법(2교시, 8.31).pdf",
+      "sha256": "e63d79bc66da08447b34210d338b21030a432cdeebf7df63416a5a59e80a6493",
+      "bytes": 1091327,
+      "pages": 3,
+      "first_page_has_searchable_text": false
+    },
+    "source_pdf/2024/2024_hr.pdf": {
+      "source_zip": "1일차(8.31).zip",
+      "original_filename": "1일차(8.31)/인사노무관리론(3교시, 8.31).pdf",
+      "sha256": "415733997807ea50fd1e2f01d79e432f0564b60f19f25741e2d979bdc017f50b",
+      "bytes": 214844,
+      "pages": 1,
+      "first_page_has_searchable_text": false
+    },
+    "source_pdf/2024/2024_org.pdf": {
+      "source_zip": "2일차(9.1).zip",
+      "original_filename": "2일차(9.1)/경영조직론(2교시, 9.1).pdf",
+      "sha256": "4c6748270360c6ee02c0bc9a87c4f5bb11ef3920060aea360d5ff97b12c0b926",
+      "bytes": 144617,
+      "pages": 2,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2024/2024_econ.pdf": {
+      "source_zip": "2일차(9.1).zip",
+      "original_filename": "2일차(9.1)/노동경제학(2교시, 9.1).pdf",
+      "sha256": "8d2c41df25efee4ae8b546f1078c7a45493ca35f880ebabd3490c5cef2df44fa",
+      "bytes": 699376,
+      "pages": 3,
+      "first_page_has_searchable_text": false
+    },
+    "source_pdf/2024/2024_civil.pdf": {
+      "source_zip": "2일차(9.1).zip",
+      "original_filename": "2일차(9.1)/민사소송법 (2교시,9.1).pdf",
+      "sha256": "a6f26d0da12a212a72ce0a4b11bfa92aa5a0f0c69ffa037db92e8cd61ede7267",
+      "bytes": 87793,
+      "pages": 1,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2024/2024_admin.pdf": {
+      "source_zip": "2일차(9.1).zip",
+      "original_filename": "2일차(9.1)/행정쟁송법(1교시, 9.1).pdf",
+      "sha256": "7ad57efc173108e0575d5b5c56cdc73feb3d45f5e2ba4ef42846250484d71f07",
+      "bytes": 1186447,
+      "pages": 3,
+      "first_page_has_searchable_text": false
+    },
+    "source_pdf/2026/2026_labor1.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 1일차 문제지 (1).zip",
+      "original_filename": "노동법 1_원본.pdf",
+      "sha256": "3e72bc3890d3bd5ab81b261f22ea5dfd9e5467a263830d042ce71417afaab7fa",
+      "bytes": 183089,
+      "pages": 2,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_labor2.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 1일차 문제지 (1).zip",
+      "original_filename": "노동법 2_원본.pdf",
+      "sha256": "4f757386d79d396c7adc6ad8f6589668d5dd12bf3076abdb2c659e3c5801be6b",
+      "bytes": 183290,
+      "pages": 2,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_hr.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 1일차 문제지 (1).zip",
+      "original_filename": "인사노무관리론_원본.pdf",
+      "sha256": "8098f10a104bf5a9e27079caac6df5c5566055669690bb87d75ba883989e404d",
+      "bytes": 85195,
+      "pages": 1,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_org.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 2일차 문제지 (1)(1).zip",
+      "original_filename": "경영조직론_원본.pdf",
+      "sha256": "eda7802e17a9a51f10ab938565defe8609a0f108bcd19ad75d84b0b974710af6",
+      "bytes": 136348,
+      "pages": 2,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_econ.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 2일차 문제지 (1)(1).zip",
+      "original_filename": "노동경제학_원본.pdf",
+      "sha256": "c180657b082d47ee5413390b4c013408cd9ea598a6d1c104085c002696676da6",
+      "bytes": 147619,
+      "pages": 2,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_civil.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 2일차 문제지 (1)(1).zip",
+      "original_filename": "민사소송법_원본.pdf",
+      "sha256": "542416c16eea613e3e3b10ed86da512af36c7d8f65eb1c769413190b4c909c8e",
+      "bytes": 111608,
+      "pages": 1,
+      "first_page_has_searchable_text": true
+    },
+    "source_pdf/2026/2026_admin.pdf": {
+      "source_zip": "2026년 제35회 공인노무사 2차시험 2일차 문제지 (1)(1).zip",
+      "original_filename": "행정쟁송법_원본.pdf",
+      "sha256": "908c1d0f5c76de3657e65174481e5d723e669f3501f07e7eaf41e82f18530a77",
+      "bytes": 215280,
+      "pages": 4,
+      "first_page_has_searchable_text": true
+    }
+  },
+  "limitations": [
+    "PDF가 보유되어 있고 열리는 것은 기출 텍스트 전사·수식·배점이 동일함을 보증하지 않음",
+    "2024년·2026년 개별 대문항 및 하위문항 페이지는 기본 1쪽 연결, 육안 검토 필요",
+    "미승인 답안 128개를 승인 완료로 변경하지 않음"
+  ]
+}

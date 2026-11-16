@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "test": "chain-1440",
+      "pass": false,
+      "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/nomusa_merge_work/out/site/index.html\nCall log:\n  - navigating to \"file:///mnt/data/nomusa_merge_work/out/site/index.html\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "test": "chain-390",
+      "pass": false,
+      "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/nomusa_merge_work/out/site/index.html\nCall log:\n  - navigating to \"file:///mnt/data/nomusa_merge_work/out/site/index.html\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "test": "chain-360",
+      "pass": false,
+      "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/nomusa_merge_work/out/site/index.html\nCall log:\n  - navigating to \"file:///mnt/data/nomusa_merge_work/out/site/index.html\", waiting until \"domcontentloaded\"\n"
+    }
+  ],
+  "scope": "file:// offline DOM, not HTTP real browser"
+}

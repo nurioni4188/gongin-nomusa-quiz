@@ -1,0 +1,17 @@
+{
+  "schema": "nomusa-v1099-legal-audit-v1",
+  "date": "2026-11-14",
+  "total": 47,
+  "pdfByteVerified": 47,
+  "pdfTextExtractable": 41,
+  "explicitArticleCount": 19,
+  "numberedCaseCount": 1,
+  "fullyVerifiedExamLawAndDirectPrecedent": 0,
+  "finalLegalApprovedCount": 0,
+  "sourceHubFilesSha1Verified": 13,
+  "preservedOriginalHubPrefix": "recovery/verified-study-hub/",
+  "originalHubSource": "github preview/nomusa-v1097-hub-original-preserve",
+  "verifiedIssueSpecificPrincipleNotes": 5,
+  "sourceStatus": "PASS_LOCAL_STATIC_MERGE_NOT_LIVE_E2E",
+  "previewDeployed": false
+}

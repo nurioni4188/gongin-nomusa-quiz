@@ -1,0 +1,15 @@
+[
+  {
+    "id": "2026-경제학원론-096",
+    "year": "2026",
+    "subject": "경제학원론",
+    "official_answer_ordinal": 3,
+    "source_image": "2026-EC-096.png",
+    "source_image_sha256": "c42df32c6b53f5a112d1b635c15f6624560317ad84e1ddf09631bdc83bc848f7",
+    "source_math_check": "FOC=8; d2(TB-TAC)=5>0 -> minimum not maximum",
+    "audit_decision": "HOLD_MATH_LOGIC_DISCREPANCY",
+    "correctness_notice": "공식 정답 데이터 보존, 내용 최종 승인 보류",
+    "question": "오염물질 G단위를 저감하는 총비용은 TAC=40G−G², 환경적 총편익은 TB=(3/2)G²이다. 사회적으로 최적인 저감량은?",
+    "written_reasoning": "원문 식 그대로라면 TB−TAC=(5/2)G²−40G, 1차조건 5G−40=0으로 G=8을 얻지만 2차미분은 +5다. 따라서 8은 순편익의 극소점이지 극대점이 아니다. 감축량의 정의역·상한 없이 사회적 최적량을 8이라 단정할 수 없다. 원장 정답 ③과 수학적 최적화 조건이 충돌하므로 문항오류 확인 HOLD."
+  }
+]

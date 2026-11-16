@@ -1,0 +1,122 @@
+{
+  "version": "V10.9.6",
+  "date": "2026-11-14",
+  "kind": "ONE_PACKAGE_SOURCE_GATE_REBUILT_HUB_NOT_PUBLISHED",
+  "checks": [
+    {
+      "name": "1차 원본 1020 이미지",
+      "status": "PASS",
+      "detail": "1020 files"
+    },
+    {
+      "name": "2차 원본 57 PDF",
+      "status": "PASS",
+      "detail": "57 files"
+    },
+    {
+      "name": "문제은행 SHA256",
+      "status": "PASS",
+      "detail": "7f46005c29e7a56a0ec64a98427df32cda41efc923bf8eadf66ca29c842570fa"
+    },
+    {
+      "name": "2차 31개 후속논증",
+      "status": "PASS",
+      "detail": "v1095 overlay present"
+    },
+    {
+      "name": "2차 215 항목 연결",
+      "status": "PASS",
+      "detail": "catalog exists"
+    },
+    {
+      "name": "원본 저장키 보존",
+      "status": "PASS",
+      "detail": "storage key"
+    },
+    {
+      "name": "JS 구문검사",
+      "status": "PASS",
+      "detail": "31/31 pass; []"
+    },
+    {
+      "name": "주요 HTML 정적 리소스 경로",
+      "status": "PASS",
+      "detail": "4 HTML, missing=[]"
+    },
+    {
+      "name": "재구성 허브 리소스 13개",
+      "status": "PASS",
+      "detail": "13 files, NOT original SHA1"
+    },
+    {
+      "name": "원본 학습 허브 해시 동일성",
+      "status": "HOLD",
+      "detail": "2/13 local match; original cloud 13/13 verified separately"
+    },
+    {
+      "name": "시험 당시 법령·판례 직접성 검수",
+      "status": "HOLD",
+      "detail": "47 drafts require human legal source review"
+    },
+    {
+      "name": "Vercel PC·모바일 실접속 E2E",
+      "status": "HOLD",
+      "detail": "not run; no deployment"
+    }
+  ],
+  "mainModified": false,
+  "productionModified": false,
+  "previewCreated": false,
+  "legalApprovalCount": 0,
+  "originalHubCloudShaVerified": 13,
+  "originalHubLocalShaMatches": 2,
+  "originalHubDifferentFiles": {
+    "app.css": {
+      "remoteSha1": "fd8b681d71c2859365511bf2749284219a6c76bc",
+      "localSha1": "21d3de12dfe4c28318ec3c0dd4191b19b9058960"
+    },
+    "app.js": {
+      "remoteSha1": "520f6b590bfab20d1b975865ce73e7a68724d546",
+      "localSha1": "57275609eabb8e2e997f727d85d294896ba4251d"
+    },
+    "brand.svg": {
+      "remoteSha1": "ff88b492f517c0adf5a9dd2cbc3c231e5d9922e6",
+      "localSha1": "4635cf338cbed2cfd848cdc3bd3b5ea12b8f7125"
+    },
+    "evidence/hub-browser-v2.json": {
+      "remoteSha1": "91cf9afd929932e2ffff32528be01bf5434ef10a",
+      "localSha1": "a4486e6515dc4a3483658e9fdd384f8f73746380"
+    },
+    "hub-qa.js": {
+      "remoteSha1": "f831ed79f32b85a582bca0571dcced7be0835c5f",
+      "localSha1": "669e1657fa27d60276432ade3511d9b4aa31932c"
+    },
+    "index.html": {
+      "remoteSha1": "3a9c011b2f275bce68f208350dbe9b5522069f61",
+      "localSha1": "cb48421453927b4e904f7376ec7214006e7cb7be"
+    },
+    "qa-runner.js": {
+      "remoteSha1": "4219860d6cd691ad418610b3a05cfddee18586da",
+      "localSha1": "a77901c2ae61ec0b3fbc1379889ea1e23175c4c6"
+    },
+    "qa.html": {
+      "remoteSha1": "c36ed9f878339d9e30a4299153b4419bf702c408",
+      "localSha1": "a1bcb4b7736d571bd66e9366d5abbdf54ce4acce"
+    },
+    "review-data.js": {
+      "remoteSha1": "be9f5baad2cdfc1157dbcc81441ddd1538e652d5",
+      "localSha1": "7085e7a8ebc74500ab27a15dcb283dec56cb3d24"
+    },
+    "state.js": {
+      "remoteSha1": "51509d2a456d70499bb1b23716384510751ba797",
+      "localSha1": "60017d35104a2b88c8a7130b53d41994ee3c8d62"
+    },
+    "updates/explanations-v108.js": {
+      "remoteSha1": "1e4c84057088af43516648fc0cd51752c039e8f4",
+      "localSha1": "16010cc15925b8b19cd46dfa1f686258ae4c01cd"
+    }
+  },
+  "browserPriorSmoke": "V10.9.5 16/16 second, mobile hub 10/10 & 5/5",
+  "httpOriginAttempt": "HOLD_ERR_BLOCKED_BY_ADMINISTRATOR",
+  "note": "No false claim of exact original hub; full local reconstructed hub package, deploy gate remains HOLD"
+}

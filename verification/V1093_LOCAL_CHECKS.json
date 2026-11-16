@@ -1,0 +1,17 @@
+{
+  "legalCount": 47,
+  "newDraftCount": 13,
+  "holdFinalApprovalCount": 47,
+  "sourcePDFs": 57,
+  "originalPNG": 1020,
+  "newDraftTextChars": 8074,
+  "sourcePDFMapped": 47,
+  "filesIdentical": {
+    "data.js": true,
+    "rc27_essay_catalog.js": true,
+    "index.html": true,
+    "second/essay-app.js": true,
+    "second/v1091-content-batch.js": true,
+    "second/v1092-academic-and-legal-review.js": true
+  }
+}

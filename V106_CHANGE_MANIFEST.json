@@ -1,0 +1,36 @@
+{
+  "version": "RC35-WARM-LIGHT+V10.6-ESSAY",
+  "built_at": "2026-11-13",
+  "source_v105": "공인노무사_RC35_V105_14개년_1차2차_통합Preview_20261113.zip",
+  "modified_from_v105": {
+    "second/essay-app.js": {
+      "before_sha256": "a22cdfec3f1c71a2b187e7d928eac485e2645d5a58d1132ba79bb19f7e252918",
+      "after_sha256": "6817bc4c223f6f3b0c12237a9d8eb80bf535a43d159fb1849efe18e0c920ddc5"
+    },
+    "second/route.css": {
+      "before_sha256": "9658a6e58e920868afa9bdbf2c5b545e13fef0dc62dc5d6c8ee2c84e1fa50aac",
+      "after_sha256": "02748dfcff6c6bb16b467ea02e724469a0627dd3495a2c7d24dab857cc761d3f"
+    },
+    "second/index.html": {
+      "before_sha256": "ae881349248ad6fc636b0e0b854838562a30d754527872ae90eacd39a466f6ec",
+      "after_sha256": "2f08da5620e22a53744fe5398d43f370abb1b98f85de7a2541c62b8dc2f251c1"
+    }
+  },
+  "unchanged": {
+    "first_index_sha256": "3be0a5bae8e8679c9085ceb7c5ba74de4d9df4a2836babad0f6e7de102b806e1",
+    "first_data_sha256": "7f46005c29e7a56a0ec64a98427df32cda41efc923bf8eadf66ca29c842570fa",
+    "first_images": 1020,
+    "source_pdf": 43,
+    "old_essay_catalog_sha256": "6e71e76f4da5704ca02f58f6e01863d7d67a3da51e10e98d9a0a5b72effc522f",
+    "prior_study_storage_key": "nomusa_rc27_v103_essay_records_v1"
+  },
+  "memory_chromium_uat": {
+    "passed": 14,
+    "failed": 0
+  },
+  "holds": [
+    "Remote Vercel Preview E2E",
+    "Android iOS device UAT",
+    "legal and academic independent source approval"
+  ]
+}

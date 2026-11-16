@@ -1,0 +1,112 @@
+{
+  "revision": "2026.11.13.2",
+  "checkedAt": "2026-11-13T06:43:22.174Z",
+  "scope": "Sites preview, Chromium over HTTP, same-origin frame viewports",
+  "checks": [
+    {
+      "width": 1440,
+      "id": "detail",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "source",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "save",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "exam",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "backup",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "review",
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "id": "first",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "detail",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "source",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "save",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "exam",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "backup",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "review",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "id": "first",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "detail",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "source",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "save",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "exam",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "backup",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "review",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "id": "first",
+      "status": "PASS"
+    }
+  ]
+}

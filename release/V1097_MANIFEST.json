@@ -1,0 +1,37 @@
+{
+  "schema": "nomusa-v1097-original-hub-integration-v1",
+  "source_sha256": "5764a3b35bf1ade79361eb9f45641e6b5efd1ad54aff56227f9bee3414471509",
+  "source_ref": "baf158f50a90d9c179d7bdb7f1723ac62f579137",
+  "verified_original_hub_files": 13,
+  "original_hub_sha1": {
+    "app.css": "fd8b681d71c2859365511bf2749284219a6c76bc",
+    "app.js": "520f6b590bfab20d1b975865ce73e7a68724d546",
+    "brand.svg": "ff88b492f517c0adf5a9dd2cbc3c231e5d9922e6",
+    "evidence/hub-browser-v2.json": "91cf9afd929932e2ffff32528be01bf5434ef10a",
+    "hub-qa.js": "f831ed79f32b85a582bca0571dcced7be0835c5f",
+    "index.html": "3a9c011b2f275bce68f208350dbe9b5522069f61",
+    "qa-runner.js": "4219860d6cd691ad418610b3a05cfddee18586da",
+    "qa.html": "c36ed9f878339d9e30a4299153b4419bf702c408",
+    "review-data.js": "be9f5baad2cdfc1157dbcc81441ddd1538e652d5",
+    "state.js": "51509d2a456d70499bb1b23716384510751ba797",
+    "updates/explanations-v108.js": "1e4c84057088af43516648fc0cd51752c039e8f4",
+    "updates/source-corrections-v1087.js": "d59db5e8772bc82551f7fd99f5c94592177099be",
+    "updates/source-corrections-v1088.js": "641dee706b16c3374661e10f6ec405b6361c60dd"
+  },
+  "root_preservation": {
+    "images": 1020,
+    "pdfs": 57,
+    "qdata_sha256": "7f46005c29e7a56a0ec64a98427df32cda41efc923bf8eadf66ca29c842570fa",
+    "source_entries": 1166
+  },
+  "study_hub_index_only_changed_for_362_explanations": true,
+  "unverified": [
+    "official legal content/precedent approval",
+    "live Vercel PC/mobile E2E",
+    "site publish"
+  ],
+  "legal_approval_count": 0,
+  "preview_deployed": false,
+  "main_changed": false,
+  "production_changed": false
+}

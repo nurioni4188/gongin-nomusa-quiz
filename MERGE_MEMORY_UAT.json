@@ -1,0 +1,74 @@
+{
+  "status": "PASS_MEMORY_DOM_ONLY",
+  "checks": [
+    {
+      "stage": "RC35",
+      "width": 1440,
+      "result": "PASS",
+      "data": 1020,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "V10.5 2차",
+      "width": 1440,
+      "result": "PASS",
+      "data": 215,
+      "years": 14,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "RC35",
+      "width": 768,
+      "result": "PASS",
+      "data": 1020,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "V10.5 2차",
+      "width": 768,
+      "result": "PASS",
+      "data": 215,
+      "years": 14,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "RC35",
+      "width": 390,
+      "result": "PASS",
+      "data": 1020,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "V10.5 2차",
+      "width": 390,
+      "result": "PASS",
+      "data": 215,
+      "years": 14,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "RC35",
+      "width": 360,
+      "result": "PASS",
+      "data": 1020,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "stage": "V10.5 2차",
+      "width": 360,
+      "result": "PASS",
+      "data": 215,
+      "years": 14,
+      "overflow": 0,
+      "errors": []
+    }
+  ],
+  "scope": "about:blank memory DOM only; no actual HTTP-origin browser navigation"
+}

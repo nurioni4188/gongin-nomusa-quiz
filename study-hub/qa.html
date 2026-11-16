@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>학습 기능 검증 · 누리온</title>
+  <link rel="icon" href="brand.svg">
+  <link rel="stylesheet" href="app.css">
+  <style>
+    .qa-page{max-width:980px;margin:auto;padding:20px 14px 40px}
+    .qa-frame-wrap{overflow:auto;border:1px solid #d6e0d7;border-radius:12px;background:#eaf0e9}
+    #frame{display:block;border:0;background:#fff;height:740px;max-width:none}
+    #qa-status{margin:12px 0;font-weight:700;min-height:2em}
+    .qa-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  </style>
+</head>
+<body>
+  <main class="qa-page">
+    <p><a class="text-link" href="index.html#verify">← 검증 대시보드</a></p>
+    <div class="page-title"><div><h1>학습 기능 검증</h1><p>이 주소에서 PC 1440px와 모바일 360·390px 화면을 검사합니다.</p></div></div>
+    <section class="card">
+      <p>검증용 답안은 별도 공간에서 저장·복원됩니다. 아래 화면에서 직접 점검할 수도 있습니다.</p>
+      <div class="qa-controls">
+        <button type="button" id="run-qa" class="button primary">자동 검증 실행</button>
+        <button type="button" class="button" data-width="1440">PC 1440px</button>
+        <button type="button" class="button" data-width="360">모바일 360px</button>
+        <button type="button" class="button" data-width="390">모바일 390px</button>
+      </div>
+      <p id="qa-status" role="status" aria-live="polite">검증 대기</p>
+      <div id="qa-results"></div>
+    </section>
+    <div class="qa-frame-wrap"><iframe id="frame" title="검증용 학습 화면" style="width:360px" src="about:blank"></iframe></div>
+  </main>
+  <script src="hub-qa.js"></script>
+  <script src="qa-runner.js"></script>
+</body>
+</html>

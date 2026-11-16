@@ -1,0 +1,20 @@
+{
+  "baseline_sha256": "0ceb01c84670a5631876b3360c855771522d6ed97edab6e9a54e24c7e51df1b5",
+  "root_sha256": "bbd10bf15b126881f372d7186faaf475d7f5e2d451d97f3ff0c10fb5551511f5",
+  "root_change": "one navigation anchor plus CSS only",
+  "essay_path": "/second/",
+  "first_stage_storage_key": "nomusa-rc14-unified-notes-v1",
+  "essay_storage_key": "nomusa_rc27_v103_essay_records_v1",
+  "essay_answer_approval": "HOLD (0 confirmed)",
+  "preserved_files": [
+    "rc27_source_unchanged.html",
+    "rc27_essay_catalog.js",
+    "rc27_essay_app.js",
+    "source_pdf/",
+    "v103_answers57.js"
+  ],
+  "deploy": "HOLD authorization and newer live RC27 baseline comparison",
+  "second_js": "second/essay-app.js",
+  "pdf_relative_base": "../source_pdf/",
+  "original_essay_js_unchanged": true
+}
