@@ -42,6 +42,8 @@ IDENTIFIERS = [
     "2013_p1_q1", "2014_p4_q1", "2017_p3_q1",
     "2022-org-2", "2024-인사노무관리론|1|1", "2025-org-1",
     "2026-경영조직론|1|1", "2026-경영조직론|1|2",
+    "legacy2-2007-administrative-q1", "2022-econ-2", "2023-labor2-2",
+    "2025-civil-3", "2026-노동경제학|3|2",
 ]
 KEY = "nomusa_rc27_v103_essay_records_v1"
 
@@ -57,6 +59,7 @@ def inventory(page):
       const c=window.NOMUSA_CANONICAL_SELECTION_V1, rows=window.N27_CATALOG?.items||[];
       return {status:c?.status,gate:c?.gate,
          batch:(()=>{const q=window.NOMUSA_20YEAR_QUALITY_BATCH_V1;return q&&{schema:q.schema,changed:q.changed,candidateCount:q.candidateCount,totalCatalog:q.totalCatalog,counts:q.counts,hold:q.contentApproval,storageKeyChanged:q.storageKeyChanged,status:q.status,idParity:q.rows.length===Object.keys(c.items).length,regressionNoShrink:q.rows.every(x=>x.currentChars>=x.existingChars)};})(),
+         thin:(()=>{const q=window.NOMUSA_THIN_ENRICHMENT_V2;return q&&{schema:q.schema,authored:q.authored,targets:q.targets,remainingOtherHold:q.remainingOtherHold,remainingPointsHold:q.remainingPointsHold,contentApproval:q.contentApproval,sourceCatalogChanged:q.sourceCatalogChanged,storageKeyChanged:q.storageKeyChanged,uniqueIds:new Set(q.rows.map(x=>x.id)).size===q.rows.length,changed:q.rows.every(x=>x.newDetailChars>x.oldDetailChars&&x.newCompactChars>x.oldCompactChars),preserved:q.rows.every(x=>Boolean(c.items[x.id]?.beforeThinV2Compressed))};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -82,6 +85,14 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    thin=inv["thin"]
+    assert thin and thin["schema"]=="nomusa-20year-thin-issue-enrichment/2",thin
+    assert thin["targets"]==61 and thin["authored"]==61,thin
+    assert thin["remainingOtherHold"]==29 and thin["remainingPointsHold"]==26,thin
+    assert thin["contentApproval"]=="HOLD" and thin["storageKeyChanged"] is False,thin
+    assert thin["sourceCatalogChanged"] is False,thin
+    assert thin["uniqueIds"] is True and thin["changed"] is True and thin["preserved"] is True,thin
+
     # Question-specific content regression: 2026 organizational bargaining, 12 points.
     # Four comparison axes must be substantive, not a one-paragraph placeholder.
     compressed_2026 = inv["drafts"]["2026-경영조직론|1|1"]["compressed"]
