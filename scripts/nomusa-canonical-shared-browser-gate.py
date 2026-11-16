@@ -149,6 +149,22 @@ def check_viewports(browser,width):
         second.wait_for_function("window.N27_ESSAY_TEST && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
         hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
         a,b=inventory(second),inventory(hub)
+        if not a.get("v4") or not b.get("v4"):
+            raise AssertionError("V4_INITIALIZATION_DIAGNOSTIC "+json.dumps({
+              "secondErrors":errorsSecond,"hubErrors":errorsHub,
+              "secondData":second.evaluate("""() => ({
+                pointAudit:!!window.NOMUSA_V4_PDF_SCORE_AUDIT,
+                pointCount:window.NOMUSA_V4_PDF_SCORE_AUDIT?.total||null,
+                deepDraftCount:Object.keys(window.NOMUSA_V4_DEEP_DRAFTS||{}).length,
+                finalData:!!window.NOMUSA_V4_DEEPENING
+              })"""),
+              "hubData":hub.evaluate("""() => ({
+                pointAudit:!!window.NOMUSA_V4_PDF_SCORE_AUDIT,
+                pointCount:window.NOMUSA_V4_PDF_SCORE_AUDIT?.total||null,
+                deepDraftCount:Object.keys(window.NOMUSA_V4_DEEP_DRAFTS||{}).length,
+                finalData:!!window.NOMUSA_V4_DEEPENING
+              })""")
+            },ensure_ascii=False))
         check_inventory(a);check_inventory(b)
         for id in IDENTIFIERS:
             assert a["drafts"][id]==b["drafts"][id],id
