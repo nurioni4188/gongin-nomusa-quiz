@@ -115,7 +115,8 @@ def check_viewports(browser,width):
         assert second.locator('[data-canonical-id="2025-org-1"]').count()>=1
         second.locator('[data-pane="write"]').first.click()
         note="공인노무사 교차화면 검증 %spx"%width
-        second.locator("#n27-draft").fill(note)
+        second.locator('[data-v1090-tab="editor"]').first.click()
+        second.locator("#v1090-editor").fill(note)
         second.wait_for_function("([key,id,note]) => JSON.parse(localStorage.getItem(key)||'{}').drafts?.[id]===note",
           arg=[KEY,id,note])
 
@@ -137,7 +138,7 @@ def check_viewports(browser,width):
         second.wait_for_function("window.N27_ESSAY_TEST",timeout=15000)
         second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",id)
         second.locator('[data-pane="write"]').first.click()
-        assert second.locator("#n27-draft").input_value()==note+" / 허브 보강"
+        assert second.locator("#v1090-editor").input_value()==note+" / 허브 보강"
         second.locator('[data-pane="compare"]').first.click()
         assert second.locator('[data-canonical-id="2025-org-1"]').count()>=1
         hub.locator('[data-pane="compare"]').first.click()
