@@ -73,6 +73,12 @@ def check_inventory(inv):
     assert len(gate["originalParentIds"])==49
     assert inv["yearCount"]==20 and inv["legacyCount"]==181
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    # Question-specific content regression: 2026 organizational bargaining, 12 points.
+    # Four comparison axes must be substantive, not a one-paragraph placeholder.
+    compressed_2026 = inv["drafts"]["2026-경영조직론|1|1"]["compressed"]
+    assert len(compressed_2026) >= 1100, "2026_12PT_COMPACT_STILL_TOO_SHORT"
+    assert all(term in compressed_2026 for term in ("지향 목표", "정보공유 수준", "관계의 지속가능성", "분배구조")), "2026_FOUR_AXES_MISSING"
+    assert "학술근거:" in compressed_2026, "2026_ACADEMIC_CITATION_MISSING"
     # Regression for literal \\n tokens previously visible in the 2026 compact answer.
     assert "\\n" not in inv["drafts"]["2026-경영조직론|1|1"]["compressed"], "LITERAL_NEWLINE_TOKENS_LEAKED"
 
