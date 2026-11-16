@@ -61,6 +61,7 @@ def inventory(page):
          batch:(()=>{const q=window.NOMUSA_20YEAR_QUALITY_BATCH_V1;return q&&{schema:q.schema,changed:q.changed,candidateCount:q.candidateCount,totalCatalog:q.totalCatalog,counts:q.counts,hold:q.contentApproval,storageKeyChanged:q.storageKeyChanged,status:q.status,idParity:q.rows.length===Object.keys(c.items).length,regressionNoShrink:q.rows.every(x=>x.currentChars>=x.existingChars)};})(),
          thin:(()=>{const q=window.NOMUSA_THIN_ENRICHMENT_V2;return q&&{schema:q.schema,authored:q.authored,targets:q.targets,remainingOtherHold:q.remainingOtherHold,remainingPointsHold:q.remainingPointsHold,contentApproval:q.contentApproval,sourceCatalogChanged:q.sourceCatalogChanged,storageKeyChanged:q.storageKeyChanged,uniqueIds:new Set(q.rows.map(x=>x.id)).size===q.rows.length,changed:q.rows.every(x=>x.newDetailChars>x.oldDetailChars&&x.newCompactChars>x.oldCompactChars),preserved:q.rows.every(x=>Boolean(c.items[x.id]?.beforeThinV2Compressed))};})(),
          v3:(()=>{const q=window.NOMUSA_20YEAR_V3_GATE,a=window.NOMUSA_V3_SOURCE_POINTS_AUDIT;return q&&a&&{schema:q.schema,count:q.v3Manuscripts,candidates:q.candidates,baselineV2:q.previousV2IssueDrafts,audit:a.total,points:a.unverifiedNumeric,possible:a.parentCandidatesResolvedFromExtractedText,verified:a.verifiedAgainstOriginalPDF,changedRaw:q.rawCatalogAndStoredKeysChanged,approval:q.contentApproval,priorPreserved:q.rows.every(x=>Boolean(c.items[x.id]?.priorDetailedV3)&&Boolean(c.items[x.id]?.priorCompressedV3))};})(),
+         v4:(()=>{const a=window.NOMUSA_V4_DEEPENING,p=window.NOMUSA_V4_PDF_SCORE_AUDIT;return a&&p&&{schema:a.schema,targets:a.targets,authored:a.authored,total:a.allCandidates,cat:a.allCatalogue,sourceScored:p.matchedScoreMarkers,pdfs:p.pdfDocumentsInspected,half50:p.score50Count,half25:p.score25Count,externalHash:p.qnetOriginalAttachmentHashVerified,originalPointsChanged:a.originalCatalogModified,saveKeysChanged:a.originalStorageKeysModified,approval:a.independentContentApproval,uniqueIds:new Set(a.rows.map(x=>x.id)).size===a.rows.length,grow:a.rows.every(x=>x.newDetailLength>x.previousDetailLength+150&&x.oldAnswerPreserved&&x.existingCompressedPreserved),originalsPreserved:a.rows.every(x=>!!c.items[x.id]?.previousDetailedV4&&c.items[x.id]?.previousCompressedV4===c.items[x.id]?.compressed),econ2025:c.items['2025-econ-2']?.detailed?.includes('Δw=15')};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -86,6 +87,18 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v4=inv["v4"]
+    assert v4 and v4["schema"]=="nomusa-20year-57-deepening/4",v4
+    assert v4["targets"]==57 and v4["authored"]==57,v4
+    assert v4["total"]==328 and v4["cat"]==377,v4
+    assert v4["sourceScored"]==26 and v4["pdfs"]==10,v4
+    assert v4["half50"]==10 and v4["half25"]==16,v4
+    assert v4["externalHash"] is False,v4
+    assert v4["originalPointsChanged"] is False and v4["saveKeysChanged"] is False,v4
+    assert v4["approval"]=="HOLD" and v4["uniqueIds"] is True,v4
+    assert v4["grow"] is True and v4["originalsPreserved"] is True,v4
+    assert v4["econ2025"] is True,v4
+
     v3=inv["v3"]
     assert v3 and v3["schema"]=="nomusa-20year-writing-gate/3",v3
     assert v3["count"]==7 and v3["candidates"]==328,v3
