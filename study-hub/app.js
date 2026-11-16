@@ -20,6 +20,9 @@
   const hasSplitAnswer = row => Boolean(row?.parentId) && hasLegacyEssay(row);
   const hasIndividuallyAuthoredEssay = row => !row?.parentId && legacyDraftFor(row)?.authoring === 'INDIVIDUAL_SOURCE_GROUNDED_ESSAY';
   const hasV103DeepEssay = row => row?.stage === 'essay' && row?.contentEnhancement === 'INDIVIDUAL_SOURCE_GROUNDED_ESSAY';
+  // One canonical draft projection is used by both /second/ and /study-hub/.
+  const canonicalEssay = row => row?.stage === 'essay' ? window.NOMUSA_CANONICAL_SELECTION_V1?.items?.[row.key] : null;
+  const hasCanonicalEssay = row => Boolean(canonicalEssay(row)?.renderable);
   const legacyDraftRegistryCount = Object.keys(legacyEssayDrafts).length;
   const legacyIndividualDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED').length;
   const legacySpecificDraftCount = Object.values(legacyEssayDrafts).filter(x => x.draftStatus === 'DRAFT_UNVERIFIED' && x.conceptTitles?.length).length;
@@ -38,7 +41,8 @@
   // The 181 source parents and their stored answer keys are preserved.
   // 38 newly extracted 2013/14 main questions use distinct child IDs.
   const split2013And2014 = window.NOMUSA_2013_2014_SPLIT_V1?.items || [];
-  const essayRows = [...E, ...split2013And2014].map(row => ({
+  // Preserve 2013/14 source parent IDs and display each child exactly once.
+  const essayRows = [...new Map([...split2013And2014, ...E].map(row => [row.id,row])).values()].map(row => ({
     ...row, stage: 'essay', key: row.id, r: row.year - 1991
   }));
   const essayYears = [...new Set(essayRows.map(row => row.year))].sort((a, b) => b - a);
@@ -366,7 +370,7 @@
           `<button type="button" data-trace="${index}" class="${trace === index ? 'active' : ''}" aria-pressed="${trace === index}" ${isExam && index > 2 ? 'disabled' : ''}>${label}</button>`).join('')}
       </div>
       ${essay && !isExam ? `<div class="learning-flow" role="group" aria-label="2차 답안학습 단계">
-        ${steps.map(([id, label]) => `<button type="button" data-pane="${id}" class="${trace === 4 && pane === id ? 'active' : ''}" aria-pressed="${trace === 4 && pane === id}" ${row.sourceOnly && !hasLegacyEssay(row) && ['detail', 'compressed'].includes(id) ? 'disabled' : ''}>${label}</button>`).join('')}
+        ${steps.map(([id, label]) => `<button type="button" data-pane="${id}" class="${trace === 4 && pane === id ? 'active' : ''}" aria-pressed="${trace === 4 && pane === id}" ${row.sourceOnly && !hasLegacyEssay(row) && !hasCanonicalEssay(row) && ['detail', 'compressed'].includes(id) ? 'disabled' : ''}>${label}</button>`).join('')}
       </div>` : ''}
       <div id="trace-content">${traceContent(row)}</div>
       ${essay ? (isExam ? renderWriter(row) : '') : renderChoices(row)}
@@ -487,6 +491,10 @@
   }
 
   function compactAnswers(row) {
+    const canonical = canonicalEssay(row);
+    if (canonical?.renderable) return `<article class="answer nomusa-canonical-compact" data-canonical-id="${esc(row.key)}">
+      <h4>대표 시험장 압축답안 · 검토 초안</h4><div>${esc(canonical.compressed)}</div>
+      <small>학습용 초안 · 공식 채점·내용 승인 HOLD</small></article>`;
     if (hasLegacyEssay(row)) {
       const entry = legacyDraftFor(row);
       return entry.sections.map(section => `<article class="answer">
@@ -532,6 +540,10 @@
   }
 
   function detailedAnswers(row) {
+    const canonical = canonicalEssay(row);
+    if (canonical?.renderable) return `<article class="answer nomusa-canonical-draft" data-canonical-id="${esc(row.key)}">
+      <h4>대표 상세 학습답안 · 검토 초안</h4><div>${esc(canonical.detailed)}</div>
+      <small>문항별 대표본 · 법령·학술·실제 답안지 분량 검증 HOLD · 기존 답안 보존</small></article>`;
     if (hasLegacyEssay(row)) {
       const entry = legacyDraftFor(row);
       return entry.sections.map(section => `<article class="answer">
@@ -558,10 +570,10 @@
         <div class="split">
           <div><h4>내가 작성한 답안</h4><div class="answer">${esc(draftFor(row) || '작성 기록이 없습니다.')}</div></div>
           <div><h4>${row.sourceOnly ? (hasSplitAnswer(row) ? '문항별 압축답안 · 인용 검증 HOLD' : hasIndividuallyAuthoredEssay(row) ? '문항별 시험장 압축답안 · 학술 검토 HOLD' : hasLegacyEssay(row) ? '자동작성 압축답안 · 검증 HOLD' : '원문 대조 · 모범답안 HOLD') : '학습용 압축답안 · 독립 승인 HOLD'}</h4>
-            ${row.sourceOnly && !hasLegacyEssay(row) ? '<p class="answer">공식 모범답안과 문제별 검증된 학습답안은 아직 확보되지 않았습니다. 원문과 배점·근거 검토 후 직접 작성 내용을 점검하세요. 자동채점하지 않습니다.</p>' : compactAnswers(row)}</div>
+            ${row.sourceOnly && !hasLegacyEssay(row) && !hasCanonicalEssay(row) ? '<p class="answer">공식 모범답안과 문제별 검증된 학습답안은 아직 확보되지 않았습니다. 원문과 배점·근거 검토 후 직접 작성 내용을 점검하세요. 자동채점하지 않습니다.</p>' : compactAnswers(row)}</div>
         </div>${legacyMemoryPanel(row)}${checklist(row)}`;
     }
-    if (row.sourceOnly && !hasLegacyEssay(row)) {
+    if (row.sourceOnly && !hasLegacyEssay(row) && !hasCanonicalEssay(row)) {
       if (row.parentId) return `<h3 class="panel-title">개별 대문항 원문 확인 · 직접 작성</h3>
         ${notice('원본 PDF에서 문항번호·배점 확인 · 모범답안·법리·학술 검증 HOLD', '')}
         <p>${esc(row.year)}년 ${esc(row.subject)} 제${esc(row.questionNo)}문(${esc(row.points)}점).
@@ -868,7 +880,7 @@
       listPage = 0;
     }
     selected = id;
-    pane = row.sourceOnly && !hasLegacyEssay(row) && targetPane === 'detail' ? 'write' : targetPane;
+    pane = row.sourceOnly && !hasLegacyEssay(row) && !hasCanonicalEssay(row) && targetPane === 'detail' ? 'write' : targetPane;
     trace = row.stage === 'first' || locked() ? 0 : 4;
     listOpen = false;
     remember(id, pane);
