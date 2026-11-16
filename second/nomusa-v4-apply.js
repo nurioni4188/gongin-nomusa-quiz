@@ -45,7 +45,7 @@ const report=Object.freeze({schema:'nomusa-20year-57-deepening/4',targets:57,aut
   previousV2Added:61,previousV3Manuscripts:7,
   scoreAuditCount:26,repoPDFScoreReadback:26,qnetPublisherFileHashVerified:false,
   remaining57RequiredExamYearVerification:57,
-  50PointPagesMet:false,25PointPagesMet:false,
+  fiftyPointPagesMet:false,twentyFivePointPagesMet:false,
   originalCatalogModified:false,originalStorageKeysModified:false,
   previousCompressedPreserved:true,
   independentContentApproval:'HOLD',status:'DRAFT_AWAITING_EXAM_YEAR_SOURCE_AND_HANDWRITING_REVIEW',
