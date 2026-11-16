@@ -62,6 +62,7 @@ def inventory(page):
          thin:(()=>{const q=window.NOMUSA_THIN_ENRICHMENT_V2;return q&&{schema:q.schema,authored:q.authored,targets:q.targets,remainingOtherHold:q.remainingOtherHold,remainingPointsHold:q.remainingPointsHold,contentApproval:q.contentApproval,sourceCatalogChanged:q.sourceCatalogChanged,storageKeyChanged:q.storageKeyChanged,uniqueIds:new Set(q.rows.map(x=>x.id)).size===q.rows.length,changed:q.rows.every(x=>x.newDetailChars>x.oldDetailChars&&x.newCompactChars>x.oldCompactChars),preserved:q.rows.every(x=>Boolean(c.items[x.id]?.beforeThinV2Compressed))};})(),
          v3:(()=>{const q=window.NOMUSA_20YEAR_V3_GATE,a=window.NOMUSA_V3_SOURCE_POINTS_AUDIT;return q&&a&&{schema:q.schema,count:q.v3Manuscripts,candidates:q.candidates,baselineV2:q.previousV2IssueDrafts,audit:a.total,points:a.unverifiedNumeric,possible:a.parentCandidatesResolvedFromExtractedText,verified:a.verifiedAgainstOriginalPDF,changedRaw:q.rawCatalogAndStoredKeysChanged,approval:q.contentApproval,priorPreserved:q.rows.every(x=>Boolean(c.items[x.id]?.priorDetailedV3)&&Boolean(c.items[x.id]?.priorCompressedV3))};})(),
          v4:(()=>{const a=window.NOMUSA_V4_DEEPENING,p=window.NOMUSA_V4_PDF_SCORE_AUDIT;return a&&p&&{schema:a.schema,targets:a.targets,authored:a.authored,total:a.allCandidates,cat:a.allCatalogue,sourceScored:p.matchedScoreMarkers,pdfs:p.pdfDocumentsInspected,half50:p.score50Count,half25:p.score25Count,externalHash:p.qnetOriginalAttachmentHashVerified,originalPointsChanged:a.originalCatalogModified,saveKeysChanged:a.originalStorageKeysModified,approval:a.independentContentApproval,uniqueIds:new Set(a.rows.map(x=>x.id)).size===a.rows.length,grow:a.rows.every(x=>x.newDetailLength>x.previousDetailLength+150&&x.oldAnswerPreserved&&x.existingCompressedPreserved),originalsPreserved:a.rows.every(x=>!!c.items[x.id]?.previousDetailedV4&&c.items[x.id]?.previousCompressedV4===c.items[x.id]?.compressed),econ2025:c.items['2025-econ-2']?.detailed?.includes('Δw=15')};})(),
+         v5:(()=>{const m=window.NOMUSA_V5_MANUSCRIPT_GATE;return m&&{schema:m.schema,completed:m.fullyRewrittenQuestionManuscripts,remaining:m.notYetRewrittenInThisPass,all:m.originalRepresentativeCandidates,original:m.originalExercises,legalApproved:m.contentApprovalsIssued,pages:m.all50PointPageTargetsCertified,originalChanged:m.originalCatalogModified,keysChanged:m.studyKeysChanged,hold:m.finalStatus,saved:m.rows.every(r=>Boolean(c.items[r.id]?.detailedBeforeV5)&&Boolean(c.items[r.id]?.compressedBeforeV5)),count:new Set(m.rows.map(r=>r.id)).size,question2023:c.items['2023-econ-1']?.detailed?.includes('59.4 증가'),question2025:c.items['2025-econ-2']?.detailed?.includes('Δw=15')};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -87,6 +88,14 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v5=inv["v5"]
+    assert v5 and v5["schema"]=="nomusa-answer-manuscript/5",v5
+    assert v5["completed"]==5 and v5["remaining"]==52 and v5["count"]==5,v5
+    assert v5["all"]==328 and v5["original"]==377,v5
+    assert v5["legalApproved"]==0 and v5["pages"] is False,v5
+    assert v5["originalChanged"] is False and v5["keysChanged"] is False,v5
+    assert v5["saved"] is True and v5["question2023"] is True and v5["question2025"] is True,v5
+
     v4=inv["v4"]
     assert v4 and v4["schema"]=="nomusa-20year-57-deepening/4",v4
     assert v4["targets"]==57 and v4["authored"]==57,v4
