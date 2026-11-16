@@ -1,0 +1,8 @@
+/* V11.41: mount 2013/2014 previously authored 26 answer records as individual source-traceable children; preserve four V11.40 entries and old parent IDs. */
+(function(){'use strict';const c=window.N27_CATALOG,split=window.NOMUSA_2013_2014_SPLIT_V1?.items,side=window.NOMUSA_2013_2014_ANSWERS_V1?.items;if(!c||!Array.isArray(split)||!side)throw Error('V1141_SOURCE_SIDECARS_MISSING');
+const existing=new Set(c.items.map(r=>r.id)),source=new Map(split.map(r=>[r.id,r])),out=[];
+for(const [id,a] of Object.entries(side)){if(existing.has(id))continue;const q=source.get(id),parent=c.items.find(r=>r.id===a.parentId);if(!q||!parent||q.points!==a.points||a.sections?.length<1)throw Error('V1141_SOURCE_MISMATCH_'+id);
+const item={...q,topic:a.title,sourceOnly:false,sections:a.sections,deepSections:a.sections,examFullLengthDraft:a.detailed,examCompressedAnswer:a.compressed,keywords333:a.keywords333,citationReferencesDraft:a.citations,contentRevision:'V11.41_MOUNT_EXISTING_AUTHORED_DRAFT',enhancementStatus:'DRAFT_UNVERIFIED',sourceStatus:'PARENT_TEXT_QUESTION_SPLIT_PDF_VISUAL_HOLD',approved:false,scoringApproved:false,contentApproval:'HOLD',citationReview:'HOLD'};
+c.items.push(item);existing.add(id);out.push({id,year:item.year,points:item.points,chars:item.examFullLengthDraft.length,subject:item.subject});}
+c.items.sort((a,b)=>b.year-a.year||a.subject.localeCompare(b.subject,'ko')||a.id.localeCompare(b.id));
+window.NOMUSA_V1141_2013_2014_BRIDGE=Object.freeze({mounted:out.length,rows:out,sidecarTotal:Object.keys(side).length,existingDraftsPreserved:true,originalParentsPreserved:true,lawAndPrecedentApproval:'HOLD',originalPrintVisual:'HOLD'});})();
