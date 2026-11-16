@@ -41,7 +41,7 @@ IDENTIFIERS = [
     "legacy2-2007-hrm-q1", "legacy2-2008-hrm-q2",
     "2013_p1_q1", "2014_p4_q1", "2017_p3_q1",
     "2022-org-2", "2024-인사노무관리론|1|1", "2025-org-1",
-    "2026-경영조직론|1|2",
+    "2026-경영조직론|1|1", "2026-경영조직론|1|2",
 ]
 KEY = "nomusa_rc27_v103_essay_records_v1"
 
@@ -73,6 +73,8 @@ def check_inventory(inv):
     assert len(gate["originalParentIds"])==49
     assert inv["yearCount"]==20 and inv["legacyCount"]==181
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    # Regression for literal \\n tokens previously visible in the 2026 compact answer.
+    assert "\n" not in inv["drafts"]["2026-경영조직론|1|1"]["compressed"], "LITERAL_NEWLINE_TOKENS_LEAKED"
 
 def overflow(page,width):
     data=page.evaluate("""() => ({w:document.documentElement.scrollWidth,
