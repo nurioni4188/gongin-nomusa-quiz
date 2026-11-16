@@ -42,7 +42,9 @@
   // 38 newly extracted 2013/14 main questions use distinct child IDs.
   const split2013And2014 = window.NOMUSA_2013_2014_SPLIT_V1?.items || [];
   // Preserve 2013/14 source parent IDs and display each child exactly once.
-  const essayRows = [...new Map([...split2013And2014, ...E].map(row => [row.id,row])).values()].map(row => ({
+  const essayRows = [...new Map([...split2013And2014, ...E].map(row => [row.id,row])).values()]
+    .sort((left,right) => right.year-left.year || left.subject.localeCompare(right.subject,'ko') || left.id.localeCompare(right.id))
+    .map(row => ({
     ...row, stage: 'essay', key: row.id, r: row.year - 1991
   }));
   const essayYears = [...new Set(essayRows.map(row => row.year))].sort((a, b) => b - a);
