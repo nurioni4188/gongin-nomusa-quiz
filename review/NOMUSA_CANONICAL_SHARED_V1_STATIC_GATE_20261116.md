@@ -1,11 +1,14 @@
 # NOMUSA 2차 20개년 공통 대표초안 연결 검증 — 2026-11-16
 
+> **실행 결과 확정(2026-11-16):** GitHub Actions [#43857575539](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43857575539) 실제 Chromium 1440/390/360px 6/6 PASS. 원본 377 ID·328 후보 로딩 PASS, 9개 대표 표본 동일성, 상세/압축, 작성/복원/비교, 브라우저 오류·가로 넘침 모두 PASS. 코드 커밋은 `df0543f4...`; 학술·법률 내용 승인과 Preview 배포는 별도 HOLD입니다.
+
+
 ## 2026-11-16 실제 GitHub Actions Chromium 검증 추가 기록
 
 - [검증 실행 #43856485178](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43856485178): 377개 카탈로그/328개 후보/9개 표본 데이터, PC 1440과 모바일 390·360 비교 PASS. 구형 숨김 textarea를 선택하여 저장 테스트 HOLD(테스트 선택자 결함).
 - [검증 실행 #43856948303](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43856948303): 세 뷰포트에서 실제 표시, V10.9 작성기, 저장/재로드, 두 화면 비교까지 진행; 하지만 과거 중복 로더에서 발생한 13개 고유 JavaScript 런타임 오류로 전체 게이트 HOLD. 오류 예시: V1142_ALREADY_EXISTS(2014년 중복), V1168_TARGET, V122_SOURCE.
 - 개선: 2014년 배치 V11.12 5개 스크립트를 구버전 V11.40~V12.2가 완료된 뒤 로드하도록 재배치. 읽기 전용 대표 초안 선택기는 2014년 p4~p7 최신 sidecar 12개를 우선 사용. 이전 자바스크립트 파일 삭제 없음.
-- [최신 재검증 실행 #43857575539](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43857575539): 최종 수정 커밋 `df0543f48e0ab8c591bc689e8e7ec4cf02ee329c` 기준으로 대기 중. **결과 확정 전까지 최종 PASS 불가, 보호 Preview 배포 HOLD.**
+- [최종 Chromium 재검증 실행 #43857575539](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/43857575539): 소스 커밋 `df0543f48e0ab8c591bc689e8e7ec4cf02ee329c` 기준 **GitHub Actions SUCCESS / E2E PASS**. PC 1440px, 모바일 390/360px의 데이터 원장·9개 대표 표본 비교, 상세·압축·작성·저장·화면 간 복원·비교·스크립트 오류·가로 넘침 각 2항목씩 총 6개 자동테스트 PASS. **내용승인 HOLD, 보호 Preview 미배포.**
 - 테스트는 GitHub hosted Chromium으로 실제 수행했으며, 테스트 결과를 정적 확인이나 이전 버전의 PASS로 대신하지 않음.
 
 
