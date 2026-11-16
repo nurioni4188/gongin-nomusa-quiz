@@ -119,6 +119,9 @@ def check_viewports(browser,width):
         second.wait_for_function("([key,id,note]) => JSON.parse(localStorage.getItem(key)||'{}').drafts?.[id]===note",
           arg=[KEY,id,note])
 
+        # Reload the already open hub tab to read the saved draft from the shared key.
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
         choose_hub(hub,id)
         hub.locator('[data-pane="detail"]').first.click()
         assert hub.locator('.nomusa-canonical-draft[data-canonical-id="2025-org-1"]').count()==1
