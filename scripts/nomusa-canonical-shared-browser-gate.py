@@ -74,7 +74,7 @@ def check_inventory(inv):
     assert inv["yearCount"]==20 and inv["legacyCount"]==181
     assert all(x and x["renderable"] for x in inv["drafts"].values())
     # Regression for literal \\n tokens previously visible in the 2026 compact answer.
-    assert "\n" not in inv["drafts"]["2026-경영조직론|1|1"]["compressed"], "LITERAL_NEWLINE_TOKENS_LEAKED"
+    assert "\\n" not in inv["drafts"]["2026-경영조직론|1|1"]["compressed"], "LITERAL_NEWLINE_TOKENS_LEAKED"
 
 def overflow(page,width):
     data=page.evaluate("""() => ({w:document.documentElement.scrollWidth,
