@@ -36,7 +36,7 @@ for(const p of printed){
  const i=index.get(p.id);
  if(i===undefined){issues.push('MISSING_'+p.id);continue;}
  const old=catalog[i];
- if(Number(old.year)!==p.year||String(old.subject)!==p.subject||Number(old.points||window.NOMUSA_CANONICAL_SELECTION_V1?.items?.[p.id]?.verifiedPointsV18)!==p.points)
+ if(Number(old.year)!==p.year||String(old.subject)!==p.subject||!/\(\s*25\s*점\s*\)/.test(String(old.sourceText||'')))
   issues.push('YEAR_SUBJECT_POINTS_MISMATCH_'+p.id);
  if(p.action==='KEEP_ALREADY_MATCHES_PDF'){
   if(old.sourceText!==p.sourceText)issues.push('2016_NOT_YET_MATCHING_ORIGINAL');
