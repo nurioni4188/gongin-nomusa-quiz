@@ -344,6 +344,21 @@ def check_viewports(browser,width):
                             "detailedChars":sum(len(q["detailed"]) for q in rendered["rows"]),
                             "approval":"HOLD","output":str(export_md.relative_to(ROOT))})
 
+        # V16.9: 2023 and 2025 38-question/69-part complete editorial candidate export.
+        # Read the actual browser-side canonical model; no guessed source-only output.
+        if width == 1440:
+            from nomusa_editorial_batch import export_editorial_years
+            batch=export_editorial_years(second,ROOT,(2023,2025))
+            assert batch["status"]=="PASS_EDITORIAL_EXPORT_APPROVAL_HOLD"
+            assert [v["subquestions"] for v in batch["manifest"]["years"]]==[32,37]
+            assert [v["questions"] for v in batch["manifest"]["years"]]==[19,19]
+            assert all(v["gate"]=="TWO_YEARS_38_QUESTIONS_69_SUBQUESTIONS_EDITORIAL_CANDIDATE_HOLD"
+                       for v in batch["manifest"]["years"])
+            RESULTS.append({"name":"2023_2025_38questions_69parts_live_editorial_export",
+                            "status":"PASS","years":[2023,2025],
+                            "questions":38,"parts":69,"output":batch["files"],
+                            "legalAcademicApproval":"HOLD"})
+
         for id in IDENTIFIERS:
             assert a["drafts"][id]==b["drafts"][id],id
         overflow(second,width);overflow(hub,width)
