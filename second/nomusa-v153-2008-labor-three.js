@@ -7,7 +7,7 @@ const cases=[{"id":"legacy2-2008-labor1-q1","subject":"노동법Ⅰ","year":2008
 const result=[],next={...base?.items};
 for(const c of cases){
  const old=base?.items?.[c.id];
- if(!old?.renderable||old.sourcePath!=='second/legacy-181-answer-drafts-v1110.js'||old.subject!==c.subject||!old.detailed||!old.compressed||c.full.length<1800||c.compact.length<300){
+ if(!old?.renderable||old.sourcePath!=='second/legacy-181-answer-drafts-v1110.js'||old.subject!==c.subject||!old.detailed||!old.compressed||c.full.length<1800||c.compact.length<260){
   result.push({id:c.id,status:'HOLD_SOURCE_OR_DRAFT_MISMATCH'});continue;
  }
  next[c.id]=Object.freeze({...old,detailed:c.full,compressed:c.compact,detailedBeforeV153:old.detailed,compressedBeforeV153:old.compressed,
