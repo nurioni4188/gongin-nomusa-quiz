@@ -1,16 +1,6 @@
 name: NOMUSA V25 3 MEDIUM original-page source audit and 328 browser regression
 
 on:
-  push:
-    branches:
-      - review/nomusa-auto-v1-20year-gate-20261115
-    paths:
-      - '.github/workflows/nomusa-v25-medium-source-gate.yml'
-      - 'scripts/nomusa-v25-medium-source-gate.py'
-      - 'scripts/nomusa-v25-browser-source-smoke.py'
-      - 'second/nomusa-v25-apply-medium-source-3.js'
-      - 'second/index.html'
-      - 'study-hub/index.html'
   workflow_dispatch:
 
 permissions:

@@ -10,6 +10,8 @@ on:
       - 'scripts/nomusa-v28-browser-editorial-smoke.py'
       - 'second/nomusa-v28-goldstein-2022-hr1.js'
       - 'review/NOMUSA_V28_2022_REMAINING_13_SOURCE_CROSSCHECK_20261118.json'
+      - 'second/index.html'
+      - 'study-hub/index.html'
   workflow_dispatch:
 
 permissions:
