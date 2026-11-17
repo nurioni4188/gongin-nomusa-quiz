@@ -40,3 +40,14 @@ description: "NOMUSA GitHub 검토 브랜치의 legacy V20·V21·V22·공통 Chr
 ## 보고
 - 유효한 GitHub run URL·완료 여부·OS·run ID/commit SHA만 PASS 근거로 사용.
 - 사용자가 main/Production/Preview 변경의 호불호만 요청하면 간단히 답한다: **변경하지 않는 것이 좋음**.
+
+## 실제 V26-1 실행 결과 (2026-11-18 KST)
+
+- Review-only CI compatibility commit: `a3c27b1674930bb488bc20ffd1c1f5d3fa9e8a13`, Ubuntu 24.04 4개 workflow 변경.
+- 공통 Chromium: [GitHub Actions 44167237222](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44167237222) **success**.
+- V20 콘텐츠: [GitHub Actions 44167237358](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44167237358) **success**.
+- V21 승인 사전검증: [GitHub Actions 44167237648](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44167237648) **success**.
+- V22 원전·전문가 패킷: [GitHub Actions 44167237230](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44167237230) **success**.
+- GitHub Draft PR #3 미병합, `main` SHA `9ea46fc9134c55a4312241b55a82b237e86ed4a8` 불변.
+- Production/Preview에 대한 직접 Vercel 배포 명령 없음. 다만 Vercel Git 자동배포 여부는 별도 Vercel 목록 검사 없이는 단정하지 않는다.
+- 기술 CI 안정화 완료; 내용 전문가 최종 승인 **0/328, HOLD** 유지.
