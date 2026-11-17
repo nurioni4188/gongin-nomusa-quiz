@@ -1,17 +1,6 @@
 name: NOMUSA V24 30 verbatim source correction browser regression
 
 on:
-  push:
-    branches:
-      - review/nomusa-auto-v1-20year-gate-20261115
-    paths:
-      - '.github/workflows/nomusa-v24-verbatim-30-gate.yml'
-      - 'scripts/nomusa-v24-verbatim-check.py'
-      - 'scripts/nomusa-v24-browser-overlay-smoke.py'
-      - 'scripts/nomusa-v23-validation-ledger.py'
-      - 'second/nomusa-v24-*.js'
-      - 'second/index.html'
-      - 'study-hub/index.html'
   workflow_dispatch:
 
 permissions:
