@@ -37,3 +37,11 @@ python scripts/nomusa-v27-2022-primary-content-check.py .
 ```
 - GitHub Actions artifact: `review-artifacts/NOMUSA_V27/NOMUSA_V27_2022_19_REVIEW_LEDGER.json`와 `NOMUSA_V27_2022_19_REPORT.md`, 공식 URL 목록 포함.
 - 이 스킬은 GitHub 저장소 내부 Claude Code용이며 ChatGPT의 전역 스킬이 아니다.
+
+## V27 실제 실행 성공 확인 (2026-11-18)
+
+- [Actions #44172430945](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44172430945) 완료/success (2026-11-17 20:44:15~20:45:16 UTC, **약 61초**). 실제 Ubuntu 24.04/Playwright Chromium PC·모바일 원고 SHA 일대일 검증 성공.
+- 원고 328건 SHA 불변, 2022년 19개/32소문항 연결, 그중 공식 공개 판결문·학술 출판사·수식 등 **6개 문항의 제한적 주장 대조** 확인, 13개 미검토 HOLD.
+- `2022-hr-1` Goldstein 서지 Human Relations 오기 잔존 및 여섯째 교육훈련 기법 불일치 → 편집 교정 후보, 사용자 화면/원고는 미변경.
+- [artifact 14368132830](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44172430945/artifacts/14368132830) ZIP CRC PASS. `review/NOMUSA_V27_2022_REAL_SOURCE_CONTENT_EXECUTION_20261118.md` 보고서 추가.
+- **코드 기초검증 PASS ≠ 6개 답안 내용 최종승인**. 원판결·학술원전 전체/역사법령/손글씨 독립검토 미완료. FINAL_APPROVAL=HOLD, 0/328.
