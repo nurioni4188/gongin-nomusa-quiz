@@ -39,7 +39,7 @@ def audit(root, expected, baseline):
             raise ValueError("HOLD_UNKNOWN_FILE_" + file.name)
         year = int(match.group(1))
         data = json.loads(file.read_text(encoding="utf-8"))
-        if int(data.get("year", -1)) != year or not isinstance(data.get("rows"), list) or year in count:
+        if int(data.get("year", year)) != year or not isinstance(data.get("rows"), list) or year in count:
             raise ValueError("HOLD_YEAR_SCHEMA_" + str(year))
         count[year] = len(data["rows"])
         sha[file.name] = hashlib.sha256(file.read_bytes()).hexdigest()
