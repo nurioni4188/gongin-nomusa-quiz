@@ -1,0 +1,700 @@
+{
+ "schema": "NOMUSA_V23_QNET_OFFICIAL_MANIFEST/1",
+ "retrievedUTC": "2026-11-17T12:26:36+00:00",
+ "board": "Q-Net 고객지원 > 자료실 > 공개문제 (boardId=Q004, gId=05 공인노무사)",
+ "seconds": 172.79,
+ "years": [
+  {
+   "year": 2007,
+   "artlSeq": 5021179,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5021179&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2007년 16회 공인노무사 2차시험 기출문제입니다. </d",
+   "attachments": [
+    {
+     "fileName": "2007년 제16회 공인노무사 2차시험 기출문제.hwp",
+     "fileSeq": "2024295",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2024295&fileName=2007%EB%85%84+%EC%A0%9C16%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.hwp&fileSeq=2024295&artlSeq=5021179&href=0",
+     "bytes": 32768,
+     "sha256": "3897982544908991603a2de076fd455a9149944acb99360bb15f74bc1e3d4cc3",
+     "members": [
+      {
+       "member": "2007년 제16회 공인노무사 2차시험 기출문제.hwp",
+       "bytes": 32768,
+       "sha256": "3897982544908991603a2de076fd455a9149944acb99360bb15f74bc1e3d4cc3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2008,
+   "artlSeq": 5021180,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5021180&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2008년 17회 공인노무사 2차시험 기출문제입니다. </d",
+   "attachments": [
+    {
+     "fileName": "2008년 제17회 공인노무사 2차시험 기출문제.hwp",
+     "fileSeq": "2024296",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2024296&fileName=2008%EB%85%84+%EC%A0%9C17%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.hwp&fileSeq=2024296&artlSeq=5021180&href=0",
+     "bytes": 33280,
+     "sha256": "be7f6e8c1896cf490127b96cd8e4d64549a1b360c5b1559a2cf8e206493fe058",
+     "members": [
+      {
+       "member": "2008년 제17회 공인노무사 2차시험 기출문제.hwp",
+       "bytes": 33280,
+       "sha256": "be7f6e8c1896cf490127b96cd8e4d64549a1b360c5b1559a2cf8e206493fe058"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2009,
+   "artlSeq": 5021181,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5021181&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2009년 18회 공인노무사 2차시험 기출문제입니다. </d",
+   "attachments": [
+    {
+     "fileName": "2009년 제18회 공인노무사 2차시험 기출문제.hwp",
+     "fileSeq": "2024297",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2024297&fileName=2009%EB%85%84+%EC%A0%9C18%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.hwp&fileSeq=2024297&artlSeq=5021181&href=0",
+     "bytes": 33792,
+     "sha256": "9c277bae2acd961b57df366b2827427bfee7ef13bace619f54883cccb10dc8fe",
+     "members": [
+      {
+       "member": "2009년 제18회 공인노무사 2차시험 기출문제.hwp",
+       "bytes": 33792,
+       "sha256": "9c277bae2acd961b57df366b2827427bfee7ef13bace619f54883cccb10dc8fe"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2010,
+   "artlSeq": 5028975,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5028975&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2010년 제19회 공인노무사 2차시험 기출문제입니다. </d",
+   "attachments": [
+    {
+     "fileName": "2010년 제19회 공인노무사 2차시험 기출문제.hwp",
+     "fileSeq": "2032671",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2032671&fileName=2010%EB%85%84+%EC%A0%9C19%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.hwp&fileSeq=2032671&artlSeq=5028975&href=0",
+     "bytes": 34304,
+     "sha256": "73d4b571d119335dba6a3bcf6f956765c54d08b744ab4c3834fb9dea226fb4d4",
+     "members": [
+      {
+       "member": "2010년 제19회 공인노무사 2차시험 기출문제.hwp",
+       "bytes": 34304,
+       "sha256": "73d4b571d119335dba6a3bcf6f956765c54d08b744ab4c3834fb9dea226fb4d4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2011,
+   "artlSeq": 5047980,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5047980&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2011년 제20회 공인노무사 2차시험 기출문제입니다. </d",
+   "attachments": [
+    {
+     "fileName": "2011년 제20회 공인노무사 2차시험 기출문제.hwp",
+     "fileSeq": "2049681",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2049681&fileName=2011%EB%85%84+%EC%A0%9C20%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.hwp&fileSeq=2049681&artlSeq=5047980&href=0",
+     "bytes": 34304,
+     "sha256": "af61a2c6abb5c498190b55e7e69dd8b4b5c18b48f2460408852f1160d0d3836d",
+     "members": [
+      {
+       "member": "2011년 제20회 공인노무사 2차시험 기출문제.hwp",
+       "bytes": 34304,
+       "sha256": "af61a2c6abb5c498190b55e7e69dd8b4b5c18b48f2460408852f1160d0d3836d"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2012,
+   "artlSeq": 5058215,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5058215&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2012년 제21회 공인노무사 2차 시험문제지",
+   "attachments": [
+    {
+     "fileName": "2012년 제21회 공인노무사 2차 시험문제지.hwp",
+     "fileSeq": "2057772",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2057772&fileName=2012%EB%85%84+%EC%A0%9C21%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8+%EC%8B%9C%ED%97%98%EB%AC%B8%EC%A0%9C%EC%A7%80.hwp&fileSeq=2057772&artlSeq=5058215&href=0",
+     "bytes": 35840,
+     "sha256": "5ea416a47d82e673789807800e8f8aa59f7d0946d9b5338491fbd7992674a53a",
+     "members": [
+      {
+       "member": "2012년 제21회 공인노무사 2차 시험문제지.hwp",
+       "bytes": 35840,
+       "sha256": "5ea416a47d82e673789807800e8f8aa59f7d0946d9b5338491fbd7992674a53a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2013,
+   "artlSeq": 5075003,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5075003&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2013년 제22회 공인노무사 2차 시험문제지",
+   "attachments": [
+    {
+     "fileName": "2013년 제22회 공인노무사 2차 시험문제지.pdf",
+     "fileSeq": "2070135",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2070135&fileName=2013%EB%85%84+%EC%A0%9C22%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8+%EC%8B%9C%ED%97%98%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf&fileSeq=2070135&artlSeq=5075003&href=0",
+     "bytes": 348203,
+     "sha256": "d7b3e2c4cdd4da8f505a67db50f8e0112d80db061c4a88907fadd74f8fe45181",
+     "members": [
+      {
+       "member": "2013년 제22회 공인노무사 2차 시험문제지.pdf",
+       "bytes": 348203,
+       "sha256": "d7b3e2c4cdd4da8f505a67db50f8e0112d80db061c4a88907fadd74f8fe45181"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2014,
+   "artlSeq": 5104410,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5104410&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2014년 제23회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "2014년 제23회 공인노무사 2차시험 문제지.pdf",
+     "fileSeq": "2093352",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2093352&fileName=2014%EB%85%84+%EC%A0%9C23%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf&fileSeq=2093352&artlSeq=5104410&href=0",
+     "bytes": 182440,
+     "sha256": "4485c85b22d5fbbdc2c9c42f8d5ce6329d6756aa7a9b5434ddc3872e7447cde6",
+     "members": [
+      {
+       "member": "2014년 제23회 공인노무사 2차시험 문제지.pdf",
+       "bytes": 182440,
+       "sha256": "4485c85b22d5fbbdc2c9c42f8d5ce6329d6756aa7a9b5434ddc3872e7447cde6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2015,
+   "artlSeq": 5143603,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5143603&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2015년 제24회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "공인노무사 2차 문제지.pdf",
+     "fileSeq": "2126938",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2126938&fileName=%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf&fileSeq=2126938&artlSeq=5143603&href=0",
+     "bytes": 2098168,
+     "sha256": "67e55af52fc5846bd322ab9b268ab6c55e451a8e009da65920c571b448cafeaa",
+     "members": [
+      {
+       "member": "공인노무사 2차 문제지.pdf",
+       "bytes": 2098168,
+       "sha256": "67e55af52fc5846bd322ab9b268ab6c55e451a8e009da65920c571b448cafeaa"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2016,
+   "artlSeq": 5191801,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5191801&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2016년 제25회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "시험문제지.pdf",
+     "fileSeq": "2172362",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2172362&fileName=%EC%8B%9C%ED%97%98%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf&fileSeq=2172362&artlSeq=5191801&href=0",
+     "bytes": 2529482,
+     "sha256": "29b006bce8bc80fa4f8a2fa6a90a84d53f975ccef48391d5695d52ecfc111348",
+     "members": [
+      {
+       "member": "시험문제지.pdf",
+       "bytes": 2529482,
+       "sha256": "29b006bce8bc80fa4f8a2fa6a90a84d53f975ccef48391d5695d52ecfc111348"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2017,
+   "artlSeq": 5201961,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5201961&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2017년 제26회 공인노무사 2차시험 기출문제",
+   "attachments": [
+    {
+     "fileName": "시험지.pdf",
+     "fileSeq": "2184105",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2184105&fileName=%EC%8B%9C%ED%97%98%EC%A7%80.pdf&fileSeq=2184105&artlSeq=5201961&href=0",
+     "bytes": 2089703,
+     "sha256": "f33d227ebceaa19fe29b73ea012f93bdad2a3db676fda950aa961c122d58b590",
+     "members": [
+      {
+       "member": "시험지.pdf",
+       "bytes": 2089703,
+       "sha256": "f33d227ebceaa19fe29b73ea012f93bdad2a3db676fda950aa961c122d58b590"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2018,
+   "artlSeq": 5203698,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5203698&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2018년도 제27회 공인노무사 2차 시험 기출문제",
+   "attachments": [
+    {
+     "fileName": "시험지(공인노무사2차)3.pdf",
+     "fileSeq": "2187644",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2187644&fileName=%EC%8B%9C%ED%97%98%EC%A7%80%28%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC2%EC%B0%A8%293.pdf&fileSeq=2187644&artlSeq=5203698&href=0",
+     "bytes": 7589403,
+     "sha256": "492285fa5c83cec4693c09b6731889dc844d60714dcc2bacc86dc81256a5d729",
+     "members": [
+      {
+       "member": "시험지(공인노무사2차)3.pdf",
+       "bytes": 7589403,
+       "sha256": "492285fa5c83cec4693c09b6731889dc844d60714dcc2bacc86dc81256a5d729"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "artlSeq": 5206011,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5206011&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2019년도 제28회 공인노무사 2차 시험 문제지",
+   "attachments": [
+    {
+     "fileName": "2019년도 제28회 공인노무사 2차시험 문제지.zip",
+     "fileSeq": "2191587",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2191587&fileName=2019%EB%85%84%EB%8F%84+%EC%A0%9C28%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2191587&artlSeq=5206011&href=0",
+     "bytes": 572424,
+     "sha256": "b808d4145871f254fe3be137827dc390bfad9e036bb3b76de778de508cf7676f",
+     "members": [
+      {
+       "member": "2일차(일) 시행/1교시_문제지(행정쟁송법).pdf",
+       "bytes": 128284,
+       "sha256": "dfeb464372a3dfa828ba75a7b58cc8d9e2eaa3bf20d39fae268ae86246d2e2b1"
+      },
+      {
+       "member": "2일차(일) 시행/2교시_문제지(경영조직론).pdf",
+       "bytes": 106068,
+       "sha256": "22abb000cde61fb32ee82dc16dbb32236ade7ebabd07376cdf0dfcd1152ef33f"
+      },
+      {
+       "member": "2일차(일) 시행/2교시_문제지(노동경제학).pdf",
+       "bytes": 113666,
+       "sha256": "236ebce242d37429f3e93e0f138d02c83f9680763802ba007c7c02b271492127"
+      },
+      {
+       "member": "2일차(일) 시행/2교시_문제지(민사소송법).pdf",
+       "bytes": 73257,
+       "sha256": "b6114ab718601f8fb27490a13c748a79262a07b6a50b07dd3d491cdde03c8bd8"
+      },
+      {
+       "member": "1일차(토) 시행/1교시_문제지(노동법).pdf",
+       "bytes": 134867,
+       "sha256": "88c77bd7f1e61a29292ae67de48f41301e3c015a47f5c0e3794df2f0ae49791e"
+      },
+      {
+       "member": "1일차(토) 시행/2교시_문제지(노동법).pdf",
+       "bytes": 121983,
+       "sha256": "1049a762068dc905140f6a87ee381a815b26b5393792554daf0a23748f23e3db"
+      },
+      {
+       "member": "1일차(토) 시행/3교시_문제지(인사노무관리론).pdf",
+       "bytes": 75928,
+       "sha256": "edb67167e76d1d502f8ea53487f77f292d0af0b364ab5e5d6cdce6f8f011526a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2020,
+   "artlSeq": 5207537,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5207537&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2020년도 제29회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "2020년도 제29회 공인노무사 2차시험 문제지.zip",
+     "fileSeq": "2195774",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2195774&fileName=2020%EB%85%84%EB%8F%84+%EC%A0%9C29%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2195774&artlSeq=5207537&href=0",
+     "bytes": 706753,
+     "sha256": "129e9686ed151b7961702b11af8c0f6ee554dddacb8c50377ded5cf539bf15b5",
+     "members": [
+      {
+       "member": "01. 과목별 시험문제지/20200815(토요일)/★1교시 최종문제(노동법).pdf",
+       "bytes": 189752,
+       "sha256": "74e1682a426bec50f8b57b75708865174445ed2638cf5f870f06adcfaebb70ea"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200815(토요일)/★2교시 최종문제(노동법).pdf",
+       "bytes": 143854,
+       "sha256": "f2dadb65da5da74d1ed5bf060cdc4061198a3bd5af9607f74c77bb049457dad4"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200815(토요일)/★3교시 최종문제(인사노무관리론).pdf",
+       "bytes": 78019,
+       "sha256": "60d7b711733e5edbbb54866c1a89fc53d0c8f77f9752b432d128dbeddff8e173"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200816(일요일)/★1교시 최종문제(행정쟁송법).pdf",
+       "bytes": 127578,
+       "sha256": "4bb770a0a6e482af20cd6b73e3efddc363958b63dede28672c88bc140badd71a"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200816(일요일)/★2교시 최종문제(경영조직론).pdf",
+       "bytes": 162865,
+       "sha256": "2cd772c29986e77b871c8703f65a08c1c5226726f6d18f4c449204e2068be9ea"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200816(일요일)/★2교시 최종문제(노동경제학).pdf",
+       "bytes": 140079,
+       "sha256": "7519b7ddbdf62abc2fbf71a6384caf951ef2d8b98f9920874952e713e2955793"
+      },
+      {
+       "member": "01. 과목별 시험문제지/20200816(일요일)/★2교시 최종문제(민사소송법).pdf",
+       "bytes": 83338,
+       "sha256": "fcad6a6d982be7bab61a040595b8c2b5d0eeb41d78ed8a929c87d64fda743135"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2021,
+   "artlSeq": 5209035,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5209035&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2021년도 제30회 공인노무사 2차시험",
+   "attachments": [
+    {
+     "fileName": "21년도 공인노무사 2차시험(1일차).pdf",
+     "fileSeq": "2200122",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2200122&fileName=21%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98%281%EC%9D%BC%EC%B0%A8%29.pdf&fileSeq=2200122&artlSeq=5209035&href=0",
+     "bytes": 3688935,
+     "sha256": "ee3c1b852038a82cec7916ace23c5deb424957a8f948e23d885c9778994809c8",
+     "members": [
+      {
+       "member": "21년도 공인노무사 2차시험(1일차).pdf",
+       "bytes": 3688935,
+       "sha256": "ee3c1b852038a82cec7916ace23c5deb424957a8f948e23d885c9778994809c8"
+      }
+     ]
+    },
+    {
+     "fileName": "21년도 공인노무사 2차시험(2일차).pdf",
+     "fileSeq": "2200123",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2200123&fileName=21%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98%282%EC%9D%BC%EC%B0%A8%29.pdf&fileSeq=2200123&artlSeq=5209035&href=0",
+     "bytes": 5113114,
+     "sha256": "a24dbac869ee24459eed796ccbdb27a02559e278573511877a73db84a46ded2a",
+     "members": [
+      {
+       "member": "21년도 공인노무사 2차시험(2일차).pdf",
+       "bytes": 5113114,
+       "sha256": "a24dbac869ee24459eed796ccbdb27a02559e278573511877a73db84a46ded2a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "artlSeq": 5210985,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2022년도 제31회 공인노무사 2차 시험 문제지",
+   "attachments": [
+    {
+     "fileName": "제31회 공인노무사 2차 시험 문제지.zip",
+     "fileSeq": "2204572",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2204572&fileName=%EC%A0%9C31%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8+%EC%8B%9C%ED%97%98+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2204572&artlSeq=5210985&href=0",
+     "bytes": 694560,
+     "sha256": "079b4f6a821ebd96a92e349b03d20f17888a602f6c8b9bc6136b601646c4d64e",
+     "members": [
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 3.(토) 시행 시험/1교시 노동법.pdf",
+       "bytes": 154114,
+       "sha256": "b1b4e4592bce01e932e82cb93a708091cd0fc5bbe493b7d6733acb2acdee353a"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 3.(토) 시행 시험/2교시 노동법.pdf",
+       "bytes": 156108,
+       "sha256": "d34d4d7398f5ba385e38161099e1109be92bdffd47c9e1fbd32a4fb73769335b"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 3.(토) 시행 시험/3교시 인사노무관리론.pdf",
+       "bytes": 81417,
+       "sha256": "ad2346195ac44df4e29341748e2ed0091695696e385d648c8ad8cfc372858548"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 4.(일) 시행 시험/1교시 행정쟁송법.pdf",
+       "bytes": 139932,
+       "sha256": "06886aad3d0500bbc3a63a6ca824a90ad7b455d3bd38ec0106da8e4b37767481"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 4.(일) 시행 시험/2교시 경영조직론(선택).pdf",
+       "bytes": 150943,
+       "sha256": "e19ce3a363d5430eef05941db37facbc7dbf6025dd1f5d5ec9a06befa3161b97"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 4.(일) 시행 시험/2교시 노동경제학(선택).pdf",
+       "bytes": 120178,
+       "sha256": "d36f1ebfab2522b8aa5f0691fdb8362e3c92e6395099af776b9e4bb919e7f6be"
+      },
+      {
+       "member": "제31회 공인노무사 2차 시험 문제지/2022. 9. 4.(일) 시행 시험/2교시 민사소송법(선택).pdf",
+       "bytes": 104306,
+       "sha256": "8dde5073cbbad2e9166ef19925590ba2148b127f61bc3050f9ce5d6debb4df39"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2023,
+   "artlSeq": 5212324,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5212324&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2023년 제32회 공인노무사 2차시험 시험지",
+   "attachments": [
+    {
+     "fileName": "23년 제32회 공인노무사 2차시험 문제지.zip",
+     "fileSeq": "2207843",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2207843&fileName=23%EB%85%84+%EC%A0%9C32%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2207843&artlSeq=5212324&href=0",
+     "bytes": 718543,
+     "sha256": "2c7bda0a50ce07364f85a5c6058a8559e3c0c0f17ae7d546725373852faf29e8",
+     "members": [
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/1일차/노동법 1교시 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 168205,
+       "sha256": "9fb544e9e6bed6d314a9d151474e23d009c7f6bd82ea01c6ec4d342486fdfa7d"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/1일차/노동법 2교시_ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 142445,
+       "sha256": "f03212582a82a4620a9a7e7c2ba7e0b331584c9a424d9ef45329f065519927da"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/1일차/인사노무관리론 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 80943,
+       "sha256": "51019ae0ae55489a79ffebb1421550e431ae0bfdfa1367ce905c12bc8e2c1e89"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/2일차/경영조직론 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 160591,
+       "sha256": "b2d19b66cfaae2db7ec6c7013ea454628e445965cb58d22a05a1a447cc984fc1"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/2일차/노동경제학 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 150508,
+       "sha256": "a568be092300636349cfea8f6e6ba106d42e56936d34d5236a8322dda5c76040"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/2일차/민사소송법 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 79492,
+       "sha256": "3eeab85d386d5f495a1661a77e4875bcdadb81945510d4a8fd268572ea0aaee9"
+      },
+      {
+       "member": "23년 제32회 공인노무사 2차시험 문제지/2일차/행정쟁송법 _ 2023년 제32회 공인노무사 2차 문제지.pdf",
+       "bytes": 160966,
+       "sha256": "5e9f999cc73d5e170a762cec42e872c9e689a063bfc86199d3445f59c3ac9e03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "artlSeq": 5213665,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5213665&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2024년도 공인노무사 2차 자격시험 문제지 </div",
+   "attachments": [
+    {
+     "fileName": "1일차(8.31).zip",
+     "fileSeq": "2210510",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2210510&fileName=1%EC%9D%BC%EC%B0%A8%288.31%29.zip&fileSeq=2210510&artlSeq=5213665&href=0",
+     "bytes": 1969751,
+     "sha256": "89bcbcca38609b35a5bf0f220edafbd64abf9933b33c8faf1e3d910fa476ef02",
+     "members": [
+      {
+       "member": "1일차(8.31)/노동법(1교시, 8.31).pdf",
+       "bytes": 857515,
+       "sha256": "456ba1b1df3d3ce4606718500c4c367e1f782a434e42b7c5e8cf789301e8c4c7"
+      },
+      {
+       "member": "1일차(8.31)/노동법(2교시, 8.31).pdf",
+       "bytes": 1091327,
+       "sha256": "e63d79bc66da08447b34210d338b21030a432cdeebf7df63416a5a59e80a6493"
+      },
+      {
+       "member": "1일차(8.31)/인사노무관리론(3교시, 8.31).pdf",
+       "bytes": 214844,
+       "sha256": "415733997807ea50fd1e2f01d79e432f0564b60f19f25741e2d979bdc017f50b"
+      }
+     ]
+    },
+    {
+     "fileName": "2일차(9.1).zip",
+     "fileSeq": "2210511",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2210511&fileName=2%EC%9D%BC%EC%B0%A8%289.1%29.zip&fileSeq=2210511&artlSeq=5213665&href=0",
+     "bytes": 1858768,
+     "sha256": "0e3dd1a5d99cb1efe7a4b0166d8f9c40b17e9474ecb4b46295642d836ae64d8c",
+     "members": [
+      {
+       "member": "2일차(9.1)/경영조직론(2교시, 9.1).pdf",
+       "bytes": 144617,
+       "sha256": "4c6748270360c6ee02c0bc9a87c4f5bb11ef3920060aea360d5ff97b12c0b926"
+      },
+      {
+       "member": "2일차(9.1)/노동경제학(2교시, 9.1).pdf",
+       "bytes": 699376,
+       "sha256": "8d2c41df25efee4ae8b546f1078c7a45493ca35f880ebabd3490c5cef2df44fa"
+      },
+      {
+       "member": "2일차(9.1)/민사소송법 (2교시,9.1).pdf",
+       "bytes": 87793,
+       "sha256": "a6f26d0da12a212a72ce0a4b11bfa92aa5a0f0c69ffa037db92e8cd61ede7267"
+      },
+      {
+       "member": "2일차(9.1)/행정쟁송법(1교시, 9.1).pdf",
+       "bytes": 1186447,
+       "sha256": "7ad57efc173108e0575d5b5c56cdc73feb3d45f5e2ba4ef42846250484d71f07"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "artlSeq": 5243325,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5243325&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2025년 제34회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "1일차.zip",
+     "fileSeq": "2242219",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2242219&fileName=1%EC%9D%BC%EC%B0%A8.zip&fileSeq=2242219&artlSeq=5243325&href=0",
+     "bytes": 314558,
+     "sha256": "6076b9ce06d7533da59198e78cb3101c334fea5e6228b06b230b40eb3f822f86",
+     "members": [
+      {
+       "member": "1일차/노동법 1.pdf",
+       "bytes": 176206,
+       "sha256": "9c0a40916b47649659dde18ff6f725e43db54af9633850d240fa09a0b471c7a1"
+      },
+      {
+       "member": "1일차/노동법 2.pdf",
+       "bytes": 152910,
+       "sha256": "f95a57a39753d88a4c1f0557b665c93c42810dc64429b85aca4c3383f7918209"
+      },
+      {
+       "member": "1일차/인사노무관리론.pdf",
+       "bytes": 82954,
+       "sha256": "f4f6e511fdfbfec2c1394de5ac3b2e0653a24ba5d493372b897b5d0962f411e7"
+      }
+     ]
+    },
+    {
+     "fileName": "2일차.zip",
+     "fileSeq": "2242220",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2242220&fileName=2%EC%9D%BC%EC%B0%A8.zip&fileSeq=2242220&artlSeq=5243325&href=0",
+     "bytes": 431094,
+     "sha256": "095b41d14b129c1c027119cbe8b5109bc261405bbec8e984f731ec18edf7d780",
+     "members": [
+      {
+       "member": "2일차/경영조직론.pdf",
+       "bytes": 91557,
+       "sha256": "1300aa889688f83f9030f17d185ca4d0a458e2a3ffd433212534d971c9f8d477"
+      },
+      {
+       "member": "2일차/노동경제학.pdf",
+       "bytes": 147483,
+       "sha256": "9d21d8754830ef5d0bd8c95fec7e610b27b4b43ec14beccbb654b2a547290c83"
+      },
+      {
+       "member": "2일차/민사소송법.pdf",
+       "bytes": 124346,
+       "sha256": "81124a6d6b1ffa39da983e6eed8b435b651ed14509502f8656a4e2d8e6c12a04"
+      },
+      {
+       "member": "2일차/행정쟁송법.pdf",
+       "bytes": 203709,
+       "sha256": "d6c434590f4b5e342b0919673fe2003eda9b444585112d9301d5c17e0efce9cd"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2026,
+   "artlSeq": 5275124,
+   "postUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5275124&boardId=Q004&gId=05&gSite=L&id=cst00302",
+   "postTitleExcerpt": "2026년 제35회 공인노무사 2차시험 문제지",
+   "attachments": [
+    {
+     "fileName": "2026년 제35회 공인노무사 2차시험 1일차 문제지.zip",
+     "fileSeq": "2266420",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2266420&fileName=2026%EB%85%84+%EC%A0%9C35%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+1%EC%9D%BC%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2266420&artlSeq=5275124&href=0",
+     "bytes": 342740,
+     "sha256": "985d67ea47b9667fc9e9f6db07babd8dda120fd0bc29e3d63c7212d9c2b002f2",
+     "members": [
+      {
+       "member": "노동법 1_원본.pdf",
+       "bytes": 183089,
+       "sha256": "3e72bc3890d3bd5ab81b261f22ea5dfd9e5467a263830d042ce71417afaab7fa"
+      },
+      {
+       "member": "노동법 2_원본.pdf",
+       "bytes": 183290,
+       "sha256": "4f757386d79d396c7adc6ad8f6589668d5dd12bf3076abdb2c659e3c5801be6b"
+      },
+      {
+       "member": "인사노무관리론_원본.pdf",
+       "bytes": 85195,
+       "sha256": "8098f10a104bf5a9e27079caac6df5c5566055669690bb87d75ba883989e404d"
+      }
+     ]
+    },
+    {
+     "fileName": "2026년 제35회 공인노무사 2차시험 2일차 문제지.zip",
+     "fileSeq": "2266421",
+     "downloadUrl": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2266421&fileName=2026%EB%85%84+%EC%A0%9C35%ED%9A%8C+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+2%EC%B0%A8%EC%8B%9C%ED%97%98+2%EC%9D%BC%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80.zip&fileSeq=2266421&artlSeq=5275124&href=0",
+     "bytes": 458020,
+     "sha256": "cf70c512b842385e6254423df3ca37df26fdbc69cb4b163dea327574855aa4d0",
+     "members": [
+      {
+       "member": "경영조직론_원본.pdf",
+       "bytes": 136348,
+       "sha256": "eda7802e17a9a51f10ab938565defe8609a0f108bcd19ad75d84b0b974710af6"
+      },
+      {
+       "member": "노동경제학_원본.pdf",
+       "bytes": 147619,
+       "sha256": "c180657b082d47ee5413390b4c013408cd9ea598a6d1c104085c002696676da6"
+      },
+      {
+       "member": "민사소송법_원본.pdf",
+       "bytes": 111608,
+       "sha256": "542416c16eea613e3e3b10ed86da512af36c7d8f65eb1c769413190b4c909c8e"
+      },
+      {
+       "member": "행정쟁송법_원본.pdf",
+       "bytes": 215280,
+       "sha256": "908c1d0f5c76de3657e65174481e5d723e669f3501f07e7eaf41e82f18530a77"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "note": "Official attachment bytes and SHA-256 only. Not a content approval."
+}

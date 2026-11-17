@@ -1,0 +1,103 @@
+name: NOMUSA V23 Opus 5.5 source validation ledger
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v23-opus55-validation.yml'
+      - 'scripts/nomusa-v23-*.py'
+      - 'scripts/nomusa_v23_*.py'
+      - 'review/NOMUSA_V23_*.json'
+      - '!review/NOMUSA_V23_VALIDATION_LEDGER.json'
+      - 'source_pdf/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v23-opus55-validation
+  cancel-in-progress: true
+
+jobs:
+  v23-ledger:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out review branch (read-only)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium, PDF, HWP and SymPy engines
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Self-tests V19 V21 V22 V23
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+          python scripts/nomusa-v23-validation-ledger.py --self-test
+      - name: Chromium PC 1440 / mobile 390 / 360 browser gate (reused)
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: V19 V21 V22 reuse (328 structure, SHA lock, source routing)
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+          python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Live re-download of official Q-Net attachments and SHA-256 comparison
+        continue-on-error: true
+        run: |
+          python scripts/nomusa-v23-qnet-official-fetch.py /tmp/qnet --manifest review-artifacts/NOMUSA_V23_QNET_RECHECK_CI.json
+          python - <<'PY'
+          import json
+          a=json.load(open('review/NOMUSA_V23_QNET_OFFICIAL_MANIFEST.json')); b=json.load(open('review-artifacts/NOMUSA_V23_QNET_RECHECK_CI.json'))
+          h=lambda m:sorted(x['sha256'] for y in m['years'] for t in y['attachments'] for x in t['members'])
+          print('QNET_CI_RECHECK', 'IDENTICAL' if h(a)==h(b) else 'DIFFERENT', len(h(a)), len(h(b)))
+          PY
+      - name: V23 328-answer validation ledger (offline caches)
+        run: |
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/committed_ledger.json
+          python scripts/nomusa-v23-validation-ledger.py .
+      - name: Reproducibility and approval-invariant check
+        run: |
+          python - <<'PY'
+          import json
+          c=json.load(open('/tmp/committed_ledger.json')); n=json.load(open('review/NOMUSA_V23_VALIDATION_LEDGER.json'))
+          key=lambda r:(r['id'],r['textSHA256'],tuple(r['tags']),r['source']['matchBand'],r['source']['questionTextOverlap'],r['source']['qnetMemberSha256'],tuple(r['lawFlags']),tuple(r['calcFlags']))
+          assert [key(r) for r in c['rows']]==[key(r) for r in n['rows']], 'LEDGER_NOT_REPRODUCED'
+          s=n['summary']
+          assert s['total']==328 and s['independentExpertApproved']==0 and all(r['verdicts']['finalApproval']=='HOLD' for r in n['rows'])
+          print('V23_LEDGER_REPRODUCED', s['qnetOfficialByteIdentical'], s['sourceVerifiedQuestion'], s['tagCounts'])
+          PY
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json review-artifacts/
+      - name: Upload V23 ledger, issues, subject packets and browser evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nomusa-v23-opus55-328-validation-ledger
+          path: |
+            review-artifacts/NOMUSA_V23_VALIDATION_LEDGER.json
+            review-artifacts/NOMUSA_V23_LEDGER.csv
+            review-artifacts/NOMUSA_V23_ISSUES.json
+            review-artifacts/NOMUSA_V23_QNET_RECHECK_CI.json
+            review-artifacts/NOMUSA_V23_SUBJECT_PACKETS/*.md
+            review-artifacts/NOMUSA_V21_328_APPROVAL_TRIAGE.json
+            review-artifacts/NOMUSA_V22_328_ORIGINAL_AUDIT.json
+            review-artifacts/*browser*.json
+            review-artifacts/*BROWSER*.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Protect production and expert approval controls
+        if: always()
+        run: |
+          echo 'V23_VALIDATION_LEDGER_ONLY=1'
+          echo 'NO_EXPERT_SIGNOFF=1 FINAL_APPROVAL=HOLD_0_OF_328'
+          echo 'NO_PREVIEW_OR_PRODUCTION_DEPLOY=1 NO_MAIN_CHANGE=1 NO_EMAIL=1'
