@@ -80,3 +80,12 @@ description: 2007~2026년 공인노무사 2차 328개 답안의 독립 출처·�
 - 검증 전용 워크플로 `.github/workflows/nomusa-v23-case-corroboration.yml`은 기존 V23 원장 328건과 문항 SHA, 3사건·5회 인용, 승인 0/328을 검증한다.
 - 기존 `review/NOMUSA_V23_CASE_LOOKUP_CACHE.json`의 `NOT_FOUND_ON_LAW_GO_KR_SEARCH`는 **당시 검색 결과**이므로 다른 공식·연구기관 자료를 얻었다는 이유로 `FOUND_ON_LAW_GO_KR`로 허위 변경하지 않는다.
 - 독립 전문가·원판결 전문·학술·역사법령·수기실측이 없는 상태에서 `FINAL_APPROVAL=HOLD` 유지. 판례 원본 인용만으로 답안 학술 승인하지 않는다.
+
+## V24 30개 원전 전사 교체 완료 및 후속 교열 관문 (2026-11-17)
+
+- 2015~2018·2021 인사노무관리론·경영조직론 30개 기존 `[기출문항 요지]` 등 대체본문을 공식 원전 PDF 이미지 기반 전사문으로 교체. 결과 `review/NOMUSA_V24_30_VERBATIM_SOURCE_EXECUTION_20261117.md`.
+- 최종 [V24 Actions #44097717695](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44097717695) 성공, 기존 328문항/공식 원전 해시 모두 유지, 전사 변경 30 SHA, 비대상 298 SHA 불변, V23 원장 요지 0건.
+- 새 스킬 `.claude/skills/nomusa-v24-verbatim-source/SKILL.md`, 정확한 새 전사 문장과 source path `second/nomusa-v24-verbatim-{2015-2016,2017-2018,2021}.js`, 적용 `second/nomusa-v24-apply-verbatim-30.js`.
+- V23 기존 원장의 마킹은 과거 평가 결과로 보존하되 최신 V23 원장은 재생성됨. 새 전사문 OCR 겹침 HIGH 325·MEDIUM 3; 관련 MEDIUM **2016_p5_q2**는 공식 원본 글자별 재교열 HOLD.
+- **전사문 AI 시각 확인 ≠ 독립 최종 교열**. 2018 경영조직론 Q1 물음1 공식 20점으로 교정, 2021 경영조직론 '1971년 올슨' 공식 지문 그대로 유지.
+- 모든 328 답안의 역사 법령·판례 전문·학술 원전·손글씨 분량/독립 전문가 승인 **0/328, FINAL_APPROVAL=HOLD**. main/Production/Preview/ID/저장키 변경 금지.
