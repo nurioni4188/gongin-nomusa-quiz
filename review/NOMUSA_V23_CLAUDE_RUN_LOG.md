@@ -73,3 +73,13 @@ python -c "import sys;sys.path.insert(0,'scripts');from nomusa_v23_case_lookup i
 - 내용범위: 2012다81609의 대법원 공식 후속판결 인용, 2011두7526의 한국노동연구원 판례평석, 2024구합76393의 서울행정법원 공식 목록 및 비법원 날짜 보조증거.
 - **원본 판결문 전문 읽기·2024 판결일 공식문서 확인·개별 사안포섭·법률시점 원전 전수는 HOLD**, 기존 law.go.kr 검색 캐시/328 원장은 수정하지 않음.
 - 회귀 영향: 원본 답안·ID·저장키·2022 기준연도·main·Production·Preview 변경 없음. 이메일·배포·전문가 승인 없음.
+
+## 7. ChatGPT V24 30개 요지문항 원전 전사·교체 (2026-11-17)
+
+- 이전 V23 PASS 원전/Q-Net SHA/과목점수와 V22 PDF 파일을 재활용해, 2015~2018·2021년 인사·조직 30개 공식 인쇄 페이지를 PNG로 별도 렌더링. [원본 이미지 Actions #44094781250](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44094781250) success.
+- PDF 이미지 근거로 30개 전사문을 세 JS 소스파일에 작성, `second/nomusa-v24-apply-verbatim-30.js`로 기존 요지 `sourceText`를 두 학습화면에서 교체; 이전 본문은 `sourceTextBeforeV24` 보존.
+- 초기 Actions #44097033642와 #44097487905는 원본 요지 표현 방식 차이로 V24 사전검사 HOLD; 공통 V23 패턴으로 수정.
+- 최종 자동검증 [V24 Actions #44097717695](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44097717695) **success**. **실측 2026-11-17 13:56:10~13:57:58 UTC (108초)**. Python/V19~V24 self-test, 양쪽 브라우저 V24 overlay smoke, PC1440/모바일390·360 E2E, 30개 SHA 변경/298개 불변, 배점/저장/복원, 기존 V23 328원장 갱신 성공.
+- 갱신 원장 커밋 `8a2b145d0025cfc6a4d9e0b783eeb53f43b0fa58`: 328/328 공식 파일 해시 동일, 요지문항 0, HIGH 325·MEDIUM 3 (2016_p5_q2가 이번 전사 대상이며 재교열 필요).
+- 결과 artifact [14335230984](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44097717695/artifacts/14335230984). 스킬 `.claude/skills/nomusa-v24-verbatim-source/SKILL.md` 추가. 이 기록을 포함하는 최종 검토 브랜치 커밋은 후속 HEAD를 확인.
+- **독립 글자별 교열/법리·학술·판례 전문/실제 필기분량/외부 전문가 서면승인 HOLD 0/328**, `main`/Production/Preview/RC27/RC35/ID/저장키 미변경. 배포·이메일 없음.
