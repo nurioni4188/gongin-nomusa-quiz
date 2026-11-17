@@ -103,3 +103,12 @@ python -c "import sys;sys.path.insert(0,'scripts');from nomusa_v23_case_lookup i
 - [Actions #44169285275](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275) completed/success, 2026-11-17 20:26:15~20:27:53 UTC (**98초**), [artifact 14366582593](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275/artifacts/14366582593).
 - ZIP/빈 서식 수량·CRC PASS, V23 원본해시·문항ID·원고 SHA 불변, 기존 메인·운영 파일 변경 없이 Github review 코드·스킬만 저장. 직접 배포 명령 없음.
 - 법령/판례 전문/학술 원서/수기실측 및 외부 전문가 승인 **HOLD (0/328)**. 정확한 결과 및 재현 보고서 `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
+
+## 10. V27 ChatGPT 2022년 공식 판결·학술 원전 직접 교차확인 (2026-11-18)
+
+- 기존 V26 생성된 전문가 검토패킷에서 2022년 19개 상세·압축 원고를 읽고, 공식 법원 HTML 판결·대법원 주요판결·SAGE/Science/Elsevier/BMJ 공개 출판자료를 대조.
+- 6개 문항에 대한 제한적 외부 근거와 2022년 나머지 13개 미확인 범위를 `review/NOMUSA_V27_2022_PRIMARY_CONTENT_CROSSCHECK_20261118.json`로 기록. `2022-hr-1` Human Relations→Human Factors 서지 오기 및 액션러닝/경영 시뮬레이션 표기 불일치를 편집 교정 후보로 등록.
+- `scripts/nomusa-v27-2022-primary-content-check.py` 및 Actions `.github/workflows/nomusa-v27-2022-content-check.yml` 생성. [실제 run #44172430945](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44172430945) completed/success, UTC 2026-11-17 20:44:15~20:45:16(약 61초), artifact 14368132830 ZIP CRC PASS.
+- 20년 328개 실제 Chromium 원고 SHA 재검증, 2022년 19개·32소문항 및 선별된 6개 동일 원고 SHA 일치. 2인 지니계수 0.30 독립 계산.
+- 기존 원고 내용은 바꾸지 않아 SHA·전문가 패킷 불변. 그 결과 6개 일부 원전 검증 성공일 뿐 답안 6개 최종승인이 아니다. 13개 추가 원전검증·서면 외부 전문가 승인 0/328 HOLD.
+- `main`, Production, Preview, RC27/RC35, 문제 ID/저장키, 이메일 발송 변경 없음.
