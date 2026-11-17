@@ -79,3 +79,13 @@
 - 출처·날짜·확인수준: `review/NOMUSA_V23_CASE_3_CORROBORATION_20261117.json`.
 - 재현: `python3 scripts/nomusa-v23-case-corroboration-gate.py .`.
 - **법령·판례 전문 원전 검토 및 실제 독립 전문가 승인: HOLD (0/328).** 요지문항 30건, 학술원전·실전 필기분량 등의 기존 HOLD를 변경하지 않는다.
+
+## 10. V24 — 요지문항 30개 원문 전사 교체 자동검증 PASS (2026-11-17, 최신 상태)
+
+- 위 §1의 "30개 원문 교체 필요"는 **V23 당시의 미완료 이력**이다. V24에서 2015~2018/2021년 인사노무관리론·경영조직론 30개를 공식 PDF 원본 이미지 참고 전사문으로 교체했다.
+- [V24 Actions #44097717695](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44097717695) **success**: 30개 대상 SHA 변경/298개 불변, Chromium PC 1440·모바일 390/360 검증 성공, `review/NOMUSA_V23_VALIDATION_LEDGER.json` 재생성 및 검토 브랜치 자동 커밋.
+- 최신 원장: `storedQuestionIsSummary=0`, `qnetOfficialByteIdentical=328`, `sourceVerifiedQuestion=328`, HIGH 325/MEDIUM 3.
+- **2016_p5_q2**는 새 전사 문항의 자동 유사도 MEDIUM(0.80)이므로 독립 PDF 글자별 교열 우선. 나머지 MEDIUM 두 문항은 2019_p4_q3, 2020_p7_q3이며 이번 30개와 무관.
+- 2018 경영조직론 Scott 제1문 물음1의 원본 인쇄 배점 **20점**으로 보정했고, 2021년 쓰레기통모형의 '1971년 올슨'은 시험원문대로 유지했다.
+- 결과 및 교열 관문: `review/NOMUSA_V24_30_VERBATIM_SOURCE_EXECUTION_20261117.md`, `.claude/skills/nomusa-v24-verbatim-source/SKILL.md`.
+- **원문 30개 자동 교체 해결과 글자별 독립 원본 교열은 별개**. 인간 교열 전에는 `HOLD_SOURCE_PROOFREAD` 유지; 시험 당시 법령/판례/학술원전·수기실측·전문가 독립 내용승인 **0/328 HOLD**.
