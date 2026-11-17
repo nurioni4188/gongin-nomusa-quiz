@@ -21,7 +21,7 @@ try:
    page.wait_for_timeout(650)
    state=page.evaluate("""() => {
      const q=window.NOMUSA_CANONICAL_SELECTION_V1?.items?.['2022-hr-1'];
-     return {count:(window.N27_CATALOG?.items||[]).length,
+     return {count:Object.keys(window.NOMUSA_CANONICAL_SELECTION_V1?.items||{}).length,
       gate:window.NOMUSA_V28_EDITORIAL_GATE||null,
       detailed:q?.detailed||'',compressed:q?.compressed||'',
       oldDetailRetained:!!q?.detailedBeforeV28,
