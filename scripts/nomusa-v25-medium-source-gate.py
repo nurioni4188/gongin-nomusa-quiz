@@ -39,7 +39,7 @@ def run(root:Path):
  modifications=[];rows=[]
  for id,row in sorted(now.items()):
   prior=before[id]
-  if row["scoringApproved"] or row["approval"]!="HOLD":
+  if row.get("scoringApproved") or row.get("approval","HOLD")!="HOLD":
    raise ValueError("HOLD_UNEXPECTED_SOURCE_APPROVAL_"+id)
   if (int(row["year"]),row["subject"],int(row["points"]))!=(int(prior["year"]),prior["subject"],int(prior["points"])):
    raise ValueError("HOLD_YEAR_SUBJECT_POINTS_CHANGE_"+id)
