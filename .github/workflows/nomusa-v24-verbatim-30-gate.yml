@@ -1,0 +1,115 @@
+name: NOMUSA V24 30 verbatim source correction browser regression
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v24-verbatim-30-gate.yml'
+      - 'scripts/nomusa-v24-verbatim-check.py'
+      - 'scripts/nomusa-v23-validation-ledger.py'
+      - 'second/nomusa-v24-*.js'
+      - 'second/index.html'
+      - 'study-hub/index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nomusa-v24-30-verbatim-correction
+  cancel-in-progress: true
+
+jobs:
+  verify-thirty:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout review branch for verified ledger write-back only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated browser and PDF/HWP offline dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Review V19 V21 V22 V23 and V24 self-tests
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+          python scripts/nomusa-v23-validation-ledger.py --self-test
+          python scripts/nomusa-v24-verbatim-check.py --self-test
+      - name: Full PC 1440px and mobile 390px/360px Chromium 328-question E2E
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Reuse V19 V21 V22 risk and draft model
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+          python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Verify exactly 30 question sources replaced; 298 complete manuscripts unchanged
+        run: python scripts/nomusa-v24-verbatim-check.py .
+      - name: Regenerate V23 source verification ledger using existing official image/HWP caches
+        run: |
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/NOMUSA_V23_BEFORE_V24.json
+          python scripts/nomusa-v23-validation-ledger.py .
+      - name: Assert 328/328 official original identity, 30 V24 changes, no summaries, zero approval
+        run: |
+          python - <<'PY'
+          import json
+          before=json.load(open('/tmp/NOMUSA_V23_BEFORE_V24.json'))
+          after=json.load(open('review/NOMUSA_V23_VALIDATION_LEDGER.json'))
+          old={r['id']:r for r in before['rows']}
+          new={r['id']:r for r in after['rows']}
+          assert set(old)==set(new) and len(new)==328
+          changed=[x for x in new if old[x]['textSHA256']!=new[x]['textSHA256']]
+          assert len(changed)==30,('EXPECTED_30_SHA_CHANGES',changed)
+          assert all(new[x]['year'] in (2015,2016,2017,2018,2021) and new[x]['subject'] in ('인사노무관리론','경영조직론') for x in changed)
+          summary=after['summary']
+          assert summary['qnetOfficialByteIdentical']==328 and summary['storedQuestionIsSummary']==0,summary
+          assert summary['total']==328 and summary['independentExpertApproved']==0 and summary['finalApproval']=='HOLD (0/328)'
+          assert all(r['verdicts']['expertApproval']=='HOLD_EXPERT_APPROVAL' for r in after['rows'])
+          print('PASS_V24_LEDGER_OFFICIAL_328_VERBATIM_30_APPROVAL_HOLD',
+                {'changed':len(changed),'summariesRemaining':summary['storedQuestionIsSummary'],
+                 'officialFileHashes':summary['qnetOfficialByteIdentical'],
+                 'sourceVerifiedByPriorV23Rules':summary['sourceVerifiedQuestion']})
+          with open('review-artifacts/NOMUSA_V24_V23_SHA_DIFF.json','w') as f:
+            json.dump({'changedIds':sorted(changed),'unmodified':298,
+                       'officialFileByteMatch':328,'summariesRemaining':0,
+                       'sourceVerifiedByPriorV23Rules':summary['sourceVerifiedQuestion'],
+                       'expertApproval':0,'finalApproval':'HOLD'},f,ensure_ascii=False,indent=2)
+          PY
+      - name: Commit regenerated V23 ledger on review branch ONLY
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_V23_VALIDATION_LEDGER.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(v24): refresh 328-row V23 ledger after thirty original-question transcriptions'
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo "V24_REVIEW_BRANCH_HEAD=$(git rev-parse HEAD)"
+      - name: Upload V24 screenshot-backed 30-answer correction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v24-30-verbatim-question-corrections-and-328-regression
+          path: |
+            review-artifacts/NOMUSA_V24_30_TRANSCRIPTION_AUDIT.json
+            review-artifacts/NOMUSA_V24_30_TRANSCRIPTION_AUDIT.md
+            review-artifacts/NOMUSA_V24_V23_SHA_DIFF.json
+            review/NOMUSA_V23_VALIDATION_LEDGER.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Protect production and independent approval gate
+        if: always()
+        run: |
+          echo 'NO_MAIN_MERGE_NO_PRODUCTION_NO_PREVIEW_NO_EMAIL=1'
+          echo 'NO_QUESTION_ID_OR_SAVED_USER_KEY_CHANGES=1'
+          echo 'SOURCE_IMAGE_VISUAL_AI_DRAFT_EXPERT_PROOFREAD_HOLD=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'
