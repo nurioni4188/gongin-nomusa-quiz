@@ -1,0 +1,26 @@
+/* V15 focused 2019/2020 50-point answer supplements (7 cases).
+ * Original V12 detailed/compressed texts retained; no scoring/content approval, no deploy.
+ * New reasoning derives from case facts and legal principles in existing V12 study drafts.
+ * Official original/PDF visuals and full judgment independent review remain HOLD.
+ */
+(function(){'use strict';
+const b=window.NOMUSA_CANONICAL_SELECTION_V1, A=[{"id":"2019_p6_q1","detail":"노조사무실 출입은 쟁의행위 중에도 조합활동의 기반이라는 점과 생산시설 점거 위험을 함께 평가한다. 1층 통로와 2층 사무실이 구조적으로 연결되어 있다는 사실은 사용자의 출입제한 필요성을 뒷받침하지만, 그 자체만으로 전면 출입금지의 비례성이 성립하지 않는다. 지정 간부·시간대·동선관리 등 덜 제한적인 방법과 대체 장소 제공 가능성을 먼저 검토하는 방식으로 노사 양측의 주장을 대비한다. 조직형태 변경 문제에서는 산별노조 지회의 명칭보다 실제 규약·총회·집행기관 등 독립적인 근로자단체의 실질을 구별해야 하며, 산별노조의 지침만으로 구성원들의 조직 선택권을 일률적으로 부정하기 어렵다.","compact":"출입제한은 구체적 점거 위험과 대안 조치의 비례성을 비교하고, 조직형태 변경은 지회의 실질적 독립성과 결의요건을 별도로 검토한다."},{"id":"2020_p1_q1","detail":"甲의 묵시적 근로계약 주장과 乙의 파견법상 직접고용의무 주장은 서로 다른 법적 경로이다. 전자는 형식상 계약상대방 B의 독자성이 사실상 부정될 정도인지가 핵심이므로 창업자금·수입원·조직·지휘체계가 A공사에 종속되었는지를 종합한다. 후자는 C의 사업주 실체 자체를 부정하지 않더라도 사용사업주 A공사의 실질적 지휘명령과 업무편입이 인정되면 파견관계를 검토할 수 있다. 따라서 동일한 영업소에서 근무한다는 이유로 甲과 乙에게 동일한 결론을 적용해서는 안 된다. C가 무허가 파견사업자인 경우에는 파견기간이 2년에 못 미친다는 사정만으로 직접고용의무를 부정할 수 없는지를 당시 파견법 제6조의2의 해당 호에 연결하여 논증한다.","compact":"甲의 묵시적 계약은 B의 명목성과 실질 사용자 관계, 乙의 직접고용은 C의 독자성을 전제로 한 파견·무허가 요건을 각각 판단한다."},{"id":"2020_p2_q1","detail":"대체근로 금지 위반 판단은 투입 인력을 출처별로 나누어야 한다. 본사 기술팀 3명과 같은 회사 다른 시설 운전원 2명은 동일 기업 내 인력이어서 '당해 사업과 관계없는 자'인지에 대한 평가가 신규채용자와 다르다. 반면 6개월 전 생긴 결원 충원을 이유로 파업 직전 채용된 1명은 채용의 실질적 목적이 핵심이다. 결원이 존재하였다는 사정은 사용자에게 유리하나, 신규채용자에게 채용 직후 다른 사업장의 파업 중단업무를 맡긴 사정은 탈법적 대체 목적을 의심하게 한다. 물음2의 지배·개입은 제43조 위반 판단과 별도 구성요건이므로 사용자의 조업 계속 목적, 파업 규모, 단체교섭 태도 및 조합 자주성 침해의 의사·효과를 독립적으로 평가해야 한다.","compact":"본사·타 시설 5명과 직전 채용자 1명을 구별하고, 제43조 위반 여부와 제81조 지배·개입 여부를 각각 심사한다."},{"id":"2019_p1_q1","detail":"절차상 하자를 이유로 취소된 재심판정에 관한 기속력은 그 판결에서 위법하다고 판단한 정족수 미충족 부분을 중심으로 작용한다. 따라서 재처분 시 중노위가 정족수를 갖추어 다시 판단할 의무는 인정되지만, 본안의 징계 정당성에 관한 결과까지 법원이 미리 확정한 것으로 보아서는 안 된다. 동일한 결론의 재심판정을 하더라도 절차 하자를 반복하지 않는다면 기속력의 위반 여부는 달리 판단될 수 있다. 처분사유 추가·변경에서는 새 법조문이나 새로운 평가 문구 자체가 아니라 원래 유인물 배포라는 사회적 사실을 유지하는지를 먼저 비교한다. 유인물 배포 외의 별도 성명서 작성·배포 등 새로운 행위를 추가한다면 기본적 사실관계의 동일성이 흔들리므로 방어권 보장 문제를 별도로 검토한다.","compact":"절차위법 취소의 기속력과 재처분의무를 본안 판단의 기속력과 구별하고, 사유 변경에서는 동일한 사회적 사실 여부를 중심으로 검토한다."},{"id":"2020_p4_q1","detail":"취소소송의 대상·피고·제소기간을 하나의 표로 혼합하지 말고 각 단계에서 순차적으로 검토해야 한다. 변경명령재결에 따른 2020년 3월 17일의 변경처분은 원래 2019년 12월 26일의 영업정지를 1개월로 줄이는 효과를 발생시켰으므로, 취소를 구할 대상은 변경된 내용으로 존속하는 당초처분이다. 재결서 정본 수령일이 3월 10일이면 초일불산입 후 3월 11일부터 90일이 진행되어 6월 8일 만료라는 계산을 별도로 드러내고, 6월 15일 제기는 부적법하다고 판단한다. 물음2는 처분의 효력이 이미 사라졌더라도 장래 동일 위반에 대한 가중처분이 예견되는지를 소의 이익으로 검토하는 독립된 문제다. 소의 이익이 있다는 사정이 제소기간 도과를 치유하는 것은 아니다.","compact":"변경된 원처분·A시장·6월 8일 제소기한을 각각 확정하고, 기간 경과 후 소의 이익과 기간 도과의 별개 판단을 명시한다."},{"id":"2019_p4_q1","detail":"변제는 피고의 채무소멸 항변을 구성하는 주요사실이므로 당사자가 이를 주장하지 않으면 법원이 증거를 보았다는 이유만으로 직권 인정할 수 없다. 그러나 변론 전체의 취지에서 간접적인 주장이라도 특정될 수 있는지부터 따져야 하며, 그와 같은 주장조차 없다는 조건에서 법원의 인용판결과 석명의무 판단을 연결해야 한다. 확정판결 뒤의 구제에서는 변론종결 전에 존재하던 단순 변제 항변을 새 소송에서 다시 주장하는 것과, 변론종결 후에 상계의 의사표시를 함으로써 형성권을 행사하는 경우를 구별한다. 후자는 상계적상이 이전에 형성되었더라도 의사표시의 효력이 판결 후에 발생한다는 판례 법리(98다25344)에 따라 청구이의의 소에서 다툴 여지가 있다는 구조로 설명한다.","compact":"변제 항변의 주장책임·간접 주장 여부와 판결 후 상계의 형성권 행사를 구별하여 기판력 차단효를 설명한다."},{"id":"2020_p7_q1","detail":"대전 소재 토지가 계약의 목적물이라는 사실만으로 매매잔대금의 지급청구가 부동산 소재지 특별재판적에 해당하지는 않는다. 금전채무의 이행지는 채권자 주소지라는 일반 원칙을 검토하고, 대전의 법정관할이 없는 결론에 이른 다음에도 피고 측이 관할위반 항변 없이 변제를 이유로 본안 변론을 하였는지 확인해야 한다. 그 경우 변론관할을 인정하는 경로는 처음부터 대전의 법정관할이 있었다는 판단과 구별된다. 사망자를 피고로 한 소에서는 소 제기 이전 사망에 따른 당사자능력의 문제와 표시정정 가능성을 따로 다룬다. 원고가 사망 사실을 몰랐고 유일 상속인을 소송 상대방으로 삼으려는 의사가 객관적으로 인정되는지 확인해 표시정정과 실질적 당사자 교체를 구별하는 논증이 필요하다.","compact":"부동산 소재지 관할과 매매대금 관할을 구별하고, 변론관할 및 사망자 상대 소송의 당사자표시정정을 독립적으로 검토한다."}];
+if(!b?.items){window.NOMUSA_V15_SEVEN_GATE={status:'HOLD_BASE_NOT_READY'};return;}
+const output={...b.items},results=[];
+for(const row of A){
+ const original=output[row.id];
+ if(!original?.detailed?.includes('상세 논술학습 답안 (V12)')||!original.detailed.includes('【결론】')||!original.compressed){
+   results.push({id:row.id,status:'HOLD_SOURCE_NOT_MATCHED'});continue;
+ }
+ const detailed=original.detailed.replace('【결론】','【쟁점 간 종합논증 보강 — V15 검토초안】\n'+row.detail+'\n\n【결론】');
+ const compressed=original.compressed+'\n\n【V15 응용·검토】 '+row.compact;
+ output[row.id]=Object.freeze({...original,detailed,compressed,detailedBeforeV15:original.detailed,
+ compressedBeforeV15:original.compressed,finalAcademicApproval:'HOLD',scoringApproved:false,paperPagesVerified:false});
+ results.push({id:row.id,status:'DRAFT_REVISED_CONTENT_HOLD',priorChars:original.detailed.length,newChars:detailed.length,previousVersionPreserved:true});
+}
+const gate=Object.freeze({schema:'nomusa-v15-seven-case-content-upgrade/1',results,
+ revised:results.filter(x=>x.status==='DRAFT_REVISED_CONTENT_HOLD').length,finalContentApproval:'HOLD',
+ originalSourceVisualReview:'HOLD',storageKeysChanged:false,productionMutated:false,previewDeployed:false});
+window.NOMUSA_CANONICAL_SELECTION_V1=Object.freeze({...b,items:Object.freeze(output),qualityV15Seven:gate});
+window.NOMUSA_V15_SEVEN_GATE=gate;
+})();
