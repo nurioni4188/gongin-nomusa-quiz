@@ -42,3 +42,13 @@ description: "2022년 19개·32소문항 및 V21 분량 프록시 77개, 총 96�
 
 ## 다음 독립검증
 외부 자격 검토자에게 원전 PDF/HWP 인쇄면과 각 학술·판례 원문 전문을 함께 보게 하고, 수정안→SHA 갱신→검토서의 순서로 처리. 무단 이메일 발송/배포 금지.
+
+## 검증된 실제 실행 결과 (2026-11-18)
+
+- 실행 [GitHub Actions #44169285275](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275) **success** (약 98초).
+- P0=2022년 19개·32소문항, P1=글자수 프록시 77개, 총 중복 없는 **96개** 기존 상세·압축 원고 SHA 연결 성공.
+- 원고 위험플래그 96개 중 **77개 분량 프록시 부족**, 91개 미검토/HOLD 표현 탐지. **오류 확정/학술 확정과 구별할 것.**
+- 결과: `review-artifacts/NOMUSA_V26/NOMUSA_V26_2_96_CONTENT_PRECHECK.json`, `NOMUSA_V26_2_96_PRECHECK_REPORT.md`, `NOMUSA_V26_2_PRIORITY_2022_19_PLUS_77.zip`.
+- CI artifact [14366582593](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275/artifacts/14366582593).
+- 실제 원판결/법령/학술 원전 전문을 독립 대조했다는 결과는 없음: **HOLD**, 실전 손글씨 실측 HOLD, 내용 승인 0/328 HOLD.
+- 재현 및 전체 실행기록: `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
