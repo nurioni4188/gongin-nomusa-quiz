@@ -109,3 +109,15 @@
 - 우선검토 77건의 500자/쪽 프록시는 글자수 추정이며 필기실측 부족 확정이 아니다.
 - 다음 HOLD: 독립 원전 글자별 교열, 역사 법령·판례 전문·학술 원저·수기실측·실제 외부 전문가 서면평가. **FINAL_APPROVAL=HOLD, 승인 0/328**.
 - 재현: `scripts/nomusa-v26-substantive-review-packets.py`, 스킬 `.claude/skills/nomusa-v26-2-content-review/SKILL.md`, `.claude/skills/nomusa-v26-3-expert-packets/SKILL.md`, 보고서 `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
+
+## 13. V27 2022년 제한적 공식 판결·학술 원전 검증 (2026-11-18)
+
+- 2022년 19개 중 **6개 문항에서 개별 주장만** 법원 공개 판결문·학술지 출판사 서지·공개 초록 또는 독립 계산으로 대조함. 다른 13개는 이번 배치 외부 원전 미검토. [Actions #44172430945](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44172430945) success.
+- `2022-hr-1`: Goldstein(1978) 공식 서지는 **Human Factors 20(2), 131–144**인데 이전 V16.2 원고에 `Human Relations` 오기 남음. 후속 V16.3이 정정했으나 사용자에게 둘 다 노출되므로 하나로 통일 필요. 같은 답안의 교육기법 6개 항목에서 액션러닝/경영 시뮬레이션 선택 불일치도 교정 후보.
+- `2022-admin-2`: 2019두52386과 2021두46285의 **구제신청 시점 차이**를 실제 공식 판시 문단과 교차확인; 구체적 정년규정 효력은 HOLD.
+- `2022-labor1-2`: 2019다238053 공식 공개 판결문과 지급조건 종합해석을 교차확인; 2022 이후 일반법리 변경의 소급적용 금지.
+- `2022-labor2-2`: 2017도2478 공식 판시요지에서 목적·관행·시설관리권의 심사요소 확인. 전체 법리 적용 HOLD.
+- `2022-org-2`: Tversky & Kahneman, Staw, Nickerson, Fischhoff의 원저 발행 정보·공개 초록/재간행물 정보 확인. 전체 실험 원문 심사 HOLD.
+- `2022-econ-2`: 2인 20%/80% 지니 공식 B=0.35, G=0.30 독립 재계산 성공. 실제 그래프·실측 HOLD.
+- 보고서 `review/NOMUSA_V27_2022_REAL_SOURCE_CONTENT_EXECUTION_20261118.md`, 근거 JSON `review/NOMUSA_V27_2022_PRIMARY_CONTENT_CROSSCHECK_20261118.json`, 스킬 `.claude/skills/nomusa-v27-2022-real-source-claims/SKILL.md`.
+- 편집 교정 제안만 기록했고 실제 328 원고 SHA·기출·저장키·Preview·Production·main 변경 없음. **FINAL_APPROVAL=HOLD, 전문가 0/328**.
