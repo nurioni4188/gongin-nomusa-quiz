@@ -89,3 +89,11 @@ description: 2007~2026년 공인노무사 2차 328개 답안의 독립 출처·�
 - V23 기존 원장의 마킹은 과거 평가 결과로 보존하되 최신 V23 원장은 재생성됨. 새 전사문 OCR 겹침 HIGH 325·MEDIUM 3; 관련 MEDIUM **2016_p5_q2**는 공식 원본 글자별 재교열 HOLD.
 - **전사문 AI 시각 확인 ≠ 독립 최종 교열**. 2018 경영조직론 Q1 물음1 공식 20점으로 교정, 2021 경영조직론 '1971년 올슨' 공식 지문 그대로 유지.
 - 모든 328 답안의 역사 법령·판례 전문·학술 원전·손글씨 분량/독립 전문가 승인 **0/328, FINAL_APPROVAL=HOLD**. main/Production/Preview/ID/저장키 변경 금지.
+
+## V25 원문 MEDIUM 3개 정리 완료 (2026-11-18)
+
+- `2016_p5_q2` 원본 PDF 이미지의 `그리고`를 Tesseract가 `그러고`로 인식하여 MEDIUM 0.80. V24 sourceText는 **정확**하므로 변경하지 않는다.
+- `2019_p4_q3`/`2020_p7_q3`: `【문제 3】 공동소송참가에 관하여 설명하시오. (25점)`, `【문제 3】 유사필수적 공동소송에 관하여 설명하시오. (25점)`으로 인쇄면에 맞춰 수정, 이전 본문 보존.
+- [Actions #44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) 성공, **HIGH 327/MEDIUM 1**, V23 요지 0, 공식 원전 파일 328/328, 두 원문 SHA 변경/326개 불변, 독립승인 0/328.
+- 상세 재현: `.claude/skills/nomusa-v25-three-medium-pdf-proofread/SKILL.md` 및 `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`.
+- 이후 Claude 작업에서는 V23 최신 원장 `review/NOMUSA_V23_VALIDATION_LEDGER.json`를 사용하고 이미 해결된 V24 요지 30건·V25 원전 MEDIUM 2건을 다시 오류로 분류하지 않는다. 현재 MEDIUM 1건은 OCR 점수지표이며 AI 시각 대조가 확인되었다는 사실만 반영한다. 사람의 독립 글자별 교열 및 전문가 최종 승인 HOLD.
