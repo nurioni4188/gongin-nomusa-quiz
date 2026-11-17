@@ -58,3 +58,12 @@ python scripts/nomusa-v23-validation-ledger.py .
 ```
 
 **주의:** V25 사전검증은 이미 교정된 최신 ledger SHA를 기준으로 재실행하면 2개 SHA 변화가 0으로 나올 수 있다. 이 경우 이전 V24 기준원장/Actions 증빙과의 diff를 별도로 사용해야 하며, 미변경이라고 오류 주장하거나 새 답안 수정으로 건수를 맞추지 않는다.
+
+## V25 실측 실행 완료 (2026-11-18)
+
+- PDF 원본 이미지 확인용 [Actions #44159068617](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44159068617) PASS, artifact `14362367155`.
+- 전체 교정/실제 Chromium 회귀검증 [Actions #44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) **PASS**. 전체 139초(2026-11-17 19:43:12~19:45:31 UTC), V23 원장 재생성 22.479초.
+- 결과: 328 원전 연결/Q-Net 해시 보존, 2019·2020 sourceText SHA 2개 변경·나머지 326개 불변, HIGH **327** / MEDIUM **1**(`2016_p5_q2`, PDF 시각 일치하나 OCR `그리고/그러고` 오인식), 요지문항 0, 전문가 승인 0/328 HOLD.
+- 재현 가능한 결과 보고서 `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`; 자동 검증 아티팩트 `14364131025`.
+- 유의: 2019·2020 원시 카탈로그 `points`는 기존 V18 검증 구조에서 0/미지정이고 `verifiedPointsV18=25`가 실효 점수이다. 원시 카탈로그 배점값을 **수정하지 말 것**. V25 원문 게이트는 인쇄 `(25점)`을 확인하고 V18/V23 전체 배점 게이트를 별도로 실행한다.
+- 초기 오진 FAIL은 입력 구조 관련 사전검증 오류이고 기출 원문 불일치가 아니다. `FINAL_APPROVAL=HOLD` 및 독립 글자별 교열 HOLD 유지.
