@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/nomusa-v24-verbatim-30-gate.yml'
       - 'scripts/nomusa-v24-verbatim-check.py'
+      - 'scripts/nomusa-v24-browser-overlay-smoke.py'
       - 'scripts/nomusa-v23-validation-ledger.py'
       - 'second/nomusa-v24-*.js'
       - 'second/index.html'
@@ -45,6 +46,8 @@ jobs:
           python scripts/nomusa-v22-original-expert-packets.py --self-test
           python scripts/nomusa-v23-validation-ledger.py --self-test
           python scripts/nomusa-v24-verbatim-check.py --self-test
+      - name: Verify V24 JS source projection gate is PASS in both study pages
+        run: python scripts/nomusa-v24-browser-overlay-smoke.py .
       - name: Full PC 1440px and mobile 390px/360px Chromium 328-question E2E
         run: python scripts/nomusa-canonical-shared-browser-gate.py .
       - name: Reuse V19 V21 V22 risk and draft model
