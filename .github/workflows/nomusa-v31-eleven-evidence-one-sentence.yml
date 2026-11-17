@@ -1,0 +1,99 @@
+name: NOMUSA V31 eleven source checks one grounded 2026 correction
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v31-eleven-evidence-one-sentence.yml'
+      - 'scripts/nomusa-v31-11-primary-evidence-one-edit-gate.py'
+      - 'second/nomusa-v11-admin-2024-2026.js'
+      - 'review/NOMUSA_V31_11_PRIMARY_SOURCE_EXAM_DATE_EVIDENCE_20261118.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nomusa-v31-one-source-edit-review
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout existing review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install existing browser and PDF HWP symbolic dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Test evidence gate and save unchanged 328-old-SHA ledger
+        run: |
+          python scripts/nomusa-v31-11-primary-evidence-one-edit-gate.py --self-test
+          python scripts/nomusa-v23-validation-ledger.py --self-test
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/v31_baseline.json
+      - name: Real Chromium PC and mobile exported 328 detailed and compressed answers
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Recalculate full V23 ledger with exactly one revised sentence SHA
+        run: python scripts/nomusa-v23-validation-ledger.py .
+      - name: Reuse V30 previous corrections and validate 328 real browser hashes
+        run: python scripts/nomusa-v30-reuse-history-time-gate.py . --rendered
+      - name: Strict 11 grounded evidence and single-SHA correction with 327 unchanged
+        run: python scripts/nomusa-v31-11-primary-evidence-one-edit-gate.py . --before-ledger /tmp/v31_baseline.json
+      - name: Recreate existing 328 seven-subject expert review packets for new SHA
+        run: python scripts/nomusa-v26-substantive-review-packets.py .
+      - name: Ensure there is only one source-index ledger change and no approvals
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          now=json.loads(Path('review/NOMUSA_V23_VALIDATION_LEDGER.json').read_text())
+          evidence=json.loads(Path('review-artifacts/NOMUSA_V31/NOMUSA_V31_11_EVIDENCE_SHA_DIFF.json').read_text())
+          assert evidence['summary']['changedManuscripts']==['2026-행정쟁송법|2|0']
+          assert evidence['summary']['unmodifiedManuscripts']==327
+          assert evidence['summary']['expertApproved']==0
+          assert now['summary']['qnetOfficialByteIdentical']==328
+          assert now['summary']['sourceVerifiedQuestion']==328
+          assert now['summary']['independentExpertApproved']==0
+          assert now['summary']['finalApproval']=='HOLD (0/328)'
+          print('PASS_V31_1_SINGLE_CORRECTION_327_PRESERVED_328_QNET_EXPERT_HOLD')
+          PY
+          test "$(git diff --name-only)" = "review/NOMUSA_V23_VALIDATION_LEDGER.json"
+      - name: Commit only the exact new ledger SHA to this review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_V23_VALIDATION_LEDGER.json
+          git commit -m 'review(v31): lock one sourced 2026 admin essay SHA in 328-row ledger'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo "REVIEW_LEDGER_HEAD=$(git rev-parse HEAD)"
+      - name: Upload exact SHA evidence and reissued expert reviewer packets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v31-11-evidence-one-correction-328-expert-packets
+          path: |
+            review-artifacts/NOMUSA_V31/**
+            review-artifacts/NOMUSA_V26/**
+            review/NOMUSA_V31_11_PRIMARY_SOURCE_EXAM_DATE_EVIDENCE_20261118.json
+            review/NOMUSA_V23_VALIDATION_LEDGER.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Scope and external expert certification status
+        if: always()
+        run: |
+          echo 'MAIN_PRODUCTION_PREVIEW_UNTOUCHED_BY_V31=1'
+          echo 'NO_EMAIL=1 NO_INDEPENDENT_SIGNATURE=1 NO_DEPLOYMENT=1'
+          echo 'FINAL_CONTENT_APPROVAL=HOLD_0_OF_328'
