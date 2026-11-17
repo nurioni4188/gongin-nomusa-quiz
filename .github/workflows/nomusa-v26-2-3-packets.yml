@@ -1,0 +1,94 @@
+name: NOMUSA V26-2 and V26-3 evidence-based content and expert packets
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v26-2-3-packets.yml'
+      - 'scripts/nomusa-v26-substantive-review-packets.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v26-2-3-review-packets
+  cancel-in-progress: true
+
+jobs:
+  validate-and-package:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout existing review branch read only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reusable Chromium and PDF dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7
+          python -m playwright install chromium --with-deps
+      - name: Original V19 V21 V22 and new V26 self-tests
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+          python scripts/nomusa-v26-substantive-review-packets.py --self-test
+      - name: Lock immutable 328-row ledger and manifest before generating packets
+        run: |
+          sha256sum review/NOMUSA_V23_VALIDATION_LEDGER.json review/NOMUSA_V23_QNET_OFFICIAL_MANIFEST.json > /tmp/NOMUSA_V26_SOURCE_SHA256.txt
+      - name: Export real 20-year 328 question and model-answer texts via Chromium PC and mobile
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Reuse V19 328 quality and V21 19 plus 77 original precheck
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+      - name: Reuse V22 source packet and question SHA crosscheck
+        run: python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Generate V26-2 96 review triage and V26-3 all 328 independent reviewer packets
+        run: python scripts/nomusa-v26-substantive-review-packets.py .
+      - name: Final strictly read-only scope and independent approval check
+        run: |
+          sha256sum -c /tmp/NOMUSA_V26_SOURCE_SHA256.txt
+          python - <<'PY'
+          import json, pathlib, zipfile
+          out=pathlib.Path('review-artifacts/NOMUSA_V26')
+          r=json.load(open(out/'NOMUSA_V26_2_96_CONTENT_PRECHECK.json'))
+          s=r['summary']
+          assert s['total']==328 and s['V26_2_totalPriority']==96
+          assert s['V26_2_pilot2022']==19 and s['V26_2_lengthProxy']==77
+          assert s['V26_3_subjects']==7 and s['independentExpertApproved']==0
+          assert s['finalApproval']=='HOLD' and not s['deployment'] and not s['expertEmailsSent']
+          zips=list((out/'NOMUSA_V26_3_SUBJECT_ZIPS').glob('*.zip'))
+          assert len(zips)==7
+          n=0
+          for z in zips:
+              with zipfile.ZipFile(z) as f:
+                  assert f.testzip() is None
+                  n+=len([x for x in f.namelist() if x.endswith('.review.json')])
+          assert n==328
+          print('PASS_V26_2_3_96_PRIORITY_328_EXPERT_PACKETS_7_SUBJECTS_NO_APPROVAL_NO_DEPLOY')
+          PY
+          git diff --exit-code
+      - name: Upload V26-2 and V26-3 evidence and review-only packages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v26-2-96-content-and-v26-3-328-seven-subjects
+          path: |
+            review-artifacts/NOMUSA_V26/**
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Confirm no external expert authorization or operational deployment
+        if: always()
+        run: |
+          echo 'MAIN_PRODUCTION_PREVIEW_UNTOUCHED_BY_V26_WORKFLOW=1'
+          echo 'NO_EMAIL=1 NO_EXPERT_SIGNATURE=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'
