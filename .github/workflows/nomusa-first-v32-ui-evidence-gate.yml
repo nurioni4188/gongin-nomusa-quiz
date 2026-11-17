@@ -17,7 +17,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: nomusa-first-v32-review-only
+  group: nomusa-first-v32-final-e2e-20261118
   cancel-in-progress: true
 jobs:
   validate:
