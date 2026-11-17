@@ -60,3 +60,14 @@ description: "공인노무사 2차 2022년 남은 13개 문항의 법원·학술
 
 ## 다음 실제 심사
 시험일 법령·부칙의 효력/원판결 전문 및 적용, 학술 논문 전체 실험·원저서 본문, 실제 필기 시간·장수, 328개 중 우선 96개 독립 전문가 서면검토를 진행한다. 전문가 승인 0/328을 위조·자동승격하지 않는다.
+
+## V28 실제 자동실행 결과 (2026-11-18)
+
+- 최종 [GitHub Actions #44185316972](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972) **success**, 2026-11-17 21:58:22~22:00:03 UTC (약 **101초**).
+- [Artifact #14374870696](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972/artifacts/14374870696) ZIP 약 4.5MB, 내부 681개 엔트리·과목별 ZIP 7개·전체 CRC PASS.
+- 실제 Chromium 328문항 PC1440/모바일390·360 저장복원, V19/V21/V22, 2022년 19개·32소문항, V27 6 + V28 13 제한적 주장 연결 검증 성공.
+- `2022-hr-1` SHA **`f009babeb757564b6dd2f91bf1462dcb49b920632ef2469d2b764a7747bff280` → `c3557e3b121836011a56822c14b3776e8567f1dd346f7a8d98b71247c9e38c89`**. 다른 327개 원고 SHA 불변, 공식 원본 328/328, 요지문항 0, HIGH 327/MEDIUM 1.
+- **새 SHA로 V26 7과목 328개 전문가 ZIP과 P0/P1 96개 우선심사 ZIP·발송대장 재생성 완료**. 교정 전 V26 ZIP은 구버전으로 취급.
+- 초기 CI는 원시 N27 카탈로그 128개와 Canonical 상세/압축 328개가 별개인 점을 잘못 해석해 HOLD. 현재 교정은 `window.NOMUSA_CANONICAL_SELECTION_V1.items`에만 적용. 출력 파일명 잘못된 glob도 `rc27_essay_catalog.js` 원본 기출문구 직접검사로 교정.
+- 전체 보고서: `review/NOMUSA_V28_2022_19_EXECUTION_20261118.md`.
+- 모든 법령시점·판례 전문·학술 전체 본문·수기실측·독립 전문가 내용승인은 **0/328 HOLD**. `main`·Production·Preview 직접 변경/이메일 없음.
