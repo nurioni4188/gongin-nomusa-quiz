@@ -94,6 +94,14 @@ def first_2022_pdf_check(path:Path, source:str, out:Path, cap:int=10):
     import fitz
     doc=fitz.open(path)
     pages=[doc.load_page(i).get_text("text") or "" for i in range(len(doc))]
+    # Render actual PDF pages for expert visual checks of formulae, tables and graphs.
+    previews=out/"NOMUSA_V22_2022_PDF_PAGE_PREVIEWS"
+    previews.mkdir(parents=True,exist_ok=True)
+    for i in range(len(doc)):
+        target=previews/(path.stem+"__page%02d.png"%(i+1))
+        if not target.exists():
+            image=doc.load_page(i).get_pixmap(matrix=fitz.Matrix(1.55,1.55),alpha=False)
+            image.save(str(target))
     combined="\n".join(pages)
     scores=[overlap(source, t) for t in pages]
     page=(scores.index(max(scores))+1) if scores and max(scores)>0 else None
