@@ -168,8 +168,8 @@ def main():
     finally:
         server.shutdown()
     result={"schema":"NOMUSA_FIRST_V32_STATUS_UI_GATE/1",
-            "status":"PASS_UI_NO_SCORING_PROMOTION" if len(tests)==14 else "HOLD_CHECK_COUNT",
-            "expected":14,"passed":len(tests),"tests":tests,"evidence":base,
+            "status":"PASS_UI_NO_SCORING_PROMOTION" if len(tests)==17 else "HOLD_CHECK_COUNT",
+            "expected":17,"passed":len(tests),"tests":tests,"evidence":base,
             "noAnswerKeyMutation":True,
             "noOriginalQuestionIdOrStorageKeyChange":True,
             "legacyScoring":"DISABLED","existing2022to2026Scoring":"UNMODIFIED",
