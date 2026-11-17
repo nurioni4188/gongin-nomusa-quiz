@@ -20,7 +20,7 @@ if(matches.length!==1){fail(['TARGET_NOT_UNIQUE']);return;}
 const item=matches[0],prior=item.q;
 if(Number(prior.year)!==2022 || prior.subject!=='인사노무관리론' ||
  Number(prior.points)!==50 || !prior.detailed || !prior.compressed ||
- prior.scoringApproved!==false){
+ prior.scoringApproved===true){
  fail(['TARGET_YEAR_SUBJECT_SCORE_OR_APPROVAL_MISMATCH']);return;
 }
 const changes=[
