@@ -12,6 +12,7 @@ on:
       - 'study-hub/app.js'
       - 'index.html'
       - 'scripts/nomusa-first-v32-status-ui-gate.py'
+      - 'scripts/nomusa-auto-v12-browser-gate.py'
   workflow_dispatch:
 
 permissions:
@@ -41,8 +42,22 @@ jobs:
         run: python scripts/nomusa-first-v32-status-ui-gate.py
       - name: Reuse existing V71 exact Q-Net page and 600-grid 42 Chromium checks
         run: python scripts/nomusa-first-v71-visual-page-gate.py
-      - name: Full integrated 1st/2nd/hub 13 Chromium checks and save restore
-        run: python scripts/nomusa-first-v6-fullhub-gate.py .
+      - name: Verify original 3400 candidate answers and 900 Q-Net source records
+        run: |
+          node scripts/nomusa-first-v61-answer-audit.mjs . > /tmp/nomusa-first-v32-official-source-audit.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/nomusa-first-v32-official-source-audit.json'))
+          assert x['status']=='PASS_INTERNAL_CONSISTENCY',x
+          assert x['records']==3400 and x['sourceLinks']['records']==900
+          print('PASS_V32_ORIGINAL_3400_900_LEDGER')
+          PY
+      - name: Reuse full RC35 first-stage and legacy PDF save restore browser tests
+        run: |
+          python -m py_compile scripts/nomusa-auto-v12-browser-gate.py
+          python scripts/nomusa-auto-v12-browser-gate.py . --first-only
+      - name: Modern 2007 to 2026 canonical essay and study-hub PC/mobile regression
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
       - name: Assert unchanged official answers and legacy scoring lock
         run: |
           python - <<'PY'
