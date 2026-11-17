@@ -46,8 +46,13 @@ def run(root):
         if h(q)!=oldr["textSHA256"]:changes.append(i)
     if changes!=[TARGET]:raise ValueError("HOLD_NOT_ONE_GOLDSTEIN_CHANGE_"+repr(changes))
     item=now[TARGET]
-    if item["sourceText"]!=next(r["sourceText"] for f in (root/"review-artifacts").glob("nomusa_2022_rendered*.json") for r in read(f)["rows"] if r["id"]==TARGET):
-        raise ValueError("HOLD_TARGET_SOURCE_UNKNOWN")
+    # Compare against the unmodified raw printed-question catalog; never rely on
+    # a filename glob for the browser export (it is nomusa_2022_*_rendered*.json).
+    raw=(root/"rc27_essay_catalog.js").read_text(encoding="utf-8")
+    original=json.loads(raw.split("=",1)[1].strip().rstrip(";"))
+    source=[q for q in original["items"] if q["id"]==TARGET]
+    if len(source)!=1 or item["sourceText"]!=source[0]["sourceText"]:
+        raise ValueError("HOLD_2022_HR1_PRINTED_SOURCE_CHANGED")
     detail=item["detailed"];short=item["compressed"]
     if "Human Relations" in detail or "⑥ 경영 시뮬레이션" in detail or "경영시뮬" in short:
         raise ValueError("HOLD_GOLDSTEIN_OLD_ERROR_REMAINS")
