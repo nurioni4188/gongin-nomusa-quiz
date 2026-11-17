@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# --first-only: current V32-safe 1차 RC35 + legacy PDF E2E, skips obsolete V6-era 2차 count assertions.
 """NOMUSA-AUTO V6.8 local Chromium gate. Run against the exact review branch checkout.
 Does not change files, GitHub, Vercel or localStorage outside temporary Chromium contexts.
 Requires Playwright and Chromium. Set NOMUSA_CHROMIUM for a custom binary.
@@ -300,7 +301,7 @@ def check_legacy_sources(page, width):
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=os.environ.get('NOMUSA_CHROMIUM'),headless=True,args=['--no-sandbox'])
  for width in (1440,390,360):
-  for view in ('first','second','hub','legacy_first'):
+  for view in (('first','legacy_first') if '--first-only' in sys.argv[2:] else ('first','second','hub','legacy_first')):
    with browser.new_context(viewport={'width':width,'height':860}) as context:
     page=context.new_page()
     if view=='first':
@@ -309,21 +310,22 @@ with sync_playwright() as p:
      check_legacy_sources(page,width)
     else:
      check(page,view,width)
- qa_page=browser.new_page(viewport={'width':1440,'height':900})
- qa_errors=[]
- qa_page.on('pageerror',lambda error:qa_errors.append(str(error)))
- try:
-  qa_page.goto(base+'/study-hub/qa.html')
-  qa_page.locator('#run-qa').click()
-  qa_page.wait_for_function("!document.querySelector('#run-qa').disabled",
-                            polling=100,timeout=100000)
-  qa=qa_page.evaluate('JSON.parse(localStorage.getItem(HUB_QA.resultKey))')
-  assert qa and len(qa['checks'])==21 and not qa_errors
-  results.append({'name':'existing_hub_qa','status':'PASS' if all(
-      check['status']=='PASS' for check in qa['checks']) else 'HOLD','checks':qa['checks']})
- except Exception:
-  results.append({'name':'existing_hub_qa','status':'HOLD','errors':qa_errors,
-                  'detail':traceback.format_exc(limit=2)[-1700:]})
+ if '--first-only' not in sys.argv[2:]:
+  qa_page=browser.new_page(viewport={'width':1440,'height':900})
+  qa_errors=[]
+  qa_page.on('pageerror',lambda error:qa_errors.append(str(error)))
+  try:
+   qa_page.goto(base+'/study-hub/qa.html')
+   qa_page.locator('#run-qa').click()
+   qa_page.wait_for_function("!document.querySelector('#run-qa').disabled",
+                             polling=100,timeout=100000)
+   qa=qa_page.evaluate('JSON.parse(localStorage.getItem(HUB_QA.resultKey))')
+   assert qa and len(qa['checks'])==21 and not qa_errors
+   results.append({'name':'existing_hub_qa','status':'PASS' if all(
+       check['status']=='PASS' for check in qa['checks']) else 'HOLD','checks':qa['checks']})
+  except Exception:
+   results.append({'name':'existing_hub_qa','status':'HOLD','errors':qa_errors,
+                   'detail':traceback.format_exc(limit=2)[-1700:]})
  version=browser.version
  browser.close()
 server.shutdown()
