@@ -1,0 +1,115 @@
+name: NOMUSA V25 3 MEDIUM original-page source audit and 328 browser regression
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v25-medium-source-gate.yml'
+      - 'scripts/nomusa-v25-medium-source-gate.py'
+      - 'scripts/nomusa-v25-browser-source-smoke.py'
+      - 'second/nomusa-v25-apply-medium-source-3.js'
+      - 'second/index.html'
+      - 'study-hub/index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nomusa-v25-medium-gate
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout review branch only
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install existing Chromium/PDF/HWP validators
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Validate existing test algorithms and V25 matcher
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+          python scripts/nomusa-v23-validation-ledger.py --self-test
+          python scripts/nomusa-v25-medium-source-gate.py --self-test
+      - name: Check V25 original source display in both study pages
+        run: python scripts/nomusa-v25-browser-source-smoke.py .
+      - name: Existing Chromium desktop 1440 and mobile 390 / 360 E2E
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Existing V19 V21 V22 complete manuscript/source checks
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+          python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Verify two precise corrections and 326 SHA-preserved manuscripts
+        run: python scripts/nomusa-v25-medium-source-gate.py .
+      - name: Reuse V23 cached original-paper crosschecker (no new official file downloads)
+        run: |
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/v23_before_v25.json
+          python scripts/nomusa-v23-validation-ledger.py .
+      - name: Assert source hashes, 3 original files, 328 no-expert approval
+        run: |
+          python - <<'PY'
+          import json
+          b=json.load(open('/tmp/v23_before_v25.json'))
+          a=json.load(open('review/NOMUSA_V23_VALIDATION_LEDGER.json'))
+          old={r['id']:r for r in b['rows']}
+          new={r['id']:r for r in a['rows']}
+          assert set(old)==set(new) and len(new)==328
+          changed={i for i in new if old[i]['textSHA256']!=new[i]['textSHA256']}
+          assert changed=={'2019_p4_q3','2020_p7_q3'},changed
+          assert new['2016_p5_q2']['textSHA256']==old['2016_p5_q2']['textSHA256']
+          assert a['summary']['qnetOfficialByteIdentical']==328
+          assert a['summary']['storedQuestionIsSummary']==0
+          assert a['summary']['sourceVerifiedQuestion']==328
+          assert a['summary']['independentExpertApproved']==0 and a['summary']['finalApproval']=='HOLD (0/328)'
+          assert all(r['verdicts']['finalApproval']=='HOLD' for r in a['rows'])
+          result={'schema':'NOMUSA_V25_LEDGER_REGENERATION_GATE/1',
+                 'changes':sorted(changed),'unchanged':326,
+                 'high':a['summary']['matchBands'].get('HIGH',0),
+                 'medium':a['summary']['matchBands'].get('MEDIUM',0),
+                 'qnetHashes':328,'summaries':0,'expertApprovals':0,'finalApproval':'HOLD'}
+          print(json.dumps(result,ensure_ascii=False))
+          with open('review-artifacts/NOMUSA_V25_LEDGER_DIFF.json','w') as out:json.dump(result,out,ensure_ascii=False,indent=2)
+          PY
+      - name: Commit new source hashes in existing review branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_V23_VALIDATION_LEDGER.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(v25): refresh V23 328-row SHA ledger after two verified source corrections'
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo "REVIEW_SHA=$(git rev-parse HEAD)"
+      - name: Upload V25 3-source audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v25-3-medium-2-source-fixes-328-regression
+          path: |
+            review/NOMUSA_V25_MEDIUM_3_PRIMARY_PAGE_CROSSCHECK_20261118.json
+            review-artifacts/NOMUSA_V25_MEDIUM_3_CORRECTION_AUDIT.json
+            review-artifacts/NOMUSA_V25_LEDGER_DIFF.json
+            review/NOMUSA_V23_VALIDATION_LEDGER.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve full expert HOLD and do not deploy
+        if: always()
+        run: |
+          echo 'NO_MAIN_NO_PRODUCTION_NO_PREVIEW_NO_EMAIL=1'
+          echo 'NO_LEARNER_KEYS_NO_ORIGINAL_PDF_CHANGES=1'
+          echo 'THREE_PDF_IMAGES_AI_CHECKED_NOT_HUMAN_EXPERT_APPROVED=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'
