@@ -22,7 +22,7 @@ try:
      const c=window.N27_CATALOG?.items||[],g=window.NOMUSA_V25_MEDIUM_GATE;
      const rows=['2016_p5_q2','2019_p4_q3','2020_p7_q3'].map(id=>{
        const q=c.find(x=>x.id===id);return {id,sourceText:q?.sourceText,
-         corrected:!!q?.sourceTextBeforeV25,score:q?.points,scoringApproved:q?.scoringApproved};
+         corrected:!!q?.sourceTextBeforeV25,score:Number(q?.points||window.NOMUSA_CANONICAL_SELECTION_V1?.items?.[id]?.verifiedPointsV18||0),scoringApproved:q?.scoringApproved};
      });return {gate:g,rows,canonicalCount:Object.keys(window.NOMUSA_CANONICAL_SELECTION_V1?.items||{}).length};
    }""")
    print(json.dumps({"page":u,"status":z["gate"]["status"],"sourceCorrections":z["gate"].get("corrected"),
