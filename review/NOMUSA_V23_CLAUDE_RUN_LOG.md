@@ -93,3 +93,13 @@ python -c "import sys;sys.path.insert(0,'scripts');from nomusa_v23_case_lookup i
 - 최종 GitHub Actions [44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) **success**: 2026-11-17 19:43:12~19:45:31 UTC(약 **139초**). 328문항 PC·모바일 E2E PASS, 2019·2020 2문항 원문 SHA 변경·326개 변경 없음, Q-Net 해시 일치 328, 원문 HIGH 327·MEDIUM 1, 독립승인 0.
 - V23 원장 재생성 실행 **22.479초**, 원장 자동커밋은 검토 브랜치에만. 보고서 `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`, 새 스킬 `.claude/skills/nomusa-v25-three-medium-pdf-proofread/SKILL.md`.
 - 기존 Draft PR #3 미병합, `main`·Production·Preview·RC27/RC35·사용자 저장키·공식 PDF 변경 없음, 이메일 발송 없음. 법령/학술 원전, 독립 인쇄 글자별 교열, 서면 전문가 내용승인 0/328 HOLD.
+
+## 9. ChatGPT V26-2/3 자동검증 및 독립 전문가 패킷 (2026-11-18)
+
+- 검토 브랜치 review/nomusa-auto-v1-20year-gate-20261115 / Draft PR #3만 사용.
+- `scripts/nomusa-v26-substantive-review-packets.py`로 기존 20개년 Chromium 실화면 원고, V19/V21/V22/V23 검증원장 및 2022 4개 공식 판시요지/별도 3개 판례 교차확인 후보를 연결.
+- V26-2: P0 19 / 32소문항 + P1 77, 총 96개 SHA 고정 문항의 AI 사전검증 근거·검토위험 작성.
+- V26-3: 7개 과목별 총 328개 상세 검토원고와 실제 검토자 공란 서식 JSON 328개·발송대장 CSV. **발송 미실행**.
+- [Actions #44169285275](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275) completed/success, 2026-11-17 20:26:15~20:27:53 UTC (**98초**), [artifact 14366582593](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275/artifacts/14366582593).
+- ZIP/빈 서식 수량·CRC PASS, V23 원본해시·문항ID·원고 SHA 불변, 기존 메인·운영 파일 변경 없이 Github review 코드·스킬만 저장. 직접 배포 명령 없음.
+- 법령/판례 전문/학술 원서/수기실측 및 외부 전문가 승인 **HOLD (0/328)**. 정확한 결과 및 재현 보고서 `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
