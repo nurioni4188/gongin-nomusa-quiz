@@ -2,18 +2,17 @@
  "summary": {
   "schema": "NOMUSA_V23_VALIDATION_LEDGER/1",
   "reviewDate": "2026-11-17",
-  "startedUTC": "2026-11-17T13:07:05+00:00",
+  "startedUTC": "2026-11-17T13:57:29+00:00",
   "total": 328,
   "years": 20,
   "baseline2022": 19,
   "remaining": 309,
   "qnetOfficialByteIdentical": 328,
   "sourceVerifiedQuestion": 328,
-  "storedQuestionIsSummary": 30,
+  "storedQuestionIsSummary": 0,
   "matchBands": {
-   "HIGH": 296,
-   "MANUAL_TOPIC_POINTS_MATCH": 30,
-   "MEDIUM": 2
+   "HIGH": 325,
+   "MEDIUM": 3
   },
   "caseCitationsDistinctOccurrences": 216,
   "distinctCaseNumbers": 100,
@@ -29,18 +28,16 @@
    "SOURCE_VERIFIED": 328,
    "ACADEMIC_OR_CASE_HOLD": 328,
    "EXPERT_SIGNOFF_PENDING": 328,
-   "MODEL_RECALCULATED": 13,
-   "CORRECTION_REQUIRED": 30
+   "MODEL_RECALCULATED": 13
   },
   "issueCounts": {
-   "CASE_NOT_FOUND_ON_LAW_GO_KR": 5,
-   "STORED_QUESTION_IS_SUMMARY_NOT_OFFICIAL_TEXT": 30
+   "CASE_NOT_FOUND_ON_LAW_GO_KR": 5
   },
   "independentExpertApproved": 0,
   "finalApproval": "HOLD (0/328)",
   "qnetManifestRetrievedUTC": "2026-11-17T12:26:36+00:00",
-  "scriptSeconds": 30.317,
-  "finishedUTC": "2026-11-17T13:07:36+00:00",
+  "scriptSeconds": 22.007,
+  "finishedUTC": "2026-11-17T13:57:51+00:00",
   "noDeploymentNoMutationOfOriginals": true
  },
  "rows": [
@@ -9549,7 +9546,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "f3fff374da3697d422966703ac84d68581d8cc78f814af8464f50cbc505b2a60",
+   "textSHA256": "0b40abfee763441c33975bb1417af085f3fd57036c916087fb0dfb5d31a45431",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9565,8 +9562,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0606,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -9574,7 +9571,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -9602,7 +9599,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -9623,7 +9619,7 @@
    "points": 25,
    "reviewTierV21": "P2_SOURCE_OR_CONTENT_TODO",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "69d5a62fc25b8c311641c4feae876b0ab1f6a1201ae342260c6a8b43e40791df",
+   "textSHA256": "dc74ae1e3f96a38ff3fb5819ca042cf7e2b0c602d2f31b3ab1f59a5ef308c11c",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9639,8 +9635,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1364,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -9648,7 +9644,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -9670,7 +9666,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -9691,7 +9686,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "f51806d5b02530c3e67d50519734ff20bc8fa5550703b2a586e7148d77400b40",
+   "textSHA256": "db44c9b1ab916770a5926f16fb2aab41aeadce8659d5b4bb743be0474c57c559",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9707,8 +9702,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0758,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -9716,7 +9711,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -9744,7 +9739,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -9765,7 +9759,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "ef4e9a1599082e68176762f24ea6d46fcbdfce6c451eede456d006d9db0682b9",
+   "textSHA256": "039cb0e7ca83be66cd1f6dab3312e72f50d6709d13d994ca02c7ff2202d6c9c7",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9781,8 +9775,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1364,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -9790,7 +9784,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -9848,7 +9842,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -9869,7 +9862,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "96fafe54938a93a39095034802aed1b1c32fc61feaa6649e9e09a7745e0d45c2",
+   "textSHA256": "112e280c5579697bdd5e57915f520136ed60c43595a0b505d47073aeee7b587f",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9885,8 +9878,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1077,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -9894,7 +9887,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -9932,7 +9925,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -9953,7 +9945,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "84dd24bb2b2ec759a159e0763966c30445808f021e2ab7680d42d2357f34d59a",
+   "textSHA256": "cd47b9223cd2f1dde29afc44071189698166e26f56097ee57e58b95bd44d30e5",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -9969,8 +9961,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.127,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -9978,7 +9970,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10000,7 +9992,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10021,7 +10012,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "0a8ccfd43aca97cc6a481c755e6b5cac1172f90f718519e4853ab90c3bd1c0b4",
+   "textSHA256": "825a7a9183103fc68d98fed4f27f23a601b4d1acdbbfffbe21149ce829af89c3",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10037,8 +10028,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0758,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.9596,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -10046,7 +10037,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10089,7 +10080,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10110,7 +10100,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "6ae9a0721777f037245934cb5423a5eaf26197e715b31d602185cabe98fee01a",
+   "textSHA256": "5dbb4f8975564546bae1175dbd2612460c0eee224424a874074ab176653b5836",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10126,8 +10116,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1667,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10135,7 +10125,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10163,7 +10153,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10184,7 +10173,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "77a81465bace24da5840b1d3609cfee8154aefa39dee3d9b9e8e9a107c218e6a",
+   "textSHA256": "72638b46ebaf724052c3739b1389a6c747df044e2cc12dfb7f5ce479b7250355",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10200,8 +10189,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1385,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10209,7 +10198,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10231,7 +10220,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10252,7 +10240,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "abfd4c19ce5beecc9c6dd5e4f74d1a0544511e6fcd599d7bd3c46a490e153f1c",
+   "textSHA256": "5ff070368ebfb82239305c16ad0a4f99e150ec252de0bdc000f9e477d367b887",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10268,8 +10256,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0159,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -10277,7 +10265,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10315,7 +10303,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10336,7 +10323,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "011e76279c3db123364292583e075c92bdc603535d728be11f24e1ca9ab18111",
+   "textSHA256": "d3cfada1dc9817e3be5c537fe92f2b85ef91c64fa37244728155fa68263decbe",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10352,8 +10339,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0323,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.8,
+    "matchBand": "MEDIUM",
     "pointsTokens": [
      "25"
     ],
@@ -10361,7 +10348,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10389,7 +10376,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10410,7 +10396,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "52a2b3acc5e56841fe69f836f159bdd49c969382121cc528be4dd39aff1320d3",
+   "textSHA256": "417c27911a0dffa69734139ee91d390d8dbbbe872aafb7dd7c7b84f9dfcba028",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10426,8 +10412,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0769,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10435,7 +10421,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10457,7 +10443,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10478,7 +10463,7 @@
    "points": 50,
    "reviewTierV21": "P2_SOURCE_OR_CONTENT_TODO",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "dc171423e5c542b82b8ac6fe25585f0dad729525cac8d30ca4b18d71f77fccf4",
+   "textSHA256": "efb42694f1ff01a2a1600f96c17f35bad9c110d0e6e7b848f137ec18e99347b9",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10494,8 +10479,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0597,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.9286,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -10503,7 +10488,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10525,7 +10510,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10546,7 +10530,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "6726fbff39459be86f62c60b117567122978ca3b94a6f7bb29cdff81a85e2bdf",
+   "textSHA256": "52a1f68deab92f01cea6dce058c77f75e18dde673e7cd1be95d03e1d124857a9",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10562,8 +10546,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0645,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10571,7 +10555,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10604,7 +10588,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10625,7 +10608,7 @@
    "points": 25,
    "reviewTierV21": "P2_SOURCE_OR_CONTENT_TODO",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "cd0b3e5e47c5b4075dc9ebe175b891afaf640e2b0a5f79cec0b81a21c49265d6",
+   "textSHA256": "c0199755cd6c559110557decbb34bfe189738527ca64e38e2163fb6a18c1112c",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10641,8 +10624,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1212,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10650,7 +10633,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10672,7 +10655,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10693,7 +10675,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "4e4ab457c0505d1f52aaabced7136190461e1888f0691eedfd19d2c45211dc64",
+   "textSHA256": "fb62ce76056a50855cfdf0676944e227dab4ddddfd30374d74a72df0106c60b7",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10709,8 +10691,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0441,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.9895,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "50"
     ],
@@ -10718,7 +10700,7 @@
      "50"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10751,7 +10733,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10772,7 +10753,7 @@
    "points": 25,
    "reviewTierV21": "P1_77_PROXY_SHORTFALL",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "57f97fb3dcd5764043f2cf0b29322160a701f6103f6aa7dc8ad3cfb471b5c397",
+   "textSHA256": "0060d2cba767c4bcf4623b23b864a8f5aec97b2193c56e8b19cce0158a1acb25",
    "isLengthProxyPriority77": true,
    "source": {
     "candidateFiles": [
@@ -10788,8 +10769,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0606,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.8906,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10797,7 +10778,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10819,7 +10800,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10840,7 +10820,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "48b3d71b2c1536f61bfbaaf9c370ec49ff4af20e2e25f5a8f2ba6e3a18d5d6a5",
+   "textSHA256": "2d74eb73dbf7a7d6737a1c7e8958fd171e502a4a8e0c3f9aac5dc5d87437fecf",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10856,8 +10836,8 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.129,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
+    "questionTextOverlap": 0.9563,
+    "matchBand": "HIGH",
     "pointsTokens": [
      "25"
     ],
@@ -10865,7 +10845,7 @@
      "25"
     ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10898,7 +10878,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10919,7 +10898,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "8d6c595f1863f03582679231dceba77eda70034c16afdfeddd2f3a4c96434c56",
+   "textSHA256": "7686dca4a269881f2470494ea8770d68fd73db6fe3d9cbd92d65d063c3c5b4c9",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -10936,12 +10915,16 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.15,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "50"
+    ],
+    "pointsFoundInOfficial": [
+     "50"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -10974,7 +10957,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -10995,7 +10977,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "9a89349a2681e5c9c989f65ae298d963b0fa6b9c4fb7a0f6d891a11e1111d6a8",
+   "textSHA256": "179993a6512cce04e5f308f9260a7472dc6234ba542fcdae1956b8c99e151ca5",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -11012,12 +10994,16 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.3333,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -11039,7 +11025,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -11060,7 +11045,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "9e4259784f999f11a8d8d714987a26d54bd6728d957ff05919ecac087f34742c",
+   "textSHA256": "2c16652ef7feec27c8043690fec638a25c098c88a38aba8e266296b8d7c7ce29",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -11077,12 +11062,16 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.25,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -11104,7 +11093,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -11125,7 +11113,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "6653f36219d0502b3374e78071531eae9ccec431ec60854ef0e418be254cbd12",
+   "textSHA256": "70330bc42a761427fe41cb665536f5c4aa313a7f10401666394e3524817d4c1d",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -11142,12 +11130,20 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.027,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 0.9223,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "50",
+     "20",
+     "30"
+    ],
+    "pointsFoundInOfficial": [
+     "50",
+     "20",
+     "30"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -11185,7 +11181,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -11206,7 +11201,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "47342222fa2e564c768e649df181dc9aa4c61692c64298eeb7e45db41bfea57d",
+   "textSHA256": "b6b6e47102c573c7d7c0130d85c113676852e33a24af189e1c6419039806e2ac",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -11223,12 +11218,16 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.3182,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -11256,7 +11255,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -11277,7 +11275,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "e7539a601b047f9ea684b099e2dc680fba84d530074f1f0eb8da253eecda9056",
+   "textSHA256": "dce237a173f745a3380eaa625ff9dbea46cdcf7baa07f921f186d72ff3b16882",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -11294,12 +11292,16 @@
      "PDF_TEXT_LAYER",
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.075,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -11321,7 +11323,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14281,7 +14282,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "b26afe03d471f9082e2cdf4d98798a13a626233c455d647b222844fe33826e15",
+   "textSHA256": "2fd996710375eccb73a8a5b161f3e0dafa1069a442f9caf8c6fdd714b54956ba",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14298,12 +14299,22 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0698,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 0.9869,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "50",
+     "20",
+     "15",
+     "15"
+    ],
+    "pointsFoundInOfficial": [
+     "50",
+     "20",
+     "15",
+     "15"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14325,7 +14336,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14346,7 +14356,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "97392ea0e68c04c78bcfa9789af1b49ee3a9d050fe1049d47982c72bc3d8f747",
+   "textSHA256": "cd3ccc58f625ccf8cdd99d4996015b0f87247d3e6475a9719f91495a31981067",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14363,12 +14373,24 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1026,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 0.9791,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25",
+     "6",
+     "6",
+     "7",
+     "6"
+    ],
+    "pointsFoundInOfficial": [
+     "25",
+     "6",
+     "6",
+     "7",
+     "6"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14396,7 +14418,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14417,7 +14438,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "3f01e86492af28434cd6401db0ecb605eb501499609341b442289cd16f93586e",
+   "textSHA256": "908bbfd2bb9679a20775c0a065f4308382401d3944e72c2a532e6503b26c5bdf",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14434,12 +14455,20 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.0256,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 0.9447,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25",
+     "10",
+     "15"
+    ],
+    "pointsFoundInOfficial": [
+     "25",
+     "10",
+     "15"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14461,7 +14490,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14482,7 +14510,7 @@
    "points": 50,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "6ff351425d8959bb5f67ed407e58882be0d1ae0bd6a3e37c25b1442cbcc9713e",
+   "textSHA256": "a3d98c329fc2cb34b75d03fb1d2dd5852741616275ba7d7211bd33a496feb922",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14499,12 +14527,16 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.4324,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "50"
+    ],
+    "pointsFoundInOfficial": [
+     "50"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14537,7 +14569,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14558,7 +14589,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "2969a3b312ed24744bb3cc3bdef3b16e488ce3206c12ed7bfb6bdbbc599093e0",
+   "textSHA256": "10ce7cca137ccdd04a20011d2f34f2493fe0b63c147c7292182a22bfc8d26e76",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14575,12 +14606,16 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.2,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 1.0,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14613,7 +14648,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
@@ -14634,7 +14668,7 @@
    "points": 25,
    "reviewTierV21": "P3_ROUTINE_INDEPENDENT_REVIEW",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "f46dd9ee78f35a96f9d04666b3f771f1242a24940caed2b96a5a6d6f98235839",
+   "textSHA256": "543528f76182939f57f6b5c226a1c5393c91934923f8baf0dcee6696cee4c8bd",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
@@ -14651,12 +14685,16 @@
     "extraction": [
      "TESSERACT_KOR_OCR"
     ],
-    "questionTextOverlap": 0.1538,
-    "matchBand": "MANUAL_TOPIC_POINTS_MATCH",
-    "pointsTokens": [],
-    "pointsFoundInOfficial": [],
+    "questionTextOverlap": 0.9756,
+    "matchBand": "HIGH",
+    "pointsTokens": [
+     "25"
+    ],
+    "pointsFoundInOfficial": [
+     "25"
+    ],
     "pointsCheck": "PASS_MANUAL_OCR_READ",
-    "storedQuestionIsSummary": true,
+    "storedQuestionIsSummary": false,
     "manualReview": {
      "verdict": "MANUAL_TOPIC_POINTS_MATCH",
      "pointsConfirmed": true,
@@ -14678,7 +14716,6 @@
    "tags": [
     "PASS_TECHNICAL",
     "SOURCE_VERIFIED",
-    "CORRECTION_REQUIRED",
     "ACADEMIC_OR_CASE_HOLD",
     "EXPERT_SIGNOFF_PENDING"
    ],
