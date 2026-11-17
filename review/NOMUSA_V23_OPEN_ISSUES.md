@@ -64,3 +64,18 @@
 ## 8. 전문가 승인 요청 (변경 없음)
 
 과목별 패킷: CI artifact `NOMUSA_V23_SUBJECT_PACKETS/*.md`. 검토자는 실명·자격·검토일·확인 원전·결론·서명을 **같은 `textSHA256`** 원고에 대해 서면 제출해야 하며, 그 전까지 승인 0/328. 이메일은 발송하지 않았음.
+
+## 9. 판례 3건 외부 출처 교차확인 (2026-11-17, 추가 증빙)
+
+기존 국가법령정보센터 `precScListR` 조회의 **NOT_FOUND_ON_LAW_GO_KR_SEARCH 기록과 V23 원장 내 미확인 상태는 역사적 실행 결과로 보존**한다. 다른 공식·공공 연구 자료로 **사건번호 실재·선고일**을 따로 확인한 것으로, 위 §2의 "사건이 확인되지 않는다"를 "국가법령정보센터 해당 검색에서는 미조회, 별도 교차확인 자료 존재"로 해석한다.
+
+| 사건번호 / 문항 | 2026-11-17 추가 자료 | 교차확인 결과 | 남은 HOLD |
+|---|---|---|---|
+| `2012다81609` / `2022-labor1-1` | 대법원 공식 [주요판결(2017다226605)](https://scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=7547), [2021두50642 관련 자료](https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&pageIndex=1&searchOption=&searchWord=&seqnum=8203&type=5) | 대법원 공식 판례가 **2014-12-24 선고 2012다81609**를 명시적으로 인용하고 축약 해고통지 법리 설명 | 해당 **원판결 전문 직접 열람**, 법리의 개별 답안 적용·역사 법령 전문 |
+| `2011두7526` / `2014_p2_q1` | 한국노동연구원 [노동판례리뷰](https://www.kli.re.kr/kli/prcdntView.es?currentPage=90&keyField=&keyWord=&keyYear=&mid=a10202000000&prcdnt_no=126968) | 연구기관 게재자료에서 대법원 **2011-05-26 선고 2011두7526** 및 고용안정협약 법리 인용 | **법원 판결문 1차 원전/선고일** 직접 대조·정확한 인용 범위 |
+| `2024구합76393` / `2026-행정쟁송법\\|2\\|0` | 서울행정법원 공식 [주요판결 게시물](https://www.scourt.go.kr/portal/dcboard/DcNewsViewAction.work?cbub_code=000220&gubun=44&scode_kname=&searchOption=&searchWord=&seqnum=27433), [선고일을 표기한 판결문 소개](https://weverlabor.com/25/?bmode=view&idx=168365725) | 공식 법원 게시물에서 사건 실재/사고사망만인율 판단 확인. **2025-08-21 선고일은 비법원 자료로 교차확인** | 공식 게시물의 **첨부 판결문 PDF 직접 열람**으로 정확한 선고일 재확인·법리/효력 심사 |
+
+- 기계 재검증: [GitHub Actions run 44093049996](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44093049996) **success**, 3건·3문항·인용 5회 연결 일치, 원고 SHA·최종승인 HOLD 불변.
+- 출처·날짜·확인수준: `review/NOMUSA_V23_CASE_3_CORROBORATION_20261117.json`.
+- 재현: `python3 scripts/nomusa-v23-case-corroboration-gate.py .`.
+- **법령·판례 전문 원전 검토 및 실제 독립 전문가 승인: HOLD (0/328).** 요지문항 30건, 학술원전·실전 필기분량 등의 기존 HOLD를 변경하지 않는다.
