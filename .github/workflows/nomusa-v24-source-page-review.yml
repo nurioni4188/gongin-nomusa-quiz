@@ -1,0 +1,44 @@
+name: NOMUSA V24 verbatim HR ORG source screenshot review
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v24-source-page-review.yml'
+      - 'scripts/nomusa-v24-target-source-images.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v24-readonly-source-pages
+  cancel-in-progress: true
+
+jobs:
+  render:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: PDF page image tool
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7
+      - name: Render official source PDFs pages for cautious transcription
+        run: python scripts/nomusa-v24-target-source-images.py .
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nomusa-v24-2015-2018-2021-hr-org-primary-page-images
+          path: |
+            review-artifacts/NOMUSA_V24_VISUAL_SOURCE_PAGE_MANIFEST.json
+            review-artifacts/NOMUSA_V24_30_OFFICIAL_PAGE_IMAGES/*.png
+          retention-days: 7
+          if-no-files-found: error
