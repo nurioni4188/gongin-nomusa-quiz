@@ -70,6 +70,7 @@ def inventory(page):
          v10:(()=>{const g=window.NOMUSA_V10_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v10Rewritten,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV10?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV10?.length===x.priorCompactChars),v9Kept:['2022-labor1-2','2022-admin-2','2023-labor1-1','2023-admin-3'].every(id=>!!c.items[id]?.detailedBeforeV9),contentChecks:{renewal:c.items['2024-노동법1|1|1']?.detailed?.includes('2014두45765'),transfer:c.items['2024-노동법1|1|2']?.detailed?.includes('2010다41089'),interim:c.items['2024-노동법1|2|0']?.detailed?.includes('1,260만 원'),carmaster:c.items['2024-노동법2|1|1']?.detailed?.includes('2019두33712'),fairRep:c.items['2024-노동법2|2|0']?.detailed?.includes('2017다263192'),doctor:c.items['2026-노동법1|1|1']?.detailed?.includes('2021도11675'),division:c.items['2026-노동법1|2|0']?.detailed?.includes('2016두64876'),committee:c.items['2026-노동법2|1|1']?.detailed?.includes('2023두61370'),appraisal:c.items['2026-노동법2|1|2']?.detailed?.includes('2017두37031')}};})(),
          v11:(()=>{const g=window.NOMUSA_V11_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v11Rewritten,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===17,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV11?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV11?.length===x.priorCompactChars),v10Kept:Object.keys(window.NOMUSA_V10_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV10),contentChecks:{childcare:c.items['2024-행정쟁송법|1|1']?.detailed?.includes('2018두47264'),partial:c.items['2024-행정쟁송법|1|2']?.detailed?.includes('98두2270'),notice:c.items['2024-행정쟁송법|3|0']?.detailed?.includes('2004두619'),rivals:c.items['2026-행정쟁송법|1|1']?.detailed?.includes('2009두8359'),ruling:c.items['2026-행정쟁송법|1|2']?.detailed?.includes('2015두45045'),pension:c.items['2026-행정쟁송법|3|1']?.detailed?.includes('2004두244'),service:c.items['2024-민사소송법|3|0']?.detailed?.includes('2014다54366'),heirs:c.items['2026-민사소송법|1|1']?.detailed?.includes('2007다22859'),change:c.items['2026-민사소송법|2|0']?.detailed?.includes('2014다31721')}};})(),
          v12:(()=>{const g=window.NOMUSA_V12_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,cat=new Map((window.N27_CATALOG?.items||[]).map(q=>[q.id,q]));return g&&{schema:g.schema,count:g.v12Rewritten,pdfPoints:g.pointsVerifiedFromRepoPdf,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,catalogPointsUntouched:g.rows.every(x=>cat.get(x.id)?.points===x.catalogPoints&&typeof x.catalogPoints!=='number'),unique:new Set(g.rows.map(x=>x.id)).size===20,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV12?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV12?.length===x.priorCompactChars),v11Kept:Object.keys(window.NOMUSA_V11_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV11),contentChecks:{signing:c.items['2019_p5_q1']?.detailed?.includes('2012다55518'),branch:c.items['2019_p6_q1']?.detailed?.includes('2012다96120'),subcontract:c.items['2019_p6_q2']?.detailed?.includes('2007두8881'),dispatch:c.items['2020_p1_q1']?.detailed?.includes('2017다219072'),dinner:c.items['2020_p1_q2']?.detailed?.includes('2013두25276'),tax:c.items['2019_p1_q3']?.detailed?.includes('99두2765'),changed:c.items['2020_p4_q1']?.detailed?.includes('2003두1684'),petition:c.items['2020_p4_q2']?.detailed?.includes('2010두8676'),setoff:c.items['2019_p4_q1']?.detailed?.includes('98다25344'),deceased:c.items['2020_p7_q1']?.detailed?.includes('2005마425')}};})(),
+         v13:(()=>{const g=window.NOMUSA_V13_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v13Expanded,eight:g.allAtLeastEightAppPages,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV13?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV13?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v12Kept:Object.keys(window.NOMUSA_V12_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV12),contentChecks:{lowPerf:c.items['2022-labor1-1']?.detailed?.includes('2018다253680'),subcontract:c.items['2022-labor2-1']?.detailed?.includes('2015도1927'),committee:c.items['2023-labor1-1']?.detailed?.includes('2006다48069'),setoff:c.items['2023-civil-1']?.detailed?.includes('2021다275741'),rehire:c.items['2025-labor1-1']?.detailed?.includes('2016다13437'),appraisal:c.items['2025-labor2-1']?.detailed?.includes('2023두41864'),unit:c.items['2025-labor2-1']?.detailed?.includes('2015두39361'),consent:c.items['2025-admin-1']?.detailed?.includes('2023두61349'),noFake90:!c.items['2025-admin-1']?.detailed?.includes('90프2')}};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -95,6 +96,13 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v13=inv["v13"]
+    assert v13 and v13["schema"]=="nomusa-20year-essay-50pt-expansion/13",v13
+    assert v13["count"]==12 and v13["eight"] is True and v13["minChars"]>=4000,v13
+    assert v13["candidates"]==328 and v13["exercises"]==377 and v13["approvals"]==0 and v13["pages"] is False,v13
+    assert v13["ids"] is False and v13["points"] is False and v13["keys"] is False,v13
+    assert v13["unique"] is True and v13["restored"] is True and v13["v12Kept"] is True,v13
+    assert all(v13["contentChecks"].values()),v13
     v12=inv["v12"]
     assert v12 and v12["schema"]=="nomusa-20year-essay-law-2019-2020/12",v12
     assert v12["count"]==20 and v12["pdfPoints"]==20 and v12["candidates"]==328 and v12["exercises"]==377,v12
@@ -390,6 +398,41 @@ def check_viewports(browser,width):
         assert "2013두25276" in hub.locator('.nomusa-canonical-draft').first.inner_text()
         overflow(second,width);overflow(hub,width)
         RESULTS.append({"name":"v12_law2020_detail_compact_memory_%s"%width,"status":"PASS"})
+        # V13: 2025 노동법Ⅱ 50점(계속하는 행위 교정) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2025-labor2-1"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2023두41864" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2023두41864" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V13_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2025"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법2" if "노동법2" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2023두41864" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v13_50pt_detail_compact_memory_%s"%width,"status":"PASS"})
         overflow(second,width);overflow(hub,width)
         assert not errorsSecond and not errorsHub,(errorsSecond,errorsHub)
         RESULTS.append({"name":"save_reload_crosspage_detail_compact_compare_%s"%width,"status":"PASS"})
