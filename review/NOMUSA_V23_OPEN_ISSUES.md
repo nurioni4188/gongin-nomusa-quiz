@@ -89,3 +89,13 @@
 - 2018 경영조직론 Scott 제1문 물음1의 원본 인쇄 배점 **20점**으로 보정했고, 2021년 쓰레기통모형의 '1971년 올슨'은 시험원문대로 유지했다.
 - 결과 및 교열 관문: `review/NOMUSA_V24_30_VERBATIM_SOURCE_EXECUTION_20261117.md`, `.claude/skills/nomusa-v24-verbatim-source/SKILL.md`.
 - **원문 30개 자동 교체 해결과 글자별 독립 원본 교열은 별개**. 인간 교열 전에는 `HOLD_SOURCE_PROOFREAD` 유지; 시험 당시 법령/판례/학술원전·수기실측·전문가 독립 내용승인 **0/328 HOLD**.
+
+## 11. V25 원본 전사 MEDIUM 3개 재대조 (2026-11-18)
+
+- 기존 V24의 HIGH 325/MEDIUM 3개는 당시 현황으로 보존. V25 공식 PDF 이미지 재대조 후 **HIGH 327/MEDIUM 1**, 요지문항 잔여 **0**, 기존 Q-Net 파일 SHA 일치 **328/328**(V23 원전매니페스트 재사용).
+- `2016_p5_q2` 경영조직론 25점: 공식 인쇄문과 V24 전사문 일치. **‘그리고’를 OCR이 ‘그러고’로 잘못 인식**해 8글자 N그램 일치도 0.80(MEDIUM); 전사원문 **변경하지 않음**, 독립 사람 교열 HOLD.
+- `2019_p4_q3` 민사소송법: **"【문제 3】 공동소송참가에 관하여 설명하시오. (25점)"**으로 띄어쓰기·문제번호·인쇄 footer 혼입 교정.
+- `2020_p7_q3` 민사소송법: **"【문제 3】 유사필수적 공동소송에 관하여 설명하시오. (25점)"**으로 같은 문제 교정.
+- V25 [실제 Actions #44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) **success**, 2개 sourceText SHA만 변경/326개 전체 원고 SHA 불변, 기존 E2E PC1440/모바일390·360 PASS, 공식 원전·점수·ID 불변, `review/NOMUSA_V23_VALIDATION_LEDGER.json` 재생성.
+- 검토 로그: `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`, 원본 시각 근거 `review/NOMUSA_V25_MEDIUM_3_PRIMARY_PAGE_CROSSCHECK_20261118.json`, 재사용 스킬 `.claude/skills/nomusa-v25-three-medium-pdf-proofread/SKILL.md`.
+- **미해결:** 독립 원문 글자별 교열, 역사 법령·판례 전문·학술 원서·수기분량·서면 전문가 승인. 최종 내용승인 **0/328 HOLD**, 기존 판례 3건 등 이전 HOLD 보존.
