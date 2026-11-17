@@ -2,7 +2,7 @@
  "summary": {
   "schema": "NOMUSA_V23_VALIDATION_LEDGER/1",
   "reviewDate": "2026-11-17",
-  "startedUTC": "2026-11-17T19:45:01+00:00",
+  "startedUTC": "2026-11-17T21:59:27+00:00",
   "total": 328,
   "years": 20,
   "baseline2022": 19,
@@ -36,8 +36,8 @@
   "independentExpertApproved": 0,
   "finalApproval": "HOLD (0/328)",
   "qnetManifestRetrievedUTC": "2026-11-17T12:26:36+00:00",
-  "scriptSeconds": 22.479,
-  "finishedUTC": "2026-11-17T19:45:23+00:00",
+  "scriptSeconds": 26.208,
+  "finishedUTC": "2026-11-17T21:59:53+00:00",
   "noDeploymentNoMutationOfOriginals": true
  },
  "rows": [
@@ -15493,7 +15493,7 @@
    "points": 50,
    "reviewTierV21": "P0_2022_PILOT",
    "domainV21": "ACADEMIC_THEORY",
-   "textSHA256": "f009babeb757564b6dd2f91bf1462dcb49b920632ef2469d2b764a7747bff280",
+   "textSHA256": "c3557e3b121836011a56822c14b3776e8567f1dd346f7a8d98b71247c9e38c89",
    "isLengthProxyPriority77": false,
    "source": {
     "candidateFiles": [
