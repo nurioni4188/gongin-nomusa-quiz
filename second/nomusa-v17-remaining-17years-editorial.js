@@ -30,27 +30,31 @@ for(const year of targetYears){
      if(key.length>=180&&seen.has(key)){duplicates++;continue;}
      if(key.length>=180)seen.add(key);kept.push(p.trim());
    }
-   const hasParts=q&&pickParts(q),partBasis=hasParts?'VERIFIED_SECTION_SCORE_SUM':'SINGLE_SCORING_UNIT_UNSPLIT';
+   const score=Number(q?.points),knownPoints=Number.isFinite(score)&&score>0;
+   const hasParts=knownPoints&&q&&pickParts(q),partBasis=!knownPoints?'POINTS_UNVERIFIED':hasParts?'VERIFIED_SECTION_SCORE_SUM':'SINGLE_SCORING_UNIT_UNSPLIT';
    // Never invent historical subquestion scores. When unstructured, preserve the original unit.
-   const parts=(hasParts||[{title:(q?.topic||old.id)+' — 원장 전체 배점',points:Number(q?.points||0)}]).map(p=>{
-     const points=Number(p.points||0),goal=pageTarget(Number(q?.points||0));
-     return Object.freeze({title:p.title,points,
-       minimumPages:Math.round(goal[0]*points/Number(q?.points||1)*10)/10,
-       maximumPages:Math.round(goal[1]*points/Number(q?.points||1)*10)/10,
-       splitVerified:!!hasParts});
-   });
-   if(parts.some(p=>!p.points)||parts.reduce((a,p)=>a+p.points,0)!==Number(q?.points)){
+   const parts=!knownPoints?[Object.freeze({title:'원문 배점 확인 필요',points:null,
+       minimumPages:null,maximumPages:null,splitVerified:false})]:
+       (hasParts||[{title:(q?.topic||old.id)+' — 원장 전체 배점',points:score}]).map(p=>{
+         const points=Number(p.points),goal=pageTarget(score);
+         return Object.freeze({title:p.title,points,
+           minimumPages:Math.round(goal[0]*points/score*10)/10,
+           maximumPages:Math.round(goal[1]*points/score*10)/10,
+           splitVerified:!!hasParts});
+       });
+   if(!knownPoints)issues.push(old.id+':POINTS_UNVERIFIED');
+   else if(parts.some(p=>!p.points)||parts.reduce((a,p)=>a+p.points,0)!==score){
      issues.push(old.id+':SCORING_MISMATCH');
    }
    const detail=kept.join('\n\n');
-   if(q&&old.renderable&&prior.trim()&&brief.trim()&&!old.detailedBeforeV17&&parts.every(p=>p.points>0)){
+   if(q&&old.renderable&&prior.trim()&&brief.trim()&&!old.detailedBeforeV17&&(knownPoints?parts.every(p=>p.points>0):true)){
      out[old.id]=Object.freeze({...old,detailed:detail,
        detailedBeforeV17:old.detailed,compressedBeforeV17:old.compressed,
        examPartRubricV17:Object.freeze(parts),editorialStatusV17:'BATCH_EDITORIAL_CONTENT_APPROVAL_HOLD',
        scoringApproved:false,finalAcademicApproval:'HOLD',citationApproval:'HOLD',handwrittenPages:'HOLD'});
    }
    audit.push(Object.freeze({id:old.id,year,subject:old.subject,
-     points:Number(q?.points||0),partBasis,parts:parts.length,
+     points:knownPoints?score:null,partBasis,parts:parts.length,
      oldChars:prior.length,newChars:detail.length,
      removedExactLongParagraphs:duplicates,hasSourceText:!!q?.sourceText,
      renderable:!!old.renderable,priorPreserved:!!out[old.id]?.detailedBeforeV17,
