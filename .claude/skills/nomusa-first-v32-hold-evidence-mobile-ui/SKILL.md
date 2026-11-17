@@ -29,7 +29,9 @@ description: "공인노무사 1차 기존 정답검증 HOLD의 원전·정답·�
 ```bash
 python scripts/nomusa-first-v32-status-ui-gate.py
 python scripts/nomusa-first-v71-visual-page-gate.py
-python scripts/nomusa-first-v6-fullhub-gate.py .
+node scripts/nomusa-first-v61-answer-audit.mjs .
+python scripts/nomusa-auto-v12-browser-gate.py . --first-only
+python scripts/nomusa-canonical-shared-browser-gate.py .
 ```
 - 1440/390/360px에서 900건 상태, 600셀 대조, V62 3/V71 14, 특수셀 4, PDF 연결과 1차 채점 차단을 테스트.
 - 2008년 선택 전 안내와 선택 후 HOLD 메시지가 중복되지 않고 `fb.info`가 1개인지 확인한다.
@@ -40,3 +42,5 @@ python scripts/nomusa-first-v6-fullhub-gate.py .
 - 기존 44개 페이지 HOLD 중 3+14 제한적 시각확인을 재활용하고 나머지의 원문 지문·선택지·수식·인쇄쪽수를 공식 PDF 이미지로 대조.
 - 2020·2021년 정답표 600개는 기계적 비교와 일부 예외시각대조만 완료. 정답 승인 0건 유지.
 - 검토가 끝난 문항만 개별 서면 근거/원문 해시/검토자 확인과 연결한 후 채점 승인을 별도 결정.
+
+- 이전 V6 통합 게이트에는 이미 낡은 2차 시험 카탈로그 309개(215+94) 수량 단정이 있다. 현재 별도 화면 377단위를 328개 원고와 혼동하지 않는다. V32에서는 1차 RC35만 `--first-only`로 실행하고 최신 328개 원고의 2차·허브 회귀는 canonical 게이트를 재사용한다.
