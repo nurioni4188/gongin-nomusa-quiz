@@ -112,3 +112,12 @@ python -c "import sys;sys.path.insert(0,'scripts');from nomusa_v23_case_lookup i
 - 20년 328개 실제 Chromium 원고 SHA 재검증, 2022년 19개·32소문항 및 선별된 6개 동일 원고 SHA 일치. 2인 지니계수 0.30 독립 계산.
 - 기존 원고 내용은 바꾸지 않아 SHA·전문가 패킷 불변. 그 결과 6개 일부 원전 검증 성공일 뿐 답안 6개 최종승인이 아니다. 13개 추가 원전검증·서면 외부 전문가 승인 0/328 HOLD.
 - `main`, Production, Preview, RC27/RC35, 문제 ID/저장키, 이메일 발송 변경 없음.
+
+## 11. V28 2022년 13개 추가 근거·Goldstein 단일 원고 교정 (2026-11-18)
+
+- V27에서 별도 외부 원전 검증하지 못한 13개에 한정해 실제 판례/학술 출판사/수식 관련 근거 25건을 `review/NOMUSA_V28_2022_REMAINING_13_SOURCE_CROSSCHECK_20261118.json`에 URL·검토범위와 함께 정리. 일부는 NOT_VERIFIED로 보류하고 전체 모범답안 승인으로 보고하지 않음.
+- SAGE Goldstein(1978) 원저 서지 `Human Factors` 확인 후 `2022-hr-1` 옛 Human Relations 오기와 교육훈련 6기법 뒤쪽 불일치를 Canonical 상세·압축답안에서 정리. 원고 1개 SHA 변경/327개 SHA 보존. V23 328 검증원장 및 V26 전체 심사패킷을 최신 SHA로 재생성.
+- 실행 [GitHub Actions #44185316972](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972) completed/success UTC 2026-11-17T21:58:22Z ~22:00:03Z (101초). artifact [14374870696](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972/artifacts/14374870696). 328문항 Chromium E2E + V19/V21/V22/V23, Q-Net 328/328, 원문 HIGH 327/MEDIUM 1, 요지 0.
+- 초기 V28 시도는 상세답안이 없는 원시 N27 카탈로그를 상세원고로 오인, 이어 128개 N27 raw 카탈로그와 328개 Canonical 원고를 혼동, 마지막으로 브라우저 출력파일명 glob 오류로 HOLD; 모두 실제 로그에서 재현해 수정, 최신 PASS를 명확히 구별.
+- 작업내역 `review/NOMUSA_V28_2022_19_EXECUTION_20261118.md`, 스킬 `.claude/skills/nomusa-v28-2022-13-content-goldstein-fix/SKILL.md`.
+- 기존 Draft PR #3 검토 브랜치에서만 변경, `main`·Production·Preview 직접 배포/변경·이메일 발송 없음. **최종 전문가 내용승인 0/328 HOLD**.
