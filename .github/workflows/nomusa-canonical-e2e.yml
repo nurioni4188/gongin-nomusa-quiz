@@ -40,6 +40,14 @@ jobs:
           python -m playwright install chromium --with-deps
       - name: Run actual Chromium at PC 1440 and mobile 390/360
         run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Upload 2022 displayed answer editorial review candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-2022-19x32-editorial-candidate
+          path: review-artifacts/nomusa_2022_19questions_32parts_*
+          if-no-files-found: warn
+          retention-days: 30
       - name: Check review branch and refuse deployment
         if: always()
         run: |
