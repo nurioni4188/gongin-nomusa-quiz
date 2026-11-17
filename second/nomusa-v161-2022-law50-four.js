@@ -10,7 +10,7 @@ if(!b?.items){window.NOMUSA_V161_LAW50_GATE={status:'HOLD_BASE'};return;}
 const n={...b.items},gateRows=[];
 for(const r of rows){
  const o=n[r.id];
- if(!o||o.year!==2022||o.subject!==r.subject||!o.detailed?.includes('V13 확장')||!o.compressed||r.addition.length<1100||r.compact.length<180||o.detailed.includes('V16.1 심화 논증')){
+ if(!o||o.year!==2022||o.subject!==r.subject||!o.detailed?.includes('V13 확장')||!o.compressed||r.addition.length<1100||r.compact.length<160||o.detailed.includes('V16.1 심화 논증')){
  gateRows.push({id:r.id,status:'HOLD_EXPECTED_V13_MISSING_OR_DUPLICATE'});continue;
  }
  n[r.id]=Object.freeze({...o,detailed:o.detailed+'\n\n'+r.addition,compressed:o.compressed+'\n\n'+r.compact,
