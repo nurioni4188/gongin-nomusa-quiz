@@ -83,3 +83,13 @@ python -c "import sys;sys.path.insert(0,'scripts');from nomusa_v23_case_lookup i
 - 갱신 원장 커밋 `8a2b145d0025cfc6a4d9e0b783eeb53f43b0fa58`: 328/328 공식 파일 해시 동일, 요지문항 0, HIGH 325·MEDIUM 3 (2016_p5_q2가 이번 전사 대상이며 재교열 필요).
 - 결과 artifact [14335230984](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44097717695/artifacts/14335230984). 스킬 `.claude/skills/nomusa-v24-verbatim-source/SKILL.md` 추가. 이 기록을 포함하는 최종 검토 브랜치 커밋은 후속 HEAD를 확인.
 - **독립 글자별 교열/법리·학술·판례 전문/실제 필기분량/외부 전문가 서면승인 HOLD 0/328**, `main`/Production/Preview/RC27/RC35/ID/저장키 미변경. 배포·이메일 없음.
+
+## 8. ChatGPT V25 공식 PDF 원문 MEDIUM 3개 추가 검증 (2026-11-18)
+
+- 원본 3개 PDF에서 실제 해당 문제지 쪽을 렌더링한 read-only 워크플로 [44159068617](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44159068617) success, 아티팩트 `14362367155`.
+- 2016 경영조직론 제2문 기존 V24 원전전사 일치 (Tesseract의 `그리고`→`그러고` OCR 오인식), 원문 수정 없이 시각 대조 증빙만 작성.
+- 2019·2020 민사소송법 제3문 두 개에서 OCR 단어 붙여쓰기·문제지 하단 footer 오류만 교정. 이전 텍스트는 `sourceTextBeforeV25` 보존.
+- 첫 CI에서 원시 카탈로그 점수 0과 V18의 `verifiedPointsV18=25` 분리 구조를 새 관문이 잘못 다뤄 FAIL; 기존 점수 데이터 수정 없이 `(25점)` 원본 레이블 + V18/V23 배점 회귀 관문으로 교정.
+- 최종 GitHub Actions [44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) **success**: 2026-11-17 19:43:12~19:45:31 UTC(약 **139초**). 328문항 PC·모바일 E2E PASS, 2019·2020 2문항 원문 SHA 변경·326개 변경 없음, Q-Net 해시 일치 328, 원문 HIGH 327·MEDIUM 1, 독립승인 0.
+- V23 원장 재생성 실행 **22.479초**, 원장 자동커밋은 검토 브랜치에만. 보고서 `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`, 새 스킬 `.claude/skills/nomusa-v25-three-medium-pdf-proofread/SKILL.md`.
+- 기존 Draft PR #3 미병합, `main`·Production·Preview·RC27/RC35·사용자 저장키·공식 PDF 변경 없음, 이메일 발송 없음. 법령/학술 원전, 독립 인쇄 글자별 교열, 서면 전문가 내용승인 0/328 HOLD.
