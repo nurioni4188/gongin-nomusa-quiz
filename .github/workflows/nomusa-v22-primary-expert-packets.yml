@@ -26,7 +26,7 @@ concurrency:
 jobs:
   audit-source:
     if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - name: Check out original PDFs and review-only code
