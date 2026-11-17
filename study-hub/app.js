@@ -518,7 +518,7 @@
       <p class="muted small">초안의 핵심 논점을 기억하기 위한 키워드이며, 실제 답안의 정확성 검토는 별도입니다.</p>
       <div class="memory-groups">${groups.map((group,index) =>
         `<div><b>${index+1}묶음</b><span>${group.map(esc).join(' · ')}</span></div>`).join('')}</div>
-      <p class="muted small">참고원전·법률근거: ${esc(entry.academicOrLawReferences.join(' / ') || '시험 당시 원전·법령·판례 확인 HOLD')}</p>
+      <p class="muted small">참고원전·법률근거: ${esc((entry.academicOrLawReferences || []).join(' / ') ||'시험 당시 원전·법령·판례 확인 HOLD')}</p>
       ${citationStatus(entry)}${entry.laterLawNotes?.length ? `<p class="muted small">시험 이후 변경(당시 법리와 구분): ${esc(entry.laterLawNotes.join(' / '))}</p>` : ''}
     </section>`;
   }

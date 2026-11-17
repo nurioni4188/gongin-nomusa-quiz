@@ -67,6 +67,7 @@ def inventory(page):
          v7:(()=>{const g=window.NOMUSA_V7_MANUSCRIPT_GATE,m=window.NOMUSA_V7_MANUSCRIPTS||{};return g&&{schema:g.schema,added:g.v7NewManuscripts,complete:g.totalRewrittenInFocusedSet,remaining:g.remainingInFocusedSet,all:g.candidates,points:g.v7FiftyPoint,source:g.exercises,old:g.rows.every(x=>!!c.items[x.id]?.detailedBeforeV7&&!!c.items[x.id]?.compressedBeforeV7),legalApproved:g.finalApprovalCount,raw:g.originalCatalogChanged,keys:g.storageKeysChanged,saved:g.existingStoredAnswersChanged,pages:g.handwriting8to10PageVerified,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,ids:g.rows.map(x=>x.id),manuscripts:Object.keys(m).length,sourceCase:c.items['2022-labor2-1']?.detailed?.includes('2015도1927'),sourceCivil:c.items['2023-civil-1']?.detailed?.includes('2021다275741'),sourceAdmin:c.items['2023-admin-1']?.detailed?.includes('98무37')};})(),
          v8:(()=>{const g=window.NOMUSA_V8_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,p=window.NOMUSA_V8_PDF_2023_LABOR1_Q1;return g&&{schema:g.schema,total:g.focusedTotal,added:g.newManuscripts,rewritten:g.focusedRewritten,remaining:g.focusedOutstanding,legacy:g.earlierSourceOnlyItems,candidates:g.representativeCandidates,catalog:g.catalogCount,approval:g.finalOfficialContentApprovals,pages:g.paper8to10PagesProven,original:g.originalDocumentsChanged,ids:g.canonicalIDsChanged,keys:g.storageKeysChanged,sourceHash:p?.sha256,sourcePage:p?.page,sourcePoints:p?.subquestions?.map(q=>q.points).join(','),unique:new Set(g.rows.map(r=>r.id)).size===g.rows.length,old:g.rows.every(r=>!!c.items[r.id]?.detailedBeforeV8&&!!c.items[r.id]?.compressedBeforeV8),score:g.scoreCounts,topics:{'2023_labor':c.items['2023-labor1-1']?.detailed?.includes('25점'), '2023_economics':c.items['2023-econ-3']?.detailed?.includes('2.5억원'), '2024_economics':c.items['2024-노동경제학|3|1']?.detailed?.includes('625'),'2026_economics':c.items['2026-노동경제학|3|1']?.detailed?.includes('0.25')}};})(),
          v9:(()=>{const g=window.NOMUSA_V9_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,m=window.NOMUSA_V9_MANUSCRIPTS||{};return g&&{schema:g.schema,all:g.v8FocusedManuscripts,updated:g.v9Deepened,pending:g.remainingFocusedNeedingIndividualReview,exercises:g.sourceQuestions,candidates:g.representativeCandidates,approvals:g.finalContentApprovals,scoreUnchanged:g.originalPointsChanged,idsUnchanged:g.originalCatalogChanged,keysUnchanged:g.originalStorageKeysChanged,pages:g.handwritingPageTargetReached,unique:new Set(g.rows.map(x=>x.id)).size===4,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV9&&c.items[x.id]?.compressedBeforeV9&&c.items[x.id]?.detailedBeforeV9.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV9.length===x.priorCompactChars),expanded:g.rows.every(x=>x.revisedDetailedChars>x.priorDetailedChars+200&&x.revisedCompactChars>x.priorCompactChars),confirmed:g.rows.every(x=>x.precedentUrls.length>=1),caseIds:Object.keys(m).sort().join('|'),contentChecks:{wage:c.items['2022-labor1-2']?.detailed?.includes('2019다238053')&&c.items['2022-labor1-2']?.detailed?.includes('통상임금에 해당'),retire:c.items['2022-admin-2']?.detailed?.includes('2019두52386'),disciplinary:c.items['2023-labor1-1']?.detailed?.includes('2006다48069'),insurance:c.items['2023-admin-3']?.detailed?.includes('2016다221658')}};})(),
+         v10:(()=>{const g=window.NOMUSA_V10_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v10Rewritten,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV10?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV10?.length===x.priorCompactChars),v9Kept:['2022-labor1-2','2022-admin-2','2023-labor1-1','2023-admin-3'].every(id=>!!c.items[id]?.detailedBeforeV9),contentChecks:{renewal:c.items['2024-노동법1|1|1']?.detailed?.includes('2014두45765'),transfer:c.items['2024-노동법1|1|2']?.detailed?.includes('2010다41089'),interim:c.items['2024-노동법1|2|0']?.detailed?.includes('1,260만 원'),carmaster:c.items['2024-노동법2|1|1']?.detailed?.includes('2019두33712'),fairRep:c.items['2024-노동법2|2|0']?.detailed?.includes('2017다263192'),doctor:c.items['2026-노동법1|1|1']?.detailed?.includes('2021도11675'),division:c.items['2026-노동법1|2|0']?.detailed?.includes('2016두64876'),committee:c.items['2026-노동법2|1|1']?.detailed?.includes('2023두61370'),appraisal:c.items['2026-노동법2|1|2']?.detailed?.includes('2017두37031')}};})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -92,6 +93,13 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v10=inv["v10"]
+    assert v10 and v10["schema"]=="nomusa-20year-essay-labor-depth/10",v10
+    assert v10["count"]==12 and v10["candidates"]==328 and v10["exercises"]==377,v10
+    assert v10["approvals"]==0 and v10["pages"] is False,v10
+    assert v10["ids"] is False and v10["points"] is False and v10["keys"] is False,v10
+    assert v10["unique"] is True and v10["restored"] is True and v10["v9Kept"] is True,v10
+    assert all(v10["contentChecks"].values()),v10
     v9=inv["v9"]
     assert v9 and v9["schema"]=="nomusa-20year-essay-legal-depth/9",v9
     assert v9["all"]==57 and v9["updated"]==4 and v9["pending"]==53,v9
@@ -261,6 +269,41 @@ def check_viewports(browser,width):
         assert second.locator('[data-canonical-id="2025-org-1"]').count()>=1
         hub.locator('[data-pane="compare"]').first.click()
         assert hub.locator('[data-canonical-id="2025-org-1"]').count()>=1
+        # V10: 2026 공정대표의무(상벌위원회) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2026-노동법2|1|1"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2023두61370" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2023두61370" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V10_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2026"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법" if "노동법" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2023두61370" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v10_labor_detail_compact_memory_%s"%width,"status":"PASS"})
         overflow(second,width);overflow(hub,width)
         assert not errorsSecond and not errorsHub,(errorsSecond,errorsHub)
         RESULTS.append({"name":"save_reload_crosspage_detail_compact_compare_%s"%width,"status":"PASS"})
