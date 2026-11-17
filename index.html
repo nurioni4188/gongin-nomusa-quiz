@@ -706,7 +706,7 @@ function vHome(){
     <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${gradedAttempts.length?Math.round(okN/gradedAttempts.length*100):0}<small>%</small></b><span>기존 2022~2026 채점 정답률</span></div>
     <div class="stat"><span class="stat-icon stat-icon--amber">◎</span><b>${wrongN.toLocaleString()}</b><span>복습할 오답</span></div>
   </div>
-  <p class="muted" role="status">2008~2021년 수록 문항은 공식 정답 근거 승인 HOLD로 선택·저장·수동 복습만 지원합니다. 기존의 과거 채점 기록은 백업에 보존하되 점수 계산에는 사용하지 않습니다.</p>
+  <p class="muted" role="status">2008~2021년은 선택·저장·수동 복습이 가능하고 채점은 대기 중입니다. 기존 채점 기록은 백업에 보존합니다. <a href="study-hub/first-legacy-answers.html">정답 근거 검토 단계 보기</a></p>
   <div class="section-heading"><div><span class="section-kicker">02 / PRACTICE BUILDER</span><h2>나만의 학습 세트</h2></div><span class="section-side">연도와 과목을 고르면 바로 시작할 수 있어요</span></div>
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<2022?" A형":""))}</div>
@@ -723,9 +723,9 @@ function vHome(){
     <div class="grid"><div></div>${YEARS.map(y=>`<div class="h">${y}</div>`).join("")}
     ${SUBJ.map(s=>`<div class="s">${SHORT[s]}</div>`+YEARS.map(y=>{
       const qs=Q.filter(q=>q.y===y&&q.s===s),d=qs.filter(q=>attemptFor(q)?.n>0),o=d.filter(q=>!isUngraded(q)&&ST.att[q.k]?.ok);
-      return `<div class="cell" data-y="${y}" data-s="${esc(s)}" title="${y} ${s}"><b>${y<2022?"HOLD":d.length?Math.round(o.length/d.length*100)+"%":"–"}</b><small>${d.length}/${qs.length}</small><div class="bar"><i style="width:${qs.length?d.length/qs.length*100:0}%"></i></div></div>`}).join("")).join("")}
+      return `<div class="cell" data-y="${y}" data-s="${esc(s)}" title="${y} ${s}"><b>${y<2022?"선택":d.length?Math.round(o.length/d.length*100)+"%":"–"}</b><small>${d.length}/${qs.length}</small><div class="bar"><i style="width:${qs.length?d.length/qs.length*100:0}%"></i></div></div>`}).join("")).join("")}
     </div>
-    <p class="muted" style="margin:10px 0 0">칸을 누르면 그 회차·과목을 번호순으로 바로 풉니다. 위 숫자는 정답률, 아래는 푼 문항/전체.</p>
+    <p class="muted" style="margin:10px 0 0">칸을 누르면 그 회차·과목을 번호순으로 바로 풉니다. 2022~2026년은 정답률, 이전 연도는 선택 기록(채점 전)입니다. 아래는 푼 문항/전체.</p>
   </div>`;
   const bind=(id,list,fn)=>$(id).onclick=e=>{const c=e.target.closest(".chip");if(!c)return;fn(list[+c.dataset.i]);ST.prefs.setup=P;save();vHome()};
   const tog=(arr,v)=>{const i=arr.indexOf(v);if(i>=0){if(arr.length>1)arr.splice(i,1)}else arr.push(v)};
@@ -814,17 +814,17 @@ function vQuiz(){
   ${S.review?`<div class="reviewbanner"><b>결과 재검토 모드</b> · 답을 변경하거나 학습 이력을 중복 저장하지 않습니다.</div>`:""}
   <div class="prog"><i style="width:${(S.i+1)/S.ks.length*100}%"></i></div>
   <div class="qhead">
-    <div class="qmeta">${q.y}년 ${q.form? q.form+"형 ":""}${SHORT[q.s]} ${q.n}번<small>제${q.r}회 · ${S.i+1} / ${S.ks.length}${S.mode==="exam"?` · 답함 ${answered}`:""}${a&&S.mode==="practice"&&!revealed?` · ${ungraded?"이전 선택 기록(채점 HOLD)":`이전 기록 ${a.ok?"정답":"오답"}`}`:""}</small></div>
+    <div class="qmeta">${q.y}년 ${q.form? q.form+"형 ":""}${SHORT[q.s]} ${q.n}번<small>제${q.r}회 · ${S.i+1} / ${S.ks.length}${S.mode==="exam"?` · 답함 ${answered}`:""}${a&&S.mode==="practice"&&!revealed?` · ${ungraded?"이전 선택 저장":`이전 기록 ${a.ok?"정답":"오답"}`}`:""}</small></div>
     <span style="flex:1"></span>
     ${S.mode==="exam"&&!S.done?`<span class="timer" id="timer" aria-label="남은 시간">${fmt(Math.max(0,left))}</span>`:""}
     <button class="iconbtn" id="starBtn" aria-label="별표"><span class="star ${starOn?"on":""}">★</span></button>
     ${q.img?`<span class="seg" id="vmode"><button data-m="img" class="${useText?"":"on"}">원문</button><button data-m="text" class="${useText?"on":""}" ${q.t?"":"disabled title='표·수식이 있어 원문으로만 제공'"}>글자</button></span>`:""}
   </div>
-  ${ungraded?`<div class="fb info" role="note">2008~2021년 정답 검증 HOLD · 문제를 풀고 복습 표시할 수 있지만 채점하지 않습니다.</div>`:""}
+  ${ungraded&&!revealed?`<div class="fb info" role="note">정답 근거 검토 중 · 선택·복습 저장 가능, 채점은 대기</div>`:""}
   ${body}
   ${fb}
   ${ungraded?`<div class="row" style="margin:10px 0"><button class="btn ghost" id="markReview" aria-pressed="${Boolean(ST.ungraded[k]?.review)}">${ST.ungraded[k]?.review?"복습 표시 해제":"복습 필요 표시"}</button><span class="muted">수동 복습 목록에 저장</span></div>`:""}
-  ${revealed?(ungraded?`<section class="n108-explanation"><h3>학습 근거</h3><p class="n108-pending-copy">공식 정답·해설 승인 HOLD. 원문과 선택 기록을 검토하세요.</p></section>`:explanationPanel(q)):""}
+  ${revealed&&!ungraded?explanationPanel(q):""}
   ${revealed||S.mode==="exam"?"":`<p class="kbd">${useText?"글자 보기는 PDF에서 자동 변환한 것입니다 · 의심되면 원문 이미지로 확인":"키보드 1~5 선택 · ← → 이동 · S 별표 · 이미지를 누르면 확대"}</p>`}
   ${useText?"":textBlock}
   <details id="jumper" ${S.paletteOpen?"open":""}><summary>문항 바로 이동 · 답한 ${answered}/${S.ks.length}</summary><div class="in">
