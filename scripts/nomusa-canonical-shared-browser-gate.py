@@ -257,6 +257,32 @@ def check_viewports(browser,width):
               })""")
             },ensure_ascii=False))
         check_inventory(a);check_inventory(b)
+        # V16.2: verify every 2022 source-linked answer appears in both live Chromium contexts.
+        # This tests data initialization/overlay parity, not handwriting or legal approval.
+        year2022_js = """() => {
+          const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+          const ids=Object.keys(c).filter(id=>c[id]?.year===2022).sort();
+          const topics=ids.map(id=>({id,detail:!!c[id]?.detailed,compact:!!c[id]?.compressed,
+            length:c[id]?.detailed?.length||0,scoringApproved:!!c[id]?.scoringApproved,
+            v161:!!c[id]?.detailedBeforeV161,v162:!!c[id]?.detailedBeforeV162}));
+          return {ids,topics,v161law:window.NOMUSA_V161_LAW50_GATE?.status,
+            v161nine:window.NOMUSA_V161_NINE_GATE?.status,
+            v162:window.NOMUSA_V162_EVIDENCE_GATE?.status};
+        }"""
+        y2=second.evaluate(year2022_js)
+        yh=hub.evaluate(year2022_js)
+        assert len(y2["ids"])==19,("2022_EXPECT_19",y2["ids"])
+        assert y2["ids"]==yh["ids"],"2022_ID_PARITY"
+        assert y2["topics"]==yh["topics"],"2022_DETAIL_PARITY"
+        assert all(t["detail"] and t["compact"] and not t["scoringApproved"] for t in y2["topics"]), "2022_MISSING_OR_APPROVED"
+        assert sum(t["v161"] for t in y2["topics"])==13,"2022_V161_13"
+        assert sum(t["v162"] for t in y2["topics"])==7,"2022_V162_7"
+        assert y2["v161law"]=="FOUR_V13_50PT_ENHANCED_CONTENT_HOLD",y2
+        assert y2["v161nine"]=="NINE_SUPPLEMENTS_APPLIED_REVIEW_HOLD",y2
+        assert y2["v162"]=="SEVEN_SOURCE_NOTES_ATTACHED_FINAL_HOLD",y2
+        RESULTS.append({"name":"2022_19_answers_crossview_%spx"%width,"status":"PASS",
+          "sourceIDs":19,"v161":13,"v162":7,"approval":"HOLD"})
+
         for id in IDENTIFIERS:
             assert a["drafts"][id]==b["drafts"][id],id
         overflow(second,width);overflow(hub,width)
