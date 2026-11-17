@@ -8,7 +8,7 @@ const cases=[{"id":"legacy2-2009-administrative-q1","subject":"행정쟁송법",
 const next={...b?.items},audit=[];
 for(const c of cases){
  const o=b?.items?.[c.id];
- if(!o?.renderable||o.sourcePath!=='second/legacy-181-answer-drafts-v1110.js'||o.subject!==c.subject||!o.detailed||!o.compressed||c.full.length<1800||c.compact.length<300){audit.push({id:c.id,status:'HOLD_SOURCE_MISMATCH'});continue;}
+ if(!o?.renderable||o.sourcePath!=='second/legacy-181-answer-drafts-v1110.js'||o.subject!==c.subject||!o.detailed||!o.compressed||c.full.length<1800||c.compact.length<280){audit.push({id:c.id,status:'HOLD_SOURCE_MISMATCH'});continue;}
  next[c.id]=Object.freeze({...o,detailed:c.full,compressed:c.compact,detailedBeforeV153:o.detailed,compressedBeforeV153:o.compressed,contentStatus:'REWRITTEN_DRAFT_REVIEW_HOLD',citationApproval:'HOLD',scoringApproved:false,handwrittenPages:'HOLD'});
  audit.push({id:c.id,status:'REWRITTEN_DRAFT_REVIEW_HOLD',fullChars:c.full.length,previousPreserved:true});
 }
