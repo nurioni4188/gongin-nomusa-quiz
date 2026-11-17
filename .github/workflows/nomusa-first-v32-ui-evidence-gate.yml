@@ -36,7 +36,7 @@ jobs:
       - name: Install existing Chromium gate requirements
         run: |
           python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
-          python -m playwright install chromium --with-deps
+          python -m playwright install chromium --only-shell
       - name: Check V32 evidence stages and mobile cards without approving any answer
         run: python scripts/nomusa-first-v32-status-ui-gate.py
       - name: Reuse existing V71 exact Q-Net page and 600-grid 42 Chromium checks
