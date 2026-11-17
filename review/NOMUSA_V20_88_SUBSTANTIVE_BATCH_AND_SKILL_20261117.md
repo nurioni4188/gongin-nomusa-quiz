@@ -115,6 +115,7 @@
 ## 품질 판정
 
 - **PASS_DRAFT_88:** 항목당 서로 다른 심화논증 작성 및 검토 브랜치 저장. 임시 JS 테스트 88개·배점구분·이전 원고 보존 검사 PASS.
-- **RUNNING:** 실제 GitHub Actions Chromium 1440·390·360px 및 원본 20개년 재추출·분량 프록시 재검산 (검증 실행: https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44055638285).
+- **PASS_TECHNICAL:** GitHub Actions Chromium 1440·390·360px 실제 실행 완료. 20개년 328개 고유 ID·88개 원문별 보강(50점 32, 25점 56)·기존 답안 보존·소문항 합계·저장/복원 회귀검증 PASS. 코드 SHA `79fd81bd19b7015f2e54c9db924291748557e358`의 검증 실행 https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44056129481 (conclusion SUCCESS).
 - **HOLD:** 법령·판례·학술 원전 독립 확인, 원본 도표·수식 전수 대조, 실제 손글씨 분량, 전문가 최종승인.
+- **PROXY_TRIAGE:** 500자/쪽 학습용 하한 위험 분류 88→77개(50점 29, 25점 48). 기술적 분량 검토 대상이 줄어든 것으로 실제 시험지 수기분량 검증 및 최종승인과 무관.
 - **DEPLOY_NOT_RUN:** Vercel Preview/Production 신규 배포 없음.
