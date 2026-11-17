@@ -359,6 +359,34 @@ def check_viewports(browser,width):
                             "questions":38,"parts":69,"output":batch["files"],
                             "legalAcademicApproval":"HOLD"})
 
+        # V18: historical 2019/2020 paper scores, not automatic content approval.
+        def verified_point_projection(page):
+            return page.evaluate("""() => {
+              const b=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+              const x=Object.values(b).filter(q=>q.verifiedPointsV18);
+              return {status:window.NOMUSA_V18_POINTS_GATE?.status, count:x.length,
+                idPoints:x.map(q=>({id:q.id,points:q.verifiedPointsV18,
+                  partSum:q.examPartRubricV18?.reduce((n,p)=>n+p.points,0),
+                  splitVerified:q.examPartRubricV18?.every(p=>p.splitVerified),
+                  approved:!!q.scoringApproved})).sort((a,b)=>a.id.localeCompare(b.id)),
+                econ:window.NOMUSA_V181_ECON_GATE?.status,
+                solved2019:b["2019_p3_q1"]?.detailed?.includes("E_min=75")||false,
+                solved2020:b["2020_p6_q1"]?.detailed?.includes("phase-out")||false
+              };
+            }""")
+        point_second=verified_point_projection(second)
+        point_hub=verified_point_projection(hub)
+        assert point_second==point_hub,"V18_SCORE_PROJECTION_MISMATCH"
+        assert point_second["status"]=="26_EXAM_POINT_EVIDENCES_MATCHED_CONTENT_HOLD",point_second
+        assert point_second["count"]==26,"V18_SCORE_COUNT"
+        assert all(v["points"]==v["partSum"] and v["splitVerified"] and not v["approved"]
+                   for v in point_second["idPoints"]),"V18_SCORE_PART_INTEGRITY"
+        assert point_second["econ"]=="TWO_ECON_50_REWRITTEN_UNAPPROVED","V181_ECON"
+        assert point_second["solved2019"] and point_second["solved2020"],"V181_CALCULATION_MISSING"
+        RESULTS.append({"name":"2019_2020_26_pdf_sourced_scores_%spx"%width,
+                        "status":"PASS","records":26,"source":"EXAM_PDF_MIRROR",
+                        "legalAcademicApproval":"HOLD"})
+
         # V17: all other seventeen years, source-aware canonical full manuscripts.
         if width == 1440:
             from nomusa_editorial_batch import export_remaining_years
@@ -369,7 +397,7 @@ def check_viewports(browser,width):
               Object.values(window.NOMUSA_CANONICAL_SELECTION_V1.items)
                 .filter(x=>![2022,2023,2025].includes(Number(x.year)))
                 .map(x=>({scoringApproved:!!x.scoringApproved}))""")),"V17_APPROVAL_CHANGED"
-            assert remainder["status"] in ("EXPORT_PASS_CONTENT_HOLD","EXPORT_PARTIAL_SOURCE_HOLD")
+            assert remainder["status"]=="EXPORT_PASS_CONTENT_HOLD",("V18_SCORE_MANIFEST",remainder["status"],remainder["manifest"]["issues"])\n            assert remainder["manifest"]["pointCorrections"]==26,"V18_SCORE_CORRECTIONS"\n            assert len(remainder["manifest"]["issues"])==0,"V18_REMAINING_SOURCE_ISSUES"
             RESULTS.append({"name":"remaining_17years_271_canonical_editorial_export",
                 "status":"PASS","years":17,"questions":271,
                 "sourceGaps":len(remainder["manifest"]["issues"]),
