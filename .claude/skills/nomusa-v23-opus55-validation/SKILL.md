@@ -71,3 +71,12 @@ description: 2007~2026년 공인노무사 2차 328개 답안의 독립 출처·�
 - PASS_TECHNICAL / VERIFIED_PRIMARY_SOURCE / REVIEW_CANDIDATE / HOLD_MISSING_SOURCE / HOLD_TIME_EFFECT / HOLD_EXPERT_APPROVAL / HOLD_HANDWRITING을 분리한다.
 - 독립 전문가 검토자·자격·검토일·원전·서면승인/실제 필기실측이 없다면 **FINAL_APPROVAL=HOLD**, 전문가승인 0/328.
 - `main`, 기존 Preview, Production, 앱 ID/저장키, 공식 원본 파일은 불변이며 기존 Draft PR 이외 새 배포가 없어야 한다.
+
+## 판례 미검색 3건 교차확인 추가 게이트 (2026-11-17)
+
+- 국가법령정보센터 기존 검색 캐시가 미검색인 3건에 대한 **별도 출처 검토결과**는 `review/NOMUSA_V23_CASE_3_CORROBORATION_20261117.json`에 보존한다.
+- `2012다81609`는 대법원 후속판결 공식 자료에서 2014-12-24 인용 확인; `2011두7526`는 한국노동연구원 노동판례리뷰에서 2011-05-26 확인(법원 원판결 미열람); `2024구합76393`은 서울행정법원 공식 게시물로 사건 확인, 2025-08-21 선고일은 비법원 자료 확인에 그쳐 공식 PDF 대조 HOLD.
+- 재검증 명령: `python3 scripts/nomusa-v23-case-corroboration-gate.py .`.
+- 검증 전용 워크플로 `.github/workflows/nomusa-v23-case-corroboration.yml`은 기존 V23 원장 328건과 문항 SHA, 3사건·5회 인용, 승인 0/328을 검증한다.
+- 기존 `review/NOMUSA_V23_CASE_LOOKUP_CACHE.json`의 `NOT_FOUND_ON_LAW_GO_KR_SEARCH`는 **당시 검색 결과**이므로 다른 공식·연구기관 자료를 얻었다는 이유로 `FOUND_ON_LAW_GO_KR`로 허위 변경하지 않는다.
+- 독립 전문가·원판결 전문·학술·역사법령·수기실측이 없는 상태에서 `FINAL_APPROVAL=HOLD` 유지. 판례 원본 인용만으로 답안 학술 승인하지 않는다.
