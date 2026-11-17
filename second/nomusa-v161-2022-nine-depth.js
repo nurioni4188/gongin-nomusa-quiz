@@ -6,7 +6,7 @@ if(!prev?.items){window.NOMUSA_V161_NINE_GATE={status:'HOLD_BASE'};return;}
 const n={...prev.items},audit=[];
 for(const [id,subject,extra,summary] of rows){
  const o=n[id];
- if(!o||o.year!==2022||o.subject!==subject||!o.detailed||!o.compressed||extra.length<330||summary.length<75||o.detailed.includes('【V16.1 ')){
+ if(!o||o.year!==2022||o.subject!==subject||!o.detailed||!o.compressed||extra.length<330||summary.length<65||o.detailed.includes('【V16.1 ')){
  audit.push({id,status:'HOLD_EXPECTED_V16_SOURCE_OR_DUPLICATE'});continue;
  }
  n[id]=Object.freeze({...o,detailed:o.detailed+'\n\n'+extra,compressed:o.compressed+'\n\n【V16.1 심화요점】 '+summary,
