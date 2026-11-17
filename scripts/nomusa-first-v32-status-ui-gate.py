@@ -141,11 +141,10 @@ def main():
             page.wait_for_selector("#cYear")
             assert page.evaluate("window.QDATA.length")==1020
             assert page.locator("a[href='study-hub/first-legacy-answers.html']").count()>=1
-            page.get_by_role("button",name="2008 · 17회 A형",exact=True).click()
-            page.get_by_role("button",name="연습 · 바로 채점",exact=True).click()
             assert page.locator("a[href='study-hub/first-legacy-answers.html']").count()==1
-            page.locator("#startBtn").click()
+            page.locator('.cell[data-y="2008"][data-s="노동법(1)"]').click()
             assert page.locator(".qmeta").count()==1
+            assert "2008년 A형" in page.locator(".qmeta").inner_text()
             pre=page.locator(".fb.info").all_inner_texts()
             assert len(pre)==1, json.dumps({"pre":pre,"qmeta":page.locator(".qmeta").all_inner_texts(),
                   "before":page.locator("#app").inner_text()[:550]},ensure_ascii=False)
