@@ -91,6 +91,8 @@ jobs:
           git add review/NOMUSA_V23_VALIDATION_LEDGER.json
           if ! git diff --cached --quiet; then
             git commit -m 'review(v25): refresh V23 328-row SHA ledger after two verified source corrections'
+            git fetch origin refs/heads/review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
             git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
           fi
           echo "REVIEW_SHA=$(git rev-parse HEAD)"
