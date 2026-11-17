@@ -55,6 +55,11 @@ def slug(subj:str)->str|None:
     return SUBJECT_TO_SLUG.get(subj.replace(" ",""))
 def paths_for(row:dict)->list[str]:
     year=int(row["year"]);name=slug(str(row["subject"]))
+    # Some 2024/2026 split children have generic subject='노동법'; the immutable
+    # ID identifies whether the source was 노동법1 or 노동법2.
+    if name is None and str(row["subject"]).replace(" ","")=="노동법":
+        if "노동법1|" in str(row["id"]): name="labor1"
+        elif "노동법2|" in str(row["id"]): name="labor2"
     if year<=2012:
         return []
     if 2013<=year<=2018:
@@ -267,6 +272,8 @@ def selftest():
     assert paths_for({"year":2019,"subject":"행정쟁송법"})==["source_pdf/2019/2019_p1_administrative.pdf"]
     assert paths_for({"year":2012,"subject":"노동법1"})==[]
     assert len(paths_for({"year":2021,"subject":"노동법1"}))==2
+    assert paths_for({"year":2024,"subject":"노동법","id":"2024-노동법1|1|1"})==["source_pdf/2024/2024_labor1.pdf"]
+    assert paths_for({"year":2026,"subject":"노동법","id":"2026-노동법2|1|1"})==["source_pdf/2026/2026_labor2.pdf"]
     print("PASS_V22_SOURCE_MAPPING_SELFTEST")
 
 def main():
