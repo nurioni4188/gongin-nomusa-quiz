@@ -10,7 +10,7 @@ if(!base?.items||!Array.isArray(catalog)){window.NOMUSA_V168_2022_GATE={status:'
 const rows=catalog.filter(q=>q.year===2022);
 const expected=Object.values(base.items).filter(x=>x.year===2022);
 if(rows.length!==19||expected.length!==19)throw Error('V168_2022_EXPECT_19');
-const countPart=rows.reduce((n,q)=>n+(q.sections?.length||0),0);
+const pickExamParts=q=>(q.sections||[]).filter(s=>/^(?:물음\s*\d+|대문제\s*\d+)/.test(String(s.title||'')));\nconst countPart=rows.reduce((n,q)=>n+pickExamParts(q).length,0);
 if(countPart!==32)throw Error('V168_2022_EXPECT_32');
 const n={...base.items},audit=[];
 const identity=s=>String(s||'').replace(/\s+/g,' ').trim();
@@ -27,7 +27,7 @@ for(const q of rows){
    if(k)kept.push(para.trim());
  }
  const detailed=kept.join('\n\n');
- const subpoints=q.sections.map(s=>{
+ const subpoints=pickExamParts(q).map(s=>{
    const match=String(s.title||'').match(/(\d+)점/);
    const points=match?Number(match[1]):q.points;
    const basePages=q.points===50?8:4,highPages=q.points===50?10:4;
