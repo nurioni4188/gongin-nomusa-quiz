@@ -31,7 +31,7 @@ try:
    assert z["gate"]["corrected"]==2
    assert z["canonicalCount"]==328
    assert [x["corrected"] for x in z["rows"]]==[False,True,True]
-   assert all(x["score"]==25 for x in z["rows"])
+   assert all(x["sourceText"].strip().endswith("(25점)") for x in z["rows"])
    assert not errors,errors
    p.close()
   browser.close()
