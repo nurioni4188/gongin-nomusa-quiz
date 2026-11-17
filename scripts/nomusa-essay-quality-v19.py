@@ -83,12 +83,16 @@ def audit(root, expected, baseline):
     priority.sort(key=lambda r: (-r["points"], -r["proxyDeficitChars"], r["year"], r["id"]))
     n50 = sum(r["points"] == 50 for r in priority)
     n25 = sum(r["points"] == 25 for r in priority)
-    status = "PASS_STRUCTURAL_AUDIT_CONTENT_HOLD" if len(priority) == baseline else "HOLD_PROXY_COUNT_DRIFT"
+    status = "PASS_STRUCTURAL_AUDIT_CONTENT_HOLD" if len(priority) <= baseline else "HOLD_PROXY_COUNT_WORSE"
+    v20 = [r for r in original if "## V20 원문 연동 심화논증" in r["detailed"]]
+    if len(v20) != 88 or sum(int(r["points"]) == 50 for r in v20) != 32 or sum(int(r["points"]) == 25 for r in v20) != 56:
+        raise ValueError("HOLD_V20_88_COVERAGE")
     summary = {
         "schema": "NOMUSA_V19_328/1", "status": status, "answers": len(all_items),
         "years": dict(sorted(count.items())), "verifiedPointEvidence": len(proof_ids),
         "priority": len(priority), "priority50": n50, "priority25": n25,
         "previousPrioritySnapshot": baseline,
+        "v20SubstantiveDrafts": len(v20), "priorityReducedSinceV19": baseline - len(priority),
         "proxy": "50pt<4000 chars; 25pt<2000 chars; assumed 500 chars/page",
         "legalAcademicApproval": "HOLD", "handwrittenPageVerification": "HOLD",
         "year2022IndependentApproval": "HOLD_0_OF_19",
