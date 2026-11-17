@@ -44,6 +44,11 @@ jobs:
           cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/v31_baseline.json
       - name: Real Chromium PC and mobile exported 328 detailed and compressed answers
         run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Rebuild required V19 V21 V22 verification artifacts from existing answer exports
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+          python scripts/nomusa-v22-original-expert-packets.py .
       - name: Recalculate full V23 ledger with exactly one revised sentence SHA
         run: python scripts/nomusa-v23-validation-ledger.py .
       - name: Reuse V30 previous corrections and validate 328 real browser hashes
