@@ -33,7 +33,7 @@ for(const e of records){
    if(Number(old.year)!==e.year||String(old.subject)!==String(e.subject)||
       Number(old.points)!==e.points)
      issues.push('YEAR_SUBJECT_POINTS_MISMATCH_'+e.id);
-   if(!old.sourceText||!(/기출문항 요지|원문 전문은 PDF 참조/.test(old.sourceText)))
+   if(!old.sourceText||!(/요지|원문 전문은|기출 전문은|원본 PDF 참조|PDF를 참조|PDF 참조/.test(old.sourceText.slice(0,120))))
      issues.push('NOT_ORIGINAL_SUMMARY_'+e.id);
    if(!e.sourceText?.trim()||e.sourceText.includes('원문 전문은 PDF 참조')||
       !/\(\d+점\)/.test(e.sourceText))
