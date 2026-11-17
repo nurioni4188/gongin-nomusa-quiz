@@ -136,6 +136,19 @@ def write_csv(path,rows):
 def build(root:Path)->dict:
     t=time.monotonic();start=datetime.now(timezone.utc).isoformat(timespec="seconds")
     rows,v21=load(root)
+    precedent_path=root/"review/NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK.json"
+    if not precedent_path.is_file():
+        raise ValueError("HOLD_OFFICIAL_PRECEDENT_EVIDENCE_MANIFEST_MISSING")
+    precedent_data=json.loads(precedent_path.read_text(encoding="utf-8"))
+    if precedent_data.get("count")!=4:
+        raise ValueError("HOLD_PRECEDENT_CROSSCHECK_COUNT")
+    crosscheck={}
+    for entry in precedent_data["rows"]:
+        if entry["id"] not in rows or rows[entry["id"]]["year"]!=2022:
+            raise ValueError("HOLD_PRECEDENT_CASE_INVALID_QUESTION")
+        if entry["caseId"] not in rows[entry["id"]]["detailed"]:
+            raise ValueError("HOLD_CITED_CASE_NOT_PRESENT_IN_ANSWER_"+entry["caseId"])
+        crosscheck.setdefault(entry["id"],[]).append(entry)
     out=root/"review-artifacts";out.mkdir(exist_ok=True)
     pack=out/"NOMUSA_V22_2022_EXPERT_PACKETS";pack.mkdir(exist_ok=True)
     previews=out/"NOMUSA_V22_2022_PDF_PAGE_PREVIEWS";previews.mkdir(exist_ok=True)
@@ -196,6 +209,16 @@ def build(root:Path)->dict:
                 "## 배점별 소문항",
             ]
             lines += ["- "+str(z.get("title","")).strip()+" / "+str(z.get("points"))+"점" for z in parts]
+            lines += ["","## 대법원 공식 주요판결/판시요지 교차확인 (독립 전문가 승인 아님)",""]
+            if id in crosscheck:
+                for pcase in crosscheck[id]:
+                    lines += [
+                        "- "+pcase["caseId"]+" / "+pcase["decisionDate"]+
+                        " / 공식 원전: "+pcase["officialUrl"],
+                        "  - 확인 범위: "+pcase["scope"],
+                        "  - 상태: "+pcase["verificationStatus"]]
+            else:
+                lines += ["- 이 문항에서 이번 V22 배치로 확인된 법원 판례 원전 없음. 필요 시 원전 추가 조사."]
             lines += ["","## 최신 상세답안 — 검토대상 SHA 고정","",
                 "- 문항 ID: "+id,
                 "- 원문+상세+압축 SHA-256: "+sHash,
@@ -232,6 +255,9 @@ def build(root:Path)->dict:
         "originalPDFVisualReviewDone":False,
         "reviewerSignaturesProvided":False,
         "official2022SourcePage":OFFICIAL_2022,
+        "2022OfficialCaseHeadnotesIndependentlyLocated":len(precedent_data["rows"]),
+        "2022OfficialCaseQuestions":len(crosscheck),
+        "fullJudgmentsAllRead":False,
         "startedUTC":start,
         "finishedUTC":datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "scriptSeconds":round(time.monotonic()-t,3),
