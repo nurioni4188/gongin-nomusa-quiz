@@ -9,6 +9,7 @@ on:
       - 'study-hub/**'
       - 'rc27_essay_catalog.js'
       - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'scripts/nomusa_editorial_batch.py'
       - '.github/workflows/nomusa-canonical-e2e.yml'
   workflow_dispatch:
 
