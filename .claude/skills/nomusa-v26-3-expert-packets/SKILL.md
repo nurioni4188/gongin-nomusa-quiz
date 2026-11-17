@@ -37,3 +37,13 @@ description: "20개년 공인노무사 2차 328개 기출/상세·압축답안�
 
 ## 재사용/다음 작업
 실제 전문가 검토 결과를 수령하면 ID·원고 SHA 검증 후 재심사 대장을 만들고, 반려/추가수정/HOLD/사람 승인 후보를 분리한다. 새 출처 확인이나 법리 분석을 AI가 했어도 독립 전문가의 승인서가 없으면 HOLD이다.
+
+## 검증된 실제 실행 결과 (2026-11-18)
+
+- [Actions #44169285275](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275) **success**. artifact [14366582593](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275/artifacts/14366582593).
+- 328개 독립 검토원고(원문+상세+압축), **실명/자격/검토일/서명 미입력 빈 JSON 서식 328개**와 7개 과목별 ZIP 생성. 각 zip CRC PASS, 합계 328.
+- 과목 건수: labor1 34 / labor2 32 / admin 45 / civil 36 / econ 57 / hr 58 / org 66 = 328.
+- 96개 우선검토 ZIP도 제공(328개와 중복 포함, 신규 문항 아님). 328행 발송/회신 대장 모두 **HOLD_UNSENT** 상태로 생성.
+- 원본 공식 PDF/HWP 바이너리는 전문가 ZIP에 넣지 않았으며, 출처 URL·파일 SHA만 포함. 검토자가 실제 원전 및 독립 내용을 확인해야 한다.
+- **사용자 승인 없이 이메일 발송 없음**, 전문가 최종승인 0/328, FINAL_APPROVAL=HOLD.
+- 상세 기록: `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
