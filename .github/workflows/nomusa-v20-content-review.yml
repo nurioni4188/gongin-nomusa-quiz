@@ -6,6 +6,8 @@ on:
       - review/nomusa-auto-v1-20year-gate-20261115
     paths:
       - '.github/workflows/nomusa-v20-content-review.yml'
+      - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'second/nomusa-v20-apply-substantive-88.js'
   workflow_dispatch:
 
 permissions:
