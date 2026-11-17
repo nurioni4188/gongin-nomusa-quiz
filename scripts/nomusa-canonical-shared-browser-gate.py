@@ -283,6 +283,67 @@ def check_viewports(browser,width):
         RESULTS.append({"name":"2022_19_answers_crossview_%spx"%width,"status":"PASS",
           "sourceIDs":19,"v161":13,"v162":7,"approval":"HOLD"})
 
+        # Export the actual final client-projected 2022 text, not a guessed source aggregate.
+        # Review-only output from the same Chromium run; original PDF/manual legal approval HOLD.
+        if width == 1440:
+            rendered=second.evaluate("""() => {
+              const source=window.N27_CATALOG?.items||[];
+              const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+              const gate=window.NOMUSA_V168_2022_GATE;
+              return {gate, rows:source.filter(q=>q.year===2022).map(q=>{
+                const o=c[q.id]||{};
+                return {id:q.id,year:q.year,subject:q.subject,points:q.points,
+                  topic:q.topic||'',sourceText:q.sourceText||'',
+                  parts:o.examPartRubricV168||[],detailed:o.detailed||'',
+                  compressed:o.compressed||'',priorChars:o.detailedBeforeV168?.length||0,
+                  approval:o.finalAcademicApproval||'HOLD',scoringApproved:!!o.scoringApproved};
+              })};
+            }""")
+            assert rendered["gate"]["status"]=="NINETEEN_EDITORIAL_CANDIDATES_THIRTYTWO_PARTS_CONTENT_HOLD"
+            assert len(rendered["rows"])==19,"2022_EXPORT_19"
+            assert sum(len(q["parts"]) for q in rendered["rows"])==32,"2022_EXPORT_32"
+            assert all(q["detailed"] and q["compressed"] and q["priorChars"]>0
+                       and not q["scoringApproved"] for q in rendered["rows"]),"2022_EXPORT_BAD_ANSWER"
+            export_dir=ROOT/"review-artifacts"
+            export_dir.mkdir(exist_ok=True)
+            export_json=export_dir/"nomusa_2022_19questions_32parts_rendered_review.json"
+            export_json.write_text(json.dumps(rendered,ensure_ascii=False,indent=2),encoding="utf-8")
+            lines=[
+              "# 공인노무사 2차 2022년 기출 19개 · 32개 소문항 통합 논술답안",
+              "",
+              "> **검토용 최종 편집후보 / 법률·학술 최종 승인 HOLD**",
+              "> 실제 학습 웹앱의 Chromium 표시 데이터를 추출한 원고입니다.",
+              "> 기출 원문은 기존 등록 전사이며, 원본 PDF 인쇄면·수기 답안지 분량·시험일 법령 전문의 독립 대조는 별도입니다.",
+              "> 500자/쪽 등 글자 수 환산은 실제 필기 장수의 증명이 아닙니다.",
+              "",
+              "## 전체 32개 소문항 배점·수기 목표",
+              "",
+              "| 연도·문항 | 과목 | 소문항 | 배점 | 수기 목표(장) |",
+              "|---|---|---|---:|---:|"
+            ]
+            for q in rendered["rows"]:
+                for part in q["parts"]:
+                    lines.append("| "+q["id"]+" | "+q["subject"]+" | "+part["title"].replace("|","/")+
+                                 " | "+str(part["points"])+" | "+str(part["minimumPages"])+"–"+str(part["maximumPages"])+" |")
+            for number,q in enumerate(rendered["rows"],1):
+                lines.extend(["", "---","",
+                  "## "+str(number)+". "+q["subject"]+" — "+q["id"]+" ("+str(q["points"])+"점)",
+                  "", "### 원장 전사 기출문제 (PDF 시각 대조 HOLD)","",
+                  q["sourceText"],"",
+                  "### 소문항별 배점과 필기 목표",""])
+                for part in q["parts"]:
+                    lines.append("- **"+part["title"]+"**: "+str(part["points"])+"점, "+
+                                 str(part["minimumPages"])+"–"+str(part["maximumPages"])+"장 목표")
+                lines.extend(["", "### 상세 논술답안 — 최신 실제 표시 원고","",q["detailed"],
+                              "", "### 시험장 압축답안 — 최신 실제 표시 원고","",q["compressed"],
+                              "", "*최종내용승인 HOLD · 실제 필기장수 HOLD · 원본 PDF 시각대조 HOLD*"])
+            export_md=export_dir/"nomusa_2022_19questions_32parts_editorial_candidate.md"
+            export_md.write_text("\n".join(lines)+"\n",encoding="utf-8")
+            RESULTS.append({"name":"2022_full_rendered_manuscript_export_1440px","status":"PASS",
+                            "questions":19,"subquestions":32,
+                            "detailedChars":sum(len(q["detailed"]) for q in rendered["rows"]),
+                            "approval":"HOLD","output":str(export_md.relative_to(ROOT))})
+
         for id in IDENTIFIERS:
             assert a["drafts"][id]==b["drafts"][id],id
         overflow(second,width);overflow(hub,width)
