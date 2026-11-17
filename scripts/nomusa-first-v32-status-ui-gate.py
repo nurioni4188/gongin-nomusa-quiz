@@ -143,6 +143,9 @@ def main():
             assert page.locator("a[href='study-hub/first-legacy-answers.html']").count()>=1
             page.get_by_role("button",name="2008 · 17회 A형",exact=True).click()
             page.get_by_role("button",name="연습 · 바로 채점",exact=True).click()
+            assert page.locator("a[href='study-hub/first-legacy-answers.html']").count()==1
+            page.locator("#startBtn").click()
+            assert page.locator(".qmeta").count()==1
             pre=page.locator(".fb.info").all_inner_texts()
             assert len(pre)==1, json.dumps({"pre":pre,"qmeta":page.locator(".qmeta").all_inner_texts(),
                   "before":page.locator("#app").inner_text()[:550]},ensure_ascii=False)
