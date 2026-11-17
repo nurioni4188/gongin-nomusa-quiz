@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/nomusa-v22-primary-expert-packets.yml'
       - 'scripts/nomusa-v22-original-expert-packets.py'
+      - 'review/NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK.json'
       - 'scripts/nomusa-essay-approval-v21.py'
       - 'scripts/nomusa-canonical-shared-browser-gate.py'
       - 'source_pdf/**'
@@ -63,6 +64,7 @@ jobs:
             review-artifacts/NOMUSA_V22_328_SOURCE_EXPERT_ROUTING.csv
             review-artifacts/NOMUSA_V22_328_ORIGINAL_AUDIT.json
             review-artifacts/NOMUSA_V22_ORIGINAL_COMPARE_REPORT.md
+            review/NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK.json
             review-artifacts/NOMUSA_V22_2022_EXPERT_PACKETS/*.md
             review-artifacts/NOMUSA_V22_2022_PDF_PAGE_PREVIEWS/*.png
             review-artifacts/NOMUSA_V21_2022_PILOT_19X32.md
