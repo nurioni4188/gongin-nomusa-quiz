@@ -126,7 +126,10 @@ def build(root: Path, out_dir: Path):
         is_summary = bool(re.search(r"요지|원문 전문은|기출 전문은|원본 PDF 참조|PDF를 참조|PDF 참조", src[:120]))
         band = ("HIGH" if best and best["overlap"] >= 0.85 else "MEDIUM" if best and best["overlap"] >= 0.5 else "LOW")
         mr = msrc.get(id_)
-        if mr: band = mr["verdict"]
+        # The historic manual 'topic/points' pass is valid only while the app stores a summary.
+        # Once V24 replaces the actual sourceText, independently recompute the official
+        # PDF text overlap; do not mask an OCR mismatch behind an old manual summary note.
+        if mr and is_summary: band = mr["verdict"]
         pts_ok = bool(best) and set(best["pointsTokens"]) <= set(best["pointsFound"]) and bool(best["pointsTokens"])
         source = {
             "candidateFiles": cands, "repoFile": best["file"] if best else "", "repoSha256": repo_sha,
