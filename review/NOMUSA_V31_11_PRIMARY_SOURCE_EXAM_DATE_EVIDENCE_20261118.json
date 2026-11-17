@@ -1,0 +1,139 @@
+{
+  "schema": "NOMUSA_V31_TARGETED_PRIMARY_SOURCE_AND_EXAM_DATE/1",
+  "reviewedAtKST": "2026-11-18",
+  "basis": "Actual review branch manuscript and prior V9-V30 artifacts cross-checked with cited original court/statute/research and publication pages. Existing linked evidence reused; publication title/date alone is not full legal approval.",
+  "targetCount": 11,
+  "split": {
+    "examTime": 7,
+    "fullCase": 3,
+    "ocr": 1
+  },
+  "verifiedEdit": {
+    "id": "2026-행정쟁송법|2|0",
+    "path": "second/nomusa-v11-admin-2024-2026.js",
+    "scope": "ONE_SENTENCE_ONLY",
+    "sourceCorrectionType": "UNSUPPORTED_DATE_ATTRIBUTION_AND_SEPARATE_PROCEDURAL_DECISIONS",
+    "approvedAsFinalLegalAnswer": false
+  },
+  "rows": [
+    {
+      "id": "legacy2-2007-labor2-q1",
+      "category": "EXAM_TIME",
+      "finding": "2007년 당시 교섭창구단일화가 적용되지 않았다는 구분이 기존 상세답안에 이미 있음",
+      "verdict": "EXISTING_SEPARATION_RETAIN",
+      "evidenceUrls": [
+        "https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/second/nomusa-v15-labor_a.js"
+      ],
+      "needs": "당시 노조법 부칙 독립전문 확인"
+    },
+    {
+      "id": "legacy2-2009-labor2-q1",
+      "category": "EXAM_TIME",
+      "finding": "2010.3.25. 선고 2007두8881은 2009 기출 뒤 판례; 기존 상세·압축에 시험 후 참고 구분",
+      "verdict": "EXISTING_SEPARATION_RETAIN",
+      "evidenceUrls": [
+        "https://www.law.go.kr/LSW/precSc.do?menuId=7&query=2007%EB%91%908881"
+      ],
+      "needs": "2009 시험일 노조법·당시 판례 사안포섭 전문"
+    },
+    {
+      "id": "legacy2-2009-labor1-q1",
+      "category": "EXAM_TIME",
+      "finding": "V20은 2014 서면통지 규정 및 2019 해고예고 개정 규정 소급 금지를 이미 명시",
+      "verdict": "EXISTING_WARNING_RETAIN",
+      "evidenceUrls": [
+        "https://www.law.go.kr/LSW/precInfoP.do?precSeq=219943"
+      ],
+      "needs": "2009 시행 근로기준법 제26·27·35조 부칙 전수 비교"
+    },
+    {
+      "id": "legacy2-2012-labor1-q1",
+      "category": "EXAM_TIME",
+      "finding": "2013년 통상임금 전원합의체는 2012 시험 이후 참고로 분리됨",
+      "verdict": "EXISTING_SEPARATION_RETAIN",
+      "evidenceUrls": [
+        "https://portal.scourt.go.kr/pgp/main.on?c=900&jisCntntsSrno=2025000004897&pgDvs=1&rnum=222&srchwd=%2A&w2xPath=PGP1011M04"
+      ],
+      "needs": "2012 당시 시행 조문·선고된 판례의 개별 원문"
+    },
+    {
+      "id": "2013_p1_q1",
+      "category": "EXAM_TIME",
+      "finding": "2023.5.11. 취업규칙 불이익변경 전합 2017다35588·35595는 2013 기출 후; 기존 원고에 시험 후 참고로 표기",
+      "verdict": "EXISTING_SEPARATION_RETAIN",
+      "evidenceUrls": [
+        "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&searchOption=&searchWord=&seqnum=2403"
+      ],
+      "needs": "2013 당시 사회통념상 합리성 법리·사안포섭 원전"
+    },
+    {
+      "id": "2020_p4_q2",
+      "category": "EXAM_TIME",
+      "finding": "행정기본법 제36조 2023.3.24. 시행과 후속 판례를 2020 시험에 소급하지 않는 문구 확인; 국가법령정보센터 제정법 부칙과 일치",
+      "verdict": "EXAM_TIME_RULE_CONFIRMED_NO_CORRECTION",
+      "evidenceUrls": [
+        "https://www.law.go.kr/LSW/lsInfoP.do?ancNo=17979&ancYd=20210323&ancYnChk=0&chrClsCd=010202&efGubun=Y&efYd=20210924&lsiSeq=230457&nwJoYnInfo=Y"
+      ],
+      "needs": "2020 기출 사실관계 전체 행정심판·소송 판례 포섭 전문"
+    },
+    {
+      "id": "2022-labor1-2",
+      "category": "EXAM_TIME",
+      "finding": "2022 당시 2019다238053 판례 적용, 대법원 2024.12.19. 통상임금 기준 재정립은 시험 후로 구별",
+      "verdict": "EXISTING_SEPARATION_RETAIN",
+      "evidenceUrls": [
+        "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&pageIndex=1&searchOption=&searchWord=&seqnum=2743"
+      ],
+      "needs": "2022 당시 판결문 전문과 2024 판례 적용범위 별도 심사"
+    },
+    {
+      "id": "2014_p2_q1",
+      "category": "CASE_FULLTEXT",
+      "finding": "2011두7526은 2011.5.26. 선고 고용안정협약 사건으로 한국노동연구원 연구에서 사건번호·요지를 명시; 공식 판결서 전문은 미확인",
+      "verdict": "CASE_EXISTENCE_CORROBORATED_ORIGINAL_FULLTEXT_HOLD",
+      "evidenceUrls": [
+        "https://www.kli.re.kr/kli/prcdntView.es?currentPage=77&keyField=&keyWord=&keyYear=&mid=a10202000000&prcdnt_no=126968"
+      ],
+      "needs": "법원 원판결 전문·원고 사실관계·2014 시험일 시점"
+    },
+    {
+      "id": "2022-labor1-1",
+      "category": "CASE_FULLTEXT",
+      "finding": "2012다81609의 2014.12.24. 선고와 해고사유 축약 서면통지 법리는 국가법령정보센터 후속 판결 전문이 직접 인용; 원판결 전문은 미확인",
+      "verdict": "CASE_RATIO_PRIMARY_COURT_QUOTED_ORIGINAL_HOLD",
+      "evidenceUrls": [
+        "https://law.go.kr/LSW/precInfoP.do?precSeq=214235"
+      ],
+      "needs": "2012다81609 원판결 전문·문항 근거 일대일 포섭"
+    },
+    {
+      "id": "2026-행정쟁송법|2|0",
+      "category": "CASE_FULLTEXT_AND_EDIT",
+      "finding": "2024구합76393 서울행정법원 공식 본안판결은 만인율 통보 처분성 인정·청구기각; 별도 집행정지 인용 보도는 2025.8.12. 기사로 확인. 종전 2026년 초라는 미확인 일시 표현 1건을 실제 보도 일자 및 사건구분으로 교정",
+      "verdict": "ONE_DATE_ATTRIBUTION_CORRECTED_REVERIFY_SHA",
+      "evidenceUrls": [
+        "https://www.scourt.go.kr/portal/dcboard/DcNewsViewAction.work?cbub_code=000220&gubun=44&scode_kname=&searchOption=&searchWord=&seqnum=27433",
+        "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202508121351210960459"
+      ],
+      "needs": "공식 집행정지 결정문 전문/2026 실제 기출 소문항 포섭; 교정 SHA 회귀검증"
+    },
+    {
+      "id": "2016_p5_q2",
+      "category": "OFFICIAL_EXAM_OCR",
+      "finding": "V25 AI PDF 시각대조에서 인쇄문구와 앱 원문 일치; OCR 그러고 vs 그리고 오류가 자동 MEDIUM을 만든 것; 이미 재작성할 필요 없음",
+      "verdict": "V25_VISUAL_MATCH_NO_SOURCE_CHANGE_HUMAN_PROOFREAD_HOLD",
+      "evidenceUrls": [
+        "https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md"
+      ],
+      "needs": "독립 사람의 글자별 PDF 원문 교열·서명"
+    }
+  ],
+  "limitations": [
+    "Only official court summary seen for 2024구합76393; attached court judgment PDF not independently read in this run.",
+    "2011두7526 existence and ratio corroborated in published Korean Labor Institute analysis, not original court full judgment.",
+    "2012다81609 is quoted by an official subsequent judgment; its own full judgment not independently read.",
+    "2016 printed text was previously AI-visually checked under V25; independent human proofreading pending.",
+    "No other answer modification and no independent expert signoff."
+  ],
+  "finalApproval": "HOLD_0_OF_328"
+}
