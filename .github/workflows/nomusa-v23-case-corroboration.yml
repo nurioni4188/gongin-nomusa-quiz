@@ -1,0 +1,49 @@
+name: NOMUSA V23 case corroboration evidence-only gate
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v23-case-corroboration.yml'
+      - 'review/NOMUSA_V23_CASE_3_CORROBORATION_20261117.json'
+      - 'review/NOMUSA_V23_VALIDATION_LEDGER.json'
+      - 'scripts/nomusa-v23-case-corroboration-gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v23-case-corroboration-evidence
+  cancel-in-progress: true
+
+jobs:
+  source-only-corroboration:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read immutable review branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Check three independently corroborated case numbers against 328-row ledger
+        run: python3 scripts/nomusa-v23-case-corroboration-gate.py .
+      - name: Upload reproducible source crosscheck
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v23-3-case-crosscheck-no-expert-approval
+          path: |
+            review/NOMUSA_V23_CASE_3_CORROBORATION_20261117.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Confirm non-release, non-approval status
+        if: always()
+        run: |
+          echo 'THREE_CASE_EXISTENCE_CROSSCHECK_ONLY=1'
+          echo 'HISTORIC_LAW_GO_KR_SEARCH_NOT_REWRITTEN=1'
+          echo 'COURT_FULL_OPINION_AND_EXPERT_APPROVAL_HOLD=1'
+          echo 'NO_EMAIL_NO_VERCEL_NO_MAIN_NO_PRODUCTION=1'
