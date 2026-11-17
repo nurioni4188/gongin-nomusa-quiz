@@ -72,6 +72,20 @@ def inventory(page):
          v12:(()=>{const g=window.NOMUSA_V12_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,cat=new Map((window.N27_CATALOG?.items||[]).map(q=>[q.id,q]));return g&&{schema:g.schema,count:g.v12Rewritten,pdfPoints:g.pointsVerifiedFromRepoPdf,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,catalogPointsUntouched:g.rows.every(x=>cat.get(x.id)?.points===x.catalogPoints&&typeof x.catalogPoints!=='number'),unique:new Set(g.rows.map(x=>x.id)).size===20,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV12?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV12?.length===x.priorCompactChars),v11Kept:Object.keys(window.NOMUSA_V11_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV11),contentChecks:{signing:c.items['2019_p5_q1']?.detailed?.includes('2012다55518'),branch:c.items['2019_p6_q1']?.detailed?.includes('2012다96120'),subcontract:c.items['2019_p6_q2']?.detailed?.includes('2007두8881'),dispatch:c.items['2020_p1_q1']?.detailed?.includes('2017다219072'),dinner:c.items['2020_p1_q2']?.detailed?.includes('2013두25276'),tax:c.items['2019_p1_q3']?.detailed?.includes('99두2765'),changed:c.items['2020_p4_q1']?.detailed?.includes('2003두1684'),petition:c.items['2020_p4_q2']?.detailed?.includes('2010두8676'),setoff:c.items['2019_p4_q1']?.detailed?.includes('98다25344'),deceased:c.items['2020_p7_q1']?.detailed?.includes('2005마425')}};})(),
          v13:(()=>{const g=window.NOMUSA_V13_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v13Expanded,eight:g.allAtLeastEightAppPages,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV13?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV13?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v12Kept:Object.keys(window.NOMUSA_V12_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV12),contentChecks:{lowPerf:c.items['2022-labor1-1']?.detailed?.includes('2018다253680'),subcontract:c.items['2022-labor2-1']?.detailed?.includes('2015도1927'),committee:c.items['2023-labor1-1']?.detailed?.includes('2006다48069'),setoff:c.items['2023-civil-1']?.detailed?.includes('2021다275741'),rehire:c.items['2025-labor1-1']?.detailed?.includes('2016다13437'),appraisal:c.items['2025-labor2-1']?.detailed?.includes('2023두41864'),unit:c.items['2025-labor2-1']?.detailed?.includes('2015두39361'),consent:c.items['2025-admin-1']?.detailed?.includes('2023두61349'),noFake90:!c.items['2025-admin-1']?.detailed?.includes('90프2')}};})(),
          v15:(()=>{const g=window.NOMUSA_V15_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,target:g.v15Target,count:g.v15Rewritten,stage5:g.stage5Count,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV15?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV15?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v13Kept:Object.keys(window.NOMUSA_V13_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV13),allTagged:g.rows.every(x=>c.items[x.id]?.detailed?.includes('(V15)')),noFiller:g.rows.every(x=>!c.items[x.id]?.detailed?.includes('확인되지 않은 판결번호를 만들지 않는다'))};})(),
+         v20:(()=>{const g=window.NOMUSA_V20_CONTENT_GATE;
+           return g&&{status:g.status,total:g.total,points50:g.points50,points25:g.points25,
+             unique:new Set(g.rows.map(x=>x.id)).size===88,previousPreserved:g.rows.every(r=>
+               !!c.items[r.id]?.detailedBeforeV20 && !!c.items[r.id]?.compressedBeforeV20),
+             grows:g.rows.every(r=>r.currentDetailedChars>r.previousDetailedChars+180 &&
+               c.items[r.id]?.detailed?.includes('## V20 원문 연동 심화논증') &&
+               c.items[r.id]?.compressed?.includes('[V20 추가 핵심]')),
+             noScoring:g.rows.every(r=>c.items[r.id]?.scoringApproved===false),
+             approval:g.expertApproval,source:g.originalCatalogChanged,keys:g.storageKeysChanged,
+             sampleTrade:c.items['legacy2-2007-labor-economics-q1']?.detailed?.includes('스톨퍼-새뮤얼슨'),
+             sampleHuman:c.items['legacy2-2011-labor-economics-q1']?.detailed?.includes('NPV='),
+             sampleMinwage:c.items['2019_p3_q1']?.detailed?.includes('E=75'),
+             sampleUnion:c.items['2025-econ-3']?.detailed?.includes('L*=100')
+           };})(),
          yearCount:new Set(rows.map(x=>x.year)).size,
          firstCount:window.QDATA?.length||null,
          legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
@@ -97,6 +111,12 @@ def check_inventory(inv):
     assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
     assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
     assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v20=inv["v20"]
+    assert v20 and v20["status"]=="88_SOURCE_SPECIFIC_SUPPLEMENTS_ADDED_CONTENT_APPROVAL_HOLD",v20
+    assert v20["total"]==88 and v20["points50"]==32 and v20["points25"]==56,v20
+    assert v20["unique"] and v20["previousPreserved"] and v20["grows"] and v20["noScoring"],v20
+    assert v20["approval"]=="HOLD" and v20["source"] is False and v20["keys"] is False,v20
+    assert all(v20[x] for x in ("sampleTrade","sampleHuman","sampleMinwage","sampleUnion")),v20
     v15=inv["v15"]
     assert v15 and v15["schema"]=="nomusa-20year-essay-law50-v15/15",v15
     assert v15["count"]==v15["target"]==36 and v15["minChars"]>=4200 and v15["stage5"]==0,v15
