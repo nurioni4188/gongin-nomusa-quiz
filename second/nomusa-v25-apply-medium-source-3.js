@@ -40,7 +40,7 @@ for(const p of printed){
   issues.push('YEAR_SUBJECT_POINTS_MISMATCH_'+p.id);
  if(p.action==='KEEP_ALREADY_MATCHES_PDF'){
   if(old.sourceText!==p.sourceText)issues.push('2016_NOT_YET_MATCHING_ORIGINAL');
- } else if(!norm(old.sourceText).includes(norm(p.sourceText))) {
+ } else if(!norm(old.sourceText).includes(norm(p.sourceText).replace(/^문제/,''))) {
   issues.push('OLD_TEXT_NOT_CONTAINING_ORIGINAL_EXAM_QUESTION_'+p.id);
  } else if(old.sourceText===p.sourceText) {
   issues.push('ALREADY_APPLIED_V25_'+p.id);
