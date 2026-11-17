@@ -706,7 +706,7 @@ function vHome(){
     <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${gradedAttempts.length?Math.round(okN/gradedAttempts.length*100):0}<small>%</small></b><span>기존 2022~2026 채점 정답률</span></div>
     <div class="stat"><span class="stat-icon stat-icon--amber">◎</span><b>${wrongN.toLocaleString()}</b><span>복습할 오답</span></div>
   </div>
-  <p class="muted" role="status">2008~2021년은 선택·저장·수동 복습이 가능하고 채점은 대기 중입니다. 기존 채점 기록은 백업에 보존합니다. <a href="study-hub/first-legacy-answers.html">정답 근거 검토 단계 보기</a></p>
+  <p class="muted" role="status">2008~2021년은 선택·저장·수동 복습이 가능하고 채점은 대기 중입니다. 기존 채점 기록은 백업에 보존합니다.</p>
   <div class="section-heading"><div><span class="section-kicker">02 / PRACTICE BUILDER</span><h2>나만의 학습 세트</h2></div><span class="section-side">연도와 과목을 고르면 바로 시작할 수 있어요</span></div>
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<2022?" A형":""))}</div>
