@@ -74,12 +74,12 @@ def inventory(page):
          v15:(()=>{const g=window.NOMUSA_V15_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,target:g.v15Target,count:g.v15Rewritten,stage5:g.stage5Count,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV15?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV15?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v13Kept:Object.keys(window.NOMUSA_V13_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV13),allTagged:g.rows.every(x=>c.items[x.id]?.detailed?.includes('(V15)')),noFiller:g.rows.every(x=>!c.items[x.id]?.detailed?.includes('확인되지 않은 판결번호를 만들지 않는다'))};})(),
          v20:(()=>{const g=window.NOMUSA_V20_CONTENT_GATE;
            return g&&{status:g.status,total:g.total,points50:g.points50,points25:g.points25,
-             unique:new Set(g.rows.map(x=>x.id)).size===88,previousPreserved:g.rows.every(r=>
+             unique:new Set((g.rows||[]).map(x=>x.id)).size===88,issues:g.issues||[],previousPreserved:(g.rows||[]).length===88 && g.rows.every(r=>
                !!c.items[r.id]?.detailedBeforeV20 && !!c.items[r.id]?.compressedBeforeV20),
-             grows:g.rows.every(r=>r.currentDetailedChars>r.previousDetailedChars+180 &&
+             grows:(g.rows||[]).length===88 && g.rows.every(r=>r.currentDetailedChars>r.previousDetailedChars+180 &&
                c.items[r.id]?.detailed?.includes('## V20 원문 연동 심화논증') &&
                c.items[r.id]?.compressed?.includes('[V20 추가 핵심]')),
-             noScoring:g.rows.every(r=>c.items[r.id]?.scoringApproved===false),
+             noScoring:(g.rows||[]).length===88 && g.rows.every(r=>c.items[r.id]?.scoringApproved===false),
              approval:g.expertApproval,source:g.originalCatalogChanged,keys:g.storageKeysChanged,
              sampleTrade:c.items['legacy2-2007-labor-economics-q1']?.detailed?.includes('스톨퍼-새뮤얼슨'),
              sampleHuman:c.items['legacy2-2011-labor-economics-q1']?.detailed?.includes('NPV='),
