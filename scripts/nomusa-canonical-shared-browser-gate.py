@@ -359,6 +359,22 @@ def check_viewports(browser,width):
                             "questions":38,"parts":69,"output":batch["files"],
                             "legalAcademicApproval":"HOLD"})
 
+        # V17: all other seventeen years, source-aware canonical full manuscripts.
+        if width == 1440:
+            from nomusa_editorial_batch import export_remaining_years
+            remainder=export_remaining_years(second,ROOT)
+            assert remainder["manifest"]["yearCount"]==17,"V17_YEAR_COUNT"
+            assert remainder["manifest"]["totalQuestions"]==271,("V17_TOTAL",remainder["manifest"]["totalQuestions"])
+            assert all(not a.get("scoringApproved") for a in second.evaluate("""() =>
+              Object.values(window.NOMUSA_CANONICAL_SELECTION_V1.items)
+                .filter(x=>![2022,2023,2025].includes(Number(x.year)))
+                .map(x=>({scoringApproved:!!x.scoringApproved}))""")),"V17_APPROVAL_CHANGED"
+            assert remainder["status"] in ("EXPORT_PASS_CONTENT_HOLD","EXPORT_PARTIAL_SOURCE_HOLD")
+            RESULTS.append({"name":"remaining_17years_271_canonical_editorial_export",
+                "status":"PASS","years":17,"questions":271,
+                "sourceGaps":len(remainder["manifest"]["issues"]),
+                "output":remainder["files"],"contentApproval":"HOLD"})
+
         for id in IDENTIFIERS:
             assert a["drafts"][id]==b["drafts"][id],id
         overflow(second,width);overflow(hub,width)
