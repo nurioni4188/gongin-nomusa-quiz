@@ -111,7 +111,9 @@ def export_remaining_years(page, root):
       const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
       const original=new Map((window.N27_CATALOG?.items||[]).map(q=>[q.id,q]));
       const audit=window.NOMUSA_V17_REMAINING_GATE;
-      return {gate:{status:audit?.status||'HOLD_MISSING_V17_GATE',
+      const pointGate=window.NOMUSA_V18_POINTS_GATE;
+      return {scoreEvidence:{status:pointGate?.status||'HOLD_MISSING_V18_GATE',count:pointGate?.count||0,ids:(pointGate?.rows||[]).map(x=>x.id)},
+        gate:{status:audit?.status||'HOLD_MISSING_V17_GATE',
           yearCount:audit?.yearCount||0,questionCount:audit?.questionCount||0,
           years:years.map(year=>({year,status:audit?.years?.[year]?.status||'HOLD',
               issues:audit?.years?.[year]?.issues||[]}))},
@@ -120,8 +122,9 @@ def export_remaining_years(page, root):
           return {id:a.id,year:Number(a.year),subject:a.subject,
             topic:q?.topic||'',sourceText:q?.sourceText||'',
             sourceStatus:q?.sourceStatus||'UNVERIFIED',
-            points:Number.isFinite(Number(q?.points))&&Number(q?.points)>0?Number(q.points):null,
-            originalPoints:q?.points??null,parts:a.examPartRubricV17||[],
+            points:Number(a.verifiedPointsV18||q?.points||0)>0?Number(a.verifiedPointsV18||q?.points):null,
+            originalPoints:q?.points??null,parts:a.examPartRubricV18||a.examPartRubricV17||[],
+            scoreEvidence:a.sourceScoringProofV18||null,
             detailed:a.detailed||'',compressed:a.compressed||'',
             preserved:!!a.detailedBeforeV17,
             sourcePath:a.sourcePath||'',
@@ -129,16 +132,20 @@ def export_remaining_years(page, root):
         })};
     }""", years)
     records=source["rows"]
+    point_evidence_ids=set(source.get("scoreEvidence",{}).get("ids",[]))
+    if len(point_evidence_ids)!=26 or source.get("scoreEvidence",{}).get("status")!="26_EXAM_POINT_EVIDENCES_MATCHED_CONTENT_HOLD":
+        raise AssertionError("MISSING_26_PDF_SCORE_EVIDENCE")
     root=Path(root);output=root/"review-artifacts";output.mkdir(parents=True,exist_ok=True)
     manifest={"schema":"nomusa-remaining-17-years/1","source":"Chromium canonical model",
               "years":[],"issues":[],"editorialApproval":"HOLD",
               "originalPDFVisualReview":"HOLD","historicLawFullTextReview":"HOLD",
-              "handwritingVerified":False,"mainChanged":False,"productionChanged":False}
+              "handwritingVerified":False,"mainChanged":False,"productionChanged":False,
+              "pointCorrections":len(point_evidence_ids),"pointSource":"2019/2020 historical exam-paper PDF mirror visual + catalog text"}
     files=[]
     for year in years:
         rows=[q for q in records if q["year"]==year]
         year_gate=next((x for x in source["gate"]["years"] if x["year"]==year),{"issues":["MISSING_YEAR_GATE"]})
-        errors=list(year_gate.get("issues",[]))
+        errors=[e for e in year_gate.get("issues",[]) if not (e.endswith(":POINTS_UNVERIFIED") and e.split(":",1)[0] in point_evidence_ids)]
         if len(rows)!=expected[year]:errors.append("YEAR_COUNT_%d_EXPECT_%d"%(len(rows),expected[year]))
         ids=[q["id"] for q in rows]
         if len(ids)!=len(set(ids)):errors.append("DUPLICATE_IDS")
