@@ -1,0 +1,57 @@
+{
+  "schema": "NOMUSA_V25_MEDIUM_3_PRIMARY_PAGE_VISUAL_CROSSCHECK/1",
+  "checkedDate": "2026-11-18",
+  "scope": "Visual inspection of three original PDF image pages from GitHub Actions 44159068617; Q-Net byte identity comes from previous V23 manifest, not newly requested.",
+  "total": 3,
+  "correctionsRequired": 2,
+  "sourceTextUnchanged": 1,
+  "expertContentApproved": 0,
+  "finalApproval": "HOLD",
+  "items": [
+    {
+      "id": "2016_p5_q2",
+      "year": 2016,
+      "subject": "경영조직론",
+      "points": 25,
+      "sourcePDF": "source_pdf/2016/2016_second_full_original.pdf",
+      "page": 7,
+      "sourcePdfSHA256": "29b006bce8bc80fa4f8a2fa6a90a84d53f975ccef48391d5695d52ecfc111348",
+      "qnetUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5191801&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "result": "VISUAL_MATCH_NO_SOURCE_CHANGE",
+      "printedText": "2. 조직관리에서 학습의 중요성, 학습과정 그리고 학습의 주요 원리로서의 강화에 대하여 각각 설명하시오. (25점)",
+      "note": "Original PDF image includes '그리고'; historical Tesseract OCR incorrectly generated '그러고'. The V24 transcript already matches print; retain unchanged."
+    },
+    {
+      "id": "2019_p4_q3",
+      "year": 2019,
+      "subject": "민사소송법",
+      "points": 25,
+      "sourcePDF": "source_pdf/2019/2019_p4_civil_procedure.pdf",
+      "page": 1,
+      "sourcePdfSHA256": "b6114ab718601f8fb27490a13c748a79262a07b6a50b07dd3d491cdde03c8bd8",
+      "qnetUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5206011&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "result": "SOURCE_TEXT_SPACING_AND_FOOTER_CORRECTION",
+      "printedText": "【문제 3】 공동소송참가에 관하여 설명하시오. (25점)",
+      "note": "Previous 2019 passage was joined without spaces and contained the printed footer '2019년도 제28회 ... 2교시 (1-1)'."
+    },
+    {
+      "id": "2020_p7_q3",
+      "year": 2020,
+      "subject": "민사소송법",
+      "points": 25,
+      "sourcePDF": "source_pdf/2020/2020_p7_civil_procedure.pdf",
+      "page": 1,
+      "sourcePdfSHA256": "fcad6a6d982be7bab61a040595b8c2b5d0eeb41d78ed8a929c87d64fda743135",
+      "qnetUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5207537&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "result": "SOURCE_TEXT_SPACING_AND_FOOTER_CORRECTION",
+      "printedText": "【문제 3】 유사필수적 공동소송에 관하여 설명하시오. (25점)",
+      "note": "Previous 2020 passage was joined without spaces and included the printed footer; question wording itself matches after separation."
+    }
+  ],
+  "originArtifact": "https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44159068617",
+  "notes": [
+    "AI visual inspection is source transcription precheck, not certified independent human proofreading.",
+    "The 2016 PDF OCR error is not a reason to change already correct displayed question.",
+    "Do not modify detailed/compact answers, points, IDs, old source PDFs, learner storage keys, main, Production, Preview or send emails."
+  ]
+}
