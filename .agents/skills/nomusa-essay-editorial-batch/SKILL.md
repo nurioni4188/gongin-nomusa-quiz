@@ -45,3 +45,15 @@ description: "공인노무사 2차 기출 연도별 상세·압축답안의 중�
 
 ## 예시 지시문
 > NOMUSA Essay Editorial Batch 스킬에 따라 기존 검토 브랜치를 보존하고 2023·2025년 기출원장과 최신 상세·압축답안을 대조해, 38개 대문항/69개 소문항의 검토용 원고를 한 번에 생성하라. 중복·누락·배점·분량 목표를 검사하고 실제 Chromium 세 화면 크기에서 회귀검증하라. GitHub Actions Markdown/JSON 아티팩트를 반환하고 미검증 법령·학술·수기분량을 HOLD로 구분하라. Production과 기존 Preview를 절대로 수정하지 마라.
+
+## V17 — 나머지 17개 연도 전수 배치(2007~2021, 2024, 2026)
+- 2022·2023·2025 편집후보본은 변경하지 않고 17개 연도의 기존 학습 답안을 정리한다.
+- `second/nomusa-canonical-selection-v1.js`의 328개 우선 선택 레코드를 기준으로 연도별 등록 ID를 세고, 그중 제외 3개년 57개를 뺀 **271개**를 처리한다.
+- 2007~2012는 레거시 원장, 2013~2018·2021은 기존 parent와 child의 이중 카운트 금지, 2024·2026은 원래 소문항 ID가 분리되어 있으므로 그 자체를 채점 단위로 유지한다.
+- 역사적 소문항 개별 배점이 직접 확인되지 않으면 전체 등록문항 배점을 단일 단위로 기록하고 `splitVerified=false`로 표시한다. **임의 소문항 분할 금지**.
+- 재사용 overlay: `second/nomusa-v17-remaining-17years-editorial.js`
+- 기존 배치 추출기 함수 `scripts/nomusa_editorial_batch.py::export_remaining_years`
+- GitHub Actions는 17개 연도별 Markdown+JSON 및 종합 audit manifest를 `nomusa-remaining-17years-editorial-candidates` 아티팩트로 묶는다.
+- manifest에 연도별 등록건수, 미검증 소문항 수, 원문 누락/초안 누락, 승인 HOLD를 기록한다. 원문이 빠진 연도를 성공 완료로 보고해서는 안 된다.
+- 271개 항목의 등록·추출은 **기존 학습원고 편집 및 출력**이며, 271개 답안의 학술·법리·시험장 필기분량 신규 승인이나 새 모범답안 작성 완료와 동일하지 않다.
+- 신규 연도 확대 시 먼저 실제 year/count/score를 검증하고, 코드의 연도별 예상값을 갱신한 후 Chromium 1440·390·360px 회귀검사를 다시 수행한다.
