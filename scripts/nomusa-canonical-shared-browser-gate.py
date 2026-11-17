@@ -397,7 +397,9 @@ def check_viewports(browser,width):
               Object.values(window.NOMUSA_CANONICAL_SELECTION_V1.items)
                 .filter(x=>![2022,2023,2025].includes(Number(x.year)))
                 .map(x=>({scoringApproved:!!x.scoringApproved}))""")),"V17_APPROVAL_CHANGED"
-            assert remainder["status"]=="EXPORT_PASS_CONTENT_HOLD",("V18_SCORE_MANIFEST",remainder["status"],remainder["manifest"]["issues"])\n            assert remainder["manifest"]["pointCorrections"]==26,"V18_SCORE_CORRECTIONS"\n            assert len(remainder["manifest"]["issues"])==0,"V18_REMAINING_SOURCE_ISSUES"
+            assert remainder["status"]=="EXPORT_PASS_CONTENT_HOLD",("V18_SCORE_MANIFEST",remainder["status"],remainder["manifest"]["issues"])
+            assert remainder["manifest"]["pointCorrections"]==26,"V18_SCORE_CORRECTIONS"
+            assert len(remainder["manifest"]["issues"])==0,"V18_REMAINING_SOURCE_ISSUES"
             RESULTS.append({"name":"remaining_17years_271_canonical_editorial_export",
                 "status":"PASS","years":17,"questions":271,
                 "sourceGaps":len(remainder["manifest"]["issues"]),
