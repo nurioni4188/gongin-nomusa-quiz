@@ -95,3 +95,109 @@ def export_editorial_years(page, root, years=(2023, 2025)):
     manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     files.append(str(manifest_path.relative_to(root)))
     return {"status":"PASS_EDITORIAL_EXPORT_APPROVAL_HOLD","files":files,"manifest":manifest}
+
+
+def export_remaining_years(page, root):
+    """Export the 17 remaining years from the actual canonical browser model, not base catalog rows.
+
+    Legacy 2013-2018 parent entries are not mistakenly double-counted as independently authored
+    children. Independently scored 2024/2026 items are kept as their own source IDs.
+    """
+    years=[*range(2007,2022),2024,2026]
+    expected={2007:13,2008:14,2009:14,2010:17,2011:17,2012:19,
+              2013:19,2014:19,2015:6,2016:6,2017:6,2018:6,
+              2019:19,2020:19,2021:6,2024:34,2026:37}
+    source=page.evaluate("""(years) => {
+      const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+      const original=new Map((window.N27_CATALOG?.items||[]).map(q=>[q.id,q]));
+      const audit=window.NOMUSA_V17_REMAINING_GATE;
+      return {gate:{status:audit?.status||'HOLD_MISSING_V17_GATE',
+          yearCount:audit?.yearCount||0,questionCount:audit?.questionCount||0,
+          years:years.map(year=>({year,status:audit?.years?.[year]?.status||'HOLD',
+              issues:audit?.years?.[year]?.issues||[]}))},
+        rows:Object.values(c).filter(a=>years.includes(Number(a.year))).map(a=>{
+          const q=original.get(a.id);
+          return {id:a.id,year:Number(a.year),subject:a.subject,
+            topic:q?.topic||'',sourceText:q?.sourceText||'',
+            sourceStatus:q?.sourceStatus||'UNVERIFIED',
+            points:Number(q?.points||0),parts:a.examPartRubricV17||[],
+            detailed:a.detailed||'',compressed:a.compressed||'',
+            preserved:!!a.detailedBeforeV17,
+            sourcePath:a.sourcePath||'',
+            scoringApproved:!!a.scoringApproved};
+        })};
+    }""", years)
+    records=source["rows"]
+    root=Path(root);output=root/"review-artifacts";output.mkdir(parents=True,exist_ok=True)
+    manifest={"schema":"nomusa-remaining-17-years/1","source":"Chromium canonical model",
+              "years":[],"issues":[],"editorialApproval":"HOLD",
+              "originalPDFVisualReview":"HOLD","historicLawFullTextReview":"HOLD",
+              "handwritingVerified":False,"mainChanged":False,"productionChanged":False}
+    files=[]
+    for year in years:
+        rows=[q for q in records if q["year"]==year]
+        year_gate=next((x for x in source["gate"]["years"] if x["year"]==year),{"issues":["MISSING_YEAR_GATE"]})
+        errors=list(year_gate.get("issues",[]))
+        if len(rows)!=expected[year]:errors.append("YEAR_COUNT_%d_EXPECT_%d"%(len(rows),expected[year]))
+        ids=[q["id"] for q in rows]
+        if len(ids)!=len(set(ids)):errors.append("DUPLICATE_IDS")
+        for q in rows:
+            if not q["sourceText"]:errors.append(q["id"]+":NO_SOURCE_TEXT")
+            if not q["detailed"] or not q["compressed"]:errors.append(q["id"]+":ANSWER_MISSING")
+            if not q["preserved"]:errors.append(q["id"]+":NOT_PROCESSED")
+            if not q["points"] or sum(p["points"] for p in q["parts"])!=q["points"]:
+                errors.append(q["id"]+":SCORE_MISMATCH")
+            if q["scoringApproved"]:errors.append(q["id"]+":SCORING_APPROVED_UNEXPECTEDLY")
+        split_unverified=sum(1 for q in rows if not all(p.get("splitVerified") for p in q["parts"]))
+        part_count=sum(len(q["parts"]) for q in rows)
+        lines=[
+            "# 공인노무사 2차 "+str(year)+"년 통합 학습답안 편집후보",
+            "","> **최종 법률·학술·실전분량 승인 HOLD**",
+            "> 현재 학습 웹앱에 실제 투영된 등록 답안 전문입니다.",
+            "> 소문항 배점이 분리 확인되지 않은 과거 자료는 원장 전체 배점으로 보존했으며",
+            "> 임의 소문항 점수·본문·근거를 만들어 넣지 않았습니다.",
+            "", "## 문항·분량 검토 원장","",
+            "| ID | 과목 | 배점 | 소문항/배점 단위 | 수기 목표 |",
+            "|---|---|---:|---|---|"
+        ]
+        for q in rows:
+            partdesc=", ".join(p["title"]+" ("+str(p["points"])+"점)" for p in q["parts"])
+            goaldsc=", ".join(str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장" for p in q["parts"])
+            lines.append("| "+q["id"].replace("|","/")+" | "+q["subject"]+
+                         " | "+str(q["points"])+" | "+partdesc.replace("|","/")+
+                         " | "+goaldsc+" |")
+        for i,q in enumerate(rows,1):
+            lines.extend(["","---","",
+              "## "+str(i)+". "+q["subject"]+" — "+q["id"].replace("|","/")+" ("+str(q["points"])+"점)",
+              "", "### 기출 원장 전사(원본 PDF·HWP 시각 확인 HOLD)", "", q["sourceText"],
+              "", "### 배점·실전 장수 목표", ""])
+            for p in q["parts"]:
+                lines.append("- "+p["title"]+" ("+str(p["points"])+"점): "+
+                    str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장"+
+                    ("" if p.get("splitVerified") else " — 소문항별 분할 검증 HOLD"))
+            lines.extend(["", "### 상세답안 — 브라우저 표시 통합본","",q["detailed"],
+               "", "### 시험장 압축답안 — 브라우저 표시 통합본","",q["compressed"],
+               "", "**내용 최종승인 HOLD / 실제 필기분량 HOLD**"])
+        base="nomusa_"+str(year)+"_editorial"
+        md=output/(base+"_candidate.md")
+        jfile=output/(base+"_rendered.json")
+        md.write_text("\n".join(lines)+"\n",encoding="utf-8")
+        jfile.write_text(json.dumps({"year":year,"rows":rows,"issues":errors},
+            ensure_ascii=False,indent=2),encoding="utf-8")
+        files.extend([str(md.relative_to(root)),str(jfile.relative_to(root))])
+        info={"year":year,"questions":len(rows),"scoringUnits":part_count,
+              "unverifiedSubquestionSplits":split_unverified,"issues":errors,
+              "detailChars":sum(len(q["detailed"]) for q in rows),
+              "status":"EDITORIAL_EXPORTED_CONTENT_HOLD" if not errors else "EDITORIAL_EXPORTED_WITH_SOURCE_GAPS_HOLD",
+              "files":[str(md.relative_to(root)),str(jfile.relative_to(root))]}
+        manifest["years"].append(info)
+        manifest["issues"].extend(str(year)+":"+e for e in errors)
+    if len(records)!=271:manifest["issues"].append("TOTAL_COUNT_%d_EXPECT_271"%len(records))
+    manifest["totalQuestions"]=len(records)
+    manifest["yearCount"]=len(years)
+    manifest["totalScoringUnits"]=sum(x["scoringUnits"] for x in manifest["years"])
+    manifest["status"]="EXPORT_PASS_CONTENT_HOLD" if not manifest["issues"] else "EXPORT_PARTIAL_SOURCE_HOLD"
+    json_file=output/"nomusa_remaining_17years_editorial_manifest.json"
+    json_file.write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
+    files.append(str(json_file.relative_to(root)))
+    return {"status":manifest["status"],"manifest":manifest,"files":files}
