@@ -59,6 +59,32 @@ jobs:
             review-artifacts/nomusa_2023_2025_editorial_manifest.json
           if-no-files-found: error
           retention-days: 30
+      - name: Upload remaining 17 year editorial candidates and evidence manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-remaining-17years-editorial-candidates
+          path: |
+            review-artifacts/nomusa_2007_editorial_*
+            review-artifacts/nomusa_2008_editorial_*
+            review-artifacts/nomusa_2009_editorial_*
+            review-artifacts/nomusa_2010_editorial_*
+            review-artifacts/nomusa_2011_editorial_*
+            review-artifacts/nomusa_2012_editorial_*
+            review-artifacts/nomusa_2013_editorial_*
+            review-artifacts/nomusa_2014_editorial_*
+            review-artifacts/nomusa_2015_editorial_*
+            review-artifacts/nomusa_2016_editorial_*
+            review-artifacts/nomusa_2017_editorial_*
+            review-artifacts/nomusa_2018_editorial_*
+            review-artifacts/nomusa_2019_editorial_*
+            review-artifacts/nomusa_2020_editorial_*
+            review-artifacts/nomusa_2021_editorial_*
+            review-artifacts/nomusa_2024_editorial_*
+            review-artifacts/nomusa_2026_editorial_*
+            review-artifacts/nomusa_remaining_17years_editorial_manifest.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Check review branch and refuse deployment
         if: always()
         run: |
