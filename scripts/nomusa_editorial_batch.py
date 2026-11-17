@@ -120,7 +120,8 @@ def export_remaining_years(page, root):
           return {id:a.id,year:Number(a.year),subject:a.subject,
             topic:q?.topic||'',sourceText:q?.sourceText||'',
             sourceStatus:q?.sourceStatus||'UNVERIFIED',
-            points:Number(q?.points||0),parts:a.examPartRubricV17||[],
+            points:Number.isFinite(Number(q?.points))&&Number(q?.points)>0?Number(q.points):null,
+            originalPoints:q?.points??null,parts:a.examPartRubricV17||[],
             detailed:a.detailed||'',compressed:a.compressed||'',
             preserved:!!a.detailedBeforeV17,
             sourcePath:a.sourcePath||'',
@@ -145,7 +146,10 @@ def export_remaining_years(page, root):
             if not q["sourceText"]:errors.append(q["id"]+":NO_SOURCE_TEXT")
             if not q["detailed"] or not q["compressed"]:errors.append(q["id"]+":ANSWER_MISSING")
             if not q["preserved"]:errors.append(q["id"]+":NOT_PROCESSED")
-            if not q["points"] or sum(p["points"] for p in q["parts"])!=q["points"]:
+            if q["points"] is None:
+                if q["id"]+":POINTS_UNVERIFIED" not in errors:
+                    errors.append(q["id"]+":POINTS_UNVERIFIED")
+            elif sum(p["points"] or 0 for p in q["parts"])!=q["points"]:
                 errors.append(q["id"]+":SCORE_MISMATCH")
             if q["scoringApproved"]:errors.append(q["id"]+":SCORING_APPROVED_UNEXPECTEDLY")
         split_unverified=sum(1 for q in rows if not all(p.get("splitVerified") for p in q["parts"]))
@@ -161,19 +165,19 @@ def export_remaining_years(page, root):
             "|---|---|---:|---|---|"
         ]
         for q in rows:
-            partdesc=", ".join(p["title"]+" ("+str(p["points"])+"점)" for p in q["parts"])
-            goaldsc=", ".join(str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장" for p in q["parts"])
+            partdesc=", ".join(p["title"]+" ("+(str(p["points"])+"점" if p["points"] is not None else "배점 미확정")+")" for p in q["parts"])
+            goaldsc=", ".join((str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장") if p["minimumPages"] is not None else "장수 HOLD" for p in q["parts"])
             lines.append("| "+q["id"].replace("|","/")+" | "+q["subject"]+
-                         " | "+str(q["points"])+" | "+partdesc.replace("|","/")+
+                         " | "+(str(q["points"]) if q["points"] is not None else "미확정")+" | "+partdesc.replace("|","/")+
                          " | "+goaldsc+" |")
         for i,q in enumerate(rows,1):
             lines.extend(["","---","",
-              "## "+str(i)+". "+q["subject"]+" — "+q["id"].replace("|","/")+" ("+str(q["points"])+"점)",
+              "## "+str(i)+". "+q["subject"]+" — "+q["id"].replace("|","/")+" ("+(str(q["points"])+"점" if q["points"] is not None else "배점 미확정")+")",
               "", "### 기출 원장 전사(원본 PDF·HWP 시각 확인 HOLD)", "", q["sourceText"],
               "", "### 배점·실전 장수 목표", ""])
             for p in q["parts"]:
-                lines.append("- "+p["title"]+" ("+str(p["points"])+"점): "+
-                    str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장"+
+                lines.append("- "+p["title"]+" ("+(str(p["points"])+"점" if p["points"] is not None else "배점 미확정")+"): "+
+                    ((str(p["minimumPages"])+"–"+str(p["maximumPages"])+"장") if p["minimumPages"] is not None else "목표 장수 HOLD")+
                     ("" if p.get("splitVerified") else " — 소문항별 분할 검증 HOLD"))
             lines.extend(["", "### 상세답안 — 브라우저 표시 통합본","",q["detailed"],
                "", "### 시험장 압축답안 — 브라우저 표시 통합본","",q["compressed"],
