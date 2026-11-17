@@ -50,7 +50,7 @@ jobs:
           from pathlib import Path
           q=json.loads(Path('review-artifacts/NOMUSA_FIRST_V32/NOMUSA_FIRST_V32_UI_SOURCE_STATUS_GATE.json').read_text())
           assert q['status']=='PASS_UI_NO_SCORING_PROMOTION'
-          assert q['expected']==q['passed']==14
+          assert q['expected']==q['passed']==17
           assert q['evidence']['candidateAnswerRecords']==3400
           assert q['evidence']['QNetDocumentLinked']==900
           assert q['evidence']['QNetGridImageCompared']==600
