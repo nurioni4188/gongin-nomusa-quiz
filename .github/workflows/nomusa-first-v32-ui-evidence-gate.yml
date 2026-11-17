@@ -1,0 +1,76 @@
+name: NOMUSA FIRST V32 evidence stages mobile UI and scoring safety
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v32-ui-evidence-gate.yml'
+      - 'study-hub/first-v32-proof-status.js'
+      - 'study-hub/first-legacy-answers.html'
+      - 'study-hub/index.html'
+      - 'study-hub/app.js'
+      - 'index.html'
+      - 'scripts/nomusa-first-v32-status-ui-gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v32-review-only
+  cancel-in-progress: true
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout review branch no persistent push credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install existing Chromium gate requirements
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Check V32 evidence stages and mobile cards without approving any answer
+        run: python scripts/nomusa-first-v32-status-ui-gate.py
+      - name: Reuse existing V71 exact Q-Net page and 600-grid 42 Chromium checks
+        run: python scripts/nomusa-first-v71-visual-page-gate.py
+      - name: Full integrated 1st/2nd/hub 13 Chromium checks and save restore
+        run: python scripts/nomusa-first-v6-fullhub-gate.py .
+      - name: Assert unchanged official answers and legacy scoring lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('review-artifacts/NOMUSA_FIRST_V32/NOMUSA_FIRST_V32_UI_SOURCE_STATUS_GATE.json').read_text())
+          assert q['status']=='PASS_UI_NO_SCORING_PROMOTION'
+          assert q['expected']==q['passed']==14
+          assert q['evidence']['candidateAnswerRecords']==3400
+          assert q['evidence']['QNetDocumentLinked']==900
+          assert q['evidence']['QNetGridImageCompared']==600
+          assert q['evidence']['independentScoringApproved']==0
+          assert q['legacyScoring']=='DISABLED' and q['existing2022to2026Scoring']=='UNMODIFIED'
+          assert 'const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021)' in Path('index.html').read_text()
+          assert 'const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010, ...FIRST_BATCH];' in Path('index.html').read_text()
+          print('PASS_V32_3400_CANDIDATES_900_SOURCES_600_IMAGE_0_SCORING_APPROVAL')
+          PY
+          git diff --exit-code
+      - name: Upload inspected V32 evidence reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v32-hold-stage-mobile-1440-390-360
+          path: review-artifacts/NOMUSA_FIRST_V32/**
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Strict scope
+        if: always()
+        run: |
+          echo 'SOURCE_ONLY_REVIEW=1 NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT=1'
+          echo '2008_TO_2021_AUTO_SCORING=DISABLED INDEPENDENT_APPROVED_0_OF_3400'
