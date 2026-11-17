@@ -246,7 +246,7 @@
         </section>
         <section class="card"><div class="section-head"><div><h2>1차 연도별 수록 현황</h2><p>2008~2026년 · A형 편입 장부와 기존 1,020문항 기준</p></div></div>
           <div class="year-grid">${firstYearCoverage.map(item => `<div class="year-card" aria-label="${item.year}년 ${item.count ? item.count + '문항 수록' : '미편입'}"><b>${item.year}</b><small>${item.count ? item.count + '문항' : '편입 대기'}</small></div>`).join('')}</div>
-          <p class="muted small">수록된 문항만 합산한 수치입니다. 일부 연도·선택과목·원문 배치가 미편입 또는 HOLD이며, 이 표는 실제 브라우저 전수검증이나 공식 채점 승인을 의미하지 않습니다.</p>
+          <p class="muted small">수록된 문항만 합산했습니다. 일부 과거 연도는 미편입이며 정답 채점은 검토 중입니다. <a href="first-legacy-answers.html">원본·정답 검증 단계 보기(3,400건 후보)</a></p>
         </section>
         <section class="card"><div class="section-head"><h2>내 학습 진도</h2></div>
           ${progressLine('2차 복습 완료', doneEssay, essayRows.length)}
