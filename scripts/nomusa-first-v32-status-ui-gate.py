@@ -143,9 +143,13 @@ def main():
             assert page.locator("a[href='study-hub/first-legacy-answers.html']").count()>=1
             page.get_by_role("button",name="2008 · 17회 A형",exact=True).click()
             page.get_by_role("button",name="연습 · 바로 채점",exact=True).click()
-            assert page.locator(".fb.info").count()==1
+            pre=page.locator(".fb.info").all_inner_texts()
+            assert len(pre)==1, json.dumps({"pre":pre,"qmeta":page.locator(".qmeta").all_inner_texts(),
+                  "before":page.locator("#app").inner_text()[:550]},ensure_ascii=False)
             page.locator("#choices [data-v='1']").click()
-            assert page.locator(".fb.info").count()==1
+            post=page.locator(".fb.info").all_inner_texts()
+            assert len(post)==1, json.dumps({"post":post,"qmeta":page.locator(".qmeta").all_inner_texts(),
+                  "after":page.locator("#app").inner_text()[:650]},ensure_ascii=False)
             assert page.locator(".fb.ok,.fb.bad").count()==0
             assert page.locator("section.n108-explanation").count()==0
             assert page.locator("#app").inner_text().count("정답 근거 독립 검토 HOLD")==1
