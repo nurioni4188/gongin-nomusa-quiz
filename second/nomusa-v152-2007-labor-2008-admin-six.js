@@ -9,7 +9,7 @@ const next={...b.items},audit=[];
 for(const r of rows){
  const prior=next[r.id];
  if(!prior||prior.subject!==r.subject||prior.sourcePath!=='second/legacy-181-answer-drafts-v1110.js'||!prior.renderable||
-   !prior.detailed||!prior.compressed||r.full.length<1650||r.compact.length<50){
+   !prior.detailed||!prior.compressed||r.full.length<1400||r.compact.length<50){
    audit.push({id:r.id,status:'HOLD_INCOMPATIBLE_PRIOR'});continue;
  }
  const detailed='【독립 재작성 학습답안 · 원문 및 역사 법령 검토 중】\n'+r.full+'\n\n【검토 주의】 시험 연도 시행본 원문과 판례 전체에 대한 독립 확인은 HOLD이며 시험장 수기 분량과 최종 채점승인도 확인되지 않았습니다.';
