@@ -99,3 +99,13 @@
 - V25 [실제 Actions #44161596035](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44161596035) **success**, 2개 sourceText SHA만 변경/326개 전체 원고 SHA 불변, 기존 E2E PC1440/모바일390·360 PASS, 공식 원전·점수·ID 불변, `review/NOMUSA_V23_VALIDATION_LEDGER.json` 재생성.
 - 검토 로그: `review/NOMUSA_V25_MEDIUM_3_EXECUTION_20261118.md`, 원본 시각 근거 `review/NOMUSA_V25_MEDIUM_3_PRIMARY_PAGE_CROSSCHECK_20261118.json`, 재사용 스킬 `.claude/skills/nomusa-v25-three-medium-pdf-proofread/SKILL.md`.
 - **미해결:** 독립 원문 글자별 교열, 역사 법령·판례 전문·학술 원서·수기분량·서면 전문가 승인. 최종 내용승인 **0/328 HOLD**, 기존 판례 3건 등 이전 HOLD 보존.
+
+## 12. V26-2·V26-3 전문가 심사준비 및 96개 사전검증 (2026-11-18)
+
+- 기존 2022 P0 19개·32소문항 + 분량 프록시 P1 77개 = **96개**, V23 원고 SHA와 원전후보 및 법령·판례·학술·수식 미확인 쟁점 일대일 연결. [Actions #44169285275](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275) **success**.
+- 328개 전체 7개 과목별 ZIP 및 **빈 전문가 독립심사 회신 서식 328개**, 발송·회신 대장 생성. 실제 이메일 발송 및 전문가 회신 없음.
+- ZIP CRC 및 328개 공란 회신서 검증 PASS. artifact [14366582593](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44169285275/artifacts/14366582593).
+- 이 PASS는 **근거후보 라우팅/검증용 패킷 기술 성공**이다. 모든 판결문 전문·시험 당시 연혁법령·학술 원서/원논문·손글씨 장수의 독립 확인을 의미하지 않는다.
+- 우선검토 77건의 500자/쪽 프록시는 글자수 추정이며 필기실측 부족 확정이 아니다.
+- 다음 HOLD: 독립 원전 글자별 교열, 역사 법령·판례 전문·학술 원저·수기실측·실제 외부 전문가 서면평가. **FINAL_APPROVAL=HOLD, 승인 0/328**.
+- 재현: `scripts/nomusa-v26-substantive-review-packets.py`, 스킬 `.claude/skills/nomusa-v26-2-content-review/SKILL.md`, `.claude/skills/nomusa-v26-3-expert-packets/SKILL.md`, 보고서 `review/NOMUSA_V26_2_3_EXECUTION_20261118.md`.
