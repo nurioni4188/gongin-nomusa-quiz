@@ -1,78 +1,73 @@
-/* NOMUSA V28: 2022-hr-1 source-backed surgical editorial correction.
- * Preserve 327 existing answers and all 328 question IDs, points, local keys.
- * Old Goldstein 'Human Relations' reference is incorrect: 1978 Human Factors.
- * Keep six manager training techniques consistent with existing detailed/compact
- * answer (sixth = action learning), while not changing the problem statement.
- * No professional signoff; only research/editorial draft correction.
+/* NOMUSA V28 — surgical correction in CANONICAL ESSAY MODEL.
+ * Raw N27_CATALOG stores printed questions, not the detailed model answers.
+ * Preserve 328 learner question IDs, Q-Net PDF and local storage keys.
  */
 (function(){'use strict';
-const list=window.N27_CATALOG?.items;
-const last=window.NOMUSA_V25_MEDIUM_GATE;
+const model=window.NOMUSA_CANONICAL_SELECTION_V1;
+const catalog=window.N27_CATALOG?.items||[];
+const gate25=window.NOMUSA_V25_MEDIUM_GATE;
 const fail=(why)=>{window.NOMUSA_V28_EDITORIAL_GATE=Object.freeze({
  status:'HOLD_V28_EDITORIAL_PREFLIGHT',issues:why,changed:0,
  independentExpertApproved:0,finalApproval:'HOLD',previewDeployed:false
 });};
-if(!Array.isArray(list)||!String(last?.status||'').startsWith('PASS_')){
- fail(['V25_GATE_OR_CATALOG_MISSING']);return;
+if(!model?.items||!Array.isArray(catalog)||!String(gate25?.status||'').startsWith('PASS_')){
+ fail(['MISSING_CANONICAL_MODEL_CATALOG_OR_V25_GATE']);return;
 }
-const matches=list.map((q,i)=>({q,i})).filter(x=>x.q.id==='2022-hr-1');
-if(matches.length!==1){fail(['TARGET_NOT_UNIQUE']);return;}
-const item=matches[0],prior=item.q;
-if(Number(prior.year)!==2022 || prior.subject!=='인사노무관리론' ||
- Number(prior.points)!==50 || !prior.detailed || !prior.compressed ||
- prior.scoringApproved===true){
+const paper=catalog.filter(q=>q.id==='2022-hr-1');
+const before=model.items['2022-hr-1'];
+if(paper.length!==1||!before||Number(paper[0].year)!==2022||
+ Number(paper[0].points)!==50||paper[0].subject!=='인사노무관리론'||
+ !before.detailed||!before.compressed||before.scoringApproved===true ||
+ before.detailedBeforeV28||before.compressedBeforeV28){
  fail(['TARGET_YEAR_SUBJECT_SCORE_OR_APPROVAL_MISMATCH']);return;
 }
-const changes=[
+const corrections=[
  ['Human Relations, 20(2).','Human Factors, 20(2), 131–144.'],
  ['는 Human Relations가 아니라 Human Factors, 20(2), 131–144에 게재되었다.',
   '는 Human Factors, 20(2), 131–144에 게재되었다.'],
  ['이전 V16.2 주석에서 Human Relations로 적은 출판지 표기는 오류이므로 이 교정이 우선한다.',
   '출판사 공식 서지와 네 단계 타당도 용어를 사용하되, 원저 전문의 모든 주장에 대한 검증은 별도로 진행한다.'],
  ['⑥ 경영 시뮬레이션: 시장·재무·인사 의사결정과 피드백을 반복하나 모형의 단순화 한계가 있다.',
-  '⑥ 액션러닝: 실제 경영문제를 학습팀이 설계·해결·실행하며 현장 적용을 높일 수 있으나, 후원·실행권한·시간이 부족하면 형식적으로 끝날 수 있다.'],
+  '⑥ 액션러닝: 실제 경영문제를 학습팀이 설계·해결·실행하며 현장 적용을 높일 수 있으나, 후원·실행권한·시간이 부족하면 형식적으로 끝날 수 있다.']
 ];
-const compactChange=[
+const compactCorrection=[
  '직무순환·코칭·멘토링·사례연구·역할연기·경영시뮬(각 효과+한계)',
  '직무순환·코칭·멘토링·사례연구·역할연기·액션러닝(각 효과+한계)'
 ];
 const issues=[];
-for(const [a,b] of changes){
- const n=prior.detailed.split(a).length-1;
- if(n!==1)issues.push('EXPECTED_EXACTLY_ONCE_'+a.slice(0,45)+'_FOUND_'+n);
-}
-if(prior.compressed.split(compactChange[0]).length-1!==1)
- issues.push('COMPRESSED_TRAINING_6_CONFLICT_OR_DUPLICATE');
+for(const [from] of corrections)
+ if(before.detailed.split(from).length-1!==1)issues.push('DETAILED_ANCHOR_MISMATCH_'+from.slice(0,45));
+if(before.compressed.split(compactCorrection[0]).length-1!==1)
+ issues.push('COMPRESSED_TRAINING_SIX_ANCHOR_MISMATCH');
 if(issues.length){fail(issues);return;}
-let after=prior.detailed;
-for(const [from,to] of changes)after=after.replace(from,to);
-const compactAfter=prior.compressed.replace(compactChange[0],compactChange[1]);
-if(after.includes('Human Relations')||after.includes('⑥ 경영 시뮬레이션')||
- !after.includes('Human Factors, 20(2), 131–144') ||
- !after.includes('⑥ 액션러닝')||after===prior.detailed||
- compactAfter===prior.compressed||compactAfter.includes('경영시뮬')){
- fail(['POSTCONDITION_FAILED']);return;
+let detailed=before.detailed;
+for(const [from,to] of corrections)detailed=detailed.replace(from,to);
+const compressed=before.compressed.replace(...compactCorrection);
+if(detailed===before.detailed||compressed===before.compressed||
+ detailed.includes('Human Relations')||detailed.includes('⑥ 경영 시뮬레이션')||
+ compressed.includes('경영시뮬')||
+ !detailed.includes('Human Factors, 20(2), 131–144')||
+ !detailed.includes('⑥ 액션러닝')||
+ !compressed.includes('액션러닝(각 효과+한계)')){
+ fail(['GOLDSTEIN_OR_TECHNIQUE_SIX_POSTCONDITION']);return;
 }
-list[item.i]={...prior,detailed:after,compressed:compactAfter,
- detailedBeforeV28:prior.detailed,compressedBeforeV28:prior.compressed,
- editorialReviewV28:Object.freeze({
-   source:'https://journals.sagepub.com/doi/10.1177/001872087802000202',
-   sourceScope:'PUBLISHER_BIBLIOGRAPHY_AND_ABSTRACT_NOT_FULL_ARTICLE',
-   modification:'REMOVE_OLD_JOURNAL_NAME_AND_ALIGN_SIX_TECHNIQUES',
-   substantiveExpertApproval:'HOLD',
-   independentAcademicProofread:'HOLD',
-   previousDraftPreserved:true
- }),
- scoringApproved:false};
-window.NOMUSA_V28_EDITORIAL_GATE=Object.freeze({
- schema:'NOMUSA_V28_ONE_2022_HR1_EDITORIAL_CORRECTION/1',
- status:'PASS_GOLDSTEIN_HUMAN_FACTORS_AND_TECHNIQUE_SIX_EDITORIAL_ONLY',
- affected:['2022-hr-1'],count:1,replacements:changes.length+1,
- beforeChars:prior.detailed.length,afterChars:after.length,
- beforeCompressedChars:prior.compressed.length,afterCompressedChars:compactAfter.length,
- questionUnchanged:true,compressedAnswerUnchanged:false,
- other327ManuscriptsUnchanged:true,studentKeysChanged:false,
- pdfOriginalsChanged:false,independentExpertApproved:0,
- finalApproval:'HOLD',productionDeployed:false,previewDeployed:false
-});
+const patched=Object.freeze({...before,detailed,compressed,
+ detailedBeforeV28:before.detailed,compressedBeforeV28:before.compressed,
+ sourceBackedEditorialV28:Object.freeze({
+  publisher:'https://journals.sagepub.com/doi/10.1177/001872087802000202',
+  verification:'PUBLISHER_METADATA_AND_ABSTRACT_ONLY',
+  correction:'Human Factors bibliographic name and action-learning training method six',
+  fullPaperExpertApproval:'HOLD',humanIndependentProofread:'HOLD'
+ }),scoringApproved:false});
+const newItems=Object.freeze({...model.items,['2022-hr-1']:patched});
+const gate=Object.freeze({
+ schema:'NOMUSA_V28_2022_HR1_CANONICAL_DETAIL_CORRECTION/1',
+ status:'PASS_GOLDSTEIN_HUMAN_FACTORS_AND_ACTION_LEARNING_CANONICAL_1_ONLY',
+ count:1,changeCount:corrections.length+1,editedId:'2022-hr-1',
+ sourceQuestionUnchanged:true,pointsUnchanged:true,studentKeyUnchanged:true,
+ oldDetailedPreserved:true,oldCompressedPreserved:true,other327Unchanged:true,
+ expertApproval:0,independentExpertApproved:0,finalApproval:'HOLD',
+ previewDeployed:false,productionChanged:false,mainChanged:false});
+window.NOMUSA_CANONICAL_SELECTION_V1=Object.freeze({...model,items:newItems,qualityV28:gate});
+window.NOMUSA_V28_EDITORIAL_GATE=gate;
 })();
