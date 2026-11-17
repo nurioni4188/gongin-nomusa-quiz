@@ -52,6 +52,21 @@ description: 2007~2026년 공인노무사 2차 328개 답안의 독립 출처·�
 - 새 변경을 수행하는 경우 기존 스킬 `.claude/skills/nomusa-v23-opus55-validation/SKILL.md`도 사용법/재현 경로에 맞춰 갱신한다.
 - 사용량·컨텍스트 종료 시에도 미해결 내용과 다음 정확한 명령을 작업 로그에 저장한다. 예약 자동 실행이 아닌 이상 완료 약속/백그라운드 진행이라고 표현하지 않는다.
 
+## V23 1차 실행 결과와 재현 경로 (2026-11-17, 실제 실행)
+- 상태 요약: Q-Net 공식 첨부 **328/328 바이트 동일**, 문항·배점 대조 328 통과(요지문항 30건은 원문 교체 필요), 판례 100개 중 97 law.go.kr 확인·선고일 불일치 0, 계산 39체인 불일치 0, **전문가 승인 0/328**. 상세: `review/NOMUSA_V23_CLAUDE_RUN_LOG.md`, `review/NOMUSA_V23_OPEN_ISSUES.md`.
+- 네트워크: 기본 환경은 Q-Net/law.go.kr 차단. 개인 환경 `gongin-nomusa-quiz`(허용 www.q-net.or.kr, www.law.go.kr, scourt 3개, www.kci.go.kr)에서 실행. glaw.scourt.go.kr은 502.
+- 로컬 의존성: `pip install pymupdf==1.26.7 olefile cryptography sympy==1.13.3 playwright==<로컬 Chromium과 맞는 버전>`; OCR은 `apt-get install tesseract-ocr tesseract-ocr-kor` (OCR 결과는 캐시에 커밋되어 CI는 OCR 불필요).
+- 재현 순서:
+  1. `python scripts/nomusa-canonical-shared-browser-gate.py .` → V19 → V21 → V22 (기존 그대로; review-artifacts 생성)
+  2. `python scripts/nomusa-v23-qnet-official-fetch.py /tmp/qnet --manifest review/NOMUSA_V23_QNET_OFFICIAL_MANIFEST.json` (공식 첨부, 게시물 artlSeq는 스크립트 `POSTS`)
+  3. OCR 캐시 보충이 필요할 때만: `scripts/nomusa_v23_source_text.py`의 `source_text(path, cache)` (OMP_THREAD_LIMIT=1, 200dpi)
+  4. 판례 신규 인용: `scripts/nomusa_v23_case_lookup.py`의 `lookup_all(cases, Path('review/NOMUSA_V23_CASE_LOOKUP_CACHE.json'))` (evtNo→evtNm→bdyText 순, 전원합의체 표기 포함 파싱)
+  5. `python scripts/nomusa-v23-validation-ledger.py .` → `review/NOMUSA_V23_VALIDATION_LEDGER.json` + `review-artifacts/NOMUSA_V23_{LEDGER.csv,ISSUES.json,SUBJECT_PACKETS/}`
+  6. CI: `.github/workflows/nomusa-v23-opus55-validation.yml` (runs-on **ubuntu-24.04**; ubuntu-latest=26.04에서는 Playwright 1.56 설치 실패). 원장 재현성·승인 불변식(전문가 0, FINAL HOLD)을 검사.
+- 수동 판단 기록: `review/NOMUSA_V23_MANUAL_REVIEW.json` (요지문항 30건 공식 OCR 판독, 2022 경제 검산, 학술 AI 사전점검). 수동 판단은 AI 사전검증이며 전문가 승인이 아님.
+- 함정(실제 겪은 오류): 2013 PDF 텍스트층은 글자 순서가 섞여 8-gram이 실패 → 한글만 n-gram 사용, 배점은 OCR로 확인. 2007~2012 HWP는 '배포용 문서'라 BodyText가 아닌 ViewText 복호화 필요. 숫자 검산기는 천단위 쉼표·½·변수계수(240−2E)를 오탐하므로 변수 인접 구간 제외. 문항 본문에 "요지/원문 전문은 PDF 참조"가 있으면 원문 아님.
+- 원고 수정 시: 문제 ID·저장키 유지, `sourceText/detailed/compressed` 변경 → `textSHA256` 변경 → V21/V22/V23 재실행. 기존 서면승인이 있으면 잠금 해제 후 재심사.
+
 ## 최종 판정
 - PASS_TECHNICAL / VERIFIED_PRIMARY_SOURCE / REVIEW_CANDIDATE / HOLD_MISSING_SOURCE / HOLD_TIME_EFFECT / HOLD_EXPERT_APPROVAL / HOLD_HANDWRITING을 분리한다.
 - 독립 전문가 검토자·자격·검토일·원전·서면승인/실제 필기실측이 없다면 **FINAL_APPROVAL=HOLD**, 전문가승인 0/328.

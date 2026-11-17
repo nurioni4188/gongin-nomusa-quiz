@@ -2,7 +2,7 @@
  "summary": {
   "schema": "NOMUSA_V23_VALIDATION_LEDGER/1",
   "reviewDate": "2026-11-17",
-  "startedUTC": "2026-11-17T13:00:31+00:00",
+  "startedUTC": "2026-11-17T13:07:05+00:00",
   "total": 328,
   "years": 20,
   "baseline2022": 19,
@@ -39,8 +39,8 @@
   "independentExpertApproved": 0,
   "finalApproval": "HOLD (0/328)",
   "qnetManifestRetrievedUTC": "2026-11-17T12:26:36+00:00",
-  "scriptSeconds": 29.514,
-  "finishedUTC": "2026-11-17T13:01:01+00:00",
+  "scriptSeconds": 30.317,
+  "finishedUTC": "2026-11-17T13:07:36+00:00",
   "noDeploymentNoMutationOfOriginals": true
  },
  "rows": [
@@ -4943,7 +4943,7 @@
     {
      "name": "Process",
      "year": "1978",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Miles & Snow (1978) Organizational Strategy, Structure, and Process)"
     },
     {
      "name": "Strategy and Structure",
@@ -10078,7 +10078,7 @@
     {
      "name": "Smith",
      "year": "1993",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Katzenbach & Smith (1993) The Wisdom of Teams)"
     }
    ],
    "academicFlags": [],
@@ -15496,12 +15496,12 @@
     {
      "name": "Goldstein",
      "year": "1978",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Goldstein, I. L. (1978) The pursuit of validity in the evaluation of training programs, Human Factors)"
     },
     {
      "name": "I. L.",
      "year": "1978",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (parser split of Goldstein, I. L. (1978))"
     },
     {
      "name": "Katz",
@@ -16188,7 +16188,7 @@
     {
      "name": "M. A.",
      "year": "1983",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Rahim, M. A. (1983) AMJ conflict styles measure)"
     }
    ],
    "academicFlags": [],
@@ -16260,12 +16260,12 @@
     {
      "name": "B. M.",
      "year": "1976",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Staw, B. M. (1976) Knee-Deep in the Big Muddy)"
     },
     {
      "name": "D.",
      "year": "1974",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Tversky & Kahneman (1974) — parser split)"
     },
     {
      "name": "Fischhoff",
@@ -16366,7 +16366,7 @@
     {
      "name": "C.",
      "year": "1967",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Perrow, C. (1967) — parser split)"
     },
     {
      "name": "Comparative Analysis of Organizations",
@@ -22040,12 +22040,12 @@
     {
      "name": "Cameron",
      "year": "1983",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Quinn & Cameron (1983) Management Science life-cycle)"
     },
     {
      "name": "Jonsson",
      "year": "1989",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Weitzel & Jonsson (1989) ASQ organizational decline)"
     }
    ],
    "academicFlags": [],
@@ -22509,7 +22509,7 @@
     {
      "name": "Murnighan",
      "year": "1998",
-     "aiPrecheck": "AI_PRECHECK_UNCERTAIN_NEEDS_ORIGINAL"
+     "aiPrecheck": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Lau & Murnighan (1998) AMR faultlines)"
     }
    ],
    "academicFlags": [],
