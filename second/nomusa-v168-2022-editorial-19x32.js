@@ -10,7 +10,8 @@ if(!base?.items||!Array.isArray(catalog)){window.NOMUSA_V168_2022_GATE={status:'
 const rows=catalog.filter(q=>q.year===2022);
 const expected=Object.values(base.items).filter(x=>x.year===2022);
 if(rows.length!==19||expected.length!==19)throw Error('V168_2022_EXPECT_19');
-const pickExamParts=q=>(q.sections||[]).filter(s=>/^(?:물음\s*\d+|대문제\s*\d+)/.test(String(s.title||'')));\nconst countPart=rows.reduce((n,q)=>n+pickExamParts(q).length,0);
+const pickExamParts=q=>(q.sections||[]).filter(s=>/^(?:물음\s*\d+|대문제\s*\d+)/.test(String(s.title||'')));
+const countPart=rows.reduce((n,q)=>n+pickExamParts(q).length,0);
 if(countPart!==32)throw Error('V168_2022_EXPECT_32');
 const n={...base.items},audit=[];
 const identity=s=>String(s||'').replace(/\s+/g,' ').trim();
