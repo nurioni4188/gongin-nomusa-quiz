@@ -31,7 +31,7 @@ for(const year of targetYears){
      if(key.length>=180)seen.add(key);kept.push(p.trim());
    }
    const score=Number(q?.points),knownPoints=Number.isFinite(score)&&score>0;
-   const hasParts=knownPoints&&q&&pickParts(q),partBasis=!knownPoints?'POINTS_UNVERIFIED':hasParts?'VERIFIED_SECTION_SCORE_SUM':'SINGLE_SCORING_UNIT_UNSPLIT';
+   const hasParts=knownPoints&&q&&pickParts(q),directScored=knownPoints&&/^(2024|2026)-.+\|\d+\|\d+$/.test(old.id),partBasis=!knownPoints?'POINTS_UNVERIFIED':hasParts?'VERIFIED_SECTION_SCORE_SUM':directScored?'DIRECT_SCORING_ID_VERIFIED':'SINGLE_SCORING_UNIT_UNSPLIT';
    // Never invent historical subquestion scores. When unstructured, preserve the original unit.
    const parts=!knownPoints?[Object.freeze({title:'원문 배점 확인 필요',points:null,
        minimumPages:null,maximumPages:null,splitVerified:false})]:
@@ -40,7 +40,7 @@ for(const year of targetYears){
          return Object.freeze({title:p.title,points,
            minimumPages:Math.round(goal[0]*points/score*10)/10,
            maximumPages:Math.round(goal[1]*points/score*10)/10,
-           splitVerified:!!hasParts});
+           splitVerified:!!hasParts||directScored});
        });
    if(!knownPoints)issues.push(old.id+':POINTS_UNVERIFIED');
    else if(parts.some(p=>!p.points)||parts.reduce((a,p)=>a+p.points,0)!==score){
