@@ -121,3 +121,12 @@
 - `2022-econ-2`: 2인 20%/80% 지니 공식 B=0.35, G=0.30 독립 재계산 성공. 실제 그래프·실측 HOLD.
 - 보고서 `review/NOMUSA_V27_2022_REAL_SOURCE_CONTENT_EXECUTION_20261118.md`, 근거 JSON `review/NOMUSA_V27_2022_PRIMARY_CONTENT_CROSSCHECK_20261118.json`, 스킬 `.claude/skills/nomusa-v27-2022-real-source-claims/SKILL.md`.
 - 편집 교정 제안만 기록했고 실제 328 원고 SHA·기출·저장키·Preview·Production·main 변경 없음. **FINAL_APPROVAL=HOLD, 전문가 0/328**.
+
+## 14. V28 — 2022년 19개 문항의 제한적 근거 연결과 Goldstein 정정 (2026-11-18)
+
+- 기존 V27 6개 + V28 추가 13개 = 2022년 19개 모두에 **하나 이상의 특정 주장·판례/학술 서지/수식 근거를 연결**. 법령·원판결·원학술 전체 및 답안별 실제 정답성은 **HOLD**. 2022년 19개 전체를 전문가 내용승인이라고 표기 금지.
+- `2022-hr-1` Goldstein(1978) 논문의 오표기 `Human Relations` 제거 → 출판사 원본 **Human Factors 20(2), 131–144**, 교육기법 6번째 액션러닝으로 상세·압축답안 통일. 이전 원고는 Canonical model `detailedBeforeV28`·`compressedBeforeV28`에 보존.
+- 새 원고 SHA `c3557e3b121836011a56822c14b3776e8567f1dd346f7a8d98b71247c9e38c89`; 다른 327개 SHA 그대로. V27 해당 학술 증빙은 **편집 전 SHA** 기록이므로 독립 승인으로 승격 금지.
+- [GitHub Actions #44185316972](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972) **success** (101초), Chromium 328 PC·모바일, 원전 Q-Net 328/328, HIGH327/MEDIUM1, 요지 0, 7과목 328심사패킷·96개 우선 ZIP 새 SHA 재생성. artifact [14374870696](https://github.com/nurioni4188/gongin-nomusa-quiz/actions/runs/44185316972/artifacts/14374870696).
+- 검증 기록: `review/NOMUSA_V28_2022_19_EXECUTION_20261118.md`; 근거 JSON `review/NOMUSA_V28_2022_REMAINING_13_SOURCE_CROSSCHECK_20261118.json`; 스킬 `.claude/skills/nomusa-v28-2022-13-content-goldstein-fix/SKILL.md`.
+- **다음 HOLD:** 2022 시험일 연혁법령·부칙/판결문 전체 사실인정·학술 원문 전문·필기시간/장수 독립 실측 및 분야별 검토자의 자격·검토일·원전 근거·서면 판단. **FINAL_APPROVAL HOLD, 0/328**.
