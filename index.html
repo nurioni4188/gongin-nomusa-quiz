@@ -567,7 +567,10 @@ if (FIRST_V42.length!==2 || V42_PILOT_SCORED_IDS.size!==2 || Q.length!==2281 || 
   throw Error("V42_PILOT_SOURCE_KEY_OR_BASEBANK_GUARD_FAILED");
 const BY = Object.fromEntries(Q.map(q=>[q.k,q]));
 const YEARS=[...new Set(Q.map(q=>q.y))].sort((a,b)=>b-a);
-const FIRST_GAPS=window.NOMUSA_FIRST_V33_COVERAGE;
+const FIRST_GAPS_RAW=window.NOMUSA_FIRST_V33_COVERAGE;
+const FIRST_GAPS={...FIRST_GAPS_RAW,
+  missingYears:FIRST_GAPS_RAW.missingYears.filter(g=>![2020,2021].includes(g.year)),
+  partialYearMissingA:{...FIRST_GAPS_RAW.partialYearMissingA,2020:149,2021:149}};
 // V6.8: Imported historical A-form answer candidates are NOT approved scoring keys.
 // Keep original 2022-2026 RC35 grading separate from 2008-2021 practice records.
 const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021&&!V42_PILOT_SCORED_IDS.has(q.k));
@@ -712,21 +715,21 @@ function vHome(){
   <div class="section-heading"><div><span class="section-kicker">01 / YOUR PROGRESS</span><h2>나의 학습 현황</h2></div><span class="section-side">학습 기록은 이 기기에만 저장돼요</span></div>
   <div class="stats">
     <div class="stat"><span class="stat-icon">▦</span><b>${done.toLocaleString()} <small>/ ${tot.toLocaleString()}</small></b><span>누적 학습 문항</span></div>
-    <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${gradedAttempts.length?Math.round(okN/gradedAttempts.length*100):0}<small>%</small></b><span>기존 2022~2026 채점 정답률</span></div>
+    <div class="stat"><span class="stat-icon stat-icon--blue">↗</span><b>${gradedAttempts.length?Math.round(okN/gradedAttempts.length*100):0}<small>%</small></b><span>검증된 문제 채점 정답률</span></div>
     <div class="stat"><span class="stat-icon stat-icon--amber">◎</span><b>${wrongN.toLocaleString()}</b><span>복습할 오답</span></div>
   </div>
-  <p class="muted" role="status">2008~2021년은 선택·저장·수동 복습이 가능하고 채점은 대기 중입니다. 기존 채점 기록은 백업에 보존합니다.</p>
+  <p class="muted" role="status">2008~2021년은 원칙적으로 미채점이며, Q-Net 원문·최종정답·학술근거까지 대조한 2020·2021 경영학 각 1문항(총 2문항)만 검토용 학습채점을 제공합니다. 독립 전문가 최종승인 전입니다. 기존 저장기록은 보존합니다.</p>
   <div class="section-heading"><div><span class="section-kicker">02 / PRACTICE BUILDER</span><h2>나만의 학습 세트</h2></div><span class="section-side">연도와 과목을 고르면 바로 시작할 수 있어요</span></div>
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<2022?" A형":""))}</div>
-    <p class="muted">과거 기출 풀이 ${(FIRST_2008.length+FIRST_2009.length+FIRST_2010.length+FIRST_BATCH.length).toLocaleString()}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
+    <p class="muted">과거 기출 풀이 ${(FIRST_2008.length+FIRST_2009.length+FIRST_2010.length+FIRST_BATCH.length+FIRST_V42.length).toLocaleString()}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
     <div class="lbl">문제 지문 미편입 · 기존 정답 후보 자료</div>
     <div class="row" aria-label="기존 자료가 있는 1차 미편입 연도">
       ${FIRST_GAPS.missingYears.map(g=>`<a class="btn ghost" href="study-hub/first-legacy-answers.html?year=${g.year}&type=A" aria-label="${g.year}년 과거 1차 정답 후보 A형 조회 · 아직 문제풀이는 미편입">${g.year}년 · 정답 후보 ${g.candidateA+g.candidateB}건</a>`).join("")}
     </div>
-    <p class="muted">위 5개 연도는 A·B형 정답 후보를 보존했지만 문제 지문·선택지가 없어 시험 모드에서 풀 수 없습니다. <a href="study-hub/first-v37-native14-practice.html">2017·2019년 공식 원문 이미지 14건 검토</a> · <a href="study-hub/first-v38-2020-2021-source-pages-practice.html">2020·2021년 공식 PDF 페이지 후보 274문항 선택연습</a>. 2020·2021년은 원본 Q-Net PDF 링크를 조회할 수 있습니다. <strong>정답 자동채점은 미승인</strong>입니다.</p>
+    <p class="muted">위 3개 연도는 A·B형 정답 후보를 보존했지만 아직 문제 지문·선택지가 없어 시험 모드에서 풀 수 없습니다. <a href="study-hub/first-v37-native14-practice.html">2017·2019년 공식 원문 이미지 14건 검토</a> · <a href="study-hub/first-v38-2020-2021-source-pages-practice.html">2020·2021년 공식 PDF 페이지 후보 274문항 선택연습</a>. 2020·2021년은 원본 Q-Net PDF 링크를 조회할 수 있습니다. <strong>정답 자동채점은 미승인</strong>입니다.</p>
     <details><summary>다른 연도에서 빠진 일부 문항 보기</summary><div class="in">
-      ${Object.entries(FIRST_GAPS.partialYearMissingA).map(([year,n])=>`${year}년 ${n}개`).join(" · ")} · 합계 41개(A형 기준). 기존 정답 후보는 별도 검토페이지에 보존했습니다.
+      ${Object.entries(FIRST_GAPS.partialYearMissingA).map(([year,n])=>`${year}년 ${n}개`).join(" · ")} · 합계 339개(A형 기준 · 2020·2021 일부 편입 후). 기존 정답 후보는 별도 검토페이지에 보존했습니다.
     </div></details>
     <div class="lbl">과목</div><div class="row" id="cSub">${chipRow(SUBJ,v=>P.subs.includes(v),v=>SHORT[v])}</div>
     <div class="lbl">범위</div><div class="row" id="cScope">${chipRow(["all","new","wrong","everwrong","star","review"],v=>P.scope===v,v=>({all:"전체",new:"안 푼 문제",wrong:"지금 틀린 문제",everwrong:"한 번이라도 틀림",star:"별표",review:"수동 복습"})[v])}</div>
@@ -742,7 +745,7 @@ function vHome(){
       const qs=Q.filter(q=>q.y===y&&q.s===s),d=qs.filter(q=>attemptFor(q)?.n>0),o=d.filter(q=>!isUngraded(q)&&ST.att[q.k]?.ok);
       return `<div class="cell" data-y="${y}" data-s="${esc(s)}" title="${y} ${s}"><b>${y<2022?"선택":d.length?Math.round(o.length/d.length*100)+"%":"–"}</b><small>${d.length}/${qs.length}</small><div class="bar"><i style="width:${qs.length?d.length/qs.length*100:0}%"></i></div></div>`}).join("")).join("")}
     </div>
-    <p class="muted" style="margin:10px 0 0">칸을 누르면 그 회차·과목을 번호순으로 바로 풉니다. 2022~2026년은 정답률, 이전 연도는 선택 기록(채점 전)입니다. 아래는 푼 문항/전체.</p>
+    <p class="muted" style="margin:10px 0 0">칸을 누르면 그 회차·과목을 번호순으로 바로 풉니다. 기존 2022~2026년과 V42 검증 완료 2문항만 채점하고, 나머지 이전 연도는 선택 기록만 보존합니다. 아래는 푼 문항/전체.</p>
   </div>`;
   const bind=(id,list,fn)=>$(id).onclick=e=>{const c=e.target.closest(".chip");if(!c)return;fn(list[+c.dataset.i]);ST.prefs.setup=P;save();vHome()};
   const tog=(arr,v)=>{const i=arr.indexOf(v);if(i>=0){if(arr.length>1)arr.splice(i,1)}else arr.push(v)};
