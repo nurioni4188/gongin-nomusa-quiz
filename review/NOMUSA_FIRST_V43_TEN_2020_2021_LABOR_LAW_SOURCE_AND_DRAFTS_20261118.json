@@ -236,8 +236,8 @@
       "officialAFormAnswer": 4,
       "substantiveLawExplanationDraft": "노조법 제11조에 열거된 필수 규약사항에는 회의·규약변경·연합단체명·쟁의행위 찬반투표 관련 사항이 포함된다. 단체협약 체결권한의 위임에 관한 사항은 법정 필수 기재사항으로 열거되지 않아 ④이다.",
       "legalReferenceToRecheck": "노동조합 및 노동관계조정법 제11조",
-      "officialLawSourceCandidate": "https://www.law.go.kr/DRF/lawService.do?MST=228175&OC=unicpla&efYd=20210706&mobileYn=Y&target=law&type=HTML",
-      "historicalVersionReviewRequired": "시험일 2021-05-08 이전 시행규정 원문과 열거항목 재확인 필요",
+      "officialLawSourceCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200609&lsiSeq=219123",
+      "historicalVersionReviewRequired": "2021-07-06 link is after the 2021-05-08 exam; swapped to actual 2020-06-09 pre-exam law version; check whether any intervening amendments changed article 11 before exam",
       "sourcePDF": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
       "sourcePDFPage": 11,
       "imageSHA256": "d63a7e8361ee00a45103397c5aa883d0d2c8118695e60d37a11afa7ee1bb1fc2",
@@ -248,7 +248,8 @@
       "independentHumanApproval": false,
       "readyForV44": false,
       "scoringApproved": false,
-      "status": "LEGAL_STEM_5_CHOICES_OFFICIAL_KEY_ALIGNED_LAW_DRAFT_EXAM_VERSION_HOLD"
+      "status": "LEGAL_STEM_5_CHOICES_OFFICIAL_KEY_ALIGNED_LAW_DRAFT_EXAM_VERSION_HOLD",
+      "examDatePrimaryLawCandidateReplaced": true
     },
     {
       "id": "legacy1-2021-A-labor2-042",
