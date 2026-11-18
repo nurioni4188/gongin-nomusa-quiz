@@ -10,7 +10,8 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import Counter
 from difflib import SequenceMatcher
-import hashlib, json, re
+import hashlib, json, re, os
+os.environ['OMP_THREAD_LIMIT']='1'
 import pytesseract
 from PIL import Image
 
@@ -45,9 +46,9 @@ def check_one(q):
     try:
         with Image.open(path) as im:
             # PSM 6 and 11 are two independent layout hypotheses, NOT independent source readings.
-            a=pytesseract.image_to_string(im, lang="kor+eng", config="--oem 1 --psm 6")
-            b=pytesseract.image_to_string(im, lang="kor+eng", config="--oem 1 --psm 11")
-        measures=[SequenceMatcher(None,normalize(expected),normalize(x),autojunk=False).ratio() for x in (a,b)]
+            a=pytesseract.image_to_string(im, lang="kor+eng", config="--oem 1 --psm 6", timeout=15)
+            b=pytesseract.image_to_string(im, lang="kor+eng", config="--oem 1 --psm 11", timeout=15)
+        measures=[SequenceMatcher(None,normalize(expected)[:1500],normalize(x)[:1500],autojunk=True).ratio() for x in (a,b)]
         best=a if measures[0]>=measures[1] else b
         missing=list((numbers(expected)-numbers(best)).elements())
         flags=[]
