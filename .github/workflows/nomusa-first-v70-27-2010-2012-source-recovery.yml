@@ -1,0 +1,76 @@
+name: NOMUSA FIRST V70 recover 27 2010-2012 source and unapproved five-choice candidates
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v70-27-2010-2012-source-recovery.yml'
+      - 'scripts/nomusa-first-v70-27-2010-2012-source-salvage.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v70-27-source-provenance
+  cancel-in-progress: true
+jobs:
+  reprint-source-gap-triage:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild immutable original 791 and 27 missing 2010-2012 A-form IDs
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Install source page parser
+        run: python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.4
+      - name: Download three old exam reprint sources and recover 27 source candidate rows
+        run: |
+          python -m py_compile scripts/nomusa-first-v70-27-2010-2012-source-salvage.py
+          python scripts/nomusa-first-v70-27-2010-2012-source-salvage.py
+      - name: Enforce all external source text and legacy answer candidates are unapproved for scoring
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=Path('review-artifacts/NOMUSA_FIRST_V70/NOMUSA_FIRST_V70_27_SOURCE_AND_TEXT_REVIEW.json')
+          d=json.loads(p.read_text(encoding='utf8'))
+          assert d['targetUnlinkedQuestionIDs']==27 and len(d['rows'])==27
+          assert len({q['id'] for q in d['rows']})==27
+          assert d['years']=={'2010':25,'2011':1,'2012':1}
+          assert d['newAppImports']==d['newScoringApproved']==0
+          assert d['independentOfficialQNetOriginalApprovals']==0
+          assert all(q['scoringApproved'] is False and q['readyForV44'] is False for q in d['rows'])
+          changes=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changes.issubset({'review/NOMUSA_FIRST_V70_2010_2012_27_SOURCE_GAP_RECONCILIATION_20261119.json'}),changes
+          print('PASS_V70_27_IDS_REPRINT_SOURCE_PROBE_ZERO_QNET_APPROVAL_ZERO_SCORING')
+          PY
+      - name: Commit the review source summary only to Draft PR branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V70_2010_2012_27_SOURCE_GAP_RECONCILIATION_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v70): 2010-12 27 unapproved source recovery, provenance only'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve original source evidence and 27 review rows
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v70-27-2010-2012-external-original-drafts
+          path: review-artifacts/NOMUSA_FIRST_V70/
+          if-no-files-found: warn
+          retention-days: 30
