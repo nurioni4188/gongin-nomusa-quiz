@@ -1,0 +1,653 @@
+{
+  "schema": "NOMUSA_FIRST_V43_2020_ECONOMICS_16_SOURCE_READ_CALCULATIONS/1",
+  "dateKST": "2026-11-18",
+  "records": [
+    {
+      "id": "legacy1-2020-A-economics-101",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 101,
+      "question": "경쟁시장에서 기업의 비용곡선에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "생산이 증가함에 따라 한계비용이 증가한다면, 이는 한계생산물이 체감하기 때문이다.",
+        "생산이 증가함에 따라 평균가변비용이 증가한다면, 이는 한계생산물이 체감하기 때문이다.",
+        "한계비용이 평균총비용보다 클 때는 평균총비용이 하락한다.",
+        "한계비용곡선은 평균총비용곡선의 최저점을 통과한다.",
+        "U자 모양의 평균총비용곡선 최저점의 산출량을 효율적 생산량이라고 한다."
+      ],
+      "officialAnswerAForm": [
+        3
+      ],
+      "detailedExplanationDraft": "한계비용 MC가 평균총비용 ATC보다 크면 생산량 증가에 따라 ATC가 상승한다. 반대로 MC<ATC일 때 ATC가 하락하고 MC=ATC인 곳이 ATC의 최저점이다. 따라서 ③이 틀리다.",
+      "optionExplanations": [
+        "단기 생산요소의 한계생산 체감은 MC 상승을 초래할 수 있다.",
+        "평균가변비용의 상승은 평균생산성 저하와 연결되며 통상 한계생산 체감 구간과 관련된다.",
+        "MC>ATC이면 ATC가 상승하므로 틀리다.",
+        "MC는 U자형 ATC의 최저점에서 ATC와 만난다.",
+        "최소 ATC의 산출량은 효율적 생산규모이다."
+      ],
+      "calculationProof": "dATC/dQ=(MC−ATC)/Q; MC>ATC ⇒ dATC/dQ>0",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/7-3-the-structure-of-costs-in-the-short-run",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-101.jpg",
+      "sourceImageSHA256": "70f8f969ad82abb40cae85698d144c5a1c025b604498200bc23c6f4547d1b90e",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 33,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-103",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 103,
+      "question": "효율적 시장가설(efficient market hypothesis)에 관한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 주식가격은 매 시점마다 모든 관련 정보를 반영한다.\nㄴ. 주식가격은 랜덤워크(random walk)를 따른다.\nㄷ. 미래 주식가격의 변화에 대한 체계적인 예측이 가능하다.\nㄹ. 주식가격의 예측이 가능해도 가격조정은 이루어지지 않는다.",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄷ, ㄹ"
+      ],
+      "officialAnswerAForm": [
+        1
+      ],
+      "detailedExplanationDraft": "효율적 시장가설은 이용가능한 정보가 주가에 신속히 반영돼 과거 정보만으로 지속적인 초과수익을 체계적으로 얻기 어렵다고 본다. ㄱ·ㄴ이 출제 의도에 맞으며 ㄷ·ㄹ은 효율적 시장의 정보반영 논리와 배치된다.",
+      "optionExplanations": [
+        "ㄱ 정보반영과 ㄴ 불규칙한 가격변화 설명에 부합한다.",
+        "ㄷ의 체계적 가격예측 가능성은 효율성에 반한다.",
+        "ㄷ이 틀리다.",
+        "ㄹ은 새 정보 반영에 따른 가격조정을 부정해 틀리다.",
+        "ㄷ·ㄹ 모두 틀리다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://www.investopedia.com/terms/e/efficientmarkethypothesis.asp",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-103.jpg",
+      "sourceImageSHA256": "e66ff2525c6d8d9a1064b872807f68415d4e083c1449fd9f2f6d95d99fc8fde3",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 33,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": "EFFICIENT_MARKET_RANDOM_WALK_WORDING_ASSUMPTIONS",
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-104",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 104,
+      "question": "공공재에 관한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 공공재의 공급을 시장에 맡길 경우 무임승차자의 문제로 인해 공급부족이 야기될 수 있다.\nㄴ. 코우즈 정리(Coase theorem)에 따르면 일정한 조건하에서 이해 당사자의 자발적 협상에 의해 외부성의 문제가 해결될 수 있다.\nㄷ. 배제불가능성이란 한 사람이 공공재를 소비한다고 해서 다른 사람이 소비할 수 있는 기회가 줄어들지 않음을 의미한다.",
+      "options": [
+        "ㄱ",
+        "ㄴ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "officialAnswerAForm": [
+        3
+      ],
+      "detailedExplanationDraft": "ㄱ은 비배제성으로 인한 무임승차 문제이고 ㄴ은 재산권이 명확하고 거래비용이 낮을 때의 코우즈 정리다. ㄷ의 '한 사람의 소비가 다른 사람의 소비를 줄이지 않음'은 비경합성(nonrivalry)이며 비배제성(nonexcludability)과 다르다. 따라서 ㄱ·ㄴ인 ③이다.",
+      "optionExplanations": [
+        "ㄴ의 코우즈 정리 설명도 맞아 누락됐다.",
+        "ㄱ의 무임승차 문제도 맞아 누락됐다.",
+        "ㄱ·ㄴ이 옳고 ㄷ은 비경합성 설명이다.",
+        "ㄷ이 틀리다.",
+        "ㄷ이 포함돼 틀리다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/13-3-public-goods",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-104.jpg",
+      "sourceImageSHA256": "291c66e06249216e796f2ca7c2107e6fbb1e40300e0674a107a8cc8c3600d4eb",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 33,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-105",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 105,
+      "question": "독점기업의 가격차별에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "가격차별을 하는 경우의 생산량은 순수독점의 경우보다 더 작아진다.",
+        "가격차별을 하는 독점기업은 가격탄력성이 더 작은 시장에서의 가격을 상대적으로 더 높게 책정한다.",
+        "가격차별은 소득재분배효과를 가져올 수 있다.",
+        "소비자의 재판매가 가능하다면 가격차별이 유지되기 어렵다.",
+        "완전가격차별의 사회적 후생은 순수독점의 경우보다 크다."
+      ],
+      "officialAnswerAForm": [
+        1
+      ],
+      "detailedExplanationDraft": "가격차별은 조건에 따라 판매량·이익을 늘리고 특히 완전가격차별의 경우 한계가치가 한계비용과 같아질 때까지 판매해 표준 단일가격 독점보다 산출량을 확대할 수 있다. 따라서 생산량이 반드시 더 작아진다는 ①은 틀리다.",
+      "optionExplanations": [
+        "완전가격차별은 오히려 단일가격 독점보다 산출량을 늘려 사중손실을 줄일 수 있다.",
+        "가격탄력성이 낮은 시장에 높은 가격을 부과할 유인이 있다.",
+        "고객집단 간 잉여 이동 등 분배효과가 있다.",
+        "재판매로 가격차별이 무력화될 수 있어 차단 조건이 중요하다.",
+        "완전가격차별에서 배분효율성이 높아질 수 있다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/9-3-how-a-profit-maximizing-monopoly-chooses-output-and-price",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-105.jpg",
+      "sourceImageSHA256": "6b3f3f3e408269a0d934c44be9ea5e93056df11c0e4ec74f86e2b6fbc3277c47",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 34,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-106",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 106,
+      "question": "국제무역의 효과로 옳지 않은 것은?",
+      "options": [
+        "사회적 후생의 증가",
+        "보다 다양한 소비 기회의 제공",
+        "규모의 경제를 누릴 수 있는 기회 발생",
+        "수입으로 인한 동일제품 국내 생산자의 후생 증가",
+        "경쟁의 촉진으로 국내 독과점 시장의 시장실패 교정 가능"
+      ],
+      "officialAnswerAForm": [
+        4
+      ],
+      "detailedExplanationDraft": "수입으로 경쟁상품 공급이 늘면 국내 소비자 후생은 증가할 수 있으나 같은 제품의 국내 생산자는 가격 인하·생산 축소로 생산자잉여가 감소할 수 있다. 따라서 국내 생산자의 후생이 증가한다는 ④는 일반적으로 틀리다.",
+      "optionExplanations": [
+        "무역이익과 총잉여 증가 가능성이다.",
+        "소비자는 다양한 수입품을 선택할 수 있다.",
+        "시장 확대는 규모의 경제를 가능하게 한다.",
+        "수입경쟁 제품의 국내 생산자는 오히려 손실을 볼 수 있다.",
+        "수입경쟁은 독점력을 약화시킬 수 있다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-economics-3e/pages/20-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-106.jpg",
+      "sourceImageSHA256": "df2a4b3ca474d53e4c71926a0baab4dbee0744ec56512fed279de59d60fc0eee",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 34,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-107",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 107,
+      "question": "독점기업 A의 수요곡선, 총비용곡선이 다음과 같을 때, 독점이윤극대화시 사중손실(deadweight loss)은? (단, P는 가격, Q는 수량이다.)\n수요곡선: P=−Q+20\n총비용곡선: TC=2Q+10",
+      "options": [
+        "99/2",
+        "94/2",
+        "88/2",
+        "81/2",
+        "77/2"
+      ],
+      "officialAnswerAForm": [
+        4
+      ],
+      "detailedExplanationDraft": "P=20−Q에서 MR=20−2Q, TC=2Q+10에서 MC=2다. 독점 MR=MC를 풀면 Qm=9, 경쟁(효율적) P=MC면 Qc=18이다. 독점 시 Qm의 역수요가격은 11이므로 사회적 사중손실은 삼각형 면적 1/2×(18−9)×(11−2)=81/2이다.",
+      "optionExplanations": [
+        "수요·비용의 기울기에 근거하지 않은 값이다.",
+        "삼각형 밑변과 높이 곱이 다르다.",
+        "효율적 생산량의 차이를 잘못 계산한 값이다.",
+        "정확한 사중손실 81/2이다.",
+        "비용곡선 절편을 잘못 반영하면 나오는 값이다."
+      ],
+      "calculationProof": "MR=20−2Q;MC=2;Qm=9,Qc=18;DWL=0.5×9×9=40.5=81/2",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-107.jpg",
+      "sourceImageSHA256": "0ba63acdcb7d276e101ea21277db96db8506d8541183cb79dfb18e017f440bfc",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 34,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-108",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 108,
+      "question": "양의 효용을 주는 X재와 Y재가 있을 때, 소비자의 최적선택에 관한 설명으로 옳은 것은?",
+      "options": [
+        "소비자의 효용극대화를 위해서는 두 재화의 시장 가격비율이 1보다 커야 한다.",
+        "X재 1원당 한계효용이 Y재 1원당 한계효용보다 클 때 소비자의 효용은 극대화된다.",
+        "가격소비곡선은 다른 조건이 일정하고 한 상품의 가격만 변할 때, 소비자의 최적선택점이 변화하는 것을 보여준다.",
+        "예산제약이란 소비할 수 있는 상품의 양이 소비자의 예산범위를 넘을 수 있음을 의미한다.",
+        "예산선의 기울기는 한 재화의 한계효용을 의미한다."
+      ],
+      "officialAnswerAForm": [
+        3
+      ],
+      "detailedExplanationDraft": "가격소비곡선(price-consumption curve)은 소득과 다른 재화 가격 등을 일정하게 둔 채 한 재화 가격 변화에 따라 달라지는 최적 소비묶음의 궤적을 나타낸다. 따라서 ③이 맞다.",
+      "optionExplanations": [
+        "효용극대화는 가격비율의 대소 자체를 요구하지 않는다.",
+        "내부해에서는 MU_X/P_X=MU_Y/P_Y가 성립한다.",
+        "가격변화에 따른 최적선택 점의 연결이 가격소비곡선이다.",
+        "예산제약은 지출 합계가 소득을 넘을 수 없음을 뜻한다.",
+        "예산선 기울기는 −P_X/P_Y로 상대가격이다."
+      ],
+      "calculationProof": "MU_X/P_X=MU_Y/P_Y ; P_XX+P_YY≤M ; dY/dX=−P_X/P_Y",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/6-1-consumption-choices",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-108.jpg",
+      "sourceImageSHA256": "5aa4c89d2d4b2dd6a12d0aeb57e20fe0cda7ccc1244430ca72bb32f2e1678575",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 34,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-110",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 110,
+      "question": "소비자 선택에 관한 설명으로 옳지 않은 것은? (단, 대체효과와 소득효과의 비교는 절댓값으로 한다.)",
+      "options": [
+        "정상재의 경우, 대체효과가 소득효과보다 크면 가격 상승에 따라 수요량은 감소한다.",
+        "정상재의 경우, 대체효과가 소득효과보다 작으면 가격 상승에 따라 수요량은 감소한다.",
+        "열등재의 경우, 대체효과가 소득효과보다 크면 가격 상승에 따라 수요량은 감소한다.",
+        "열등재의 경우, 대체효과가 소득효과보다 작으면 가격 상승에 따라 수요량은 감소한다.",
+        "기펜재의 경우, 대체효과가 소득효과보다 작기 때문에 수요의 법칙을 따르지 않는다."
+      ],
+      "officialAnswerAForm": [
+        4
+      ],
+      "detailedExplanationDraft": "정상재의 가격 상승에서는 대체효과와 소득효과가 모두 수요량을 줄인다. 열등재는 가격 상승에 따른 소득효과가 수요량을 늘리는 방향이어서 대체효과보다 크면 총수요량이 오히려 증가하는 기펜 현상이 나타난다. 따라서 ④는 틀리다.",
+      "optionExplanations": [
+        "정상재의 두 효과가 같은 방향이므로 수요량 감소가 맞다.",
+        "두 효과의 크기와 무관하게 정상재는 가격 상승 시 수요량 감소가 맞다.",
+        "열등재라도 대체효과가 우세하면 수요량이 감소한다.",
+        "열등재에서 소득효과가 더 크면 수요량이 증가하므로 틀리다.",
+        "기펜재는 열등재의 소득효과가 대체효과를 압도한다."
+      ],
+      "calculationProof": "ΔQ=ΔQ_substitution(<0)+ΔQ_income(>0 for inferior good with price increase)",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/6-3-how-changes-in-income-and-prices-affect-consumption-choices",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-110.jpg",
+      "sourceImageSHA256": "8adf8e42e1a9940bbc55872a0e3cbc4f4e93a1ef91bd74c578b0f3ff17727ef9",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 35,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-112",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 112,
+      "question": "총수요-총공급 모형에서 통화정책과 재정정책에 관한 설명으로 옳은 것은? (단, 폐쇄경제를 가정한다.)",
+      "options": [
+        "통화정책은 이자율의 변화를 통해 국민소득에 영향을 미친다.",
+        "유동성함정에 빠진 경우 확장적 통화정책은 총수요를 증가시킨다.",
+        "화폐의 중립성에 따르면, 통화량을 늘려도 명목임금은 변하지 않는다.",
+        "구축효과란 정부지출 증가가 소비지출 감소를 초래한다는 것을 의미한다.",
+        "확장적 재정정책 및 통화정책은 모두 경기팽창효과가 있으며, 국민소득의 각 구성요소에 동일한 영향을 미친다."
+      ],
+      "officialAnswerAForm": [
+        1
+      ],
+      "detailedExplanationDraft": "통화량 조절은 이자율과 투자지출·총수요를 거쳐 국민소득에 영향을 줄 수 있다. 유동성함정에서는 추가 통화공급의 이자율 하락효과가 약하며, 화폐중립성은 장기의 실질변수에 관한 명제다. 구축효과는 주로 금리 상승에 따른 민간투자 감소로 설명되므로 ①이다.",
+      "optionExplanations": [
+        "통화정책→금리→투자·총수요→국민소득 전달경로가 있다.",
+        "유동성함정에서 전통적인 통화정책의 총수요 확대 효과가 제약된다.",
+        "화폐중립성은 명목변수까지 불변이라는 뜻이 아니다.",
+        "전형적 구축효과는 금리 상승으로 민간투자가 감소하는 현상이다.",
+        "재정정책과 통화정책은 지출 구성요소에 주는 직접 경로가 다르다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/15-3-monetary-policy-and-economic-outcomes",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-112.jpg",
+      "sourceImageSHA256": "79dc3616c2277c9fab40fcb55956a69cebdfc4ce314bb803b453984a7c46406b",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 35,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-115",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 115,
+      "question": "중앙은행의 화폐공급에 관한 설명으로 옳은 것은?",
+      "options": [
+        "예금창조기능은 중앙은행의 독점적 기능이다.",
+        "본원통화는 현금과 은행의 예금을 합친 것이다.",
+        "중앙은행이 민간에 국채를 매각하면 통화량이 증가한다.",
+        "중앙은행이 재할인율을 인하한다고 발표하면 기업은 경기과열을 억제하겠다는 신호로 받아들인다.",
+        "법정지급준비율은 통화승수에 영향을 미친다."
+      ],
+      "officialAnswerAForm": [
+        5
+      ],
+      "detailedExplanationDraft": "법정지급준비율이 높아지면 동일 본원통화로 창출되는 예금통화량이 통상 감소해 통화승수가 작아진다. 따라서 ⑤가 맞다. 예금창조는 상업은행의 기능이며, 중앙은행의 국채매각은 유동성을 흡수한다.",
+      "optionExplanations": [
+        "예금창조는 상업은행의 대출·예금 과정에서 발생한다.",
+        "본원통화는 민간보유 현금과 은행의 중앙은행 지급준비금을 뜻한다.",
+        "국채매각은 지급준비금을 흡수해 통화량 감소요인이다.",
+        "재할인율 인하는 완화적 통화정책 신호다.",
+        "지급준비율은 통화승수 결정 요인이다."
+      ],
+      "calculationProof": "단순 통화승수 m≈1/rr (현금·초과준비금 없는 가정)",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/14-4-how-banks-create-money",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-115.jpg",
+      "sourceImageSHA256": "91cc2ad00a292a71510ee5759e12bb11ca8cce5b969fd1573879357a077a704a",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 36,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-116",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 116,
+      "question": "물가지수에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "소비자물가지수는 재화의 품질 변화를 반영하는 데 한계가 있다.",
+        "GDP 디플레이터는 실질GDP를 명목GDP로 나눈 수치이다.",
+        "소비자물가지수는 재화의 상대가격 변화에 따른 생계비의 변화를 과대평가한다.",
+        "소비자물가지수는 재화 선택의 폭이 증가함에 따른 화폐가치의 상승효과를 측정할 수 없다.",
+        "소비자물가지수는 GDP 디플레이터와 달리 해외에서 수입되는 재화의 가격 변화도 반영할 수 있다."
+      ],
+      "officialAnswerAForm": [
+        2
+      ],
+      "detailedExplanationDraft": "GDP 디플레이터는 명목GDP/실질GDP×100으로 산출된다. ②는 분자·분모를 뒤집어 틀린 설명이다. CPI는 수입 소비재 가격을 포함할 수 있고 고정 바스켓으로 인한 대체편의·신상품 편의·품질조정 문제가 있다.",
+      "optionExplanations": [
+        "품질 조정의 어려움은 CPI 측정 한계다.",
+        "GDP 디플레이터 분자와 분모가 반대로 서술됐다.",
+        "대체효과 미반영으로 생계비를 과대평가할 수 있다.",
+        "신상품 편의를 반영하는 데 한계가 있다.",
+        "CPI는 소비자 구매 수입품도 바스켓에 포함할 수 있다."
+      ],
+      "calculationProof": "GDP deflator=(nominal GDP/real GDP)×100",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/9-2-tracking-inflation",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-116.jpg",
+      "sourceImageSHA256": "447119a1a2a231b960bf55238f94790b8a5b484fe35183b344883300007c7631",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 36,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-119",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 119,
+      "question": "인플레이션에 관한 설명으로 옳은 것은?",
+      "options": [
+        "예상치 못한 인플레이션이 발생하면 채권자가 이득을 보고 채무자가 손해를 보게 된다.",
+        "피셔(I. Fisher)가설에 따르면 예상된 인플레이션의 사회적 비용은 미미하다.",
+        "예상치 못한 인플레이션은 금전거래에서 장기계약보다 단기계약을 더 회피하도록 만든다.",
+        "경기호황 속에 물가가 상승하는 현상을 스태그플레이션이라고 부른다.",
+        "인플레이션 조세는 정부가 화폐공급량을 줄여 재정수입을 얻는 것을 의미한다."
+      ],
+      "officialAnswerAForm": [
+        2
+      ],
+      "detailedExplanationDraft": "예상 인플레이션이 명목금리에 반영된다는 피셔효과의 관점에서는 완전히 예상된 인플레이션으로 인한 채권자·채무자의 예기치 않은 재분배가 제한된다. 따라서 출제 문맥에서 ②가 정답이지만, 인플레이션의 사회적 비용이 항상 미미하다는 보편명제는 아니므로 별도 전문 검토가 필요하다.",
+      "optionExplanations": [
+        "예상 밖 인플레이션은 고정금리 채권자의 실질 수령액을 줄이고 채무자에게 유리하다.",
+        "예상 인플레이션은 명목이자율에 반영될 수 있어 예기치 않은 재분배가 줄어든다. 단 사회적 비용의 일반화는 주의한다.",
+        "불확실성이 높아지면 오히려 장기명목계약을 회피할 수 있다.",
+        "스태그플레이션은 불황·경기침체와 인플레이션의 병존이다.",
+        "인플레이션 조세는 통화발행에 따른 실질 화폐보유가치 감소와 관련된다."
+      ],
+      "calculationProof": "i≈r+π^e",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/9-5-the-confusion-over-inflation",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-119.jpg",
+      "sourceImageSHA256": "aa2a1018a60b49eb40d39d050650a9f6231432be0a2d45f06258eadf32ee318a",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 37,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": "FISHER_HYPOTHESIS_ASSUMPTIONS_AND_SOCIAL_COST_SCOPE_SECOND_REVIEW",
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-120",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 120,
+      "question": "실업에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "실업보험은 마찰적 실업을 감소시켜 자연실업률을 하락시키는 경향이 있다.",
+        "경기변동 때문에 발생하는 실업을 경기적 실업이라 한다.",
+        "효율성임금이론(efficiency wage theory)에 따르면 높은 임금 책정으로 생산성을 높이려는 사용자의 시도가 실업을 야기할 수 있다.",
+        "내부자-외부자가설(insider-outsider hypothesis)에 따르면 내부자가 임금을 높게 유지하려는 경우 실업이 발생할 수 있다.",
+        "최저임금제도는 구조적 실업을 야기할 수 있다."
+      ],
+      "officialAnswerAForm": [
+        1
+      ],
+      "detailedExplanationDraft": "실업보험은 구직자에게 탐색기간과 급여를 제공하므로 일반적인 모형에서는 마찰적 실업을 감소시킨다고 단정하기 어렵고, 구직 탐색을 장기화할 수 있다. 따라서 ①이 옳지 않다.",
+      "optionExplanations": [
+        "실업보험은 구직기간 연장 등으로 마찰적 실업을 높일 수 있다.",
+        "총수요·경기변동으로 발생하는 실업은 경기적 실업이다.",
+        "효율성임금은 시장청산임금 이상 지급으로 초과노동공급을 유발할 수 있다.",
+        "내부자의 임금협상력은 외부자의 취업을 어렵게 할 수 있다.",
+        "최저임금이 균형임금보다 높으면 일부 노동시장 실업을 초래할 수 있다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/8-3-what-causes-changes-in-unemployment-over-the-short-run",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-120.jpg",
+      "sourceImageSHA256": "d7dc1da590e46f09061673468b78c292801f42f79e069bb1188cdd2dd3db25aa",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 37,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-121",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 121,
+      "question": "노동시장에서 수요독점자인 A기업의 생산함수는 Q=4L+100이다. 생산물시장은 완전경쟁이고 생산물가격은 200이다. 노동공급곡선이 w=5L인 경우, 이윤극대화가 달성되는 노동의 한계요소비용과 한계수입생산을 순서대로 옳게 나열한 것은? (단, Q는 산출량, L은 노동투입량, w는 임금이다.)",
+      "options": [
+        "400, 400",
+        "400, 600",
+        "600, 800",
+        "800, 800",
+        "900, 900"
+      ],
+      "officialAnswerAForm": [
+        4
+      ],
+      "detailedExplanationDraft": "노동수요독점 기업의 총노동비용은 wL=5L²이므로 한계요소비용 MFC=d(5L²)/dL=10L이다. 완전경쟁 생산물 시장의 한계수입생산 MRP=P·MPL=200·4=800. MFC=MRP에서 L=80이고 두 값 모두 800이다.",
+      "optionExplanations": [
+        "MFC와 MRP를 동일 조건에서 계산하지 않았다.",
+        "MFC=MRP 이윤극대화 조건에 맞지 않는다.",
+        "한계요소비용 600과 한계수입생산 800이면 추가 고용 유인이 있다.",
+        "MFC=MRP=800으로 정확하다.",
+        "생산물 한계수입생산은 노동투입 수준과 무관하게 800이다."
+      ],
+      "calculationProof": "MPL=4, MRP=200×4=800; TC_L=wL=5L²; MFC=10L; MFC=MRP ⇒ L*=80 ⇒ 800,800",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/10-2-monopsony-and-the-minimum-wage",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-121.jpg",
+      "sourceImageSHA256": "a41ed8a7c6d005338055efc55b2915f3342af595e16b88c4a332561325f9f412",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 37,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-124",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 124,
+      "question": "노동시장에서의 임금격차에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "임금격차는 인적자본의 차이에 따라 발생할 수 있다.",
+        "임금격차는 작업조건이 다르면 발생할 수 있다.",
+        "임금격차는 각 개인의 능력과 노력 정도의 차이에 따라 발생할 수 있다.",
+        "임금격차는 노동시장에 대한 정보가 완전해도 발생할 수 있다.",
+        "임금격차는 차별이 없으면 발생하지 않는다."
+      ],
+      "officialAnswerAForm": [
+        5
+      ],
+      "detailedExplanationDraft": "차별이 없어도 교육·경험의 인적자본 격차, 작업의 위험도·불편함에 대한 보상임금격차, 개인의 생산성 차이 등으로 임금격차가 생길 수 있다. ⑤가 틀리다.",
+      "optionExplanations": [
+        "인적자본의 격차는 생산성·임금 차이와 연결된다.",
+        "위험하고 불편한 직무의 보상임금격차가 있을 수 있다.",
+        "개인 생산성 차이는 임금 차이를 유발한다.",
+        "완전정보 아래에서도 생산성·보상격차가 남는다.",
+        "차별 없이도 임금 차이가 발생할 수 있다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/14-1-the-theory-of-labor-markets",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-124.jpg",
+      "sourceImageSHA256": "39d58c2423603d708b9977cd73ebd66d6ae85b7b30e77fc282ee1efeb4261419",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 38,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    },
+    {
+      "id": "legacy1-2020-A-economics-125",
+      "year": 2020,
+      "subject": "경제학원론",
+      "questionNumber": 125,
+      "question": "총인구 200명, 15세 이상 인구 100명, 비경제활동인구 20명, 실업자 40명인 A국이 있다. A국의 경제활동참가율(%), 고용률(%), 실업률(%)을 순서대로 옳게 나열한 것은? (단, 우리나라의 고용통계 작성 방식에 따른다.)",
+      "options": [
+        "40, 20, 40",
+        "40, 50, 20",
+        "80, 20, 20",
+        "80, 40, 50",
+        "80, 50, 20"
+      ],
+      "officialAnswerAForm": [
+        4
+      ],
+      "detailedExplanationDraft": "15세 이상 인구 100명에서 비경제활동인구 20명을 빼면 경제활동인구는 80명이고 그중 실업자 40명을 빼면 취업자는 40명이다. 경제활동참가율=80/100=80%, 고용률=40/100=40%, 실업률=40/80=50%이다.",
+      "optionExplanations": [
+        "참가율과 실업률을 잘못 계산했다.",
+        "참가율이 80%인데 40%로 계산했다.",
+        "고용률은 40%, 실업률은 50%이다.",
+        "참가율 80%, 고용률 40%, 실업률 50%가 맞다.",
+        "취업자 40명·실업자 40명을 오인했다."
+      ],
+      "calculationProof": "LF=100−20=80; E=80−40=40; LFPR=80/100×100=80%; ER=40/100×100=40%; UR=40/80×100=50%",
+      "referenceCandidate": "https://kostat.go.kr/understand/info/info_lge/1/index.action",
+      "sourceImage": "review/first-v41-native-crops/legacy1-2020-A-economics-125.jpg",
+      "sourceImageSHA256": "50255b719c8a17eac85dcfe38e3b88decc3d032d8142676883e2870c1b24a783",
+      "officialQuestionPdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "officialPDFPage": 38,
+      "officialAnswerPDFSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "additionalVerificationHold": null,
+      "sourceImageAndFiveOptionVisuallyChecked": true,
+      "officialAnswerDigitAligned": true,
+      "independentMathAndConceptExpertReviewed": false,
+      "independentContentApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_IMG_KEY_AND_EXPLANATION_DRAFT_ONLY"
+    }
+  ],
+  "sourceImageRead": 16,
+  "officialAnswerDigitMatched": 16,
+  "detailedLearningExplanationsDrafted": 16,
+  "calculationOrEquationItems": 9,
+  "finalIndependentExpertApproval": 0,
+  "approvedForLearningScoring": 0,
+  "note": "Control image and QNet final grid are source anchors; second independent textual/math review remains HOLD, particularly nuance on Fisher effect and EMH assumptions. All V44 approvals remain empty."
+}
