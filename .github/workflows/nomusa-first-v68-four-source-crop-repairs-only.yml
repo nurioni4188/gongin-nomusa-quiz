@@ -1,0 +1,105 @@
+name: NOMUSA FIRST V68 fast 4 reviewed QNet source crop repair candidates and 12 unsafe holds
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v68-four-source-crop-repairs-only.yml'
+      - 'scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v68-fast-source-image-correction
+  cancel-in-progress: true
+jobs:
+  verify-repaired-original-crops:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore already successful V65 all 254 original QNet crop source QA and 3 official A PDF SHA references
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v50-686-with-175-qnet-a-booklet-shas-and-150-mirror-holds
+          run-id: 44403449105
+          github-token: ${{ github.token }}
+          path: review-artifacts
+      - name: Restore 2016 management A 91 source crop originals from V55 certified source reference
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v55-2016-management-125-original-qnet-page-crops-0-scoring
+          run-id: 44322740545
+          github-token: __GITHUB_TOKEN__
+          path: review-artifacts/NOMUSA_FIRST_V55
+      - name: Restore six historical official QNet A-form source PDFs from V42
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: __GITHUB_TOKEN__
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+      - name: Install PDF original source verification and image tools
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 pillow==11.3.0 requests==2.32.5
+      - name: Create 4 actual bounded source-image repairs only, hold 12 unsafe next-question anchors
+        run: |
+          python -m py_compile scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+          python scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+      - name: Confirm 4 SHA-locked original crop revisions, 4 before-after images, 12 held and no scoring
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,subprocess
+          root=Path('review-artifacts/NOMUSA_FIRST_V68')
+          j=json.loads((root/'NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json').read_text(encoding='utf8'))
+          assert j['sourceGeometrySuspiciousTargets']==16
+          assert j['newSeparateRevisedQNetCropImages']==j['oldVsNewComparisonImages']==len(j['rows'])==4
+          assert len(j['unsafeHeldRows'])==12
+          assert j['overlapSourceRevisedCandidates']==1 and j['inkGapSourceRevisedCandidates']==3
+          assert j['newScoringApproved']==j['newQdataImports']==0
+          ids={r['id'] for r in j['rows']}
+          assert ids=={
+            'legacy1-2016-A-economics-107',
+            'legacy1-2016-A-economics-119',
+            'legacy1-2016-A-management-119',
+            'legacy1-2018-A-labor2-039'
+          },ids
+          for q in j['rows']:
+            assert not q['scoringApproved'] and not q['readyForV44']
+            for key in ('revisedSourceCrop','comparisonPreview'):
+              x=q[key]
+              f=root/(x['file'] if key=='revisedSourceCrop' else x['path'])
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==x['sha256']
+          touched=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert touched.issubset({'review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json'}),touched
+          print('PASS_V68_FOUR_QNET_ITEM_CROP_GEOMETRY_REPAIRS_AND_TWELVE_HOLD_NO_SCORING')
+          PY
+      - name: Commit review evidence only on existing Draft PR
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v68): four bounded official source crop repairs, twelve unsafe anchors held'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Export source crop revisions, before-after previews, and 12 explicit holds
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v68-four-source-crop-corrections-plus-twelve-held
+          path: review-artifacts/NOMUSA_FIRST_V68/
+          if-no-files-found: warn
+          retention-days: 30
