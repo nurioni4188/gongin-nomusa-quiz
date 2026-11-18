@@ -8,10 +8,10 @@
     "2012": 1
   },
   "sourceStatusCounts": {
-    "HWP_SOURCE_PROVENANCE_ONLY_QNET_CONTENT_HOLD": 25,
-    "OFFICIAL_QUESTION_SOURCE_STILL_UNAVAILABLE_HOLD": 2
+    "OFFICIAL_QUESTION_SOURCE_STILL_UNAVAILABLE_HOLD": 2,
+    "THIRD_PARTY_CBT_STEM_FIVE_OPTION_CANDIDATE": 25
   },
-  "thirdParty2010FiveOptionCandidates": 0,
+  "thirdParty2010FiveOptionCandidates": 25,
   "reprintSourceDocuments": {
     "2010": {
       "url": "https://cbtbank.kr/exam/cfr20100606",
@@ -24,7 +24,7 @@
       "responseStatus": 200,
       "resolvedUrl": "https://cbtbank.kr/exam/cfr20100606",
       "independentlyAuthenticatedAsQNetOriginal": false,
-      "nativeQuestionCandidates": 0,
+      "nativeQuestionCandidates": 25,
       "parsedPageLines": 787
     },
     "2011": {
