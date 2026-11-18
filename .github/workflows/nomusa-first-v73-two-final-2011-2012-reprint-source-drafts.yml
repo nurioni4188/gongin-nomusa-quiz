@@ -1,0 +1,84 @@
+name: NOMUSA FIRST V73 two final 2011 and 2012 economics question source candidates
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v73-two-final-2011-2012-reprint-source-drafts.yml'
+      - 'scripts/nomusa-first-v73-two-2011-2012-economics-source-drafts.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v73-two-economics-external-source-hold
+  cancel-in-progress: true
+jobs:
+  verify-historical-two-last-source-candidates:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild immutable original 791 and 2011/2012 two missing legacy A IDs
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Install public HTML exam source parsers
+        run: python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.4
+      - name: Fetch external 2011 Q14 and 2012 economics Q19 to legacy Q119 mapping, extract stem and five options
+        run: |
+          python -m py_compile scripts/nomusa-first-v73-two-2011-2012-economics-source-drafts.py
+          python scripts/nomusa-first-v73-two-2011-2012-economics-source-drafts.py
+      - name: Fail closed on unverified figure, external original provenance, Q119 mapping and scoring
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V73')
+          j=json.loads((root/'NOMUSA_FIRST_V73_LAST_2_NATIVE_STEM_FIVE_OPTION_DRAFTS.json').read_text(encoding='utf8'))
+          assert j['reprintTextFiveOptionCandidates']==len(j['rows'])==2
+          assert {q['id'] for q in j['rows']}=={
+              'legacy1-2011-A-economics-014','legacy1-2012-A-economics-119'}
+          assert j['newAppImports']==j['newScoringApprovals']==0
+          assert j['independentlyCertifiedQnetOriginalFiles']==j['independentlyConfirmedFinalAnswerCells']==0
+          for q in j['rows']:
+            assert not q['scoringApproved'] and not q['readyForV44']
+            assert len(q['unverifiedFiveOptions'])==5
+            assert q['originalQNetAFormSourceIndependentlyVerified'] is False
+            p=root/q['thirdPartySourceFile']
+            assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==q['thirdPartyHtmlSourceSHA256']
+            if q['year']==2012:
+              assert q['publishedEconomicsSectionQuestionNumber']==19 and q['originalHistoricQuestionNumber']==119
+              assert not q['questionNumberMappingIndependentlyVerified']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V73_2011_2012_TWO_LAST_SOURCE_CANDIDATES_20261119.json'}),changed
+          print('PASS_V73_LAST_TWO_2011_2012_SOURCE_REPRINT_FIVE_CHOICES_ALL_CONTENT_SCORING_HOLD')
+          PY
+      - name: Commit summary only on existing Draft PR review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V73_2011_2012_TWO_LAST_SOURCE_CANDIDATES_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v73): 2011/12 last two external economics originals and 5-option drafts HOLD'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Archive both HTML source snapshots and exact reprint five-choice drafts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v73-last-two-original-reprint-five-choice-holds
+          path: review-artifacts/NOMUSA_FIRST_V73/
+          if-no-files-found: warn
+          retention-days: 30
