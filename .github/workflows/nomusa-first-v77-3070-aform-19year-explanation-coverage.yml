@@ -1,0 +1,83 @@
+name: NOMUSA FIRST V77 2008-2026 all 3070 unique A-form source IDs reconciliation
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v77-3070-aform-19year-explanation-coverage.yml'
+      - 'scripts/nomusa-first-v77-2008-2026-3070-aform-content-reconciliation.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v77-3070-aform-source-reconciliation
+  cancel-in-progress: true
+jobs:
+  verify-all-19-years:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore preserved original 686 SHA-checked text and source IDs without changing content
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v74-686-all-source-leads-191-choices-254-ocr-241-source-only
+          run-id: 44415908136
+          github-token: ${{ github.token }}
+          path: review-artifacts/V77_V74_BUNDLE
+      - name: Reconcile 2279 existing items + 2 pilots + 103 original drafts + 686 recovered IDs across 19 years
+        run: |
+          node --check scripts/nomusa-first-v77-2008-2026-3070-aform-content-reconciliation.mjs
+          node scripts/nomusa-first-v77-2008-2026-3070-aform-content-reconciliation.mjs
+      - name: Require 3070 non-overlapping IDs, no false full answer approval, and 2023 91 missing choice flags
+        run: |
+          python - <<'PY'
+          import json,csv,subprocess
+          from pathlib import Path
+          s=json.loads(Path('review/NOMUSA_FIRST_V77_2008_2026_3070_RECONCILIATION_SUMMARY_20261119.json').read_text(encoding='utf8'))
+          assert s['periodYears']==19 and s['expectedUniqueAFormIDs']==s['recordedUniqueAFormIDs']==3070
+          assert s['sourceBuckets']=={'existing2008to2026QuestionBank':2279,'QNetTwoTheoryPilot':2,'previous103FirstPass':103,'remaining686SourceReview':686}
+          assert len(s['yearly'])==19 and len({x['year'] for x in s['yearly']})==19
+          assert s['QDATA2023FiveChoiceTextIncomplete']==91
+          assert s['2013ManagementNewAcademicDraftExplanations']==25
+          assert s['choiceReasonsNewlyAuthored']==125
+          assert s['minimumDistinctChoiceReasonsToApproveAllAFormItems']==15350
+          assert s['newlyGradedLegacyItemsByThisAudit']==0
+          assert s['allItemsOriginalFiveChoicesAndExamDateAuthorityApproved']==0
+          with Path('review-artifacts/NOMUSA_FIRST_V77/NOMUSA_FIRST_V77_19_YEAR_3070_CONTENT_GATES.csv').open(encoding='utf8',newline='') as f:
+            assert len(list(csv.DictReader(f)))==19
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V77_2008_2026_3070_RECONCILIATION_SUMMARY_20261119.json'}),changed
+          print('PASS_V77_19_YEARS_3070_SOURCE_IDS_25_DETAILED_125_CHOICE_REASONS_NO_SCORING')
+          PY
+      - name: Save compact source audit only into existing Draft PR branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V77_2008_2026_3070_RECONCILIATION_SUMMARY_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v77): 19-year 3070 A-form IDs unique source reconciliation and full-explanation release gates'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve complete per-year 3070-source-ID and explanation gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v77-19year-3070-unique-aform-source-gate
+          path: |
+            review-artifacts/NOMUSA_FIRST_V77/
+            review/NOMUSA_FIRST_V77_2008_2026_3070_RECONCILIATION_SUMMARY_20261119.json
+          if-no-files-found: warn
+          retention-days: 30
