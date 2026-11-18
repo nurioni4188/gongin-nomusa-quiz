@@ -77,9 +77,11 @@ def main():
                 cases.append({"width":width,"test":"new_2026_social_042_law_draft_and_correct_label","pass":True})
                 # 55: three-year vs five-year statute, 70: minister vs tax service
                 for n,choice,fragment in [(55,2,"휴업급여"),(70,3,"보건복지부장관"),(79,2,"체납처분비")]:
-                    page.goto(root+"/index.html",wait_until="domcontentloaded")
-                    page.locator('.cell[data-y="2026"][data-s="사회보험법"]').click()
-                    for _ in range(n-41):page.locator("#nx").click()
+                    # Reuse one saved 40-question study session; new start is blocked by design
+                    # while an unfinished session exists. Jump to the original question position.
+                    page.locator("#jumper summary").click()
+                    page.locator("#jumpN").fill(str(n-40))
+                    page.locator("#jumpGo").click()
                     assert f"{n}번" in page.locator(".qmeta").inner_text()
                     page.locator(f"#choices [data-v='{choice}']").click()
                     assert fragment in page.locator(".n108-summary").inner_text()
