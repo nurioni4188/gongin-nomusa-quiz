@@ -2,8 +2,8 @@
   "schema": "NOMUSA_FIRST_V43_25_HISTORICAL_LAW_PRECEDENT_SOURCE_AUDIT/1",
   "asOfKST": "2026-11-18",
   "lawQuestionCount": 25,
-  "preExamSourcePartialAnchors": 14,
-  "stillMissingSatisfactoryPreExamPrimaryAnchor": 11,
+  "preExamSourcePartialAnchors": 19,
+  "stillMissingSatisfactoryPreExamPrimaryAnchor": 6,
   "fullExamDateLawAndCourtHoldingProofApproved": 0,
   "finalIndependentHumanApproval": 0,
   "newScoringApproved": 0,
@@ -14,9 +14,14 @@
       "id": "legacy1-2020-A-labor2-026",
       "examDate": "2020-05-23",
       "course": "labor2",
-      "preExamAuthorityCandidate": null,
-      "legalEvidenceStatus": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
-      "historicalAmendmentAndPrecedentPending": "2015년 이주노조 판결 대법원 선고번호 원문 독립확인",
+      "preExamAuthorityCandidate": {
+        "url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&searchOption=&searchWord=&seqnum=4890",
+        "sourceEffectiveOrPublishedDate": "2015-06-25",
+        "articleOrCaseEvidence": "Supreme Court 2015-06-25, case 2007두4995, undocumented foreign workers eligible for labor union membership; Constitution Art33 prior",
+        "relatedHistoricalJudgmentUrl": null
+      },
+      "legalEvidenceStatus": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
+      "historicalAmendmentAndPrecedentPending": "2015년 이주노조 판결 대법원 선고번호 원문 독립확인; complete 2020/2021 exam-date enactment and all remaining options not yet approved",
       "sourceDraft": "review/NOMUSA_FIRST_V43_TEN_2020_2021_LABOR_LAW_SOURCE_AND_DRAFTS_20261118.json",
       "officialAFormAnswer": 5,
       "independentReviewerApproval": false,
@@ -75,9 +80,14 @@
       "id": "legacy1-2021-A-labor1-019",
       "examDate": "2021-05-08",
       "course": "labor1",
-      "preExamAuthorityCandidate": null,
-      "legalEvidenceStatus": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
-      "historicalAmendmentAndPrecedentPending": "2021-05-08 당시 파견금지 업무 및 예외 허용 기간 시행본 확인 대기",
+      "preExamAuthorityCandidate": {
+        "url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=208545",
+        "sourceEffectiveOrPublishedDate": "2019-04-30",
+        "articleOrCaseEvidence": "pre-exam Dispatch Workers Protection Act Art5, exception to manufacturing dispatch ban for temporary vacancies",
+        "relatedHistoricalJudgmentUrl": null
+      },
+      "legalEvidenceStatus": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
+      "historicalAmendmentAndPrecedentPending": "2021-05-08 당시 파견금지 업무 및 예외 허용 기간 시행본 확인 대기; complete 2020/2021 exam-date enactment and all remaining options not yet approved",
       "sourceDraft": "review/NOMUSA_FIRST_V43_TEN_2020_2021_LABOR_LAW_SOURCE_AND_DRAFTS_20261118.json",
       "officialAFormAnswer": 1,
       "independentReviewerApproval": false,
@@ -89,9 +99,14 @@
       "id": "legacy1-2021-A-labor1-020",
       "examDate": "2021-05-08",
       "course": "labor1",
-      "preExamAuthorityCandidate": null,
-      "legalEvidenceStatus": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
-      "historicalAmendmentAndPrecedentPending": "2021-05-08 시행본 우선고용 노력규정 정확문구 확인 대기",
+      "preExamAuthorityCandidate": {
+        "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=204835",
+        "sourceEffectiveOrPublishedDate": "2018-10-16",
+        "articleOrCaseEvidence": "pre-exam Fixed-term and Part-time Workers Protection Act Arts4-5, effort to prioritize existing fixed-term worker",
+        "relatedHistoricalJudgmentUrl": null
+      },
+      "legalEvidenceStatus": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
+      "historicalAmendmentAndPrecedentPending": "2021-05-08 시행본 우선고용 노력규정 정확문구 확인 대기; complete 2020/2021 exam-date enactment and all remaining options not yet approved",
       "sourceDraft": "review/NOMUSA_FIRST_V43_TEN_2020_2021_LABOR_LAW_SOURCE_AND_DRAFTS_20261118.json",
       "officialAFormAnswer": 3,
       "independentReviewerApproval": false,
@@ -103,9 +118,14 @@
       "id": "legacy1-2021-A-labor1-025",
       "examDate": "2021-05-08",
       "course": "labor1",
-      "preExamAuthorityCandidate": null,
-      "legalEvidenceStatus": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
-      "historicalAmendmentAndPrecedentPending": "2021 당시 취업활동 시작일·3년+1년10개월·코로나 특례 원문 확인 필요",
+      "preExamAuthorityCandidate": {
+        "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=218293",
+        "sourceEffectiveOrPublishedDate": "2020-05-26",
+        "articleOrCaseEvidence": "pre-exam Act on Employment etc of Foreign Workers Art18, default work period and extensions distinct",
+        "relatedHistoricalJudgmentUrl": null
+      },
+      "legalEvidenceStatus": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
+      "historicalAmendmentAndPrecedentPending": "2021 당시 취업활동 시작일·3년+1년10개월·코로나 특례 원문 확인 필요; complete 2020/2021 exam-date enactment and all remaining options not yet approved",
       "sourceDraft": "review/NOMUSA_FIRST_V43_TEN_2020_2021_LABOR_LAW_SOURCE_AND_DRAFTS_20261118.json",
       "officialAFormAnswer": 5,
       "independentReviewerApproval": false,
@@ -136,9 +156,14 @@
       "id": "legacy1-2021-A-labor2-042",
       "examDate": "2021-05-08",
       "course": "labor2",
-      "preExamAuthorityCandidate": null,
-      "legalEvidenceStatus": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
-      "historicalAmendmentAndPrecedentPending": "2021-05-08 시행본 및 중재 효력 기산일·제68조 내용 재대조",
+      "preExamAuthorityCandidate": {
+        "url": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200609&lsiSeq=219123",
+        "sourceEffectiveOrPublishedDate": "2020-06-09",
+        "articleOrCaseEvidence": "pre-exam Labor Union Act Art70 non-stay upon rehearing; confirm intervening amendments/2021 May text",
+        "relatedHistoricalJudgmentUrl": null
+      },
+      "legalEvidenceStatus": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
+      "historicalAmendmentAndPrecedentPending": "2021-05-08 시행본 및 중재 효력 기산일·제68조 내용 재대조; complete 2020/2021 exam-date enactment and all remaining options not yet approved",
       "sourceDraft": "review/NOMUSA_FIRST_V43_TEN_2020_2021_LABOR_LAW_SOURCE_AND_DRAFTS_20261118.json",
       "officialAFormAnswer": 5,
       "independentReviewerApproval": false,
@@ -430,5 +455,7 @@
       "readyForV44": false,
       "scoringApproved": false
     }
-  ]
+  ],
+  "updatedAtKST": "2026-11-18",
+  "updateNote": "Added pre-exam Supreme Court 2015 case and 2019/2018/2020 statutes for labor questions; each still requires no-intervening-amendment and exact 5-choice proof before expert signoff"
 }
