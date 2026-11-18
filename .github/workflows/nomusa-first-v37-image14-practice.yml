@@ -7,6 +7,7 @@ on:
       - '.github/workflows/nomusa-first-v37-image14-practice.yml'
       - 'study-hub/first-v37-native14-practice.html'
       - 'scripts/nomusa-first-v37-14-image-practice-gate.py'
+      - 'scripts/nomusa-first-v36-social-40-browser-gate.py'
       - 'index.html'
       - 'study-hub/app.js'
   workflow_dispatch:
