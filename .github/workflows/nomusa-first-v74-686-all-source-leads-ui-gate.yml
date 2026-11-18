@@ -1,0 +1,118 @@
+name: NOMUSA FIRST V74 full 686 review workspace with 191 external five-choice drafts
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v74-686-all-source-leads-ui-gate.yml'
+      - 'scripts/nomusa-first-v74-686-all-source-review-v71-upgrade.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v74-686-all-source-leads-unapproved
+  cancel-in-progress: true
+jobs:
+  verify-full-unapproved-source-review-app:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore PASS V71 686 review source, mobile HTML and 448 image SHA-verified reference pages
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v71-all-686-mobile-review-source-archive-unapproved
+          run-id: 44414683713
+          github-token: ${{ github.token }}
+          path: review-artifacts/V74_V71_BUNDLE
+      - name: Restore PASS V73 two last historic 2011 and 2012 unapproved real question text candidates
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v73-last-two-original-reprint-five-choice-holds
+          run-id: 44415260533
+          github-token: ${{ github.token }}
+          path: review-artifacts/V74_V73_BUNDLE
+      - name: Build V74 686 all source leads and 191 full five-choice draft-source records with economic reasoning examples
+        run: |
+          python -m py_compile scripts/nomusa-first-v74-686-all-source-review-v71-upgrade.py
+          python scripts/nomusa-first-v74-686-all-source-review-v71-upgrade.py
+      - name: Validate all 686 record IDs, exact HTML data, source hashes, and zero independently approved answers
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,re,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V74')
+          file=root/'NOMUSA_FIRST_V74_686_ALL_SOURCE_LEADS_UNAPPROVED.json'
+          p=json.loads(file.read_text(encoding='utf8'))
+          assert len(p['rows'])==p['targetCount']==686
+          assert len({q['id'] for q in p['rows']})==686
+          assert p['reviewStageCounts']=={
+            'unapproved_full_stem_and_five_options':191,
+            'unapproved_OCR_transcript':254,
+            'original_source_only_need_full_transcription':241}
+          assert p['originalImageEvidenceFilesSHAValidated']==448
+          assert p['newScoredQuestionsImported']==0 and p['independentlyVerifiedOfficialFullQuestionAnswers']==0
+          assert all(q['scoringApproved'] is False and q['readyForV44'] is False for q in p['rows'])
+          two=[q for q in p['rows'] if q['year'] in (2011,2012)]
+          assert len(two)==2 and all(len(q['fiveOptionTextCandidates'])==5 for q in two)
+          assert all(q['draftLearningNote']['historicalOfficialQuestionAndFinalAnswerApproval'] is False for q in two)
+          assert two[1]['questionNumber']==119 and two[1]['externalNumberingAssumption']==19
+          html=(root/'index.html').read_text(encoding='utf8')
+          marker='<script type="application/json" id="question-data">'
+          assert marker in html
+          snippet=html.split(marker,1)[1].split('</script>',1)[0]
+          qs=json.loads(snippet)
+          assert len(qs)==686 and len({q['id'] for q in qs})==686
+          assert '후보 191개' in html and '241개' in html
+          assert '경제학 풀이 초안' in html
+          for q in p['rows']:
+            for x in q['reviewerOriginalImageCandidates']:
+              im=root/x['path']
+              assert im.is_file() and hashlib.sha256(im.read_bytes()).hexdigest()==x['sha256'],q['id']
+          with (root/'NOMUSA_FIRST_V74_686_REVIEW_QUEUE.csv').open(encoding='utf-8-sig',newline='') as f:
+            assert len(list(csv.DictReader(f)))==686
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V74_686_COMPLETE_SOURCE_LEADS_REVIEW_SUMMARY_20261119.json'}),changed
+          print('PASS_V74_686_SOURCE_LEADS_191_FIVE_CHOICES_254_OCR_241_SOURCE_ONLY_448_JPG_0_SCORING')
+          PY
+      - name: Syntax-check embedded review app JavaScript without permitting grading
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('review-artifacts/NOMUSA_FIRST_V74/index.html').read_text(encoding='utf8')
+          js=s.split('<script>',1)[1].split('</script>',1)[0]
+          Path('/tmp/nomusa-v74-ui.js').write_text(js,encoding='utf8')
+          PY
+          node --check /tmp/nomusa-v74-ui.js
+      - name: Commit only summary to existing review branch and keep main and Vercel unchanged
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V74_686_COMPLETE_SOURCE_LEADS_REVIEW_SUMMARY_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v74): all 686 source leads, 191 five-choice drafts with 2011 algebra, no scoring'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Archive complete offline-first 686 review interface and 448 SHA-verified original images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v74-686-all-source-leads-191-choices-254-ocr-241-source-only
+          path: review-artifacts/NOMUSA_FIRST_V74/
+          if-no-files-found: warn
+          retention-days: 30
