@@ -55,6 +55,7 @@ def main():
      # QNet 2021 A-110: correct official 3; grade but leave old historic alone
      page.locator('#tabs button[data-v="home"]').click()
      page.locator('.cell[data-y="2021"][data-s="경영학개론"]').click()
+     page.locator("#mOk").click()
      assert page.locator('#choices [data-v]').count()==5
      page.locator('img[src*="legacy1-2021-A-management-110.jpg"]').wait_for()
      page.wait_for_function('document.querySelector("img[src*=legacy1-2021-A-management-110]")?.naturalWidth>600')
@@ -67,6 +68,7 @@ def main():
      # Historical 2019 remains strictly ungraded despite candidate answer.
      page.locator('#tabs button[data-v="home"]').click()
      page.locator('.cell[data-y="2019"][data-s="경영학개론"]').click()
+     page.locator("#mOk").click()
      assert page.locator('#choices [data-v]').count()==5 or page.locator('#choices .opt').count()==5
      page.locator('#choices [data-v="1"]').click()
      assert page.locator(".fb.info").count()==1
