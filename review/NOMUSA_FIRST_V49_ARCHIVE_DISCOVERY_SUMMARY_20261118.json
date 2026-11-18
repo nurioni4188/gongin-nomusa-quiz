@@ -8,7 +8,7 @@
   },
   "officialLinkDiscovery": 2,
   "historicalExternalSourceAttempts": 2,
-  "actualSHAValidatedAttachments": 2,
+  "actualSHAValidatedAttachments": 5,
   "formAndFullTextIndependentlyConfirmed": 0,
   "registeredScoringApproved": 0,
   "newQdataImported": 0,
@@ -24,7 +24,8 @@
       "role": "EXTERNAL_SOURCE_QUESTION_BOTH_ELECTIVES_CANDIDATE",
       "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
       "url": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
-      "tlsCertificateVerified": true,
+      "tlsCertificateVerified": false,
+      "sourceIsUntrustedUntilOfficialQNetCrosscheck": true,
       "sourceURL": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
       "sha256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
       "bytes": 983119,
@@ -33,14 +34,15 @@
       "textAccessible": true,
       "sourceContentType": "FIRST_STAGE_QUESTION_BOOKLET_CANDIDATE",
       "verifiedOriginalQNetIdentity": false,
-      "status": "SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
+      "status": "SHA_CAPTURED_EXTERNAL_TLS_UNVERIFIED_CANDIDATE_HOLD"
     },
     {
       "year": 2016,
       "role": "EXTERNAL_SOURCE_A_FORM_FINAL_ANSWER_TABLE_NOT_QUESTION",
       "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
       "url": "https://renew.primeedunet.com/public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf",
-      "tlsCertificateVerified": true,
+      "tlsCertificateVerified": false,
+      "sourceIsUntrustedUntilOfficialQNetCrosscheck": true,
       "sourceURL": "https://renew.primeedunet.com/public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf",
       "sha256": "6b6d572c48eea02f58f79005d035ef2f97f50b3579e3eceb1a2d51dde0c728e9",
       "bytes": 63846,
@@ -49,7 +51,7 @@
       "textAccessible": false,
       "sourceContentType": "FINAL_ANSWER_TABLE_ONLY",
       "verifiedOriginalQNetIdentity": false,
-      "status": "SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
+      "status": "SHA_CAPTURED_EXTERNAL_TLS_UNVERIFIED_CANDIDATE_HOLD"
     },
     {
       "year": 2016,
@@ -59,12 +61,28 @@
         "경제학원론(A형).pdf"
       ],
       "noticeContainsAllNamedAttachments": true,
-      "attachmentCandidates": [],
-      "attachmentDOMHints": [
-        "<div class=\"file\">\n<p>경제학원론(A형).pdf</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2162962', '경제학원론(A형).pdf', '2162962');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>"
+      "attachmentCandidates": [
+        {
+          "label": "경제학원론(A형).pdf",
+          "url": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2162962&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%28A%ED%98%95%29.pdf&fileSeq=2162962&artlSeq=5183001&href=0",
+          "fileSeq": "2162962",
+          "sourceFilePath": "bbs/Q004/Q004_2162962",
+          "evidence": "ACTUAL_QNET_PUBLIC_FILEDOWN_HTML_ARGS"
+        }
       ],
-      "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
-      "downloadedAttachments": []
+      "status": "QNET_ATTACHMENT_SHA_RECORDED_PENDING_A_FORM_AND_PAGE_VERIFICATION",
+      "downloadedAttachments": [
+        {
+          "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2162962&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%28A%ED%98%95%29.pdf&fileSeq=2162962&artlSeq=5183001&href=0",
+          "sha256": "eb20585599fee9541ea5eae5ad7d56e87cba75a4c6fe1ed674f7280e43a3ac5e",
+          "bytes": 13826958,
+          "type": "PDF",
+          "pdfPages": 37,
+          "firstPageTextSample": "",
+          "textAccessible": false,
+          "file": "reference_files/2016_QNET_1_source_pdf.pdf"
+        }
+      ]
     },
     {
       "year": 2018,
@@ -75,13 +93,51 @@
         "경제학.zip"
       ],
       "noticeContainsAllNamedAttachments": true,
-      "attachmentCandidates": [],
-      "attachmentDOMHints": [
-        "<div class=\"file\">\n<p>경영학.zip</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2186568', '경영학.zip', '2186568');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>",
-        "<div class=\"file\">\n<p>경제학.zip</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2186569', '경제학.zip', '2186569');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>"
+      "attachmentCandidates": [
+        {
+          "label": "경영학.zip",
+          "url": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186568&fileName=%EA%B2%BD%EC%98%81%ED%95%99.zip&fileSeq=2186568&artlSeq=5203291&href=0",
+          "fileSeq": "2186568",
+          "sourceFilePath": "bbs/Q004/Q004_2186568",
+          "evidence": "ACTUAL_QNET_PUBLIC_FILEDOWN_HTML_ARGS"
+        },
+        {
+          "label": "경제학.zip",
+          "url": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186569&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99.zip&fileSeq=2186569&artlSeq=5203291&href=0",
+          "fileSeq": "2186569",
+          "sourceFilePath": "bbs/Q004/Q004_2186569",
+          "evidence": "ACTUAL_QNET_PUBLIC_FILEDOWN_HTML_ARGS"
+        }
       ],
-      "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
-      "downloadedAttachments": []
+      "status": "QNET_ATTACHMENT_SHA_RECORDED_PENDING_A_FORM_AND_PAGE_VERIFICATION",
+      "downloadedAttachments": [
+        {
+          "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186568&fileName=%EA%B2%BD%EC%98%81%ED%95%99.zip&fileSeq=2186568&artlSeq=5203291&href=0",
+          "sha256": "16e024bc4198502bcd7bb25edc547a85e2065145b19ad5f50fd4427e71f3320d",
+          "bytes": 37697988,
+          "type": "ZIP",
+          "archiveEntries": 2,
+          "archiveInflatedBytes": 43146574,
+          "filenames": [
+            "╝▒┼├░·╕± ░µ┐╡╟╨░│╖╨ A╟ⁿ.pdf",
+            "╝▒┼├░·╕± ░µ┐╡╟╨░│╖╨ B╟ⁿ.pdf"
+          ],
+          "file": "reference_files/2018_QNET_1_source_zip.zip"
+        },
+        {
+          "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186569&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99.zip&fileSeq=2186569&artlSeq=5203291&href=0",
+          "sha256": "e381d7d734280d8aad8a0399cdffa2411bc3ae8a80a8b5a6aa91b79046929de6",
+          "bytes": 39742248,
+          "type": "ZIP",
+          "archiveEntries": 2,
+          "archiveInflatedBytes": 45258928,
+          "filenames": [
+            "╝▒┼├░·╕± ░µ┴ª╟╨┐°╖╨ A╟ⁿ.pdf",
+            "╝▒┼├░·╕± ░µ┴ª╟╨┐°╖╨ B╟ⁿ.pdf"
+          ],
+          "file": "reference_files/2018_QNET_2_source_zip.zip"
+        }
+      ]
     }
   ]
 }
