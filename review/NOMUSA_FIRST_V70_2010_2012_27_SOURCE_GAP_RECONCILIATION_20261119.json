@@ -1,0 +1,55 @@
+{
+  "schema": "NOMUSA_FIRST_V70_2010_2012_27_EXTERNAL_SOURCE_PROVENANCE/1",
+  "asOfKST": "2026-11-19",
+  "targetUnlinkedQuestionIDs": 27,
+  "years": {
+    "2010": 25,
+    "2011": 1,
+    "2012": 1
+  },
+  "sourceStatusCounts": {
+    "HWP_SOURCE_PROVENANCE_ONLY_QNET_CONTENT_HOLD": 25,
+    "OFFICIAL_QUESTION_SOURCE_STILL_UNAVAILABLE_HOLD": 2
+  },
+  "thirdParty2010FiveOptionCandidates": 0,
+  "reprintSourceDocuments": {
+    "2010": {
+      "url": "https://cbtbank.kr/exam/cfr20100606",
+      "expectedMime": "text/html",
+      "type": "RECONSTRUCTED_CBT_BANK_NOT_QNET",
+      "status": "REPRINT_SOURCE_SHA_CANDIDATE_NOT_OFFICIAL",
+      "sha256": "d4e46640e093582f5afd743af4fd96f71bbfddedeab53fc5a273c91af96236bd",
+      "bytes": 353776,
+      "file": "2010_cbtreconstruction.html",
+      "responseStatus": 200,
+      "resolvedUrl": "https://cbtbank.kr/exam/cfr20100606",
+      "independentlyAuthenticatedAsQNetOriginal": false,
+      "nativeQuestionCandidates": 0,
+      "parsedPageLines": 787
+    },
+    "2011": {
+      "url": "https://app.lawschool.co.kr/nlawschool/board/Download.asp?boardName=pds&code=1502&fileIdx=13376&idx=32815",
+      "expectedMime": "HWP",
+      "type": "HISTORICAL_A_ECON_HWP_REPRINT_NOT_QNET",
+      "status": "NOT_VALID_HWP_DOCUMENT_HOLD",
+      "sha256": "fccdd825f05ea382f7fbe8439ca99468279b731b7d8dcf76455493e9f1653dd3",
+      "firstBytes": "3c7363726970743e616c6572742822bfdcbacebfa1bcad20b9abb4dcb8b5c5a9"
+    },
+    "2012": {
+      "url": "https://m.lawschool.co.kr/nlawschool/board/Download.asp?boardName=pds&code=1502&fileIdx=19425&idx=39243",
+      "expectedMime": "HWP",
+      "type": "HISTORICAL_A_ECON_HWP_REPRINT_NOT_QNET",
+      "status": "NOT_VALID_HWP_DOCUMENT_HOLD",
+      "sha256": "fccdd825f05ea382f7fbe8439ca99468279b731b7d8dcf76455493e9f1653dd3",
+      "firstBytes": "3c7363726970743e616c6572742822bfdcbacebfa1bcad20b9abb4dcb8b5c5a9"
+    }
+  },
+  "independentOfficialQNetOriginalApprovals": 0,
+  "individualOfficialFinalAnswerCellApprovals": 0,
+  "academicCalculationExplanationApprovals": 0,
+  "newAppImports": 0,
+  "newScoringApproved": 0,
+  "status": "REPRINT_SOURCE_TRIAGE_ONLY_ALL_ORIGINAL_CONTENT_AND_SCORING_HOLD",
+  "warning": "Third-party reconstructed text/archived HWP files may differ from official QNet A original, lose graphs, and are never approved for scoring.",
+  "full27EvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V70/NOMUSA_FIRST_V70_27_SOURCE_AND_TEXT_REVIEW.json"
+}
