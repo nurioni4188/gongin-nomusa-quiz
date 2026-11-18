@@ -1,0 +1,337 @@
+{
+  "schema": "NOMUSA_FIRST_V43_SOCIAL_8_FIVE_CHOICE_REVIEW/1",
+  "questionCount": 8,
+  "perOptionReasons": 40,
+  "examDateHistoricalFinalApproval": 0,
+  "scoringApproved": 0,
+  "rows": [
+    {
+      "id": "legacy1-2021-A-social-078",
+      "officialAnswer": 2,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-078.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "사회보장수급권이 정지되는 경우에는 정지하는 목적에 필요한 최소한의 범위에 그쳐야 한다.",
+          "reasonDraft": "사회보장수급권의 제한·정지는 필요한 최소한 범위여야 한다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "사회보장수급권은 관계 법령에서 정하는 바에 따라 타인에게 양도할 수 있다.",
+          "reasonDraft": "사회보장수급권은 관계법령에서 정하는 바에 따라 양도할 수 없도록 보호되는 권리다.",
+          "correct": true
+        },
+        {
+          "number": 3,
+          "text": "사회보장수급권은 관계 법령에 따로 정하고 있는 경우에는 제한될 수 있다.",
+          "reasonDraft": "수급권은 개별 법령에서 정한 요건으로 제한될 수 있다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "사회보장수급권은 관계 법령에서 정하는 바에 따라 타인에게 담보로 제공할 수 없다.",
+          "reasonDraft": "사회보장수급권의 담보제공은 수급권 보호원칙상 제한된다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "사회보장수급권을 포기하는 것이 다른 사람에게 피해를 주는 경우에는 사회보장수급권을 포기할 수 없다.",
+          "reasonDraft": "타인에게 피해를 주는 수급권의 포기는 허용되지 않는다는 조항이 있다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "사회보장기본법 제12조·제13조·제14조",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-079",
+      "officialAnswer": 4,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-079.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "ㄱ: 30, ㄴ: 30, ㄷ: 30",
+          "reasonDraft": "대체인력 사전 채용허용 기준이 30일이 아니라 60일이므로 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄱ: 30, ㄴ: 30, ㄷ: 60",
+          "reasonDraft": "사전 채용허용 기준이 60일이 아니며 계속고용 60일도 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ: 30, ㄴ: 60, ㄷ: 60",
+          "reasonDraft": "계속고용기간이 30일 이상이므로 ㄷ=60은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄱ: 60, ㄴ: 60, ㄷ: 30",
+          "reasonDraft": "휴가 시작 전 60일, 연속 휴가 사전 기준 60일, 대체인력 계속고용 30일이 맞다.",
+          "correct": true
+        },
+        {
+          "number": 5,
+          "text": "ㄱ: 60, ㄴ: 60, ㄷ: 60",
+          "reasonDraft": "ㄱ·ㄴ 60일은 맞지만 ㄷ은 60일이 아니라 30일이다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "고용보험법 시행령 2021-01-01 시행본 제29조",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-082",
+      "officialAnswer": 5,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-082.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "ㄱ: 월 통상임금의 100분의 50에 해당하는 금액, ㄴ: 120만원",
+          "reasonDraft": "두 번째 육아휴직자 특례는 첫 3개월 통상임금 50%, 상한 120만원이 아니다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄱ: 월 통상임금의 100분의 80에 해당하는 금액, ㄴ: 120만원",
+          "reasonDraft": "특례의 급여율은 80%가 아닌 100%이며 상한액도 다르다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ: 월 통상임금의 100분의 80에 해당하는 금액, ㄴ: 150만원",
+          "reasonDraft": "상한 150만원·80% 조합은 당시 두 번째 육아휴직자 첫 3개월 특례가 아니다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄱ: 월 통상임금에 해당하는 금액, ㄴ: 150만원",
+          "reasonDraft": "통상임금 100%는 맞지만 월 상한은 150만원이 아니라 250만원이다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ: 월 통상임금에 해당하는 금액, ㄴ: 250만원",
+          "reasonDraft": "통상임금 100%를 첫 3개월 지급하되 월 상한 250만원이 당시 특례다.",
+          "correct": true
+        }
+      ],
+      "historicLawArticleCandidate": "고용보험법 시행령 제95조의2, 2021년 시행본",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-089",
+      "officialAnswer": 4,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-089.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "근로복지공단의 임직원이나 그 직에 있었던 사람이 그 직무상 알게 된 비밀을 누설한 자",
+          "reasonDraft": "공단 임직원 등의 직무상 비밀누설은 과태료와 다른 형사벌 조항 검토 대상이다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "산재보험 의료기관의 종사자로서 거짓이나 그 밖의 부정한 방법으로 진료비를 지급받은 자",
+          "reasonDraft": "산재보험 의료기관의 거짓 진료비 지급은 형벌·부당이득 징수 관련 조항과 구별된다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "거짓이나 그 밖의 부정한 방법으로 보험급여를 받도록 시키거나 도와준 자",
+          "reasonDraft": "급여 부정수급을 도운 행위는 과태료 이외의 별도 제재조문을 적용한다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "근로복지공단이 아닌 자가 근로복지공단과 비슷한 명칭을 사용한 자",
+          "reasonDraft": "근로복지공단과 혼동될 수 있는 유사명칭 사용금지 위반은 과태료 적용대상이다.",
+          "correct": true
+        },
+        {
+          "number": 5,
+          "text": "근로자가 보험급여를 신청한 것을 이유로 근로자를 해고한 사업주",
+          "reasonDraft": "보험급여 신청을 이유로 해고한 사업주에 대한 처벌은 별도의 벌칙 조문이다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "산업재해보상보험법 명칭 사용금지 및 과태료 조문(2021 시행본)",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-092",
+      "officialAnswer": 2,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-092.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "「국민기초생활 보장법」에 따른 생계급여 수급자는 지역가입자에서 제외된다.",
+          "reasonDraft": "생계급여 수급자는 국민연금 지역가입자 적용제외의 특별 규정 대상이다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "지역가입자가 국적을 상실한 때에는 그에 해당하게 된 날에 그 자격을 상실한다.",
+          "reasonDraft": "국적을 잃은 지역가입자 자격상실은 그 날이 아니라 원칙적으로 다음 날이다.",
+          "correct": true
+        },
+        {
+          "number": 3,
+          "text": "지역가입자가 사업장가입자의 자격을 취득한 때에는 그에 해당하게 된 날에 그 자격을 상실한다.",
+          "reasonDraft": "사업장가입자로 자격을 얻는 경우 지역가입 자격상실일은 별도 일자 규정을 따른다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "임의가입자는 가입 신청이 수리된 날에 자격을 취득한다.",
+          "reasonDraft": "임의가입은 가입신청 수리일을 기준으로 자격 취득한다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "사립학교교직원 연금법을 적용받는 사립학교 교직원은 국민연금 가입대상에서 제외된다.",
+          "reasonDraft": "사학연금 적용 교직원은 국민연금 당연가입에서 제외된다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "국민연금법 제12조·제13조·제14조 및 2021 시행본",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-093",
+      "officialAnswer": 2,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-093.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "직장가입자",
+          "reasonDraft": "직장가입자는 일반건강검진 대상에 포함된다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "6세 미만의 피부양자",
+          "reasonDraft": "6세 미만 피부양자는 일반건강검진이 아니라 영유아 건강검진 대상으로 구별한다.",
+          "correct": true
+        },
+        {
+          "number": 3,
+          "text": "20세 이상인 지역가입자",
+          "reasonDraft": "20세 이상 지역가입자 요건은 일반건강검진 대상범위에 들어간다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "20세 이상인 피부양자",
+          "reasonDraft": "20세 이상 피부양자는 일반건강검진 대상에 포함된다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "세대주인 지역가입자",
+          "reasonDraft": "세대주인 지역가입자는 일반건강검진 대상범위에 들어간다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "국민건강보험법 및 시행령 제25조 건강검진·일반건강검진 대상",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-094",
+      "officialAnswer": 1,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-094.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "ㄹ",
+          "reasonDraft": "직장가입자의 피부양자가 된 날은 자격상실 시기로 인정되는 항목이다.",
+          "correct": true
+        },
+        {
+          "number": 2,
+          "text": "ㄱ, ㄷ",
+          "reasonDraft": "사망한 날이 아니라 사망한 날의 다음 날 자격상실이 원칙이므로 ㄱ은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ, ㄴ, ㄷ",
+          "reasonDraft": "사망·국적상실·국내 비거주에 따른 일자 규정을 혼동한 조합이다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄷ, ㄹ",
+          "reasonDraft": "ㄴ·ㄷ은 법정 자격상실일을 해당하게 된 날로 잘못 표현했다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+          "reasonDraft": "ㄱ·ㄴ·ㄷ의 일자규정이 모두 틀리므로 전부 옳지 않다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "국민건강보험법 제10조(자격의 상실 시기 등), 2021 시행본",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-social-100",
+      "officialAnswer": 1,
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-social-100.jpg",
+      "originalOptions": [
+        {
+          "number": 1,
+          "text": "월별보험료의 고지로 중단된 소멸시효는 월별보험료를 고지한 날부터 새로 진행한다.",
+          "reasonDraft": "월별보험료 고지로 중단된 시효는 고지 즉시가 아니라 납부기한이 지난 때 다시 진행한다.",
+          "correct": true
+        },
+        {
+          "number": 2,
+          "text": "소멸시효에 관하여는 이 법에 규정된 것을 제외하고는 민법에 따른다.",
+          "reasonDraft": "보험료징수법에 규정되지 않은 소멸시효 사항에는 민법을 보충 적용한다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "징수금의 독촉에 따라 중단된 소멸시효는 독촉에 의한 납부기한이 지난 때부터 새로 진행한다.",
+          "reasonDraft": "독촉에 의한 중단 후에는 독촉서상의 납부기한 경과 시점부터 새로 진행한다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "이 법에 따른 그 밖의 징수금을 징수할 수 있는 권리는 3년간 행사하지 아니하면 시효로 인하여 소멸한다.",
+          "reasonDraft": "법정 징수권의 3년 소멸시효 관련 규정에 해당한다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "이 법에 따른 체납처분 절차에 따라 하는 교부청구로 중단된 소멸시효는 교부청구 중의 기간이 지난 때부터 새로 진행한다.",
+          "reasonDraft": "체납처분 절차상 교부청구로 인한 중단시효는 교부청구 기간 종료 후 재진행한다.",
+          "correct": false
+        }
+      ],
+      "historicLawArticleCandidate": "고용보험 및 산업재해보상보험의 보험료징수 등에 관한 법률 소멸시효·중단/재진행 조항",
+      "examDateLawTextConfirmed": false,
+      "independentSecondHumanApproval": false,
+      "scoringApproved": false
+    }
+  ]
+}
