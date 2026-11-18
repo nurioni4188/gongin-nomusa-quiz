@@ -1,0 +1,66 @@
+name: NOMUSA FIRST V36 2026 social insurance 40 law explanation recovery
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v36-social-40-basis.yml'
+      - 'explanations-2026-social-v36.js'
+      - 'index.html'
+      - 'scripts/nomusa-first-v36-social-40-browser-gate.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v36-social-40-20261118
+  cancel-in-progress: true
+jobs:
+  test:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Setup minimal headless Chromium for mobile/PC 1st stage
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: Ensure new 37 law explanation draft JS is syntactically safe
+        run: node --check explanations-2026-social-v36.js
+      - name: Chromium 2026 social law 40/40 panel proof, 37 new and 3 preserved, three sizes
+        run: python scripts/nomusa-first-v36-social-40-browser-gate.py .
+      - name: Preserve legacy source-only V33 and no auto-grading V32 safety
+        run: |
+          node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+          python scripts/nomusa-first-v32-status-ui-gate.py
+          python scripts/nomusa-auto-v12-browser-gate.py . --first-only
+      - name: Preserve canonical 2007 to 2026 second-stage answers with all 328 hashes
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: No hidden 1st answer or question-id modification
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('review-artifacts/NOMUSA_FIRST_V36/NOMUSA_FIRST_V36_SOCIAL_40_BROWSER_GATE.json').read_text())
+          assert x['status']=='PASS' and x['tests']==x['expected']==15
+          assert x['visibleDetailedExplanations']==40
+          assert x['newStudyExplanationDrafts']==37 and x['protectedEarlierExplanations']==3
+          assert x['humanApproved']==0 and x['oldDataQDATA']==1020
+          assert x['legacy2008to2021AutoScoring']=='DISABLED'
+          assert 'explanations-2026-social-v36.js' in Path('index.html').read_text()
+          print('PASS_2026_SOCIAL_40_VISIBLE_BASIS_37_RESTORED_3_PRESERVED_QDATA_UNCHANGED')
+          PY
+          git diff --exit-code
+      - name: Upload V36 40-source-bound explanation verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v36-2026-social-40-law-drafts-e2e
+          path: review-artifacts/NOMUSA_FIRST_V36/**
+          if-no-files-found: warn
+          retention-days: 30
