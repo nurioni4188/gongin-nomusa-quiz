@@ -3,7 +3,7 @@
   "asOfKST": "2026-11-18",
   "mirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
   "mirrorOriginalPDFPages": 80,
-  "mirrorTLSCertificateVerifiedAtDownload": true,
+  "mirrorTLSCertificateVerifiedAtDownload": false,
   "bookletFooterPages": {
     "39": 39,
     "41": 41

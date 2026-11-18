@@ -1,0 +1,21 @@
+{
+  "schema": "NOMUSA_FIRST_V60_2013_UNAPPROVED_STEM_FIVE_OPTIONS/1",
+  "asOfKST": "2026-11-18",
+  "thirdPartyMirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
+  "targetQuestionIDs": 150,
+  "fiveMarkerOptionCandidateRecords": 148,
+  "questionStemChoiceCandidacyIncomplete": 2,
+  "stageCounts": {
+    "NATIVE_FIVE_MARKER_CANDIDATES_FOR_MANUAL_PROOFREAD": 148,
+    "QUESTION_NUMBER_OR_CROP_BOUNDARY_AMBIGUOUS_HOLD": 2
+  },
+  "officialQNetMirrorEqualityApproved": 0,
+  "independentFiveOptionProofread": 0,
+  "examDateLawOrTheoryApproved": 0,
+  "individualOfficialAnswerCellsApproved": 0,
+  "newQdataImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_EXTERNAL_2013_NATIVE_FIVE_OPTION_CANDIDATE_SPLIT_HOLD_ORIGINAL_AND_SCORING",
+  "warning": "An exact marker pattern is not proof of a complete native original A-form question: entire mirror and all five options still require Q-Net comparison and human review.",
+  "all150DraftsArtifact": "review-artifacts/NOMUSA_FIRST_V60/NOMUSA_FIRST_V60_2013_150_STEM_AND_OPTIONS_CANDIDATE_REVIEW.json"
+}
