@@ -1,0 +1,70 @@
+name: NOMUSA FIRST V40 official 2020 2021 300 question-location audit (review only)
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - 'scripts/nomusa-first-v40-300-official-question-anchor-review.py'
+      - '.github/workflows/nomusa-first-v40-300-anchor-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v40-a-form-300-original-audit
+  cancel-in-progress: true
+jobs:
+  source-audit:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout existing review branch; do not modify main or production
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install native PDF and digit-only Korean OCR for anchor suggestions
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check \
+            pymupdf==1.26.7 requests==2.32.5 pillow==11.3.0 pytesseract==0.3.13
+      - name: Verify exact 791 missing A-form IDs and existing 2279 quiz records
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Verify existing 88 Q-Net native pages and generate 300 conservative review records
+        run: python scripts/nomusa-first-v40-300-official-question-anchor-review.py
+      - name: Enforce zero unapproved additions and no source mutations
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import subprocess
+          p=Path('review-artifacts/NOMUSA_FIRST_V40/NOMUSA_FIRST_V40_300_ANCHOR_REVIEW.json')
+          d=json.loads(p.read_text())
+          assert d['status']=='PASS_SOURCE_INTEGRITY_REVIEW_PACKET_ONLY'
+          assert d['totalCandidates']==300
+          assert d['v38PageCandidates']==274 and d['v38UnlocatedHOLD']==26
+          assert d['sourcePDFSHAValidated']==4 and d['sourceJPEG_SHAValidated']==88
+          assert len(d['rows'])==300
+          assert all(x['readyForQDATAImport'] is False and x['scoringApproved'] is False
+                     and x['exactQuestionTextMatched'] is False
+                     and x['optionSequenceVisuallyMatched'] is False for x in d['rows'])
+          assert d['actuallyImportedToMainQDATA']==0 and d['scoringApproved']==0
+          changes=subprocess.check_output(['git','status','--porcelain'],text=True).strip()
+          assert not changes, 'TRACKED_SOURCES_MODIFIED '+changes
+          print('PASS_300_SOURCE_REVIEW_PACKET_274_CANDIDATES_26_HOLD_0_NEW_QDATA')
+          PY
+      - name: Upload official original-location review packet; no auto merge, Preview or deployment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v40-300-unapproved-question-location-review
+          path: |
+            review-artifacts/NOMUSA_FIRST_V40/
+          if-no-files-found: warn
+          retention-days: 30
