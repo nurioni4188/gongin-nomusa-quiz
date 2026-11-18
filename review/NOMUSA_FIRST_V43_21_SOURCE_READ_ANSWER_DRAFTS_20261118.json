@@ -1,0 +1,781 @@
+{
+  "schema": "NOMUSA_FIRST_V43_21_MANUALLY_SOURCE_READ_STUDY_ANSWERS/1",
+  "asOf": "2026-11-18",
+  "sourcePriority103": 103,
+  "answerKeyAFormComparedFromOfficialGrid": 38,
+  "sourceTextChoiceFiveVisuallyReviewed": 21,
+  "contentExplanationsDrafted": 21,
+  "individualSecondExpertReviewed": 0,
+  "newlyScoringApproved": 0,
+  "sourceContext": "Official 2020 and 2021 Q-Net A-form scans, official final answer PDFs, 103 SHA-pinned V41 crops; official answer choices compared visually to exact subject 101-125 grid",
+  "note": "Original question image is controlling evidence. Transcription normalizes line breaks/punctuation and may require final word-by-word proof. No automated scoring approval without independent source signoff.",
+  "rows": [
+    {
+      "id": "legacy1-2020-A-management-102",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 102,
+      "answer": [
+        4
+      ],
+      "question": "(주)한국은 정부의 대규모 사업에 참여하면서 다수 기업과 공동출자를 하고자 한다. 이 전략 유형에 해당하는 것은?",
+      "options": [
+        "우회전략(turnaround strategy)",
+        "집중전략(concentration strategy)",
+        "프랜차이징(franchising)",
+        "컨소시엄(consortium)",
+        "포획전략(captive strategy)"
+      ],
+      "explanationDraft": "특정 사업에 여러 기업이 함께 출자하고 참여하는 협력 형태는 컨소시엄이다. 프랜차이징은 상표·영업시스템의 가맹방식이고, 집중·우회·포획은 공동출자 구조를 가리키지 않는다.",
+      "calculationProof": null,
+      "academicReferences": [],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-102.jpg",
+      "originalImageSHA256": "3a466769fe7710f40243aefe11c967691b6b592d634df124cd209671dbe5a379",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 33,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-103",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 103,
+      "answer": [
+        1
+      ],
+      "question": "매트릭스 조직의 장점에 해당하지 않는 것은?",
+      "options": [
+        "구성원들 간 갈등해결 용이",
+        "환경 불확실성에 신속한 대응",
+        "인적자원의 유연한 활용",
+        "제품 다양성 확보",
+        "구성원들의 역량향상 기회 제공"
+      ],
+      "explanationDraft": "매트릭스 조직은 기능별·사업별 이중 지휘구조로 자원 공유와 적응성이 좋아질 수 있으나, 권한·명령의 중복 때문에 갈등 및 조정비용이 발생하기 쉽다. 따라서 갈등해결 용이가 장점이라는 ①은 틀리다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/organizational-behavior/pages/15-3-organizational-designs-and-structures"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-103.jpg",
+      "originalImageSHA256": "f37752a9747dfec1d0da4d1e516ed02907df1fbefd6ecdad564db7175ee7768b",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 33,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-105",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 105,
+      "answer": [
+        1
+      ],
+      "question": "하우스(R. House)가 제시한 경로-목표이론의 리더십 유형에 해당하지 않는 것은?",
+      "options": [
+        "권한위임적 리더십",
+        "지시적 리더십",
+        "지원적 리더십",
+        "성취지향적 리더십",
+        "참가적 리더십"
+      ],
+      "explanationDraft": "House의 경로-목표이론은 지시적·지원적·참여적·성취지향적 리더십을 구분한다. 권한위임적 리더십은 이 네 유형 자체가 아니므로 ①.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/organizational-behavior/pages/12-6-situational-contingency-approaches-to-leadership"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-105.jpg",
+      "originalImageSHA256": "1f2d0d0ae15bd5810530f8fbd93dbba188b7db8522db04da0fbd2fcaeb2e7638",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 33,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-108",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 108,
+      "answer": [
+        3
+      ],
+      "question": "파스칼(R. Pascale)과 피터스(T. Peters)의 조직문화 7S 중 다른 요소들을 연결시켜 주는 핵심적인 요소는?",
+      "options": [
+        "전략(strategy)",
+        "관리기술(skill)",
+        "공유가치(shared value)",
+        "관리시스템(system)",
+        "구성원(staff)"
+      ],
+      "explanationDraft": "7S는 전략·구조·시스템과 구성원·기술·스타일 및 공유가치로 구성되며, 중앙에서 다른 요소를 통합하는 핵심 축은 공유가치다. ③.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://www.mckinsey.com/capabilities/people-and-organization/our-insights/a-new-operating-model-for-a-new-world"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-108.jpg",
+      "originalImageSHA256": "faf790a34c8c45c6e524dfcc0bc7c6c0b31263cccf5c7326a0c59873f284d7b5",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 34,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-111",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 111,
+      "answer": [
+        1
+      ],
+      "question": "(주)한국은 10,000원에 상당하는 두루마리 화장지 가격을 9,990원으로 책정하였다. 이러한 가격결정 방법은?",
+      "options": [
+        "단수가격",
+        "명성가격",
+        "층화가격",
+        "촉진가격",
+        "관습가격"
+      ],
+      "explanationDraft": "1만 원보다 약간 낮은 9,990원 같은 끝자리 가격으로 소비자의 가격 지각에 영향을 주는 심리적 가격설정은 단수가격(odd-even pricing)이다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/introduction-business-2e/pages/11-key-terms"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-111.jpg",
+      "originalImageSHA256": "7de9341a40b956a7a01781960c0133ff6a030fb69150af07118ebad7a41e645f",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 34,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-114",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 114,
+      "answer": [
+        2
+      ],
+      "question": "포터(M. Porter)의 가치사슬(value chain) 모델에서 주요활동(primary activities)에 해당하는 것은?",
+      "options": [
+        "인적자원관리",
+        "서비스",
+        "기술개발",
+        "기획·재무",
+        "법률자문"
+      ],
+      "explanationDraft": "Porter의 주요활동은 투입물류, 운영, 산출물류, 마케팅·판매, 서비스다. 인적자원관리·기술개발·기업 인프라는 지원활동이므로 ② 서비스가 정답이다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-value-chain.aspx"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-114.jpg",
+      "originalImageSHA256": "c12576d188fea686a384bed65b2c7054c8003ab1a610816b5be5ad127ffbb862",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-116",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 116,
+      "answer": [
+        2
+      ],
+      "question": "품질의 산포가 우연원인에 의한 것인지, 이상원인에 의한 것인지를 밝혀주는 역할을 하며, 제조공정의 상태를 파악하기 위해 공정관리에 이용되는 것은?",
+      "options": [
+        "파레토도",
+        "관리도",
+        "산포도",
+        "특성요인도",
+        "히스토그램"
+      ],
+      "explanationDraft": "관리도(control chart)는 시간순 공정 통계량과 관리한계를 비교해 우연원인(common cause)과 이상·특별원인(assignable/special cause) 여부를 판단하는 통계적 공정관리 도구다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://itl.nist.gov/div898/handbook/pmc/section3/pmc31.htm"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-116.jpg",
+      "originalImageSHA256": "672225a1ec5e2a7f85d4f9549e5313757bdc4af9fcae68e3316727169710c244",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-119",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 119,
+      "answer": [
+        4
+      ],
+      "question": "다음에서 설명하는 투자안의 경제적 평가방법은?\n○ 투자안으로부터 예상되는 미래 기대현금 유입액의 현재가치와 기대현금 유출액의 현재가치를 일치시키는 할인율을 구한다.\n○ 산출된 할인율, 즉 투자수익률을 최소한의 요구수익률인 자본비용 또는 기회비용과 비교하여 투자안의 채택여부를 결정한다.",
+      "options": [
+        "순현가법",
+        "수익성지수법",
+        "회수기간법",
+        "내부수익률법",
+        "평균회계이익률법"
+      ],
+      "explanationDraft": "미래현금유입과 유출의 현재가치를 일치시켜 NPV를 0으로 만드는 할인율이 내부수익률(IRR)이다. 요구수익률과 비교해 채택 여부를 판단한다.",
+      "calculationProof": "NPV(IRR)=Σ CF_t/(1+IRR)^t−I_0=0",
+      "academicReferences": [
+        "https://openstax.org/books/principles-finance/pages/16-3-internal-rate-of-return-irr-method"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-119.jpg",
+      "originalImageSHA256": "78a5a998374cf5e9928d30375852063b79ac4d9f0365edff63e709fbc9499820",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 36,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-120",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 120,
+      "answer": [
+        4
+      ],
+      "question": "(주)한국의 총자산이 40억원, 비유동자산이 25억원, 유동부채가 10억원인 경우 유동비율은?",
+      "options": [
+        "50%",
+        "70%",
+        "100%",
+        "150%",
+        "200%"
+      ],
+      "explanationDraft": "총자산 40억원에서 비유동자산 25억원을 빼면 유동자산은 15억원이다. 유동비율은 유동자산/유동부채×100으로 150%다.",
+      "calculationProof": "(40−25)/10×100%=150%",
+      "academicReferences": [],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2020-A-management-120.jpg",
+      "originalImageSHA256": "dd443cf185467840c5802646b5b34e87d0456fa4da2ec864fe915ef115e14aae",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "sourcePdfPage": 36,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5207683&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-106",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 106,
+      "answer": [
+        5
+      ],
+      "question": "전통적 직무설계와 관련 없는 것은?",
+      "options": [
+        "분업",
+        "과학적 관리",
+        "전문화",
+        "표준화",
+        "직무순환"
+      ],
+      "explanationDraft": "전통적 직무설계는 분업·과학적 관리·전문화·표준화로 효율을 추구한다. 직무순환은 과업 변경을 통해 단조로움을 줄이고 다기능 경험을 촉진하는 접근이다.",
+      "calculationProof": null,
+      "academicReferences": [],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-106.jpg",
+      "originalImageSHA256": "791753a16a7c753f286f17a4b25da690270c4ce2a54c0072ce1b64e4465befbb",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-107",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 107,
+      "answer": [
+        3
+      ],
+      "question": "인사평가의 분배적 오류에 해당하는 것은?",
+      "options": [
+        "후광효과",
+        "상동적 태도",
+        "관대화 경향",
+        "대비오류",
+        "확증편향"
+      ],
+      "explanationDraft": "평정점수의 분포가 실제보다 과도하게 높게 나타나는 관대화 경향(leniency error)은 분배적 평정오류다. 후광·상동·대비·확증편향은 인지·판단 과정의 오류로 구분한다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/organizational-behavior/pages/8-1-performance-appraisal-systems"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-107.jpg",
+      "originalImageSHA256": "223e2ba01d8f7e61d69f75ce5af336a6f44d61a79b7389972a3b2b684ec1036e",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-108",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 108,
+      "answer": [
+        5
+      ],
+      "question": "교육참가자들이 소규모 집단을 구성하여 팀워크로 경영상의 실제 문제를 해결하도록 하여 문제해결과정에 대한 성찰을 통해 학습하게 하는 교육방식은?",
+      "options": [
+        "team learning",
+        "organizational learning",
+        "problem based learning",
+        "blended learning",
+        "action learning"
+      ],
+      "explanationDraft": "실제 조직 문제에 대해 팀이 실행하고 문제해결 과정을 성찰하는 방식은 Revans의 액션러닝(action learning)이다. 문제기반학습(PBL)과 달리 실제 조직 현장의 실천·성찰이 강조된다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://bsc.hks.harvard.edu/what-is-action-learning/"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-108.jpg",
+      "originalImageSHA256": "a5b9ddf040389f646185c1a0cf2469cc8e87f0e96746a39fd0d79114af73f867",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-111",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 111,
+      "answer": [
+        1
+      ],
+      "question": "직무특성모형(job characteristics model)의 핵심직무차원에 포함되지 않는 것은?",
+      "options": [
+        "성장욕구 강도(growth need strength)",
+        "과업정체성(task identity)",
+        "과업중요성(task significance)",
+        "자율성(autonomy)",
+        "피드백(feedback)"
+      ],
+      "explanationDraft": "Hackman과 Oldham의 다섯 핵심직무차원은 기능다양성·과업정체성·과업중요성·자율성·피드백이다. 성장욕구 강도는 구성원의 반응을 조절하는 조절변수이지 핵심직무차원이 아니다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://doi.org/10.1080/23311908.2017.1287320"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-111.jpg",
+      "originalImageSHA256": "b9300985e4b2a36af90bcec5b75b993dc8acbf3028aa5b8c90f6c229d6e70613",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 35,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-112",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 112,
+      "answer": [
+        1
+      ],
+      "question": "다음 설명에 해당하는 의사결정기법은?\n○ 자유롭게 아이디어를 제시할 수 있다.\n○ 타인이 제시한 아이디어에 대해 비판은 금지된다.\n○ 아이디어의 질보다 양을 강조한다.",
+      "options": [
+        "브레인스토밍(brainstorming)",
+        "명목집단법(nominal group technique)",
+        "델파이법(delphi technique)",
+        "지명반론자법(devil's advocacy)",
+        "프리모텀법(premortem)"
+      ],
+      "explanationDraft": "브레인스토밍은 아이디어의 자유로운 제안·즉각적 비판 유보·다량의 아이디어 생성을 특징으로 한다. 명목집단·델파이·반론자·프리모텀은 다른 의사결정 절차다.",
+      "calculationProof": null,
+      "academicReferences": [],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-112.jpg",
+      "originalImageSHA256": "ff7e31743c3239b1a02cebe035d9d68855d43a873c3f14af3a5a3c0fbd671d63",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 36,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-113",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 113,
+      "answer": [
+        2
+      ],
+      "question": "선매품(shopping goods)에 관한 설명으로 옳은 것은?",
+      "options": [
+        "소비자가 필요하다고 느낄 때 수시로 구매하는 경향을 보인다.",
+        "소비자는 가격, 품질, 스타일 등 다양한 정보를 수집하여 신중하게 비교하는 경향을 보인다.",
+        "소비자는 잘 알지 못하거나 알고 있어도 능동적으로 구매하려 하지 않는다.",
+        "일상생활에서 빈번히 구매하는 저관여 제품들이 많다.",
+        "독특한 특징을 지니거나 브랜드 차별성을 지니는 제품들이 많다."
+      ],
+      "explanationDraft": "선매품은 가격·품질·스타일 등을 비교 검토하고 구매한다. ①·④는 편의품, ③은 비탐색품, ⑤는 전문품의 성격에 가깝다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/introduction-business/pages/11-6-what-is-a-product"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-113.jpg",
+      "originalImageSHA256": "64c999543eaf3f2f3b60ab04608922c379802d04d7b704cda2d768b250b81f08",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 36,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-118",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 118,
+      "answer": [
+        3
+      ],
+      "question": "올해 말(t=1)에 예상되는 A사 보통주의 주당 배당금은 1,000원이며, 이후 배당금은 매년 10%씩 영구히 증가할 것으로 기대된다. 현재(t=0) A사 보통주의 주가(내재가치)가 10,000원이라고 할 경우 이 주식의 자본비용은?",
+      "options": [
+        "10%",
+        "15%",
+        "20%",
+        "25%",
+        "30%"
+      ],
+      "explanationDraft": "일정성장 배당할인모형(Gordon growth model)에서 보통주 요구수익률은 다음 기 배당수익률 D1/P0에 배당성장률 g를 더한다. D1=1,000원, P0=10,000원, g=10%이므로 20%다.",
+      "calculationProof": "r=D1/P0+g=1,000/10,000+0.10=0.20(20%)",
+      "academicReferences": [
+        "https://openstax.org/books/principles-finance/pages/17-2-the-costs-of-debt-and-equity-capital"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-118.jpg",
+      "originalImageSHA256": "274fb30de23f8706b16107ebfa7061e0dca4a0d27f3545ab60b7d18569bbee61",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 37,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-119",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 119,
+      "answer": [
+        2
+      ],
+      "question": "주식 A와 B의 기대수익률은 각각 10%, 20%이다. 총 투자자금 중 40%를 주식 A에, 60%를 주식 B에 투자하여 구성한 포트폴리오 P의 기대수익률은?",
+      "options": [
+        "15%",
+        "16%",
+        "17%",
+        "18%",
+        "19%"
+      ],
+      "explanationDraft": "포트폴리오 기대수익률은 개별 주식의 기대수익률을 투자비중으로 가중평균한다. 4%+12%=16%.",
+      "calculationProof": "E(Rp)=0.4×0.10+0.6×0.20=0.16(16%)",
+      "academicReferences": [],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-119.jpg",
+      "originalImageSHA256": "0174670246da3ee70595610547c88995ad26aa951872d8cce1731706a8077484",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 37,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-121",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 121,
+      "answer": [
+        4
+      ],
+      "question": "공급자에서 기업 내 변환과정과 유통망을 거쳐 최종 고객에 이르기까지 자재, 제품, 서비스 및 정보의 흐름을 전체 시스템 관점에서 설계하고 관리하는 것은?",
+      "options": [
+        "EOQ",
+        "MRP",
+        "TQM",
+        "SCM",
+        "FMS"
+      ],
+      "explanationDraft": "공급자에서 생산·물류·유통을 거쳐 고객까지 이어지는 제품·서비스·정보 흐름을 통합 관리하는 것은 공급망관리(SCM)다. EOQ·MRP는 재고·자재계획, TQM은 품질, FMS는 유연생산을 뜻한다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/introduction-business/pages/12-4-using-supply-chain-management-to-increase-efficiency-and-customer-satisfaction"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-121.jpg",
+      "originalImageSHA256": "3551bb0bbdd290712d2b8dc1bd3281b0a7222a7ff9df59eb959b42b3a4b94caa",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 38,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-122",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 122,
+      "answer": [
+        2
+      ],
+      "question": "공장을 신축하고자 1억원의 토지를 현금으로 취득한 거래가 재무제표 요소에 미치는 영향은?",
+      "options": [
+        "자본의 감소, 자산의 감소",
+        "자산의 증가, 자산의 감소",
+        "자산의 증가, 자본의 증가",
+        "자산의 증가, 부채의 증가",
+        "비용의 증가, 자산의 감소"
+      ],
+      "explanationDraft": "토지(유형자산)는 1억원 증가하고 현금(유동자산)은 1억원 감소한다. 전체 자산총액과 자본·부채는 변하지 않는 자산 간 대체거래다.",
+      "calculationProof": "차변 토지 1억원 / 대변 현금 1억원; 총자산 순증감 0",
+      "academicReferences": [
+        "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-122.jpg",
+      "originalImageSHA256": "83614f7e51e272f522f22b97a0ca3741369cfaba699ef117d0c9c87cde3dc3e6",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 38,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-124",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 124,
+      "answer": [
+        2
+      ],
+      "question": "재무상태표의 부채에 해당하지 않는 것은?",
+      "options": [
+        "매입채무",
+        "선급비용",
+        "선수금",
+        "사채",
+        "예수금"
+      ],
+      "explanationDraft": "선급비용은 이미 지출했지만 아직 효익이 실현되지 않은 자산이다. 매입채무·선수금·사채·예수금은 현재 또는 미래의 의무인 부채에 해당한다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-124.jpg",
+      "originalImageSHA256": "447e9359b952036e0bb21228e9afb7bbc3a6e6a313dfd5d371c933734c63e38d",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 38,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-125",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 125,
+      "answer": [
+        5
+      ],
+      "question": "급여계산, 고객주문처리, 재고관리 등 일상적이고 반복적인 과업을 주로 수행하는 정보시스템은?",
+      "options": [
+        "EIS",
+        "DSS",
+        "ES",
+        "SIS",
+        "TPS"
+      ],
+      "explanationDraft": "거래처리시스템(TPS)은 급여·고객주문·재고 등 반복적 일상거래를 기록·처리한다. EIS·DSS는 의사결정을 지원하며, ES는 전문가 시스템, SIS는 전략정보시스템이다.",
+      "calculationProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/foundations-information-systems/pages/1-1-introduction-to-information-systems"
+      ],
+      "originalImagePath": "review/first-v41-native-crops/legacy1-2021-A-management-125.jpg",
+      "originalImageSHA256": "6096af797c1c9450cafb54c9eaf7f6d328b78b1f64d894beb0aa1892a179aeb4",
+      "officialQuestionPdfURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "sourcePdfPage": 38,
+      "officialFinalAnswerAFormSourceURL": "https://www.q-net.or.kr/cst003.do?artlSeq=5209101&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "officialFinalAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialFinalAnswerAFormPage": 1,
+      "assistantVisualStemAndOptionsCompared": true,
+      "officialAnswerGridVisuallyCompared": true,
+      "calculationOrConceptChecked": true,
+      "wordByWordSecondReviewerPassed": false,
+      "independentExpertApproval": false,
+      "readyForV44ScoringImport": false,
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+    }
+  ]
+}
