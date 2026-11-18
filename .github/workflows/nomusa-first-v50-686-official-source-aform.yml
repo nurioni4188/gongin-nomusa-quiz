@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/nomusa-first-v50-686-official-source-aform.yml'
       - 'scripts/nomusa-first-v50-686-official-aform-source-expansion.py'
+      - 'scripts/nomusa-first-v51-175-qnet-a-page-locator.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -66,13 +67,43 @@ jobs:
           print('PASS_686_IDENTITY_2018_150_2016_ECON_25_A_SOURCE_SHA_NO_NEW_SCORE')
           PY
           node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+      - name: Recover original A-form question page anchors for all 175 source-linked candidates, OCR only as hints
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check pillow==11.3.0 pytesseract==0.3.13
+          python -m py_compile scripts/nomusa-first-v51-175-qnet-a-page-locator.py
+          python scripts/nomusa-first-v51-175-qnet-a-page-locator.py
+      - name: Check 175 source-page review evidence and zero invented original text or automatic scoring
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,subprocess
+          p=Path('review-artifacts/NOMUSA_FIRST_V51/NOMUSA_FIRST_V51_175_QUESTION_LOCATOR.json')
+          r=json.loads(p.read_text(encoding='utf8'))
+          assert r['officialSourceSHAValidation']==3 and r['targetQuestionIds']==175
+          assert r['yearCounts']=={'2016':25,'2018':150},r['yearCounts']
+          assert len(r['rows'])==175 and len({x['id'] for x in r['rows']})==175
+          assert r['independentFullSourceTextApprovals']==0
+          assert r['independentlyVerifiedOfficialAFormAnswerCells']==0
+          assert r['independentlyVerifiedFiveOptionExplanations']==0
+          assert r['newScoringApproved']==r['newAppImports']==0
+          for x in r['rows']:
+            crop=x['crop']
+            if not crop:continue
+            file=Path('review-artifacts/NOMUSA_FIRST_V51')/crop['file']
+            assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==crop['sha256']
+          changes=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changes).issubset({'review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json'}),changes
+          print('PASS_V51_175_OFFICIAL_BOOKLET_PAGE_DIGIT_TRIAGE_NO_GRADING')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json
           git diff --cached --check
-          git commit -m 'review(first-v50): prove 175 new A-booklet source SHA connections without item approval'
+          git commit -m 'review(first-v50-v51): prove 175 official A-booklet SHA and locate provisional question pages without grading'
           git fetch origin review/nomusa-auto-v1-20year-gate-20261115
           git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
           git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
@@ -84,5 +115,6 @@ jobs:
           name: nomusa-first-v50-686-with-175-qnet-a-booklet-shas-and-150-mirror-holds
           path: |
             review-artifacts/NOMUSA_FIRST_V50/
+            review-artifacts/NOMUSA_FIRST_V51/
           if-no-files-found: warn
           retention-days: 14
