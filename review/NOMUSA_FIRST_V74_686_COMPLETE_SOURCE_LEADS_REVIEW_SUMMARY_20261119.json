@@ -1,0 +1,18 @@
+{
+  "schema": "NOMUSA_FIRST_V74_686_ALL_SOURCE_LEADS_SUMMARY/1",
+  "asOfKST": "2026-11-19",
+  "targetQuestionIDs": 686,
+  "unreviewedFullFiveOptionDrafts": 191,
+  "unreviewedOfficialImageOCRDrafts": 254,
+  "sourceOnlyNeedFullOriginalText": 241,
+  "publicSourceLeadForEachID": 686,
+  "originalJPEGsSHA256Verified": 448,
+  "experimentalEconomicTheoryDrafts": 2,
+  "officialQNetFullOriginalQuestionAndFiveChoicesApproved": 0,
+  "independentlyVerifiedOfficialFinalAnswerCells": 0,
+  "independentlyVerifiedFiveChoiceExplanationsWithExamDateLaw": 0,
+  "newScoringApprovals": 0,
+  "newQDATAImports": 0,
+  "status": "PASS_FULL_686_REVIEW_SOURCE_COVERAGE_ONLY_FINAL_CONTENT_AND_GRADING_HOLD",
+  "warning": "This is not 686 officially proofread model answers. 241 items lack full transcription, and official answer cells, 5-option explanations, exam-date legal evidence & independent reviewer approvals all remain 0."
+}
