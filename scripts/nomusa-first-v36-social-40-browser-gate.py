@@ -79,7 +79,8 @@ def main():
                 for n,choice,fragment in [(55,2,"휴업급여"),(70,3,"보건복지부장관"),(79,2,"체납처분비")]:
                     # Reuse one saved 40-question study session; new start is blocked by design
                     # while an unfinished session exists. Jump to the original question position.
-                    page.locator("#jumper summary").click()
+                    if not page.locator("#jumper").evaluate("(el)=>el.open"):
+                        page.locator("#jumper summary").click()
                     page.locator("#jumpN").fill(str(n-40))
                     page.locator("#jumpGo").click()
                     assert f"{n}번" in page.locator(".qmeta").inner_text()
