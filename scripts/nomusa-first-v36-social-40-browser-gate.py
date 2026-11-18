@@ -50,7 +50,7 @@ def main():
                 assert result["v36"]["existingProtected"]==3
                 assert result["v36"]["approved"]==0
                 assert result["existingPreserved"] is True
-                assert result["allExplanations"]==399,result
+                assert result["allExplanations"]==401,result
                 assert result["remaining"]==0 and not result["wrong"],result
                 cases.append({"width":width,"test":"40_of_40_exact_source_and_original_answer_hash","pass":True})
                 # First 2026 social question must show original explanation (protected) after answer selection.
