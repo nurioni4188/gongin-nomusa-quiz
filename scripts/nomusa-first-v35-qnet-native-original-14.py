@@ -132,7 +132,7 @@ def main():
         links.append(f'''<article class="exam"><h2>{r['year']}년 A형 · {r['subject']} · {r['number']}번</h2>
           <p class="notice">공식 PDF <strong>{r['pdfPage']}쪽</strong> · 원본 이미지 복원 검토본 · 정답 자동채점 보류</p>
           <a class="ref" target="_blank" rel="noopener noreferrer" href="{original}">한국산업인력공단 Q-Net 원문 PDF 확인</a>
-          <figure><img loading="lazy" src="{r['image']}" alt="{r['year']}년 A형 {r['subject']} {r['number']}번 공식 기출 PDF 영역 캡처, 내용 독립 교열 전" /><figcaption>출처: 한국산업인력공단 Q-Net · 공공누리 제1유형(출처표시), 문항별 지문·선택지·수식 독립 대조는 대기</figcaption></figure>
+          <figure><img loading="lazy" src="first-v35-qnet-native-2017-2019/{r['image']}" alt="{r['year']}년 A형 {r['subject']} {r['number']}번 공식 기출 PDF 영역 캡처, 내용 독립 교열 전" /><figcaption>출처: 한국산업인력공단 Q-Net · 공공누리 제1유형(출처표시), 문항별 지문·선택지·수식 독립 대조는 대기</figcaption></figure>
           </article>''')
     html='''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
