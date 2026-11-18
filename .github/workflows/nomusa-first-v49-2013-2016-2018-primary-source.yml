@@ -44,7 +44,7 @@ jobs:
           assert a['formAndFullTextIndependentlyConfirmed']==0
           assert len(a['rows'])==4
           changes=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
-          assert not changes,changes
+          assert set(changes).issubset({'review/NOMUSA_FIRST_V49_ARCHIVE_DISCOVERY_SUMMARY_20261118.json'}),changes
           print('PASS_V49_SOURCE_PROVENANCE_DISCOVERY_2013_2016_2018_ALL_CONTENT_APPROVALS_HOLD')
           PY
       - name: Commit only safe source provenance summary, never copyright source PDFs or app code
