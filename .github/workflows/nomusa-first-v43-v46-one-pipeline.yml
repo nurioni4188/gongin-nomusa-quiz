@@ -1,0 +1,122 @@
+name: NOMUSA FIRST V43-V46 connected source proof, safe admission, browser and 686 expansion
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v43-v46-one-pipeline.yml'
+      - 'scripts/nomusa-first-v43-v46-source-triage.py'
+      - 'scripts/nomusa-first-v44-approval-compiler.mjs'
+      - 'scripts/nomusa-first-v45-approved-browser-gate.py'
+      - 'review/NOMUSA_FIRST_V44_VERIFIED_APPROVALS.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v43-v46-one-source-proof-pipeline
+  cancel-in-progress: true
+jobs:
+  verify-promote-browser-expand:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    steps:
+      - name: Checkout existing review branch, no main or Production permission use
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source image OCR and actual Chromium browser
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check pillow==11.3.0 pytesseract==0.3.13 playwright==1.56.0
+          python -m playwright install chromium --only-shell
+      - name: Reuse V34 exact 791 QNet A-form source IDs, current 2279 baseline
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Retrieve V42 6 official QNet PDFs, 4 original + 2 final key, SHA evidence only
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+      - name: Retrieve V40 300 source-number candidates and 137 original image previews
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v40-300-unapproved-question-location-review
+          run-id: 44235916434
+          github-token: __GH_TOKEN__
+          path: review-artifacts/NOMUSA_FIRST_V40_IMPORTED
+      - name: V43 examine 103 SHA-proven original source crops with OCR hints and HOLD content
+        run: python scripts/nomusa-first-v43-v46-source-triage.py --phase v43
+      - name: V46 classify other 686 source candidates using the same official evidence gate
+        run: python scripts/nomusa-first-v43-v46-source-triage.py --phase v46
+      - name: V44 permit exact verified full source, official answer key and five-choice explanations only
+        run: |
+          node --check scripts/nomusa-first-v44-approval-compiler.mjs
+          node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+          node scripts/nomusa-first-v44-approval-compiler.mjs .
+          node --check study-hub/first-v44-approved.js
+      - name: V45 Chromium PC1440, mobile390/360, bank/choice/scoring/notes/storage safety
+        run: |
+          python scripts/nomusa-first-v45-approved-browser-gate.py .
+          python scripts/nomusa-first-v42-two-theory-browser-e2e.py .
+          python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Hard-stop unexpected source/production mutations and any OCR-based scoring promotion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          def load(path):
+              return json.loads(Path(path).read_text(encoding='utf-8'))
+          a=load('review-artifacts/NOMUSA_FIRST_V43/NOMUSA_FIRST_V43_SOURCE_REVIEW.json')
+          b=load('review-artifacts/NOMUSA_FIRST_V46/NOMUSA_FIRST_V46_SOURCE_REVIEW.json')
+          c=load('review-artifacts/NOMUSA_FIRST_V44/NOMUSA_FIRST_V44_PROMOTION_GATE.json')
+          d=load('review-artifacts/NOMUSA_FIRST_V45/NOMUSA_FIRST_V45_PC_MOBILE_APPROVED_ONLY.json')
+          assert a['targetCount']==103 and b['targetCount']==686
+          assert a['automaticNewQDATAApproval']==b['automaticNewQDATAApproval']==0
+          assert c['expectedBankTotal']==2281+c['actualNewVerifiableApprovals']
+          assert c['remainingUnapprovedOriginals']==789-c['actualNewVerifiableApprovals']
+          assert d['status']=='PASS' and d['tests']==d['expected']
+          approvals=load('review/NOMUSA_FIRST_V44_VERIFIED_APPROVALS.json')['approvals']
+          assert len(approvals)==c['actualNewVerifiableApprovals']
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changed).issubset({'study-hub/first-v44-approved.js'}), ('HOLD_UNEXPECTED_SOURCE_MUTATION',changed)
+          assert 'data.js' not in changed and 'index.html' not in changed
+          print('PASS_V43_103_V46_686_V44_VERIFIED_ONLY_%s_V45_PC_MOBILE' % len(approvals))
+          PY
+      - name: Commit generated approved-only JS on existing review branch AFTER every test succeeds
+        run: |
+          if ! git diff --quiet -- study-hub/first-v44-approved.js; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -- study-hub/first-v44-approved.js
+            git diff --cached --check
+            git commit -m 'review(first-v44): admit only evidenced and double-reviewed QNet learning questions'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          else
+            echo 'SOURCE_REVIEW_ONLY: no independently approved new QDATA; no source commit'
+          fi
+          echo 'NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT'
+      - name: Keep full OCR/official-source audit and Chromium evidence, including every HOLD
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v43-v46-789-originals-source-audit-and-safe-browser-gate
+          path: |
+            review-artifacts/NOMUSA_FIRST_V43/
+            review-artifacts/NOMUSA_FIRST_V44/
+            review-artifacts/NOMUSA_FIRST_V45/
+            review-artifacts/NOMUSA_FIRST_V46/
+          if-no-files-found: warn
+          retention-days: 30
