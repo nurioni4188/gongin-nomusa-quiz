@@ -8,6 +8,7 @@ on:
       - 'explanations-2026-social-v36.js'
       - 'index.html'
       - 'scripts/nomusa-first-v36-social-40-browser-gate.py'
+      - 'scripts/nomusa-auto-v12-browser-gate.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -51,7 +52,7 @@ jobs:
           assert x['visibleDetailedExplanations']==40
           assert x['newStudyExplanationDrafts']==37 and x['protectedEarlierExplanations']==3
           assert x['humanApproved']==0 and x['oldDataQDATA']==1020
-          assert x['legacy2008to2021AutoScoring']=='DISABLED'
+          assert x['legacy2008to2021AutoScoring']=='UNAPPROVED_DISABLED_TWO_SOURCE_CHECKED_THEORY_EXCEPTIONS'
           assert 'explanations-2026-social-v36.js' in Path('index.html').read_text()
           print('PASS_2026_SOCIAL_40_VISIBLE_BASIS_37_RESTORED_3_PRESERVED_QDATA_UNCHANGED')
           PY
