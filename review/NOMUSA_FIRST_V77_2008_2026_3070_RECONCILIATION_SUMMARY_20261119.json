@@ -1,0 +1,218 @@
+{
+  "schema": "NOMUSA_FIRST_V77_ALL_2008_2026_AFORM_3070_SOURCE_IDS_RECONCILED/1",
+  "asOfKST": "2026-11-19",
+  "periodStart": 2008,
+  "periodEnd": 2026,
+  "periodYears": 19,
+  "expectedUniqueAFormIDs": 3070,
+  "recordedUniqueAFormIDs": 3070,
+  "sourceBuckets": {
+    "existing2008to2026QuestionBank": 2279,
+    "QNetTwoTheoryPilot": 2,
+    "previous103FirstPass": 103,
+    "remaining686SourceReview": 686
+  },
+  "unreviewedSourceOrDraftAFormItems": 3070,
+  "originalQDATA2022to2026Items": 1020,
+  "QDATA2023FiveChoiceTextIncomplete": 91,
+  "2013ManagementNewAcademicDraftExplanations": 25,
+  "choiceReasonsNewlyAuthored": 125,
+  "minimumDistinctChoiceReasonsToApproveAllAFormItems": 15350,
+  "officialFinalKeyAll3070ReviewedByTwoIndependentExperts": 0,
+  "allItemsOriginalFiveChoicesAndExamDateAuthorityApproved": 0,
+  "newlyGradedLegacyItemsByThisAudit": 0,
+  "appProductionAndGitHubMainUntouched": true,
+  "warning": "This reconciles all 3,070 target A-form IDs across 19 years. Does NOT verify their complete original text, official final answers, dated legal evidence, independent proofreading, or five-option solutions.",
+  "yearly": [
+    {
+      "year": 2008,
+      "expectedAFormItemIDs": 125,
+      "registeredUniqueIDs": 125,
+      "existingQDATAAndLegacyBank": 125,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2009,
+      "expectedAFormItemIDs": 125,
+      "registeredUniqueIDs": 125,
+      "existingQDATAAndLegacyBank": 125,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2010,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 125,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 25,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2011,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 149,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 1,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2012,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 149,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 1,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2013,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 0,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 150,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2014,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 150,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2015,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 150,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2016,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 0,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 150,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2017,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 144,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 6,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2018,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 0,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 150,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2019,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 142,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 8,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2020,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 0,
+      "V42TwoPilot": 1,
+      "V43OriginalFirstPassDraft": 38,
+      "V74OriginalSourceReviewDraft": 111,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2021,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 0,
+      "V42TwoPilot": 1,
+      "V43OriginalFirstPassDraft": 65,
+      "V74OriginalSourceReviewDraft": 84,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2022,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 150,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2023,
+      "expectedAFormItemIDs": 150,
+      "registeredUniqueIDs": 150,
+      "existingQDATAAndLegacyBank": 150,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2024,
+      "expectedAFormItemIDs": 240,
+      "registeredUniqueIDs": 240,
+      "existingQDATAAndLegacyBank": 240,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2025,
+      "expectedAFormItemIDs": 240,
+      "registeredUniqueIDs": 240,
+      "existingQDATAAndLegacyBank": 240,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    },
+    {
+      "year": 2026,
+      "expectedAFormItemIDs": 240,
+      "registeredUniqueIDs": 240,
+      "existingQDATAAndLegacyBank": 240,
+      "V42TwoPilot": 0,
+      "V43OriginalFirstPassDraft": 0,
+      "V74OriginalSourceReviewDraft": 0,
+      "explanationRequirement": "Each item has five independent choice explanations and dated authority; NONE of these counts proves final answer approval."
+    }
+  ]
+}
