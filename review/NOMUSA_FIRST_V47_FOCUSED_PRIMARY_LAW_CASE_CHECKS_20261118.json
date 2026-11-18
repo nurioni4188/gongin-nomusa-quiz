@@ -1,0 +1,67 @@
+{
+  "schema": "NOMUSA_FIRST_V47_LIMITED_PREEXAM_PRIMARY_HOLD_ANCHORS/1",
+  "asOf": "2026-11-18",
+  "preExamAuthorityPointRechecked": 5,
+  "remaining25Total": 25,
+  "fullStatutePrecedentFiveOptionsVerified": 0,
+  "independentExpertApproval": 0,
+  "scoringApproval": 0,
+  "description": "공식 법령 연혁·대법원·헌재 원문에 대한 개별 쟁점의 사전 확인. 25개 문항 전체의 법률검증·최종교열·채점승인으로 취급 금지.",
+  "rows": [
+    {
+      "id": "legacy1-2020-A-labor2-026",
+      "examDate": "2020-05-23",
+      "kind": "COURT",
+      "decisionDate": "2015-06-25",
+      "citation": "대법원 2015. 6. 25. 선고 2007두4995 전원합의체",
+      "point": "취업활동이 가능한 체류자격을 받지 않은 외국인이라도 사용종속관계에서 근로를 제공해 임금을 받는 경우 노동조합법상 근로자의 범위에 포함될 수 있다는 법리",
+      "url": "https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=4890",
+      "scope": "선택지 ⑤ 판시요지의 사건번호·선고일·핵심 법리만 공식 대법원 자료로 보강",
+      "stillPending": "헌법 제33조 및 노동조합법 시험일 시행본, ①~④ 선택지 별 법령/판례 종합 대조"
+    },
+    {
+      "id": "legacy1-2020-A-labor2-032",
+      "examDate": "2020-05-23",
+      "kind": "CONSTITUTIONAL_DECISION_HISTORIC_QUOTE",
+      "decisionDate": "2014-05-29",
+      "citation": "헌법재판소 2014. 5. 29. 2010헌마606",
+      "point": "결정문 별지의 당시 노동조합법 제24조의2 제4항에 '위원장은 공익위원 중에서 위원회가 선출한다'고 명시",
+      "url": "https://www.law.go.kr/detcInfoP.do?detcSeq=36953&mode=1",
+      "scope": "오래된 결정문 안의 조문 문구 재확인. 2020-05-23 시행본과 그 부칙을 직접 증명하는 것은 아님",
+      "stillPending": "2020-05-23 적용 법률 본문·시행령과 2020-06-09 개정법 시행 전 규정 확인"
+    },
+    {
+      "id": "legacy1-2021-A-civil-069",
+      "examDate": "2021-05-08",
+      "kind": "SUPREME_COURT",
+      "decisionDate": "2016-06-10",
+      "citation": "대법원 2016. 6. 10. 선고 2014다200763",
+      "point": "손해배상액이 예정된 경우 채권자의 과실은 민법 제398조 제2항의 예정액 감액 사정으로 고려할 수 있지만 예정액에 대해 감액과 별도로 과실상계할 수는 없다는 법리",
+      "url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&seqnum=5223",
+      "scope": "정답 ③의 과실상계와 감액 구별 판시요지 확인",
+      "stillPending": "나머지 4개 선택지 판례·기산시점 및 시험일 민법 제398조 판본 검증"
+    },
+    {
+      "id": "legacy1-2021-A-civil-073",
+      "examDate": "2021-05-08",
+      "kind": "SUPREME_COURT",
+      "decisionDate": "2006-03-09",
+      "citation": "대법원 2006. 3. 9. 선고 2004다49693, 49709",
+      "point": "2인 조합에서 1인이 탈퇴하면 조합관계는 종료하나 특별한 사정이 없는 한 곧바로 조합이 해산되지는 않으며, 탈퇴 당시 조합재산(영업가치 포함)을 기준으로 정산한다는 법리",
+      "url": "https://www.law.go.kr/LSW/precInfoP.do?mode=0&precSeq=216475",
+      "scope": "탈퇴와 해산 구별·정산기준에 관한 판시요지 원문 확인",
+      "stillPending": "해당 문항 ①~⑤ 선택지 전부에 대응하는 판례·민법 제716~719조 시행판본 확인"
+    },
+    {
+      "id": "legacy1-2021-A-social-078",
+      "examDate": "2021-05-08",
+      "kind": "HISTORICAL_STATUTE_SNAPSHOT_ONLY",
+      "decisionDate": "2020-07-08",
+      "citation": "사회보장기본법 [시행 2020. 7. 8.] [법률 제17202호]",
+      "point": "시험일 이전 시행본에 해당하는 국가법령정보센터 연혁 페이지가 존재하는 것을 재확인",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200708&lsiSeq=217261",
+      "scope": "과거 시행본 연결 확인. 정확한 제12~14조 문언·후속 개정·부칙은 검증되지 않음",
+      "stillPending": "2021-05-08에 실제 유효한 제12~14조 전체 조문과 경과규정·선택지별 법리 대조"
+    }
+  ]
+}
