@@ -35,33 +35,26 @@ def harvest_2010(text):
  soup=bs4.BeautifulSoup(text,"html.parser")
  for bad in soup.select("script,style,nav,footer"):bad.decompose()
  chunks=[p.strip() for p in soup.get_text("\n",strip=True).splitlines() if p.strip()]
- # Section starts with a printed N. heading, followed by 5 ordered options.
- # Reject any list item 1. that lacks a following exact 1 through 5 pattern.
+ # The restored CBT site renders a printed number as its own text node,
+ # followed by a separate ". Question stem" node, then five plain-text
+ # choices. Do not mistake its page buttons or explanation commentary as
+ # native source, and flag figures/formulas as unverified.
  candidates={}
- for idx,line in enumerate(chunks):
-  m=re.match(r"^(\d{1,3})[.)]\s+(.+)$",line)
-  if not m:continue
-  n=int(m.group(1))
-  if not 1<=n<=25:continue
-  tail=chunks[idx+1:idx+32]
-  options={}
-  for word in tail:
-   mi=re.match(r"^([1-5])[.)]\s*(.*)$",word)
-   if mi:
-    j=int(mi.group(1))
-    if j==1 and options:break
-    if j not in options:options[j]=mi.group(2).strip()
-    if len(options)==5:break
-  if len(options)!=5 or min(len(v) for v in options.values())<1:continue
-  # Cross-check title is not one of the five choices (list markers should be 1 to 5).
-  textstem=m.group(2).strip()
-  if len(textstem)<10:continue
-  current={"questionNumber":n,"untrustedStemCandidate":textstem,
-     "fiveOptionReprintCandidates":[options[i] for i in range(1,6)],
-     "paragraphMayOmitTablesEquationsOrSharedStem":True,
-     "originalQNetQuestionVisuallyVerified":False}
-  if n not in candidates or len(current["untrustedStemCandidate"])>len(candidates[n]["untrustedStemCandidate"]):
-   candidates[n]=current
+ for idx,number in enumerate(chunks):
+  if not number.isdigit() or int(number) not in range(1,26) or idx+6>=len(chunks):
+   continue
+  if not chunks[idx+1].startswith(". "):
+   continue
+  n=int(number)
+  stem=chunks[idx+1][2:].strip()
+  choices=chunks[idx+2:idx+7]
+  if len(stem)<10 or len(choices)!=5 or any(not z.strip() for z in choices):
+   continue
+  candidates[n]={
+    "questionNumber":n,"untrustedStemCandidate":stem,
+    "fiveOptionReprintCandidates":choices,
+    "paragraphMayOmitTablesEquationsOrSharedStem":True,
+    "originalQNetQuestionVisuallyVerified":False}
  return candidates,len(chunks)
 
 def main():
