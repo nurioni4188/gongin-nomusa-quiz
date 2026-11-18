@@ -1,0 +1,25 @@
+{
+  "schema": "NOMUSA_FIRST_V55_2016_QNET_MANAGEMENT_A_125_PAGE_CANDIDATES/1",
+  "asOfKST": "2026-11-18",
+  "officialQnetPDFSHAValidated": true,
+  "officialPdfPages": 36,
+  "2016ManagementATargets": 125,
+  "byStatus": {
+    "MULTIPLE_PAGE_NUMBER_HITS_HOLD": 8,
+    "ONE_PROVISIONAL_JPEG_CROP_SOURCE_ONLY": 91,
+    "QUESTION_NUMBER_NOT_DETECTED_HOLD": 26
+  },
+  "pageOCRMethods": {
+    "NO_ANCHORS_HOLD": 3,
+    "OCR_NUMBER_CANDIDATE": 33
+  },
+  "provisionalCropFiles": 91,
+  "approvedFullOriginalStemFiveOptions": 0,
+  "independentOfficialAnswerCellApprovals": 0,
+  "approvedHistoricalStatuteTheory": 0,
+  "independentSecondHumanProofreaderApprovals": 0,
+  "newQdataImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_2016_MANAGEMENT_125_PAGE_TRIAGE_HOLD_INDEPENDENT_SOURCE_PROOFREAD",
+  "fullEvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V55/NOMUSA_FIRST_V55_125_QUESTION_PAGE_AND_CROP_REVIEW.json"
+}
