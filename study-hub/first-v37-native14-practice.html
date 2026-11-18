@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>1차 공식 기출 원본 이미지 연습 14문항 · 검토본</title>
+<style>
+:root{font:15px/1.55 system-ui,'Malgun Gothic',sans-serif;color:#172d43;background:#f6f8fc}*{box-sizing:border-box}
+body{margin:0}main{max-width:1000px;margin:auto;padding:18px 14px 80px}
+a{color:#165c91}h1{font-size:23px;line-height:1.35;margin:12px 0}h2{font-size:18px}
+.notice{padding:14px;background:#fffae9;border:1px solid #e9d49b;border-radius:12px}
+.card{background:#fff;border:1px solid #d9e2ec;border-radius:16px;padding:16px;margin:16px 0}
+.row{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.row>*{flex-shrink:0}
+button,select{font:inherit;border-radius:10px;border:1px solid #bfd0e3;background:white;color:#1b4368;padding:10px 14px;cursor:pointer}
+button[aria-pressed=true]{background:#195e9b;color:#fff;border-color:#195e9b}button:disabled{opacity:.45}
+.choice{min-width:48px;font-weight:750;font-size:18px}img{display:block;width:100%;height:auto;max-height:920px;object-fit:contain;background:#fff}
+figure{margin:14px 0}figcaption{font-size:12px;color:#516779;margin-top:8px}
+.muted{color:#536777;font-size:13px}.warn{color:#75551a}.pill{font-size:12px;background:#e9f2fb;border-radius:999px;padding:4px 9px}
+#sourceImg{border:1px solid #dbe5ee;border-radius:8px}
+#candidateText{font-size:14px;line-height:1.6;margin-top:8px}
+label{display:grid;gap:5px;font-size:13px}fieldset{border:0;padding:0;margin:13px 0}
+legend{font-weight:700;margin-bottom:8px}
+button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #508ac5;outline-offset:2px}
+@media(max-width:440px){main{padding:12px 10px 70px}h1{font-size:20px}.card{padding:12px}.row{gap:7px}button,select{padding:10px}#sourceImg{width:100%}}
+</style></head><body><main>
+<a href="../index.html">1차 문제풀이로 돌아가기</a> · <a href="first-v35-2017-2019-14-original-review.html">14문항 원문 이미지 전체보기</a>
+<h1>2017·2019년 A형 원본 이미지 선택연습 14문항</h1>
+<p class="notice"><strong>원본 이미지로 실제 문제를 읽고 ①~⑤를 선택할 수 있습니다.</strong>
+기존 시험지의 문자·선택지·수식이 완전히 교열되거나 정답이 최종 승인된 것은 아닙니다. 선택 기록은 이 기기에만 저장하고 자동채점·정오판정은 하지 않습니다.
+후보 정답은 명시적으로 펼칠 때만 참고할 수 있습니다.</p>
+<section class="card">
+<div class="row"><label>연도<select id="year"><option value="all">전체</option><option value="2017">2017년</option><option value="2019">2019년</option></select></label>
+<label>문항<select id="item" aria-label="연습 문항 번호"></select></label>
+<span id="progress" class="pill" role="status" aria-live="polite">기록 0/14</span></div>
+<h2 id="questionTitle"></h2>
+<p id="sourceNote" class="muted"></p>
+<figure><img id="sourceImg" src="" alt="공식 기출 PDF의 해당 문항 영역" loading="eager">
+<figcaption>한국산업인력공단 Q-Net 원문 이미지 직접 복원 · 정답·지문 독립검수 대기</figcaption></figure>
+<a id="official" rel="noopener noreferrer" target="_blank">Q-Net 공식 원본 파일 확인</a>
+<fieldset><legend>내 선택 (오답 판정·점수 계산 없음)</legend><div id="choices" class="row" aria-label="1부터 5까지의 답안 선택"></div></fieldset>
+<div class="row"><button id="prev">이전</button><button id="next">다음</button><button id="flag">복습 표시</button>
+<button id="export">내 기록 JSON 내보내기</button><button id="reset">연습 선택 기록 초기화</button></div>
+<details style="margin-top:17px" id="candidate"><summary><strong>과거 정답표 전사 후보 보기</strong> · 공식 내용승인 대기</summary><p id="candidateText" class="muted"></p></details>
+</section>
+<p class="muted">자료: 2017년 6문항, 2019년 8문항. JPG는 공식 Q-Net 첨부문서 SHA-256 및 PDF 문항번호를 확인하여 만든 원문 영역 검토용 이미지입니다. 원본 문항 ID와 기존 1차 채점·저장 기록에는 영향을 주지 않습니다.</p>
+</main>
+<script src="legacy-first-answer-review.js"></script><script src="legacy-first-v2-staged.js"></script><script src="legacy-first-v4-2014-2021-review.js"></script><script src="legacy-first-v5-correction.js"></script>
+<script>
+(function(){'use strict';
+const ROWS=[{"id":"legacy1-2017-A-civil-052","year":2017,"n":52,"subject":"민법","pdfPage":17,"image":"legacy1-2017-A-civil-052.jpg","sha256":"89b2263a397897a8cca28abd8c3c1f563097d853bb12355e18143a70e5e37a0e","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2017-A-civil-053","year":2017,"n":53,"subject":"민법","pdfPage":17,"image":"legacy1-2017-A-civil-053.jpg","sha256":"2a2d01e02ced0ca7b5974f7ce9fd12f5458f43d659fa568361f7201f5a3f6f99","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2017-A-civil-064","year":2017,"n":64,"subject":"민법","pdfPage":21,"image":"legacy1-2017-A-civil-064.jpg","sha256":"650816600db47a2f166ce7260e58985cc24759cd21210a2e28252922dd8f4a55","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2017-A-economics-107","year":2017,"n":107,"subject":"경제학원론","pdfPage":33,"image":"legacy1-2017-A-economics-107.jpg","sha256":"29947a87fd0144317d7c9fbf075cc079171f2dafdb326542014d9d106f03f3c4","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2017-A-economics-112","year":2017,"n":112,"subject":"경제학원론","pdfPage":35,"image":"legacy1-2017-A-economics-112.jpg","sha256":"5a3ccb605a12445c37c2cf55c3dd69a4fd5297ea18b439f8975b2bc4427a8c7c","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2017-A-management-117","year":2017,"n":117,"subject":"경영학개론","pdfPage":35,"image":"legacy1-2017-A-management-117.jpg","sha256":"22f0423810342026f35432c198d0f4449f7dedd9757717f77d97c50079046c27","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2182807&fileName=2017-management.pdf&fileSeq=2182807&artlSeq=5201158&href=0"},{"id":"legacy1-2019-A-civil-056","year":2019,"n":56,"subject":"민법","pdfPage":18,"image":"legacy1-2019-A-civil-056.jpg","sha256":"e60400c6c80f6fa47fb861c7faa863f5202b1c3a05ec6045f71a44a3ffe81f81","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190603&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2190603&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-107","year":2019,"n":107,"subject":"경제학원론","pdfPage":34,"image":"legacy1-2019-A-economics-107.jpg","sha256":"d4af10e3a9f5c0cdd697250fa94e45dccb7e1d13e9816eb9efc47a788cacf5f1","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-109","year":2019,"n":109,"subject":"경제학원론","pdfPage":35,"image":"legacy1-2019-A-economics-109.jpg","sha256":"a4b5af5738c8fe0031ffff96f141883ec2d08b0a954a3f2c61e36220d64def25","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-111","year":2019,"n":111,"subject":"경제학원론","pdfPage":35,"image":"legacy1-2019-A-economics-111.jpg","sha256":"54842e61570edfa49145d7a60dc166bbe8796d0469d66d3d14f41daef1daf411","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-113","year":2019,"n":113,"subject":"경제학원론","pdfPage":36,"image":"legacy1-2019-A-economics-113.jpg","sha256":"4f91c991a4e7bd71f16666cc6d7b3cd3a3001029a682cc0927e8f9b058820fbf","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-117","year":2019,"n":117,"subject":"경제학원론","pdfPage":37,"image":"legacy1-2019-A-economics-117.jpg","sha256":"9840165883c07db0bfaa6b39088dcbf681488b15534c07666350793f5c4f43b7","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-119","year":2019,"n":119,"subject":"경제학원론","pdfPage":37,"image":"legacy1-2019-A-economics-119.jpg","sha256":"82c079ccdeec55a84edb968c4b6baeb319b19e5795355679b077c755f7cdac57","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"},{"id":"legacy1-2019-A-economics-124","year":2019,"n":124,"subject":"경제학원론","pdfPage":38,"image":"legacy1-2019-A-economics-124.jpg","sha256":"3a4ec823db7aa17e8d86b8f82ee2e79b0a12443ccfc049fdc1a785ed106edb5d","source":"https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2190604&fileName=2019%EB%85%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+1%EC%B0%A8+%EB%AC%B8%EC%A0%9C%EC%A7%80+A%ED%98%95%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2190604&artlSeq=5205539&href=0"}];
+const KEY='nomusa1-v37-native14-choice-review-v1';
+const $=id=>document.getElementById(id);
+const C=['①','②','③','④','⑤'];
+const byId=new Map(ROWS.map(r=>[r.id,r]));
+let state={};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+ if(saved&&typeof saved==='object'&&!Array.isArray(saved))
+  for(const [id,v] of Object.entries(saved))if(byId.has(id)&&v&&[1,2,3,4,5,null].includes(v.choice))state[id]={choice:v.choice,flag:Boolean(v.flag)};
+}catch(_){}
+let filtered=ROWS.slice(),cursor=0;
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(_){}}
+function renderList(selectedId){
+ const year=$('year').value;
+ filtered=ROWS.filter(r=>year==='all'||String(r.year)===year);
+ $('item').replaceChildren(...filtered.map((r,i)=>new Option(r.year+'년 '+r.subject+' '+r.n+'번'+(state[r.id]?.choice?' · 선택완료':''),r.id)));
+ cursor=Math.max(0,filtered.findIndex(r=>r.id===selectedId));
+ $('item').value=filtered[cursor]?.id||'';render();
+}
+function render(){
+ const r=filtered[cursor];if(!r)return;
+ $('item').value=r.id;
+ $('questionTitle').textContent=r.year+'년 A형 · '+r.subject+' · '+r.n+'번';
+ $('sourceNote').textContent='PDF '+r.pdfPage+'쪽 · 원본 문제 영역 · 정답·도식 독립 검증 전';
+ $('sourceImg').src='first-v35-qnet-native-2017-2019/'+encodeURIComponent(r.image);
+ $('sourceImg').alt=r.year+'년 A형 '+r.subject+' '+r.n+'번 기출 원본 이미지';
+ $('official').href=r.source+(r.year===2019?'#page='+r.pdfPage:'');
+ $('official').textContent=r.year===2017?'Q-Net 공식 문제지 ZIP 내려받기':'Q-Net 공식 문제지 PDF '+r.pdfPage+'쪽 열기';
+ const v=state[r.id]||{choice:null,flag:false};
+ $('choices').replaceChildren(...C.map((text,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=text;
+  b.dataset.choice=i+1;b.setAttribute('aria-pressed',String(v.choice===i+1));
+  b.setAttribute('aria-label',text+' 선택');
+  b.onclick=()=>{state[r.id]={choice:i+1,flag:v.flag};persist();render()};
+  return b;
+ }));
+ $('progress').textContent='선택기록 '+ROWS.filter(x=>state[x.id]?.choice!=null).length+' / '+ROWS.length+' · 복습 '+ROWS.filter(x=>state[x.id]?.flag).length;
+ $('prev').disabled=cursor===0;$('next').disabled=cursor===filtered.length-1;
+ $('flag').setAttribute('aria-pressed',String(Boolean(v.flag)));
+ $('flag').textContent=v.flag?'복습 표시 해제':'복습 표시';
+ $('candidate').open=false;
+ const candidate=window.NOMUSA_FIRST_LEGACY_V5?.records?.find(x=>x.id===r.id);
+ $('candidateText').textContent=candidate?.answers?.length?
+  '기존 정답표 전사 후보: '+candidate.answers.map(n=>C[n-1]||n).join(', ')+
+  ' · 이 숫자는 독립 원본·내용승인 전이므로 자동채점하지 않습니다.':'정답표 전사 후보 원장 연결 대기';
+}
+$('year').addEventListener('change',()=>renderList(filtered[cursor]?.id));
+$('item').addEventListener('change',()=>{cursor=filtered.findIndex(r=>r.id===$('item').value);if(cursor<0)cursor=0;render()});
+$('prev').onclick=()=>{if(cursor>0){cursor--;render()}};
+$('next').onclick=()=>{if(cursor<filtered.length-1){cursor++;render()}};
+$('flag').onclick=()=>{const r=filtered[cursor],s=state[r.id]||{choice:null,flag:false};
+ state[r.id]={choice:s.choice,flag:!s.flag};persist();render()};
+$('reset').onclick=()=>{if(confirm('이 별도 원본 이미지 선택연습 14문항의 기록만 초기화할까요?')){
+ state={};persist();renderList(ROWS[0].id)}};
+$('export').onclick=()=>{const data=JSON.stringify({schema:'NOMUSA_FIRST_V37_14_UNGRADED/1',saved:state},null,2);
+ const blob=new Blob([data],{type:'application/json'}),url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;a.download='nomusa-first-v37-14-review-progress.json';a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1500)};
+renderList(ROWS[0].id);
+})();
+</script></body></html>
