@@ -1,0 +1,63 @@
+{
+  "schema": "NOMUSA_FIRST_V50_686_SHA_SOURCE_ENRICHMENT/1",
+  "asOfKST": "2026-11-18",
+  "original686Preserved": 686,
+  "base2020_21OriginalPdfConnectedIncludingTwoV42": 195,
+  "newOfficialAFormBookletSHAConnections": 175,
+  "newThirdParty2013MirrorCandidates": 150,
+  "remainingWithoutQNetOriginalPDF": 316,
+  "remainingWithoutEvenExternalMirrorAmongThem": 166,
+  "sourceStages": {
+    "2013_EXTERNAL_A_FORM_MIRROR_SHA_CANDIDATE_HOLD": 150,
+    "NO_OFFICIAL_QUESTION_SOURCE_RECORDED": 27,
+    "OFFICIAL_QNET_A_FORM_ECON_PDF_LINKED_NOT_QUESTION_PAGES": 25,
+    "OFFICIAL_QNET_A_FORM_PDF_LINKED_PER_ELECTIVE_NOT_QUESTION_PAGES": 150,
+    "OFFICIAL_QNET_PDF_SHA_MATCH_PAGE_ONLY_NUMBER_ANCHOR_NOT_UNIQUE_OR_MISSING": 100,
+    "OFFICIAL_QNET_PDF_SHA_MATCH_PAGE_UNLOCATED": 26,
+    "PROVISIONAL_CROP_NUMBER_ANCHOR_NEEDS_ALL_FIVE_OPTIONS_CHECK": 67,
+    "QNET_NOTICE_ONLY_ATTACHMENT_AND_PDF_SHA_NOT_OBTAINED": 139,
+    "V42_SHA_PROVEN_IMAGE_2_LAW_HOLD": 2
+  },
+  "independentFullQuestionAndFiveOptionsApproved": 0,
+  "independentOfficialKeyIndividualCellApproved": 0,
+  "independentLegalTheoryExplanationsApproved": 0,
+  "newAppQuestionImports": 0,
+  "newAutoScoringApproved": 0,
+  "status": "PASS_175_NEW_OFFICIAL_BOOKLET_SHA_LINKS_HOLD_INDIVIDUAL_QUESTION_PAGES_AND_CONTENT",
+  "notes": "Official archive PDF/elective booklet affiliation supports candidate ID source discovery, not full text, exact question pages, five-option proof, historical law, or scoring.",
+  "officialDocuments": {
+    "2016_economics_A": {
+      "sha256": "eb20585599fee9541ea5eae5ad7d56e87cba75a4c6fe1ed674f7280e43a3ac5e",
+      "bytes": 13826958,
+      "pages": 37,
+      "nativeFirstPageTextChars": 0,
+      "officialQNetSourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2162962&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%28A%ED%98%95%29.pdf&fileSeq=2162962&artlSeq=5183001&href=0",
+      "officialAttachmentSha256": "eb20585599fee9541ea5eae5ad7d56e87cba75a4c6fe1ed674f7280e43a3ac5e",
+      "bookletType": "A_BY_QNET_OFFICIAL_FILENAME_NOT_INDEPENDENT_PAGE_REVIEW",
+      "file": "2016_economics_A.pdf"
+    },
+    "2018_management_A": {
+      "sha256": "5666e3e99d5eba68cff47f41a8c3c957fd88b9398991c6aa3c4238c34476b5de",
+      "bytes": 21547731,
+      "pages": 37,
+      "nativeFirstPageTextChars": 0,
+      "officialQNetSourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186568&fileName=%EA%B2%BD%EC%98%81%ED%95%99.zip&fileSeq=2186568&artlSeq=5203291&href=0",
+      "officialArchiveZipSHA256": "16e024bc4198502bcd7bb25edc547a85e2065145b19ad5f50fd4427e71f3320d",
+      "pdfArchiveOriginalName": "╝▒┼├░·╕± ░µ┐╡╟╨░│╖╨ A╟ⁿ.pdf",
+      "bookletType": "A_BY_OFFICIAL_QNET_ZIP_FILENAME_NOT_NATIVE_TEXT_APPROVED",
+      "file": "sha_locked_A_form_booklets/2018_management_A.pdf"
+    },
+    "2018_economics_A": {
+      "sha256": "8b7ad8b5ca85bd7cfa5d616ccd3fef3e0e2728b26a4d873468958b4da4978ad8",
+      "bytes": 22646316,
+      "pages": 38,
+      "nativeFirstPageTextChars": 0,
+      "officialQNetSourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2186569&fileName=%EA%B2%BD%EC%A0%9C%ED%95%99.zip&fileSeq=2186569&artlSeq=5203291&href=0",
+      "officialArchiveZipSHA256": "e381d7d734280d8aad8a0399cdffa2411bc3ae8a80a8b5a6aa91b79046929de6",
+      "pdfArchiveOriginalName": "╝▒┼├░·╕± ░µ┴ª╟╨┐°╖╨ A╟ⁿ.pdf",
+      "bookletType": "A_BY_OFFICIAL_QNET_ZIP_FILENAME_NOT_NATIVE_TEXT_APPROVED",
+      "file": "sha_locked_A_form_booklets/2018_economics_A.pdf"
+    }
+  },
+  "full686RowsInArtifact": "review-artifacts/NOMUSA_FIRST_V50/NOMUSA_FIRST_V50_686_ENRICHED_SOURCE_QUEUE.json"
+}
