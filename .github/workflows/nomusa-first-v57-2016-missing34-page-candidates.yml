@@ -1,0 +1,85 @@
+name: NOMUSA FIRST V57 locate 34 unresolved 2016 A management source pages without scoring
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v57-2016-missing34-page-candidates.yml'
+      - 'scripts/nomusa-first-v57-2016-34-missing-heading-page-recovery.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v57-2016-34-page-heurstics
+  cancel-in-progress: true
+jobs:
+  source-order-bracketing:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original SHA-verified source PDF and OCR for V55 input reconstruction
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13
+      - name: Verify original 2016 official A-source and 125 historic A-form candidate IDs
+        run: |
+          node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+          python scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+          git restore -- review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json
+      - name: Narrow 34 missing/ambiguous headings by neighboring image-SHA source page constraints
+        run: |
+          python -m py_compile scripts/nomusa-first-v57-2016-34-missing-heading-page-recovery.py
+          python scripts/nomusa-first-v57-2016-34-missing-heading-page-recovery.py
+      - name: Fail closed: source image page hashing and 34 unique queue, zero graded approvals
+        run: |
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V57')
+          j=json.loads((root/'NOMUSA_FIRST_V57_34_UNRESOLVED_ORDERED_PAGE_QUEUE.json').read_text(encoding='utf8'))
+          assert j['targetUnresolvedQuestionIds']==len(j['rows'])==34
+          assert len({q['id'] for q in j['rows']})==34
+          assert j['nativeQuestionOriginalTextApproved']==j['independentAnswerKeyApproved']==0
+          assert j['newScoringApproved']==j['newAppImports']==0
+          for q in j['rows']:
+            assert not q['questionNumberExactPageIndependentlyVerified'] and not q['scoringApproved']
+            for r in q['fullPagePreviewRefs']:
+              f=root/r['path']
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==r['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V57_2016_UNRESOLVED34_PAGE_BRACKETS_20261118.json'}),changed
+          print('PASS_V57_34_UNRESOLVED_PAGE_CANDIDATES_HOLD_INDEPENDENT_EXPERT_REVIEW')
+          PY
+      - name: Commit review summary only, not existing quiz data or production
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V57_2016_UNRESOLVED34_PAGE_BRACKETS_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v57): 34 unresolved original question pages bounded by adjacent QNet A source, all hold'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Upload 34 unanswered source-page evidence and full original page previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v57-34-unresolved-page-brackets-original-previews
+          path: review-artifacts/NOMUSA_FIRST_V57/
+          if-no-files-found: warn
+          retention-days: 14
