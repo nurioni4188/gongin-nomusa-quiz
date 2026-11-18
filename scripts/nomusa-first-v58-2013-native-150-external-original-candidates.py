@@ -178,6 +178,7 @@ def main():
         "targetQuestionIDs":150,
         "nativeQuestionHeadingsWithProvisionalText":states["NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED"],
         "numberAmbiguousOrMissing":150-states["NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED"],
+        "ambiguousCandidateQuestionDetails":[{"id":z["id"],"number":z["number"],"subject":z["subject"],"booklet":z["sourceBookletFooter"],"status":z["status"],"headingPositions":z["matchingNumberLocations"]} for z in rows if z["status"]!="NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED"],
         "provisionalImageParts":cropNum,
         "states":dict(sorted(states.items())),
         "officialQNetSourceEqualityApproved":0,
