@@ -42,7 +42,7 @@ jobs:
         run: |
           python -m py_compile scripts/nomusa-first-v57-2016-34-missing-heading-page-recovery.py
           python scripts/nomusa-first-v57-2016-34-missing-heading-page-recovery.py
-      - name: Fail closed: source image page hashing and 34 unique queue, zero graded approvals
+      - name: 'Fail closed - source image page hashing and 34 unique queue, zero graded approvals'
         run: |
           python - <<'PY'
           import hashlib,json,subprocess
