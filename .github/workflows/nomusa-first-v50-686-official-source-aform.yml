@@ -227,11 +227,11 @@ jobs:
           assert changed.issubset({'review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json'}),changed
           print('PASS_V65_254_QNET_FULLPAGE_CONTEXT_AND_GAP_CONTENT_RISK_ANALYSIS_0_SCORE')
           PY
-      - name: Repair 4 overlapping crop regions and 12 ink-filled gaps as non-destructive QNet source proposals
+      - name: Propose 4 safe sequential source-boundary revisions, hold 12 unsafe or skipped-next-number candidates
         run: |
           python -m py_compile scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
           python scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
-      - name: Fail closed - 16 SHA-backed revised images and 16 comparison previews without content or grading approval
+      - name: Fail closed - exactly 4 SHA revised images, 12 unchanged unsafe anchors, zero scores
         run: |
           python - <<'PY'
           import json,hashlib,subprocess
@@ -239,11 +239,13 @@ jobs:
           root=Path('review-artifacts/NOMUSA_FIRST_V68')
           d=json.loads((root/'NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json').read_text(encoding='utf8'))
           assert d['originalImageQAUniverse']==254
-          assert d['sourceGeometrySuspiciousTargets']==len(d['rows'])==16
-          assert len({q['id'] for q in d['rows']})==16
-          assert d['overlapSourceRevisedCandidates']==4 and d['inkGapSourceRevisedCandidates']==12
+          assert d['sourceGeometrySuspiciousTargets']==16
+          assert len(d['rows'])==4 and len({q['id'] for q in d['rows']})==4
+          assert len(d['unsafeHeldRows'])==12
+          assert d['unsafeNonsequentialOrCrossSubjectCandidatesHeld']==12
+          assert d['overlapSourceRevisedCandidates']==1 and d['inkGapSourceRevisedCandidates']==3
           assert d['unchangedOriginalCandidateImagesPreserved']==254
-          assert d['newSeparateRevisedQNetCropImages']==d['oldVsNewComparisonImages']==16
+          assert d['newSeparateRevisedQNetCropImages']==d['oldVsNewComparisonImages']==4
           assert d['newQdataImports']==d['newScoringApproved']==0
           assert d['independentlyVerifiedFullQuestionAndAllFiveOptions']==0
           for q in d['rows']:
@@ -253,7 +255,7 @@ jobs:
               assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==im['sha256']
           changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
           assert changed.issubset({'review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json'}),changed
-          print('PASS_V68_16_NONDESTRUCTIVE_SOURCE_REPAIR_IMAGE_PROPOSALS_ZERO_GRADING')
+          print('PASS_V68_4_SEQUENTIAL_SOURCE_REPAIRS_AND_12_UNSAFE_HELD_ZERO_GRADING')
           PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
