@@ -13,6 +13,7 @@ on:
       - 'index.html'
       - 'scripts/nomusa-first-v33-existing-source-gap-gate.mjs'
       - 'scripts/nomusa-first-v33-missing-year-browser-gate.py'
+      - 'scripts/nomusa-auto-v12-browser-gate.py'
   workflow_dispatch:
 
 permissions:
