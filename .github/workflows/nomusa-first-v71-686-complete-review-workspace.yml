@@ -1,0 +1,122 @@
+name: NOMUSA FIRST V71 unified 686 question source and answer review workspace all years
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v71-686-complete-review-workspace.yml'
+      - 'scripts/nomusa-first-v71-686-all-original-review-workspace.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v71-686-source-review-archive
+  cancel-in-progress: true
+jobs:
+  build-686-original-review-only:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch prior 686 source queue plus all 254 OCR original-source page evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v50-686-with-175-qnet-a-booklet-shas-and-150-mirror-holds
+          run-id: 44408629243
+          github-token: ${{ github.token }}
+          path: review-artifacts/V71_V50_BUNDLE
+      - name: Fetch 2013 independently host-compared mirror 150 native five-option candidate sources and SHA images
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v58-2013-external-mirror-150-unapproved-native-text-crops
+          run-id: 44396571923
+          github-token: ${{ github.token }}
+          path: review-artifacts/V71_V58_BUNDLE
+      - name: Fetch 2017 and 2019 native five-option source candidates for 14 missing A-form rows
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v66-2017-2019-14-secondary-a-original-sha-candidates
+          run-id: 44406061597
+          github-token: ${{ github.token }}
+          path: review-artifacts/V71_V69_BUNDLE
+      - name: Fetch 2010 twenty-five reconstructed native source question drafts and 2011-12 source HOLD records
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v70-27-2010-2012-external-original-drafts
+          run-id: 44412912342
+          github-token: ${{ github.token }}
+          path: review-artifacts/V71_V70_BUNDLE
+      - name: Fetch remaining 2016 management 91 QNet source image OCR drafts
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v56-91-original-crop-ocr-unapproved-evidence
+          run-id: 44324067952
+          github-token: ${{ github.token }}
+          path: review-artifacts/V71_V56_BUNDLE
+      - name: Assemble and verify all 686 unique IDs, original 448 image hashes and unapproved source drafts
+        run: |
+          python -m py_compile scripts/nomusa-first-v71-686-all-original-review-workspace.py
+          python scripts/nomusa-first-v71-686-all-original-review-workspace.py
+      - name: Gate missing source and final-answer completeness with strict no-approval policy
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V71')
+          j=json.loads((root/'NOMUSA_FIRST_V71_686_UNAPPROVED_SOURCE_REVIEW.json').read_text(encoding='utf8'))
+          assert j['targetCount']==len(j['rows'])==686
+          assert len({x['id'] for x in j['rows']})==686
+          assert j['reviewStageCounts']=={
+             'unapproved_full_stem_and_five_options':189,
+             'unapproved_OCR_transcript':254,
+             'original_source_only_need_full_transcription':243}
+          assert j['originalImageEvidenceFilesSHAValidated']>=448
+          assert j['independentlyVerifiedOfficialFullQuestionAnswers']==0
+          assert j['independentLawTheoryExplanationApprovals']==0
+          assert j['newScoredQuestionsImported']==0
+          assert all(not r['scoringApproved'] and not r['readyForV44'] and
+             not r['officialFinalAAnswerCellVerified'] for r in j['rows'])
+          copies=0
+          for r in j['rows']:
+            for p in r['reviewerOriginalImageCandidates']:
+              f=root/p['path']
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==p['sha256'],r['id']
+              copies+=1
+          assert copies==j['originalImageEvidenceFilesSHAValidated']
+          assert (root/'index.html').is_file()
+          assert '686문항' in (root/'index.html').read_text(encoding='utf8')[:2000]
+          with (root/'NOMUSA_FIRST_V71_686_SOURCE_REVIEW.csv').open(encoding='utf-8-sig',newline='') as f:
+            assert len(list(csv.DictReader(f)))==686
+          altered=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert altered.issubset({'review/NOMUSA_FIRST_V71_686_WORKSPACE_SUMMARY_20261119.json'}),altered
+          print('PASS_V71_686_ID_SOURCE_DRAFTS_189_254_243_448_IMAGES_0_APPROVED')
+          PY
+      - name: Archive only compact audit summary on existing Draft PR branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V71_686_WORKSPACE_SUMMARY_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v71): 686 unique original source-review items, five-choice candidates 189, OCR 254 and 243 holds'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Upload complete mobile-first review HTML, 686 JSON and CSV, 448 original reference images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v71-all-686-mobile-review-source-archive-unapproved
+          path: review-artifacts/NOMUSA_FIRST_V71/
+          if-no-files-found: warn
+          retention-days: 30
