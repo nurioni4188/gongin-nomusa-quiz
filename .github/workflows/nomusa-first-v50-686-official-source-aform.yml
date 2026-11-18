@@ -7,6 +7,7 @@ on:
       - '.github/workflows/nomusa-first-v50-686-official-source-aform.yml'
       - 'scripts/nomusa-first-v50-686-official-aform-source-expansion.py'
       - 'scripts/nomusa-first-v51-175-qnet-a-page-locator.py'
+      - 'scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -97,16 +98,48 @@ jobs:
           assert set(changes).issubset({'review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json'}),changes
           print('PASS_V51_175_OFFICIAL_BOOKLET_PAGE_DIGIT_TRIAGE_NO_GRADING')
           PY
+      - name: Rebuild historical 791 answer-candidate ledger as read-only source for 163 OCR drafts
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: OCR both V48 67 and V51 96 original source crops, rank incomplete five choices and formula/law risks
+        run: |
+          python -m py_compile scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py
+          python scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py
+      - name: Strict V52 163 text-candidate risk evidence and independent approval HOLD
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          f=Path('review-artifacts/NOMUSA_FIRST_V52/NOMUSA_FIRST_V52_163_OCR_SOURCE_RISK_REVIEW.json')
+          x=json.loads(f.read_text(encoding='utf-8'))
+          assert x['qnetPDFSHAOriginPrelimCrops']==x['uniqueQuestionIds']==163
+          assert x['v48Crops']==67 and x['v51Crops']==96
+          assert len(x['rows'])==163 and len(set(r['id'] for r in x['rows']))==163
+          assert x['independentFullQuestionTextProofread']==0
+          assert x['fiveOptionsVisuallyProven']==0
+          assert x['newScoringApproved']==x['newAppSourceImports']==0
+          assert all(r['readyForV44'] is False and r['scoringApproved'] is False
+                     and r['officialFinalAFormKeyCellIndependentlyChecked'] is False
+                     for r in x['rows'])
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({
+            'review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json'
+          }),modified
+          print('PASS_V52_163_ORIGINAL_SHA_CROP_OCR_DRAFTS_QA_RISKS_0_AUTO_GRADED')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json
           git diff --cached --check
-          git commit -m 'review(first-v50-v51): prove 175 official A-booklet SHA and locate provisional question pages without grading'
-          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
-          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
-          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          else
+            echo 'SOURCE_SUMMARIES_UNCHANGED: no redundant commit'
+          fi
           echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
       - name: Export all 686 source-linked records and SHA-locked A PDF originals in temporary artifact
         if: always()
@@ -116,5 +149,6 @@ jobs:
           path: |
             review-artifacts/NOMUSA_FIRST_V50/
             review-artifacts/NOMUSA_FIRST_V51/
+            review-artifacts/NOMUSA_FIRST_V52/
           if-no-files-found: warn
           retention-days: 14
