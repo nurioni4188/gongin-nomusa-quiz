@@ -61,8 +61,8 @@ def inspect_blob(blob,url,fn):
     fn.write_bytes(blob)
     return ret
 
-def download(url,limit=100_000_000):
-    with S.get(url,timeout=(12,85),allow_redirects=True,stream=True) as resp:
+def download(url,limit=100_000_000,allow_unverified_tls=False):
+    with S.get(url,timeout=(12,85),allow_redirects=True,stream=True,verify=not allow_unverified_tls) as resp:
         resp.raise_for_status()
         data=bytearray()
         for chunk in resp.iter_content(chunk_size=1024*512):
@@ -98,7 +98,18 @@ def main():
         out=dict(p)
         file=SRC/("%s_%s.pdf"%(p["year"],"first_question_candidate" if p["year"]==2013 else "answer_table"))
         try:
-            blob=download(p["url"],45_000_000)
+            try:
+                blob=download(p["url"],45_000_000)
+                out["tlsCertificateVerified"]=True
+            except requests.exceptions.SSLError:
+                # Third-party mirror ONLY: this is UNTRUSTED SHA evidence,
+                # not permission to approve its contents or final answer.
+                from urllib.parse import urlparse
+                if urlparse(p["url"]).hostname!="renew.primeedunet.com":
+                    raise
+                blob=download(p["url"],45_000_000,allow_unverified_tls=True)
+                out["tlsCertificateVerified"]=False
+                out["sourceIsUntrustedUntilOfficialQNetCrosscheck"]=True
             out.update(inspect_blob(blob,p["url"],file))
             assert out["type"]=="PDF"
             first=out["firstPageTextSample"].replace(" ","")
@@ -110,7 +121,7 @@ def main():
                 assert "최종" in first and "정답" in first
                 out["sourceContentType"]="FINAL_ANSWER_TABLE_ONLY"
                 out["verifiedOriginalQNetIdentity"]=False
-            out["status"]="SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
+            out["status"]="SHA_CAPTURED_EXTERNAL_TLS_UNVERIFIED_CANDIDATE_HOLD" if out["tlsCertificateVerified"] is False else "SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
         except Exception as exc:
             out["status"]="DOWNLOAD_OR_STRUCTURE_HOLD"
             out["error"]=type(exc).__name__+":"+str(exc)[:220]
@@ -124,6 +135,15 @@ def main():
             out["noticeHTMLHash"]=hashlib.sha256(body.encode()).hexdigest()
             out["noticeContainsAllNamedAttachments"]=all(x.lower() in body.lower() for x in p["attachmentLabels"])
             out["attachmentCandidates"]=parse_official_attachments(body,p["sourcePage"],p["attachmentLabels"])
+            if not out["attachmentCandidates"]:
+                soup=BeautifulSoup(body,"html.parser")
+                snippets=[]
+                for label in p["attachmentLabels"]:
+                    for text_node in soup.find_all(string=lambda t: bool(t) and label.lower() in t.lower()):
+                        parent=text_node.parent
+                        grand=parent.parent if parent else None
+                        snippets.append(str(grand or parent)[:1800])
+                out["attachmentDOMHints"]=snippets[:6]
             out["status"]="OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT"
             out["downloadedAttachments"]=[]
             for k,link in enumerate(out["attachmentCandidates"][:3]):
