@@ -1,0 +1,8 @@
+{
+  "schema": "NOMUSA_FIRST_V44_EXPLICIT_SOURCE_APPROVALS/1",
+  "purpose": "Only genuinely checked full-stem, five-options, math/graphics, Q-Net official A-form final key, and legal/theory explanations may be imported; OCR guesses cannot be approved",
+  "baselineExisting": 2281,
+  "initialRemaining": 789,
+  "independentApprovalRequired": true,
+  "approvals": []
+}
