@@ -9,6 +9,7 @@ on:
       - 'scripts/nomusa-first-v51-175-qnet-a-page-locator.py'
       - 'scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py'
       - 'scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py'
+      - 'scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -40,6 +41,13 @@ jobs:
           run-id: 44279151283
           github-token: ${{ github.token }}
           path: review-artifacts/NOMUSA_FIRST_V48
+      - name: Restore six original 2020 and 2021 QNet source/answer PDF SHA archive for 67 V48 crop comparisons
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
       - name: Re-fetch known Q-Net attachments directly and re-hash; no cross-run artifact token required
         run: |
           python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5 beautifulsoup4==4.13.4
@@ -152,11 +160,48 @@ jobs:
           assert changed.issubset({'review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json'}),changed
           print('PASS_V59_79_UNRESOLVED_OFFICIAL_SOURCE_PAGE_BRACKETS_ALL_CONTENT_AND_SCORING_HOLD')
           PY
+      - name: Rebuild 91 V55 official QNet A-form provisional crop regions and their first-pass OCR candidates
+        run: |
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13
+          python scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+          git restore -- review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json
+          python scripts/nomusa-first-v56-91-crop-ocr-source-risk.py
+          git restore -- review/NOMUSA_FIRST_V56_91_ORIGINAL_CROP_OCR_RISK_SUMMARY_20261118.json
+      - name: Cross-check all 254 crop images against SHA-locked original QNet PDF source pixel rectangles and OCR content risk
+        run: |
+          python -m py_compile scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py
+          python scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py
+      - name: Enforce V64 source-geometry and OCR risk auditing is not content approval or exam scoring
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V64')
+          s=json.loads((root/'NOMUSA_FIRST_V64_254_ORIGINAL_REGION_IMAGE_QA.json').read_text(encoding='utf8'))
+          assert s['targetProvisionalCropImages']==len(s['rows'])==254
+          assert len({q['id'] for q in s['rows']})==254
+          assert s['sourceGroupImages']=={'V48':67,'V51':96,'V55':91}
+          assert s['originalSourcePdfSHAMatchedForAllCrops']==254
+          assert s['candidateCropFileSHA256Matched']==254
+          assert s['candidateImageComparedToRenderedOriginalRectangle']==254
+          assert s['newScoringApproved']==s['newAppImports']==0
+          assert s['independentOriginalStemAndFiveOptionsApproved']==0
+          assert s['officialFinalAFormAnswerCellsApproved']==0
+          assert all(not q['scoringApproved'] and not q['readyForV44']
+                and not q['independentFullQNetStemAndFiveOptionsVerified'] for q in s['rows'])
+          for q in s['rows']:
+            if 'annotatedOriginalPage' in q:
+              img=q['annotatedOriginalPage']; p=root/img['path']
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==img['sha256']
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({'review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json'}),modified
+          print('PASS_V64_254_ORIGINAL_QNET_PDF_REGION_PIXEL_COMPARE_AND_CROP_RISK_REVIEW_NO_SCORING')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
@@ -177,5 +222,6 @@ jobs:
             review-artifacts/NOMUSA_FIRST_V51/
             review-artifacts/NOMUSA_FIRST_V52/
             review-artifacts/NOMUSA_FIRST_V59/
+            review-artifacts/NOMUSA_FIRST_V64/
           if-no-files-found: warn
           retention-days: 14
