@@ -3,7 +3,7 @@
   "asOfKST": "2026-11-18",
   "mirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
   "mirrorOriginalPDFPages": 80,
-  "mirrorTLSCertificateVerifiedAtDownload": false,
+  "mirrorTLSCertificateVerifiedAtDownload": true,
   "bookletFooterPages": {
     "39": 39,
     "41": 41
@@ -11,6 +11,54 @@
   "targetQuestionIDs": 150,
   "nativeQuestionHeadingsWithProvisionalText": 148,
   "numberAmbiguousOrMissing": 2,
+  "ambiguousCandidateQuestionDetails": [
+    {
+      "id": "legacy1-2013-A-labor1-001",
+      "number": 1,
+      "subject": "노동법Ⅰ",
+      "booklet": "A형-39",
+      "status": "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD",
+      "headingPositions": [
+        {
+          "pdfPage": 1,
+          "number": 1,
+          "pageY": 139.17,
+          "pageX": 67.52,
+          "lineTextSample": "1."
+        },
+        {
+          "pdfPage": 31,
+          "number": 1,
+          "pageY": 539.17,
+          "pageX": 96.79,
+          "lineTextSample": "1. 기본금액"
+        }
+      ]
+    },
+    {
+      "id": "legacy1-2013-A-labor1-002",
+      "number": 2,
+      "subject": "노동법Ⅰ",
+      "booklet": "A형-39",
+      "status": "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD",
+      "headingPositions": [
+        {
+          "pdfPage": 1,
+          "number": 2,
+          "pageY": 279.06,
+          "pageX": 67.52,
+          "lineTextSample": "2."
+        },
+        {
+          "pdfPage": 31,
+          "number": 2,
+          "pageY": 589.52,
+          "pageX": 96.79,
+          "lineTextSample": "2. 가산금액"
+        }
+      ]
+    }
+  ],
   "provisionalImageParts": 192,
   "states": {
     "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD": 2,
