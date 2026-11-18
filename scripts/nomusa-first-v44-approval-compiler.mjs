@@ -86,7 +86,7 @@ for(const entry of reviewed.approvals){
  Number.isInteger(entry.sourcePdfPage),"ORIGINAL_NUMBER_AND_PAGE_"+id);
  const options=entry.options,correct=entry.correct;
  assert(long(entry.question)&&Array.isArray(options)&&options.length===5 &&
-  options.every(long) && new Set(options).size===5,"FULL_STEM_FIVE_DISTINCT_OPTIONS_"+id);
+  options.every(z=>typeof z==='string'&&z.trim().length>=2) && new Set(options).size===5,"FULL_STEM_FIVE_DISTINCT_OPTIONS_"+id);
  assert(Array.isArray(correct)&&correct.length>=1&&correct.length<=5&&
  correct.every(x=>Number.isInteger(x)&&x>=1&&x<=5)&&
  JSON.stringify([...correct].sort())===JSON.stringify([...keys.get(id)].sort()),
@@ -98,7 +98,7 @@ for(const entry of reviewed.approvals){
  assert(entry.manualOfficialKeyComparison===true && entry.manualAnswerGridCell===correct.join(",") &&
         long(entry.answerGridExplanation),"FINAL_KEY_CELL_VISUAL_CROSSCHECK_REQUIRED_"+id);
  const authors=entry.reviewer||{};
- assert(long(authors.primaryReviewer)&&long(authors.independentReviewer)&&
+ assert(typeof authors.primaryReviewer==='string'&&authors.primaryReviewer.trim().length>=2&&typeof authors.independentReviewer==='string'&&authors.independentReviewer.trim().length>=2&&
  authors.primaryReviewer!==authors.independentReviewer &&
  /^\d{4}-\d\d-\d\d$/.test(authors.reviewDate||"") &&
  long(authors.reviewEvidence),"TWO_REVIEWER_SIGNOFF_MISSING_"+id);
