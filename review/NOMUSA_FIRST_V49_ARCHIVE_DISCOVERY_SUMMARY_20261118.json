@@ -8,7 +8,7 @@
   },
   "officialLinkDiscovery": 2,
   "historicalExternalSourceAttempts": 2,
-  "actualSHAValidatedAttachments": 0,
+  "actualSHAValidatedAttachments": 2,
   "formAndFullTextIndependentlyConfirmed": 0,
   "registeredScoringApproved": 0,
   "newQdataImported": 0,
@@ -24,16 +24,32 @@
       "role": "EXTERNAL_SOURCE_QUESTION_BOTH_ELECTIVES_CANDIDATE",
       "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
       "url": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
-      "status": "DOWNLOAD_OR_STRUCTURE_HOLD",
-      "error": "SSLError:HTTPSConnectionPool(host='renew.primeedunet.com', port=443): Max retries exceeded with url: /public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_V"
+      "tlsCertificateVerified": true,
+      "sourceURL": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
+      "sha256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
+      "bytes": 983119,
+      "type": "PDF",
+      "pdfPages": 80,
+      "textAccessible": true,
+      "sourceContentType": "FIRST_STAGE_QUESTION_BOOKLET_CANDIDATE",
+      "verifiedOriginalQNetIdentity": false,
+      "status": "SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
     },
     {
       "year": 2016,
       "role": "EXTERNAL_SOURCE_A_FORM_FINAL_ANSWER_TABLE_NOT_QUESTION",
       "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
       "url": "https://renew.primeedunet.com/public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf",
-      "status": "DOWNLOAD_OR_STRUCTURE_HOLD",
-      "error": "SSLError:HTTPSConnectionPool(host='renew.primeedunet.com', port=443): Max retries exceeded with url: /public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_V"
+      "tlsCertificateVerified": true,
+      "sourceURL": "https://renew.primeedunet.com/public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf",
+      "sha256": "6b6d572c48eea02f58f79005d035ef2f97f50b3579e3eceb1a2d51dde0c728e9",
+      "bytes": 63846,
+      "type": "PDF",
+      "pdfPages": 2,
+      "textAccessible": false,
+      "sourceContentType": "FINAL_ANSWER_TABLE_ONLY",
+      "verifiedOriginalQNetIdentity": false,
+      "status": "SHA_CAPTURED_EXTERNAL_SOURCE_EXAM_FORM_VERIFICATION_HOLD"
     },
     {
       "year": 2016,
@@ -44,6 +60,9 @@
       ],
       "noticeContainsAllNamedAttachments": true,
       "attachmentCandidates": [],
+      "attachmentDOMHints": [
+        "<div class=\"file\">\n<p>경제학원론(A형).pdf</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2162962', '경제학원론(A형).pdf', '2162962');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>"
+      ],
       "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
       "downloadedAttachments": []
     },
@@ -57,6 +76,10 @@
       ],
       "noticeContainsAllNamedAttachments": true,
       "attachmentCandidates": [],
+      "attachmentDOMHints": [
+        "<div class=\"file\">\n<p>경영학.zip</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2186568', '경영학.zip', '2186568');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>",
+        "<div class=\"file\">\n<p>경제학.zip</p>\n<button class=\"btnS typeDown\" onclick=\"fileDown('bbs/Q004/Q004_2186569', '경제학.zip', '2186569');\" type=\"button\">\n<span>다운로드</span>\n</button>\n</div>"
+      ],
       "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
       "downloadedAttachments": []
     }
