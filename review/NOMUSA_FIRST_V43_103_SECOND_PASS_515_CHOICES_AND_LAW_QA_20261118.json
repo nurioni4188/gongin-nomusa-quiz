@@ -14,8 +14,8 @@
   "statedSourceKeyConflicts": 0,
   "shortReasonWarningsAfterPatch": 0,
   "legalExamDateCaseCount": 25,
-  "historicPreExamPartialAnchors": 19,
-  "historicalAuthoritiesNotLocated": 6,
+  "historicPreExamPartialAnchors": 25,
+  "historicalAuthoritiesNotLocated": 0,
   "contentSecondIndependentExpertApprovals": 0,
   "approvedScoringNew": 0,
   "baselineQDATA": 2281,
@@ -1443,7 +1443,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&searchOption=&searchWord=&seqnum=4890",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2020-A-labor2-032",
@@ -1461,7 +1463,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/detcInfoP.do?detcSeq=36953&mode=0",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2020-A-labor2-033",
@@ -1474,12 +1478,14 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=209661",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor1-015",
@@ -1492,12 +1498,14 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/lsInfoP.do?lsiSeq=206711",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor1-019",
@@ -1515,7 +1523,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/lsInfoP.do?lsiSeq=208545",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor1-020",
@@ -1533,7 +1543,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=204835",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor1-025",
@@ -1551,7 +1563,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=218293",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor2-029",
@@ -1569,7 +1583,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200609&lsiSeq=219123",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor2-042",
@@ -1587,7 +1603,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200609&lsiSeq=219123",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-labor2-047",
@@ -1600,12 +1618,14 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20190430&lsiSeq=208554",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-059",
@@ -1623,7 +1643,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-060",
@@ -1641,7 +1663,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-069",
@@ -1659,7 +1683,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-072",
@@ -1677,7 +1703,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-073",
@@ -1695,7 +1723,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-074",
@@ -1713,7 +1743,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-civil-075",
@@ -1731,7 +1763,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228813",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-078",
@@ -1749,7 +1783,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200708&lsiSeq=217261",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-079",
@@ -1767,7 +1803,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210101&lsiSeq=225279",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-082",
@@ -1785,7 +1823,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.mohw.go.kr/upload/140/202105/1620097349797_20210504120230.pdf",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-089",
@@ -1798,12 +1838,14 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_SOCIAL_8_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=219127",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-092",
@@ -1821,7 +1863,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210101&lsiSeq=224817",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-093",
@@ -1834,12 +1878,14 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_SOCIAL_8_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210101&lsiSeq=224815",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-094",
@@ -1857,7 +1903,9 @@
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210101&lsiSeq=224815",
+      "independentHumanContentApproval": false
     },
     {
       "id": "legacy1-2021-A-social-100",
@@ -1870,13 +1918,16 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_SOCIAL_8_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
       "needIndependentHumanLegalOrAcademicReview": true,
-      "approvedForLearningScoring": false
+      "approvedForLearningScoring": false,
+      "historicalLegalCandidate": "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20210126&lsiSeq=228823",
+      "independentHumanContentApproval": false
     }
   ],
-  "latestLawEvidenceLedgerVersion": "2026-11-18/19_PRE_EXAM_ANCHORS_6_PENDING"
+  "latestLawEvidenceLedgerVersion": "2026-11-18_PRE_EXAM_SOURCE_CANDIDATE_FOR_25_OF_25_WITH_ALL_FINAL_EXPERT_APPROVALS_HOLD",
+  "lawSourceCaveat": "25 official pre-exam statute/decree/case links are partial input references. None has full statutory amendments + relevant precedent holdings + 2 distinct expert signatures; no scoring authorization."
 }
