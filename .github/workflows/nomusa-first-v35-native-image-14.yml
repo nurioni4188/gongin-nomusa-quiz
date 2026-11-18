@@ -90,6 +90,9 @@ jobs:
                 page=b.new_page(viewport={'width':width,'height':860})
                 page.goto(f'http://127.0.0.1:{srv.server_port}/study-hub/first-v35-2017-2019-14-original-review.html')
                 assert page.locator('article.exam').count()==14
+                # Native pages use loading=lazy; force all 14 original JPEGs to load before evaluating dimensions.
+                page.locator('article.exam img').evaluate_all("(imgs)=>imgs.forEach(i=>i.loading='eager')")
+                page.wait_for_function("Array.from(document.querySelectorAll('article.exam img')).length===14 && Array.from(document.querySelectorAll('article.exam img')).every(i=>i.complete && i.naturalWidth>=600)",timeout=30000)
                 loaded=page.locator('article.exam img').evaluate_all('(imgs)=>imgs.map(i=>({w:i.naturalWidth,h:i.naturalHeight,complete:i.complete}))')
                 assert len(loaded)==14 and all(x['complete'] and x['w']>=600 for x in loaded),loaded
                 assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
