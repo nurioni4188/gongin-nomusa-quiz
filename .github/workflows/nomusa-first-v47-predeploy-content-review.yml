@@ -1,0 +1,81 @@
+name: NOMUSA FIRST V47 103 source proofread and 25 exam-date law PREDEPLOY HOLD
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v47-predeploy-content-review.yml'
+      - 'scripts/nomusa-first-v47-predeploy-content-gate.mjs'
+      - 'scripts/nomusa-first-v47-native-crop-ocr-second-pass.py'
+      - 'review/NOMUSA_FIRST_V43_*.json'
+      - 'review/NOMUSA_FIRST_V44_VERIFIED_APPROVALS.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: nomusa-first-v47-review-only
+  cancel-in-progress: true
+jobs:
+  content-predeploy-evidence:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 27
+    steps:
+      - name: Read-only checkout of existing Draft PR 3 review branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify 103 original answer hashes and 515 choice reasons against 25 legal candidates
+        run: |
+          node --check scripts/nomusa-first-v47-predeploy-content-gate.mjs
+          node scripts/nomusa-first-v47-predeploy-content-gate.mjs .
+          node --check study-hub/first-v44-approved.js
+          node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+      - name: Install native Korean OCR and Chromium for 103 source delta plus regression
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check pillow==11.3.0 pytesseract==0.3.13 playwright==1.56.0
+          python -m playwright install chromium --only-shell
+      - name: Run two independent OCR layout hypotheses, never human-approve OCR
+        run: |
+          python -m py_compile scripts/nomusa-first-v47-native-crop-ocr-second-pass.py
+          python scripts/nomusa-first-v47-native-crop-ocr-second-pass.py
+      - name: Browser smoke without deployment or alteration of 1st or 2nd year question IDs
+        run: |
+          python scripts/nomusa-first-v42-two-theory-browser-e2e.py .
+          python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Check immutable release gate and no mutations
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          gate=json.loads(Path('review-artifacts/NOMUSA_FIRST_V47/NOMUSA_FIRST_V47_PREDEPLOY_CONTENT_AUDIT.json').read_text(encoding='utf8'))
+          ocr=json.loads(Path('review-artifacts/NOMUSA_FIRST_V47/NOMUSA_FIRST_V47_103_DUAL_OCR_CANDIDATES.json').read_text(encoding='utf8'))
+          approved=json.loads(Path('review/NOMUSA_FIRST_V44_VERIFIED_APPROVALS.json').read_text(encoding='utf8'))
+          assert gate['hardErrors']==[] and gate['scope']['sourceRecordCount']==103
+          assert gate['scope']['allFiveOptions']==515 and gate['scope']['legalCandidates']==25
+          assert gate['scope']['reasonRecordCount']==60 and gate['scope']['reasonOptionCount']==300
+          assert ocr['sha256Matched']==103 and ocr['newScoringApproved']==0
+          assert gate['approvals']['approvedNewScoring']==0 and approved['approvals']==[]
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert changed==[],('UNEXPECTED_TRACKED_SOURCE_MUTATION',changed)
+          print('PASS_V47_TECHNICAL_103_515_25_CHROMIUM; PREDEPLOY_HOLD_HUMAN_INDEPENDENT_PROOFREAD_AND_LAW_CASE_AMENDMENTS')
+          PY
+      - name: Upload evidence of checks and every unresolved issue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v47-predeploy-103-source-25-law-hold-evidence
+          path: |
+            review-artifacts/NOMUSA_FIRST_V47/
+          if-no-files-found: warn
+          retention-days: 30
