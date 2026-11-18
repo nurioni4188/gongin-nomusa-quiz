@@ -101,7 +101,7 @@ def main():
          "newStudyExplanationDrafts":37,"protectedEarlierExplanations":3,
          "visibleDetailedExplanations":40,
          "humanApproved":0,"oldDataQDATA":1020,"oldSavedKeys":"UNCHANGED",
-         "legacy2008to2021AutoScoring":"DISABLED","examDate":"2026-05-23",
+         "legacy2008to2021AutoScoring":"UNAPPROVED_DISABLED_TWO_SOURCE_CHECKED_THEORY_EXCEPTIONS","examDate":"2026-05-23",
          "cases":cases}
     dst=ROOT/"review-artifacts/NOMUSA_FIRST_V36";dst.mkdir(parents=True,exist_ok=True)
     (dst/"NOMUSA_FIRST_V36_SOCIAL_40_BROWSER_GATE.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")
