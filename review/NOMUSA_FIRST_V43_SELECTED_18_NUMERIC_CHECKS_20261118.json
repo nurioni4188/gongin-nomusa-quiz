@@ -1,0 +1,102 @@
+{
+  "schema": "NOMUSA_FIRST_V43_SELECTED_FORMULA_INDEPENDENT_ARITHMETIC_RECALC/1",
+  "dateKST": "2026-11-18",
+  "testCount": 18,
+  "passed": 18,
+  "failed": 0,
+  "scope": "Numerical arithmetic recheck of selected 2020/2021 economics, 2021 management and civil period examples only",
+  "contentFinalExpertApproved": 0,
+  "scoringApproved": 0,
+  "analysisItems": [
+    {
+      "topic": "2020 economics n107 monopoly deadweight loss",
+      "got": 40.5,
+      "expected": 40.5
+    },
+    {
+      "topic": "2020 economics n121 monopsony MFC and MRP",
+      "got": 800,
+      "expected": 800
+    },
+    {
+      "topic": "2020 economics n125 labor participation rate",
+      "got": 80,
+      "expected": 80
+    },
+    {
+      "topic": "2020 economics n125 employment rate",
+      "got": 40,
+      "expected": 40
+    },
+    {
+      "topic": "2020 economics n125 unemployment rate",
+      "got": 50,
+      "expected": 50
+    },
+    {
+      "topic": "2021 management n116 IRR A",
+      "got": 32,
+      "expected": 32
+    },
+    {
+      "topic": "2021 management n116 IRR B",
+      "got": 26.5,
+      "expected": 26.5
+    },
+    {
+      "topic": "2021 management n116 IRR C",
+      "got": 27.6,
+      "expected": 27.6
+    },
+    {
+      "topic": "2021 economics n106 profit-maximizing Q",
+      "got": 5,
+      "expected": 5
+    },
+    {
+      "topic": "2021 economics n106 max profit",
+      "got": 90,
+      "expected": 90
+    },
+    {
+      "topic": "2021 economics n110 Pigouvian tax",
+      "got": 4,
+      "expected": 4
+    },
+    {
+      "topic": "2021 economics n111 Solow steady-state capital",
+      "got": 25,
+      "expected": 25
+    },
+    {
+      "topic": "2021 economics n119 unemployment steady state count",
+      "got": 1000000,
+      "expected": 1000000
+    },
+    {
+      "topic": "2021 economics n123 monopoly wage",
+      "got": 100,
+      "expected": 100
+    },
+    {
+      "topic": "2021 economics n123 welfare loss",
+      "got": 500,
+      "expected": 500
+    },
+    {
+      "topic": "2021 economics n125 min-wage employment",
+      "got": 30,
+      "expected": 30
+    },
+    {
+      "topic": "2021 civil n60 3-month nominal ending Sunday",
+      "got": 0,
+      "expected": 0
+    },
+    {
+      "topic": "2021 civil n60 3-month extended Monday",
+      "got": 1,
+      "expected": 1
+    }
+  ]
+}
