@@ -1,0 +1,64 @@
+{
+  "schema": "NOMUSA_FIRST_V49_2013_2016_2018_SOURCE_DISCOVERY/1",
+  "asOfKST": "2026-11-18",
+  "targetYearCounts": {
+    "2013": 150,
+    "2016": 150,
+    "2018": 150
+  },
+  "officialLinkDiscovery": 2,
+  "historicalExternalSourceAttempts": 2,
+  "actualSHAValidatedAttachments": 0,
+  "formAndFullTextIndependentlyConfirmed": 0,
+  "registeredScoringApproved": 0,
+  "newQdataImported": 0,
+  "warnings": [
+    "2016 external PDF is a final answer sheet and NOT a problem booklet",
+    "2013 academy mirror not independently equal to QNet original",
+    "QNet ZIP postings can include A and B forms, inspect contents before linking to questions",
+    "No source bytes or result implies approval of 450 actual five-option original texts"
+  ],
+  "rows": [
+    {
+      "year": 2013,
+      "role": "EXTERNAL_SOURCE_QUESTION_BOTH_ELECTIVES_CANDIDATE",
+      "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
+      "url": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
+      "status": "DOWNLOAD_OR_STRUCTURE_HOLD",
+      "error": "SSLError:HTTPSConnectionPool(host='renew.primeedunet.com', port=443): Max retries exceeded with url: /public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_V"
+    },
+    {
+      "year": 2016,
+      "role": "EXTERNAL_SOURCE_A_FORM_FINAL_ANSWER_TABLE_NOT_QUESTION",
+      "authority": "ACADEMY_MIRROR_NOT_QNET_OFFICIAL",
+      "url": "https://renew.primeedunet.com/public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf",
+      "status": "DOWNLOAD_OR_STRUCTURE_HOLD",
+      "error": "SSLError:HTTPSConnectionPool(host='renew.primeedunet.com', port=443): Max retries exceeded with url: /public/file/board/043a844e-9db6-410b-b3ad-84cfc3a03192.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_V"
+    },
+    {
+      "year": 2016,
+      "role": "QNET_OFFICIAL_ECONOMICS_A_PDF_NOTICE",
+      "sourcePage": "https://www.q-net.or.kr/cst003.do?artlSeq=5183001&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "attachmentLabels": [
+        "경제학원론(A형).pdf"
+      ],
+      "noticeContainsAllNamedAttachments": true,
+      "attachmentCandidates": [],
+      "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
+      "downloadedAttachments": []
+    },
+    {
+      "year": 2018,
+      "role": "QNET_OFFICIAL_A_B_MIXED_ZIP_NOTICE",
+      "sourcePage": "https://www.q-net.or.kr/cst003.do?artlSeq=5203291&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "attachmentLabels": [
+        "경영학.zip",
+        "경제학.zip"
+      ],
+      "noticeContainsAllNamedAttachments": true,
+      "attachmentCandidates": [],
+      "status": "OFFICIAL_QNET_NOTICE_SEEN_NO_SHA_VERIFIED_ATTACHMENT",
+      "downloadedAttachments": []
+    }
+  ]
+}
