@@ -49,8 +49,18 @@ def test():
                     if year in [2020,2021]:
                         assert page.locator("#rows tr").first.locator("a").count()==2
                         assert "Q-Net" in page.locator(".notice").inner_text()
+                        pdfurl=page.locator("#rows tr").first.locator("a").first.get_attribute("href")
+                        assert pdfurl.startswith("https://www.q-net.or.kr/"),pdfurl
+                    elif year==2018:
+                        assert page.locator("#rows tr").first.locator("a").count()==1
+                        assert "artlSeq=5203291" in page.locator("#rows tr").first.locator("a").get_attribute("href")
                     else:
                         assert page.locator("#rows tr").first.locator("a").count()==0
+                    if year==2016:
+                        page.locator("#subject").select_option("경제학원론")
+                        assert page.locator("#rows tr").count()==25
+                        assert "artlSeq=5183001" in page.locator("#rows tr").first.locator("a").get_attribute("href")
+                        page.locator("#subject").select_option("")
                     assert page.evaluate("document.documentElement.scrollWidth-document.documentElement.clientWidth")<=1
                     result.append({"width":width,"name":f"read-only-existing-{year}-A-150","status":"PASS"})
                 page.goto(base+"/study-hub/first-legacy-answers.html?year=2021&type=B",wait_until="domcontentloaded")
