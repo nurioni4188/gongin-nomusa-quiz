@@ -1,0 +1,23 @@
+{
+  "schema": "NOMUSA_FIRST_V59_79_QNET_AFORM_UNRESOLVED_PAGE_BRACKETS/1",
+  "asOfKST": "2026-11-18",
+  "unresolvedQuestionIDs": 79,
+  "officialQnetAFormPDFHashesMatched": 3,
+  "preExistingV51IndividualProvisionalCropsPreserved": 96,
+  "orderedPageBracketsFound": 63,
+  "unresolvedWithoutTightBracket": 16,
+  "uniqueOfficialFullPageJPEGsForReview": 38,
+  "stateCounts": {
+    "MULTIPLE_NUMBER_HITS_FILTERED_TO_ONE_NEIGHBOR_PAGE_CANDIDATE": 3,
+    "NO_TIGHT_ORDERED_PAGE_BOUNDS_HOLD": 16,
+    "ORDINALLY_BOUNDED_SOURCE_PAGE_REVIEW": 60
+  },
+  "fullQuestionAndFiveOptionsApproved": 0,
+  "officialFinalAnswerCellApproved": 0,
+  "independentHistoricalLegalAcademicContentApproved": 0,
+  "newQDATAImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_79_OFFICIAL_PAGE_BRACKET_TRIAGE_HOLD_FINAL_CONTENT_APPROVAL",
+  "warning": "Provisional OCR/neighbor bracket constraints from the same scanned Q-Net source. A bracket is NOT a verified individual page or option-proofread.",
+  "full79EvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V59/NOMUSA_FIRST_V59_79_UNRESOLVED_PAGES_REVIEW.json"
+}
