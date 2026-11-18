@@ -38,14 +38,14 @@ jobs:
         with:
           name: nomusa-first-v55-2016-management-125-original-qnet-page-crops-0-scoring
           run-id: 44322740545
-          github-token: __GITHUB_TOKEN__
+          github-token: ${{ github.token }}
           path: review-artifacts/NOMUSA_FIRST_V55
       - name: Restore six historical official QNet A-form source PDFs from V42
         uses: actions/download-artifact@v4
         with:
           name: nomusa-first-v42-six-official-original-pdfs-reference-only
           run-id: 44239470952
-          github-token: __GITHUB_TOKEN__
+          github-token: ${{ github.token }}
           path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
       - name: Install PDF original source verification and image tools
         run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 pillow==11.3.0 requests==2.32.5
