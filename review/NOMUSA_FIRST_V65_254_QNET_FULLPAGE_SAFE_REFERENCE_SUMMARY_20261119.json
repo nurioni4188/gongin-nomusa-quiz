@@ -1,0 +1,39 @@
+{
+  "schema": "NOMUSA_FIRST_V65_254_FULL_ORIGINAL_PAGE_SAFEGUARD_AND_CROP_RISK/1",
+  "asOfKST": "2026-11-19",
+  "targetUniqueSourceCropIds": 254,
+  "originalOfficialQNetFullPageReviewerImagesGenerated": 254,
+  "originalPageSHAValidated": 254,
+  "sourceStages": {
+    "V48": 67,
+    "V51": 96,
+    "V55": 91
+  },
+  "geometryRiskStateCounts": {
+    "FULL_ORIGINAL_PAGE_REVIEW_REQUIRED": 238,
+    "OVERLAPPING_CANDIDATE_CROPS_REVIEW": 4,
+    "SUSPECT_GAP_CONTAINS_SOURCE_CONTENT_REVIEW": 12
+  },
+  "individualIssueFlagCounts": {
+    "CANDIDATE_OVERLAPS_NEXT_NUMBERED_QUESTION": 4,
+    "CROP_ENDS_NEAR_PAGE_FOOTER_CHECK_CONTINUATION": 102,
+    "CROP_HEIGHT_UNDER_15_PERCENT_OF_PAGE": 30,
+    "CROP_MAY_INCLUDE_NEIGHBORING_QUESTIONS": 6,
+    "CROP_NEAR_PAGE_BOTTOM_CONTINUATION_CHECK": 102,
+    "CROP_STARTS_NEAR_PAGE_HEADER": 30,
+    "EXACT_STEM_FIVE_CHOICES_MATH_GRAPH_OR_SHARED_TEXT_REVIEW_HOLD": 254,
+    "INK_OR_TEXT_BETWEEN_CURRENT_CROP_END_AND_NEXT_QUESTION": 12,
+    "OCR_CIRCLED_OPTIONS_NOT_FULLY_DETECTED": 254,
+    "OCR_SAW_DIFFERENT_QUESTION_NUMBER": 76,
+    "SHORT_CROP_MAY_OMIT_CHOICES": 34
+  },
+  "independentOriginalFiveOptionContentApproved": 0,
+  "independentOfficialAnswerCellApproved": 0,
+  "independentHistoricalLegalAcademicContentApproved": 0,
+  "newAppImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_254_UNTRUNCATED_ORIGINAL_PAGE_REFERENCES_WITH_SOURCE_RISK_FLAGS_HOLD_SCORING",
+  "warning": "Full-page original references prevent hiding content from reviewers. They do not prove the crop is the complete original exam question or permit grading without independent review.",
+  "full254ReviewArtifact": "review-artifacts/NOMUSA_FIRST_V65/NOMUSA_FIRST_V65_254_FULLPAGE_SOURCE_RISK_QUEUE.json",
+  "offlineReviewGallery": "review-artifacts/NOMUSA_FIRST_V65/NOMUSA_FIRST_V65_254_SOURCE_REVIEW_GALLERY.html"
+}
