@@ -66,6 +66,8 @@
     2008: 125, 2009: 125, 2010: 125, 2011: 149, 2012: 149,
     2014: 150, 2015: 150, 2017: 144, 2019: 142,
   });
+  const firstGapEvidence = window.NOMUSA_FIRST_V33_COVERAGE;
+  const firstGapMap = new Map((firstGapEvidence?.missingYears || []).map(row => [row.year,row]));
   const firstYearCoverage = Array.from({length: 19}, (_, i) => 2008 + i).map(year => ({
     year,
     count: firstLegacyCounts[year] ?? firstRows.filter(row => row.year === year).length,
@@ -245,8 +247,13 @@
           }).join('')}</div>
         </section>
         <section class="card"><div class="section-head"><div><h2>1차 연도별 수록 현황</h2><p>2008~2026년 · A형 편입 장부와 기존 1,020문항 기준</p></div></div>
-          <div class="year-grid">${firstYearCoverage.map(item => `<div class="year-card" aria-label="${item.year}년 ${item.count ? item.count + '문항 수록' : '미편입'}"><b>${item.year}</b><small>${item.count ? item.count + '문항' : '편입 대기'}</small></div>`).join('')}</div>
-          <p class="muted small">수록된 문항만 합산했습니다. 일부 과거 연도는 미편입이며 정답 채점은 검토 중입니다. <a href="first-legacy-answers.html">원본·정답 검증 단계 보기(3,400건 후보)</a></p>
+          <div class="year-grid">${firstYearCoverage.map(item => {
+            const missing=firstGapMap.get(item.year);
+            if(missing) return `<a class="year-card" href="first-legacy-answers.html?year=${missing.year}&type=A" style="text-decoration:none" aria-label="${item.year}년 정답 후보 ${missing.candidateA+missing.candidateB}건 검토 · 원문 문제풀이 미편입"><b>${item.year}</b><small>정답 후보 ${missing.candidateA+missing.candidateB}건 · 원문 미편입</small></a>`;
+            const short=(firstGapEvidence?.partialYearMissingA||{})[item.year];
+            return `<div class="year-card" aria-label="${item.year}년 ${item.count}문항 수록${short?` · ${short}문항 편입 대기`:``}"><b>${item.year}</b><small>${item.count?`${item.count}문항 수록${short?` · ${short}대기`:``}`:"편입 대기"}</small></div>`;
+          }).join("")}</div>
+          <p class="muted small">수록된 2,279문항만 학습 문제수에 합산합니다. 2013·2016·2018·2020·2021년은 기존 A·B 정답 후보 각 300건이 있어 연도 선택 시 검토페이지로 이동하지만 문제풀이 편입·채점 승인을 뜻하지 않습니다. <a href="first-legacy-answers.html">원본·정답 검증 단계 전체보기(3,400건 후보)</a></p>
         </section>
         <section class="card"><div class="section-head"><h2>내 학습 진도</h2></div>
           ${progressLine('2차 복습 완료', doneEssay, essayRows.length)}
