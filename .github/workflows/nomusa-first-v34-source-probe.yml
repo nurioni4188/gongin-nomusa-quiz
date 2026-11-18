@@ -1,0 +1,46 @@
+name: NOMUSA First V34 official PDF primary source recovery probe
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v34-source-probe.yml'
+      - 'scripts/nomusa-first-v34-official-source-probe.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v34-qnet-official-probe
+  cancel-in-progress: true
+jobs:
+  qnet-sources:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - name: Checkout review branch without write token
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PDF libraries
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5
+      - name: Download official Q-Net PDF and verify original SHA256 / detect image-only scans
+        run: python scripts/nomusa-first-v34-official-source-probe.py
+      - name: Upload primary-source structure report (not PDFs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v34-qnet-official-original-structure
+          path: review-artifacts/NOMUSA_FIRST_V34/NOMUSA_FIRST_V34_SOURCE_PROBE.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: No scoring or repository mutations
+        if: always()
+        run: |
+          git diff --exit-code
+          echo 'ORIGINAL_QUESTION_SOURCE_EXTRACTION_ONLY NO_FABRICATED_OPTION=1'
+          echo 'MAIN_PRODUCTION_PREVIEW_UNTOUCHED=1'
