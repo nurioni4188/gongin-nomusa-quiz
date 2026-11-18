@@ -48,13 +48,10 @@ jobs:
           run-id: 44239470952
           github-token: ${{ github.token }}
           path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
-      - name: Retrieve V40 300 source-number candidates and 137 original image previews
-        uses: actions/download-artifact@v4
-        with:
-          name: nomusa-first-v40-300-unapproved-question-location-review
-          run-id: 44235916434
-          github-token: __GH_TOKEN__
-          path: review-artifacts/NOMUSA_FIRST_V40_IMPORTED
+      - name: Use SHA-proven V41 original images directly from review branch
+        run: |
+          echo 'V41_REPOSITORY_103_SHA_PROVEN_CROPS'
+          echo 'V40 older artifact is optional; remaining candidates without original images stay HOLD'
       - name: V43 examine 103 SHA-proven original source crops with OCR hints and HOLD content
         run: python scripts/nomusa-first-v43-v46-source-triage.py --phase v43
       - name: V46 classify other 686 source candidates using the same official evidence gate
