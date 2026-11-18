@@ -1,0 +1,23 @@
+{
+  "schema": "NOMUSA_FIRST_V69_2017_2019_14_SECONDARY_NATIVE_STEM_FIVE_OPTIONS/1",
+  "asOfKST": "2026-11-19",
+  "target": 14,
+  "individualFiveOptionNativeDrafts": 14,
+  "officialQNetOriginalCertifications": 0,
+  "completeVisualOriginalProofreadingApprovals": 0,
+  "verifiedFinalAnswerCells": 0,
+  "historicalLegalEconomicTheoryApprovals": 0,
+  "newScoringApprovals": 0,
+  "newAppImports": 0,
+  "riskCounts": {
+    "ECONOMICS_EQUATIONS_GRAPH_NOT_VISUALLY_APPROVED": 9,
+    "EXAM_YEAR_CIVIL_LAW_AND_PRECEDENTS_NOT_APPROVED": 4,
+    "PDF_PRIVATE_USE_MATH_GLYPHS_NOT_READABLE_AS_TEXT": 6,
+    "REMOVED_PRINTED_PAGE_FOOTER_FROM_OPTION_TEXT": 2,
+    "SECONDARY_SOURCE_NOT_AUTHENTICATED_AGAINST_OFFICIAL_QNET": 14,
+    "TABLE_OR_GRAPH_MUST_BE_VISUALLY_COMPARED": 3
+  },
+  "status": "PASS_14_NATIVE_STEM_FIVE_OPTION_DRAFTS_GLYPH_AND_FOOTER_QA_HOLD_SCORING",
+  "warning": "Native PDF candidate text may omit graphs/formulas or contain private-use symbols; source is a third-party mirror not independently authenticated Q-Net original.",
+  "sourceDraftArtifact": "review-artifacts/NOMUSA_FIRST_V69/NOMUSA_FIRST_V69_14_FIVE_OPTIONS_CANDIDATES.json"
+}
