@@ -109,8 +109,26 @@ def main():
         if kind is None:continue
         for x in headings(page):bykind[kind][x["number"]].append((ix,x))
     indices={}
+    duplicate_heading_candidate_resolutions=[]
     for kind,byNum in bykind.items():
-        indices[kind]=dict((n,v) for n,v in byNum.items())
+        validated={}
+        for n,hits in byNum.items():
+            original=list(hits)
+            if len(original)>1:
+                standalone=[(ix,a) for ix,a in original
+                            if a["lineTextSample"].strip() in (str(n)+".",str(n)+"．")]
+                # Exact standalone printed heading is more specific than
+                # e.g. "1. 기본금액", which is a nested list item at p31.
+                # This is a source-anchor heuristic, NOT human proofread.
+                if len(standalone)==1:
+                    hits=standalone
+                    duplicate_heading_candidate_resolutions.append({
+                        "booklet":kind,"questionNumber":n,
+                        "chosen":[{"pdfPage":ix+1,**a} for ix,a in hits],
+                        "excludedNestedListCandidates":[{"pdfPage":ix+1,**a} for ix,a in original if (ix,a) not in hits],
+                        "approval":"PROVISIONAL_HEADING_DISAMBIGUATION_NOT_INDEPENDENT_SOURCE_PROOFREAD"})
+            validated[n]=hits
+        indices[kind]=validated
     rows=[];states=Counter();cropNum=0
     for r in qtargets:
         id=r["id"];n=r["number"]
@@ -180,6 +198,8 @@ def main():
         "numberAmbiguousOrMissing":150-states["NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED"],
         "ambiguousCandidateQuestionDetails":[{"id":z["id"],"number":z["number"],"subject":z["subject"],"booklet":z["sourceBookletFooter"],"status":z["status"],"headingPositions":z["matchingNumberLocations"]} for z in rows if z["status"]!="NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED"],
         "provisionalImageParts":cropNum,
+        "disambiguatedPrintedHeadingCandidateCount":len(duplicate_heading_candidate_resolutions),
+        "disambiguatedPrintedHeadingCandidateEvidence":duplicate_heading_candidate_resolutions,
         "states":dict(sorted(states.items())),
         "officialQNetSourceEqualityApproved":0,
         "independentOriginalQuestionsApproved":0,
