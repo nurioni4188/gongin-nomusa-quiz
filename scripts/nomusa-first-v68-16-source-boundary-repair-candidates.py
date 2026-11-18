@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """V68: issue actual revised Q-Net original-image crop candidates ONLY for
-16 V65 objectively suspicious boundaries (4 overlaps + 12 ink-filled gaps).
+16 V65 suspicious boundaries (4 overlaps + 12 ink-filled gaps).
+Only 4 where the next candidate is exactly the next printed question in the
+same subject/year get a revised crop. The other 12 remain explicit HOLD.
 
 Use SHA-checked official PDFs, not OCR text or invented question answers.
 Crop ends get clamped just before the next *candidate heading* of the page,
-preserving original IDs and images. Revised 16 JPEGs and old/new side-by-side
+preserving original IDs and images. Revised 4 JPEGs and old/new side-by-side
 comparisons are reviewer-only: headings can be false positives, shared text
 may cross pages, ①~⑤ may still be incomplete. No QDATA or scoring mutation.
 """
@@ -64,8 +66,28 @@ def main():
   "OVERLAPPING_CANDIDATE_CROPS_REVIEW":4,
   "SUSPECT_GAP_CONTAINS_SOURCE_CONTENT_REVIEW":12},"16_SOURCE_FLAGS_"+str(counts))
  require(len(suspicious)==16 and len({q["id"] for q in suspicious})==16,"16_UNIQUE")
- edits=[];types=Counter()
+ safe=[];held=[]
  for q in suspicious:
+  current=q["id"].split("-")
+  following=(q["nearestOtherCandidateQuestionId"] or "").split("-")
+  same_valid_sequence=(len(current)==len(following)==5 and
+     current[1:4]==following[1:4] and
+     int(following[-1])==int(current[-1])+1)
+  if same_valid_sequence:
+   safe.append(q)
+  else:
+   held.append({"id":q["id"],"year":q["year"],"subject":q["subject"],
+     "currentQuestionNumber":q["questionNumber"],
+     "nextProvisionalQuestionId":q["nearestOtherCandidateQuestionId"],
+     "originalRisk":q["state"],
+     "holdReason":"NEXT_ANCHOR_NOT_CONTIGUOUS_SAME_YEAR_AND_SUBJECT",
+     "oldCropPreserved":True,
+     "fullOriginalPageReferencePreserved":True,
+     "noUnsafeGeometryChangeApplied":True,
+     "independentContentApproved":False,"scoringApproved":False})
+ require(len(safe)==4 and len(held)==12,"FOUR_SAFE_NEIGHBORS_TWELVE_HOLD")
+ edits=[];types=Counter()
+ for q in safe:
   id=q["id"]
   previous=sourceByID[id]
   src=q["originalSourcePdfSHA256"]
@@ -115,15 +137,16 @@ def main():
    "independentReviewerApproved":False,"readyForV44":False,"scoringApproved":False,
    "status":"SHA_VERIFIED_SOURCE_REGION_REPAIR_CANDIDATE_AWAITING_NATIVE_REVIEW"})
  for doc,_ in docs.values():doc.close()
- require(len(edits)==16 and len({e["id"] for e in edits})==16,"16_REPAIRS")
- require(types["SHORTEN_BEFORE_NEXT_HEADING_CANDIDATE"]==4 and types["EXTEND_OVER_POTENTIALLY_OMITTED_INK"]==12,
-  "REPAIR_TYPE_COUNTS")
+ require(len(edits)==4 and len({e["id"] for e in edits})==4,"FOUR_CAUTIONARY_REVISIONS")
+ require(types["SHORTEN_BEFORE_NEXT_HEADING_CANDIDATE"]==1 and types["EXTEND_OVER_POTENTIALLY_OMITTED_INK"]==3,
+  "SAFE_SEQUENTIAL_REPAIR_TYPES")
  report={"schema":"NOMUSA_FIRST_V68_16_QNET_IMAGE_SOURCE_REVISED_BOUNDARY_CANDIDATES/1",
     "asOfKST":"2026-11-19",
     "originalImageQAUniverse":254,
     "sourceGeometrySuspiciousTargets":16,
-    "overlapSourceRevisedCandidates":4,
-    "inkGapSourceRevisedCandidates":12,
+    "overlapSourceRevisedCandidates":1,
+    "inkGapSourceRevisedCandidates":3,
+    "unsafeNonsequentialOrCrossSubjectCandidatesHeld":12,
     "unchangedOriginalCandidateImagesPreserved":254,
     "newSeparateRevisedQNetCropImages":len(edits),
     "oldVsNewComparisonImages":len(edits),
@@ -131,9 +154,9 @@ def main():
     "independentlyVerifiedFullQuestionAndAllFiveOptions":0,
     "officialAFormAnswerAndExamDateLawVerified":0,
     "newQdataImports":0,"newScoringApproved":0,
-    "status":"PASS_16_QNET_CROP_BOUNDARY_REVISED_EVIDENCE_HOLD_FINAL_CONTENT_AND_GRADING",
-    "warning":"Repair proposal uses next provisional question heading, not an independently verified printed item boundary. Visual compare each revised crop against full original page before approval.",
-    "rows":edits}
+    "status":"PASS_4_SEQUENTIAL_QNET_CROP_REVISED_12_UNSAFE_ANCHORS_HELD_NO_SCORING",
+    "warning":"Only contiguous printed sequence in same year/subject qualifies for a revised image candidate. 12 unsafe anchors are preserved unchanged; even 4 proposals lack independent full-question verification.",
+    "rows":edits,"unsafeHeldRows":held}
  OUT.mkdir(parents=True,exist_ok=True)
  (OUT/"NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json").write_text(
     json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
@@ -143,7 +166,9 @@ def main():
   for e in edits:w.writerow([e["id"],e["year"],e["subject"],e["questionNumber"],e["repairProposal"],
     e["originalQNetPdfSHA256"],e["pdfPage"],e["originalCrop"]["file"],e["revisedSourceCrop"]["file"],
     e["comparisonPreview"]["path"],"HOLD","HOLD"])
- short={k:v for k,v in report.items() if k!="rows"}
+ short={k:v for k,v in report.items() if k not in ("rows","unsafeHeldRows")}
+ short["heldQuestionIDs"]=[q["id"] for q in held]
+ short["revisedCandidateQuestionIDs"]=[q["id"] for q in edits]
  short["full16SourceRepairEvidence"]="review-artifacts/NOMUSA_FIRST_V68/NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json"
  SUMMARY.write_text(json.dumps(short,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(short,ensure_ascii=False))
