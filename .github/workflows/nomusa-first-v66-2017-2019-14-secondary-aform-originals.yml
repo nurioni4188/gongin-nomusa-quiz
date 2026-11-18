@@ -1,0 +1,82 @@
+name: NOMUSA FIRST V66 recover 2017 and 2019 14 missing A-source PDF candidates
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v66-2017-2019-14-secondary-aform-originals.yml'
+      - 'scripts/nomusa-first-v66-2017-2019-14-original-pdf-crosscheck.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v66-14-secondary-booklet-sources
+  cancel-in-progress: true
+jobs:
+  crosscheck-historical-secondary-aform:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate old 791 A-form review IDs without modifying app
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Install native source PDF inspection
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5
+      - name: Download and SHA-check four secondary 2017 2019 A-form source booklets and trace 14 missing ID/page candidates
+        run: |
+          python -m py_compile scripts/nomusa-first-v66-2017-2019-14-original-pdf-crosscheck.py
+          python scripts/nomusa-first-v66-2017-2019-14-original-pdf-crosscheck.py
+      - name: Keep official source equivalence and historic content/score approval HOLD
+        run: |
+          python - <<'PY'
+          import json,subprocess,hashlib
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V66')
+          a=json.loads((root/'NOMUSA_FIRST_V66_14_SECONDARY_PDF_ORIGINAL_CANDIDATES.json').read_text(encoding='utf-8'))
+          assert a['targetMissingQNetPDFSourceIds']==len(a['rows'])==14
+          assert a['targetYears']=={'2017':6,'2019':8}
+          assert a['thirdPartyPdfSHAConnectedCandidateIDs']==14
+          assert a['secondaryHostMirrorBookletPdfShaValidated']==4
+          assert len({x['id'] for x in a['rows']})==14
+          assert a['officialQNetOriginalPdfEqualityApproved']==a['independentFullTextFiveOptionProofread']==0
+          assert a['newScoringApproved']==a['newQdataImports']==0
+          for k,v in a['booklets'].items():
+            path=root/v['file']
+            assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==v['pdfSha256'],k
+          assert all(q['scoringApproved'] is False and q['readyForV44'] is False
+             and q['secondaryPdfMatchesOfficialQNetOriginal'] is False for q in a['rows'])
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({'review/NOMUSA_FIRST_V66_2017_2019_14_MIRROR_ORIGINAL_A_SOURCE_SUMMARY_20261119.json'}),modified
+          print('PASS_V66_14_SECONDARY_AFORM_SOURCE_LINKS_ORIGINAL_CONTENT_SCORING_HOLD')
+          PY
+      - name: Commit only review-provenance status to existing Draft PR branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V66_2017_2019_14_MIRROR_ORIGINAL_A_SOURCE_SUMMARY_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v66): 2017/2019 14 secondary A-booklet source SHA candidates, all scoring HOLD'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve 14 unapproved original text candidates, source PDFs and CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v66-2017-2019-14-secondary-a-original-sha-candidates
+          path: review-artifacts/NOMUSA_FIRST_V66/
+          if-no-files-found: warn
+          retention-days: 14
