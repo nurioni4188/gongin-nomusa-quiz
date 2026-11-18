@@ -55,7 +55,10 @@ if(item) {
     ? ` · ${printedPage}쪽${item.pdfLastPage ? `–${item.pdfLastPage}쪽` : ''}`
     : '';
   const option=booklet.elective==='economics' ? '경제' : '경영';
-  addLink(booklet.download, `${x.type}형 ${option} 문제지${paperPage}`);
+  const originalPdfPage=verifiedPage?.[0]||(item.status==='OCR_PAGE_CANDIDATE'?item.pdfPage:null);
+  const sourcePageURL=Number.isInteger(originalPdfPage)&&originalPdfPage>0?
+    booklet.download+'#page='+originalPdfPage:booklet.download;
+  addLink(sourcePageURL, `${x.type}형 ${option} 문제지${Number.isInteger(originalPdfPage)?' · PDF '+originalPdfPage+'쪽':''}${paperPage}`);
   const linkStatus=document.createElement('span');
   linkStatus.className='muted';
   if(Number.isInteger(v71PdfPage)) {
@@ -76,6 +79,11 @@ if(item) {
   const noted=document.createElement('span');noted.className='muted';
   noted.textContent='기존 문제지 파일명 기록: '+x.questionSourceFile+' · 문항별 원문 미연결';
   links.append(noted);
+  if(x.year===2016&&x.subject==='경제학원론') {
+    addLink('https://www.q-net.or.kr/cst003.do?artlSeq=5183001&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309','Q-Net 2016 경제학 A형 원본 게시물 · 개별 문항 대조 대기');
+  } else if(x.year===2018) {
+    addLink('https://www.q-net.or.kr/cst003.do?artlSeq=5203291&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309','Q-Net 2018 공식 문제지 ZIP · 개별 문항 대조 대기');
+  }
 } else {
   links.textContent='문항 원문 미연결 · 정답 후보만 등록';
 }
