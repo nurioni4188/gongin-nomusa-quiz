@@ -90,7 +90,33 @@ def parse_official_attachments(raw,base,labels):
                 link=html.unescape(found)
                 if link.startswith("https://"):
                     candidates.append({"label":name or title,"url":link,"evidence":"EMBEDDED_FULL_HREF"})
-    return candidates[:8]
+    # A public Q-Net attachment is emitted as:
+    # <div class="file"><p>경영학.zip</p><button
+    # onclick="fileDown('bbs/Q004/Q004_2186568','경영학.zip','2186568')">
+    # The three arguments below are read from HTML, never guessed.
+    if urllib.parse.urlparse(base).hostname=="www.q-net.or.kr":
+        query=urllib.parse.parse_qs(urllib.parse.urlsplit(base).query)
+        article=query.get("artlSeq",[""])[0]
+        for block in soup.select("div.file"):
+            p=block.find("p"); btn=block.find(attrs={"onclick":True})
+            label=p.get_text(" ",strip=True) if p else ""
+            if not label or not any(v.lower()==label.lower() for v in labels):
+                continue
+            click=btn.get("onclick","") if btn else ""
+            m=re.search(r"fileDown\(\s*'([^']+)'\s*,\s*'([^']+)'\s*,\s*'(\d+)'\s*\)",click)
+            if not m:continue
+            file_path,file_name,seq=m.groups()
+            if label!=file_name or not file_path.startswith("bbs/Q004/Q004_") or not file_path.endswith(seq) or not article.isdecimal():
+                continue
+            args=[("id","cst00302s01"),("gSite","L"),("gId","05"),
+                  ("fileCode","R001"),("filePath",file_path),("fileName",file_name),
+                  ("fileSeq",seq),("artlSeq",article),("href","0")]
+            direct="https://www.q-net.or.kr/cst003.do?"+urllib.parse.urlencode(args)
+            candidates.append({"label":file_name,"url":direct,
+                               "fileSeq":seq,"sourceFilePath":file_path,
+                               "evidence":"ACTUAL_QNET_PUBLIC_FILEDOWN_HTML_ARGS"})
+    dedup={v["url"]:v for v in candidates}
+    return list(dedup.values())[:8]
 
 def main():
     outcomes=[]
