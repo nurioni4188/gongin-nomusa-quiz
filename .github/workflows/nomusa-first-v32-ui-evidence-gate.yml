@@ -71,8 +71,8 @@ jobs:
           assert q['evidence']['QNetGridImageCompared']==600
           assert q['evidence']['independentScoringApproved']==0
           assert q['legacyScoring']=='DISABLED' and q['existing2022to2026Scoring']=='UNMODIFIED'
-          assert 'const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021&&!V42_PILOT_SCORED_IDS.has(q.k))' in Path('index.html').read_text()
-          assert 'const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010, ...FIRST_BATCH, ...FIRST_V42];' in Path('index.html').read_text()
+          assert 'const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021&&!V42_PILOT_SCORED_IDS.has(q.k)&&!V44_APPROVED_SCORED_IDS.has(q.k))' in Path('index.html').read_text()
+          assert 'const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010, ...FIRST_BATCH, ...FIRST_V42, ...FIRST_V44];' in Path('index.html').read_text()
           assert len(list(Path('review/first-v42-four-corrected-crops').glob('*.jpg')))==4
           assert 'window.NOMUSA_FIRST_V42_SCORING_IDS=Object.freeze(raw.map(x=>x.k))' in Path('study-hub/first-v42-two-theory-source-checked.js').read_text()
           print('PASS_V32_3400_CANDIDATES_900_SOURCES_600_IMAGE_0_SCORING_APPROVAL')
