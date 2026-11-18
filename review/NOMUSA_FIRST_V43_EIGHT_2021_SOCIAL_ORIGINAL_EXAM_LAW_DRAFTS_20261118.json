@@ -29,9 +29,9 @@
       "lawExplanationDraft": "사회보장기본법은 수급권의 처분을 제한해 관계법령에서 정한 바에 따라 타인에게 양도하거나 담보로 제공할 수 없고 압류도 금지한다. 따라서 '관계 법령에 따라 양도할 수 있다'는 ②가 틀리다. 수급권의 제한·정지·포기는 별도로 요건을 심사한다.",
       "lawArticlesToReview": "사회보장기본법 제12조·제13조·제14조",
       "legalPrimarySourceCandidates": [
-        "https://www.law.go.kr/lsInfoP.do?efYd=20260915&lsiSeq=289735"
+        "https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200708&lsiSeq=217261"
       ],
-      "examDateStatuteSpecificHold": "현행 출처는 2026년 판본이므로 2021-05-08 시행본과 수급권 제한·정지 조항 대조 필요",
+      "examDateStatuteSpecificHold": "2026-09-15 link was post-exam; replaced with official 2020-07-08 pre-exam Social Security Framework Act snapshot; recheck 2021 exam-date amendments/provisos",
       "sourceCropImage": "review/first-v41-native-crops/legacy1-2021-A-social-078.jpg",
       "sourceCropSHA256": "c59bf5858bf72bc4bf356f2069dab5ec3727add3d26c80be5c2929ebf18fdea0",
       "officialQNetPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
@@ -43,7 +43,9 @@
       "independentHumanSecondProofread": false,
       "readyForV44": false,
       "scoringApproved": false,
-      "status": "SOCIAL_EIGHT_OFFICIAL_IMAGE_AND_KEY_LEGAL_STUDY_DRAFT_HOLD"
+      "status": "SOCIAL_EIGHT_OFFICIAL_IMAGE_AND_KEY_LEGAL_STUDY_DRAFT_HOLD",
+      "examDatePrimaryLawCandidateReplaced": true,
+      "independentHumanApproval": false
     },
     {
       "id": "legacy1-2021-A-social-079",
