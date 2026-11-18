@@ -43,7 +43,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-103",
@@ -80,7 +81,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-105",
@@ -117,7 +119,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-108",
@@ -154,7 +157,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-111",
@@ -191,7 +195,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-114",
@@ -228,7 +233,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-116",
@@ -265,7 +271,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-119",
@@ -302,7 +309,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2020-A-management-120",
@@ -337,7 +345,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-106",
@@ -372,7 +381,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-107",
@@ -409,7 +419,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-108",
@@ -446,7 +457,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-111",
@@ -483,7 +495,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-112",
@@ -518,7 +531,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-113",
@@ -555,7 +569,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-118",
@@ -592,7 +607,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-119",
@@ -627,7 +643,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-121",
@@ -664,7 +681,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-122",
@@ -701,7 +719,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-124",
@@ -738,7 +757,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     },
     {
       "id": "legacy1-2021-A-management-125",
@@ -775,7 +795,8 @@
       "wordByWordSecondReviewerPassed": false,
       "independentExpertApproval": false,
       "readyForV44ScoringImport": false,
-      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD"
+      "status": "CONTENT_DRAFT_SOURCE_VERIFIED_SECOND_INDEPENDENT_REVIEW_HOLD",
+      "scoringApproved": false
     }
   ]
 }
