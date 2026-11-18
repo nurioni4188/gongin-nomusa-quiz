@@ -45,6 +45,15 @@ def main():
     q2016=next(r for r in source["rows"] if r["year"]==2016 and "QNET_OFFICIAL" in r["role"])
     q2018=next(r for r in source["rows"] if r["year"]==2018 and "QNET_OFFICIAL" in r["role"])
     require(len(q2016["downloadedAttachments"])==1 and len(q2018["downloadedAttachments"])==2,"OFFICIAL_THREE_FILES")
+    # Fixed SHA values from independent preceding V49 Q-Net retrieval.
+    # A later changed attachment is a source HOLD, never silent overwrite.
+    require(r2013.get("sha256")=="57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677","2013_MIRROR_SHA_CHANGED")
+    require(r2016.get("sha256")=="6b6d572c48eea02f58f79005d035ef2f97f50b3579e3eceb1a2d51dde0c728e9","2016_ANSWER_MIRROR_SHA_CHANGED")
+    require([x["sha256"] for x in q2016["downloadedAttachments"]]==[
+        "eb20585599fee9541ea5eae5ad7d56e87cba75a4c6fe1ed674f7280e43a3ac5e"],"2016_QNET_ECON_SOURCE_SHA_CHANGED")
+    require([x["sha256"] for x in q2018["downloadedAttachments"]]==[
+        "16e024bc4198502bcd7bb25edc547a85e2065145b19ad5f50fd4427e71f3320d",
+        "e381d7d734280d8aad8a0399cdffa2411bc3ae8a80a8b5a6aa91b79046929de6"],"2018_QNET_TWO_ZIPS_SHA_CHANGED")
     docs={}
     mirror=REF/"2013_first_question_candidate.pdf"
     require(mirror.is_file() and digest(mirror.read_bytes())==r2013["sha256"],"2013_EXTERNAL_MIRROR_SHA")
