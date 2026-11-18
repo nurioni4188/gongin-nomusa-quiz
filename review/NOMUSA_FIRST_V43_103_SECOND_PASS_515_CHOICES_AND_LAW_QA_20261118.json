@@ -14,8 +14,8 @@
   "statedSourceKeyConflicts": 0,
   "shortReasonWarningsAfterPatch": 0,
   "legalExamDateCaseCount": 25,
-  "historicPreExamPartialAnchors": 14,
-  "historicalAuthoritiesNotLocated": 11,
+  "historicPreExamPartialAnchors": 19,
+  "historicalAuthoritiesNotLocated": 6,
   "contentSecondIndependentExpertApprovals": 0,
   "approvedScoringNew": 0,
   "baselineQDATA": 2281,
@@ -1438,7 +1438,7 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
@@ -1510,7 +1510,7 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
@@ -1528,7 +1528,7 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
@@ -1546,7 +1546,7 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
@@ -1582,7 +1582,7 @@
       "explanationEvidence": "review/NOMUSA_FIRST_V43_10_LABOR_ALL_FIVE_CHOICE_REASONING_20261118.json",
       "perOptionExplanationStage": "SECOND_PASS_51_OPTION_SUPPLEMENT",
       "perOptionExplanations": 5,
-      "examLawProof": "EXAM_DATE_PRIMARY_STATUTE_OR_PRE_EXAM_CASE_PENDING",
+      "examLawProof": "PARTIAL_PRE_EXAM_PRIMARY_SOURCE_OR_GOVERNMENT_GUIDE_LINKED",
       "softwareEvidenceCrosscheck": "PASS",
       "errors": [],
       "needWordForWordSecondProofread": true,
@@ -1877,5 +1877,6 @@
       "needIndependentHumanLegalOrAcademicReview": true,
       "approvedForLearningScoring": false
     }
-  ]
+  ],
+  "latestLawEvidenceLedgerVersion": "2026-11-18/19_PRE_EXAM_ANCHORS_6_PENDING"
 }
