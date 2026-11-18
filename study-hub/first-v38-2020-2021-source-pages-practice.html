@@ -1,0 +1,40 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>2020·2021년 공인노무사 1차 원본 페이지 학습 (채점 전)</title>
+<style>
+:root{color:#203448;background:#f6f8fc;font:15px/1.65 system-ui,'Malgun Gothic',sans-serif}*{box-sizing:border-box}body{margin:0}
+main{max-width:1060px;margin:auto;padding:14px 12px 70px}h1{font-size:23px;line-height:1.4}h2{font-size:18px}a{color:#16649a}
+.card{border:1px solid #d6e3ed;background:white;border-radius:14px;padding:14px;margin:14px 0}
+.warning{background:#fff5da;color:#694c12;border:1px solid #ecd293;border-radius:12px;padding:13px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}
+label{display:grid;gap:4px;font-size:13px}select,button{border:1px solid #bdd1e1;background:white;color:#145b8e;border-radius:9px;padding:10px;font:inherit;max-width:100%}
+button{cursor:pointer}button[aria-pressed=true]{background:#185f9b;color:white}button:disabled{opacity:.4}
+#year{width:105px}#subject{width:160px}#item{min-width:200px}
+#sourceImg{display:block;width:100%;height:auto;border:1px solid #d6e3ed;border-radius:8px}
+figure{margin:12px 0}figcaption,.muted{font-size:13px;color:#5d6c78}
+#choices button{min-width:50px;font-size:19px;font-weight:bold}
+#noPage{background:#ffefe8;color:#854d36;padding:12px;border-radius:9px}
+@media(max-width:440px){main{padding:10px 8px}.card{padding:10px}h1{font-size:20px}#item{min-width:100%}}
+</style></head><body><main>
+<a href="../index.html">1차 학습홈</a> · <a href="first-legacy-answers.html?year=2020&type=A">과거 정답 후보 원장</a>
+<h1>2020·2021년 공식 Q-Net 문제지 선택연습</h1>
+<p class="warning"><strong>300문항 중 274문항은 OCR 추정 PDF 페이지 이미지, 26문항은 위치 미확정입니다.</strong>
+문제번호가 실제 해당 페이지에 있는지 확인하고 ①~⑤를 선택하세요. 원문·선택지·수식 및 공식 정답의 독립 내용검증은 대기 중입니다.
+<span style="font-weight:bold">자동채점·정오판정은 제공하지 않습니다.</span></p>
+<section class="card"><div class="row"><label>연도<select id="year"><option value="2020">2020년</option><option value="2021">2021년</option></select></label>
+<label>과목<select id="subject"><option value="all">전체 과목</option></select></label>
+<label>문항<select id="item" aria-label="기출 문제 번호"></select></label></div><p id="progress" class="muted" aria-live="polite"></p></section>
+<article class="card"><h2 id="title"></h2><p id="meta" class="muted"></p><p id="status" class="warning"></p>
+<figure id="pageFigure"><a id="zoom" target="_blank" rel="noopener noreferrer"><img id="sourceImg" loading="eager" alt="Q-Net PDF 원본 페이지 위치 후보"/></a>
+<figcaption>원본 한 페이지에 여러 문항이 있을 수 있습니다. 이미지 터치 시 확대됩니다. 문항번호 직접 확인 필요.</figcaption></figure>
+<p id="noPage" hidden>해당 문항의 PDF 페이지가 확정되지 않았습니다. Q-Net 공식 PDF를 열어 원본 위치를 확인해 주세요. 선택 연습은 차단합니다.</p>
+<p><a id="official" target="_blank" rel="noopener noreferrer">Q-Net 공식 원본 PDF</a></p>
+<fieldset><legend>내 선택 기록 (미채점)</legend><div id="choices" class="row"></div></fieldset>
+<div class="row"><button id="prev">이전</button><button id="next">다음</button><button id="flag">복습 표시</button>
+<button id="export">JSON 백업</button><button id="reset">이 화면 기록 초기화</button></div>
+<details id="candidate"><summary>과거 정답표 전사 후보 확인 — 독립 승인 전</summary><p id="candidateText" class="muted"></p></details>
+</article><p class="muted">출처 한국산업인력공단 Q-Net · 공식 PDF 원본 SHA-256 검증 · 기존 RC35 문항·저장키·채점 불변.</p>
+</main>
+<script src="legacy-first-answer-review.js"></script><script src="legacy-first-v2-staged.js"></script>
+<script src="legacy-first-v4-2014-2021-review.js"></script><script src="legacy-first-v5-correction.js"></script>
+<script src="legacy-first-v61-sources.js"></script>
+<script src="first-v38-2020-2021-source-pages-app.js"></script></body></html>
