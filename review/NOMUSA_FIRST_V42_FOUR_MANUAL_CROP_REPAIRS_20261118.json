@@ -1,0 +1,97 @@
+{
+  "schema": "NOMUSA_FIRST_V42_FOUR_CORRECTED_ORIGINAL_CROPS/1",
+  "repairedCrops": 4,
+  "originalPDF_SHA_MATCH": 4,
+  "officialAnswerPDF_SHA_MATCH": 4,
+  "manualSourceCropAndOfficialAnswerVisualRead": 4,
+  "expertIndependentFinalApproval": 0,
+  "scoringApproved": 0,
+  "newQDATAImported": 0,
+  "mainProductionChanged": false,
+  "records": [
+    {
+      "id": "legacy1-2020-A-social-098",
+      "sourcePdfKey": "2020-A-management",
+      "sourcePdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "page": 32,
+      "clipPDFPoints": [
+        32,
+        34,
+        578,
+        264
+      ],
+      "originalQuestionImage": "review/first-v42-four-corrected-crops/legacy1-2020-A-social-098.jpg",
+      "sha256": "147276ef4ba8110134835a7e7f99cf14f926a48ec71d4caec47c53293a22dd62",
+      "sourceImageView": "VISUALLY_RECHECKED_FULL_STEM_FIVE_OPTIONS_NO_NEXT_QUESTION",
+      "officialAnswerDocumentKey": "2020-AB-official-final-answers",
+      "officialAnswerDocumentSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAFormFinalAnswerVisuallyRead": 2,
+      "explanationReview": "SOCIAL_LAW_EXAM_DATE_REVIEW_HOLD",
+      "expertIndependentFinalApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-101",
+      "sourcePdfKey": "2020-A-management",
+      "sourcePdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "page": 33,
+      "clipPDFPoints": [
+        32,
+        94,
+        578,
+        211
+      ],
+      "originalQuestionImage": "review/first-v42-four-corrected-crops/legacy1-2020-A-management-101.jpg",
+      "sha256": "18534999de35d4263b0ea64c555bbf54ef0a56f9347463786fbaf503dcd0605b",
+      "sourceImageView": "VISUALLY_RECHECKED_FULL_STEM_FIVE_OPTIONS_NO_NEXT_QUESTION",
+      "officialAnswerDocumentKey": "2020-AB-official-final-answers",
+      "officialAnswerDocumentSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAFormFinalAnswerVisuallyRead": 3,
+      "explanationReview": "PERROW_THEORY_SOURCE_RECHECK",
+      "expertIndependentFinalApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor2-043",
+      "sourcePdfKey": "2021-A-management",
+      "sourcePdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "page": 16,
+      "clipPDFPoints": [
+        32,
+        248,
+        578,
+        483
+      ],
+      "originalQuestionImage": "review/first-v42-four-corrected-crops/legacy1-2021-A-labor2-043.jpg",
+      "sha256": "56eaf338fafbef7a0811b12d742e0dc52d5b9003b3c4ab655ce9b093cbfab2cc",
+      "sourceImageView": "VISUALLY_RECHECKED_FULL_STEM_FIVE_OPTIONS_NO_NEXT_QUESTION",
+      "officialAnswerDocumentKey": "2021-AB-official-final-answers",
+      "officialAnswerDocumentSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAFormFinalAnswerVisuallyRead": 4,
+      "explanationReview": "COLLECTIVE_LABOR_LAW_EXAM_DATE_REVIEW_HOLD",
+      "expertIndependentFinalApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-110",
+      "sourcePdfKey": "2021-A-management",
+      "sourcePdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "page": 35,
+      "clipPDFPoints": [
+        32,
+        461,
+        578,
+        570
+      ],
+      "originalQuestionImage": "review/first-v42-four-corrected-crops/legacy1-2021-A-management-110.jpg",
+      "sha256": "92ae89a85badb5aa04ef7f14576e3909006aba6da8ef6c9da6c3149620e6480f",
+      "sourceImageView": "VISUALLY_RECHECKED_FULL_STEM_FIVE_OPTIONS_NO_NEXT_QUESTION",
+      "officialAnswerDocumentKey": "2021-AB-official-final-answers",
+      "officialAnswerDocumentSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAFormFinalAnswerVisuallyRead": 3,
+      "explanationReview": "ORGANIZATIONAL_POWER_THEORY_REVIEW_HOLD",
+      "expertIndependentFinalApproval": false,
+      "scoringApproved": false
+    }
+  ]
+}
