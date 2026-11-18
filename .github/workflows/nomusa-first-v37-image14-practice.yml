@@ -1,0 +1,67 @@
+name: NOMUSA FIRST V37 original image 14 questions ungraded practice and 2026 SI
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v37-image14-practice.yml'
+      - 'study-hub/first-v37-native14-practice.html'
+      - 'scripts/nomusa-first-v37-14-image-practice-gate.py'
+      - 'index.html'
+      - 'study-hub/app.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v37-image14-2026-si-review-20261118
+  cancel-in-progress: true
+jobs:
+  test:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install 1st stage and canonical 2nd stage headless browser
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: Real QNet image item 14 choice practice, storage and mobile
+        run: python scripts/nomusa-first-v37-14-image-practice-gate.py .
+      - name: Restore 37 of 40 2026 SI source-matched explanations in existing first-stage RC35
+        run: python scripts/nomusa-first-v36-social-40-browser-gate.py .
+      - name: Strict historical first-stage ungraded candidate review and source manifest
+        run: |
+          node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+          python scripts/nomusa-first-v32-status-ui-gate.py
+      - name: Canonical original 2nd-stage 328 SHA and hub regression
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: No published result claims beyond proof
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('review-artifacts/NOMUSA_FIRST_V36/NOMUSA_FIRST_V36_SOCIAL_40_BROWSER_GATE.json').read_text())
+          b=json.loads(Path('review-artifacts/NOMUSA_FIRST_V37/NOMUSA_FIRST_V37_14_UNGRADED_E2E.json').read_text())
+          assert a['status']==b['status']=='PASS'
+          assert a['newStudyExplanationDrafts']==37 and a['visibleDetailedExplanations']==40
+          assert a['humanApproved']==0 and a['oldDataQDATA']==1020
+          assert b['originalQNetImageItems']==14 and b['candidateKeysAutoGraded']==0 and b['newMainQDATA']==0
+          print('PASS_2026_SOCIAL_40_DRAFTS_AND_NATIVE14_UNGRADED_IMAGE_PRACTICE')
+          PY
+          git diff --exit-code
+      - name: Upload inspectable V36 V37 PC/mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v37-14-native-question-practice-and-2026-social40
+          path: |
+            review-artifacts/NOMUSA_FIRST_V36/**
+            review-artifacts/NOMUSA_FIRST_V37/**
+          if-no-files-found: warn
+          retention-days: 30
