@@ -1,0 +1,97 @@
+name: NOMUSA FIRST V54 unify 686 missing items with 495 QNet A-booklet SHAs
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v54-686-unified-official-source-ledger.yml'
+      - 'scripts/nomusa-first-v54-686-unified-qnet-sha-ledger.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v54-686-verified-source-ledger
+  cancel-in-progress: true
+jobs:
+  verify-aggregate-original-source:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile exact 791 historic A-form source queue, retain 103+2 exclusion rule
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Independently re-download 2016 management QNet A PDF by its actual attachment URL and verify immutable SHA
+        run: |
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7
+          python - <<'PY'
+          import hashlib,json,fitz,requests
+          from pathlib import Path
+          x=json.loads(Path('review/NOMUSA_FIRST_V53_2016_MANAGEMENT_QNET_SOURCE_SUMMARY_20261118.json').read_text(encoding='utf8'))
+          src=x['source']
+          assert x['directQnetAFilesSHAValidated']==1 and src['bookletAFromQNetFilename']==True
+          assert src['sourcePDFSHA256']=='328d2a7e12623abfb958b3cbfb2ac094688da295f644c502e22ea575c2a4554a'
+          r=requests.get(src['officialSourceURL'],headers={'User-Agent':'Mozilla/5.0','Referer':'https://www.q-net.or.kr/'},timeout=(12,100))
+          r.raise_for_status()
+          b=r.content
+          assert b.startswith(b'%PDF') and hashlib.sha256(b).hexdigest()==src['sourcePDFSHA256']
+          doc=fitz.open(stream=b,filetype='pdf')
+          assert len(doc)==src['pdfPages']==36
+          doc.close()
+          print('PASS_2016_MANAGEMENT_A_125_CANDIDATES_OFFICIAL_QNET_PDF_SHA_SOURCE_ONLY')
+          PY
+      - name: Build immutable 686 item source-only ledger, no invented answers or grading
+        run: |
+          python -m py_compile scripts/nomusa-first-v54-686-unified-qnet-sha-ledger.py
+          python scripts/nomusa-first-v54-686-unified-qnet-sha-ledger.py
+      - name: Validate coverage, duplicate IDs, official vs mirror source split and original content HOLD
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=Path('review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['targetCount']==686 and len(d['rows'])==686
+          assert len(set(q['id'] for q in d['rows']))==686
+          assert d['officialQNetOriginalBookletShaLinked']==495
+          assert d['thirdPartyOnlyCandidateCount']==150 and d['withoutOfficialOrMirrorSource']==41
+          assert d['newScoringApproved']==d['newQdataImports']==0
+          assert all(q['independentFullStemAllFiveOptionsProof'] is False
+             and q['officialAFormFinalAnswerCellIndependentlyVerified'] is False
+             and q['scoringApproved'] is False and q['readyForV44'] is False for q in d['rows'])
+          altered=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert altered.issubset({'review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json'}),altered
+          print('PASS_V54_495_QNET_150_EXTERNAL_41_MISSING_686_ALL_HOLD_NO_SOURCE_CONTENT_APPROVAL')
+          PY
+      - name: Commit ONLY review ledger; never deploy or merge
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v54): source provenance 495 official QNet PDF SHA, 150 mirror and 41 missing HOLD'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Archive 686 item source evidence queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v54-686-unified-official-source-hash-and-hold-queue
+          path: |
+            review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json
+            review-artifacts/NOMUSA_FIRST_V54/
+          if-no-files-found: warn
+          retention-days: 30
