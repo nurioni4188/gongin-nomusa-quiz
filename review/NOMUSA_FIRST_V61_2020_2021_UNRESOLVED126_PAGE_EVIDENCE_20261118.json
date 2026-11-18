@@ -1,0 +1,25 @@
+{
+  "schema": "NOMUSA_FIRST_V61_2020_2021_126_ORIGINAL_SOURCE_PAGE_REVIEW/1",
+  "asOfKST": "2026-11-18",
+  "total2020And2021Remaining195": 195,
+  "priorV48ProvisionalQuestionCropsPreserved": 67,
+  "priorV42LegalOriginalImageCropsPreserved": 2,
+  "unresolvedOriginalSourceQuestionIds": 126,
+  "existingQNetPdfPageJPGsSHAValidated": 88,
+  "alreadyOCRPageCandidateWithDirectFullPageJPG": 100,
+  "previouslyNoPdfPageWithOrderedBracket": 3,
+  "previouslyNoPdfPageStillUnbounded": 23,
+  "stateCounts": {
+    "NO_TIGHT_QNET_ORIGINAL_PAGE_BRACKET_HOLD": 23,
+    "ORDERED_V38_OCR_PAGE_BRACKET_REVIEW_HOLD": 3,
+    "V38_OFFICIAL_QNET_ORIGINAL_FULL_PAGE_IMAGE_REVIEW_HOLD": 100
+  },
+  "individualQuestionOriginalTextFiveOptionsApproved": 0,
+  "independentOfficialAnswerKeyCellApproved": 0,
+  "legalAcademicExpertApproved": 0,
+  "newQDATAImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_126_2020_2021_QNET_PDF_PAGE_REVIEW_QUEUE_HOLD_ALL_CONTENT_APPROVALS",
+  "warning": "Original page SHA and nearest original page number are not a verified single question location, five options, answer, or historical law.",
+  "full126EvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V61/NOMUSA_FIRST_V61_126_ORIGINAL_QNET_PAGE_REVIEW.json"
+}
