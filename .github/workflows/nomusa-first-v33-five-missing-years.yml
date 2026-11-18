@@ -1,0 +1,87 @@
+name: NOMUSA FIRST V33 restore discoverability of five missing years
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v33-five-missing-years.yml'
+      - 'study-hub/first-v33-missing-year-coverage.js'
+      - 'study-hub/first-legacy-answers.html'
+      - 'study-hub/index.html'
+      - 'study-hub/app.js'
+      - 'index.html'
+      - 'scripts/nomusa-first-v33-existing-source-gap-gate.mjs'
+      - 'scripts/nomusa-first-v33-missing-year-browser-gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v33-five-year-source-only-gate-20261118
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout existing review branch read-only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium headless and existing review dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: Verify real banks 2279 and 3400 answer candidates, 5 missing years and no duplicate IDs
+        run: |
+          node --check scripts/nomusa-first-v33-existing-source-gap-gate.mjs
+          node scripts/nomusa-first-v33-existing-source-gap-gate.mjs .
+      - name: Verify 2013 2016 2018 2020 2021 deep links and mobile 1440 390 360
+        run: python scripts/nomusa-first-v33-missing-year-browser-gate.py .
+      - name: Reuse V32 17 mobile and scoring safety cases
+        run: python scripts/nomusa-first-v32-status-ui-gate.py
+      - name: Reuse V71 42 Q-Net official PDF and answer-source cases
+        run: python scripts/nomusa-first-v71-visual-page-gate.py
+      - name: Original RC35 and 2008 to 2021 first-stage save restore and scoring protection
+        run: python scripts/nomusa-auto-v12-browser-gate.py . --first-only
+      - name: Current 2007 to 2026 second-stage and study-hub regression
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Forbid fabricated questions and grading approval
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('review-artifacts/NOMUSA_FIRST_V33/NOMUSA_FIRST_V33_5_GAP_YEARS_3400_LEDGER.json').read_text())
+          b=json.loads(Path('review-artifacts/NOMUSA_FIRST_V33/NOMUSA_FIRST_V33_27_BROWSER_YEAR_NAVIGATION.json').read_text())
+          assert a['status'].startswith('PASS_')
+          assert a['renderedTotal']==2279 and a['legacyImported']==1259
+          assert a['candidateAnswers']==3400 and a['independentLegacyScoringApproved']==0
+          assert a['missingYearCandidateTotal']==1500 and len(a['missingYearCandidates'])==5
+          assert b['status']=='PASS' and b['tests']==b['expected']==27
+          assert b['actualNewRenderedQuestions']==0
+          assert b['unapprovedScoringDisabled']
+          print('PASS_V33_5_GAP_YEARS_REAL_1500_CANDIDATES_0_FABRICATED_0_AUTO_SCORING')
+          PY
+          git diff --exit-code
+      - name: Upload traceable year-coverage and UI QA results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v33-five-year-existing-candidates-mobile-gate
+          path: review-artifacts/NOMUSA_FIRST_V33/**
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Explicit release and approval boundaries
+        if: always()
+        run: |
+          echo 'REVIEW_BRANCH_ONLY=1 NO_MAIN_NO_PRODUCTION_NO_DEPLOY_IN_CI=1'
+          echo 'EXISTING_1500_MISSING_YEAR_ANSWER_CANDIDATES_ONLY=1'
+          echo 'SOURCE_QUESTION_IMPORT_FOR_MISSING_FIVE_YEARS=NOT_COMPLETE'
+          echo 'HISTORICAL_AUTO_GRADING=DISABLED'
