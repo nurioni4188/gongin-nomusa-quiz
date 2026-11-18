@@ -1,0 +1,28 @@
+{
+  "schema": "NOMUSA_FIRST_V58_2013_A_EXTERNAL_MIRROR_NATIVE_150_DRAFT/1",
+  "asOfKST": "2026-11-18",
+  "mirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
+  "mirrorOriginalPDFPages": 80,
+  "mirrorTLSCertificateVerifiedAtDownload": true,
+  "bookletFooterPages": {
+    "39": 39,
+    "41": 41
+  },
+  "targetQuestionIDs": 150,
+  "nativeQuestionHeadingsWithProvisionalText": 148,
+  "numberAmbiguousOrMissing": 2,
+  "provisionalImageParts": 192,
+  "states": {
+    "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD": 2,
+    "NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED": 148
+  },
+  "officialQNetSourceEqualityApproved": 0,
+  "independentOriginalQuestionsApproved": 0,
+  "approvedIndividualAFormFinalKeyCells": 0,
+  "examDateLegalTheoryApproved": 0,
+  "newQdataImports": 0,
+  "newScoringApprovals": 0,
+  "status": "PASS_EXTERNAL_2013_NATIVE_TEXT_TRIAGE_ONLY_QNET_ORIGINAL_AND_CONTENT_HOLD",
+  "warning": "External academy mirror, not verified identical to Q-Net official original; PDF native text and crop can miss figures, span boundaries or source content. No item or scoring approval.",
+  "full150DraftArtifact": "review-artifacts/NOMUSA_FIRST_V58/NOMUSA_FIRST_V58_2013_150_NATIVE_TEXT_SOURCE_REVIEW.json"
+}
