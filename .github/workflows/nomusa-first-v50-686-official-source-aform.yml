@@ -8,6 +8,7 @@ on:
       - 'scripts/nomusa-first-v50-686-official-aform-source-expansion.py'
       - 'scripts/nomusa-first-v51-175-qnet-a-page-locator.py'
       - 'scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py'
+      - 'scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -126,11 +127,36 @@ jobs:
           }),modified
           print('PASS_V52_163_ORIGINAL_SHA_CROP_OCR_DRAFTS_QA_RISKS_0_AUTO_GRADED')
           PY
+      - name: Reanalyze 79 unresolved original 2016 and 2018 A-form page numbers using conservative ordered neighbors
+        run: |
+          python -m py_compile scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py
+          python scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py
+      - name: Enforce all 79 QNet candidate page preview SHA and zero original or score approvals
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V59')
+          x=json.loads((root/'NOMUSA_FIRST_V59_79_UNRESOLVED_PAGES_REVIEW.json').read_text(encoding='utf8'))
+          assert x['unresolvedQuestionIDs']==len(x['rows'])==79
+          assert len({q['id'] for q in x['rows']})==79
+          assert x['officialQnetAFormPDFHashesMatched']==3
+          assert x['fullQuestionAndFiveOptionsApproved']==x['officialFinalAnswerCellApproved']==0
+          assert x['newQDATAImports']==x['newScoringApproved']==0
+          for q in x['rows']:
+            assert q['independentPrintedQuestionPositionApproved'] is False and q['scoringApproved'] is False
+            for p in q['originalFullPagePreviews']:
+              f=root/p['path']
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==p['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json'}),changed
+          print('PASS_V59_79_UNRESOLVED_OFFICIAL_SOURCE_PAGE_BRACKETS_ALL_CONTENT_AND_SCORING_HOLD')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
@@ -150,5 +176,6 @@ jobs:
             review-artifacts/NOMUSA_FIRST_V50/
             review-artifacts/NOMUSA_FIRST_V51/
             review-artifacts/NOMUSA_FIRST_V52/
+            review-artifacts/NOMUSA_FIRST_V59/
           if-no-files-found: warn
           retention-days: 14
