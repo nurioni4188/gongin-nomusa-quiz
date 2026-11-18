@@ -539,6 +539,7 @@ nav.tabs .n27-essay-entry:focus-visible{outline:3px solid var(--warn);outline-of
 <script src="source-corrections-v1088.js"></script>
 <script src="source-corrections-v1089.js"></script>
 <script src="explanations-v108.js"></script>
+<script src="explanations-2026-social-v36.js"></script>
 <script src="study-hub/first-2008-a.js"></script>
 <script src="study-hub/first-2009-a.js"></script>
 <script src="study-hub/first-2010-a.js"></script>
@@ -791,7 +792,7 @@ function explanationPanel(q){
   // 공식 원전 정보가 실제 URL로 등록된 항목만 링크; 모든 URL은 현재 소스에 고정된 허용 도메인에서 확인.
   const safe=(e.sources||[]).filter(src=>{try{const u=new URL(src.url);return u.protocol==='https:'&&['law.go.kr','www.law.go.kr','q-net.or.kr','www.q-net.or.kr','hbr.org','www.hbr.org','bcg.com','www.bcg.com','pubsonline.informs.org','old.wzr.ug.edu.pl','eric.ed.gov','open.lib.umn.edu','openstax.org','www.openstax.org'].includes(u.hostname)}catch(e){return false}});
   const links=safe.map(src=>`<div><a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.title)}</a>${src.basis?` · ${esc(src.basis)}`:''}</div>`).join('');
-  return `<section class="n108-explanation" aria-label="문항 해설" data-explanation="${esc(q.k)}"><div class="n108-heading"><h3>정답·선택지별 해설</h3><span class="n108-status">${['노동법(1)','노동법(2)','민법','사회보험법'].includes(q.s)?'시험일 법령·부칙·판례 확인 대기':(e.validationStatus?.startsWith('HOLD')?'원본 수식·해설 충돌 HOLD':'원본 대조 완료 / 이론 검토 초안')}</span></div>${e.validationStatus?.startsWith('HOLD')?'<p class="n108-note" role="alert">문항 오류 가능성 — 수학적 최적화 조건과 기존 정답 데이터가 일치하지 않습니다. 학습 해설 승인 HOLD</p>':''}<p class="n108-summary">${esc(e.summary)}</p><div class="n108-choices" aria-label="선택지별 판단 근거">${content}</div><p class="n108-tip"><strong>암기 포인트</strong> · ${esc(e.mnemonic)}</p><div class="n108-source"><strong>참고·검토 출처</strong>${links}</div><p class="n108-note">${['노동법(1)','노동법(2)','민법','사회보험법'].includes(q.s)?'시험 당시 시행본·부칙·판례 확정 전입니다. 현행 링크를 당시 근거로 간주하지 마세요.':'학술 참고자료가 개별 문항·선택지 해설까지 모두 독립적으로 승인한 것은 아닙니다.'} 공식 채점 해설이 아닌 학습용 초안입니다.</p></section>`;
+  return `<section class="n108-explanation" aria-label="문항 해설" data-explanation="${esc(q.k)}"><div class="n108-heading"><h3>정답·선택지별 해설</h3><span class="n108-status">${q.y===2026&&q.s==='사회보험법'?'법령근거 학습 초안 · 시험일 시행본 검증 대기':['노동법(1)','노동법(2)','민법','사회보험법'].includes(q.s)?'시험일 법령·부칙·판례 확인 대기':(e.validationStatus?.startsWith('HOLD')?'원본 수식·해설 충돌 HOLD':'원본 대조 완료 / 이론 검토 초안')}</span></div>${e.validationStatus?.startsWith('HOLD')?'<p class="n108-note" role="alert">문항 오류 가능성 — 수학적 최적화 조건과 기존 정답 데이터가 일치하지 않습니다. 학습 해설 승인 HOLD</p>':''}<p class="n108-summary">${esc(e.summary)}</p><div class="n108-choices" aria-label="선택지별 판단 근거">${content}</div><p class="n108-tip"><strong>암기 포인트</strong> · ${esc(e.mnemonic)}</p><div class="n108-source"><strong>참고·검토 출처</strong>${links}</div><p class="n108-note">${['노동법(1)','노동법(2)','민법','사회보험법'].includes(q.s)?'시험 당시 시행본·부칙·판례 확정 전입니다. 현행 링크를 당시 근거로 간주하지 마세요.':'학술 참고자료가 개별 문항·선택지 해설까지 모두 독립적으로 승인한 것은 아닙니다.'} 공식 채점 해설이 아닌 학습용 초안입니다.</p></section>`;
 }
 
 function vQuiz(){
