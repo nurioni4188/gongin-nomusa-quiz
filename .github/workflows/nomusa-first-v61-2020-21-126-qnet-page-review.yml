@@ -1,0 +1,76 @@
+name: NOMUSA FIRST V61 2020 2021 126 QNet original page SHA recovery review only
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v61-2020-21-126-qnet-page-review.yml'
+      - 'scripts/nomusa-first-v61-2020-2021-126-qnet-page-evidence.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v61-2020-21-126-source
+  cancel-in-progress: true
+jobs:
+  existing-official-original-source-page-review:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild exactly 791 old missing question IDs and 2020 2021 A-form source register
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Audit 126 unresolved original QNet questions against 88 source-page image hashes
+        run: |
+          python -m py_compile scripts/nomusa-first-v61-2020-2021-126-qnet-page-evidence.py
+          python scripts/nomusa-first-v61-2020-2021-126-qnet-page-evidence.py
+      - name: Restrict all original PDF page hints to review evidence, never automatic scoring
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          z=json.loads(Path('review-artifacts/NOMUSA_FIRST_V61/NOMUSA_FIRST_V61_126_ORIGINAL_QNET_PAGE_REVIEW.json').read_text(encoding='utf8'))
+          assert z['total2020And2021Remaining195']==195
+          assert z['priorV48ProvisionalQuestionCropsPreserved']==67
+          assert z['priorV42LegalOriginalImageCropsPreserved']==2
+          assert z['unresolvedOriginalSourceQuestionIds']==len(z['rows'])==126
+          assert len({q['id'] for q in z['rows']})==126
+          assert z['alreadyOCRPageCandidateWithDirectFullPageJPG']==100
+          assert z['previouslyNoPdfPageWithOrderedBracket']+z['previouslyNoPdfPageStillUnbounded']==26
+          assert z['newScoringApproved']==z['newQDATAImports']==0
+          assert all(not q['scoringApproved'] and not q['readyForV44'] and not q['originalStemAndFiveOptionsVerified'] for q in z['rows'])
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({'review/NOMUSA_FIRST_V61_2020_2021_UNRESOLVED126_PAGE_EVIDENCE_20261118.json'}),modified
+          print('PASS_V61_126_2020_2021_ORIGINAL_PAGE_SHA_AND_PAGE_BRACKETS_ZERO_CONTENT_APPROVALS')
+          PY
+      - name: Commit provenance summary only into Draft PR no deployment
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V61_2020_2021_UNRESOLVED126_PAGE_EVIDENCE_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v61): queue 126 original 2020-21 QNet page/option holds with 88 source SHA'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve entire 126 row review queue and original source links
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v61-2020-2021-126-qnet-original-page-hold
+          path: review-artifacts/NOMUSA_FIRST_V61/
+          if-no-files-found: warn
+          retention-days: 30
