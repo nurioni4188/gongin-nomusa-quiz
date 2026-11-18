@@ -1,0 +1,137 @@
+name: NOMUSA First V35 Q-Net 2017 and 2019 original 14 native images source-gated
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v35-native-image-14.yml'
+      - 'scripts/nomusa-first-v35-qnet-native-original-14.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v35-14-source-gated-edit
+  cancel-in-progress: true
+jobs:
+  generate-and-validate:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout existing review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Native PDF and Chromium tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5 playwright==1.56.0 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: Rebuild exact original 791 omitted IDs (input for source integrity)
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Strict SHA verified original 2017 and 2019 native question area image extraction
+        run: python scripts/nomusa-first-v35-qnet-native-original-14.py
+      - name: Check 14 native cropped original images and safe review-only HTML
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          r=json.loads(Path('review-artifacts/NOMUSA_FIRST_V35/NOMUSA_FIRST_V35_14_ORIGINAL_CROP_PROOF.json').read_text())
+          assert r['originalCrops']==14 and r['originalPDFAndZIPExactSHA256Verified']==3
+          assert r['actualQDATAImported']==r['independentExpertApproved']==0
+          assert len(set(x['id'] for x in r['items']))==14
+          for x in r['items']:
+              p=Path('study-hub/first-v35-qnet-native-2017-2019')/x['image']
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==x['jpegSHA256']
+              assert x['pixelWidth']>=600 and x['pixelHeight']>=85
+              assert 'q-net.or.kr' in x['qnetOriginal']
+              assert not x['readyForQDATAImport']
+          html=Path('study-hub/first-v35-2017-2019-14-original-review.html').read_text()
+          assert html.count('<article class="exam">')==14 and html.count('<img loading="lazy"')==14
+          print('PASS_V35_QNET_NATIVE_14_SHA_PROOFED_IMAGES_UNGRADED')
+          PY
+      - name: Add discoverable source-review links only, without touching quiz QDATA
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html');s=p.read_text()
+          a='위 5개 연도는 A·B형 정답 후보를 보존했지만 문제 지문·선택지가 없어 시험 모드에서 풀 수 없습니다.'
+          b=a+' <a href="study-hub/first-v35-2017-2019-14-original-review.html">2017·2019년 공식 원문 이미지 14건 검토</a>.'
+          assert s.count(a)==1
+          p.write_text(s.replace(a,b))
+          p=Path('study-hub/app.js');s=p.read_text()
+          a='원본·정답 검증 단계 전체보기(3,400건 후보)</a>'
+          b=a+' · <a href="first-v35-2017-2019-14-original-review.html">2017·2019년 원본 이미지 14문항</a>'
+          assert s.count(a)==1
+          p.write_text(s.replace(a,b))
+          p=Path('review/NOMUSA_FIRST_V35_14_NATIVE_QNET_SOURCE_PROOF_20261118.json')
+          p.write_bytes(Path('review-artifacts/NOMUSA_FIRST_V35/NOMUSA_FIRST_V35_14_ORIGINAL_CROP_PROOF.json').read_bytes())
+          PY
+      - name: Real 1440 390 360 browser proof of original native images no overflow
+        run: |
+          python - <<'PY'
+          from functools import partial
+          from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+          from threading import Thread
+          from playwright.sync_api import sync_playwright
+          class H(SimpleHTTPRequestHandler):
+            def log_message(self,*a):pass
+          srv=ThreadingHTTPServer(('127.0.0.1',0),partial(H,directory='.'))
+          Thread(target=srv.serve_forever,daemon=True).start()
+          try:
+            with sync_playwright() as p:
+              b=p.chromium.launch(args=['--no-sandbox'])
+              for width in [1440,390,360]:
+                page=b.new_page(viewport={'width':width,'height':860})
+                page.goto(f'http://127.0.0.1:{srv.server_port}/study-hub/first-v35-2017-2019-14-original-review.html')
+                assert page.locator('article.exam').count()==14
+                loaded=page.locator('article.exam img').evaluate_all('(imgs)=>imgs.map(i=>({w:i.naturalWidth,h:i.naturalHeight,complete:i.complete}))')
+                assert len(loaded)==14 and all(x['complete'] and x['w']>=600 for x in loaded),loaded
+                assert page.evaluate('document.documentElement.scrollWidth-document.documentElement.clientWidth')<=1
+                page.close()
+              b.close()
+          finally:srv.shutdown()
+          print('PASS_14_NATIVE_QNET_IMAGES_1440_390_360')
+          PY
+      - name: 1st-stage actual 2279 questions and grading policy preserved
+        run: |
+          node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+          python scripts/nomusa-first-v33-missing-year-browser-gate.py .
+          python scripts/nomusa-first-v32-status-ui-gate.py
+      - name: Modern canonical 328 2nd stage plus 1st stage visual regression
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Ensure only source-review links and 14 audited JPG images are staged
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          lines=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(lines)=={'index.html','study-hub/app.js'},lines
+          assert Path('data.js').is_file()
+          PY
+          git add -- index.html study-hub/app.js review/NOMUSA_FIRST_V35_14_NATIVE_QNET_SOURCE_PROOF_20261118.json study-hub/first-v35-2017-2019-14-original-review.html study-hub/first-v35-qnet-native-2017-2019/
+          git diff --cached --check
+          git diff --cached --name-only
+      - name: Commit only tested native Q-Net images to existing review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'review(first-v35): preserve 14 SHA-verified native QNet PDF question images pending expert validation'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo REVISED_REVIEW_HEAD=$(git rev-parse HEAD)
+      - name: Upload 14 official-original image proof summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v35-14-native-qnet-review-proof
+          path: |
+            review-artifacts/NOMUSA_FIRST_V35/NOMUSA_FIRST_V35_14_ORIGINAL_CROP_PROOF.json
+          if-no-files-found: warn
+          retention-days: 30
