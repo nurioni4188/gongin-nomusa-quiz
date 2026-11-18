@@ -3,11 +3,10 @@
   "asOfKST": "2026-11-18",
   "thirdPartyMirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
   "targetQuestionIDs": 150,
-  "fiveMarkerOptionCandidateRecords": 148,
-  "questionStemChoiceCandidacyIncomplete": 2,
+  "fiveMarkerOptionCandidateRecords": 150,
+  "questionStemChoiceCandidacyIncomplete": 0,
   "stageCounts": {
-    "NATIVE_FIVE_MARKER_CANDIDATES_FOR_MANUAL_PROOFREAD": 148,
-    "QUESTION_NUMBER_OR_CROP_BOUNDARY_AMBIGUOUS_HOLD": 2
+    "NATIVE_FIVE_MARKER_CANDIDATES_FOR_MANUAL_PROOFREAD": 150
   },
   "officialQNetMirrorEqualityApproved": 0,
   "independentFiveOptionProofread": 0,

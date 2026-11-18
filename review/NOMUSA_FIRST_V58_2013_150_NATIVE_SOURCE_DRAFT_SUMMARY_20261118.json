@@ -3,29 +3,31 @@
   "asOfKST": "2026-11-18",
   "mirrorPDFSHA256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
   "mirrorOriginalPDFPages": 80,
-  "mirrorTLSCertificateVerifiedAtDownload": true,
+  "mirrorTLSCertificateVerifiedAtDownload": false,
   "bookletFooterPages": {
     "39": 39,
     "41": 41
   },
   "targetQuestionIDs": 150,
-  "nativeQuestionHeadingsWithProvisionalText": 148,
-  "numberAmbiguousOrMissing": 2,
-  "ambiguousCandidateQuestionDetails": [
+  "nativeQuestionHeadingsWithProvisionalText": 150,
+  "numberAmbiguousOrMissing": 0,
+  "ambiguousCandidateQuestionDetails": [],
+  "provisionalImageParts": 194,
+  "disambiguatedPrintedHeadingCandidateCount": 4,
+  "disambiguatedPrintedHeadingCandidateEvidence": [
     {
-      "id": "legacy1-2013-A-labor1-001",
-      "number": 1,
-      "subject": "노동법Ⅰ",
-      "booklet": "A형-39",
-      "status": "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD",
-      "headingPositions": [
+      "booklet": "39",
+      "questionNumber": 1,
+      "chosen": [
         {
           "pdfPage": 1,
           "number": 1,
           "pageY": 139.17,
           "pageX": 67.52,
           "lineTextSample": "1."
-        },
+        }
+      ],
+      "excludedNestedListCandidates": [
         {
           "pdfPage": 31,
           "number": 1,
@@ -33,22 +35,22 @@
           "pageX": 96.79,
           "lineTextSample": "1. 기본금액"
         }
-      ]
+      ],
+      "approval": "PROVISIONAL_HEADING_DISAMBIGUATION_NOT_INDEPENDENT_SOURCE_PROOFREAD"
     },
     {
-      "id": "legacy1-2013-A-labor1-002",
-      "number": 2,
-      "subject": "노동법Ⅰ",
-      "booklet": "A형-39",
-      "status": "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD",
-      "headingPositions": [
+      "booklet": "39",
+      "questionNumber": 2,
+      "chosen": [
         {
           "pdfPage": 1,
           "number": 2,
           "pageY": 279.06,
           "pageX": 67.52,
           "lineTextSample": "2."
-        },
+        }
+      ],
+      "excludedNestedListCandidates": [
         {
           "pdfPage": 31,
           "number": 2,
@@ -56,13 +58,58 @@
           "pageX": 96.79,
           "lineTextSample": "2. 가산금액"
         }
-      ]
+      ],
+      "approval": "PROVISIONAL_HEADING_DISAMBIGUATION_NOT_INDEPENDENT_SOURCE_PROOFREAD"
+    },
+    {
+      "booklet": "41",
+      "questionNumber": 1,
+      "chosen": [
+        {
+          "pdfPage": 40,
+          "number": 1,
+          "pageY": 139.17,
+          "pageX": 67.52,
+          "lineTextSample": "1."
+        }
+      ],
+      "excludedNestedListCandidates": [
+        {
+          "pdfPage": 70,
+          "number": 1,
+          "pageY": 539.17,
+          "pageX": 96.79,
+          "lineTextSample": "1. 기본금액"
+        }
+      ],
+      "approval": "PROVISIONAL_HEADING_DISAMBIGUATION_NOT_INDEPENDENT_SOURCE_PROOFREAD"
+    },
+    {
+      "booklet": "41",
+      "questionNumber": 2,
+      "chosen": [
+        {
+          "pdfPage": 40,
+          "number": 2,
+          "pageY": 279.06,
+          "pageX": 67.52,
+          "lineTextSample": "2."
+        }
+      ],
+      "excludedNestedListCandidates": [
+        {
+          "pdfPage": 70,
+          "number": 2,
+          "pageY": 589.52,
+          "pageX": 96.79,
+          "lineTextSample": "2. 가산금액"
+        }
+      ],
+      "approval": "PROVISIONAL_HEADING_DISAMBIGUATION_NOT_INDEPENDENT_SOURCE_PROOFREAD"
     }
   ],
-  "provisionalImageParts": 192,
   "states": {
-    "AMBIGUOUS_DUPLICATE_NATIVE_NUMBER_HOLD": 2,
-    "NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED": 148
+    "NATIVE_PDF_TEXT_AND_IMAGE_CANDIDATE_UNVERIFIED": 150
   },
   "officialQNetSourceEqualityApproved": 0,
   "independentOriginalQuestionsApproved": 0,
