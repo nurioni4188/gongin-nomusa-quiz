@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/nomusa-first-v66-2017-2019-14-secondary-aform-originals.yml'
       - 'scripts/nomusa-first-v66-2017-2019-14-original-pdf-crosscheck.py'
+      - 'scripts/nomusa-first-v69-14-native-stem-five-options.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -59,11 +60,34 @@ jobs:
           assert modified.issubset({'review/NOMUSA_FIRST_V66_2017_2019_14_MIRROR_ORIGINAL_A_SOURCE_SUMMARY_20261119.json'}),modified
           print('PASS_V66_14_SECONDARY_AFORM_SOURCE_LINKS_ORIGINAL_CONTENT_SCORING_HOLD')
           PY
+      - name: Split all 14 actual native PDF question texts into stem and five options; detect glyphs, erase printed page footers
+        run: |
+          python -m py_compile scripts/nomusa-first-v69-14-native-stem-five-options.py
+          python scripts/nomusa-first-v69-14-native-stem-five-options.py
+      - name: Enforce no 2017 2019 source text, original image, legal answer or grading is silently certified
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,subprocess
+          p=Path('review-artifacts/NOMUSA_FIRST_V69/NOMUSA_FIRST_V69_14_FIVE_OPTIONS_CANDIDATES.json')
+          d=json.loads(p.read_text(encoding='utf8'))
+          assert d['target']==d['individualFiveOptionNativeDrafts']==len(d['rows'])==14
+          assert len({r['id'] for r in d['rows']})==14
+          assert d['newScoringApprovals']==d['newAppImports']==0
+          assert d['officialQNetOriginalCertifications']==d['completeVisualOriginalProofreadingApprovals']==0
+          assert all(len(q['fiveOptionNativeCandidates'])==5 and not q['scoringApproved']
+              and not q['readyForV44'] for q in d['rows'])
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({
+            'review/NOMUSA_FIRST_V69_14_NATIVE_FIVE_OPTION_SOURCE_DRAFT_SUMMARY_20261119.json'
+          }),changed
+          print('PASS_V69_14_NATIVE_FIVE_CHOICES_SOURCE_DRAFTS_MATH_GLYPH_HOLDS_0_APPROVAL')
+          PY
       - name: Commit only review-provenance status to existing Draft PR branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- review/NOMUSA_FIRST_V66_2017_2019_14_MIRROR_ORIGINAL_A_SOURCE_SUMMARY_20261119.json
+          git add -- review/NOMUSA_FIRST_V66_2017_2019_14_MIRROR_ORIGINAL_A_SOURCE_SUMMARY_20261119.json review/NOMUSA_FIRST_V69_14_NATIVE_FIVE_OPTION_SOURCE_DRAFT_SUMMARY_20261119.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'review(first-v66): 2017/2019 14 secondary A-booklet source SHA candidates, all scoring HOLD'
@@ -77,6 +101,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nomusa-first-v66-2017-2019-14-secondary-a-original-sha-candidates
-          path: review-artifacts/NOMUSA_FIRST_V66/
+          path: |
+            review-artifacts/NOMUSA_FIRST_V66/
+            review-artifacts/NOMUSA_FIRST_V69/
           if-no-files-found: warn
           retention-days: 14
