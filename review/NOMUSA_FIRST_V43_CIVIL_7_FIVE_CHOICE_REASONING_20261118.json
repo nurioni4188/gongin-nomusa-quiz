@@ -1,0 +1,296 @@
+{
+  "schema": "NOMUSA_FIRST_V43_CIVIL_7_FIVE_CHOICE_REASONING/1",
+  "questionCount": 7,
+  "optionReasons": 35,
+  "preExamCaseApproval": 0,
+  "newScoringApproval": 0,
+  "rows": [
+    {
+      "id": "legacy1-2021-A-civil-059",
+      "officialAnswer": 1,
+      "options": [
+        {
+          "number": 1,
+          "text": "법률행위에 조건이 붙어 있는지 여부는 사실인정의 문제로서 그 조건의 존재를 주장하는 자가 이를 증명하여야 한다.",
+          "reasonDraft": "조건이 부가된 사실을 주장하는 당사자가 조건의 존재를 입증한다.",
+          "correct": true
+        },
+        {
+          "number": 2,
+          "text": "조건의 성취가 미정한 권리의무는 일반규정에 의하여 담보로 할 수 없다.",
+          "reasonDraft": "민법 제149조는 조건부 권리도 일반규정에 따라 처분·상속·보존·담보가 가능하다고 규정한다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "조건이 선량한 풍속 기타 사회질서에 위반한 경우 그 조건만 무효로 될 뿐 그 법률행위는 조건없는 법률행위로 유효하다.",
+          "reasonDraft": "반사회질서 조건이 붙은 경우 원칙적으로 법률행위 전체가 무효다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "법률행위 당시 조건이 이미 성취된 경우 그 조건이 정지조건이면 그 법률행위는 무효이다.",
+          "reasonDraft": "법률행위 당시 성취된 정지조건은 조건 없는 법률행위로 본다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "당사자가 조건성취의 효력을 그 성취 전으로 소급하게 할 의사를 표시한 경우 그 소급의 의사표시는 효력이 없다.",
+          "reasonDraft": "조건성취 효력을 소급시키려는 당사자 의사를 허용하는 조문이 있다.",
+          "correct": false
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제147조 제3항, 제149조, 제151조; 조건부 법률행위의 입증책임에 관한 판례",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-060",
+      "officialAnswer": 4,
+      "options": [
+        {
+          "number": 1,
+          "text": "5월 8일, 8월 7일",
+          "reasonDraft": "초일을 산입하면 5월 8일이지만 초일불산입이 원칙이므로 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "5월 8일, 8월 9일",
+          "reasonDraft": "기산점 5월 8일은 초일불산입 원칙과 다르다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "5월 9일, 8월 8일",
+          "reasonDraft": "기산점 5월 9일은 맞지만 8월 8일이 일요일이라 9일로 연장된다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "5월 9일, 8월 9일",
+          "reasonDraft": "5월 9일부터 달력상 3개월을 계산하고 일요일인 8월 8일을 다음날 9일로 연장한다.",
+          "correct": true
+        },
+        {
+          "number": 5,
+          "text": "5월 10일, 8월 9일",
+          "reasonDraft": "초일을 제외하더라도 다음 기산점을 5월 10일로 미루지는 않는다.",
+          "correct": false
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제157조, 제160조, 제161조",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-069",
+      "officialAnswer": 3,
+      "options": [
+        {
+          "number": 1,
+          "text": "채무자는 특별한 사정이 없는 한 자신의 귀책사유 없음을 이유로 예정배상액의 지급책임을 면할 수 있다.",
+          "reasonDraft": "채무자의 귀책사유 부재에 따른 예정액 지급책임 면제는 관련 판례 예외요건을 대조해야 한다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "손해배상액의 예정에는 특별한 사정이 없는 한 통상손해뿐만 아니라 특별손해도 포함된다.",
+          "reasonDraft": "예정배상액은 특별한 사정이 없으면 통상·특별손해를 함께 포괄하는 취지다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "손해배상액이 예정되어 있는 경우라도 과실상계 할 수 있다.",
+          "reasonDraft": "예정배상액 자체에 일반 과실상계 계산을 직접 적용한다는 문구는 판례 법리와 구분된다.",
+          "correct": true
+        },
+        {
+          "number": 4,
+          "text": "예정배상액의 감액범위에 대한 판단은 사실심 변론종결 당시를 기준으로 한다.",
+          "reasonDraft": "예정액 감액의 심리·판단시점은 사실심 변론종결 당시가 문제된다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "금전채무에 관하여 이행지체에 대비한 지연손해금비율에 대한 합의는 손해배상액의 예정으로 보아 감액의 대상이 된다.",
+          "reasonDraft": "이행지체 지연배상금 약정도 민법 제398조 예정배상액에 해당할 수 있다.",
+          "correct": false
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제398조; 손해배상액의 예정에 대한 과실상계·감액 관련 판례",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-072",
+      "officialAnswer": 2,
+      "options": [
+        {
+          "number": 1,
+          "text": "제3자를 위한 계약에서 요약자는 낙약자의 채무불이행을 이유로 제3자의 동의 없이 기본관계를 이루는 계약을 해제할 수 있다.",
+          "reasonDraft": "제3자를 위한 계약의 기본관계 해제에 제3자의 별도 동의가 항상 필요한 것은 아니다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "계약이 해제된 경우 금전을 수령한 자는 해제한 날부터 이자를 가산하여 반환하여야 한다.",
+          "reasonDraft": "민법 제548조 제2항은 원상회복 금전반환이자를 해제일부터가 아니라 받은 날부터 가산한다.",
+          "correct": true
+        },
+        {
+          "number": 3,
+          "text": "甲, 乙, 丙 사이에 순차적으로 매매계약이 이루어지고 丙이 매매대금을 乙의 지시에 따라 甲에게 지급한 경우, 乙과 丙 사이의 매매계약이 해제되더라도 丙은 甲에게 직접 부당이득반환을 청구할 수 없다.",
+          "reasonDraft": "연속매매·제3자에 대한 지급지시의 반환청구는 해당 당사자 간 급부관계를 먼저 구별한다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "매도인이 계약금계약에 의한 해제를 하는 경우, 매도인은 해제의사표시와 약정 계약금의 배액을 제공하면 되고, 매수인의 수령거절 시 공탁할 필요는 없다.",
+          "reasonDraft": "계약금 배액 상환에 의한 매도인 해제는 제공 요건과 수령거절의 효과를 구별한다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "계약해제로 인한 원상회복의무가 이행지체에 빠진 이후의 지연손해금률에 관하여 당사자 사이에 별도의 약정이 있는 경우, 그 지연손해금률이 법정이율보다 낮더라도 약정에 따른 지연손해금률이 적용된다.",
+          "reasonDraft": "해제 뒤 이행지체 지연손해금은 별도 약정이 있으면 약정요율 적용 문제를 따진다.",
+          "correct": false
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제548조 제2항, 계약해제 원상회복·제3자를 위한 계약 판례",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-073",
+      "officialAnswer": 5,
+      "options": [
+        {
+          "number": 1,
+          "text": "수인이 공동사업을 경영할 목적 없이 전매차익만을 얻기 위해 상호 협력한 경우, 특별한 사정이 없는 한 이들 사이의 법률관계는 조합에 해당하지 않는다.",
+          "reasonDraft": "공동사업 경영 목적 없이 단지 전매차익을 도모한 협력은 조합 성립요건과 구분된다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "조합채무자가 조합원들 중의 1인에 대하여 개인 채권을 가지고 있는 경우, 그 채권과 조합에 대한 채무를 서로 대등액에서 상계할 수 없다.",
+          "reasonDraft": "조합재산에 대한 채권과 개별 조합원 개인채권은 상계 당사자가 달라 원칙적으로 구분된다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "조합계약에서 출자의무의 이행과 이익분배를 직접 연결시키는 특약을 두지 않은 경우, 조합은 출자의무를 이행하지 않은 조합원의 이익분배 자체를 거부할 수 없다.",
+          "reasonDraft": "이익분배·출자의무 이행의 연계 특약이 없는 경우 분배 자체의 전면거절 가능성이 제한된다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "조합원의 지분에 대한 압류는 그 조합원의 장래의 이익배당 및 지분의 반환을 받을 권리에 대하여 효력이 있다.",
+          "reasonDraft": "조합 지분압류는 장래의 이익배당과 잔여 지분반환청구권 등에 미친다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "2인 조합에서 조합원 1인이 탈퇴하면 조합관계는 종료되고, 원칙적으로 조합은 즉시 해산된다.",
+          "reasonDraft": "2인 조합에서 한 사람 탈퇴 후 잔존자가 사업을 유지할 수 있어 반드시 즉시 해산되는 것은 아니다.",
+          "correct": true
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제703조 이하·제714조·제719조 및 대법원 2004다49693, 49709 판결",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-074",
+      "officialAnswer": 5,
+      "options": [
+        {
+          "number": 1,
+          "text": "공사도급계약상 도급인의 지체상금채권과 수급인의 공사대금채권은 특별한 사정이 없는 한 동시이행관계에 있다.",
+          "reasonDraft": "도급인의 지체상금채권과 수급인의 공사대금채권은 당연히 쌍무계약 급부 상환관계라고 볼 수 없다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "선이행의무자가 이행을 지체하는 동안 상대방의 채무가 이행기에 도래한 경우, 특별한 사정이 없는 한 양 당사자의 의무는 동시이행관계에 있지 아니하다.",
+          "reasonDraft": "선이행 의무가 지체된 상태에서 반대채무가 변제기에 이르면 동시이행항변 문제가 생길 수 있다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "동시이행항변권에 따른 이행지체책임의 면제의 효력은 그 항변권을 행사·원용하여야 발생한다.",
+          "reasonDraft": "이행지체책임 차단은 항변권 존재·행사 필요를 판례상 구별하여 판단해야 한다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "동시이행항변권은 연기적 항변권으로 동시이행관계에 있으면 소멸시효는 진행되지 아니한다.",
+          "reasonDraft": "동시이행관계라는 사정만으로 채권 소멸시효가 정지된다고 볼 수는 없다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "자동채권과 수동채권이 동시이행관계에 있더라도 서로 현실적으로 이행하여야 할 필요가 없는 경우, 특별한 사정이 없는 한 상계는 허용된다.",
+          "reasonDraft": "현실적 상호이행 필요가 없는 경우에는 동시이행관계라도 상계가 허용될 수 있다.",
+          "correct": true
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제536조·제492조 및 동시이행항변·상계 관련 판례",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-civil-075",
+      "officialAnswer": 1,
+      "options": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄴ",
+          "reasonDraft": "매매예약완결권 10년 제척기간과 면적기준 분양계약의 수량지정매매 설명이 옳다는 취지다.",
+          "correct": true
+        },
+        {
+          "number": 2,
+          "text": "ㄱ, ㄹ",
+          "reasonDraft": "ㄹ의 하자담보와 착오취소 병존을 무조건 배척하는 진술은 옳지 않다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄴ, ㄷ",
+          "reasonDraft": "ㄷ은 건축법상 허가 제한 문제를 권리하자로 단정한 진술이라 검토가 필요하다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄱ, ㄷ, ㄹ",
+          "reasonDraft": "ㄷ의 하자 분류와 ㄹ의 착오취소 배제 진술이 모두 포함돼 오답이다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄴ, ㄷ, ㄹ",
+          "reasonDraft": "ㄷ·ㄹ은 모두 잘못된 진술이므로 이 조합은 옳지 않다.",
+          "correct": false
+        }
+      ],
+      "preExamPrecedentCandidate": "민법 제564조·제569조 이하·제580조, 예약완결권 행사기간 판례 및 수량지정매매 판례",
+      "preExamCaseFullTextMatched": false,
+      "examDateStatuteVersionApproved": false,
+      "independentReviewerApproved": false,
+      "scoringApproved": false
+    }
+  ]
+}
