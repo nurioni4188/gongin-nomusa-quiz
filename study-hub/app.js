@@ -253,7 +253,7 @@
             const short=(firstGapEvidence?.partialYearMissingA||{})[item.year];
             return `<div class="year-card" aria-label="${item.year}년 ${item.count}문항 수록${short?` · ${short}문항 편입 대기`:``}"><b>${item.year}</b><small>${item.count?`${item.count}문항 수록${short?` · ${short}대기`:``}`:"편입 대기"}</small></div>`;
           }).join("")}</div>
-          <p class="muted small">수록된 2,279문항만 학습 문제수에 합산합니다. 2013·2016·2018·2020·2021년은 기존 A·B 정답 후보 각 300건이 있어 연도 선택 시 검토페이지로 이동하지만 문제풀이 편입·채점 승인을 뜻하지 않습니다. <a href="first-legacy-answers.html">원본·정답 검증 단계 전체보기(3,400건 후보)</a> · <a href="first-v37-native14-practice.html">2017·2019년 원본 이미지 14문항</a></p>
+          <p class="muted small">수록된 2,279문항만 학습 문제수에 합산합니다. 2013·2016·2018·2020·2021년은 기존 A·B 정답 후보 각 300건이 있어 연도 선택 시 검토페이지로 이동하지만 문제풀이 편입·채점 승인을 뜻하지 않습니다. <a href="first-legacy-answers.html">원본·정답 검증 단계 전체보기(3,400건 후보)</a> · <a href="first-v37-native14-practice.html">2017·2019년 원본 이미지 14문항</a> · <a href="first-v38-2020-2021-source-pages-practice.html">2020·2021년 원본 PDF 페이지 연습(274후보·26위치HOLD)</a></p>
         </section>
         <section class="card"><div class="section-head"><h2>내 학습 진도</h2></div>
           ${progressLine('2차 복습 완료', doneEssay, essayRows.length)}
