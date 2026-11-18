@@ -100,10 +100,15 @@ def main():
 
     fixes = {r["id"]: r for r in load(V42)["records"]}
     assert len(fixes) == 4 and PILOT.issubset(fixes.keys())
-    v40 = load(V40_DIR / "NOMUSA_FIRST_V40_300_ANCHOR_REVIEW.json")
-    assert v40["totalCandidates"] == 300 and v40["sourcePDFSHAValidated"] == 4
-    v40rows = {r["id"]: r for r in v40["rows"]}
-    assert len(v40rows) == 300
+    v40_file = V40_DIR / "NOMUSA_FIRST_V40_300_ANCHOR_REVIEW.json"
+    # V40 workflow artifact downloads can intermittently return GitHub "Bad credentials".
+    # Never discard the 103 repo-preserved SHA-proven images for this optional source.
+    v40rows = {}
+    if v40_file.is_file():
+        v40 = load(v40_file)
+        assert v40["totalCandidates"] == 300 and v40["sourcePDFSHAValidated"] == 4
+        v40rows = {r["id"]: r for r in v40["rows"]}
+        assert len(v40rows) == 300
 
     missing = [r for r in queued if r["id"] not in PILOT]
     assert len(missing) == 789
@@ -151,7 +156,8 @@ def main():
                       "ocrQuality": "NO_SHA_PROVEN_SINGLE_QUESTION_IMAGE",
                       "exactQuestionAndOptionsVerified": False,
                       "formulaTableOrGraphicVerified": False}
-            status = ("OFFICIAL_QNET_NOTICE_ONLY_HOLD" if r.get("originalURL")
+            status = ("QNET_PDF_LINKED_NO_SINGLE_QUESTION_CROP_HOLD" if r.get("sourceDocumentSHA256") in official_by_sha
+                      else "OFFICIAL_QNET_NOTICE_ONLY_HOLD" if r.get("originalURL")
                       else "NO_SOURCE_LINK_HOLD")
         answer_pdf = official_keys.get(str(r["year"]) + "-AB-official-final-answers")
         result.append({
@@ -181,6 +187,8 @@ def main():
         "phase": args.phase, "targetCount": len(result),
         "priority103": 103, "other686": 686, "remainingOriginalMissing": 789,
         "sourceSixOfficialPDFShaPass": 6,
+        "optionalV40RawArtifactAvailable": bool(v40rows),
+        "optionalV40ArtifactAvailabilityDoesNotAffectSourceApprovals": True,
         "shaProvenImageCandidates": sum(bool(x["originalSourceImage"]) for x in result),
         "ocrReviewCandidateImages": sum(x["status"] == "OCR_REVIEW_REQUIRED_NOT_APPROVED" for x in result),
         "officialAnswerPDFFor2020_2021": sum(bool(x["officialFinalAnswerSheetSHA256"]) for x in result),
