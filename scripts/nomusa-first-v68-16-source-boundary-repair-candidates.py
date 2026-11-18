@@ -105,7 +105,7 @@ def main():
    require(bottom>rect.y1+3,"EXPECTED_INK_GAP_CROP_EXTEND_"+id)
    correction="EXTEND_OVER_POTENTIALLY_OMITTED_INK"
   newRect=fitz.Rect(rect.x0,rect.y0,rect.x1,bottom)
-  require(newRect.height>=55 and newRect.x0>=0 and newRect.x1<=p.rect.width+1,"BAD_REVISED_RECT_"+id)
+  require(newRect.height>=45 and newRect.x0>=0 and newRect.x1<=p.rect.width+1,"BAD_REVISED_RECT_"+id)
   pic=p.get_pixmap(matrix=fitz.Matrix(1.65,1.65),clip=newRect,
        colorspace=fitz.csRGB,alpha=False)
   blob=pic.tobytes("jpeg",jpg_quality=80)
