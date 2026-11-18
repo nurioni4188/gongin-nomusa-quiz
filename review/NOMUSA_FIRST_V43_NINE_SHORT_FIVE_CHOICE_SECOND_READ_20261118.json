@@ -193,11 +193,12 @@
           "number": 5,
           "text": "90",
           "reason": "MC=8Q+2=P=42이므로 Q=5, 이윤=210−120=90이어서 정답이다.",
-          "correct": false
+          "correct": true
         }
       ],
       "independentExpertApproval": false,
-      "scoringApproved": false
+      "scoringApproved": false,
+      "officialAnswer": 5
     },
     {
       "id": "legacy1-2021-A-economics-110",
@@ -225,7 +226,7 @@
           "number": 4,
           "text": "4",
           "reason": "피구세는 SMC−PMC=(10+Q)−(6+Q)=4로 계산되고 사회적 최적 생산량은 Q=5이다.",
-          "correct": false
+          "correct": true
         },
         {
           "number": 5,
@@ -235,7 +236,8 @@
         }
       ],
       "independentExpertApproval": false,
-      "scoringApproved": false
+      "scoringApproved": false,
+      "officialAnswer": 4
     },
     {
       "id": "legacy1-2021-A-economics-115",
@@ -263,7 +265,7 @@
           "number": 4,
           "text": "ㄴ, ㄹ",
           "reason": "LM 좌측 이동으로 이자율이 상승하고 투자·소득이 감소한다는 ㄴ·ㄹ을 고르는 것이 출제 의도다. '구축효과' 표현은 별도 검토가 필요하다.",
-          "correct": false
+          "correct": true
         },
         {
           "number": 5,
@@ -273,7 +275,8 @@
         }
       ],
       "independentExpertApproval": false,
-      "scoringApproved": false
+      "scoringApproved": false,
+      "officialAnswer": 4
     },
     {
       "id": "legacy1-2021-A-economics-118",
@@ -307,11 +310,12 @@
           "number": 5,
           "text": "ㄱ, ㄴ, ㄹ",
           "reason": "ㄱ·ㄴ·ㄹ은 모두 맞고 ㄷ의 총공급 부족 진술만 틀리므로 정답 조합이다.",
-          "correct": false
+          "correct": true
         }
       ],
       "independentExpertApproval": false,
-      "scoringApproved": false
+      "scoringApproved": false,
+      "officialAnswer": 5
     },
     {
       "id": "legacy1-2021-A-economics-124",
@@ -333,7 +337,7 @@
           "number": 3,
           "text": "ㄱ, ㄴ, ㄷ",
           "reason": "ㄱ 경쟁 하 취향차별의 비용압력, ㄴ 편견 없는 통계적 차별, ㄷ 집단 평균 추론 모두 출제 조건에 부합한다.",
-          "correct": false
+          "correct": true
         },
         {
           "number": 4,
@@ -349,7 +353,8 @@
         }
       ],
       "independentExpertApproval": false,
-      "scoringApproved": false
+      "scoringApproved": false,
+      "officialAnswer": 3
     }
   ]
 }
