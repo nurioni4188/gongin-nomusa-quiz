@@ -1,0 +1,69 @@
+name: NOMUSA FIRST V49 old-year 2013 2016 2018 original source and official notice audit
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v49-2013-2016-2018-primary-source.yml'
+      - 'scripts/nomusa-first-v49-450-year-source-recovery.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v49-prior-year-source-only
+  cancel-in-progress: true
+jobs:
+  review-old-a-form-sources:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - name: Checkout Draft PR 3 review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install read-only source signature and archive inspection
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5 beautifulsoup4==4.13.4
+      - name: Attempt actual 2013 A-form and 2016 answer mirror SHA and official 2016 2018 QNet attachments
+        run: |
+          python -m py_compile scripts/nomusa-first-v49-450-year-source-recovery.py
+          python scripts/nomusa-first-v49-450-year-source-recovery.py
+      - name: Keep all 450 year candidates unapproved even if sources downloaded
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=Path('review/NOMUSA_FIRST_V49_ARCHIVE_DISCOVERY_SUMMARY_20261118.json')
+          a=json.loads(p.read_text(encoding='utf-8'))
+          assert a['targetYearCounts']=={'2013':150,'2016':150,'2018':150}
+          assert a['registeredScoringApproved']==0 and a['newQdataImported']==0
+          assert a['formAndFullTextIndependentlyConfirmed']==0
+          assert len(a['rows'])==4
+          changes=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert not changes,changes
+          print('PASS_V49_SOURCE_PROVENANCE_DISCOVERY_2013_2016_2018_ALL_CONTENT_APPROVALS_HOLD')
+          PY
+      - name: Commit only safe source provenance summary, never copyright source PDFs or app code
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_FIRST_V49_ARCHIVE_DISCOVERY_SUMMARY_20261118.json
+          git diff --cached --check
+          git commit -m 'review(first-v49): record 2013/2016/2018 source provenance SHA candidates with approval HOLD'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Keep temporary source files in run artifact, not public GitHub repository
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v49-2013-2016-2018-original-source-provenance-review
+          path: |
+            review-artifacts/NOMUSA_FIRST_V49/
+          if-no-files-found: warn
+          retention-days: 14
