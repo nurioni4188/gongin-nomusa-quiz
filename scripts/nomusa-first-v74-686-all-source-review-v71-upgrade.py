@@ -130,8 +130,8 @@ def main():
  html=html.replace("후보 189개","후보 191개").replace("미완료 243개","미완료 241개")
  html=html.replace("5선지 후보 189개","5선지 후보 191개")
  html=html.replace("원문 전사 미완료 243개","원문 전사 미완료 241개")
- needle="""+(opts||'<p>5개 보기가 아직 구조화되지 않았습니다.</p>')+pics+"""
- injection="""+(opts||'<p>5개 보기가 아직 구조화되지 않았습니다.</p>')+
+ needle="""(opts||'<p>5개 보기가 아직 구조화되지 않았습니다.</p>')+pics+"""
+ injection="""(opts||'<p>5개 보기가 아직 구조화되지 않았습니다.</p>')+
 (q.draftLearningNote?'<details><summary>경제학 풀이 초안 (공식 정답 승인 전)</summary>'+
 '<div class="text">'+e(q.draftLearningNote.formula||q.draftLearningNote.concept||'')+'</div>'+
 (q.draftLearningNote.fiveChoiceDraftReasons||[]).map(e).join('<p></p>')+
