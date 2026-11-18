@@ -11,6 +11,7 @@ on:
       - 'scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py'
       - 'scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py'
       - 'scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py'
+      - 'scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -226,11 +227,39 @@ jobs:
           assert changed.issubset({'review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json'}),changed
           print('PASS_V65_254_QNET_FULLPAGE_CONTEXT_AND_GAP_CONTENT_RISK_ANALYSIS_0_SCORE')
           PY
+      - name: Repair 4 overlapping crop regions and 12 ink-filled gaps as non-destructive QNet source proposals
+        run: |
+          python -m py_compile scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+          python scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+      - name: Fail closed - 16 SHA-backed revised images and 16 comparison previews without content or grading approval
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V68')
+          d=json.loads((root/'NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json').read_text(encoding='utf8'))
+          assert d['originalImageQAUniverse']==254
+          assert d['sourceGeometrySuspiciousTargets']==len(d['rows'])==16
+          assert len({q['id'] for q in d['rows']})==16
+          assert d['overlapSourceRevisedCandidates']==4 and d['inkGapSourceRevisedCandidates']==12
+          assert d['unchangedOriginalCandidateImagesPreserved']==254
+          assert d['newSeparateRevisedQNetCropImages']==d['oldVsNewComparisonImages']==16
+          assert d['newQdataImports']==d['newScoringApproved']==0
+          assert d['independentlyVerifiedFullQuestionAndAllFiveOptions']==0
+          for q in d['rows']:
+            assert not q['scoringApproved'] and not q['readyForV44']
+            for name in ('revisedSourceCrop','comparisonPreview'):
+              im=q[name];file=root/im['file'] if name=='revisedSourceCrop' else root/im['path']
+              assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==im['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json'}),changed
+          print('PASS_V68_16_NONDESTRUCTIVE_SOURCE_REPAIR_IMAGE_PROPOSALS_ZERO_GRADING')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
@@ -253,5 +282,6 @@ jobs:
             review-artifacts/NOMUSA_FIRST_V59/
             review-artifacts/NOMUSA_FIRST_V64/
             review-artifacts/NOMUSA_FIRST_V65/
+            review-artifacts/NOMUSA_FIRST_V68/
           if-no-files-found: warn
           retention-days: 14
