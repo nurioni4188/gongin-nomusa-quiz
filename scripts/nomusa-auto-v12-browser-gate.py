@@ -247,7 +247,7 @@ def check_first(page, width):
   page.locator('#choices [data-v="4"]').click()
   assert page.locator('.fb.info').first.is_visible()
   page.locator('#tabs [data-v="home"]').click()
-  assert page.get_by_text('2,279문항',exact=True).is_visible()
+  assert page.get_by_text('2,281문항',exact=True).is_visible()
   page.locator('[data-y="2014"][data-s="경제학원론"]').click()
   page.locator('#mOk').click()
   assert '2014년 A형' in page.locator('.qmeta').inner_text()
