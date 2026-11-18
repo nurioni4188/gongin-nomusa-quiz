@@ -543,6 +543,7 @@ nav.tabs .n27-essay-entry:focus-visible{outline:3px solid var(--warn);outline-of
 <script src="study-hub/first-2009-a.js"></script>
 <script src="study-hub/first-2010-a.js"></script>
 <script src="study-hub/first-2011-2019-a-pack.js"></script>
+<script src="study-hub/first-v33-missing-year-coverage.js"></script>
 <script type="module">
 "use strict";
 const BASE = window.QDATA || [], META = window.QMETA || {};
@@ -559,6 +560,7 @@ try { FIRST_BATCH=await readPracticeBatch(); } catch (error) { console.error("1�
 const Q = [...BASE, ...FIRST_2008, ...FIRST_2009, ...FIRST_2010, ...FIRST_BATCH];
 const BY = Object.fromEntries(Q.map(q=>[q.k,q]));
 const YEARS=[...new Set(Q.map(q=>q.y))].sort((a,b)=>b-a);
+const FIRST_GAPS=window.NOMUSA_FIRST_V33_COVERAGE;
 // V6.8: Imported historical A-form answer candidates are NOT approved scoring keys.
 // Keep original 2022-2026 RC35 grading separate from 2008-2021 practice records.
 const isUngraded=q=>Boolean(q&&q.y>=2008&&q.y<=2021);
@@ -711,6 +713,14 @@ function vHome(){
   <div class="card setup-card"><div class="setup-card-head"><strong>문제풀이 설정</strong><span>원하는 조건을 선택하세요</span></div>
     <div class="lbl">연도 (회차)</div><div class="row" id="cYear">${chipRow(YEARS,v=>P.years.includes(v),v=>v+" · "+(v-1991)+"회"+(v<2022?" A형":""))}</div>
     <p class="muted">과거 기출 풀이 ${(FIRST_2008.length+FIRST_2009.length+FIRST_2010.length+FIRST_BATCH.length).toLocaleString()}문항 · <a href="study-hub/first-legacy-answers.html">과거 기출 원문·정답 검토</a></p>
+    <div class="lbl">문제 지문 미편입 · 기존 정답 후보 자료</div>
+    <div class="row" aria-label="기존 자료가 있는 1차 미편입 연도">
+      ${FIRST_GAPS.missingYears.map(g=>`<a class="btn ghost" href="study-hub/first-legacy-answers.html?year=${g.year}&type=A" aria-label="${g.year}년 과거 1차 정답 후보 A형 조회 · 아직 문제풀이는 미편입">${g.year}년 · 정답 후보 ${g.candidateA+g.candidateB}건</a>`).join("")}
+    </div>
+    <p class="muted">위 5개 연도는 A·B형 정답 후보를 보존했지만 문제 지문·선택지가 없어 시험 모드에서 풀 수 없습니다. 2020·2021년은 원본 Q-Net PDF 링크를 조회할 수 있습니다. <strong>정답 자동채점은 미승인</strong>입니다.</p>
+    <details><summary>다른 연도에서 빠진 일부 문항 보기</summary><div class="in">
+      ${Object.entries(FIRST_GAPS.partialYearMissingA).map(([year,n])=>`${year}년 ${n}개`).join(" · ")} · 합계 41개(A형 기준). 기존 정답 후보는 별도 검토페이지에 보존했습니다.
+    </div></details>
     <div class="lbl">과목</div><div class="row" id="cSub">${chipRow(SUBJ,v=>P.subs.includes(v),v=>SHORT[v])}</div>
     <div class="lbl">범위</div><div class="row" id="cScope">${chipRow(["all","new","wrong","everwrong","star","review"],v=>P.scope===v,v=>({all:"전체",new:"안 푼 문제",wrong:"지금 틀린 문제",everwrong:"한 번이라도 틀림",star:"별표",review:"수동 복습"})[v])}</div>
     <div class="lbl">순서 · 문항 수</div><div class="row" id="cOrder">${chipRow(["seq","rand"],v=>P.order===v,v=>v==="seq"?"번호순":"섞기")}<span style="width:8px"></span>${chipRow([0,10,20,40],v=>P.count===v,v=>v?v+"문항":"모두")}</div>
