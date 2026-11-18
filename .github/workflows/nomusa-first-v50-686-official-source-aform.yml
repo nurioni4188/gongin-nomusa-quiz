@@ -10,6 +10,7 @@ on:
       - 'scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py'
       - 'scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py'
       - 'scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py'
+      - 'scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -197,11 +198,39 @@ jobs:
           assert modified.issubset({'review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json'}),modified
           print('PASS_V64_254_ORIGINAL_QNET_PDF_REGION_PIXEL_COMPARE_AND_CROP_RISK_REVIEW_NO_SCORING')
           PY
+      - name: Generate 254 original full-page review references with marked provisional crops and gap/content risks
+        run: |
+          python -m py_compile scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py
+          python scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py
+      - name: Verify every original page image matches SHA ledger and no question, answer or grading was auto-approved
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          root=Path('review-artifacts/NOMUSA_FIRST_V65')
+          r=json.loads((root/'NOMUSA_FIRST_V65_254_FULLPAGE_SOURCE_RISK_QUEUE.json').read_text(encoding='utf8'))
+          assert r['targetUniqueSourceCropIds']==len(r['rows'])==254
+          assert r['originalOfficialQNetFullPageReviewerImagesGenerated']==254
+          assert r['sourceStages']=={'V48':67,'V51':96,'V55':91}
+          assert r['originalPageSHAValidated']==254
+          assert r['independentOriginalFiveOptionContentApproved']==0
+          assert r['independentOfficialAnswerCellApproved']==0
+          assert r['independentHistoricalLegalAcademicContentApproved']==0
+          assert r['newAppImports']==r['newScoringApproved']==0
+          assert (root/'NOMUSA_FIRST_V65_254_SOURCE_REVIEW_GALLERY.html').is_file()
+          for row in r['rows']:
+            assert row['scoringApproved'] is False and row['readyForV44'] is False
+            im=root/row['originalFullPageReviewImage']['file']
+            assert im.is_file() and hashlib.sha256(im.read_bytes()).hexdigest()==row['originalFullPageReviewImage']['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json'}),changed
+          print('PASS_V65_254_QNET_FULLPAGE_CONTEXT_AND_GAP_CONTENT_RISK_ANALYSIS_0_SCORE')
+          PY
       - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
@@ -223,5 +252,6 @@ jobs:
             review-artifacts/NOMUSA_FIRST_V52/
             review-artifacts/NOMUSA_FIRST_V59/
             review-artifacts/NOMUSA_FIRST_V64/
+            review-artifacts/NOMUSA_FIRST_V65/
           if-no-files-found: warn
           retention-days: 14
