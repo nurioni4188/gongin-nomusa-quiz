@@ -375,12 +375,12 @@
     if(r.stage==='first')return '<div class="content-card"><h3>기존 1차 문제풀이와 연결</h3><p>기존 1차의 선택지 제출, 자동저장, 새로고침 복원, 검토 플래그, 오답노트, 진도율, 재시험, 실전 모드, JSON 복원은 원래 화면을 사용합니다.</p>'
       +'<div class="link-list">'+link('/study-hub/','기존 학습 허브 이동')+link('/','기존 1차 문제풀이 이동')+'</div>'
       +'<div class="notice">원본 교열 승인이 없는 103·686문항은 자동채점 문제은행에 승격하지 않습니다.</div></div>';
-    return '<div class="content-card"><h3>2차 학습 흐름</h3><div class="status-line"><span class="tag blue">① 상세답안</span><span class="tag blue">② 압축답안</span><span class="tag blue">③ 직접 작성</span><span class="tag blue">④ 비교·복습</span></div>'
-      +'<p class="muted">기존 본문을 먼저 읽은 후 '+esc(sheet(r))+'를 목표로 직접 작성하고 비교하세요.</p>'
-      +'<div class="link-list">'+link('/second/','원래 상세·압축 학습화면')+'</div>'
-      +'<div class="two"><div>'+textField('writing','③ 직접 작성 · 자동저장',d.writing,'입력 즉시 독립 저장',true)+'</div>'
-      +'<div>'+textField('reviewWriting','④ 자기 비교·복습 메모',d.reviewWriting,'빠진 논점, 법리, 수식, 비교표, 분량',true)+'</div></div>'
-      +'<p class="muted">이 화면의 작성 기록은 기존 RC27 답안 저장키를 변경하지 않습니다.</p></div>';
+    return '<div class="content-card"><h3>2차 학습은 기존 허브에서 계속</h3>'
+      +'<p>상세 → 압축 → 직접 작성 → 비교·복습은 기존 2차 학습화면에서 진행합니다. 이 콘솔은 교열·검토 메모만 별도 저장합니다.</p>'
+      +'<p class="muted">권장 분량 '+esc(sheet(r))+' · 검토 저장키 '+esc(STORAGE_KEY)+'</p>'
+      +'<div class="link-list">'+link('/study-hub/#study','통합 학습 허브')+link('/second/','기존 2차 답안 작성')+'</div>'
+      +((d.writing||d.reviewWriting)?'<details><summary>이전 콘솔의 직접 작성·복습 기록 (읽기 전용)</summary>'+displayStr(d.writing)+displayStr(d.reviewWriting)+'</details>':'')
+      +'</div>';
   }
   function checkboxField(key,label,d) {
     const checks=jsonObj(d.checks)?d.checks:{};
@@ -454,12 +454,6 @@
     current=id;detailTab='source';sourceRecord=null;
     history.replaceState(null,'',location.pathname+'?id='+encodeURIComponent(id));
     renderDetail();E('detail').scrollIntoView({block:'start',behavior:'smooth'});
-  }
-  function validateApproval(d) {
-    const c=d.checks || {};
-    return ['original','answer','theory','independent'].every(k=>c[k]===true)
-      && clean(d.reviewer1).length>=5 && clean(d.reviewer2).length>=5
-      && clean(d.reviewer1)!==clean(d.reviewer2) && clean(d.approvalEvidence).length>=20;
   }
   function writeValue(key,value) {
     if(!current)return;
@@ -536,7 +530,7 @@
     addSocial();
     all=[...bucket.values()].sort((a,b)=>(b.year-a.year)||a.stage.localeCompare(b.stage)||a.subject.localeCompare(b.subject,'ko')||a.id.localeCompare(b.id));
     fillSelect();
-    E('alerts').innerHTML='<div class="alert"><strong>승인 게이트:</strong> V43 103문항의 선택지 해설은 초안 구조검사를 마쳤지만 독립교열 0건입니다. 2차 328개도 독립 전문가 최종승인 0건입니다. <strong>새 콘솔의 PC1440/모바일390·360 로컬 Chromium E2E PASS, 보호 Preview 인증 후 실사용 검증 HOLD</strong>입니다.'
+    E('alerts').innerHTML='<div class="alert"><strong>최종승인 HOLD</strong> · 103문항 독립교열 0건 · 2차 328개 독립승인 0건. <details><summary>검증 관문 상세</summary>법률 25문항 시험 당시 법령·판례 전문 검증 필요 · 기존 로컬 Chromium E2E PASS · 보호 Preview 인증 후 실사용 검증 HOLD.</details>'
       +(failures.length?'<details><summary>자료 로드 제한 '+failures.length+'건</summary>'+failures.map(esc).join(' · ')+'</details>':'')+'</div>';
     switchView('all');
     const deepId=new URLSearchParams(location.search).get('id');if(deepId&&bucket.has(deepId))openItem(deepId);
