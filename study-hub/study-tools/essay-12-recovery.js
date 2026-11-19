@@ -5,12 +5,12 @@
 window.NOMUSA_ESSAY_12_RECOVERY = {
  "2018_p3_q1":{
   sourceText:"【문제 1】과학적 관리론이 직무설계, 선발과 훈련, 보상, 일선감독 직무에 기여한 바를 논하고, 인간관계론을 과학적 관리론과 비교하여 호손연구(Hawthorne Study) 중심으로 논하시오. (50점)",
-  sourceStatus:"OFFICIAL_PDF_TEXT_EXTRACTED_WORD_FOR_WORD_VISUAL_SECOND_PASS_HOLD",
+  sourceStatus:"OFFICIAL_PDF_TEXT_EXTRACTED_NORMALIZED_VISUAL_SECOND_PASS_HOLD",
   sourcePdfPath:"source_pdf/2018/2018_second_full_original.pdf",sourcePdfPage:10,sourceSummaryOnly:false
  },
  "2018_p3_q2":{
   sourceText:"【문제 2】노사공동결정제도의 의의, 기본사고(사상), 구조와 기능에 관하여 설명하시오. (25점)",
-  sourceStatus:"OFFICIAL_PDF_TEXT_EXTRACTED_WORD_FOR_WORD_VISUAL_SECOND_PASS_HOLD",
+  sourceStatus:"OFFICIAL_PDF_TEXT_EXTRACTED_NORMALIZED_VISUAL_SECOND_PASS_HOLD",
   sourcePdfPath:"source_pdf/2018/2018_second_full_original.pdf",sourcePdfPage:10,sourceSummaryOnly:false
  },
  "2018_p3_q3":{
