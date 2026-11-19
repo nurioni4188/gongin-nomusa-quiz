@@ -223,7 +223,7 @@ function updateEssayWorkspace(){
   const link='https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/'+path.split('/').map(encodeURIComponent).join('/');
   links.push('<a href="'+esc(link)+'" target="_blank" rel="noopener">원본문서 저장소</a>');
  }
- E('essaySourceStatus').innerHTML='<strong>'+(r.sourceText?'학습용 원문 텍스트 연결 · 검증/승인 별도 HOLD':'원문 텍스트 미연결 · 원본문서 확인 필요 HOLD')+'</strong> · '+esc(r.id)+' · '+links.join(' · ');
+ E('essaySourceStatus').innerHTML='<strong>'+(r.sourceBundleOnly?'과목 전체 원본문서 연결 · 개별 소문항 분리 HOLD':r.sourceText?'학습용 원문 텍스트 연결 · 검증/승인 별도 HOLD':'원문 텍스트 미연결 · 원본문서 확인 필요 HOLD')+'</strong> · '+esc(r.id)+' · '+links.join(' · ');
  E('essayOwnWriting').value=essayNotes.items[r.id]||'';
  E('essayOwnSaveStatus').textContent=essayStorageBlocked?'저장기록 오류 · 자동저장 HOLD':'이 페이지에서만 별도 자동저장';
 }
@@ -283,6 +283,12 @@ updateCardCount();
 if(location.hash==='#pdf')switchTo('pdf');
 window.NOMUSA_STUDY_TOOLS_READONLY=Object.freeze({
  totalFirst:questions.length,totalEssayCatalog:essay.length,fullCoverageReport:complete.report,sourceLoadFailures:complete.failures,
+ sourceCoverage:Object.freeze({firstWithStem:questions.filter(q=>!!q.q).length,firstWithFiveOptions:questions.filter(q=>Array.isArray(q.o)&&q.o.length===5).length,
+  first103FullyRead:complete.first.filter(q=>q.fullStage==='source103'&&!!q.q&&q.o.length===5).length,
+  first686AwaitingSource:complete.first.filter(q=>q.fullStage==='source686'&&!q.q).length,
+  secondExactOrDraftText:essay.filter(r=>r.sourceText&&!r.sourceBundleOnly).length,
+  secondOriginalBundleOnly:essay.filter(r=>r.sourceBundleOnly).length,
+  secondNoSourceText:essay.filter(r=>!r.sourceText).length}),
  getState:()=>({selectedAnki:cardItems().length,lastId:store.lastId,reviewItems:Object.keys(store.items).length}),
  hasScoringMutation:false,storageKey:STORAGE
 });
