@@ -248,6 +248,37 @@ E('exportAnki').onclick=()=>{
  download(header+'\n'+data+'\n','nomusa-anki-review-'+new Date().toISOString().slice(0,10)+'.txt','text/plain;charset=utf-8');
  notice(rows.length+'개 Anki 가져오기 파일 생성 · 자동 동기화 아님');
 };
+// This page's own two storage keys only (STORAGE=1차 선택/복습, ESSAY_NOTE_KEY=2차
+// 직접작성). Does not touch nomusa_preview_hub_v1 / nomu1-progress-v2 /
+// nomusa_rc27_v103_essay_records_v1, which are backed up by study-hub/app.js instead.
+const STUDY_BACKUP_SCHEMA='nomusa_study_tools_backup/1';
+E('exportStudyBackup').onclick=()=>{
+ const payload={schema:STUDY_BACKUP_SCHEMA,exportedAt:new Date().toISOString(),
+   keys:{[STORAGE]:store,[ESSAY_NOTE_KEY]:essayNotes}};
+ download(JSON.stringify(payload,null,1),'nomusa-study-tools-backup-'+new Date().toISOString().slice(0,10)+'.json','application/json;charset=utf-8');
+ E('studyBackupStatus').textContent='백업 파일을 내려받았습니다 · '+STORAGE+' · '+ESSAY_NOTE_KEY;
+};
+E('importStudyBackup').addEventListener('change',async ev=>{
+ const file=ev.target.files?.[0];ev.target.value='';
+ if(!file)return;
+ let parsed;
+ try{parsed=JSON.parse(await file.text())}catch{E('studyBackupStatus').textContent='백업 파일 형식 오류 · JSON 파싱 실패 · 가져오기 취소';return}
+ if(!parsed||parsed.schema!==STUDY_BACKUP_SCHEMA||!parsed.keys||typeof parsed.keys!=='object'){
+  E('studyBackupStatus').textContent='이 학습도구 백업 파일이 아닙니다 · 가져오기 취소';return;
+ }
+ const incomingStore=parsed.keys[STORAGE],incomingNotes=parsed.keys[ESSAY_NOTE_KEY];
+ const storeOk=incomingStore&&incomingStore.schema===store.schema&&incomingStore.items&&typeof incomingStore.items==='object'&&!Array.isArray(incomingStore.items)
+   &&Object.keys(incomingStore.items).every(k=>questionById.has(k));
+ const notesOk=incomingNotes&&incomingNotes.schema===essayNotes.schema&&incomingNotes.items&&typeof incomingNotes.items==='object'&&!Array.isArray(incomingNotes.items)
+   &&Object.keys(incomingNotes.items).every(k=>essay.some(x=>x.id===k)&&typeof incomingNotes.items[k]==='string');
+ if(!storeOk&&!notesOk){E('studyBackupStatus').textContent='백업 내용이 현재 문항 ID와 맞지 않습니다 · 가져오기 취소 · 기존 기록 보존';return}
+ if(!confirm('현재 이 학습도구의 저장 기록을 백업 파일 내용으로 덮어씁니다. 계속할까요?'))return;
+ if(storeOk){store=incomingStore;storageBlocked=false;save();}
+ if(notesOk){essayNotes=incomingNotes;essayStorageBlocked=false;persistEssay();}
+ E('studyBackupStatus').textContent='가져오기 완료 · '+(storeOk?'1차 복원 ':'')+(notesOk?'2차 복원':'')+(storeOk&&!notesOk?' · 2차 백업 없음(미변경)':'')+(!storeOk&&notesOk?' · 1차 백업 없음(미변경)':'');
+ renderQuestion();
+ if(typeof updateEssayWorkspace==='function')updateEssayWorkspace();
+});
 function selectPItems(){
  const y=E('pYear').value,s=E('pSubject').value,prev=E('pItem').value;
  const rows=essay.filter(e=>(!y||String(e.year)===y)&&(!s||e.subject===s));
