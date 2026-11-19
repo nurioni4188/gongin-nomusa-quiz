@@ -43,7 +43,7 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
     return '';
   };
   const five=o=>{
-    for(const key of ['options','optionTexts','allFiveOptionsFromImageDraft','choices','o','allFiveChoices']){
+    for(const key of ['options','optionTexts','allFiveOptionsFromImageDraft','originalFiveOptionsDraft','sourceFiveOptionsDraft','choices','o','allFiveChoices']){
       if(Array.isArray(o?.[key])&&o[key].length===5)return o[key].map(v=>typeof v==='string'?v:String(v?.text||v?.option||''));
     }
     return [];
@@ -51,7 +51,7 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
   const first=[];
   for(const row of (a?.rows||[])){
     const src=sourceById.get(row.id)||{};
-    const stem=val(src,['question','exactStemFromImageDraft','stem','sourceText','questionText','q','questionStem']);
+    const stem=val(src,['question','exactStemFromImageDraft','exactOriginalStemDraft','sourceStemDraft','stem','sourceText','questionText','q','questionStem']);
     const opts=five(src);
     first.push({
       k:row.id,y:row.year,s:row.subject||src.subject||'',n:Number(src.questionNumber||String(row.id).split('-').pop())||null,
