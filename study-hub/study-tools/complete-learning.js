@@ -75,6 +75,9 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       sourceOfficialURL:row.officialAFormOriginalBooklet?.officialQNetSourceURL||row.knownQNetNoticeOrOriginalURL||'',
       sourceOfficialSHA:row.officialAFormOriginalBooklet?.officialSourcePdfSha256||'',
       sourceOfficialGroup:row.officialAFormOriginalBooklet?.sourceGroup||'',
+      sourcePageCandidate:Number.isInteger(row.officialAFormOriginalBooklet?.candidateOriginalPDFPage)&&
+        row.officialAFormOriginalBooklet.candidateOriginalPDFPage>0?row.officialAFormOriginalBooklet.candidateOriginalPDFPage:null,
+      sourcePageIndependentlyVerified:row.independentQuestionNumberAndOriginalPDFPageProof===true,
       sourceCandidateURL:row.thirdPartyMirrorOnly?.candidateURL||'',
       sourceEvidence:row.knownQNetNoticeOrOriginalURL||'',
       sourceReviewStatus:row.sourceGrade||'원문·5개 선택지·정답 검증 필요'
@@ -101,6 +104,12 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       first686NoVerifiedOfficialA: (b?.rows||[]).filter(x=>x.sourceGrade==='NO_VERIFIED_OFFICIAL_A_PDF_HOLD').length,
       firstOfficialOriginalFileIntegrityProved: first.filter(x=>x.fullStage==='source686'&&window.NOMUSA_QNET_SOURCE_AUDIT?.[x.sourceOfficialSHA]?.integrity==='SHA256_MATCH').length,
       originalPDFsSHAConfirmed: Object.values(window.NOMUSA_QNET_SOURCE_AUDIT||{}).filter(x=>x.integrity==='SHA256_MATCH').length,
+      originalPDFPageCandidate169:first.filter(x=>x.fullStage==='source686'&&
+        Number.isInteger(x.sourcePageCandidate)&&
+        x.sourcePageCandidate<=Number(window.NOMUSA_QNET_SOURCE_AUDIT?.[x.sourceOfficialSHA]?.pdfPageCount||0)).length,
+      sourcePageCandidateOutOfRange:first.filter(x=>x.fullStage==='source686'&&
+        Number.isInteger(x.sourcePageCandidate)&&
+        x.sourcePageCandidate>Number(window.NOMUSA_QNET_SOURCE_AUDIT?.[x.sourceOfficialSHA]?.pdfPageCount||0)).length,
       originalStems103:first.filter(x=>x.fullStage==='source103'&&!!x.q).length,
       fiveOptions103:first.filter(x=>x.fullStage==='source103'&&x.o.length===5).length,
       textExplanationDraft103:first.filter(x=>x.fullStage==='source103'&&x.learningExplanationDraft).length,
