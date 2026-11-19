@@ -31,6 +31,7 @@
       <label class="tick"><input id="fDue" type="checkbox"> 복습 예정만</label>
    </div>
    <div class="study-status"><span id="focusPosition" aria-live="polite"></span><span id="focusTimer" aria-live="off">경과 00:00</span></div>
+<div id="sourceCoverage" class="source-coverage" role="status">원본·문항 연결 상태 확인 중</div>
    <article class="question" id="question"><p>문항을 불러오는 중입니다.</p></article>
    <div class="commandbar">
      <button type="button" id="prev" class="secondary">이전 문제</button>
@@ -56,7 +57,9 @@
      <label>문항<select id="pItem"><option value="">문항 선택</option></select></label>
      <label>PDF 구성<select id="pFormat"><option value="full">원문 + 상세·압축</option><option value="compact">원문 + 압축 + 필기공간</option><option value="practice">원문 + 필기공간</option></select></label>
    </div>
-   <div class="paper-tools"><label class="tick"><input type="checkbox" id="pMyDraft"> 기존 내가 작성한 답안 포함 (민감한 기록)</label><button type="button" id="previewPdf" class="secondary">인쇄물 미리보기</button><button type="button" id="printPdf" class="primary">인쇄 · PDF로 저장</button></div>
+   <div class="essay-original-status" id="essaySourceStatus" role="status">원본 연결 상태 확인 중</div>
+<section class="essay-write"><h3>내 2차 학습답안 직접 작성</h3><p>원본이 아직 전사되지 않은 문항은 먼저 원전 링크에서 지문과 배점을 확인해 주세요. 작성 중인 답안은 별도 저장소에 자동저장됩니다.</p><textarea id="essayOwnWriting" maxlength="150000" placeholder="쟁점 → 법리·학설 → 사안포섭 → 결론"></textarea><span id="essayOwnSaveStatus" role="status">별도 자동저장</span></section>
+<div class="paper-tools"><label class="tick"><input type="checkbox" id="pMyDraft"> 기존 내가 작성한 답안 포함 (민감한 기록)</label><button type="button" id="previewPdf" class="secondary">인쇄물 미리보기</button><button type="button" id="printPdf" class="primary">인쇄 · PDF로 저장</button></div>
    <p class="note">브라우저 인쇄 창에서 대상 'PDF로 저장'을 선택한 뒤 Goodnotes·플렉슬에 가져오세요. 직접 앱 계정으로 전송하거나 자동 동기화하지 않습니다. 현재 원문 카탈로그의 수록 문항만 선택할 수 있습니다.</p>
    <div id="previewInfo" class="status-text" role="status"></div>
  </section>
@@ -73,6 +76,7 @@
 <script src="../first-2011-2019-a-pack.js"></script>
 <script src="../first-v42-two-theory-source-checked.js"></script>
 <script src="../state.js"></script>
+<script src="complete-learning.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
