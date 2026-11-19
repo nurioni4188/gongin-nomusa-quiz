@@ -157,7 +157,7 @@ function renderQuestion(){
   (q.fullStage?'<div class="hold">원문 전사 초안 · 독립 교열 대기 · 정답·해설 최종승인 HOLD</div>':'');
  const answer=revealed?
   '<div class="'+(approved?'answer':'hold')+'">'+(approved?'기존 정답표 번호 <strong>'+Number(q.a[0])+'번</strong> · 최종 내용 승인과 별개입니다.':'원본 선택지·정답표 일대일 대조 미확인 · 정답 공개 HOLD')+'</div>':'';
- const draftRationale=q.fullStage==='source103'&&q.learningExplanationDraft?
+ const draftRationale=(q.fullStage==='source103'||q.fullStage==='source686')&&q.learningExplanationDraft?
    '<details class="learning-rationale"><summary>기존 학습 해설 초안 확인 · 독립검증 HOLD</summary>'+
    '<p class="rationale-notice">이 해설은 학습 초안입니다. 선택지별 법령·판례·계산과 공식 답안의 독립 교열은 완료되지 않았고, 자동채점 근거가 아닙니다.</p>'+
    '<div class="rationale-text">'+esc(plain(q.learningExplanationDraft).slice(0,15000))+'</div>'+

@@ -6,7 +6,8 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
   const paths={
     first103:'/review/NOMUSA_FIRST_V43_103_SECOND_PASS_515_CHOICES_AND_LAW_QA_20261118.json',
     first686:'/review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json',
-    essay328:'/review/NOMUSA_V23_VALIDATION_LEDGER.json'
+    essay328:'/review/NOMUSA_V23_VALIDATION_LEDGER.json',
+    laneA1:'/review/NOMUSA_FIRST_V80_LANE_A_BATCH1_25Q_LABOR_LAW_20261119.json'
   };
   const failures=[];
   const fetchJSON=async path=>{
@@ -16,10 +17,14 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       return await r.json();
     }catch(err){failures.push(path+': '+err.message);return null}
   };
-  const [a,b,c]=await Promise.all([fetchJSON(paths.first103),fetchJSON(paths.first686),fetchJSON(paths.essay328)]);
+  const [a,b,c,laneA1]=await Promise.all([fetchJSON(paths.first103),fetchJSON(paths.first686),fetchJSON(paths.essay328),fetchJSON(paths.laneA1)]);
   if(!Array.isArray(a?.rows)||a.rows.length!==103)failures.push('103 원장 행수 불일치');
   if(!Array.isArray(b?.rows)||b.rows.length!==686)failures.push('686 원장 행수 불일치');
   if(!Array.isArray(c?.rows)||c.rows.length!==328)failures.push('328 원장 행수 불일치');
+  if(!Array.isArray(laneA1?.rows)||laneA1.rows.length!==25)failures.push('V80 Lane A 1차 배치(25문항) 원장 행수 불일치');
+  // Overlay only: never mutates the 686 ledger itself, only supplies transcribed
+  // stem/options/reasoned-candidate content for rows whose id matches.
+  const laneA1ById=new Map((laneA1?.rows||[]).filter(row=>typeof row?.id==='string').map(row=>[row.id,row]));
   const sourcePaths=[...new Set((a?.rows||[]).map(row=>row.originalRecord).filter(path=>/^review\/[A-Za-z0-9_./-]+\.json$/.test(path)))];
   const sources=await Promise.all(sourcePaths.map(async path=>[path,await fetchJSON('/'+path)]));
   const sourceById=new Map();
@@ -65,10 +70,21 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
     });
   }
   for(const row of (b?.rows||[])){
+    const laneA=laneA1ById.get(row.id)||null;
+    const laneAOpts=laneA&&Array.isArray(laneA.originalFiveOptionsDraft)&&laneA.originalFiveOptionsDraft.length===5?laneA.originalFiveOptionsDraft:[];
     first.push({
       k:row.id,y:row.year,s:row.subject,n:row.questionNumber,
-      q:'',o:[],a:[],form:'A',
-      fullStage:'source686',provisional:true,
+      q:laneA?.exactStemFromImageDraft||'',o:laneAOpts,
+      // Reasoned candidate from independent statute-text analysis, NOT an official
+      // key. chk/sourceReviewStatus below deliberately do NOT say MATCH/CHECKED,
+      // so confirmKey() in app.js keeps this hidden behind the HOLD gate.
+      a:laneA&&Number.isInteger(laneA.reasonedCandidateAnswer)?[laneA.reasonedCandidateAnswer]:[],
+      form:'A',
+      fullStage:'source686',provisional:!laneA,
+      visuallyTranscribedFromCrop:!!laneA,
+      reasonedConfidence:laneA?.reasonedConfidence||null,
+      learningExplanationDraft:laneA?.explanationDraft||'',
+      learningOptionNotes:Array.isArray(laneA?.optionExplanations)&&laneA.optionExplanations.length===5?laneA.optionExplanations:[],
       sourceOriginal:paths.first686.slice(1),
       sourceCrop:row.originalCropProvisional?.path||'',
       sourceCropSHA:row.originalCropProvisional?.sha256||'',
@@ -80,7 +96,7 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       sourcePageIndependentlyVerified:row.independentQuestionNumberAndOriginalPDFPageProof===true,
       sourceCandidateURL:row.thirdPartyMirrorOnly?.candidateURL||'',
       sourceEvidence:row.knownQNetNoticeOrOriginalURL||'',
-      sourceReviewStatus:row.sourceGrade||'원문·5개 선택지·정답 검증 필요'
+      sourceReviewStatus:laneA?'VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING':(row.sourceGrade||'원문·5개 선택지·정답 검증 필요')
     });
   }
   // Original authored records take priority in the caller; 328 ledger provides
@@ -98,6 +114,7 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
     first,essay,failures,
     report:{expectedFirstMissing:789,first103:(a?.rows||[]).length,first686:(b?.rows||[]).length,
       essay328:(c?.rows||[]).length,sourceFileCount:sourcePaths.length,
+      first686VisuallyTranscribedBatchV80LaneA1: first.filter(x=>x.fullStage==='source686' && x.visuallyTranscribedFromCrop).length,
       first686ProvisionalCrop: first.filter(x=>x.fullStage==='source686' && !!x.sourceCrop).length,
       first686WithOfficialBooklet: (b?.rows||[]).filter(x=>x.sourceGrade==='OFFICIAL_QNET_A_PDF_AT_BOOKLET_LEVEL').length,
       first686ThirdPartyOnly: (b?.rows||[]).filter(x=>x.sourceGrade==='THIRD_PARTY_2013_MIRROR_ONLY_HOLD').length,
