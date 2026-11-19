@@ -1,0 +1,80 @@
+{
+  "schema": "NOMUSA_QUALITY_CONSOLE_UX_REVIEW_E2E/1",
+  "dateKST": "2026-11-19",
+  "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceCodeCommit": "1c1e2546444c1597c2dfded85417e4e74d35b946",
+  "runEnvironment": "Vercel isolated sandbox, static repository HTTP server, Playwright 1.65.1 Chromium headless",
+  "scope": "P0/P1/P2 UI only; original learning source, question IDs, answer keys, storage keys unchanged",
+  "p0": {
+    "v42OriginalSourceScript": "study-hub/first-v42-two-theory-source-checked.js",
+    "linkedIDs": [
+      "legacy1-2020-A-management-101",
+      "legacy1-2021-A-management-110"
+    ],
+    "uniqueTotals": {
+      "first": 3070,
+      "second": 328,
+      "loaded": 3398
+    },
+    "localStatusApprovalRemoved": true,
+    "legacyLocalStatusPreservedButRenderedReviewPending": true,
+    "secondAnswerEditorDuplicateRemoved": true,
+    "priorWritingReadOnlyPreserved": true
+  },
+  "p1p2": {
+    "mobileCards": true,
+    "mobileFilterCollapse": true,
+    "mobileMetricsCollapsed": true,
+    "subjectNormalization": "Display only; canonical subjects in selector. Raw source subject unchanged",
+    "itemDeeplinking": true,
+    "existingStudyHubQualityLinks": 2,
+    "unifiedPalette": true,
+    "qualityLocalStorageKey": "nomusa_quality_console_review_v1",
+    "originalLearningStorageKeysUntouched": true
+  },
+  "browserResults": [
+    {
+      "width": 1440,
+      "pass": true,
+      "overflowPx": 0,
+      "tableTopY": 815,
+      "heroHeight": 183,
+      "cardDisplay": "table-row",
+      "consolePageErrors": 0
+    },
+    {
+      "width": 390,
+      "pass": true,
+      "overflowPx": 0,
+      "tableTopY": 891,
+      "heroHeight": 162,
+      "cardDisplay": "grid",
+      "consolePageErrors": 0
+    },
+    {
+      "width": 360,
+      "pass": true,
+      "overflowPx": 0,
+      "tableTopY": 891,
+      "heroHeight": 162,
+      "cardDisplay": "grid",
+      "consolePageErrors": 0
+    }
+  ],
+  "assertions": [
+    "V42 original source count 3398",
+    "103/686/328 subsets present",
+    "subject selector normalized",
+    "mobile filter expandable",
+    "mobile metric fold closed by default",
+    "no horizontal overflow",
+    "source ID deep link and refresh",
+    "local review memo auto-save and reload",
+    "no final approval state in local selector",
+    "legacy hub quality links"
+  ],
+  "independentExpertFinalApproval": "HOLD (not performed)",
+  "protectedPreviewAuthenticatedE2E": "HOLD (SSO)",
+  "productionModified": false,
+  "notes": "Local UI PASS is not proof of question content accuracy, legal authority validation, or authenticated Preview E2E."
+}
