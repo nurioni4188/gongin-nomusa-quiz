@@ -64,8 +64,8 @@ sel('fYear',uniq(questions.map(q=>q.y)).sort((a,b)=>b-a),'전체 연도',x=>x+'�
 sel('fSubject',uniq(questions.map(q=>q.s)),'전체 과목');
 sel('pYear',uniq(essay.map(q=>q.year)).sort((a,b)=>b-a),'전체 연도',x=>x+'년');
 sel('pSubject',uniq(essay.map(q=>q.subject)),'전체 과목');
-function isWrong(q){return savedWrong.has(q.k)||Number(item(q.k).reviews)>0&&item(q.k).lastRating==='again'}
-function due(q){return item(q.k).dueAt && new Date(item(q.k).dueAt).getTime()<=Date.now()}
+function isWrong(q){const d=store.items[q.k];return savedWrong.has(q.k)||Boolean(d&&Number(d.reviews)>0&&d.lastRating==='again')}
+function due(q){const d=store.items[q.k];return Boolean(d?.dueAt && new Date(d.dueAt).getTime()<=Date.now())}
 function updatePool(preferredId){
  const year=E('fYear').value,subject=E('fSubject').value,query=E('fQuery').value.trim().toLowerCase();
  pool=questions.filter(q=>(!year||String(q.y)===year)&&(!subject||q.s===subject)
