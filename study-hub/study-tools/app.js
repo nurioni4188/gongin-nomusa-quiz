@@ -138,6 +138,13 @@ function renderQuestion(){
  if(/^https:\/\/[a-z0-9.-]+\//i.test(q.sourceEvidence||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceEvidence)+'">공식 원문 게시물</a>');
  const verifiedBook=window.NOMUSA_QNET_SOURCE_AUDIT?.[q.sourceOfficialSHA]||null;
  if(/^https:\/\/www\.q-net\.or\.kr\//i.test(q.sourceOfficialURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceOfficialURL)+'">'+(verifiedBook?.downloadContainerType==='ZIP_A_AND_B'?'Q-Net 공식 ZIP 받기 · A형 PDF 선택':'Q-Net 공식 PDF 원본 열기')+'</a>');
+ const candidatePage=Number.isInteger(q.sourcePageCandidate)&&q.sourcePageCandidate>0&&
+  verifiedBook?.integrity==='SHA256_MATCH'&&q.sourcePageCandidate<=Number(verifiedBook.pdfPageCount)?q.sourcePageCandidate:null;
+ const sourcePageHelp=verifiedBook?.integrity==='SHA256_MATCH'?
+  '<div class="source-page-hint">'+(candidatePage?
+   '<strong>원본 PDF '+esc(candidatePage)+'쪽 잠정 참고</strong><span>원장 기록상 검색 후보 페이지입니다. 문항 전체가 해당 페이지에 포함되는지, 지문·선택지가 일치하는지는 독립 확인 전입니다.</span>':
+   '<strong>문항별 PDF 쪽수 미확정</strong><span>확인된 공식 PDF 책자를 열어 문항 번호를 직접 찾으세요. 임의의 쪽수를 표시하지 않습니다.</span>')+
+   '</div>':'';
  const sourceIntegrity=verifiedBook?.integrity==='SHA256_MATCH'?
   '<div class="source-proof"><strong>공식 Q-Net A형 PDF 파일 SHA-256 일치 확인</strong> · '+esc(verifiedBook.pdfPageCount)+'쪽 책자 · '+esc(verifiedBook.downloadContainerType==='ZIP_A_AND_B'?'ZIP 내부 A형 PDF 일치':'직접 내려받은 PDF 일치')+
   '<p>검증 범위: 공식 파일의 바이트 무결성만 확인. 이 문항의 원문 위치·지문·5개 선택지·정답·법령·해설의 개별 검증은 HOLD입니다. 자료 출처: 한국산업인력공단 Q-Net.</p></div>':'';
@@ -161,7 +168,7 @@ function renderQuestion(){
  const reviewStatus=rec.dueAt?'다음 복습: '+new Date(rec.dueAt).toLocaleDateString('ko-KR'):'복습 간격 미설정';
  E('question').innerHTML='<div class="question-head"><span class="eyebrow">'+esc(q.y+'년 · '+q.s+' · '+q.n+'번')+'</span><span class="tag hold">'+(approved?'정답표 대조 · 전문가 승인 HOLD':'정답 근거 HOLD')+'</span></div>'
   +'<div class="question-id">'+esc(q.k)+'</div><div class="stem">'+esc(q.q||'텍스트 원문 대조 필요 · 기존 1차 문제지에서 확인하세요.')+'</div>'
-  +sourceIntegrity+sourceNote+cropHTML+optionHTML+answer+draftRationale
+  +sourceIntegrity+sourcePageHelp+sourceNote+cropHTML+optionHTML+answer+draftRationale
   +(q.fullStage?'<div class="evidence-links">'+evidenceLinks.join(' ')+'</div>':'')
   +(!q.q||!Array.isArray(q.o)||q.o.length!==5?
      '<label class="first-note-label">원전 대조·학습 메모 (개인 기록)<textarea id="firstNote" maxlength="15000" placeholder="원본을 확인하면서 개인 메모를 남기세요. 공식 문제로 자동 확정되지 않습니다.">'+esc(rec.note||'')+'</textarea></label>':'')
