@@ -15,3 +15,5 @@
 .essay-original-status{background:#fff8ee;padding:12px 13px;border:1px solid #e6dbc9;border-radius:10px;font-size:12px;overflow-wrap:anywhere;margin:12px 0}
 .essay-original-status a{display:inline-block;margin:4px}
 @media print{.source-coverage,.essay-write,.essay-original-status{display:none!important}}
+
+.source-crop{margin:14px 0;padding:12px;background:#fafaf6;border:1px solid #e1e5dd;border-radius:10px}.source-crop figcaption{font-size:11px;color:#906e38;font-weight:650;margin-bottom:8px}.source-crop img{display:block;max-width:100%;width:auto;height:auto;max-height:720px;object-fit:contain;border:1px solid #dde4dd;background:#fff}.source-crop img:not([src]){display:none}@media(max-width:700px){.source-crop{padding:8px}.source-crop img{max-height:560px}}@media print{.source-crop{display:none!important}}
