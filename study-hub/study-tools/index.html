@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#285a4f">
+<title>NOMUSA · 집중학습·암기카드·논술 PDF</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="mast">
+ <div class="mast-inner">
+  <div><a class="home" href="../">NOMUSA 학습 허브</a><span class="quiet"> · Preview 학습 도구</span></div>
+  <nav aria-label="바로가기"><a href="../../">기존 1차</a><a href="../../second/">기존 2차</a><a href="../quality-console/">품질관리</a></nav>
+ </div>
+</header>
+<main id="main">
+ <div class="intro"><div class="kicker">LEARN · RECALL · PRINT</div><h1>집중 문제풀이와 암기, 논술 PDF</h1><p>기존 문제 ID와 학습 저장기록은 그대로 두고 선택형 연습·Anki 파일 내보내기·A4 인쇄를 지원합니다.</p></div>
+ <div class="safety">학습용 보조도구입니다. 원문·법령·판례·학술근거의 최종 독립심사는 별도 <strong>HOLD</strong>입니다. 이 화면에서 자동채점 승인이나 공식 해설 확정을 수행하지 않습니다.</div>
+ <nav class="switch" aria-label="학습 도구"><button type="button" id="showFocus" class="active">1차 집중모드 · 암기카드</button><button type="button" id="showPdf">2차 논술 PDF 준비</button></nav>
+ <section id="focusPanel" aria-labelledby="focusTitle">
+   <div class="section-title"><div><h2 id="focusTitle">1차 집중 문제풀이</h2><p>문제 한 개씩 · 답 가림 · 복습 표시 · Anki 텍스트 파일</p></div><div class="mini-stat" id="focusCount" aria-live="polite">불러오는 중</div></div>
+   <div class="toolbar">
+      <label>연도<select id="fYear"><option value="">전체 연도</option></select></label>
+      <label>과목<select id="fSubject"><option value="">전체 과목</option></select></label>
+      <label>검색<input id="fQuery" type="search" placeholder="번호·문항·키워드"></label>
+      <label class="tick"><input id="fWrong" type="checkbox"> 기존 오답·복습만</label>
+      <label class="tick"><input id="fDue" type="checkbox"> 복습 예정만</label>
+   </div>
+   <div class="study-status"><span id="focusPosition" aria-live="polite"></span><span id="focusTimer" aria-live="off">경과 00:00</span></div>
+   <article class="question" id="question"><p>문항을 불러오는 중입니다.</p></article>
+   <div class="commandbar">
+     <button type="button" id="prev" class="secondary">이전 문제</button>
+     <button type="button" id="reveal" class="secondary">정답표 번호 보기</button>
+     <button type="button" id="next" class="primary">다음 문제</button>
+   </div>
+   <div class="reviewbar">
+     <button type="button" id="again" class="secondary">다시 학습 · 1일 후</button>
+     <button type="button" id="remembered" class="secondary">기억함 · 간격 늘리기</button>
+     <label class="tick"><input type="checkbox" id="selectCard"> 이 문항을 암기카드로 선택</label>
+   </div>
+   <section class="export-area" aria-label="Anki 내보내기">
+     <div><h3>Anki 암기카드 파일</h3><p id="ankiCount">선택한 문항만 UTF-8 탭 구분 텍스트로 내보냅니다. Anki에서 앞면·뒷면·태그 필드를 지정해 가져오세요.</p></div>
+     <div class="export-actions"><button type="button" id="addWrongCards" class="secondary">기존 오답 중 확인 가능한 문항 선택</button><button type="button" id="exportAnki" class="primary">Anki TSV 내보내기</button></div>
+   </section>
+   <p class="note">이 페이지의 복습 일정·암기카드 선택은 별도 브라우저 저장소에 기록됩니다. 기존 RC27·RC35 선택 답안, 오답, 저장키는 변경하지 않습니다. 아직 검증되지 않은 문항은 정답표 번호를 숨깁니다.</p>
+ </section>
+ <section id="pdfPanel" aria-labelledby="pdfTitle" hidden>
+   <div class="section-title"><div><h2 id="pdfTitle">2차 논술 PDF 학습자료</h2><p>기존 상세·압축 답안 초안으로 A4 인쇄물을 구성합니다.</p></div><div class="mini-stat" id="essayCount">불러오는 중</div></div>
+   <div class="toolbar">
+     <label>연도<select id="pYear"><option value="">전체 연도</option></select></label>
+     <label>과목<select id="pSubject"><option value="">전체 과목</option></select></label>
+     <label>문항<select id="pItem"><option value="">문항 선택</option></select></label>
+     <label>PDF 구성<select id="pFormat"><option value="full">원문 + 상세·압축</option><option value="compact">원문 + 압축 + 필기공간</option><option value="practice">원문 + 필기공간</option></select></label>
+   </div>
+   <div class="paper-tools"><label class="tick"><input type="checkbox" id="pMyDraft"> 기존 내가 작성한 답안 포함 (민감한 기록)</label><button type="button" id="previewPdf" class="secondary">인쇄물 미리보기</button><button type="button" id="printPdf" class="primary">인쇄 · PDF로 저장</button></div>
+   <p class="note">브라우저 인쇄 창에서 대상 'PDF로 저장'을 선택한 뒤 Goodnotes·플렉슬에 가져오세요. 직접 앱 계정으로 전송하거나 자동 동기화하지 않습니다. 현재 원문 카탈로그의 수록 문항만 선택할 수 있습니다.</p>
+   <div id="previewInfo" class="status-text" role="status"></div>
+ </section>
+ <section id="printArea" class="print-area" hidden aria-label="논술 PDF 원고"></section>
+ <footer>기존 학습자료 · 검증 상태 HOLD | 원본·정답·해설 승인은 별도 | <a href="../">학습 허브 돌아가기</a></footer>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="../../data.js"></script>
+<script src="../../rc27_essay_catalog.js"></script>
+<script>window.NOMUSA_V108_EXPLANATIONS=window.NOMUSA_V108_EXPLANATIONS||{entries:Object.create(null)};</script>
+<script src="../first-v42-two-theory-source-checked.js"></script>
+<script src="../state.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
