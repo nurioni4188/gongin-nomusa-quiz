@@ -135,7 +135,11 @@ function renderQuestion(){
  const toRepo=path=>'https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/'+path.split('/').map(encodeURIComponent).join('/');
  if(/^review\/[A-Za-z0-9_./-]+$/.test(q.sourceOriginal||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo(q.sourceOriginal))+'">문항 근거 원장 열기</a>');
  if(/^https:\/\/[a-z0-9.-]+\//i.test(q.sourceEvidence||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceEvidence)+'">공식 원문 게시물</a>');
+ if(/^https:\/\/www\.q-net\.or\.kr\//i.test(q.sourceOfficialURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceOfficialURL)+'">Q-Net 원본 문제지 열기</a>');
+ if(/^https:\/\/renew\.primeedunet\.com\//i.test(q.sourceCandidateURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceCandidateURL)+'">외부 재게시 후보 · 공식 원전 대조 HOLD</a>');
  if(!evidenceLinks.length&&q.fullStage)evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo('review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json'))+'">원문 수집·검토 장부</a>');
+ const cropPath=typeof q.sourceCrop==='string' && /^review\/first-v(?:41-native-crops|48-provisional-crops|42-four-corrected-crops)\/legacy1-[A-Za-z0-9-]+\.jpg$/.test(q.sourceCrop)?q.sourceCrop:'';
+ const cropHTML=cropPath?'<figure class="source-crop"><figcaption>원본문항 이미지 후보 · 지문/선택지 위치 독립 대조 HOLD</figcaption><img loading="lazy" alt="문제지의 잠정 발췌 이미지 — 배점·지문 및 5지 대조 전" src="../../'+cropPath.split('/').map(encodeURIComponent).join('/')+'"></figure>':'';
  const sourceNote=!q.q||!Array.isArray(q.o)||q.o.length!==5?
   '<div class="hold">원문·선택지 전사 미확인: 아래 근거를 확인하며 학습 메모를 작성할 수 있지만, 공식 문제풀이와 채점은 HOLD입니다.</div>':
   (q.fullStage?'<div class="hold">원문 전사 초안 · 독립 교열 대기 · 정답·해설 최종승인 HOLD</div>':'');
@@ -144,7 +148,7 @@ function renderQuestion(){
  const reviewStatus=rec.dueAt?'다음 복습: '+new Date(rec.dueAt).toLocaleDateString('ko-KR'):'복습 간격 미설정';
  E('question').innerHTML='<div class="question-head"><span class="eyebrow">'+esc(q.y+'년 · '+q.s+' · '+q.n+'번')+'</span><span class="tag hold">'+(approved?'정답표 대조 · 전문가 승인 HOLD':'정답 근거 HOLD')+'</span></div>'
   +'<div class="question-id">'+esc(q.k)+'</div><div class="stem">'+esc(q.q||'텍스트 원문 대조 필요 · 기존 1차 문제지에서 확인하세요.')+'</div>'
-  +sourceNote+optionHTML+answer
+  +sourceNote+cropHTML+optionHTML+answer
   +(q.fullStage?'<div class="evidence-links">'+evidenceLinks.join(' ')+'</div>':'')
   +(!q.q||!Array.isArray(q.o)||q.o.length!==5?
      '<label class="first-note-label">원전 대조·학습 메모 (개인 기록)<textarea id="firstNote" maxlength="15000" placeholder="원본을 확인하면서 개인 메모를 남기세요. 공식 문제로 자동 확정되지 않습니다.">'+esc(rec.note||'')+'</textarea></label>':'')
