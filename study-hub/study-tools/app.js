@@ -1,11 +1,26 @@
-(()=>{
+(async()=>{
 'use strict';
 const E=id=>document.getElementById(id);
 const plain=v=>String(v==null?'':v);
 const esc=v=>plain(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STORAGE='nomusa_study_tools_v1';
 const allowed=['schema','updatedAt','items','lastId'];
-const questions=[...(window.QDATA||[]),...(window.NOMUSA_FIRST_V42_TWO_THEORY||[])];
+// Reuse legacy source-only questions without enabling their unapproved candidate keys.
+const legacy=[];
+for(const key of ['NOMUSA_FIRST_2008','NOMUSA_FIRST_2009','NOMUSA_FIRST_2010']){
+ const value=window[key];
+ legacy.push(...(Array.isArray(value)?value:Array.isArray(value?.items)?value.items:[]));
+}
+if(window.NOMUSA_FIRST_BATCH_PACK && 'DecompressionStream' in window){
+ try{
+  const bytes=Uint8Array.from(atob(window.NOMUSA_FIRST_BATCH_PACK),c=>c.charCodeAt(0));
+  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const parsed=JSON.parse(await new Response(stream).text());
+  const rows=Array.isArray(parsed)?parsed:(parsed.items||parsed.rows||[]);
+  legacy.push(...rows);
+ }catch(err){console.warn('Legacy source-only bank could not be read:',err?.message||err)}
+}
+const questions=[...new Map([...(window.QDATA||[]),...legacy,...(window.NOMUSA_FIRST_V42_TWO_THEORY||[])].filter(q=>q&&q.k).map(q=>[q.k,q])).values()];
 const questionById=new Map(questions.map(q=>[q.k,q]));
 const essay=(window.N27_CATALOG?.items||[]);
 const hub=window.HubState;
@@ -62,7 +77,7 @@ function updatePool(preferredId){
 function current(){return pool[cursor]||null}
 function renderQuestion(){
  const q=current();
- E('focusCount').textContent=questions.length.toLocaleString('ko-KR')+'문항 로드 · 기존 오답 '+savedWrong.size+'개';
+ E('focusCount').textContent=questions.length.toLocaleString('ko-KR')+'개 원문 조회 · 기존 오답 '+savedWrong.size+'개 · 과거 미승인 정답 HOLD';
  E('focusPosition').textContent=pool.length?((cursor+1)+' / '+pool.length+'문항'):'조건에 맞는 문항 없음';
  const disabled=!q;
  for(const id of ['prev','next','reveal','again','remembered','selectCard'])E(id).disabled=disabled;
