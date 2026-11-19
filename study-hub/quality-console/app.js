@@ -4,7 +4,7 @@
   const BRANCH = 'review/nomusa-auto-v1-20year-gate-20261115';
   const STORAGE_KEY = 'nomusa_quality_console_review_v1';
   const SCHEMA = 'NOMUSA_QUALITY_CONSOLE_LOCAL_REVIEW/1';
-  const STATES = ['원문 대조 필요','작성 중','검토 중','내용확정','독립심사 대기','승인 완료'];
+  const STATES = ['원문 대조 필요','작성 중','검토 중','교열자료 정리','독립심사 대기']; // 로컬 검토 상태만 허용
   const SOURCES = {
     first103: '/review/NOMUSA_FIRST_V43_103_SECOND_PASS_515_CHOICES_AND_LAW_QA_20261118.json',
     remaining686: '/review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json',
@@ -109,6 +109,7 @@
   }
   function prepareBaseline() {
     for (const row of (window.QDATA || [])) add(asFirst(row,'existing'));
+    for (const row of (window.NOMUSA_FIRST_V42_TWO_THEORY || [])) add(asFirst(row,'existing'));
     for (const key of ['NOMUSA_FIRST_2008','NOMUSA_FIRST_2009','NOMUSA_FIRST_2010']) {
       const val=window[key];
       for (const row of (Array.isArray(val)?val:Array.isArray(val?.items)?val.items:[])) add(asFirst(row,'existing'));
@@ -143,7 +144,7 @@
       const obj=asFirst({...src,k:src.id,y:src.year,a:[src.officialAFormAnswer]},'first103');
       obj.number=Number(String(obj.id).match(/-(\d+)$/)?.[1] || 0);
       obj.evidence=src.originalRecord;
-      obj.title='원본·5선택지·상세해설 검토';
+      obj.title=obj.year+'년 '+obj.subject+' '+(obj.number||'번호 확인')+'번 · 5지 해설 대조';
       obj.source=src;
       add(obj,true);
     }
@@ -195,9 +196,11 @@
   }
   function getStatus(r) {
     const explicit=record.items[r.id]?.status;
-    return STATES.includes(explicit)?explicit:(r.kind==='first103'||r.kind==='second'?'검토 중':'원문 대조 필요');
+    return ['내용확정','승인 완료'].includes(explicit)?'독립심사 대기':STATES.includes(explicit)?explicit:(r.kind==='first103'||r.kind==='second'?'검토 중':'원문 대조 필요');
   }
   function holdReason(r) {
+    const next=clean(record.items[r.id]?.nextAction);
+    if(next)return '다음: '+next;
     const manual=clean(record.items[r.id]?.blocking);
     if (manual) return manual;
     if (r.kind==='first103') return /사회보험|민법|노동법/.test(r.subject)?'당시 법령·판례·독립교열':'독립 원문·학술 교열';
@@ -205,6 +208,12 @@
     if (r.social2026) return '해설·시험 당시 법령 검토';
     return '원문·정답·선택지 확인';
   }
+  const canonicalSubject = value => {
+    const v=clean(value).replace(/\s+/g,'');
+    if(/^노동법(?:\(?1\)?|Ⅰ|1교시)$/.test(v))return '노동법Ⅰ';
+    if(/^노동법(?:\(?2\)?|Ⅱ|2교시)$/.test(v))return '노동법Ⅱ';
+    return clean(value);
+  };
   const sheet = r => r.points===50?'8~10장':r.points===25?'4장':r.points===15?'3장':r.points>0&&r.points<=10?'2장':r.points?'소문항 배점 비례':'배점 확인 필요';
   const related = r => {
     if (/경제|노동경제/.test(r.subject)) return ['수식','함수','그래프','계산','검산','수치 원본'];
@@ -239,7 +248,7 @@
     if(view==='evidence'){renderEvidence();return;}
     const q=clean(E('q').value).toLowerCase();
     const y=E('year').value, s=E('subject').value, st=E('status').value, round=clean(E('round').value).toLowerCase();
-    filtered=all.filter(r=>matchesView(r)&&(!y||String(r.year)===y)&&(!s||r.subject===s)&&(!st||getStatus(r)===st)
+    filtered=all.filter(r=>matchesView(r)&&(!y||String(r.year)===y)&&(!s||canonicalSubject(r.subject)===s)&&(!st||getStatus(r)===st)
       &&(!round||[r.form,String(r.year),String(r.year-1991),'제'+(r.year-1991)+'회'].some(v=>String(v||'').toLowerCase().includes(round)))
       &&(!q||[r.id,r.title,r.subject,r.q,holdReason(r),record.items[r.id]?.reviewNote].some(v=>String(v||'').toLowerCase().includes(q))));
     const pages=Math.max(1,Math.ceil(filtered.length/pageSize));page=Math.max(0,Math.min(page,pages-1));
@@ -250,15 +259,15 @@
     E('rows').innerHTML=rows.length?rows.map(r=>{
       const status=getStatus(r);
       const tags=r.group?'<span class="tag gray">연도 묶음</span>':r.kind==='first103'?'<span class="tag blue">103 내용초안</span>':'';
-      return '<tr><td><button type="button" class="item-link" data-open="'+esc(r.id)+'">'+esc(cap(r.title,48) || r.id)+'</button><span class="micro">'+esc(r.id)+'</span>'+tags+'</td>'
-        +'<td>'+esc(r.year)+'년<br>'+esc(r.subject)+'</td><td>'+esc(r.points? r.points+'점':(r.form||'A형'))+'<br><span class="micro">'+esc(asPage(r.page))+'쪽</span></td>'
-        +'<td><span class="tag '+(status==='승인 완료'?'green':status==='검토 중'?'blue':'hold')+'">'+esc(status)+'</span></td>'
-        +'<td class="muted">'+esc(cap(holdReason(r),65))+'</td></tr>';
+      return '<tr><td data-label="문항"><button type="button" class="item-link" data-open="'+esc(r.id)+'">'+esc(cap(r.title,48) || r.id)+'</button><span class="micro">'+esc(r.id)+'</span>'+tags+'</td>'
+        +'<td data-label="연도·과목">'+esc(r.year)+'년<br>'+esc(canonicalSubject(r.subject))+'</td><td data-label="배점·원본">'+esc(r.points? r.points+'점':(r.form||'A형'))+'<br><span class="micro">'+esc(asPage(r.page))+'쪽</span></td>'
+        +'<td data-label="검토 상태"><span class="tag '+(status==='검토 중'?'blue':'hold')+'">'+esc(status)+'</span></td>'
+        +'<td data-label="다음 작업" class="muted">'+esc(cap(holdReason(r),65))+'</td></tr>';
     }).join(''):'<tr><td class="empty" colspan="5">조건에 맞는 작업이 없습니다. 필터를 변경해 주세요.</td></tr>';
   }
   function fillSelect() {
     const years=[...new Set(all.map(r=>r.year).filter(Boolean))].sort((a,b)=>b-a);
-    const subjects=[...new Set(all.map(r=>r.subject).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
+    const subjects=[...new Set(all.map(r=>canonicalSubject(r.subject)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
     E('year').innerHTML='<option value="">전체 연도</option>'+years.map(y=>'<option value="'+y+'">'+y+'년</option>').join('');
     E('subject').innerHTML='<option value="">전체 과목</option>'+subjects.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');
     E('status').innerHTML='<option value="">전체 상태</option>'+STATES.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');
@@ -269,6 +278,7 @@
     E('viewTitle').textContent=titles[next];
     E('viewSubtitle').textContent=next==='evidence'?'실행 여부가 확인되는 기술검증과 내용승인을 분리':next==='coverage'?'연도별 현황은 ID 정리 상태이며 최종 내용승인 통계가 아닙니다.':'모든 입력은 검토 전용이며 기존 채점·정답 데이터에 적용되지 않습니다.';
     E('filters').hidden=['coverage','evidence'].includes(next);
+    E('toggleFilters').hidden=['coverage','evidence'].includes(next);
     E('nextBtn').hidden=E('prevBtn').hidden=['coverage','evidence'].includes(next);
     filter();
   }
@@ -380,7 +390,8 @@
     const s=getStatus(r);
     return '<div class="two"><div class="content-card"><h3>문항 승인 상태</h3><label class="field">상태'
       +'<select id="itemStatus">'+STATES.map(v=>'<option value="'+esc(v)+'" '+(s===v?'selected':'')+'>'+esc(v)+'</option>').join('')+'</select></label>'
-      +'<div class="notice">승인 완료는 검토기록용이며 실제 자동채점 반영을 실행하지 않습니다. 독립심사 증빙 없이는 승인으로 전환할 수 없습니다.</div>'
+      +'<div class="notice">이 상태는 브라우저에 저장하는 검토 진행률입니다. 전문가 최종승인·자동채점 반영은 이 화면에서 수행하지 않습니다.</div>'
+       +(['내용확정','승인 완료'].includes(d.status)?'<p class="notice">이전 로컬 상태 '+esc(d.status)+'는 공식 승인이 아니므로 독립심사 대기로 표시합니다. 기존 기록은 보존됩니다.</p>':'')
       +'<div class="checks">'
       +checkboxField('original','공식 원문·5선지 독립 대조',d)
       +checkboxField('answer','공식 최종정답 원장 대조',d)
@@ -403,9 +414,9 @@
     E('detail').hidden=false;
     E('detailHeading').textContent= r.year+'년 · '+r.subject+' · '+(r.stage==='second'?'2차':'1차')+' 문항';
     E('detailMeta').textContent=r.id+(r.points?' · '+r.points+'점 · '+sheet(r):' · A형')+' · '+getStatus(r);
-    E('detailInfo').innerHTML='<div class="status-line"><span class="tag hold">최종 내용검증 별도</span>'
+    E('detailInfo').innerHTML='<div class="status-line"><span class="tag hold">전문가 최종승인 HOLD</span>'
       +(r.kind==='first103'?'<span class="tag blue">V43 구조 대조 PASS</span>':'')
-      +'<span class="tag gray">저장키 분리</span></div>';
+      +'<span class="tag gray">학습·검토 저장키 분리</span></div><div class="link-list">'+link(location.pathname+'?id='+encodeURIComponent(r.id),'문항 고정 링크')+'</div>';
     for(const b of E('detailTabs').querySelectorAll('button'))b.classList.toggle('active',b.dataset.tab===detailTab);
     const html={source:htmlSource,answer:htmlAnswer,law:htmlLaw,write:htmlWrite,review:htmlReview}[detailTab](r,d);
     E('detailContent').innerHTML=html;
@@ -441,6 +452,7 @@
   function openItem(id) {
     if(!bucket.has(id))return;
     current=id;detailTab='source';sourceRecord=null;
+    history.replaceState(null,'',location.pathname+'?id='+encodeURIComponent(id));
     renderDetail();E('detail').scrollIntoView({block:'start',behavior:'smooth'});
   }
   function validateApproval(d) {
@@ -459,12 +471,14 @@
   }
   function bind() {
     E('views').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)switchView(b.dataset.view);});
+    E('quick').addEventListener('click',e=>{const b=e.target.closest('[data-quick]');if(b){switchView(b.dataset.quick);E('viewTitle').scrollIntoView({block:'start',behavior:'smooth'});}});
+    E('toggleFilters').onclick=()=>{const open=E('filters').classList.toggle('expanded');E('toggleFilters').setAttribute('aria-expanded',String(open));E('toggleFilters').textContent=open?'부가 필터 접기':'연도·과목·상태 필터 펼치기';};
     E('rows').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openItem(b.dataset.open);});
     for(const id of ['q','year','subject','status','round'])E(id).addEventListener(id==='q'||id==='round'?'input':'change',()=>{page=0;filter();});
     E('clearBtn').onclick=()=>{for(const id of ['q','year','subject','status','round'])E(id).value='';page=0;filter();};
     E('prevBtn').onclick=()=>{page=Math.max(0,page-1);filter();};
     E('nextBtn').onclick=()=>{page++;filter();};
-    E('closeDetail').onclick=()=>{E('detail').hidden=true;current=null;};
+    E('closeDetail').onclick=()=>{E('detail').hidden=true;current=null;history.replaceState(null,'',location.pathname);};
     E('detailTabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b && current){detailTab=b.dataset.tab;renderDetail();}});
     E('detailContent').addEventListener('input',e=>{const fld=e.target.dataset.field;if(fld)writeValue(fld,e.target.value);});
     E('detailContent').addEventListener('change',e=>{
@@ -473,8 +487,8 @@
       if(e.target.id==='itemStatus'){
         const value=e.target.value,d=itemData(current);
         if(!STATES.includes(value))return;
-        if(value==='승인 완료'&&!validateApproval(d)){
-          toast('승인 불가: 원문·정답·법리/학술·독립심사 4개 증빙과 검토자 2명·서면근거가 필요합니다.');
+        if(!STATES.includes(value)){
+          toast('공식 승인 상태는 이 로컬 검토 화면에서 선택할 수 없습니다.');
           e.target.value=getStatus(bucket.get(current));return;
         }
         d.status=value;d.updatedAt=new Date().toISOString();auditLog(current,'상태 변경 → '+value);
@@ -496,7 +510,7 @@
         if(Object.keys(incoming.items).some(k=>!isSafeKey(k)))throw Error('허용되지 않는 키가 있습니다.');
         for(const [id,v] of Object.entries(incoming.items)) {
           if(!jsonObj(v)||!isSafeKey(id))throw Error('문항 기록 형식이 잘못되었습니다.');
-          if(v.status==='승인 완료'&&!validateApproval(v))throw Error('승인 증빙이 없는 기록이 포함되어 있습니다.');
+          // 과거 로컬 승인 기록은 보존하되 이 콘솔에서는 승인으로 표시하지 않습니다.
         }
         if(!confirm('가져온 기록으로 품질관리 메모를 병합합니다. 기존 1차·2차 저장키는 변경하지 않습니다. 진행할까요?'))return;
         for(const [id,v] of Object.entries(incoming.items)) record.items[id]={...(record.items[id]||{}),...v};
@@ -510,6 +524,7 @@
   }
   async function init() {
     readLocal();metrics();bind();E('locationText').textContent=location.host;
+    if(window.matchMedia('(max-width:760px)').matches)E('metricFold').open=false;
     prepareBaseline();
     await addPacked();
     const fetched=await Promise.all(Object.entries(SOURCES).map(async ([k,u])=>[k,await loadFile(k,u)]));
@@ -524,6 +539,7 @@
     E('alerts').innerHTML='<div class="alert"><strong>승인 게이트:</strong> V43 103문항의 선택지 해설은 초안 구조검사를 마쳤지만 독립교열 0건입니다. 2차 328개도 독립 전문가 최종승인 0건입니다. <strong>새 콘솔의 PC1440/모바일390·360 로컬 Chromium E2E PASS, 보호 Preview 인증 후 실사용 검증 HOLD</strong>입니다.'
       +(failures.length?'<details><summary>자료 로드 제한 '+failures.length+'건</summary>'+failures.map(esc).join(' · ')+'</details>':'')+'</div>';
     switchView('all');
+    const deepId=new URLSearchParams(location.search).get('id');if(deepId&&bucket.has(deepId))openItem(deepId);
     window.NOMUSA_QUALITY_CONSOLE_READONLY = Object.freeze({
       schema:SCHEMA, reviewMode:true, sourceKeysUnchanged:true, approvalIsLocalOnly:true,
       getTotals:()=>({loaded:all.length,first103:all.filter(x=>x.kind==='first103').length,second:all.filter(x=>x.stage==='second').length,first686:all.filter(x=>x.kind==='first686'&&!x.group).length}),
