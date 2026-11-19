@@ -1,0 +1,83 @@
+{
+  "schema": "NOMUSA_V80_BATCH_RESUME_LEDGER/1",
+  "batchId": "V80-BATCH1-LANE-A1-LANE-B1",
+  "asOfKST": "2026-11-19",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "feature/nomusa-prd-v80",
+  "baselineCommitSha": "898d2f935e58950f3caecb5e6a3b1b2a862d645e",
+  "lanes": [
+    {
+      "lane": "A",
+      "description": "1차 686개 원문 복구 — 공식 Q-Net A형 크롭 이미지 25문항 시각 전사 및 법리 근거 후보정답",
+      "targetIds": [
+        "legacy1-2020-A-labor1-010", "legacy1-2020-A-labor1-014", "legacy1-2020-A-labor1-015",
+        "legacy1-2020-A-labor1-017", "legacy1-2020-A-labor1-018", "legacy1-2020-A-labor1-020",
+        "legacy1-2020-A-labor1-025", "legacy1-2021-A-labor1-010", "legacy1-2021-A-labor1-014",
+        "legacy1-2021-A-labor1-016", "legacy1-2021-A-labor1-022", "legacy1-2021-A-labor1-023",
+        "legacy1-2021-A-labor1-024", "legacy1-2020-A-labor2-028", "legacy1-2020-A-labor2-030",
+        "legacy1-2020-A-labor2-034", "legacy1-2020-A-labor2-035", "legacy1-2020-A-labor2-037",
+        "legacy1-2020-A-labor2-040", "legacy1-2020-A-labor2-047", "legacy1-2020-A-labor2-050",
+        "legacy1-2021-A-labor2-026", "legacy1-2021-A-labor2-027", "legacy1-2021-A-labor2-028",
+        "legacy1-2021-A-labor2-030"
+      ],
+      "changedFiles": [
+        "review/NOMUSA_FIRST_V80_LANE_A_BATCH1_25Q_LABOR_LAW_20261119.json (new, additive overlay)",
+        "study-hub/study-tools/complete-learning.js (loads overlay, merges into 686-row loop only)",
+        "study-hub/study-tools/app.js (extend learning-rationale panel to fullStage==='source686')"
+      ],
+      "resultPerItem": {
+        "stemAndFiveOptionsTranscribed": 25,
+        "reasonedAnswerHighConfidence": 20,
+        "reasonedAnswerMediumConfidence": 2,
+        "reasonedAnswerLowConfidenceFlagged": 3,
+        "independentlyMatchedPriorUnapprovedLedgerCandidate": 22,
+        "disagreedWithPriorCandidateFlaggedExplicitly": 1,
+        "noPriorCandidateToCompare": 2
+      },
+      "blockedOrHold": [
+        "officialAnswerTableVerified=false for all 25: no access to the actual Q-Net published final-answer-table image in this environment, only statute-text reasoning.",
+        "independentHumanReviewerSignoff=false for all 25.",
+        "3 items (2021-labor1-014, 2021-labor1-024, 2021-labor2-028) need direct subordinate-decree text re-check before any KEY_VERIFIED promotion.",
+        "legacy1-2021-A-labor2-026: ledger's placeholder candidate [1,2,3,4,5] replaced with a real combinatorial-choice answer (②) derived from labor-law history, not a numeric guess."
+      ],
+      "automatedCheck": "Node vm/simulation of the exact complete-learning.js merge logic + app.js confirmKey() gate: 0 failures. Verifies 103/686/328 base ledger counts untouched, 25 overlay rows unique and matched, reveal/Anki-export gate stays closed for all 25 (no premature grading), and the other 661 686-items remain fabrication-free (q==='' , o.length===0).",
+      "commitSha": "4099ac1fb6fdeec9d5a6de706aaa509a3046f1b6"
+    },
+    {
+      "lane": "B",
+      "description": "2차 328개 중 50점 슬롯 고위험(법률과목) 답안 6건 상세논술·압축답안 보강",
+      "targetIds": [
+        "legacy2-2007-labor1-q1", "legacy2-2009-labor1-q1", "legacy2-2009-administrative-q1",
+        "legacy2-2008-administrative-q2", "legacy2-2009-administrative-q2", "legacy2-2011-civil-procedure-q2"
+      ],
+      "changedFiles": [
+        "second/legacy_2007_2012_source_only.js (6 target items filled; intake self-check widened to accept the new EXPLANATION_DRAFT shape without weakening the approved!==false guard)"
+      ],
+      "resultPerItem": {
+        "itemsWithRealSections": 6,
+        "singleSection50ptItems": 3,
+        "twoSection25plus25Items": 3,
+        "approvedTrueCount": 0,
+        "scoringApprovedTrueCount": 0
+      },
+      "blockedOrHold": [
+        "contentApproval=HOLD and citationReview=HOLD on all 6: no independent reviewer identifier/date/opinion recorded yet (EXPERT_APPROVED not reached, consistent with V23 ledger's global 0/328).",
+        "Case citations are described by legal institution/doctrine, not asserted exact case numbers, where this reviewer was not fully certain of the precise citation — flagged inline for human cross-check rather than guessed."
+      ],
+      "automatedCheck": "Node vm sandbox executing the real IIFE: all 94 injected items present (previously the intake self-check would have silently dropped to 0 the moment any item's answerStatus/sourceOnly changed — caught and fixed before commit), the 6 target items carry substantive detailed+compressed text, and the other 88 items are byte-for-byte unchanged (spot-checked via a control item).",
+      "commitSha": "6dc7994ea933ca4fc8b216e77a42a60aa1c6530f"
+    }
+  ],
+  "unaffected": [
+    "main, Production, RC27, RC35 branches/deployments",
+    "data.js, rc27_essay_catalog.js, explanations-v108.js and every other first/second-stage content file not listed above",
+    "nomusa_preview_hub_v1, nomu1-progress-v2, nomusa_rc27_v103_essay_records_v1 and all other existing localStorage keys",
+    "review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json and review/NOMUSA_V23_VALIDATION_LEDGER.json (both read-only in this batch; Lane A/B only add overlay or overlay-shaped content elsewhere)"
+  ],
+  "notPushedNotDeployed": true,
+  "nextResumeAction": {
+    "laneA": "Pick the next 25 of the remaining 661 686-items from review/first-v48-provisional-crops (42 labor1/labor2 2020-21 items remain unused in that crop set) or move to review/first-v41-native-crops/first-v42-four-corrected-crops subjects (economics/management/social, already partially covered by the 103-pilot — verify no overlap first); follow the same visual-transcription + statute-reasoning + Node-simulation-before-commit method.",
+    "laneB": "Next 5-10 50-point-slot items from the same V21 P1_77_PROXY_SHORTFALL list not yet covered: legacy2-2007-hrm-q2, legacy2-2007-organization-q2, legacy2-2008-hrm-q2, legacy2-2008-organization-q2, legacy2-2009-organization-q1/q2, legacy2-2011-hrm-q1, legacy2-2011-organization-q1 (academic/theory domain — requires 학자/저서/논문 사실관계, different sourcing approach than the law-citation items in this batch).",
+    "beforeNextBatch": "Re-fetch GitHub HEAD on feature/nomusa-prd-v80 and re-read this ledger plus review/NOMUSA_COWORK_MASTER_EXECUTION_20261119.md before resuming, per the GATE-0 baseline rule."
+  }
+}
