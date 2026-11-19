@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#183e43"><title>공인노무사 · 학습 품질관리 콘솔</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<a class="skip" href="#main">본문으로 이동</a>
+<header class="top"><div class="brand"><span class="logo">N</span><div><strong>공인노무사 학습관리</strong><small>1·2차 내용검증 워크스페이스 · Review Only</small></div></div>
+<nav aria-label="기존 학습 화면"><a href="../">학습 허브</a><a href="../../second/">2차 답안</a><a href="../../">1차 문제풀이</a></nav></header>
+<main id="main">
+<div class="intro"><div><span class="eyebrow">NOMUSA · QUALITY CONTROL</span><h1>문항부터 최종 승인까지,<br>검증의 모든 단계</h1><p>기존 RC27·RC35, 문제 ID, 저장키 및 운영 소스를 변경하지 않는 독립 검토 작업대장입니다.</p></div><div class="intro-side"><div class="tag hold">내용 최종승인 HOLD</div><div class="intro-small">서버·DB·AI 채점 없음<br>승인 기록과 학습 정답을 분리</div></div></div>
+<section id="alerts" aria-live="polite"></section>
+<section id="metrics" class="metrics" aria-label="검증 현황"></section>
+<div class="layout">
+<aside class="sidebar" aria-label="관리 작업">
+<h2>검토 범위</h2><div class="side-tabs" id="views">
+<button type="button" data-view="all" class="active">전체 문항·작업</button>
+<button type="button" data-view="first103">1차 집중검토 103</button>
+<button type="button" data-view="first686">1차 추가 원문 686</button>
+<button type="button" data-view="social2026">2026 사회보험법</button>
+<button type="button" data-view="second">2차 답안 328</button>
+<button type="button" data-view="coverage">19개년 누락 현황</button>
+<button type="button" data-view="evidence">검증 기록·배포</button>
+</div>
+<div class="side-note"><strong>보존 규칙</strong><p>이 화면의 메모와 직접 작성 내용만 별도 브라우저 저장소에 저장합니다. 기존 학습 기록은 읽기·수정하지 않습니다.</p></div>
+</aside>
+<section class="work">
+<div class="section-head"><div><h2 id="viewTitle">전체 작업 대장</h2><p id="viewSubtitle" class="muted">검토원장을 읽고 있습니다.</p></div><div class="actions"><button id="exportBtn" type="button" class="outline">JSON 내보내기</button><label class="outline filebtn">JSON 가져오기<input id="importInput" type="file" accept=".json,application/json"></label></div></div>
+<div class="filters" id="filters"><label>검색<input id="q" type="search" placeholder="문항 ID·주제·근거·메모"></label><label>연도<select id="year"><option value="">전체 연도</option></select></label><label>과목<select id="subject"><option value="">전체 과목</option></select></label><label>상태<select id="status"><option value="">전체 상태</option></select></label><label>회차·형식<input id="round" placeholder="예 2021 / A / 제30회"></label><button id="clearBtn" type="button" class="ghost">필터 초기화</button></div>
+<div class="table-meta"><span id="tableCount">불러오는 중</span><span class="muted">원본·답안·해설의 최종승인은 별도</span></div>
+<div class="table-scroll"><table><thead><tr><th scope="col">문항 / 작업</th><th scope="col">연도·과목</th><th scope="col">배점·원본</th><th scope="col">내용 상태</th><th scope="col">차단 사유</th></tr></thead><tbody id="rows"><tr><td colspan="5">작업 대장을 불러오는 중입니다.</td></tr></tbody></table></div>
+<div class="pagination"><button type="button" id="prevBtn" class="outline">이전</button><span id="pageText"></span><button type="button" id="nextBtn" class="outline">다음</button></div>
+</section>
+</div>
+<section id="detail" class="detail" hidden aria-label="선택 문항 검토 상세">
+<div class="detail-top"><div><span class="eyebrow">ITEM WORKSPACE</span><h2 id="detailHeading">문항 상세</h2><p id="detailMeta" class="muted"></p></div><button id="closeDetail" class="outline" type="button">닫기</button></div>
+<div id="detailInfo"></div>
+<div class="detail-tabs" id="detailTabs"><button data-tab="source" class="active">원문·선택지</button><button data-tab="answer">해설·답안</button><button data-tab="law">근거·검산</button><button data-tab="write">직접 작성·복습</button><button data-tab="review">검토·승인</button></div>
+<div id="detailContent" class="detail-content"></div></section>
+<footer><div><strong>NOMUSA QUALITY CONSOLE</strong><p>독립 내용심사 없는 AI·OCR 초안은 학습용 확정 답안이나 채점 승인으로 표시하지 않습니다.</p></div><div><a href="https://github.com/nurioni4188/gongin-nomusa-quiz/pull/3" target="_blank" rel="noopener noreferrer">기존 Draft PR #3</a><span id="locationText"></span></div></footer>
+</main><div id="toast" role="status" aria-live="polite"></div>
+<script src="../../data.js"></script>
+<script src="../../rc27_essay_catalog.js"></script>
+<script src="../first-2008-a.js"></script><script src="../first-2009-a.js"></script><script src="../first-2010-a.js"></script><script src="../first-2011-2019-a-pack.js"></script>
+<script src="app.js"></script>
+</body></html>
