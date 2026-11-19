@@ -20,9 +20,29 @@ if(window.NOMUSA_FIRST_BATCH_PACK && 'DecompressionStream' in window){
   legacy.push(...rows);
  }catch(err){console.warn('Legacy source-only bank could not be read:',err?.message||err)}
 }
-const questions=[...new Map([...(window.QDATA||[]),...legacy,...(window.NOMUSA_FIRST_V42_TWO_THEORY||[])].filter(q=>q&&q.k).map(q=>[q.k,q])).values()];
+const complete=await window.NOMUSA_COMPLETE_LOAD();
+const questions=[...new Map([...(window.QDATA||[]),...legacy,...(window.NOMUSA_FIRST_V42_TWO_THEORY||[]),...complete.first].filter(q=>q&&q.k).map(q=>[q.k,q])).values()];
 const questionById=new Map(questions.map(q=>[q.k,q]));
-const essay=(window.N27_CATALOG?.items||[]);
+const officialEssayMeta=new Map(complete.essay.map(row=>[row.id,row]));
+const essay=[...new Map([...complete.essay,...(window.N27_CATALOG?.items||[])].map(row=>[row.id,{
+  ...(officialEssayMeta.get(row.id)||{}),...row
+}])).values()];
+const ESSAY_NOTE_KEY='nomusa_study_tools_essay_writing_v1';
+let essayNotes={schema:'nomusa_study_essay_notes/1',items:{}},essayStorageBlocked=false;
+try{
+ const raw=localStorage.getItem(ESSAY_NOTE_KEY);
+ if(raw){
+  const value=JSON.parse(raw),ids=new Set(essay.map(x=>x.id));
+  if(!value||value.schema!==essayNotes.schema||!value.items||Array.isArray(value.items)||typeof value.items!=='object'
+     ||Object.keys(value.items).some(id=>!ids.has(id)||typeof value.items[id]!=='string'))throw Error('writing schema');
+  essayNotes=value;
+ }
+}catch{essayStorageBlocked=true}
+function persistEssay(){
+ if(essayStorageBlocked)return false;
+ try{localStorage.setItem(ESSAY_NOTE_KEY,JSON.stringify(essayNotes));return true}
+ catch{return false}
+}
 const hub=window.HubState;
 const savedWrong=new Set();
 Object.entries(hub?.hub?.wrong||{}).forEach(([id,value])=>{if(value===true)savedWrong.add(id)});
@@ -77,7 +97,10 @@ function updatePool(preferredId){
 function current(){return pool[cursor]||null}
 function renderQuestion(){
  const q=current();
- E('focusCount').textContent=questions.length.toLocaleString('ko-KR')+'개 원문 조회 · 기존 오답 '+savedWrong.size+'개 · 과거 미승인 정답 HOLD';
+ E('focusCount').textContent=questions.length.toLocaleString('ko-KR')+'개 ID · 기존 오답 '+savedWrong.size+'개';
+ E('sourceCoverage').textContent=complete.failures.length?
+   '원장 로드 오류 '+complete.failures.length+'건 · 전체 수록 상태 HOLD':
+   '1차 '+questions.length.toLocaleString('ko-KR')+'개 ID 조회 · 103 집중검토 '+complete.report.first103+' · 원문대조 '+complete.report.first686+' · 원문 미확인 문항은 선택지·정답 공개 HOLD';
  E('focusPosition').textContent=pool.length?((cursor+1)+' / '+pool.length+'문항'):'조건에 맞는 문항 없음';
  const disabled=!q;
  for(const id of ['prev','next','reveal','again','remembered','selectCard'])E(id).disabled=disabled;
@@ -89,17 +112,33 @@ function renderQuestion(){
   '<div class="options">'+q.o.map((value,i)=>'<button type="button" class="choice'+(rec.choice===i+1?' chosen':'')+'" data-choice="'+(i+1)+'"><span class="num">'+(i+1)+'</span><span>'+esc(value)+'</span></button>').join('')+'</div>':
   '<div class="hold">이 문항의 선택지 전사·구조화는 확인되지 않았습니다. 기존 기출화면의 원문 페이지에서 대조해 주세요.</div>';
  const approved=confirmKey(q);
+ E('reveal').disabled=!approved;
+ const evidenceLinks=[];
+ const toRepo=path=>'https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/'+path.split('/').map(encodeURIComponent).join('/');
+ if(/^review\/[A-Za-z0-9_./-]+$/.test(q.sourceOriginal||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo(q.sourceOriginal))+'">문항 근거 원장 열기</a>');
+ if(/^https:\/\/[a-z0-9.-]+\//i.test(q.sourceEvidence||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceEvidence)+'">공식 원문 게시물</a>');
+ if(!evidenceLinks.length&&q.fullStage)evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo('review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json'))+'">원문 수집·검토 장부</a>');
+ const sourceNote=!q.q||!Array.isArray(q.o)||q.o.length!==5?
+  '<div class="hold">원문·선택지 전사 미확인: 아래 근거를 확인하며 학습 메모를 작성할 수 있지만, 공식 문제풀이와 채점은 HOLD입니다.</div>':
+  (q.fullStage?'<div class="hold">원문 전사 초안 · 독립 교열 대기 · 정답·해설 최종승인 HOLD</div>':'');
  const answer=revealed?
   '<div class="'+(approved?'answer':'hold')+'">'+(approved?'기존 정답표 번호 <strong>'+Number(q.a[0])+'번</strong> · 최종 내용 승인과 별개입니다.':'원본 선택지·정답표 일대일 대조 미확인 · 정답 공개 HOLD')+'</div>':'';
  const reviewStatus=rec.dueAt?'다음 복습: '+new Date(rec.dueAt).toLocaleDateString('ko-KR'):'복습 간격 미설정';
  E('question').innerHTML='<div class="question-head"><span class="eyebrow">'+esc(q.y+'년 · '+q.s+' · '+q.n+'번')+'</span><span class="tag hold">'+(approved?'정답표 대조 · 전문가 승인 HOLD':'정답 근거 HOLD')+'</span></div>'
   +'<div class="question-id">'+esc(q.k)+'</div><div class="stem">'+esc(q.q||'텍스트 원문 대조 필요 · 기존 1차 문제지에서 확인하세요.')+'</div>'
-  +optionHTML+answer+'<div class="question-foot"><span>'+esc(reviewStatus)+'</span><a href="../../" target="_blank" rel="noopener">기존 1차 화면 열기</a></div>';
+  +sourceNote+optionHTML+answer
+  +(q.fullStage?'<div class="evidence-links">'+evidenceLinks.join(' ')+'</div>':'')
+  +(!q.q||!Array.isArray(q.o)||q.o.length!==5?
+     '<label class="first-note-label">원전 대조·학습 메모 (개인 기록)<textarea id="firstNote" maxlength="15000" placeholder="원본을 확인하면서 개인 메모를 남기세요. 공식 문제로 자동 확정되지 않습니다.">'+esc(rec.note||'')+'</textarea></label>':'')
+  +'<div class="question-foot"><span>'+esc(reviewStatus)+'</span><a href="../../" target="_blank" rel="noopener">기존 1차 화면 열기</a></div>';
  E('selectCard').checked=!!rec.card;
  E('reveal').textContent=revealed?'정답표 번호 가리기':'정답표 번호 보기';
  updateCardCount();
 }
 function go(next){cursor=Math.max(0,Math.min(pool.length-1,next));revealed=false;start=Date.now();renderQuestion()}
+E('question').addEventListener('input',ev=>{
+  if(ev.target.id==='firstNote'&&current()){item(current().k).note=ev.target.value.slice(0,15000);save();}
+});
 E('question').addEventListener('click',ev=>{
  const btn=ev.target.closest('[data-choice]'),q=current();
  if(!btn||!q)return;
@@ -155,16 +194,42 @@ function selectPItems(){
  E('pItem').innerHTML='<option value="">문항 선택</option>'+rows.map(r=>'<option value="'+esc(r.id)+'">'+esc(r.year+' · '+r.subject+' · '+r.topic+' ('+(r.points||'?')+'점)')+'</option>').join('');
  if(rows.some(r=>r.id===prev))E('pItem').value=prev;
  else if(rows.length)E('pItem').value=rows[0].id;
- E('essayCount').textContent=essay.length+'개 기존 카탈로그 중 '+rows.length+'개 선택 가능 · 내용 승인 HOLD';
+ E('essayCount').textContent=essay.length+'개 원장 ID 중 '+rows.length+'개 조회 · 내용 승인 HOLD';
+ updateEssayWorkspace();
 }
+function updateEssayWorkspace(){
+ const r=essay.find(x=>x.id===E('pItem').value);
+ if(!r){E('essaySourceStatus').textContent='문항을 선택하세요.';E('essayOwnWriting').value='';return}
+ const links=[];
+ const url=r.sourceUrl||r.source?.qnetPostUrl||'';
+ if(/^https:\/\/[a-z0-9.-]+\//i.test(url))links.push('<a href="'+esc(url)+'" target="_blank" rel="noopener">공식 기출 게시물</a>');
+ const path=r.pdfPath||r.sourceFile||'';
+ if(/^(source_pdf|review)\/[A-Za-z0-9_./-]+$/.test(path)){
+  const link='https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/'+path.split('/').map(encodeURIComponent).join('/');
+  links.push('<a href="'+esc(link)+'" target="_blank" rel="noopener">원본문서 저장소</a>');
+ }
+ E('essaySourceStatus').innerHTML='<strong>'+(r.sourceText?'학습용 원문 텍스트 연결 · 검증/승인 별도 HOLD':'원문 텍스트 미연결 · 원본문서 확인 필요 HOLD')+'</strong> · '+esc(r.id)+' · '+links.join(' · ');
+ E('essayOwnWriting').value=essayNotes.items[r.id]||'';
+ E('essayOwnSaveStatus').textContent=essayStorageBlocked?'저장기록 오류 · 자동저장 HOLD':'이 페이지에서만 별도 자동저장';
+}
+E('essayOwnWriting').addEventListener('input',ev=>{
+ const id=E('pItem').value;
+ if(!essay.some(x=>x.id===id)||essayStorageBlocked)return;
+ essayNotes.items[id]=ev.target.value.slice(0,150000);
+ E('essayOwnSaveStatus').textContent=persistEssay()?'별도 자동저장 완료':'저장 실패 · 본문 복사 권장';
+});
 for(const id of ['pYear','pSubject'])E(id).addEventListener('change',selectPItems);
-for(const id of ['pItem','pFormat','pMyDraft'])E(id).addEventListener('change',()=>{E('printArea').hidden=true;E('previewInfo').textContent='구성이 변경되었습니다. 인쇄물 미리보기를 다시 확인해 주세요.'});
+for(const id of ['pItem','pFormat','pMyDraft'])E(id).addEventListener('change',()=>{
+ E('printArea').hidden=true;
+ E('previewInfo').textContent='구성이 변경되었습니다. 인쇄물 미리보기를 다시 확인해 주세요.';
+ if(id==='pItem')updateEssayWorkspace();
+});
 function sheets(points){if(points===50)return '8~10장';if(points===25)return '4장';if(points===15)return '3장';if(points&&points<=10)return '2장';return '소문항 배점에 비례'}
 function printPreview(){
  const r=essay.find(e=>e.id===E('pItem').value);
  if(!r){notice('먼저 2차 문항을 선택해 주세요.');return false}
  const format=E('pFormat').value;
- const own=E('pMyDraft').checked&&plain(hub?.essay?.drafts?.[r.id]).trim();
+ const own=E('pMyDraft').checked&&plain(essayNotes.items[r.id]||hub?.essay?.drafts?.[r.id]).trim();
  const parts=[
   '<article class="paper">',
   '<div class="paper-label">NOMUSA · 2차 학습용 출력 / 전문가 내용 승인 HOLD</div>',
@@ -202,7 +267,7 @@ updatePool();
 updateCardCount();
 if(location.hash==='#pdf')switchTo('pdf');
 window.NOMUSA_STUDY_TOOLS_READONLY=Object.freeze({
- totalFirst:questions.length,totalEssayCatalog:essay.length,
+ totalFirst:questions.length,totalEssayCatalog:essay.length,fullCoverageReport:complete.report,sourceLoadFailures:complete.failures,
  getState:()=>({selectedAnki:cardItems().length,lastId:store.lastId,reviewItems:Object.keys(store.items).length}),
  hasScoringMutation:false,storageKey:STORAGE
 });
