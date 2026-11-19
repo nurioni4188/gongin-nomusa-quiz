@@ -59,6 +59,8 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       fullStage:'source103',provisional:!stem||opts.length!==5,
       sourceOriginal:row.originalRecord||'',sourceCrop:val(src,['sourceImage','sourceCropImage','originalCropImage']),
       sourceEvidence:row.explanationEvidence||'',originalPage:src.sourcePdfPage||src.officialPDFPage||src.originalPage||null,
+      learningExplanationDraft:val(src,['explanationDraft','detailedExplanationDraft','substantiveLawExplanationDraft','lawExplanationDraft','legalExplanationDraft']),
+      learningOptionNotes:(Array.isArray(src.optionExplanations)?src.optionExplanations:Array.isArray(src.eachOptionExplanation)?src.eachOptionExplanation:[]).slice(0,5),
       sourceReviewStatus:'103 원문·선택지 교열 대기 · 정답/해설 승인 HOLD'
     });
   }
@@ -96,6 +98,8 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       first686ThirdPartyOnly: (b?.rows||[]).filter(x=>x.sourceGrade==='THIRD_PARTY_2013_MIRROR_ONLY_HOLD').length,
       first686NoVerifiedOfficialA: (b?.rows||[]).filter(x=>x.sourceGrade==='NO_VERIFIED_OFFICIAL_A_PDF_HOLD').length,
       originalStems103:first.filter(x=>x.fullStage==='source103'&&!!x.q).length,
-      fiveOptions103:first.filter(x=>x.fullStage==='source103'&&x.o.length===5).length}
+      fiveOptions103:first.filter(x=>x.fullStage==='source103'&&x.o.length===5).length,
+      textExplanationDraft103:first.filter(x=>x.fullStage==='source103'&&x.learningExplanationDraft).length,
+      fiveOptionLearningReasonDraft103:first.filter(x=>x.fullStage==='source103'&&x.learningOptionNotes?.length===5).length}
   });
 };
