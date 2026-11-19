@@ -1,0 +1,79 @@
+{
+  "schema": "nomusa-first-v71-official-question-page-and-answer-grid-qa/2026-11-15",
+  "dateKST": "2026-11-15",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "draftPR": 3,
+  "reviewBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceCheckedCommit": "77dbbafe0a9f6c74ee0b4b8774af1a20e568dfaf",
+  "evidence": [
+    "review/NOMUSA_FIRST_V71_14_VISUAL_PAGES_600_ANSWERS_20261115.json",
+    "scripts/nomusa-first-v71-visual-page-gate.py",
+    "review/NOMUSA_FIRST_V70_QNET_44_PAGE_OCR_AND_ANSWERS_20261115.json"
+  ],
+  "visualQuestionPages": {
+    "initialUncertain": 14,
+    "officialQNetPdfPageLocationVisuallyConfirmed": 14,
+    "printPageNumberVerified": 0,
+    "fullQuestionStemAndFormulaVisuallyCompared": 0,
+    "status": "PASS_PDF_QUESTION_NUMBER_PAGE_ONLY",
+    "baselineRecordState": "BOOKLET_LINKED_PAGE_HOLD remains until broader source evidence integrated safely",
+    "remainingInPrior44": "30 earlier two-mode OCR candidates still require human page visual confirmation"
+  },
+  "answerTableCells": {
+    "official2020A": 150,
+    "official2020B": 150,
+    "official2021A": 150,
+    "official2021B": 150,
+    "segmentedOfficialPdfCells": 600,
+    "singleDigitCellsComparingEqualUsingUnsupervisedImageShapeGrouping": 596,
+    "visuallyInspectedSpecialCells": 4,
+    "specialIds": [
+      "legacy1-2021-A-labor2-026",
+      "legacy1-2021-A-civil-070",
+      "legacy1-2021-B-labor2-026",
+      "legacy1-2021-B-civil-072"
+    ],
+    "exceptionsMatchedOriginalImage": true,
+    "unexplainedComparisonConflicts": 0,
+    "warning": "Template-matched singleton cells are automated comparisons, not independently human approved answers. 4 special multiple/full-credit cells were visually inspected and concordant; only the exact source cells were inspected. 2014 OCR observations from V6.9 remain separate and not combined.",
+    "perQuestionScoringApproved": 0,
+    "status": "PASS_AUTOMATED_IMAGE_COMPARISON_WITH_4_MANUALLY_CHECKED_EXCEPTIONS; APPROVAL_HOLD"
+  },
+  "browser": {
+    "targetedCommand": "python3 scripts/nomusa-first-v71-visual-page-gate.py",
+    "targetedChecks": 42,
+    "targetedPass": 42,
+    "targetedHold": 0,
+    "fullCommand": "python3 scripts/nomusa-first-v6-fullhub-gate.py .",
+    "fullChromiumGateStatus": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+    "fullE2EChecks": 13,
+    "fullE2EPass": 13,
+    "browserViewports": [
+      1440,
+      390,
+      360
+    ],
+    "sourceIndexInternalCounts": {
+      "records": 900,
+      "booklets": 12,
+      "answerPdf": 4,
+      "textAndFiveMarkers": 300,
+      "ocrPageCandidates": 556,
+      "sourcePageHold": 44
+    },
+    "sourceIndexIndependentFullAlignment": "HOLD"
+  },
+  "preservation": {
+    "rc35Original2022to2026Scoring": "UNCHANGED",
+    "rc35Unapproved2008to2021Scoring": "BLOCKED",
+    "originalIndexAndLocalStorageKeys": "UNCHANGED",
+    "mainSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "latestExistingVercelPreview": "https://gongin-nomusa-rc27-preview-3x0ku5lvz.vercel.app/",
+    "latestExistingVercelDeploymentId": "dpl_6ckptUDaSHwXSV8WyDUXjATKvKY1",
+    "existingPreviewDeploymentState": "READY_UNMODIFIED",
+    "newPreview": "NOT_DEPLOYED"
+  },
+  "nextGate": "Independently verify remaining 30 OCR candidate page positions plus printed-page numbers/full question text/formulas, perform independent human review of 596 singleton answer cells, then consider source ledger promotion and a new protected Preview after gates; never auto-enable score on unapproved historical questions."
+}

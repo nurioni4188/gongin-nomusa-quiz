@@ -1,0 +1,88 @@
+{
+  "schema": "nomusa-first-legacy-review/v0.1",
+  "dateKST": "2026-11-15",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "pr": 3,
+  "recordCount": 250,
+  "uniqueIds": 250,
+  "years": [
+    2008,
+    2009
+  ],
+  "sourceOnlyYears": [
+    {
+      "year": 2008,
+      "status": "TRANSCRIBED_SECOND_REVIEW_HOLD"
+    },
+    {
+      "year": 2009,
+      "status": "TRANSCRIBED_SECOND_REVIEW_HOLD"
+    },
+    {
+      "year": 2010,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2011,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2012,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2013,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2014,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2015,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2016,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2017,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2018,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2019,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2020,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    },
+    {
+      "year": 2021,
+      "status": "SOURCE_FILE_ONLY_UNTRANSCRIBED"
+    }
+  ],
+  "exception": [
+    {
+      "year": 2009,
+      "type": "A",
+      "subject": "노동법Ⅱ",
+      "questionNo": 5,
+      "answers": [
+        2,
+        4
+      ]
+    }
+  ],
+  "status": "TRANSCRIBED_SOURCE_IMAGE_SECOND_REVIEW_HOLD",
+  "questionTextIntegration": "HOLD",
+  "firstStageScoring": "NOT_CHANGED",
+  "main": "NOT_CHANGED",
+  "production": "NOT_CHANGED",
+  "preview": "NOT_DEPLOYED"
+}

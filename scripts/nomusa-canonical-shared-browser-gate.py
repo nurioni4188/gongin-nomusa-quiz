@@ -1,0 +1,667 @@
+#!/usr/bin/env python3
+"""Non-deploying Chromium gate for unified 2007–2026 second-stage drafts.
+
+Run against an existing local full review-branch checkout:
+python scripts/nomusa-canonical-shared-browser-gate.py [repository_root]
+
+Never changes GitHub, Vercel, main, Production, or old saved user records.
+All storage tests use disposable browser contexts.
+"""
+from __future__ import annotations
+import json, sys, threading, traceback
+from pathlib import Path
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+
+ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[1]).resolve()
+REQUIRED = [
+    "second/index.html", "study-hub/index.html", "study-hub/app.js",
+    "second/essay-app.js", "second/nomusa-canonical-selection-v1.js",
+    "rc27_essay_catalog.js"
+]
+missing = [x for x in REQUIRED if not (ROOT / x).is_file()]
+if missing:
+    print(json.dumps({"status":"HOLD_FULL_SOURCE","missing":missing},ensure_ascii=False))
+    sys.exit(2)
+
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    print(json.dumps({"status":"HOLD_PLAYWRIGHT_MISSING"},ensure_ascii=False))
+    sys.exit(2)
+
+class Quiet(SimpleHTTPRequestHandler):
+    def log_message(self,*args): pass
+
+srv = ThreadingHTTPServer(("127.0.0.1",0),partial(Quiet,directory=str(ROOT)))
+threading.Thread(target=srv.serve_forever,daemon=True).start()
+BASE = "http://127.0.0.1:%d" % srv.server_port
+RESULTS = []
+IDENTIFIERS = [
+    "legacy2-2007-hrm-q1", "legacy2-2008-hrm-q2",
+    "2013_p1_q1", "2014_p4_q1", "2017_p3_q1",
+    "2022-org-2", "2024-인사노무관리론|1|1", "2025-org-1",
+    "2026-경영조직론|1|1", "2026-경영조직론|1|2",
+    "legacy2-2007-administrative-q1", "2022-econ-2", "2023-labor2-2",
+    "2025-civil-3", "2026-노동경제학|3|2",
+]
+KEY = "nomusa_rc27_v103_essay_records_v1"
+
+def capture(page):
+    errors = []
+    page.on("pageerror",lambda e:errors.append(str(e)))
+    page.on("response",lambda resp: errors.append("HTTP_%d: %s" % (resp.status,resp.url))
+            if resp.status >= 400 and resp.url.endswith((".js",".css")) else None)
+    return errors
+
+def inventory(page):
+    return page.evaluate("""() => {
+      const c=window.NOMUSA_CANONICAL_SELECTION_V1, rows=window.N27_CATALOG?.items||[];
+      return {status:c?.status,gate:c?.gate,
+         batch:(()=>{const q=window.NOMUSA_20YEAR_QUALITY_BATCH_V1;return q&&{schema:q.schema,changed:q.changed,candidateCount:q.candidateCount,totalCatalog:q.totalCatalog,counts:q.counts,hold:q.contentApproval,storageKeyChanged:q.storageKeyChanged,status:q.status,idParity:q.rows.length===Object.keys(c.items).length,regressionNoShrink:q.rows.every(x=>x.currentChars>=x.existingChars)};})(),
+         thin:(()=>{const q=window.NOMUSA_THIN_ENRICHMENT_V2;return q&&{schema:q.schema,authored:q.authored,targets:q.targets,remainingOtherHold:q.remainingOtherHold,remainingPointsHold:q.remainingPointsHold,contentApproval:q.contentApproval,sourceCatalogChanged:q.sourceCatalogChanged,storageKeyChanged:q.storageKeyChanged,uniqueIds:new Set(q.rows.map(x=>x.id)).size===q.rows.length,changed:q.rows.every(x=>x.newDetailChars>x.oldDetailChars&&x.newCompactChars>x.oldCompactChars),preserved:q.rows.every(x=>Boolean(c.items[x.id]?.beforeThinV2Compressed))};})(),
+         v3:(()=>{const q=window.NOMUSA_20YEAR_V3_GATE,a=window.NOMUSA_V3_SOURCE_POINTS_AUDIT;return q&&a&&{schema:q.schema,count:q.v3Manuscripts,candidates:q.candidates,baselineV2:q.previousV2IssueDrafts,audit:a.total,points:a.unverifiedNumeric,possible:a.parentCandidatesResolvedFromExtractedText,verified:a.verifiedAgainstOriginalPDF,changedRaw:q.rawCatalogAndStoredKeysChanged,approval:q.contentApproval,priorPreserved:q.rows.every(x=>Boolean(c.items[x.id]?.priorDetailedV3)&&Boolean(c.items[x.id]?.priorCompressedV3))};})(),
+         v4:(()=>{const a=window.NOMUSA_V4_DEEPENING,p=window.NOMUSA_V4_PDF_SCORE_AUDIT;return a&&p&&{schema:a.schema,targets:a.targets,authored:a.authored,total:a.allCandidates,cat:a.allCatalogue,sourceScored:p.matchedScoreMarkers,pdfs:p.pdfDocumentsInspected,half50:p.score50Count,half25:p.score25Count,externalHash:p.qnetOriginalAttachmentHashVerified,originalPointsChanged:a.originalCatalogModified,saveKeysChanged:a.originalStorageKeysModified,approval:a.independentContentApproval,uniqueIds:new Set(a.rows.map(x=>x.id)).size===a.rows.length,grow:a.rows.every(x=>x.newDetailLength>x.previousDetailLength+150&&x.oldAnswerPreserved&&x.existingCompressedPreserved),originalsPreserved:a.rows.every(x=>!!c.items[x.id]?.previousDetailedV4&&c.items[x.id]?.previousCompressedV4===(c.items[x.id]?.compressedBeforeV8||c.items[x.id]?.compressedBeforeV7||c.items[x.id]?.compressedBeforeV6||c.items[x.id]?.compressedBeforeV5||c.items[x.id]?.compressed)),econ2025:c.items['2025-econ-2']?.detailed?.includes('Δw=15')};})(),
+         v5:(()=>{const m=window.NOMUSA_V5_MANUSCRIPT_GATE;return m&&{schema:m.schema,completed:m.fullyRewrittenQuestionManuscripts,remaining:m.notYetRewrittenInThisPass,all:m.originalRepresentativeCandidates,original:m.originalExercises,legalApproved:m.contentApprovalsIssued,pages:m.all50PointPageTargetsCertified,originalChanged:m.originalCatalogModified,keysChanged:m.studyKeysChanged,hold:m.finalStatus,saved:m.rows.every(r=>Boolean(c.items[r.id]?.detailedBeforeV5)&&Boolean(c.items[r.id]?.compressedBeforeV5)),count:new Set(m.rows.map(r=>r.id)).size,question2023:c.items['2023-econ-1']?.detailed?.includes('59.4 증가'),question2025:c.items['2025-econ-2']?.detailed?.includes('Δw=15')};})(),
+         v6:(()=>{const g=window.NOMUSA_V6_MANUSCRIPT_GATE,m=window.NOMUSA_V6_MANUSCRIPTS||{};return g&&{schema:g.schema,total:g.v6NewManuscripts,remaining:g.remainingInFocusedSet,focused:g.currentlyRewrittenInFocusedSet,fifty:g.fiftyPointV6,twentyfive:g.twentyFivePointV6,candidates:g.candidates,exercise:g.exercises,approval:g.officialFinalContentApprovals,pages:g.target8to10PagesVerified,raw:g.modifiedCatalog,keys:g.modifiedKeys,writing:g.modifiedStoredAnswers,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV6&&c.items[x.id]?.compressedBeforeV6),economic:c.items['2025-econ-1']?.detailed?.includes('2812.5'),labor:c.items['2022-labor1-1']?.detailed?.includes('2017다226605'),manuscriptCount:Object.keys(m).length};})(),
+         v7:(()=>{const g=window.NOMUSA_V7_MANUSCRIPT_GATE,m=window.NOMUSA_V7_MANUSCRIPTS||{};return g&&{schema:g.schema,added:g.v7NewManuscripts,complete:g.totalRewrittenInFocusedSet,remaining:g.remainingInFocusedSet,all:g.candidates,points:g.v7FiftyPoint,source:g.exercises,old:g.rows.every(x=>!!c.items[x.id]?.detailedBeforeV7&&!!c.items[x.id]?.compressedBeforeV7),legalApproved:g.finalApprovalCount,raw:g.originalCatalogChanged,keys:g.storageKeysChanged,saved:g.existingStoredAnswersChanged,pages:g.handwriting8to10PageVerified,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,ids:g.rows.map(x=>x.id),manuscripts:Object.keys(m).length,sourceCase:c.items['2022-labor2-1']?.detailed?.includes('2015도1927'),sourceCivil:c.items['2023-civil-1']?.detailed?.includes('2021다275741'),sourceAdmin:c.items['2023-admin-1']?.detailed?.includes('98무37')};})(),
+         v8:(()=>{const g=window.NOMUSA_V8_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,p=window.NOMUSA_V8_PDF_2023_LABOR1_Q1;return g&&{schema:g.schema,total:g.focusedTotal,added:g.newManuscripts,rewritten:g.focusedRewritten,remaining:g.focusedOutstanding,legacy:g.earlierSourceOnlyItems,candidates:g.representativeCandidates,catalog:g.catalogCount,approval:g.finalOfficialContentApprovals,pages:g.paper8to10PagesProven,original:g.originalDocumentsChanged,ids:g.canonicalIDsChanged,keys:g.storageKeysChanged,sourceHash:p?.sha256,sourcePage:p?.page,sourcePoints:p?.subquestions?.map(q=>q.points).join(','),unique:new Set(g.rows.map(r=>r.id)).size===g.rows.length,old:g.rows.every(r=>!!c.items[r.id]?.detailedBeforeV8&&!!c.items[r.id]?.compressedBeforeV8),score:g.scoreCounts,topics:{'2023_labor':c.items['2023-labor1-1']?.detailed?.includes('25점'), '2023_economics':c.items['2023-econ-3']?.detailed?.includes('2.5억원'), '2024_economics':c.items['2024-노동경제학|3|1']?.detailed?.includes('625'),'2026_economics':c.items['2026-노동경제학|3|1']?.detailed?.includes('0.25')}};})(),
+         v9:(()=>{const g=window.NOMUSA_V9_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,m=window.NOMUSA_V9_MANUSCRIPTS||{};return g&&{schema:g.schema,all:g.v8FocusedManuscripts,updated:g.v9Deepened,pending:g.remainingFocusedNeedingIndividualReview,exercises:g.sourceQuestions,candidates:g.representativeCandidates,approvals:g.finalContentApprovals,scoreUnchanged:g.originalPointsChanged,idsUnchanged:g.originalCatalogChanged,keysUnchanged:g.originalStorageKeysChanged,pages:g.handwritingPageTargetReached,unique:new Set(g.rows.map(x=>x.id)).size===4,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV9&&c.items[x.id]?.compressedBeforeV9&&c.items[x.id]?.detailedBeforeV9.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV9.length===x.priorCompactChars),expanded:g.rows.every(x=>x.revisedDetailedChars>x.priorDetailedChars+200&&x.revisedCompactChars>x.priorCompactChars),confirmed:g.rows.every(x=>x.precedentUrls.length>=1),caseIds:Object.keys(m).sort().join('|'),contentChecks:{wage:c.items['2022-labor1-2']?.detailed?.includes('2019다238053')&&c.items['2022-labor1-2']?.detailed?.includes('통상임금에 해당'),retire:c.items['2022-admin-2']?.detailed?.includes('2019두52386'),disciplinary:c.items['2023-labor1-1']?.detailed?.includes('2006다48069'),insurance:c.items['2023-admin-3']?.detailed?.includes('2016다221658')}};})(),
+         v10:(()=>{const g=window.NOMUSA_V10_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v10Rewritten,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV10?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV10?.length===x.priorCompactChars),v9Kept:['2022-labor1-2','2022-admin-2','2023-labor1-1','2023-admin-3'].every(id=>!!c.items[id]?.detailedBeforeV9),contentChecks:{renewal:c.items['2024-노동법1|1|1']?.detailed?.includes('2014두45765'),transfer:c.items['2024-노동법1|1|2']?.detailed?.includes('2010다41089'),interim:c.items['2024-노동법1|2|0']?.detailed?.includes('1,260만 원'),carmaster:c.items['2024-노동법2|1|1']?.detailed?.includes('2019두33712'),fairRep:c.items['2024-노동법2|2|0']?.detailed?.includes('2017다263192'),doctor:c.items['2026-노동법1|1|1']?.detailed?.includes('2021도11675'),division:c.items['2026-노동법1|2|0']?.detailed?.includes('2016두64876'),committee:c.items['2026-노동법2|1|1']?.detailed?.includes('2023두61370'),appraisal:c.items['2026-노동법2|1|2']?.detailed?.includes('2017두37031')}};})(),
+         v11:(()=>{const g=window.NOMUSA_V11_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v11Rewritten,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===17,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV11?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV11?.length===x.priorCompactChars),v10Kept:Object.keys(window.NOMUSA_V10_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV10),contentChecks:{childcare:c.items['2024-행정쟁송법|1|1']?.detailed?.includes('2018두47264'),partial:c.items['2024-행정쟁송법|1|2']?.detailed?.includes('98두2270'),notice:c.items['2024-행정쟁송법|3|0']?.detailed?.includes('2004두619'),rivals:c.items['2026-행정쟁송법|1|1']?.detailed?.includes('2009두8359'),ruling:c.items['2026-행정쟁송법|1|2']?.detailed?.includes('2015두45045'),pension:c.items['2026-행정쟁송법|3|1']?.detailed?.includes('2004두244'),service:c.items['2024-민사소송법|3|0']?.detailed?.includes('2014다54366'),heirs:c.items['2026-민사소송법|1|1']?.detailed?.includes('2007다22859'),change:c.items['2026-민사소송법|2|0']?.detailed?.includes('2014다31721')}};})(),
+         v12:(()=>{const g=window.NOMUSA_V12_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1,cat=new Map((window.N27_CATALOG?.items||[]).map(q=>[q.id,q]));return g&&{schema:g.schema,count:g.v12Rewritten,pdfPoints:g.pointsVerifiedFromRepoPdf,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,catalogPointsUntouched:g.rows.every(x=>cat.get(x.id)?.points===x.catalogPoints&&typeof x.catalogPoints!=='number'),unique:new Set(g.rows.map(x=>x.id)).size===20,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV12?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV12?.length===x.priorCompactChars),v11Kept:Object.keys(window.NOMUSA_V11_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV11),contentChecks:{signing:c.items['2019_p5_q1']?.detailed?.includes('2012다55518'),branch:c.items['2019_p6_q1']?.detailed?.includes('2012다96120'),subcontract:c.items['2019_p6_q2']?.detailed?.includes('2007두8881'),dispatch:c.items['2020_p1_q1']?.detailed?.includes('2017다219072'),dinner:c.items['2020_p1_q2']?.detailed?.includes('2013두25276'),tax:c.items['2019_p1_q3']?.detailed?.includes('99두2765'),changed:c.items['2020_p4_q1']?.detailed?.includes('2003두1684'),petition:c.items['2020_p4_q2']?.detailed?.includes('2010두8676'),setoff:c.items['2019_p4_q1']?.detailed?.includes('98다25344'),deceased:c.items['2020_p7_q1']?.detailed?.includes('2005마425')}};})(),
+         v13:(()=>{const g=window.NOMUSA_V13_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,count:g.v13Expanded,eight:g.allAtLeastEightAppPages,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===12,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV13?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV13?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v12Kept:Object.keys(window.NOMUSA_V12_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV12),contentChecks:{lowPerf:c.items['2022-labor1-1']?.detailed?.includes('2018다253680'),subcontract:c.items['2022-labor2-1']?.detailed?.includes('2015도1927'),committee:c.items['2023-labor1-1']?.detailed?.includes('2006다48069'),setoff:c.items['2023-civil-1']?.detailed?.includes('2021다275741'),rehire:c.items['2025-labor1-1']?.detailed?.includes('2016다13437'),appraisal:c.items['2025-labor2-1']?.detailed?.includes('2023두41864'),unit:c.items['2025-labor2-1']?.detailed?.includes('2015두39361'),consent:c.items['2025-admin-1']?.detailed?.includes('2023두61349'),noFake90:!c.items['2025-admin-1']?.detailed?.includes('90프2')}};})(),
+         v15:(()=>{const g=window.NOMUSA_V15_QUALITY_GATE,c=window.NOMUSA_CANONICAL_SELECTION_V1;return g&&{schema:g.schema,target:g.v15Target,count:g.v15Rewritten,stage5:g.stage5Count,candidates:g.representativeCandidates,exercises:g.sourceQuestions,approvals:g.finalContentApprovals,pages:g.handwritingPageTargetReached,ids:g.originalCatalogChanged,points:g.originalPointsChanged,keys:g.originalStorageKeysChanged,unique:new Set(g.rows.map(x=>x.id)).size===g.rows.length,restored:g.rows.every(x=>c.items[x.id]?.detailedBeforeV15?.length===x.priorDetailedChars&&c.items[x.id]?.compressedBeforeV15?.length===x.priorCompactChars),minChars:Math.min(...g.rows.map(x=>x.revisedDetailedChars)),v13Kept:Object.keys(window.NOMUSA_V13_MANUSCRIPTS||{}).every(id=>!!c.items[id]?.detailedBeforeV13),allTagged:g.rows.every(x=>c.items[x.id]?.detailed?.includes('(V15)')),noFiller:g.rows.every(x=>!c.items[x.id]?.detailed?.includes('확인되지 않은 판결번호를 만들지 않는다'))};})(),
+         v20:(()=>{const g=window.NOMUSA_V20_CONTENT_GATE;
+           return g&&{status:g.status,total:g.total,points50:g.points50,points25:g.points25,
+             unique:new Set((g.rows||[]).map(x=>x.id)).size===88,issues:g.issues||[],previousPreserved:(g.rows||[]).length===88 && g.rows.every(r=>
+               !!c.items[r.id]?.detailedBeforeV20 && !!c.items[r.id]?.compressedBeforeV20),
+             grows:(g.rows||[]).length===88 && g.rows.every(r=>r.currentDetailedChars>r.previousDetailedChars+180 &&
+               c.items[r.id]?.detailed?.includes('## V20 원문 연동 심화논증') &&
+               c.items[r.id]?.compressed?.includes('[V20 추가 핵심]')),
+             noScoring:(g.rows||[]).length===88 && g.rows.every(r=>c.items[r.id]?.scoringApproved===false),
+             approval:g.expertApproval,source:g.originalCatalogChanged,keys:g.storageKeysChanged,
+             sampleTrade:c.items['legacy2-2007-labor-economics-q1']?.detailed?.includes('스톨퍼-새뮤얼슨'),
+             sampleHuman:c.items['legacy2-2011-labor-economics-q1']?.detailed?.includes('NPV='),
+             sampleMinwage:c.items['2019_p3_q1']?.detailed?.includes('E=75'),
+             sampleUnion:c.items['2025-econ-3']?.detailed?.includes('L*=100')
+           };})(),
+         yearCount:new Set(rows.map(x=>x.year)).size,
+         firstCount:window.QDATA?.length||null,
+         legacyCount:window.NOMUSA_LEGACY_181_DRAFTS?.stats?.target||null,
+         drafts:Object.fromEntries(%s.map(id=>[id, c?.items?.[id] ?
+           {detailed:c.items[id].detailed,compressed:c.items[id].compressed,
+            renderable:c.items[id].renderable}:null]))};
+    }""" % json.dumps(IDENTIFIERS,ensure_ascii=False))
+
+def check_inventory(inv):
+    gate=inv["gate"]
+    assert inv["status"]=="DRAFT_SOURCE_READY",inv
+    assert gate["catalogCount"]==377,gate
+    assert gate["candidateCount"]==328 and gate["renderable"]==328,gate
+    assert gate["uniqueIds"] is True
+    assert not gate["missingIds"] and not gate["unexpectedIds"] and not gate["notRenderable"],gate
+    assert len(gate["originalParentIds"])==49
+    assert inv["yearCount"]==20 and inv["legacyCount"]==181
+    batch=inv["batch"]
+    assert batch and batch["schema"]=="nomusa-20year-quality-batch/1",batch
+    assert batch["totalCatalog"]==377 and batch["candidateCount"]==328,batch
+    assert batch["changed"]>=200 and sum(batch["counts"].values())==328,batch
+    assert batch["counts"]["HOLD_POINTS_UNKNOWN"]==26,batch
+    assert batch["hold"]=="HOLD" and batch["storageKeyChanged"] is False,batch
+    assert batch["idParity"] is True and batch["regressionNoShrink"] is True,batch
+    assert all(x and x["renderable"] for x in inv["drafts"].values())
+    v20=inv["v20"]
+    assert v20 and v20["status"]=="88_SOURCE_SPECIFIC_SUPPLEMENTS_ADDED_CONTENT_APPROVAL_HOLD",v20
+    assert v20["total"]==88 and v20["points50"]==32 and v20["points25"]==56,v20
+    assert v20["unique"] and v20["previousPreserved"] and v20["grows"] and v20["noScoring"],v20
+    assert v20["approval"]=="HOLD" and v20["source"] is False and v20["keys"] is False,v20
+    assert all(v20[x] for x in ("sampleTrade","sampleHuman","sampleMinwage","sampleUnion")),v20
+    v15=inv["v15"]
+    assert v15 and v15["schema"]=="nomusa-20year-essay-law50-v15/15",v15
+    assert v15["count"]==v15["target"]==36 and v15["minChars"]>=4200 and v15["stage5"]==0,v15
+    assert v15["candidates"]==328 and v15["exercises"]==377 and v15["approvals"]==0 and v15["pages"] is False,v15
+    assert v15["ids"] is False and v15["points"] is False and v15["keys"] is False,v15
+    assert v15["unique"] is True and v15["restored"] is True and v15["v13Kept"] is True and v15["allTagged"] is True and v15["noFiller"] is True,v15
+    v13=inv["v13"]
+    assert v13 and v13["schema"]=="nomusa-20year-essay-50pt-expansion/13",v13
+    assert v13["count"]==12 and v13["eight"] is True and v13["minChars"]>=4000,v13
+    assert v13["candidates"]==328 and v13["exercises"]==377 and v13["approvals"]==0 and v13["pages"] is False,v13
+    assert v13["ids"] is False and v13["points"] is False and v13["keys"] is False,v13
+    assert v13["unique"] is True and v13["restored"] is True and v13["v12Kept"] is True,v13
+    assert all(v13["contentChecks"].values()),v13
+    v12=inv["v12"]
+    assert v12 and v12["schema"]=="nomusa-20year-essay-law-2019-2020/12",v12
+    assert v12["count"]==20 and v12["pdfPoints"]==20 and v12["candidates"]==328 and v12["exercises"]==377,v12
+    assert v12["approvals"]==0 and v12["pages"] is False,v12
+    assert v12["ids"] is False and v12["points"] is False and v12["keys"] is False and v12["catalogPointsUntouched"] is True,v12
+    assert v12["unique"] is True and v12["restored"] is True and v12["v11Kept"] is True,v12
+    assert all(v12["contentChecks"].values()),v12
+    v11=inv["v11"]
+    assert v11 and v11["schema"]=="nomusa-20year-essay-admin-civil-depth/11",v11
+    assert v11["count"]==17 and v11["candidates"]==328 and v11["exercises"]==377,v11
+    assert v11["approvals"]==0 and v11["pages"] is False,v11
+    assert v11["ids"] is False and v11["points"] is False and v11["keys"] is False,v11
+    assert v11["unique"] is True and v11["restored"] is True and v11["v10Kept"] is True,v11
+    assert all(v11["contentChecks"].values()),v11
+    v10=inv["v10"]
+    assert v10 and v10["schema"]=="nomusa-20year-essay-labor-depth/10",v10
+    assert v10["count"]==12 and v10["candidates"]==328 and v10["exercises"]==377,v10
+    assert v10["approvals"]==0 and v10["pages"] is False,v10
+    assert v10["ids"] is False and v10["points"] is False and v10["keys"] is False,v10
+    assert v10["unique"] is True and v10["restored"] is True and v10["v9Kept"] is True,v10
+    assert all(v10["contentChecks"].values()),v10
+    v9=inv["v9"]
+    assert v9 and v9["schema"]=="nomusa-20year-essay-legal-depth/9",v9
+    assert v9["all"]==57 and v9["updated"]==4 and v9["pending"]==53,v9
+    assert v9["exercises"]==377 and v9["candidates"]==328 and v9["approvals"]==0,v9
+    assert v9["scoreUnchanged"] is False and v9["idsUnchanged"] is False and v9["keysUnchanged"] is False,v9
+    assert v9["pages"] is False and v9["unique"] is True and v9["restored"] is True,v9
+    assert v9["expanded"] is True and v9["confirmed"] is True,v9
+    assert all(v9["contentChecks"].values()),v9
+
+    v8=inv["v8"]
+    assert v8 and v8["schema"]=="nomusa-20year-essay-quality-batch/8",v8
+    assert v8["total"]==57 and v8["added"]==38 and v8["rewritten"]==57 and v8["remaining"]==0,v8
+    assert v8["legacy"]==10 and v8["candidates"]==328 and v8["catalog"]==377,v8
+    assert v8["approval"]==0 and v8["pages"] is False,v8
+    assert v8["original"] is False and v8["ids"] is False and v8["keys"] is False,v8
+    assert v8["sourceHash"]=="9fb544e9e6bed6d314a9d151474e23d009c7f6bd82ea01c6ec4d342486fdfa7d",v8
+    assert v8["sourcePage"]==2 and v8["sourcePoints"]=="25,25",v8
+    assert v8["unique"] is True and v8["old"] is True,v8
+    assert all(v8["topics"].values()),v8
+
+    v7=inv["v7"]
+    assert v7 and v7["schema"]=="nomusa-20year-essay-manuscript/7",v7
+    assert v7["added"]==5 and v7["complete"]==19 and v7["remaining"]==38,v7
+    assert v7["all"]==328 and v7["points"]==5 and v7["source"]==377,v7
+    assert v7["old"] is True and v7["legalApproved"]==0 and v7["pages"] is False,v7
+    assert v7["raw"] is False and v7["keys"] is False and v7["saved"] is False,v7
+    assert v7["unique"] is True and v7["manuscripts"]==5,v7
+    assert v7["sourceCase"] is True and v7["sourceCivil"] is True and v7["sourceAdmin"] is True,v7
+
+    v6=inv["v6"]
+    assert v6 and v6["schema"]=="nomusa-20year-essay-manuscript/6",v6
+    assert v6["total"]==9 and v6["remaining"]==43 and v6["focused"]==14,v6
+    assert v6["fifty"]==7 and v6["twentyfive"]==2,v6
+    assert v6["candidates"]==328 and v6["exercise"]==377,v6
+    assert v6["approval"]==0 and v6["pages"] is False,v6
+    assert v6["raw"] is False and v6["keys"] is False and v6["writing"] is False,v6
+    assert v6["unique"] is True and v6["restored"] is True,v6
+    assert v6["economic"] is True and v6["labor"] is True and v6["manuscriptCount"]==9,v6
+
+    v5=inv["v5"]
+    assert v5 and v5["schema"]=="nomusa-answer-manuscript/5",v5
+    assert v5["completed"]==5 and v5["remaining"]==52 and v5["count"]==5,v5
+    assert v5["all"]==328 and v5["original"]==377,v5
+    assert v5["legalApproved"]==0 and v5["pages"] is False,v5
+    assert v5["originalChanged"] is False and v5["keysChanged"] is False,v5
+    assert v5["saved"] is True and v5["question2023"] is True and v5["question2025"] is True,v5
+
+    v4=inv["v4"]
+    assert v4 and v4["schema"]=="nomusa-20year-57-deepening/4",v4
+    assert v4["targets"]==57 and v4["authored"]==57,v4
+    assert v4["total"]==328 and v4["cat"]==377,v4
+    assert v4["sourceScored"]==26 and v4["pdfs"]==10,v4
+    assert v4["half50"]==10 and v4["half25"]==16,v4
+    assert v4["externalHash"] is False,v4
+    assert v4["originalPointsChanged"] is False and v4["saveKeysChanged"] is False,v4
+    assert v4["approval"]=="HOLD" and v4["uniqueIds"] is True,v4
+    assert v4["grow"] is True and v4["originalsPreserved"] is True,v4
+    assert v4["econ2025"] is True,v4
+
+    v3=inv["v3"]
+    assert v3 and v3["schema"]=="nomusa-20year-writing-gate/3",v3
+    assert v3["count"]==7 and v3["candidates"]==328,v3
+    assert v3["baselineV2"]==61 and v3["audit"]==29,v3
+    assert v3["points"]==26 and v3["possible"]==26,v3
+    assert v3["verified"]==0 and v3["changedRaw"] is False,v3
+    assert v3["approval"]=="HOLD" and v3["priorPreserved"] is True,v3
+
+    thin=inv["thin"]
+    assert thin and thin["schema"]=="nomusa-20year-thin-issue-enrichment/2",thin
+    assert thin["targets"]==61 and thin["authored"]==61,thin
+    assert thin["remainingOtherHold"]==29 and thin["remainingPointsHold"]==26,thin
+    assert thin["contentApproval"]=="HOLD" and thin["storageKeyChanged"] is False,thin
+    assert thin["sourceCatalogChanged"] is False,thin
+    assert thin["uniqueIds"] is True and thin["changed"] is True and thin["preserved"] is True,thin
+
+    # Question-specific content regression: 2026 organizational bargaining, 12 points.
+    # Four comparison axes must be substantive, not a one-paragraph placeholder.
+    compressed_2026 = inv["drafts"]["2026-경영조직론|1|1"]["compressed"]
+    assert len(compressed_2026) >= 1100, "2026_12PT_COMPACT_STILL_TOO_SHORT"
+    assert all(term in compressed_2026 for term in ("지향 목표", "정보공유 수준", "관계의 지속가능성", "분배구조")), "2026_FOUR_AXES_MISSING"
+    assert "학술근거:" in compressed_2026, "2026_ACADEMIC_CITATION_MISSING"
+    # Regression for literal \\n tokens previously visible in the 2026 compact answer.
+    assert "\\n" not in inv["drafts"]["2026-경영조직론|1|1"]["compressed"], "LITERAL_NEWLINE_TOKENS_LEAKED"
+
+def overflow(page,width):
+    data=page.evaluate("""() => ({w:document.documentElement.scrollWidth,
+      viewport:document.documentElement.clientWidth})""")
+    assert data["w"]<=max(width,data["viewport"])+2,data
+
+def choose_hub(page,id):
+    year=id[:4]
+    page.locator('[data-year="%s"]'%year).first.click()
+    if page.viewport_size["width"]<701:
+        toggle=page.locator('[data-action="list-toggle"]')
+        if toggle.count() and toggle.is_visible():toggle.click()
+    page.locator('[data-question="%s"]'%id).first.click()
+    page.locator('[data-trace="4"]').first.click()
+
+def check_viewports(browser,width):
+    ctx=browser.new_context(viewport={"width":width,"height":880},accept_downloads=True)
+    second=ctx.new_page()
+    hub=ctx.new_page()
+    errorsSecond=capture(second);errorsHub=capture(hub)
+    try:
+        second.goto(BASE+"/second/",wait_until="domcontentloaded")
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        second.wait_for_function("window.N27_ESSAY_TEST && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        a,b=inventory(second),inventory(hub)
+        if not a.get("v4") or not b.get("v4"):
+            raise AssertionError("V4_INITIALIZATION_DIAGNOSTIC "+json.dumps({
+              "secondErrors":errorsSecond,"hubErrors":errorsHub,
+              "secondData":second.evaluate("""() => ({
+                pointAudit:!!window.NOMUSA_V4_PDF_SCORE_AUDIT,
+                pointCount:window.NOMUSA_V4_PDF_SCORE_AUDIT?.total||null,
+                deepDraftCount:Object.keys(window.NOMUSA_V4_DEEP_DRAFTS||{}).length,
+                finalData:!!window.NOMUSA_V4_DEEPENING
+              })"""),
+              "hubData":hub.evaluate("""() => ({
+                pointAudit:!!window.NOMUSA_V4_PDF_SCORE_AUDIT,
+                pointCount:window.NOMUSA_V4_PDF_SCORE_AUDIT?.total||null,
+                deepDraftCount:Object.keys(window.NOMUSA_V4_DEEP_DRAFTS||{}).length,
+                finalData:!!window.NOMUSA_V4_DEEPENING
+              })""")
+            },ensure_ascii=False))
+        check_inventory(a);check_inventory(b)
+        # V16.2: verify every 2022 source-linked answer appears in both live Chromium contexts.
+        # This tests data initialization/overlay parity, not handwriting or legal approval.
+        year2022_js = """() => {
+          const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+          const ids=Object.keys(c).filter(id=>c[id]?.year===2022).sort();
+          const topics=ids.map(id=>({id,detail:!!c[id]?.detailed,compact:!!c[id]?.compressed,
+            length:c[id]?.detailed?.length||0,scoringApproved:!!c[id]?.scoringApproved,
+            v161:!!c[id]?.detailedBeforeV161,v162:!!c[id]?.detailedBeforeV162}));
+          return {ids,topics,v161law:window.NOMUSA_V161_LAW50_GATE?.status,
+            v161nine:window.NOMUSA_V161_NINE_GATE?.status,
+            v162:window.NOMUSA_V162_EVIDENCE_GATE?.status};
+        }"""
+        y2=second.evaluate(year2022_js)
+        yh=hub.evaluate(year2022_js)
+        assert len(y2["ids"])==19,("2022_EXPECT_19",y2["ids"])
+        assert y2["ids"]==yh["ids"],"2022_ID_PARITY"
+        assert y2["topics"]==yh["topics"],"2022_DETAIL_PARITY"
+        assert all(t["detail"] and t["compact"] and not t["scoringApproved"] for t in y2["topics"]), "2022_MISSING_OR_APPROVED"
+        assert sum(t["v161"] for t in y2["topics"])==13,"2022_V161_13"
+        assert sum(t["v162"] for t in y2["topics"])==7,"2022_V162_7"
+        assert y2["v161law"]=="FOUR_V13_50PT_ENHANCED_CONTENT_HOLD",y2
+        assert y2["v161nine"]=="NINE_SUPPLEMENTS_APPLIED_REVIEW_HOLD",y2
+        assert y2["v162"]=="SEVEN_SOURCE_NOTES_ATTACHED_FINAL_HOLD",y2
+        RESULTS.append({"name":"2022_19_answers_crossview_%spx"%width,"status":"PASS",
+          "sourceIDs":19,"v161":13,"v162":7,"approval":"HOLD"})
+
+        # Export the actual final client-projected 2022 text, not a guessed source aggregate.
+        # Review-only output from the same Chromium run; original PDF/manual legal approval HOLD.
+        if width == 1440:
+            rendered=second.evaluate("""() => {
+              const source=window.N27_CATALOG?.items||[];
+              const c=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+              const gate=window.NOMUSA_V168_2022_GATE;
+              return {gate, rows:source.filter(q=>q.year===2022).map(q=>{
+                const o=c[q.id]||{};
+                return {id:q.id,year:q.year,subject:q.subject,points:q.points,
+                  topic:q.topic||'',sourceText:q.sourceText||'',
+                  parts:o.examPartRubricV168||[],detailed:o.detailed||'',
+                  compressed:o.compressed||'',priorChars:o.detailedBeforeV168?.length||0,
+                  approval:o.finalAcademicApproval||'HOLD',scoringApproved:!!o.scoringApproved};
+              })};
+            }""")
+            assert rendered["gate"]["status"]=="NINETEEN_EDITORIAL_CANDIDATES_THIRTYTWO_PARTS_CONTENT_HOLD"
+            assert len(rendered["rows"])==19,"2022_EXPORT_19"
+            assert sum(len(q["parts"]) for q in rendered["rows"])==32,"2022_EXPORT_32"
+            assert all(q["detailed"] and q["compressed"] and q["priorChars"]>0
+                       and not q["scoringApproved"] for q in rendered["rows"]),"2022_EXPORT_BAD_ANSWER"
+            export_dir=ROOT/"review-artifacts"
+            export_dir.mkdir(exist_ok=True)
+            export_json=export_dir/"nomusa_2022_19questions_32parts_rendered_review.json"
+            export_json.write_text(json.dumps(rendered,ensure_ascii=False,indent=2),encoding="utf-8")
+            lines=[
+              "# 공인노무사 2차 2022년 기출 19개 · 32개 소문항 통합 논술답안",
+              "",
+              "> **검토용 최종 편집후보 / 법률·학술 최종 승인 HOLD**",
+              "> 실제 학습 웹앱의 Chromium 표시 데이터를 추출한 원고입니다.",
+              "> 기출 원문은 기존 등록 전사이며, 원본 PDF 인쇄면·수기 답안지 분량·시험일 법령 전문의 독립 대조는 별도입니다.",
+              "> 500자/쪽 등 글자 수 환산은 실제 필기 장수의 증명이 아닙니다.",
+              "",
+              "## 전체 32개 소문항 배점·수기 목표",
+              "",
+              "| 연도·문항 | 과목 | 소문항 | 배점 | 수기 목표(장) |",
+              "|---|---|---|---:|---:|"
+            ]
+            for q in rendered["rows"]:
+                for part in q["parts"]:
+                    lines.append("| "+q["id"]+" | "+q["subject"]+" | "+part["title"].replace("|","/")+
+                                 " | "+str(part["points"])+" | "+str(part["minimumPages"])+"–"+str(part["maximumPages"])+" |")
+            for number,q in enumerate(rendered["rows"],1):
+                lines.extend(["", "---","",
+                  "## "+str(number)+". "+q["subject"]+" — "+q["id"]+" ("+str(q["points"])+"점)",
+                  "", "### 원장 전사 기출문제 (PDF 시각 대조 HOLD)","",
+                  q["sourceText"],"",
+                  "### 소문항별 배점과 필기 목표",""])
+                for part in q["parts"]:
+                    lines.append("- **"+part["title"]+"**: "+str(part["points"])+"점, "+
+                                 str(part["minimumPages"])+"–"+str(part["maximumPages"])+"장 목표")
+                lines.extend(["", "### 상세 논술답안 — 최신 실제 표시 원고","",q["detailed"],
+                              "", "### 시험장 압축답안 — 최신 실제 표시 원고","",q["compressed"],
+                              "", "*최종내용승인 HOLD · 실제 필기장수 HOLD · 원본 PDF 시각대조 HOLD*"])
+            export_md=export_dir/"nomusa_2022_19questions_32parts_editorial_candidate.md"
+            export_md.write_text("\n".join(lines)+"\n",encoding="utf-8")
+            RESULTS.append({"name":"2022_full_rendered_manuscript_export_1440px","status":"PASS",
+                            "questions":19,"subquestions":32,
+                            "detailedChars":sum(len(q["detailed"]) for q in rendered["rows"]),
+                            "approval":"HOLD","output":str(export_md.relative_to(ROOT))})
+
+        # V16.9: 2023 and 2025 38-question/69-part complete editorial candidate export.
+        # Read the actual browser-side canonical model; no guessed source-only output.
+        if width == 1440:
+            from nomusa_editorial_batch import export_editorial_years
+            batch=export_editorial_years(second,ROOT,(2023,2025))
+            assert batch["status"]=="PASS_EDITORIAL_EXPORT_APPROVAL_HOLD"
+            assert [v["subquestions"] for v in batch["manifest"]["years"]]==[32,37]
+            assert [v["questions"] for v in batch["manifest"]["years"]]==[19,19]
+            assert all(v["gate"]=="TWO_YEARS_38_QUESTIONS_69_SUBQUESTIONS_EDITORIAL_CANDIDATE_HOLD"
+                       for v in batch["manifest"]["years"])
+            RESULTS.append({"name":"2023_2025_38questions_69parts_live_editorial_export",
+                            "status":"PASS","years":[2023,2025],
+                            "questions":38,"parts":69,"output":batch["files"],
+                            "legalAcademicApproval":"HOLD"})
+
+        # V18: historical 2019/2020 paper scores, not automatic content approval.
+        def verified_point_projection(page):
+            return page.evaluate("""() => {
+              const b=window.NOMUSA_CANONICAL_SELECTION_V1?.items||{};
+              const x=Object.values(b).filter(q=>q.verifiedPointsV18);
+              return {status:window.NOMUSA_V18_POINTS_GATE?.status, count:x.length,
+                idPoints:x.map(q=>({id:q.id,points:q.verifiedPointsV18,
+                  partSum:q.examPartRubricV18?.reduce((n,p)=>n+p.points,0),
+                  splitVerified:q.examPartRubricV18?.every(p=>p.splitVerified),
+                  approved:!!q.scoringApproved})).sort((a,b)=>a.id.localeCompare(b.id)),
+                econ:window.NOMUSA_V181_ECON_GATE?.status,
+                solved2019:b["2019_p3_q1"]?.detailed?.includes("E_min=75")||false,
+                solved2020:b["2020_p6_q1"]?.detailed?.includes("phase-out")||false
+              };
+            }""")
+        point_second=verified_point_projection(second)
+        point_hub=verified_point_projection(hub)
+        assert point_second==point_hub,"V18_SCORE_PROJECTION_MISMATCH"
+        assert point_second["status"]=="26_EXAM_POINT_EVIDENCES_MATCHED_CONTENT_HOLD",point_second
+        assert point_second["count"]==26,"V18_SCORE_COUNT"
+        assert all(v["points"]==v["partSum"] and v["splitVerified"] and not v["approved"]
+                   for v in point_second["idPoints"]),"V18_SCORE_PART_INTEGRITY"
+        assert point_second["econ"]=="TWO_ECON_50_REWRITTEN_UNAPPROVED","V181_ECON"
+        assert point_second["solved2019"] and point_second["solved2020"],"V181_CALCULATION_MISSING"
+        RESULTS.append({"name":"2019_2020_26_pdf_sourced_scores_%spx"%width,
+                        "status":"PASS","records":26,"source":"EXAM_PDF_MIRROR",
+                        "legalAcademicApproval":"HOLD"})
+
+        # V17: all other seventeen years, source-aware canonical full manuscripts.
+        if width == 1440:
+            from nomusa_editorial_batch import export_remaining_years
+            remainder=export_remaining_years(second,ROOT)
+            assert remainder["manifest"]["yearCount"]==17,"V17_YEAR_COUNT"
+            assert remainder["manifest"]["totalQuestions"]==271,("V17_TOTAL",remainder["manifest"]["totalQuestions"])
+            assert all(not a.get("scoringApproved") for a in second.evaluate("""() =>
+              Object.values(window.NOMUSA_CANONICAL_SELECTION_V1.items)
+                .filter(x=>![2022,2023,2025].includes(Number(x.year)))
+                .map(x=>({scoringApproved:!!x.scoringApproved}))""")),"V17_APPROVAL_CHANGED"
+            assert remainder["status"]=="EXPORT_PASS_CONTENT_HOLD",("V18_SCORE_MANIFEST",remainder["status"],remainder["manifest"]["issues"])
+            assert remainder["manifest"]["pointCorrections"]==26,"V18_SCORE_CORRECTIONS"
+            assert len(remainder["manifest"]["issues"])==0,"V18_REMAINING_SOURCE_ISSUES"
+            RESULTS.append({"name":"remaining_17years_271_canonical_editorial_export",
+                "status":"PASS","years":17,"questions":271,
+                "sourceGaps":len(remainder["manifest"]["issues"]),
+                "output":remainder["files"],"contentApproval":"HOLD"})
+
+        for id in IDENTIFIERS:
+            assert a["drafts"][id]==b["drafts"][id],id
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"identical_catalog_and_drafts_%s"%width,"status":"PASS",
+          "catalog":377,"candidates":328,"ids":len(IDENTIFIERS)})
+
+        # Actual DOM across detailed, compressed, compare, and writing panes.
+        id="2025-org-1"
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",id)
+        second.locator('[data-pane="detail"]').first.click()
+        assert second.locator('.nomusa-canonical-draft[data-canonical-id="2025-org-1"]').count()==1
+        second.locator('[data-pane="compact"]').first.click()
+        assert second.locator('[data-canonical-id="2025-org-1"]').count()>=1
+        second.locator('[data-pane="write"]').first.click()
+        note="공인노무사 교차화면 검증 %spx"%width
+        second.locator('[data-v1090-tab="editor"]').first.click()
+        second.locator("#v1090-editor").fill(note)
+        second.wait_for_function("([key,id,note]) => JSON.parse(localStorage.getItem(key)||'{}').drafts?.[id]===note",
+          arg=[KEY,id,note])
+
+        # Reload the already open hub tab to read the saved draft from the shared key.
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        choose_hub(hub,id)
+        hub.locator('[data-pane="detail"]').first.click()
+        assert hub.locator('.nomusa-canonical-draft[data-canonical-id="2025-org-1"]').count()==1
+        hub.locator('[data-pane="compressed"]').first.click()
+        assert hub.locator('.nomusa-canonical-compact[data-canonical-id="2025-org-1"]').count()==1
+        hub.locator('[data-pane="write"]').first.click()
+        assert hub.locator("#draft").input_value()==note
+        hub.locator("#draft").fill(note+" / 허브 보강")
+        hub.wait_for_function("([key,id,note])=>JSON.parse(localStorage.getItem(key)||'{}').drafts?.[id]===note",
+          arg=[KEY,id,note+" / 허브 보강"])
+
+        second.reload(wait_until="domcontentloaded")
+        second.wait_for_function("window.N27_ESSAY_TEST",timeout=15000)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",id)
+        second.locator('[data-pane="write"]').first.click()
+        assert second.locator("#v1090-editor").input_value()==note+" / 허브 보강"
+        second.locator('[data-pane="compare"]').first.click()
+        assert second.locator('[data-canonical-id="2025-org-1"]').count()>=1
+        hub.locator('[data-pane="compare"]').first.click()
+        assert hub.locator('[data-canonical-id="2025-org-1"]').count()>=1
+        # V10: 2026 공정대표의무(상벌위원회) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2026-노동법2|1|1"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2023두61370" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2023두61370" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V10_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2026"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법" if "노동법" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2023두61370" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v10_labor_detail_compact_memory_%s"%width,"status":"PASS"})
+        # V11: 2026 행정쟁송법 재결 기속력 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2026-행정쟁송법|1|2"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2015두45045" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2015두45045" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V11_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2026"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("행정쟁송법" if "행정쟁송법" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2015두45045" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v11_admin_detail_compact_memory_%s"%width,"status":"PASS"})
+        # V12: 2020 노동법 회식 재해(PDF 배점 확인) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2020_p1_q2"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2013두25276" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2013두25276" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V12_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2020"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법1" if "노동법1" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2013두25276" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v12_law2020_detail_compact_memory_%s"%width,"status":"PASS"})
+        # V13: 2025 노동법Ⅱ 50점(계속하는 행위 교정) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="2025-labor2-1"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "2023두41864" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "2023두41864" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V13_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2025"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법2" if "노동법2" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "2023두41864" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v13_50pt_detail_compact_memory_%s"%width,"status":"PASS"})
+        # V15: 2007 노동법Ⅱ 50점(템플릿 → 재작성) 문항의 상세·압축·암기·작성 탭 및 기존 기록 보존.
+        vid="legacy2-2007-labor2-q1"
+        before=second.evaluate("key=>localStorage.getItem(key)",KEY)
+        second.evaluate("id=>window.N27_ESSAY_TEST.select(id)",vid)
+        second.locator('[data-pane="detail"]').first.click()
+        assert "(V15)" in second.locator('.nomusa-canonical-draft').first.inner_text()
+        second.locator('[data-pane="compact"]').first.click()
+        assert "결론" in second.locator('[data-canonical-id="%s"]'%vid).first.inner_text()
+        second.locator('[data-pane="memory"]').first.click()
+        assert second.locator('.n107-memory-card').count()>=1
+        prior=json.loads(before or "{}").get("drafts",{})
+        after=json.loads(second.evaluate("key=>localStorage.getItem(key)",KEY) or "{}").get("drafts",{})
+        assert all(after.get(k)==v for k,v in prior.items()),"V15_EXISTING_RECORD_CHANGED"
+        hub.goto(BASE+"/study-hub/#home",wait_until="domcontentloaded")
+        hub.reload(wait_until="domcontentloaded")
+        hub.wait_for_function("window.HubState && window.NOMUSA_CANONICAL_SELECTION_V1?.gate",timeout=15000)
+        hub.locator('[data-year="2007"]').first.click()
+        if hub.viewport_size["width"]<701:
+            toggle=hub.locator('[data-action="list-toggle"]')
+            if toggle.count() and toggle.is_visible():toggle.click()
+        sel=hub.locator('#filter-subject')
+        if sel.count():
+            opts=sel.evaluate("e=>[...e.options].map(o=>o.value)")
+            sel.select_option("노동법Ⅱ" if "노동법Ⅱ" in opts else opts[0])
+        for _ in range(4):  # 2026 essay list can exceed one 30-item page
+            if hub.locator('[data-question="%s"]'%vid).count():break
+            nxt=hub.locator('[data-action="list-next"]:not([disabled])')
+            if not nxt.count():break
+            nxt.first.click()
+        hub.locator('[data-question="%s"]'%vid).first.click()
+        hub.locator('[data-trace="4"]').first.click()
+        hub.locator('[data-pane="detail"]').first.click()
+        assert "(V15)" in hub.locator('.nomusa-canonical-draft').first.inner_text()
+        overflow(second,width);overflow(hub,width)
+        RESULTS.append({"name":"v15_law50_detail_compact_memory_%s"%width,"status":"PASS"})
+        overflow(second,width);overflow(hub,width)
+        assert not errorsSecond and not errorsHub,(errorsSecond,errorsHub)
+        RESULTS.append({"name":"save_reload_crosspage_detail_compact_compare_%s"%width,"status":"PASS"})
+    finally:
+        ctx.close()
+
+try:
+    with sync_playwright() as playwright:
+        browser=playwright.chromium.launch(headless=True,args=["--no-sandbox"])
+        for width in (1440,390,360):
+            try:check_viewports(browser,width)
+            except Exception:
+                RESULTS.append({"name":"viewport_%s"%width,"status":"HOLD","error":traceback.format_exc()[-2200:]})
+        browser.close()
+finally:
+    srv.shutdown()
+status="PASS" if RESULTS and all(x["status"]=="PASS" for x in RESULTS) else "HOLD"
+print(json.dumps({"schema":"nomusa-canonical-shared-browser-gate/1",
+  "status":status,"verifiedCode":"local checkout only","browser":"Chromium",
+  "main":"UNCHANGED","production":"UNCHANGED","preview":"NOT_DEPLOYED",
+  "results":RESULTS},ensure_ascii=False,indent=2))
+sys.exit(0 if status=="PASS" else 2)

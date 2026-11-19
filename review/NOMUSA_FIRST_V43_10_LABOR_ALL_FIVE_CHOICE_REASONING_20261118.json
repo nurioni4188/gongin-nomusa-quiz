@@ -1,0 +1,419 @@
+{
+  "schema": "NOMUSA_FIRST_V43_TEN_LABOR_FIVE_CHOICE_LEGAL_EXPLANATIONS/1",
+  "questionCount": 10,
+  "optionReasons": 50,
+  "examDateLawApproved": 0,
+  "sourceNotice": "Statute and precedent edition held for 2020/2021 exam date",
+  "rows": [
+    {
+      "id": "legacy1-2020-A-labor2-026",
+      "officialAnswer": 5,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "근로자는 근로조건의 향상을 위하여 자주적인 단결권·단체교섭권 및 단체행동권을 가진다.",
+          "examDateReasonDraft": "헌법 제33조 제1항은 근로자의 자주적인 노동3권을 보장한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "공무원인 근로자는 법률이 정하는 자에 한하여 단결권·단체교섭권 및 단체행동권을 가진다.",
+          "examDateReasonDraft": "헌법 제33조 제2항은 공무원인 근로자의 노동3권을 법률에 정한 자로 제한한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "단체교섭권은 사실행위로서의 단체교섭 권한 외에 교섭한 결과에 따라 단체협약을 체결할 권한을 포함한다.",
+          "examDateReasonDraft": "단체교섭권에는 교섭뿐 아니라 그 결과로 단체협약을 체결할 권한도 포함된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "법률이 정하는 주요방위산업체에 종사하는 근로자의 단체행동권은 법률이 정하는 바에 의하여 이를 제한할 수 있다.",
+          "examDateReasonDraft": "헌법 제33조 제3항은 주요방위산업체 근로자의 단체행동권 제한을 법률에 맡긴다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "취업활동을 할 수 있는 체류자격을 받지 않은 외국인은 타인과의 사용종속관계에서 근로를 제공하고 그 대가로 임금 등을 받아 생활하더라도 노동조합에 가입할 수 없다.",
+          "examDateReasonDraft": "대법원 이주노조 판례는 취업체류자격 부재만으로 노조 가입자격을 일률적으로 배제하지 않는다.",
+          "isAnswer": true
+        }
+      ],
+      "lawToCrossCheck": "대한민국 헌법 제33조; 노동조합 및 노동관계조정법 제2조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-labor2-032",
+      "officialAnswer": 4,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "근로시간 면제 한도를 정하기 위하여 위원회를 고용노동부에 둔다.",
+          "examDateReasonDraft": "2020년 당시의 근로시간면제심의위원회는 고용노동부 소속으로 규정되었다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "근로시간 면제 한도는 위원회가 심의·의결한 바에 따라 고용노동부장관이 고시하되, 3년마다 그 적정성 여부를 재심의하여 결정할 수 있다.",
+          "examDateReasonDraft": "당시 한도 결정과 고용노동부장관의 고시 및 재심의 주기에 관한 문구다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "위원회는 노동계와 경영계가 추천하는 위원 각 5명, 정부가 추천하는 공익위원 5명으로 구성된다.",
+          "examDateReasonDraft": "당시 위원회는 노사 추천 각 5명과 정부 추천 공익위원 5명의 15명 체계다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "위원장은 공익위원 중에서 고용노동부장관이 지명한다.",
+          "examDateReasonDraft": "당시 법률은 공익위원 가운데 위원회가 위원장을 선출하도록 했으므로 장관 지명은 아니다.",
+          "isAnswer": true
+        },
+        {
+          "number": 5,
+          "statement": "위원회는 재적위원 과반수의 출석과 출석위원 과반수의 찬성으로 의결한다.",
+          "examDateReasonDraft": "재적위원 과반 출석·출석위원 과반 찬성의 의결 요건에 관한 문구다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "2020년 당시 노동조합 및 노동관계조정법 제24조의2",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-labor2-033",
+      "officialAnswer": 3,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "규약에서 정한 해산사유가 발생한 경우에 노동조합은 해산한다.",
+          "examDateReasonDraft": "규약에서 정한 해산사유는 법정 해산 사유에 포함된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "노동조합이 합병으로 소멸한 경우에 노동조합은 해산한다.",
+          "examDateReasonDraft": "합병에 따른 조합의 소멸도 해산 관련 사유로 규정한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "노동조합의 임원이 없고 노동조합으로서의 활동을 1년 이상 하지 아니한 경우에 노동조합은 해산한다.",
+          "examDateReasonDraft": "임원 부재·1년 무활동만으로 즉시 자동해산이 되는 것이 아니라 법정 절차가 필요하다.",
+          "isAnswer": true
+        },
+        {
+          "number": 4,
+          "statement": "노동조합 규약으로 총회에 갈음하는 대의원회를 둔 때에는 대의원회의 해산결의가 있는 경우에 노동조합은 해산한다.",
+          "examDateReasonDraft": "규약상 총회를 갈음한 대의원회의 적법한 해산결의도 해산 관련 사유다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "노동조합이 분할로 소멸한 경우에 노동조합은 해산한다.",
+          "examDateReasonDraft": "분할 등으로 노동조합이 소멸한 경우의 법정 요건은 당시 시행본을 확인해야 한다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "노동조합 및 노동관계조정법 제28조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor1-015",
+      "officialAnswer": 5,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "취업규칙을 작성하여 고용노동부장관에게 신고하여야 하는 사용자는 상시 10명 이상의 근로자를 사용하는 사용자이다.",
+          "examDateReasonDraft": "취업규칙 작성·신고는 상시 10명 이상 사업장의 사용자가 부담한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "사용자가 취업규칙을 작성하여 고용노동부장관에게 신고하여야 하는 경우, 해당 취업규칙에는 업무상과 업무 외의 재해부조(災害扶助)에 관한 사항이 포함되어야 한다.",
+          "examDateReasonDraft": "취업규칙 기재사항에는 업무상·업무 외 재해부조에 관한 사항도 포함된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "사용자는 취업규칙의 작성에 관하여 해당 사업 또는 사업장에 근로자의 과반수로 조직된 노동조합이 있는 경우에는 그 노동조합, 근로자의 과반수로 조직된 노동조합이 없는 경우에는 근로자의 과반수의 의견을 들어야 한다.",
+          "examDateReasonDraft": "과반수 노조 또는 근로자 과반수 의견청취가 원칙이고 불이익변경은 별도의 동의가 필요하다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "취업규칙에서 근로자에 대하여 감급(減給)의 제재를 정할 경우에 그 감액은 1회의 금액이 평균임금의 1일분의 2분의 1을, 총액이 1임금지급기의 임금 총액의 10분의 1을 초과하지 못한다.",
+          "examDateReasonDraft": "감급 제재는 1회와 1임금지급기 총액에 법정 상한이 있다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "고용노동부장관은 법령이나 단체협약에 어긋나는 취업규칙에 대하여 노동위원회의 의결을 받아 그 변경을 명하여야 한다.",
+          "examDateReasonDraft": "제96조상 변경명령에 노동위원회의 별도 사전 의결이 요구된다는 문구는 없다.",
+          "isAnswer": true
+        }
+      ],
+      "lawToCrossCheck": "근로기준법 제93조·제94조·제95조·제96조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor1-019",
+      "officialAnswer": 1,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "출산으로 결원이 생긴 제조업의 직접생산공정업무",
+          "examDateReasonDraft": "출산에 따른 결원 보충은 제조업 직접생산업무에 대한 한시 파견 예외의 핵심 사유다.",
+          "isAnswer": true
+        },
+        {
+          "number": 2,
+          "statement": "건설공사현장에서 이루어지는 업무",
+          "examDateReasonDraft": "건설공사현장 업무는 파견금지 대상으로 분류된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "「선원법」 제2조제1호의 선원의 업무",
+          "examDateReasonDraft": "선원법상 선원의 업무도 파견제한·금지 범위에 포함된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "「산업안전보건법」 제58조에 따른 유해하거나 위험한 업무",
+          "examDateReasonDraft": "산업안전보건법상 유해·위험 업무는 파견금지 취지의 대상이다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "「여객자동차 운수사업법」 제2조제3호에 따른 여객자동차운송사업에서의 운전업무",
+          "examDateReasonDraft": "여객자동차 운송사업의 운전업무는 파견금지 목록에 포함된다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "파견근로자 보호 등에 관한 법률 제5조 및 관련 시행령",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor1-020",
+      "officialAnswer": 3,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "박사 학위를 소지하고 해당 분야에 종사하는 경우에는 2년을 초과하여 기간제근로자로 사용할 수 있다.",
+          "examDateReasonDraft": "해당 분야 박사학위 소지자의 업무는 2년 초과 기간제 사용에 예외가 될 수 있다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "특정한 업무의 완성에 필요한 기간을 정한 경우에는 2년을 초과하여 기간제근로자로 사용할 수 있다.",
+          "examDateReasonDraft": "특정 사업·업무의 완료에 필요한 기간을 정한 경우도 2년 예외가 가능하다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "사용자는 기간의 정함이 없는 근로계약을 체결하려는 경우에 당해 사업 또는 사업장의 동종 또는 유사한 업무에 종사하는 기간제근로자를 우선적으로 고용해야 한다.",
+          "examDateReasonDraft": "제5조는 기존 기간제근로자 우선고용을 위해 노력하도록 한 것이지 반드시 채용해야 할 의무는 아니다.",
+          "isAnswer": true
+        },
+        {
+          "number": 4,
+          "statement": "고용노동부장관은 확정된 시정명령에 대하여 사용자에게 이행상황을 제출할 것을 요구할 수 있다.",
+          "examDateReasonDraft": "확정된 차별시정명령의 이행상황 제출 요구에 관한 조문이 있다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "사용자는 기간제근로자임을 이유로 해당 사업 또는 사업장에서 동종 또는 유사한 업무에 종사하는 기간의 정함이 없는 근로계약을 체결한 근로자에 비하여 차별적 처우를 하여서는 아니 된다.",
+          "examDateReasonDraft": "같은 사업장 동종·유사 업무의 무기계약 근로자와 비교한 불합리한 차별처우를 금지한다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "기간제 및 단시간근로자 보호 등에 관한 법률 제4조·제5조·제8조·제15조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor1-025",
+      "officialAnswer": 5,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "외국인력정책위원회는 외국인근로자 도입 업종 및 규모 등에 관한 사항을 심의·의결한다.",
+          "examDateReasonDraft": "외국인력 도입 업종·규모는 외국인력정책위원회의 심의·의결사항이다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "외국인근로자를 고용하려는 자는 「직업안정법」에 따른 직업안정기관에 우선 내국인 구인 신청을 하여야 한다.",
+          "examDateReasonDraft": "내국인 구인노력은 외국인근로자 고용허가의 선행 요건이다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "사용자는 외국인근로자가 외국인 취업교육을 받을 수 있도록 하여야 한다.",
+          "examDateReasonDraft": "사용자는 외국인 취업교육이 가능하도록 법상 조치를 해야 한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "외국인근로자를 고용한 사업 또는 사업장의 사용자는 외국인근로자의 출국 등에 따른 퇴직금 지급을 위하여 외국인근로자를 피보험자 또는 수익자로 하는 보험 또는 신탁에 가입하여야 한다.",
+          "examDateReasonDraft": "출국만기보험 등 퇴직금 관련 보험·신탁 가입 의무에 관한 설명이다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "외국인근로자는 고용허가를 받은 날부터 5년의 범위에서 취업활동을 할 수 있다.",
+          "examDateReasonDraft": "취업활동 기간을 '고용허가를 받은 날부터 5년'으로 일률 규정한 것은 2021 제도와 다르다.",
+          "isAnswer": true
+        }
+      ],
+      "lawToCrossCheck": "외국인근로자의 고용 등에 관한 법률 제18조·제18조의2",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor2-029",
+      "officialAnswer": 4,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "회의에 관한 사항",
+          "examDateReasonDraft": "노조법 제11조는 회의에 관한 사항을 필수규약사항으로 정한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "규약변경에 관한 사항",
+          "examDateReasonDraft": "규약 변경에 관한 사항도 필수 기재 대상이다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "소속된 연합단체가 있는 경우에는 그 명칭",
+          "examDateReasonDraft": "소속 연합단체가 있는 경우 그 명칭을 규약에 적는다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "단체협약의 체결에 관한 권한의 위임에 관한 사항",
+          "examDateReasonDraft": "단체협약 체결권의 위임 사항은 제11조의 법정 필수 열거사항이 아니다.",
+          "isAnswer": true
+        },
+        {
+          "number": 5,
+          "statement": "쟁의행위와 관련된 찬반투표 결과의 공개, 투표자 명부 및 투표용지 등의 보존·열람에 관한 사항",
+          "examDateReasonDraft": "쟁의행위 찬반투표 결과·명부·투표용지 보존 열람사항은 법정 기재사항이다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "노동조합 및 노동관계조정법 제11조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor2-042",
+      "officialAnswer": 5,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "노동위원회는 관계 당사자 쌍방의 신청이 있는 경우에는 조정위원회에 갈음하여 단독 조정인에게 조정을 행하게 할 수 있다.",
+          "examDateReasonDraft": "당사자 쌍방 신청 시 단독 조정인 조정 제도가 허용된다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "조정서의 내용은 단체협약과 동일한 효력을 가진다.",
+          "examDateReasonDraft": "법정 조정서의 내용은 단체협약과 같은 효력을 가진다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "노동위원회는 관계 당사자의 일방이 단체협약에 의하여 중재를 신청한 때에는 중재를 행한다.",
+          "examDateReasonDraft": "단체협약에 근거한 일방 당사자의 중재신청도 중재 사유가 될 수 있다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "중재재정은 서면으로 작성하여 이를 행하며 그 서면에는 효력발생 기일을 명시하여야 한다.",
+          "examDateReasonDraft": "중재재정은 서면으로 하며 효력발생일의 명시 등 요건을 갖추어야 한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 5,
+          "statement": "노동위원회의 중재재정은 중앙노동위원회에의 재심신청에 의하여 그 효력이 정지된다.",
+          "examDateReasonDraft": "중재재정은 중앙노동위원회 재심신청만으로 효력이 정지되지 않는다.",
+          "isAnswer": true
+        }
+      ],
+      "lawToCrossCheck": "노동조합 및 노동관계조정법 제61조·제62조·제68조·제70조",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-labor2-047",
+      "officialAnswer": 4,
+      "originalOptions": [
+        {
+          "number": 1,
+          "statement": "노동위원회 상임위원은 심판사건을 담당할 수 있으나, 차별적 처우 시정사건을 담당할 수 없다.",
+          "examDateReasonDraft": "상임위원의 심판·차별시정 담당범위를 과도하게 제한한 설명으로 당시 법령 대조가 필요하다.",
+          "isAnswer": false
+        },
+        {
+          "number": 2,
+          "statement": "지방노동위원회 공익위원은 중앙노동위원회 위원장의 제청으로 고용노동부장관이 위촉한다.",
+          "examDateReasonDraft": "지방노동위원회 공익위원의 임명·위촉 절차는 중앙노동위원회 제청과 별개 요건을 확인해야 한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 3,
+          "statement": "노동위원회 처분의 효력은 판정·명령·결정 또는 재심판정을 한 날부터 발생한다.",
+          "examDateReasonDraft": "노동위원회 처분의 효력발생일은 송달·통지 등 당시 법률의 별도 규율을 확인해야 한다.",
+          "isAnswer": false
+        },
+        {
+          "number": 4,
+          "statement": "노동위원회의 사건 처리에 관여한 위원이나 직원 또는 그 위원이었거나 직원이었던 변호사·공인노무사 등은 영리를 목적으로 그 사건에 관한 직무를 하면 아니 된다.",
+          "examDateReasonDraft": "사건 처리에 관여한 위원·직원·전직 관계자의 해당 사건 영리 목적 직무 제한을 규정한 취지다.",
+          "isAnswer": true
+        },
+        {
+          "number": 5,
+          "statement": "차별시정위원회는 「남녀고용평등과 일·가정 양립 지원에 관한 법률」, 「기간제 및 단시간근로자 보호 등에 관한 법률」에 따른 차별적 처우의 시정과 관련된 사항을 처리한다.",
+          "examDateReasonDraft": "차별시정위원회 관할 법률의 열거범위가 문항의 포괄적 설명과 일치하지 않는다.",
+          "isAnswer": false
+        }
+      ],
+      "lawToCrossCheck": "노동위원회법 위원의 공정성·제척·비밀유지 및 위촉 조항",
+      "examDateVersionStatus": "HOLD_FULL_HISTORICAL_STATUTE_AND_PRECEDENT",
+      "textOnlyFirstPass": true,
+      "independentReviewerSigned": false,
+      "scoringApproved": false
+    }
+  ]
+}

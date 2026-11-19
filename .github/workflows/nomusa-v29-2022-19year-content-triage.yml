@@ -1,0 +1,76 @@
+name: NOMUSA V29 2022 baseline vs 19 years read-only content triage
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v29-2022-19year-content-triage.yml'
+      - 'scripts/nomusa-v29-2022-baseline-review.py'
+      - '.claude/skills/nomusa-v29-2022-baseline-19year-content-gate/SKILL.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v29-readonly
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout existing review source without pushing changes
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fast 328-row source ledger and 2022 19-claim audit
+        run: |
+          python scripts/nomusa-v29-2022-baseline-review.py --self-test
+          python scripts/nomusa-v29-2022-baseline-review.py .
+      - name: Install browser dependencies for real 328 answer text hashes
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7
+          python -m playwright install chromium --with-deps
+      - name: Export actual answer texts and verify 1440px 390px 360px storage flows
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Compare 328 rendered answer SHA to exact current V23 ledger and 2022 pilot
+        run: python scripts/nomusa-v29-2022-baseline-review.py . --rendered
+      - name: Ensure no repo originals or answer content were modified
+        run: |
+          git diff --exit-code
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          o=json.loads(Path('review-artifacts/NOMUSA_V29/NOMUSA_V29_328_CONTENT_TRIAGE.json').read_text())
+          s=o['summary']
+          assert s['answers']==328 and s['browserRenderedVerified']==328
+          assert s['baseline2022']==19 and s['otherYears']==309
+          assert s['priority']=={'P0':19,'P1':77,'P2':35,'P3':197}
+          assert s['independentExpertApprovals']==0 and s['finalApproval']=='HOLD'
+          assert s['sameQualityAcross20Years']=='NOT_ESTABLISHED'
+          assert s['unchangedOriginalAndDeployment']
+          print('PASS_V29_328_RENDERED_SHA_19_YEAR_TRIAGE_APPROVAL_HOLD')
+          PY
+      - name: Upload read-only V29 report JSON and 328 question CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v29-2022-pilot-19years-328-content-triage
+          path: |
+            review-artifacts/NOMUSA_V29/**
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Explain explicit limit
+        if: always()
+        run: |
+          echo 'NO_MAIN_NO_PRODUCTION_NO_PREVIEW_COMMANDS=1'
+          echo 'NO_ESSAY_APPROVAL_NO_EXPERT_SIGNATURE_NO_EMAIL=1'
+          echo 'FINAL_CONTENT_APPROVAL=HOLD_0_OF_328'

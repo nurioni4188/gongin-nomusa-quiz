@@ -1,0 +1,73 @@
+name: NOMUSA FIRST V53 identify QNet original 2016 management A booklet SHA review only
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v53-2016-management-qnet-source-probe.yml'
+      - 'scripts/nomusa-first-v53-2016-management-a-qnet-primary-probe.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v53-qnet-source-discovery
+  cancel-in-progress: true
+jobs:
+  official-source-probe:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install trusted QNet HTML PDF discovery dependencies
+        run: python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.4 pymupdf==1.26.7
+      - name: Search only bounded real QNet 2016 1st-stage public article pages and validate exact A PDF SHA if present
+        run: |
+          python -m py_compile scripts/nomusa-first-v53-2016-management-a-qnet-primary-probe.py
+          python scripts/nomusa-first-v53-2016-management-a-qnet-primary-probe.py
+      - name: Enforce no content approval, app mutations, or invented QNet attachments
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,subprocess
+          p=Path('review/NOMUSA_FIRST_V53_2016_MANAGEMENT_QNET_SOURCE_SUMMARY_20261118.json')
+          q=json.loads(p.read_text(encoding='utf8'))
+          assert q['searchedArticleCount']>=20
+          assert q['year2016ManagementAQuestionCandidates']==125
+          assert q['originalTextFiveOptionsApproved']==0
+          assert q['independentlyVerifiedAnswerCells']==0
+          assert q['newQDATAImports']==q['newScoringApprovals']==0
+          if q['source']:
+            assert q['directQnetAFilesSHAValidated']==1 and q['source']['bookletAFromQNetFilename'] is True
+            assert len(q['source']['sourcePDFSHA256'])==64
+          changes=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changes.issubset({'review/NOMUSA_FIRST_V53_2016_MANAGEMENT_QNET_SOURCE_SUMMARY_20261118.json'}),changes
+          print(q['status']+'_0_NEW_GRADING_0_NEW_APP_SOURCE')
+          PY
+      - name: Commit only public official-source SHA discovery result to Draft PR review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V53_2016_MANAGEMENT_QNET_SOURCE_SUMMARY_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v53): 2016 management A QNet source probe and strict no-score hold'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Archive original official source evidence without public code changes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v53-2016-management-qnet-primary-source-probe
+          path: review-artifacts/NOMUSA_FIRST_V53/
+          if-no-files-found: warn
+          retention-days: 14

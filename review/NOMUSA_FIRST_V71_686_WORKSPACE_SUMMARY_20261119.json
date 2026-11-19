@@ -1,0 +1,16 @@
+{
+  "schema": "NOMUSA_FIRST_V71_686_REVIEW_ONLY_SOURCE_WORKSPACE_SUMMARY/1",
+  "asOfKST": "2026-11-19",
+  "totalQuestions": 686,
+  "fullFiveChoiceUnapprovedDrafts": 189,
+  "unreviewedOCR": 254,
+  "sourceOnlyWithoutStructuredOptions": 243,
+  "sourceImageFileSHA256Validated": 448,
+  "independentQuestionTextFiveOptionApprovals": 0,
+  "officialAnswerCellApprovals": 0,
+  "historicalLawTheoryExplanationApprovals": 0,
+  "newScoringApprovals": 0,
+  "newQDATAImports": 0,
+  "status": "PASS_FULL_686_REVIEW_WORKSPACE_HOLD_COMPLETE_APPROVAL_AND_DEPLOYMENT",
+  "warning": "686 complete record coverage is NOT 686 exam-grade complete answers."
+}

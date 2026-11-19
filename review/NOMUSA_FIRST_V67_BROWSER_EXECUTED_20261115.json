@@ -1,0 +1,73 @@
+{
+  "schema": "nomusa-v67-full-source-chromium-e2e/2026-11-15",
+  "testEnvironment": {
+    "provider": "Vercel Sandbox under existing project",
+    "project": "gongin-nomusa-rc27-preview",
+    "session": "sbx_MpPCSGINuVGXE5fvyQx6MMjJoBnd",
+    "sourceCommit": "58339dde461aee079b84833d1f1196b1112439ce",
+    "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+    "browser": "Chromium 159.0.8154.6",
+    "command": "python3 scripts/nomusa-first-v6-fullhub-gate.py .",
+    "temporaryHTTP": true
+  },
+  "testResults": {
+    "sourceQuestionLedger": {
+      "status": "PASS_INTERNAL_CONSISTENCY",
+      "reviewItems": 900,
+      "booklets": 12,
+      "answerPdfs": 4,
+      "pageBasis": {
+        "textWithFiveMarkers": 300,
+        "ocrPageCandidates": 556,
+        "bookletLinkedPageHold": 44
+      }
+    },
+    "browser": {
+      "status": "PASS",
+      "checks": {
+        "first_1440": "PASS",
+        "second_1440": "PASS",
+        "hub_1440": "PASS",
+        "legacy_first_1440": "PASS",
+        "first_390": "PASS",
+        "second_390": "PASS",
+        "hub_390": "PASS",
+        "legacy_first_390": "PASS",
+        "first_360": "PASS",
+        "second_360": "PASS",
+        "hub_360": "PASS",
+        "legacy_first_360": "PASS",
+        "existing_hub_qa": "PASS"
+      }
+    },
+    "firstStage": {
+      "existingBaseline": 1020,
+      "legacyAdded": 1259,
+      "totalIncluded": 2279,
+      "choicePersisted": true,
+      "backupRoundTrip": true,
+      "examNavigationAndResume": true,
+      "legacyGradeAndResume": true
+    },
+    "secondStage": {
+      "catalogTotal": 309,
+      "newSourceOnly": 94,
+      "previousCatalog": 215,
+      "yearRange": "2007-2026",
+      "independentlyApproved": 0
+    },
+    "overflow": "PASS_ON_1440_390_360"
+  },
+  "releaseGate": {
+    "sourceBrowserE2E": "PASS",
+    "sourceLedgerInternalConsistency": "PASS",
+    "sourceLayoutIndependentRecheck": "HOLD",
+    "scoringApproval": "HOLD_0_OF_3400",
+    "legacyAutoScoringIsolation": "HOLD_LEGACY_RC35_OLD_GRADING_BEHAVIOR_REMAINS",
+    "currentDeploymentValidation": "HOLD_NOT_DEPLOYED_AT_TESTED_SHA",
+    "newPreview": "NOT_DEPLOYED",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED"
+  },
+  "interpretation": "Technical browser PASS does not prove official answer approval. Existing RC35 quiz auto-scores staged legacy candidate answers; guard remains HOLD. This file is a summary of actual executed sandbox tests; complete raw ~9.8KB report retained in ephemeral sandbox only."
+}

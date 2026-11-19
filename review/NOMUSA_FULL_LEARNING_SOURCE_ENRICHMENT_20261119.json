@@ -1,0 +1,120 @@
+{
+  "schema": "NOMUSA_FULL_LEARNING_SOURCE_ENRICHMENT/1",
+  "reviewDateKST": "2026-11-19",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "baselinePreviewCommit": "e44afcc5384469965c2b4ad2b3ff30f8db484a17",
+  "testedContentCommit": "afe8e68f4fab4fcf5ac3b385942ba353cff26ff9",
+  "scope": "Continue full 1st stage 3070 ID / 2nd stage 328 ID study tools without promotion to scoring-approved content",
+  "first": {
+    "totalUniqueIDs": 3070,
+    "originalReview103": {
+      "questionStemsLoaded": 103,
+      "fiveChoicesLoaded": 103,
+      "educationalExplanationDraftsLoaded": 103,
+      "perOptionRationaleDraftsFiveChoices": 52,
+      "approvedAnswerKeyRelease": 0,
+      "expertIndependentSecondProofreadStatus": "HOLD"
+    },
+    "stillSourceHold686": {
+      "total": 686,
+      "officialQNetBookletLevelLinked": 495,
+      "thirdParty2013Only": 150,
+      "notVerifiedOfficialABooklet": 41,
+      "provisionalIndividualImageCropsExistingAndDisplayed": 67,
+      "cropBoundaryIndependentlyVerified": false,
+      "originalQuestionTextAndFiveOptionsIndependentlyTranscribed": 0,
+      "newAnswerKeysApproved": 0
+    },
+    "features": [
+      "One-question study flow",
+      "Original QNet source document links",
+      "Provisional crop image preview",
+      "Unscored personal answer selection 1-5 even without structured five choices",
+      "Local source-check study note",
+      "Never reveal unverified answer key as official grade",
+      "Expandable draft explanations flagged as not officially approved"
+    ]
+  },
+  "second": {
+    "totalLedgerIDs": 328,
+    "previouslySourceTextLinked": 316,
+    "new2018QNetExtractedNormalizedOriginalTexts": 2,
+    "new2018And2021SummarizedQuestionOutlines": 10,
+    "remainingNoSourceTextInStudyWorkspace": 0,
+    "outlinesNotExactExamTranscription": 10,
+    "historicalLawCitationOrAcademicExpertApproval": "HOLD",
+    "features": [
+      "Per-ID original/summary labeling",
+      "Source document and official QNet posting links",
+      "Separate private writing autosave",
+      "A4 browser print/PDF",
+      "Explicit opt-in for including personal writing",
+      "Original existing notes and ID keys unchanged"
+    ]
+  },
+  "browser": {
+    "engine": "Playwright 1.65.1 Chromium headless, local static server, Vercel isolated sandbox",
+    "viewportChecks": [
+      {
+        "width": 1440,
+        "overflowPixels": 0,
+        "errors": 0,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "overflowPixels": 0,
+        "errors": 0,
+        "pass": true
+      },
+      {
+        "width": 360,
+        "overflowPixels": 0,
+        "errors": 0,
+        "pass": true
+      }
+    ],
+    "functionalAssertions": [
+      "3070/328 loaded",
+      "103 full stems and options",
+      "686 source provenance buckets reconcile 495+150+41",
+      "67 provisional crops referenced and 2020 sample image loaded",
+      "Unverified manual answer choice 1-5 saved but never auto graded",
+      "2013 mirror source warned not official",
+      "2010 missing original warned; answer reveal disabled",
+      "2018 original vs summary and 2021 summary correctly labeled",
+      "2021 historical law revision date warned",
+      "Personal writing restored after reload",
+      "A4 valid PDF generated",
+      "Original storage keys not modified",
+      "All 103 explanation drafts loaded and 52 detailed option notes; expanding notes does not enable unverified answer key"
+    ],
+    "examplePDFBytes": 124580,
+    "draftExplanationPreviewTest": {
+      "viewportPx": 390,
+      "pass": true,
+      "all103Available": 103,
+      "fiveChoiceNotesAvailable": 52,
+      "unverifiedKeyRevealStillBlocked": true
+    }
+  },
+  "approvalHolds": [
+    "686 lack independent full official original transcriptions",
+    "103 require independent legal/math/source verification",
+    "2018 and 2021 ten outlines are summaries rather than full official original texts",
+    "Independent answer-model and expert legal/academic signoff not granted",
+    "Protected Vercel Preview authenticated browser E2E remains HOLD"
+  ],
+  "preservation": {
+    "newServer": false,
+    "newDatabase": false,
+    "aiAutoScoring": false,
+    "mainModified": false,
+    "productionModified": false,
+    "rc27rc35Modified": false,
+    "preExistingStudyStorageKeysModified": false,
+    "existingPreviewDeploymentsRemainImmutable": true
+  },
+  "recommendation": "Next substantive blocker: verified per-item original full text+five options for 686, independent answer cell and selected option rationale approval, then remaining official-source 2nd essay full transcriptions and complete contents."
+}

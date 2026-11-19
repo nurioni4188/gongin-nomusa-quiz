@@ -1,0 +1,872 @@
+{
+  "schema": "NOMUSA_FIRST_V43_21_MANAGEMENT_MISSING_FIVE_OPTION_EXPLANATIONS/1",
+  "date": "2026-11-18",
+  "questionCount": 21,
+  "optionExplanations": 105,
+  "sourceFile": "review/NOMUSA_FIRST_V43_21_SOURCE_READ_ANSWER_DRAFTS_20261118.json",
+  "rows": [
+    {
+      "id": "legacy1-2020-A-management-102",
+      "officialAnswer": 4,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "우회전략(turnaround strategy)",
+          "explanationDraft": "우회전략은 부진사업의 회생이지 공동출자가 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "집중전략(concentration strategy)",
+          "explanationDraft": "집중전략은 사업·시장 집중이며 컨소시엄과 다르다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "프랜차이징(franchising)",
+          "explanationDraft": "프랜차이징은 상표·노하우 사용 가맹계약이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "컨소시엄(consortium)",
+          "explanationDraft": "컨소시엄은 여러 기업의 특정 사업 공동출자다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "포획전략(captive strategy)",
+          "explanationDraft": "포획전략은 특정 상대와의 자원의존 관계 대응이다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-102.jpg",
+      "sourceCropSHA256": "3a466769fe7710f40243aefe11c967691b6b592d634df124cd209671dbe5a379",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-103",
+      "officialAnswer": 1,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "구성원들 간 갈등해결 용이",
+          "explanationDraft": "이중 지휘·책임 중복으로 갈등 해결이 어렵다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "환경 불확실성에 신속한 대응",
+          "explanationDraft": "기능·제품 전문성을 모아 불확실성에 대응한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "인적자원의 유연한 활용",
+          "explanationDraft": "기능별 인력을 제품·프로젝트 간 유연하게 공유한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "제품 다양성 확보",
+          "explanationDraft": "서로 다른 제품군을 전문부서가 지원할 수 있다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "구성원들의 역량향상 기회 제공",
+          "explanationDraft": "복수 기능·사업부와 협업하며 역량을 발전시킨다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-103.jpg",
+      "sourceCropSHA256": "f37752a9747dfec1d0da4d1e516ed02907df1fbefd6ecdad564db7175ee7768b",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-105",
+      "officialAnswer": 1,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "권한위임적 리더십",
+          "explanationDraft": "권한위임형은 전통적인 House의 네 유형에 포함되지 않는다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "지시적 리더십",
+          "explanationDraft": "지시적 유형은 역할·성과기준·절차를 명확히 알려준다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "지원적 리더십",
+          "explanationDraft": "지원적 유형은 구성원의 필요·복지를 배려한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "성취지향적 리더십",
+          "explanationDraft": "성취지향적 유형은 도전적 목표를 강조한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "참가적 리더십",
+          "explanationDraft": "참여적 유형은 부하의 의견을 의사결정에 반영한다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-105.jpg",
+      "sourceCropSHA256": "1f2d0d0ae15bd5810530f8fbd93dbba188b7db8522db04da0fbd2fcaeb2e7638",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-108",
+      "officialAnswer": 3,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "전략(strategy)",
+          "explanationDraft": "전략은 조직의 목표달성 방향이나 중심 통합축은 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "관리기술(skill)",
+          "explanationDraft": "기술·역량은 7S 구성요소이나 중심 통합축은 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "공유가치(shared value)",
+          "explanationDraft": "공유가치는 7S 모형 중앙에서 다른 요소를 묶는다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "관리시스템(system)",
+          "explanationDraft": "관리시스템은 절차·운영방식이며 중심축은 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "구성원(staff)",
+          "explanationDraft": "구성원은 인력 요소이며 공유가치와 구별된다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-108.jpg",
+      "sourceCropSHA256": "faf790a34c8c45c6e524dfcc0bc7c6c0b31263cccf5c7326a0c59873f284d7b5",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-111",
+      "officialAnswer": 1,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "단수가격",
+          "explanationDraft": "9,990원은 1만원 바로 아래 끝자리를 활용한 단수가격이다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "명성가격",
+          "explanationDraft": "명성가격은 높은 가격을 품질 신호로 활용한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "층화가격",
+          "explanationDraft": "층화가격은 가격수준을 계층별로 나누는 방식이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "촉진가격",
+          "explanationDraft": "촉진가격은 판촉 목적의 일시적 가격조정이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "관습가격",
+          "explanationDraft": "관습가격은 오랫동안 형성된 관행적인 가격이다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-111.jpg",
+      "sourceCropSHA256": "7de9341a40b956a7a01781960c0133ff6a030fb69150af07118ebad7a41e645f",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-114",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "인적자원관리",
+          "explanationDraft": "인적자원관리는 가치사슬의 지원활동이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "서비스",
+          "explanationDraft": "판매 후 서비스는 포터의 본원적 활동이다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "기술개발",
+          "explanationDraft": "기술개발은 가치사슬의 지원활동이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "기획·재무",
+          "explanationDraft": "기획·재무는 기업 인프라 지원활동에 속한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "법률자문",
+          "explanationDraft": "법률자문도 기업 인프라·지원 기능이다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-114.jpg",
+      "sourceCropSHA256": "c12576d188fea686a384bed65b2c7054c8003ab1a610816b5be5ad127ffbb862",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-116",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "파레토도",
+          "explanationDraft": "파레토도는 불량 항목별 빈도를 순위화한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "관리도",
+          "explanationDraft": "관리도는 공정관리한계로 이상원인을 탐지한다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "산포도",
+          "explanationDraft": "산포도는 두 변수 간 관련성을 나타낸다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "특성요인도",
+          "explanationDraft": "특성요인도는 문제의 잠재 원인을 분류한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "히스토그램",
+          "explanationDraft": "히스토그램은 공정 측정값의 분포를 제시한다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-116.jpg",
+      "sourceCropSHA256": "672225a1ec5e2a7f85d4f9549e5313757bdc4af9fcae68e3316727169710c244",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-119",
+      "officialAnswer": 4,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "순현가법",
+          "explanationDraft": "순현가법은 주어진 할인율에서 NPV를 계산한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "수익성지수법",
+          "explanationDraft": "수익성지수는 현재가치 유입/초기투자의 비율이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "회수기간법",
+          "explanationDraft": "회수기간법은 투자회수에 걸리는 시간을 본다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "내부수익률법",
+          "explanationDraft": "내부수익률법은 NPV를 0으로 만드는 할인율을 구한다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "평균회계이익률법",
+          "explanationDraft": "평균회계이익률은 회계이익에 기초한 비율이다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-119.jpg",
+      "sourceCropSHA256": "78a5a998374cf5e9928d30375852063b79ac4d9f0365edff63e709fbc9499820",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-management-120",
+      "officialAnswer": 4,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "50%",
+          "explanationDraft": "유동비율은 50%가 아니라 15/10×100=150%다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "70%",
+          "explanationDraft": "유동자산 15억과 유동부채 10억에서 70%는 나오지 않는다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "100%",
+          "explanationDraft": "두 금액이 동일하지 않으므로 100%가 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "150%",
+          "explanationDraft": "유동자산=40−25=15억, 유동비율=15/10=150%다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "200%",
+          "explanationDraft": "유동자산 20억이어야 200%이므로 틀리다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2020-A-management-120.jpg",
+      "sourceCropSHA256": "dd443cf185467840c5802646b5b34e87d0456fa4da2ec864fe915ef115e14aae",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-106",
+      "officialAnswer": 5,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "분업",
+          "explanationDraft": "분업은 전통적 직무설계의 기본 원리다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "과학적 관리",
+          "explanationDraft": "과학적 관리는 표준작업과 효율성을 강조한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "전문화",
+          "explanationDraft": "전문화는 특정 작업의 반복 수행을 추구한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "표준화",
+          "explanationDraft": "표준화는 작업방법을 통일하는 전통적 접근이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "직무순환",
+          "explanationDraft": "직무순환은 여러 과업 경험을 제공하는 현대적 확대기법이다.",
+          "correctOption": true
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-106.jpg",
+      "sourceCropSHA256": "791753a16a7c753f286f17a4b25da690270c4ce2a54c0072ce1b64e4465befbb",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-107",
+      "officialAnswer": 3,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "후광효과",
+          "explanationDraft": "후광효과는 한 인상이 다른 평정영역에 전이된다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "상동적 태도",
+          "explanationDraft": "상동적 태도는 집단 고정관념을 개인에게 적용한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "관대화 경향",
+          "explanationDraft": "관대화는 전체 평정점수가 높아지는 분배 오류다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "대비오류",
+          "explanationDraft": "대비오류는 다른 평가대상과의 비교 영향이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "확증편향",
+          "explanationDraft": "확증편향은 기존 믿음을 뒷받침하는 정보만 수용한다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-107.jpg",
+      "sourceCropSHA256": "223e2ba01d8f7e61d69f75ce5af336a6f44d61a79b7389972a3b2b684ec1036e",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-108",
+      "officialAnswer": 5,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "team learning",
+          "explanationDraft": "팀학습은 팀 단위 학습 전반을 포괄하는 넓은 개념이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "organizational learning",
+          "explanationDraft": "조직학습은 조직 전체의 지식 축적 과정이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "problem based learning",
+          "explanationDraft": "문제기반학습은 주어진 문제를 통해 배우는 기법이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "blended learning",
+          "explanationDraft": "혼합학습은 온라인·대면 등을 결합하는 전달방식이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "action learning",
+          "explanationDraft": "액션러닝은 현업 문제에 팀이 직접 개입하고 성찰한다.",
+          "correctOption": true
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-108.jpg",
+      "sourceCropSHA256": "a5b9ddf040389f646185c1a0cf2469cc8e87f0e96746a39fd0d79114af73f867",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-111",
+      "officialAnswer": 1,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "성장욕구 강도(growth need strength)",
+          "explanationDraft": "성장욕구 강도는 핵심직무차원의 효과를 조절하는 개인특성이다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "과업정체성(task identity)",
+          "explanationDraft": "과업정체성은 완결된 일을 수행하는 정도다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "과업중요성(task significance)",
+          "explanationDraft": "과업중요성은 업무가 타인에게 미치는 영향이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "자율성(autonomy)",
+          "explanationDraft": "자율성은 업무계획·수행방법을 선택하는 재량이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "피드백(feedback)",
+          "explanationDraft": "피드백은 자신의 업무 성과정보를 직접 얻는 정도다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-111.jpg",
+      "sourceCropSHA256": "b9300985e4b2a36af90bcec5b75b993dc8acbf3028aa5b8c90f6c229d6e70613",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-112",
+      "officialAnswer": 1,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "브레인스토밍(brainstorming)",
+          "explanationDraft": "브레인스토밍은 즉각적인 비판 없이 다수 아이디어를 낸다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "명목집단법(nominal group technique)",
+          "explanationDraft": "명목집단법은 독립 발상 후 순서대로 의견을 수집한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "델파이법(delphi technique)",
+          "explanationDraft": "델파이법은 익명 전문가에게 반복적으로 의견을 묻는다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "지명반론자법(devil's advocacy)",
+          "explanationDraft": "지명반론자법은 반대 의견을 의도적으로 제시한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "프리모텀법(premortem)",
+          "explanationDraft": "프리모텀은 계획이 이미 실패한 것으로 가정하고 원인을 찾는다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-112.jpg",
+      "sourceCropSHA256": "ff7e31743c3239b1a02cebe035d9d68855d43a873c3f14af3a5a3c0fbd671d63",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-113",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "소비자가 필요하다고 느낄 때 수시로 구매하는 경향을 보인다.",
+          "explanationDraft": "수시·반복 구매는 편의품의 구매행동에 가깝다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "소비자는 가격, 품질, 스타일 등 다양한 정보를 수집하여 신중하게 비교하는 경향을 보인다.",
+          "explanationDraft": "가격·품질·스타일을 비교하여 구매하는 것은 선매품이다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "소비자는 잘 알지 못하거나 알고 있어도 능동적으로 구매하려 하지 않는다.",
+          "explanationDraft": "구매의욕이 낮은 상품은 비탐색품의 특성이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "일상생활에서 빈번히 구매하는 저관여 제품들이 많다.",
+          "explanationDraft": "빈번한 저관여 구매는 편의품의 특성이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "독특한 특징을 지니거나 브랜드 차별성을 지니는 제품들이 많다.",
+          "explanationDraft": "독특한 브랜드만 선호하는 품목은 전문품에 가깝다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-113.jpg",
+      "sourceCropSHA256": "64c999543eaf3f2f3b60ab04608922c379802d04d7b704cda2d768b250b81f08",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-118",
+      "officialAnswer": 3,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "10%",
+          "explanationDraft": "할인율은 배당수익률에 성장률을 더하므로 10%가 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "15%",
+          "explanationDraft": "주어진 D1/P0=10%, g=10%의 합은 15%가 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "20%",
+          "explanationDraft": "r=1000/10000+0.10=0.20, 즉 20%다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "25%",
+          "explanationDraft": "25%는 공식 수치에 부합하지 않는다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "30%",
+          "explanationDraft": "30%는 배당수익률과 성장률의 합이 아니다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-118.jpg",
+      "sourceCropSHA256": "274fb30de23f8706b16107ebfa7061e0dca4a0d27f3545ab60b7d18569bbee61",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-119",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "15%",
+          "explanationDraft": "0.4×10%+0.6×20%=16%이므로 15%는 오산이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "16%",
+          "explanationDraft": "포트폴리오 기대수익률은 가중평균 16%다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "17%",
+          "explanationDraft": "17%는 실제 투자비중의 가중합과 다르다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "18%",
+          "explanationDraft": "18%는 투자비중 40%·60%의 결과가 아니다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "19%",
+          "explanationDraft": "19%는 실제 가중평균 수익률이 아니다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-119.jpg",
+      "sourceCropSHA256": "0174670246da3ee70595610547c88995ad26aa951872d8cce1731706a8077484",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-121",
+      "officialAnswer": 4,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "EOQ",
+          "explanationDraft": "EOQ는 최적 주문량을 결정하는 재고모형이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "MRP",
+          "explanationDraft": "MRP는 완제품 계획에서 자재소요량을 계산한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "TQM",
+          "explanationDraft": "TQM은 전사적 품질관리와 개선활동을 뜻한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "SCM",
+          "explanationDraft": "SCM은 공급자부터 고객까지 흐름을 통합관리한다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "FMS",
+          "explanationDraft": "FMS는 유연한 자동화 생산시스템을 뜻한다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-121.jpg",
+      "sourceCropSHA256": "3551bb0bbdd290712d2b8dc1bd3281b0a7222a7ff9df59eb959b42b3a4b94caa",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-122",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "자본의 감소, 자산의 감소",
+          "explanationDraft": "자본이 감소한 것이 아니라 현금이 토지로 바뀌었다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "자산의 증가, 자산의 감소",
+          "explanationDraft": "토지 자산 증가와 현금 자산 감소가 동시에 일어났다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "자산의 증가, 자본의 증가",
+          "explanationDraft": "주주의 출자·이익 발생이 없어 자본은 증가하지 않았다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "자산의 증가, 부채의 증가",
+          "explanationDraft": "현금 취득이므로 대출 등 새로운 부채가 발생하지 않았다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "비용의 증가, 자산의 감소",
+          "explanationDraft": "토지 취득은 비용이 아니라 유형자산 증가다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-122.jpg",
+      "sourceCropSHA256": "83614f7e51e272f522f22b97a0ca3741369cfaba699ef117d0c9c87cde3dc3e6",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-124",
+      "officialAnswer": 2,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "매입채무",
+          "explanationDraft": "매입채무는 재화 매입대금 등의 지급의무다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "선급비용",
+          "explanationDraft": "선급비용은 선지급하고 미래 효익을 얻는 자산이다.",
+          "correctOption": true
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "선수금",
+          "explanationDraft": "선수금은 향후 재화·서비스를 제공할 의무다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "사채",
+          "explanationDraft": "사채는 원리금을 갚아야 하는 채무다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "예수금",
+          "explanationDraft": "예수금은 제3자에게 이체·지급할 금액이다.",
+          "correctOption": false
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-124.jpg",
+      "sourceCropSHA256": "447e9359b952036e0bb21228e9afb7bbc3a6e6a313dfd5d371c933734c63e38d",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-125",
+      "officialAnswer": 5,
+      "fiveOptions": [
+        {
+          "optionNumber": 1,
+          "optionText": "EIS",
+          "explanationDraft": "EIS는 최고경영자용 요약정보 시스템이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 2,
+          "optionText": "DSS",
+          "explanationDraft": "DSS는 분석 기반 의사결정을 지원한다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 3,
+          "optionText": "ES",
+          "explanationDraft": "ES는 지식 기반 전문가시스템이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 4,
+          "optionText": "SIS",
+          "explanationDraft": "SIS는 경쟁우위 확보를 위한 전략정보시스템이다.",
+          "correctOption": false
+        },
+        {
+          "optionNumber": 5,
+          "optionText": "TPS",
+          "explanationDraft": "TPS는 급여·주문·재고 같은 반복거래를 처리한다.",
+          "correctOption": true
+        }
+      ],
+      "sourceOriginal": "review/first-v41-native-crops/legacy1-2021-A-management-125.jpg",
+      "sourceCropSHA256": "6096af797c1c9450cafb54c9eaf7f6d328b78b1f64d894beb0aa1892a179aeb4",
+      "reviewStatus": "FIVE_OPTION_EXPLANATION_FIRST_PASS_NOT_FINAL",
+      "secondReviewerApproved": false,
+      "scoringApproved": false
+    }
+  ],
+  "independentSecondReviewComplete": 0,
+  "newScoringApproved": 0
+}

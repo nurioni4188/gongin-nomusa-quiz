@@ -1,0 +1,66 @@
+name: NOMUSA FIRST V42 four corrected QNet raster questions source images
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - 'scripts/nomusa-first-v42-repair-four-crops.py'
+      - '.github/workflows/nomusa-first-v42-repair-four-crops.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v42-repair-four-crops-only
+  cancel-in-progress: true
+jobs:
+  correct-only-original-images:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check pymupdf==1.26.7
+      - uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+      - name: Verify 4 source and answer PDF SHA, crop four corrected source images with known pixel hashes
+        run: python scripts/nomusa-first-v42-repair-four-crops.py
+      - name: No application, bank, scoring or existing image mutation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          changed = subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()
+          assert all(line[3:] == 'review/NOMUSA_FIRST_V42_FOUR_MANUAL_CROP_REPAIRS_20261118.json'
+                 or line[3:].startswith('review/first-v42-four-corrected-crops/')
+                 for line in changed),changed
+          assert len(list(Path('review/first-v42-four-corrected-crops/').glob('*.jpg')))==4
+          print('PASS_FOUR_IMAGES_SOURCE_PLUS_ANSWER_PDF_SHA_0_QDATA')
+          PY
+          git add review/first-v42-four-corrected-crops review/NOMUSA_FIRST_V42_FOUR_MANUAL_CROP_REPAIRS_20261118.json
+          git diff --cached --check
+      - name: Preserve only verified corrected images in review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'review(first-v42): four full five-option QNet crops, source SHA pinned, scoring HOLD'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nomusa-first-v42-four-corrected-crops-sha-evidence
+          path: review/NOMUSA_FIRST_V42_FOUR_MANUAL_CROP_REPAIRS_20261118.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,377 @@
+{
+ "schema": "NOMUSA_V23_MANUAL_REVIEW/1",
+ "reviewer": "Claude (AI pre-check, not an independent expert)",
+ "reviewDate": "2026-11-17",
+ "sourceReview": {
+  "2015_p3_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "본국인·현지인 활용 장단점 + HRM 기능(확보·개발·평가·보상·유지) 관점 활용과정 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2015_p3_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "우리나라 종업원지주제 전개과정·문제점·신우리사주제도 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2015_p3_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "산업재해 원인(인적·환경적·관리적) + 요인별 예방대책 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2015_p5_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "조직군생태학·전략적 선택·제도화이론 개념, 차이점(임의론 대 결정론, 분석수준) (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2015_p5_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "아담스 공정성이론 내용·공정성 3유형·불공정성 해소방안·시사점 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2015_p5_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "기능별 조직 공식 조직도상 커뮤니케이션 방향별 유형·사용상황 예시·문제점 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p3_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "변화된 기업환경·고성과팀, 기능별(확보·개발·보상·유지) 동기부여 방안 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p3_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "모집활동 효과성 평가, 현실적 직무소개(RJP) 내용·효과·한계 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p3_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "노사관계의 양면성과 경영참가 제도의 유형 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p5_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "환경 불확실성(복잡성·동태성) 분석, 상황별 산업 예·조직설계 방안 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p5_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "학습의 중요성·학습과정·주요 원리로서의 강화 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2016_p5_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "집단응집성 의미, 응집성-성과 관계(집단목표·조직목표 일치 여부) (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p3_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "임금수준 결정기준과 전략별 특성 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p3_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "직무설계 기법 5가지와 장단점 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p3_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "노동쟁의 개념, 노동조합 측 쟁의행위 유형 5가지 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p5_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "Hofstede 국가문화 한·미 비교(남녀역할·장단기지향 제외) + House 경로-목표 리더행동 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p5_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "계층적·분권적 통제, IT 영향에 따른 행동통제·결과통제 변화 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2017_p5_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "공식화·전문화·집권화 개념, 지문상 A·B 조직 비교 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p3_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "과학적관리론의 기여(직무설계·선발·훈련·보상·일선감독), 인간관계론·호손연구 비교 (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p3_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "노사공동결정제도 의의·기본사상·구조·기능 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p3_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "HRIS·AI 채용시스템 사례: 선발평가도구 장점(타당성·신뢰성·수용성·실용성), 조직문화 강도·조직 창의성 영향 (25점) — '(25점)' OCR 확인",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p5_q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "Scott 4가지 조직이론 유형(물음1 20점 — OCR '90점'은 인식오류), 가정·강약점·공헌·대표이론(물음2 30점) (50점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p5_q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "집단의사결정 의미, 명목집단법·브레인스토밍·델파이 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2018_p5_q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "4가지 강화유형 예시 + 조직관리 시사점 (25점)",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-경영조직론-q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "Ouchi 관료·시장·문화 통제 + 공공기관 재택근무 사례 (50점) — 2일차(일) PDF",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-경영조직론-q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "쓰레기통 모형 정의(6)·발생상황 3(6)·구성요소 4(7)·물음4 (25점) — 2일차 PDF. 공식 지문은 '1971년 올슨(J. Olsen) 등'으로 표기",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-경영조직론-q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "Kelley 내부·외부 귀인 정의와 예(10)·귀인결정 요소 3가지(15) (25점) — 2일차 PDF",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-인사노무관리론-q1": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "역량중심 vs 직무중심 HRM 비교, 평가센터 의의·기법 4가지 (50점) — 1일차(토) PDF",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-인사노무관리론-q2": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "자원기반관점 개념·핵심요소 4가지, Ulrich 관점 HR부서 역할 4가지 (25점) — 1일차 PDF",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  },
+  "2021-인사노무관리론-q3": {
+   "verdict": "MANUAL_TOPIC_POINTS_MATCH",
+   "pointsConfirmed": true,
+   "officialQuestionAsRead": "근로기준법상 직장 내 괴롭힘 개념, 조치방안 3가지 (25점) — 1일차 PDF",
+   "method": "Official Q-Net PDF is image-only; Tesseract(kor) OCR text read by Claude and compared manually 2026-11-17.",
+   "correction": "Stored question is an auto summary; replace sourceText with the official verbatim question (do not change question ID or storage key)."
+  }
+ },
+ "econRecalc": {
+  "2022-econ-1": {
+   "result": "MATCH",
+   "method": "Independent recomputation by Claude 2026-11-17",
+   "checks": [
+    "C=WE=E (0≤E≤15), endpoints (0,0)-(15,15)",
+    "E≤12 cap: feasible set subset → utility cannot rise",
+    "kinked line C=E (E≤8), C=8+1.5(E−8)=1.5E−4 (E>8): C(8)=8, C(12)=14, C(15)=18.5"
+   ]
+  },
+  "2022-econ-2": {
+   "result": "MATCH",
+   "method": "Independent recomputation by Claude 2026-11-17",
+   "checks": [
+    "Lorenz (0,0)-(0.5,0.2)-(1,1); B=0.05+0.30=0.35; G=1−2B=0.30",
+    "Mean-difference: Σ|yi−yj|/(2n²μ)=120/(2·4·50)=0.30; n/(n−1) finite-sample=0.60",
+    "Transfer 10 → (30,70): midpoint 0.3, G=0.20"
+   ]
+  },
+  "2022-econ-3": {
+   "result": "NOT_APPLICABLE_NO_NUMERIC",
+   "method": "Conceptual question (union wage effects); no numeric claims to recompute"
+  }
+ },
+ "academicPrecheck": {
+  "A Behavioral Theory of Labor Negotiations|1965": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "A Theory of Cognitive Dissonance|1957": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Adams|1965": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Administrative Behavior|1947": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Amabile|1988": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Arthur|1994": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "B. M.|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Staw, B. M. (1976) Knee-Deep in the Big Muddy)",
+  "Barney|1991": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Bass|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Becker|1964": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Boyatzis|1982": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Breaugh|2013": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Burns|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Burns & Stalker|1961": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "C.|1967": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Perrow, C. (1967) — parser split)",
+  "Cameron|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Quinn & Cameron (1983) Management Science life-cycle)",
+  "Career Dynamics|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Child|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Comparative Analysis of Organizations|1967": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Competitive Strategy|1980": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "D.|1974": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Tversky & Kahneman (1974) — parser split)",
+  "Deci & Ryan|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Designing Effective Organizations|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "DiMaggio & Powell|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Doeringer & Piore|1971": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Doeringer-Piore|1971": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Duncan|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "EPG|1969": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "EPRG|1979": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Economy and Society|1922": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Edmondson|1999": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Emerson|1962": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Feldman|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Fischhoff|1975": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Freeman|1977": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Gaertner|2000": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Gersick|1988": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Getting to Yes|1981": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Goldstein|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Goldstein, I. L. (1978) The pursuit of validity in the evaluation of training programs, Human Factors)",
+  "Greenleaf|1970": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Greiner|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Hackman|1987": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Hackman & Oldham|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Hannan & Freeman|1977": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Harrington Ingham|1955": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Heuristics and Biases|1974": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Hochschild|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Hofstede|1980": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "House|1971": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Human Capital|1964": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "I. L.|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (parser split of Goldstein, I. L. (1978))",
+  "Janis|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Job Market Signaling|1973": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Job and Work Analysis|2007": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Jonsson|1989": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Weitzel & Jonsson (1989) ASQ organizational decline)",
+  "Katz|1955": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Kelman|1958": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Knee-Deep in the Big Muddy|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Kolb|1984": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Kram|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Lawrence & Lorsch|1967": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Lengel|1986": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Leventhal|1980": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Lorsch|1967": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "M. A.|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Rahim, M. A. (1983) AMJ conflict styles measure)",
+  "March|1991": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "McClelland|1973": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Mentoring at Work|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Meyer & Rowan|1977": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Michael Spence|1973": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Mitchell|1994": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Moag|1986": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Mobley|1977": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Mueller|1981": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Murnighan|1998": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Lau & Murnighan (1998) AMR faultlines)",
+  "Nickerson|1998": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Oldham|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Olsen|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Organ|1988": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Organizational Knowledge Creation|1994": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Osborn|1953": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Perlmutter|1969": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Perlmutter|1979": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Perrow|1967": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Pfeffer|1981": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Pfeffer & Salancik|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Phillips|1997": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Powell|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Power in Organizations|1981": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Power-Dependence Relations|1962": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Process|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Miles & Snow (1978) Organizational Strategy, Structure, and Process)",
+  "Raven|1959": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Reason|1990": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Relationship-based approach to leadership|1995": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Revolution as Organizations Grow|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Robert Merton|1940": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Rowan|1977": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Ryan|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Salancik|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Senge|1990": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Simon|1958": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Smith|1993": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION (Katzenbach & Smith (1993) The Wisdom of Teams)",
+  "Snyderman|1959": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Spence|1973": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Spencer|1993": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Spencer & Spencer|1993": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Spreitzer|1995": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Stalker|1961": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Staw|1976": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Strategy and Structure|1962": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Studies in Role Conflict and Ambiguity|1964": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Taylor|1911": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The External Control of Organizations|1978": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The Fifth Discipline|1990": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The Knowledge-Creating Company|1995": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The Managed Heart|1983": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The Servant as Leader|1970": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "The Structuring of Organizations|1979": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Toward an Understanding of Inequity|1963": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Triple Bottom Line|1997": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Tuckman|1965": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Tversky & Kahneman|1974": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Ulrich|1997": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Van Maanen & Schein|1979": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Victims of Groupthink|1972": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Vroom|1964": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Walton|1985": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Walton & McKersie|1965": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Walton-McKersie|1965": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Wanous|1973": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Weaver|1949": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Work Redesign|1980": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION",
+  "Work and Motivation|1964": "AI_PRECHECK_CONSISTENT_WITH_STANDARD_CITATION"
+ },
+ "academicNote": "AI pre-check from model knowledge only; original books/articles not retrieved (KCI/publisher). Status stays ACADEMIC_OR_CASE_HOLD until an expert confirms from originals."
+}

@@ -1,0 +1,240 @@
+{
+  "version": "V11.24",
+  "date": "2026-11-16",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "created": [
+    {
+      "id": "2022-org-2",
+      "points": 25,
+      "parts": [
+        25
+      ],
+      "chars": 2111,
+      "path": "second/deep-essay-2022-org-2-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2022-org-3",
+      "points": 25,
+      "parts": [
+        10,
+        15
+      ],
+      "chars": 2185,
+      "path": "second/deep-essay-2022-org-3-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2022-hr-2",
+      "points": 25,
+      "parts": [
+        25
+      ],
+      "chars": 2090,
+      "path": "second/deep-essay-2022-hr-2-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2022-hr-3",
+      "points": 25,
+      "parts": [
+        25
+      ],
+      "chars": 2243,
+      "path": "second/deep-essay-2022-hr-3-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2023-org-2",
+      "points": 25,
+      "parts": [
+        10,
+        15
+      ],
+      "chars": 2466,
+      "path": "second/deep-essay-2023-org-2-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2023-org-3",
+      "points": 25,
+      "parts": [
+        10,
+        15
+      ],
+      "chars": 2480,
+      "path": "second/deep-essay-2023-org-3-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2023-hr-2",
+      "points": 25,
+      "parts": [
+        25
+      ],
+      "chars": 2189,
+      "path": "second/deep-essay-2023-hr-2-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2023-hr-3",
+      "points": 25,
+      "parts": [
+        25
+      ],
+      "chars": 2649,
+      "path": "second/deep-essay-2023-hr-3-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2025-org-1",
+      "points": 50,
+      "parts": [
+        20,
+        15,
+        15
+      ],
+      "chars": 4428,
+      "path": "second/deep-essay-2025-org-1-v1124.js",
+      "contentApproval": "HOLD"
+    },
+    {
+      "id": "2025-hr-1",
+      "points": 50,
+      "parts": [
+        35,
+        15
+      ],
+      "chars": 4644,
+      "path": "second/deep-essay-2025-hr-1-v1124.js",
+      "contentApproval": "HOLD"
+    }
+  ],
+  "parents": 10,
+  "pointTotal": 300,
+  "detailChars": 27485,
+  "answerUnits": 16,
+  "compactSummaryCount": 61,
+  "compactSource": "second/v1124-ten-essay-compressed-polish.js",
+  "coverage": {
+    "deepened2022to2025": 14,
+    "previousDeepened2007to2012": 28,
+    "previousDeepened2019to2020": 4,
+    "allCumulativeDeepened": 46
+  },
+  "preserved": {
+    "v103Items": 128,
+    "unchangedV103Items": 114,
+    "legacy181": true,
+    "split38": true,
+    "hubScripts": 82,
+    "main": true,
+    "production": true,
+    "RC27": true,
+    "RC35": true
+  },
+  "staticValidation": {
+    "sourceIntegration": 267,
+    "historicalPreservation": 83,
+    "total": 350,
+    "failed": 0
+  },
+  "scanQueue": {
+    "years": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2021
+    ],
+    "paperBundles": 35,
+    "priority": [
+      {
+        "year": 2021,
+        "subject": "경영조직론",
+        "page": 5,
+        "path": "source_pdf/2021/2021_day2.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2021,
+        "subject": "인사노무관리론",
+        "page": 9,
+        "path": "source_pdf/2021/2021_day1.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2018,
+        "subject": "경영조직론",
+        "page": 17,
+        "path": "source_pdf/2018/2018_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2018,
+        "subject": "인사노무관리론",
+        "page": 9,
+        "path": "source_pdf/2018/2018_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2017,
+        "subject": "경영조직론",
+        "page": 5,
+        "path": "source_pdf/2017/2017_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2017,
+        "subject": "인사노무관리론",
+        "page": 3,
+        "path": "source_pdf/2017/2017_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2016,
+        "subject": "경영조직론",
+        "page": 5,
+        "path": "source_pdf/2016/2016_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2016,
+        "subject": "인사노무관리론",
+        "page": 3,
+        "path": "source_pdf/2016/2016_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2015,
+        "subject": "경영조직론",
+        "page": 5,
+        "path": "source_pdf/2015/2015_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      },
+      {
+        "year": 2015,
+        "subject": "인사노무관리론",
+        "page": 3,
+        "path": "source_pdf/2015/2015_second_full_original.pdf",
+        "status": "VISUAL_TRANSCRIPTION_HOLD"
+      }
+    ],
+    "visualComparisonCompleted": 0,
+    "officialListings": [
+      "https://www.q-net.or.kr/cst003.do?artlSeq=5203698&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+      "https://www.q-net.or.kr/cst003.do?artlSeq=5209035&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309"
+    ]
+  },
+  "holds": [
+    "PDF page-by-page visual review",
+    "academic original fulltext independent approval",
+    "effective-date historical law review",
+    "actual 25/50 point handwritten sheet length",
+    "browser PC/mobile save restore E2E"
+  ],
+  "deployment": "NOT_DEPLOYED",
+  "decision": "PASS_STATIC_SOURCE_DRAFTS / CONTENT_AND_VISUAL_HOLD"
+}

@@ -1,0 +1,114 @@
+name: NOMUSA FIRST V48 686 remaining A-form original-source recovery review-only
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v48-686-source-recovery-gate.yml'
+      - 'scripts/nomusa-first-v48-686-source-recovery.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v48-686-source-original-review-only
+  cancel-in-progress: true
+jobs:
+  original-686-source-evidence-gate:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    steps:
+      - name: Use existing Draft PR 3 review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SHA-verified source-cropping and read-only Chromium test tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13 playwright==1.56.0
+          python -m playwright install chromium --only-shell
+      - name: Generate exact 791 historical A-form missing IDs; exclude 103 V43 and two V42 pilots
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Fetch six previously authenticated Q-Net original/answer PDF references
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+      - name: Generate all 686 stage records; SHA-check 88 pages and 2 V42 repair JPGs; extract conditional 193 original question crops
+        run: |
+          python -m py_compile scripts/nomusa-first-v48-686-source-recovery.py
+          python scripts/nomusa-first-v48-686-source-recovery.py
+      - name: Fail closed on source or answer collisions and OCR based scoring approval
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,subprocess
+          root=Path('.')
+          full=json.loads(Path('review-artifacts/NOMUSA_FIRST_V48/NOMUSA_FIRST_V48_686_FULL_SOURCE_QUEUE.json').read_text(encoding='utf-8'))
+          short=json.loads(Path('review/NOMUSA_FIRST_V48_686_SOURCE_RECOVERY_SUMMARY_20261118.json').read_text(encoding='utf-8'))
+          rows=full['rows']; groups=full['sourceGroups']
+          assert len(rows)==686 and len({q['id'] for q in rows})==686
+          assert groups==dict(v42TwoLawCrops=2,originalPdfConnectedOther=193,noticeOnly=314,noRecordedSource=177),groups
+          assert short['targetCount']==686 and short['newScoringApprovals']==0
+          assert full['officialSixQnetPdfSHAValidated']==6 and full['native88QnetPagesJPEG_SHAValidated']==88
+          assert all(not q['readyForV44'] and not q['scoringApproved'] and not q['approvedForLearningScoring']
+                     and not q['originalStemAndFiveOptionsIndependentlyVerified'] for q in rows)
+          for q in rows:
+            p=q['originalSourceProof']
+            if not p:continue
+            img=root/p['file']
+            assert img.is_file(),q['id']
+            assert hashlib.sha256(img.read_bytes()).hexdigest()==p['sha256'],q['id']
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert not changed,('HOLD_TRACKED_SOURCE_CHANGED',changed)
+          print('PASS_V48_686_SOURCE_EVIDENCE_ONLY_193_QNET_PDF_2_LEGAL_CROPS_314_NOTICE_177_NO_SOURCE')
+          print('V48_PROVISIONAL_CROPS='+str(full['generatedProvisionalCrops']))
+          print('NO_NEW_SCORING_IMPORTS_NO_PRODUCTION_DEPLOYMENTS')
+          PY
+          node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+      - name: Preserve first and second stage browser sessions at PC1440/mobile390/mobile360
+        run: |
+          python scripts/nomusa-first-v42-two-theory-browser-e2e.py .
+          python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Commit ONLY summary and source-page candidate crop evidence on existing review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V48_686_SOURCE_RECOVERY_SUMMARY_20261118.json
+          if [ -d review/first-v48-provisional-crops ]; then
+            git add -- review/first-v48-provisional-crops/
+          fi
+          python - <<'PY'
+          import subprocess
+          changed=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert changed and all(x=='review/NOMUSA_FIRST_V48_686_SOURCE_RECOVERY_SUMMARY_20261118.json'
+                                 or x.startswith('review/first-v48-provisional-crops/') for x in changed),changed
+          print('STAGED_REVIEW_ONLY_FILES',len(changed))
+          PY
+          git diff --cached --check
+          git commit -m 'review(first-v48): archive 686 hold classifications and 2020-21 SHA-backed provisional crops'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo V48_EVIDENCE_COMMIT=$(git rev-parse HEAD)
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Export full 686-row source queue, CSV and gate evidence, including all holds
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v48-686-original-review-193-crop-candidates-0-grading
+          path: |
+            review-artifacts/NOMUSA_FIRST_V48/
+          if-no-files-found: warn
+          retention-days: 30

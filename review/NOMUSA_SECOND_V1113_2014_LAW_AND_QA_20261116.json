@@ -1,0 +1,85 @@
+{
+  "schema": "nomusa-second-v1113-historical-law-and-static-regression/1",
+  "date": "2026-11-16",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceSHA": "5d875d098f07e7fe5311ea86b852e0ae1baf8aed",
+  "reviewStatus": "PARTIAL_OFFICIAL_SOURCE_VERIFICATION / SUBSTANTIVE_APPROVAL_HOLD",
+  "substantiveFindings": [
+    {
+      "id": "2014_p4_q3",
+      "kind": "HISTORIC_LAW",
+      "finding": "행정심판법 [시행 2014-05-28, 법률 제12718호] 제50조 제1항은 제49조 제2항을 인용. 개정 후 제49조 제3항을 인용하는 현행 문언과 혼동 금지",
+      "officialSource": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=154302",
+      "action": "2014 학습초안 학술·법령 참고표기의 구체적 조항번호 보정",
+      "lawVersionChecked": "TEXT_CONFIRMED_2014",
+      "finalCaseApplication": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2014_p2_q1",
+      "kind": "CASE_OUTLINE",
+      "case": "대법원 2012.6.28. 선고 2010다38007",
+      "finding": "단체협약 사전 '합의'와 '협의'는 원칙적으로 서로 다른 의미; 합의권 남용 또는 포기 예외 존재",
+      "officialSource": "https://www.law.go.kr/precStmdInfoP.do?precSeq=164351",
+      "officialCourtSource": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&seqnum=3795",
+      "caseOutline": "MATCHED",
+      "finalApplication": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2014_p2_q1",
+      "kind": "CASE_OUTLINE",
+      "case": "대법원 2014.3.27. 선고 2011두20406",
+      "finding": "당사자가 체결한 고용안정협약의 효력 및 그에 반한 정리해고의 원칙적 문제 확인. 예외적 사정변경·사안 포섭은 독립 검토 필요",
+      "officialCourtSource": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&seqnum=4467",
+      "caseOutline": "MATCHED",
+      "finalApplication": "HOLD",
+      "scoringApproved": false
+    }
+  ],
+  "sourceChanges": [
+    {
+      "path": "second/historical-2014-batch11-p4.js",
+      "change": "2014_p4_q3 direct-disposition historical section citation corrected",
+      "status": "APPLIED"
+    },
+    {
+      "path": "scripts/nomusa-2013-2014-answers-gate.mjs",
+      "change": "add 2014 §50→§49(2) historical cross-reference guard",
+      "status": "APPLIED"
+    }
+  ],
+  "staticVerification": {
+    "method": "connected GitHub source files loaded into isolated JS function environment; per-question assertions; not browser",
+    "fileCountEvaluated": 11,
+    "assertions": 405,
+    "failures": 0,
+    "catalog": 309,
+    "legacy181": 181,
+    "split": 38,
+    "authored": 38,
+    "remaining": 0,
+    "scoringApprovedCount": 0,
+    "status": "PASS_STATIC_ONLY"
+  },
+  "browserGate": {
+    "latestSourceDeployed": false,
+    "newPreviewCreated": false,
+    "newVercelSourceShaTested": false,
+    "userWorkstationRequired": false,
+    "app1440": "NOT_RUN",
+    "mobile390": "NOT_RUN",
+    "mobile360": "NOT_RUN",
+    "localStorageRefreshRecovery": "NOT_RUN",
+    "firstStageAndHubE2E": "NOT_RUN",
+    "reason": "latest review branch source is not a deployed Preview; current execution environment cannot clone private GitHub source or run remote browser against exact branch"
+  },
+  "security": {
+    "main": "NOT_TOUCHED_BY_THIS_CHANGE",
+    "production": "NOT_TOUCHED_BY_THIS_CHANGE",
+    "rc27_rc35": "NOT_TOUCHED_BY_THIS_CHANGE",
+    "existingIdsKeys": "NOT_TOUCHED_BY_THIS_CHANGE",
+    "approval": "HOLD"
+  },
+  "decision": "STATIC_PASS / PARTIAL_LAW_SOURCE_PASS / FULL_CONTENT_APPROVAL_HOLD / PC_MOBILE_BROWSER_HOLD / NO_NEW_DEPLOY"
+}

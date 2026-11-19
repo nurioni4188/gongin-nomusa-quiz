@@ -1,0 +1,136 @@
+{
+  "schema": "nomusa-second-legacy181-drafts-source-aware-v1110/2026-11-15",
+  "timestampKST": "2026-11-15",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "scope": {
+    "examStage": "2차 논술형",
+    "years": "2007-2026",
+    "catalogOriginalItems": 309,
+    "existing2022_2026AnswerDrafts": 128,
+    "olderSourceOnlyTargetCount": 181,
+    "olderIndividualQuestionDrafts": 132,
+    "olderSourceBundleNeedsQuestionSegmentation": 14,
+    "olderImageOnlyNeedsVerifiedTranscription": 35,
+    "totalRegisteredGeneratedDraftAndReviewRecords": 181,
+    "sourceIDsChanged": 0,
+    "oldScoringKeysApproved": 0
+  },
+  "result": {
+    "sourceAwareGeneration": {
+      "status": "PASS_GENERATION_NOT_CONTENT_APPROVAL",
+      "file": "second/legacy-181-answer-drafts-v1110.js",
+      "individual132AllMatchedSubjectConcepts": true,
+      "humanReviewedAnswerContents": 0,
+      "draftStatuses": {
+        "DRAFT_UNVERIFIED": 132,
+        "SOURCE_BUNDLE_SPLIT_REQUIRED": 14,
+        "IMAGE_TEXT_VERIFICATION_REQUIRED": 35
+      },
+      "contentComponents": [
+        "issue- and source-excerpt-focused drafting plan",
+        "subject-specific substantive concept/theory blocks",
+        "counterargument and application framework",
+        "compressed review answer",
+        "3 groups of 3 memorization keywords",
+        "review checklist and suggested reference candidates"
+      ],
+      "sourceOnlyCatalogFlagsPreserved": true,
+      "subjectReferenceAccuracy": "HOLD",
+      "examDateLawAndPrecedent": "HOLD",
+      "numericalGraphVerification": "HOLD",
+      "pageVolumeTargets": {
+        "50pt": "8-10 answer-book pages",
+        "25pt": "4 pages",
+        "15pt": "3 pages",
+        "10pt_or_less": "2 pages"
+      },
+      "draftLengthCharacters": {
+        "min": 747,
+        "median": 1022,
+        "max": 2157
+      },
+      "pageVolumeCompletion": "HOLD: Drafts do not yet meet target handwritten exam lengths; these are learning drafts, not completed full-volume model answers."
+    },
+    "hubIntegration": {
+      "status": "PASS_LOCAL",
+      "files": [
+        "study-hub/index.html",
+        "study-hub/app.js",
+        "study-hub/app.css"
+      ],
+      "workflow": [
+        "original source text and PDF link",
+        "unverified detailed answer only where source/issue matched",
+        "unverified compressed answer",
+        "3x3 memorization words",
+        "direct writing with original visible",
+        "autosave and reload restore",
+        "side-by-side comparison, review and manual flags"
+      ],
+      "sourceBundlesNotPromotedToModelAnswers": 49,
+      "sourceOriginalPDFAndQuestionID": "UNCHANGED",
+      "backupAndLocalStorageKeys": "UNCHANGED",
+      "approved2022_2026RC35Scoring": "UNCHANGED",
+      "unapproved2008_2021RC35AutoGrading": "REMAINS_BLOCKED"
+    },
+    "tests": {
+      "sourceCatalogIntegrity": "PASS_309_ITEMS_UNIQUE",
+      "older181RegistryIntegrity": "PASS_181_KEYS_MAP_TO_SOURCE",
+      "targetedSecondE2E": {
+        "status": "PASS",
+        "cases": 12,
+        "passed": 12,
+        "viewports": [
+          1440,
+          390,
+          360
+        ],
+        "script": "scripts/nomusa-second-v1110-181-qa.py",
+        "actions": [
+          "catalog integrity",
+          "legacy source concept detailed and compressed",
+          "original visible while writing",
+          "auto save and refresh restore",
+          "compare and review flags",
+          "source-only image HOLD",
+          "existing 2026 answers and horizontal overflow"
+        ]
+      },
+      "fullFirstSecondHubRegression": {
+        "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+        "pass": 13,
+        "checks": 13,
+        "viewports": [
+          1440,
+          390,
+          360
+        ],
+        "script": "scripts/nomusa-first-v6-fullhub-gate.py"
+      },
+      "officialAnswerAndAcademicVerification": "HOLD_0_APPROVED",
+      "oldSourcePDFsRevisualizedForAllCases": "HOLD",
+      "previewBuildAndRemoteBrowser": "NOT_RUN",
+      "newPreview": "NOT_DEPLOYED"
+    }
+  },
+  "releaseGate": {
+    "githubMainSha": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "vercelProject": "onnuri4188gmailcoms-projects/gongin-nomusa-rc27-preview",
+    "latestPriorReadyPreview": "https://gongin-nomusa-rc27-preview-3x0ku5lvz.vercel.app/",
+    "priorPreviewState": "READY_UNMODIFIED",
+    "draftPR": "REVIEW_ONLY",
+    "preview": "HOLD_UNTIL_CONTENT_AND_SOURCE_GATES"
+  },
+  "next": [
+    "2013/2014 source bundles: split into verified large and small questions preserving parent IDs",
+    "2015-2018 and 2021 image PDFs: independently verify Korean OCR transcription, formula/graph visuals and points",
+    "Expand 132 topic-linked educational drafts from short concept essays into complete score-weighted large-question responses",
+    "Check law statute as enacted on each exam date, direct case relevance and scholarship author/book/year",
+    "Conduct source-to-answer independent QC and separate human review, no official scoring approval based solely on generated content",
+    "Only then build new preview for acceptance; never modify main or production"
+  ]
+}

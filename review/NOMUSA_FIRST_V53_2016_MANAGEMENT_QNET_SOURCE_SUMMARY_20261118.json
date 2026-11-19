@@ -1,0 +1,30 @@
+{
+  "schema": "NOMUSA_FIRST_V53_2016_MANAGEMENT_A_QNET_SOURCE_PROBE/1",
+  "asOfKST": "2026-11-18",
+  "searchedArticleCount": 36,
+  "pagesResponded": 36,
+  "2016ManagementACandidateAttachments": 1,
+  "directQnetAFilesSHAValidated": 1,
+  "source": {
+    "article": 5183004,
+    "sourceArticle": "https://www.q-net.or.kr/cst003.do?artlSeq=5183004&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+    "officialSourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2162966&fileName=%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%28A%ED%98%95%29.pdf&fileSeq=2162966&artlSeq=5183004&href=0",
+    "filename": "경영학개론(A형).pdf",
+    "fileSeq": "2162966",
+    "sourcePDFSHA256": "328d2a7e12623abfb958b3cbfb2ac094688da295f644c502e22ea575c2a4554a",
+    "pdfPages": 36,
+    "pdfBytes": 13249912,
+    "bookletAFromQNetFilename": true,
+    "artifactFile": "2016_QNET_management_A_5183004.pdf"
+  },
+  "year2016ManagementAQuestionCandidates": 125,
+  "sourceBookletIndividualQuestionPagesApproved": 0,
+  "originalTextFiveOptionsApproved": 0,
+  "independentlyVerifiedAnswerCells": 0,
+  "historicalLegalTheoryExplanationsApproved": 0,
+  "newQDATAImports": 0,
+  "newScoringApprovals": 0,
+  "status": "PASS_SINGLE_QNET_A_BOOKLET_SHA_CANDIDATE_REVIEW_HOLD",
+  "description": "Official public Q-Net article/attachment source identification; even a valid A PDF SHA does not prove every question, option, answer or exam-time law.",
+  "fullArticleAuditArtifact": "review-artifacts/NOMUSA_FIRST_V53/NOMUSA_FIRST_V53_2016_A_PRIMARY_PROBE_FULL.json"
+}

@@ -1,0 +1,33 @@
+name: NOMUSA FIRST V42 official six PDF source-and-answer reference packet
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - 'scripts/nomusa-first-v42-six-official-pdf-source-packet.py'
+      - '.github/workflows/nomusa-first-v42-official-six-pdfs.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  six-qnet-pdfs:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5
+      - name: Verify exact SHA and page counts for 4 original question PDFs and 2 official final-answer PDFs
+        run: python scripts/nomusa-first-v42-six-official-pdf-source-packet.py
+      - name: Upload exact official reference PDFs and manifest for visual review only
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+          if-no-files-found: error
+          retention-days: 7

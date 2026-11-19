@@ -1,0 +1,99 @@
+{
+  "schema": "nomusa-first-v5-source-answer-audit/1",
+  "dateKST": "2026-11-15",
+  "pr": 3,
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "scope": {
+    "baselineDraftAnswerRecords": 3400,
+    "earlierManualVsMachineDisagreements": 127,
+    "years": [
+      2014,
+      2020,
+      2021
+    ],
+    "forms": [
+      "A",
+      "B"
+    ]
+  },
+  "technicalRecheck": {
+    "method": "independent image-glyph template read from PDF pixels, with source PDF visual inspection of four exceptions",
+    "templateAgreesWithV4Manual": 122,
+    "sourcePDFDirectVisualRecheck": 4,
+    "V4WrongAndPriorCVRight": 1,
+    "total": 127,
+    "notAnExternalIndependentReviewer": true
+  },
+  "correctedRecord": {
+    "id": "legacy1-2021-B-civil-062",
+    "year": 2021,
+    "form": "B",
+    "subject": "민법",
+    "questionNo": 62,
+    "previousV4": [
+      3
+    ],
+    "priorCV": [
+      1
+    ],
+    "sourceFinalPDF": [
+      1
+    ],
+    "newV5": [
+      1
+    ],
+    "sourceFile": "21년도 공인노무사 1차시험 최종정답내역(A,B형).pdf",
+    "answerPDFPage": 2,
+    "approval": "HOLD_INDEPENDENT_HUMAN_REVIEW"
+  },
+  "fileChanges": [
+    "study-hub/legacy-first-v5-correction.js",
+    "study-hub/first-legacy-answers.html",
+    "review/NOMUSA_FIRST_V5_127_SOURCE_RECHECK_20261115.csv"
+  ],
+  "specialCases2021": [
+    "2021 A/B 노동법Ⅱ Q26 전원정답 1~5",
+    "2021 A 민법 Q70 복수정답 3,4",
+    "2021 B 민법 Q72 복수정답 3,4"
+  ],
+  "officialQuestionListings": {
+    "y2014B": "https://www.q-net.or.kr/cst003.do?artlSeq=5098605&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+    "y2020AB": "https://www.q-net.or.kr/cst003.do?artlSeq=5207203&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309",
+    "y2021": "https://cpla.lawschool.co.kr/nlawschool/board/infomation/view.asp?bbsCode=1502&field=15&mnNum=5&num=94735&pageNo=1&subMnNum=1"
+  },
+  "originalQuestionItems": {
+    "linkedTextAndOptions": 0,
+    "verifiedPrintedPages": 0,
+    "status": "HOLD_SOURCE_PDFS_NOT_OBTAINED",
+    "note": "Landing pages confirm file existence; attachment bytes were not available to this execution environment, so do not claim question-level original text/option/page matching."
+  },
+  "browser": {
+    "standaloneInjectedHTML": {
+      "desktop1440": "PASS",
+      "mobile390": "PASS",
+      "mobile360": "PASS",
+      "sourceCorrectionQ62": "PASS",
+      "multiAnswerQ26": "PASS",
+      "horizontalOverflow": false,
+      "consoleErrors": 0
+    },
+    "realGithubCheckout": "NOT_EXECUTED",
+    "existingVercelHub": "NOT_TESTED",
+    "storagePersistenceAndRestore": "HOLD"
+  },
+  "grading": {
+    "newItemsApproved": 0,
+    "status": "HOLD_NOT_IN_RC35_SCORING"
+  },
+  "release": {
+    "draftBranchOnly": true,
+    "mainChanged": false,
+    "productionChanged": false,
+    "newPreview": false
+  },
+  "nextRequired": [
+    "Acquire and verify original 2014/2020/2021 A/B question PDFs and create exact question_text/options/printed_page joins",
+    "Independent human reviewer signs off 127 disputed cells and all remaining 900 key values",
+    "Full existing source checkout PC/mobile storage/reload/navigation E2E before Preview authorization"
+  ]
+}

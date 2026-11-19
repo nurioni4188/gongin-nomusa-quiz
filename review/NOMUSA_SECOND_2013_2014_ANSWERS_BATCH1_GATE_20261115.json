@@ -1,0 +1,151 @@
+{
+  "schema": "nomusa-2013-2014-answers-gate/1",
+  "version": "2026-11-15-batch1",
+  "baseCommit": "929a2e40ee348bbb9833e7a26cd58e3479ead64e",
+  "status": "PASS",
+  "counts": {
+    "catalog": 309,
+    "legacy181": 181,
+    "split38": 38,
+    "authored": 3,
+    "remaining": 35
+  },
+  "answers": [
+    {
+      "id": "2013_p1_q1",
+      "parentId": "2013_p1",
+      "subject": "노동법1",
+      "points": 50,
+      "sourceTextSha256": "40d8733b13f878e59fa40428113ec880b4861016630bc72ad8449d6b38955ad8",
+      "detailedChars": 4124,
+      "compressedChars": 659,
+      "sections": 4,
+      "keywords333": [
+        [
+          "취업규칙(93조)",
+          "불이익변경(94조①단서)",
+          "직급정년=고용단축"
+        ],
+        [
+          "집단적 회의방식 동의",
+          "노사협의회 의결≠동의",
+          "합리성 예외→2023 전합 폐기"
+        ],
+        [
+          "기존자 무효·신규자 유효",
+          "퇴직통보=해고(23조)",
+          "금품수령≠승인·구제(28조)"
+        ]
+      ],
+      "references": 7,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p1_q2",
+      "parentId": "2013_p1",
+      "subject": "노동법1",
+      "points": 25,
+      "sourceTextSha256": "66f96d5763e560a88a5607c28283a2d44a16a8e42dc4895ad858a73bd825b127",
+      "detailedChars": 2400,
+      "compressedChars": 479,
+      "sections": 5,
+      "keywords333": [
+        [
+          "영업양도=조직 동일성 이전",
+          "원칙적 포괄승계",
+          "배제특약=해고(23조)"
+        ],
+        [
+          "승계거부권(민 657①)",
+          "안 날부터 상당 기간",
+          "양도인과 근로관계 존속"
+        ],
+        [
+          "전환배치 권리남용 심사",
+          "경영상 해고 4요건(24조)",
+          "휴업수당·금품청산"
+        ]
+      ],
+      "references": 5,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p2_q1",
+      "parentId": "2013_p2",
+      "subject": "노동법2",
+      "points": 50,
+      "sourceTextSha256": "d0214a9bf86b63abd7c911b7812d6e104222c28052ce5e8fd57b6b16aca6e813",
+      "detailedChars": 3589,
+      "compressedChars": 668,
+      "sections": 4,
+      "keywords333": [
+        [
+          "정당성 4요건(99도4837 전합)",
+          "비공인 쟁의 X(37조②)",
+          "교섭당사자=쟁의주체"
+        ],
+        [
+          "지부 독자 규약·집행기관",
+          "설립신고 무관(2000도4299)",
+          "시행령 7조 \"할 수 있다\""
+        ],
+        [
+          "구조조정 자체=경영상 결단(99도5380)",
+          "처우·고용=근로조건 밀접",
+          "교섭거부=81조 3호"
+        ]
+      ],
+      "references": 5,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    }
+  ],
+  "preserved": [
+    {
+      "file": "rc27_essay_catalog.js",
+      "unchangedSinceBase": true,
+      "sha256": "e51a7da05f0483e64c98b48012d91f6d5e23b5a085500adb0d66c09dc539a50d"
+    },
+    {
+      "file": "second/archive_2013_2021.js",
+      "unchangedSinceBase": true,
+      "sha256": "1eed7a23e789c457879fb8850393846075923d171d9b5ebfbc40abd10216f64c"
+    },
+    {
+      "file": "second/legacy_2007_2012_source_only.js",
+      "unchangedSinceBase": true,
+      "sha256": "7e181de7ea335357963ca2ea1227e32be3afb627867246654e065d021c18d9fc"
+    },
+    {
+      "file": "second/historical-2013-2014-38.js",
+      "unchangedSinceBase": true,
+      "sha256": "ebbc90a4e22a71a1b3579f68e8b70d45c6357bc2988b744c8e0c24daba6f977c"
+    },
+    {
+      "file": "second/legacy-181-answer-drafts-v1110.js",
+      "unchangedSinceBase": true,
+      "sha256": "445dad4704b6c8358610cbe22f66a34866ff1c4c71f3ec6de19687dc439cecd6"
+    },
+    {
+      "file": "review/NOMUSA_SECOND_2013_2014_38_AND_181_LEDGER_20261115.json",
+      "unchangedSinceBase": true,
+      "sha256": "c3f174ffdf955bbb9bb024ef4c535e12325fefeb0715dc29a5f047876c7b0025"
+    },
+    {
+      "file": "review/NOMUSA_SECOND_181_AUTO_DRAFTS_V1110_20261115.json",
+      "unchangedSinceBase": true,
+      "sha256": "fe4c8b7507c8036b616ba51b661f59a1f3cb4b2dc1b332d18a864e446dcd7fd9"
+    },
+    {
+      "file": "scripts/nomusa_split_38_181.py",
+      "unchangedSinceBase": true,
+      "sha256": "5aaccdbfce90ad1fd53841b3541575848c1901c544601a44dbfe8f91ffb85ee7"
+    }
+  ],
+  "errors": [],
+  "contentApproval": "HOLD — case numbers and statutory text require independent check against official sources",
+  "scoringApproved": 0,
+  "deployment": "NOT_DEPLOYED (review branch only; main, Production, RC35, existing Preview untouched)"
+}

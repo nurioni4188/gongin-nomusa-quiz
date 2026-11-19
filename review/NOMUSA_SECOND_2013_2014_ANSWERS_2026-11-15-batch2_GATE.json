@@ -1,0 +1,468 @@
+{
+  "schema": "nomusa-2013-2014-answers-gate/1",
+  "version": "2026-11-15-batch2",
+  "baseCommit": "929a2e40ee348bbb9833e7a26cd58e3479ead64e",
+  "status": "PASS",
+  "counts": {
+    "catalog": 309,
+    "legacy181": 181,
+    "split38": 38,
+    "authored": 7,
+    "remaining": 31
+  },
+  "answers": [
+    {
+      "id": "2013_p1_q1",
+      "parentId": "2013_p1",
+      "subject": "노동법1",
+      "points": 50,
+      "sourceTextSha256": "40d8733b13f878e59fa40428113ec880b4861016630bc72ad8449d6b38955ad8",
+      "detailedChars": 4085,
+      "compressedChars": 650,
+      "sections": 4,
+      "allocation": [
+        {
+          "part": "(1) 인사규정 변경의 효력",
+          "points": 30,
+          "sheets": "5~6장"
+        },
+        {
+          "part": "(2) 퇴직통보의 효력",
+          "points": 20,
+          "sheets": "3~4장"
+        }
+      ],
+      "keywords333": [
+        [
+          "취업규칙(93조)",
+          "불이익변경(94조①단서)",
+          "직급정년=고용단축"
+        ],
+        [
+          "집단적 회의방식 동의",
+          "노사협의회 의결≠동의",
+          "합리성 예외→2023 전합 폐기"
+        ],
+        [
+          "기존자 무효·신규자 유효",
+          "퇴직통보=해고(23조)",
+          "금품수령≠승인·구제(28조)"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "대법원 1977. 7. 26. 선고 77다355",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 1992. 12. 22. 선고 91다45165 전원합의체",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 1994. 6. 24. 선고 92다28556",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2009. 5. 28. 선고 2009두2238",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2023. 5. 11. 선고 2017다35588, 35595 전원합의체 (시험 이후 판례 · 별도 부기)",
+          "status": "SECONDARY_DB_MATCHED"
+        }
+      ],
+      "references": 7,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p1_q2",
+      "parentId": "2013_p1",
+      "subject": "노동법1",
+      "points": 25,
+      "sourceTextSha256": "66f96d5763e560a88a5607c28283a2d44a16a8e42dc4895ad858a73bd825b127",
+      "detailedChars": 2435,
+      "compressedChars": 502,
+      "sections": 5,
+      "allocation": [
+        {
+          "part": "영업양도·승계거부·A회사와 甲의 법률관계",
+          "points": 25,
+          "sheets": "4장"
+        }
+      ],
+      "keywords333": [
+        [
+          "영업양도=조직 동일성 이전",
+          "원칙적 포괄승계",
+          "배제특약=해고(23조)"
+        ],
+        [
+          "승계거부권(민 657①)",
+          "안 날부터 상당 기간",
+          "양도인과 근로관계 존속"
+        ],
+        [
+          "전환배치 권리남용 심사",
+          "경영상 해고 4요건(24조)",
+          "휴업수당·금품청산"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "대법원 1994. 6. 28. 선고 93다33173",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2010. 9. 30. 선고 2010다41089",
+          "status": "SECONDARY_DB_MATCHED",
+          "note": "종전 초안의 98다11437은 어느 판례 DB에서도 확인되지 않아 교체"
+        },
+        {
+          "cite": "대법원 2012. 5. 10. 선고 2011다45217",
+          "status": "SECONDARY_DB_MATCHED"
+        }
+      ],
+      "references": 5,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p2_q1",
+      "parentId": "2013_p2",
+      "subject": "노동법2",
+      "points": 50,
+      "sourceTextSha256": "d0214a9bf86b63abd7c911b7812d6e104222c28052ce5e8fd57b6b16aca6e813",
+      "detailedChars": 4181,
+      "compressedChars": 731,
+      "sections": 4,
+      "allocation": [
+        {
+          "part": "(1) 주체의 정당성",
+          "points": 25,
+          "sheets": "4~5장"
+        },
+        {
+          "part": "(2) 목적의 정당성",
+          "points": 25,
+          "sheets": "4~5장"
+        }
+      ],
+      "keywords333": [
+        [
+          "정당성 4요건(99도4837 전합)",
+          "비공인 쟁의 X(37조②)",
+          "교섭당사자=쟁의주체"
+        ],
+        [
+          "지부 독자 규약·집행기관",
+          "설립신고 무관(2000도4299)",
+          "시행령 7조 \"할 수 있다\""
+        ],
+        [
+          "구조조정 자체=경영상 결단(99도5380)",
+          "처우·고용=근로조건 밀접",
+          "교섭거부=81조 3호"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "대법원 2001. 10. 25. 선고 99도4837 전원합의체",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2001. 2. 23. 선고 2000도4299",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2002. 2. 26. 선고 99도5380",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2003. 12. 11. 선고 2001도3429",
+          "status": "SECONDARY_DB_MATCHED"
+        },
+        {
+          "cite": "대법원 2003. 7. 22. 선고 2002도7225",
+          "status": "HOLD",
+          "note": "공기업 민영화 사건 · 판례 DB에서 미확인"
+        }
+      ],
+      "references": 6,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p2_q2",
+      "parentId": "2013_p2",
+      "subject": "노동법2",
+      "points": 25,
+      "sourceTextSha256": "306acbff0fb94e0f69b4ce658e5f07415f16222e4964c178551d15c32e1a3215",
+      "detailedChars": 2566,
+      "compressedChars": 571,
+      "sections": 4,
+      "allocation": [
+        {
+          "part": "통제권의 근거·한계와 제명의 효력",
+          "points": 25,
+          "sheets": "4장"
+        }
+      ],
+      "keywords333": [
+        [
+          "통제권=단결권설(헌 33①)",
+          "규율·통제 규약사항(11조15호)",
+          "제명=최후수단·비례"
+        ],
+        [
+          "주로 정치운동만 결격(2조4호마)",
+          "공선법 87①단서 선거운동",
+          "지지 결의 자체 유효"
+        ],
+        [
+          "정당 차별 금지(9조)",
+          "권고적 효력·제재 불가",
+          "제명 무효·21조②·81조2호단서"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "노조법 제2조 제4호 마목·제9조·제11조 제15호·제21조·제22조·제81조 제2호 단서",
+          "status": "HOLD",
+          "note": "2013년 시행 조문 문언 대조 필요"
+        },
+        {
+          "cite": "공직선거법 제87조 제1항 단서 (노동조합의 선거운동 허용)",
+          "status": "HOLD"
+        },
+        {
+          "cite": "일본 최고재판소 1968. 12. 4. 대법정 판결 (三井美唄労組 사건, 비교법 참고)",
+          "status": "HOLD"
+        }
+      ],
+      "references": 4,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p3_q1",
+      "parentId": "2013_p3",
+      "subject": "인사노무관리론",
+      "points": 50,
+      "sourceTextSha256": "5e58bd26da5aa28204362fd6022dcdd73a55df50b3708f21978e5bece0cf3834",
+      "detailedChars": 4074,
+      "compressedChars": 1042,
+      "sections": 8,
+      "allocation": [
+        {
+          "part": "서론·이론적 틀(통제형·몰입형, 내적 적합성)",
+          "points": 5,
+          "sheets": "1장"
+        },
+        {
+          "part": "①② 확보",
+          "points": 9,
+          "sheets": "1.5장"
+        },
+        {
+          "part": "③④ 개발",
+          "points": 9,
+          "sheets": "1.5장"
+        },
+        {
+          "part": "⑤⑥ 평가",
+          "points": 9,
+          "sheets": "1.5장"
+        },
+        {
+          "part": "⑦⑧ 보상",
+          "points": 9,
+          "sheets": "1.5장"
+        },
+        {
+          "part": "⑨⑩ 유지·결론",
+          "points": 9,
+          "sheets": "1.5장"
+        }
+      ],
+      "keywords333": [
+        [
+          "협력=몰입형(Walton·Arthur)",
+          "경쟁=시장형·성과주의",
+          "내적 적합성"
+        ],
+        [
+          "확보: 내부노동시장 vs 외부 스카우트",
+          "개발: 기업특수 투자 vs 개인책임·핵심인재",
+          "평가: 절대·다면·개발 vs 상대·강제배분"
+        ],
+        [
+          "보상: 집단성과배분 vs 개인성과급·토너먼트",
+          "유지: 고용안정·발언 vs up-or-out",
+          "혼합: 인력 포트폴리오"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "Walton, R. E. (1985). From control to commitment in the workplace. Harvard Business Review",
+          "status": "HOLD"
+        },
+        {
+          "cite": "Arthur, J. B. (1994). Effects of human resource systems on manufacturing performance and turnover. Academy of Management Journal",
+          "status": "HOLD"
+        },
+        {
+          "cite": "Lazear, E. P. & Rosen, S. (1981). Rank-order tournaments as optimum labor contracts. Journal of Political Economy",
+          "status": "HOLD"
+        }
+      ],
+      "references": 3,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p3_q2",
+      "parentId": "2013_p3",
+      "subject": "인사노무관리론",
+      "points": 25,
+      "sourceTextSha256": "566f7ed28204d8c380bfdd4e3104cf5e52ea68a205b77eb24adadac85ff444da",
+      "detailedChars": 2056,
+      "compressedChars": 558,
+      "sections": 5,
+      "allocation": [
+        {
+          "part": "개념 0.5장 · 내용 1.5장 · 효과 1장 · 한계 1장",
+          "points": 25,
+          "sheets": "4장"
+        }
+      ],
+      "keywords333": [
+        [
+          "스캔론(1930년대 철강)",
+          "집단성과배분(gainsharing)",
+          "참여+배분 철학"
+        ],
+        [
+          "기준비율=인건비÷SVOP",
+          "생산위원회·심사위원회",
+          "유보금 적립 후 노사 배분"
+        ],
+        [
+          "생산성·협력·노사신뢰",
+          "기준비율 경직·외부요인",
+          "무임승차→럭커·임프로쉐어"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "Scanlon plan (Joseph N. Scanlon, 1930년대 후반 미국 철강산업에서 시작)",
+          "status": "HOLD"
+        },
+        {
+          "cite": "Rucker plan · Improshare (Fein, 1973) 비교",
+          "status": "HOLD"
+        }
+      ],
+      "references": 2,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    },
+    {
+      "id": "2013_p3_q3",
+      "parentId": "2013_p3",
+      "subject": "인사노무관리론",
+      "points": 25,
+      "sourceTextSha256": "2938ac8e6d95608b5bfa2194fe86d1372a1be3f28b51b2442f68e43378998b37",
+      "detailedChars": 2016,
+      "compressedChars": 538,
+      "sections": 4,
+      "allocation": [
+        {
+          "part": "개념 1장 · 특징 1장 · 구축방안 2장",
+          "points": 25,
+          "sheets": "4장"
+        }
+      ],
+      "keywords333": [
+        [
+          "McClelland(1973)",
+          "고성과자 구별 내적 특성",
+          "빙산모델(Spencer & Spencer)"
+        ],
+        [
+          "성과 인과·행동 관찰",
+          "조직 특수성·개발 가능",
+          "미래지향·HR 통합"
+        ],
+        [
+          "역량모델링(BEI)·BARS",
+          "다면평가·평가센터·평가자 훈련",
+          "업적평가 결합·IDP·갱신"
+        ]
+      ],
+      "citations": [
+        {
+          "cite": "McClelland, D. C. (1973). Testing for competence rather than for \"intelligence\". American Psychologist",
+          "status": "HOLD"
+        },
+        {
+          "cite": "Boyatzis, R. E. (1982). The Competent Manager",
+          "status": "HOLD"
+        },
+        {
+          "cite": "Spencer, L. M. & Spencer, S. M. (1993). Competence at Work",
+          "status": "HOLD"
+        }
+      ],
+      "references": 3,
+      "citationReview": "HOLD",
+      "scoringApproved": false
+    }
+  ],
+  "preserved": [
+    {
+      "file": "rc27_essay_catalog.js",
+      "unchangedSinceBase": true,
+      "sha256": "e51a7da05f0483e64c98b48012d91f6d5e23b5a085500adb0d66c09dc539a50d"
+    },
+    {
+      "file": "second/archive_2013_2021.js",
+      "unchangedSinceBase": true,
+      "sha256": "1eed7a23e789c457879fb8850393846075923d171d9b5ebfbc40abd10216f64c"
+    },
+    {
+      "file": "second/legacy_2007_2012_source_only.js",
+      "unchangedSinceBase": true,
+      "sha256": "7e181de7ea335357963ca2ea1227e32be3afb627867246654e065d021c18d9fc"
+    },
+    {
+      "file": "second/historical-2013-2014-38.js",
+      "unchangedSinceBase": true,
+      "sha256": "ebbc90a4e22a71a1b3579f68e8b70d45c6357bc2988b744c8e0c24daba6f977c"
+    },
+    {
+      "file": "second/legacy-181-answer-drafts-v1110.js",
+      "unchangedSinceBase": true,
+      "sha256": "445dad4704b6c8358610cbe22f66a34866ff1c4c71f3ec6de19687dc439cecd6"
+    },
+    {
+      "file": "review/NOMUSA_SECOND_2013_2014_38_AND_181_LEDGER_20261115.json",
+      "unchangedSinceBase": true,
+      "sha256": "c3f174ffdf955bbb9bb024ef4c535e12325fefeb0715dc29a5f047876c7b0025"
+    },
+    {
+      "file": "review/NOMUSA_SECOND_181_AUTO_DRAFTS_V1110_20261115.json",
+      "unchangedSinceBase": true,
+      "sha256": "fe4c8b7507c8036b616ba51b661f59a1f3cb4b2dc1b332d18a864e446dcd7fd9"
+    },
+    {
+      "file": "scripts/nomusa_split_38_181.py",
+      "unchangedSinceBase": true,
+      "sha256": "5aaccdbfce90ad1fd53841b3541575848c1901c544601a44dbfe8f91ffb85ee7"
+    }
+  ],
+  "errors": [],
+  "contentApproval": "HOLD — case numbers and statutory text require independent check against official sources",
+  "scoringApproved": 0,
+  "deployment": "NOT_DEPLOYED (review branch only; main, Production, RC35, existing Preview untouched)"
+}

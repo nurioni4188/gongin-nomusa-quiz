@@ -1,0 +1,65 @@
+{
+  "schema": "nomusa-second-v1112-static-integration-review/1",
+  "checkedOn": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "pr": 3,
+  "sourceCommitBeforeReport": "f1122516f066525f16d8ff00ef5fad1c4b5882c9",
+  "sourceFiles": [
+    "second/historical-2013-2014-answers-v1.js",
+    "second/historical-2014-batch11-p4.js",
+    "second/historical-2014-batch11-p5.js",
+    "second/historical-2014-batch11-p6.js",
+    "second/historical-2014-batch11-p7.js",
+    "second/historical-2014-batch11-expansion.js",
+    "scripts/nomusa-2013-2014-answers-gate.mjs",
+    "study-hub/index.html"
+  ],
+  "counts": {
+    "historicalSplitItems": 38,
+    "basicBatchDrafts": 26,
+    "existingSidecarDrafts": 12,
+    "authoredAfterIntegration": 38,
+    "remainingUnwritten": 0,
+    "preservedLegacyParents": 181,
+    "catalogItems": 309
+  },
+  "validation": {
+    "method": "Connector-fetched actual JS evaluated in memory with dedicated assertions; not a browser or exact Node CLI execution",
+    "sourceScriptsEvaluated": 11,
+    "assertionsPassed": 389,
+    "assertionsFailed": 0,
+    "results": "PASS_STATIC_STRUCTURE_ONLY",
+    "byQuestionChecks": [
+      "ID/PARENT/YEAR/SUBJECT/POINTS",
+      "SPLIT_STEM_POINTS",
+      "FOUR_OR_MORE_SECTIONS",
+      "DETAILED_AND_COMPRESSED_SECTIONS",
+      "KEYWORDS_3x3",
+      "ALLOCATION_SUM",
+      "REFERENCE_STATUS",
+      "MINIMUM_DETAIL_CHAR_COUNT_50=4000_25=2000",
+      "SCORING_APPROVAL_FALSE"
+    ],
+    "missingFormerBrowserScript": "second/historical-2014-batch11-expansion.js added; reference from study-hub/index.html now resolved"
+  },
+  "holds": {
+    "originalPdfFullVisualVerification": "HOLD",
+    "fullAcademicOriginalVerification": "HOLD",
+    "2014EffectiveLawAndCaseFactVerification": "HOLD",
+    "50PointActualPaper8To10Sheets": "HOLD (character heuristic only)",
+    "25PointActualPaper4Sheets": "HOLD (character heuristic only)",
+    "fullNodeOfflineGate": "NOT_RUN (script updated; no node checkout on current tool path)",
+    "playwright1440_390_360": "NOT_RUN_AFTER_V1112",
+    "liveStudyHubBrowserSavingRestoration": "NOT_RUN_AFTER_V1112",
+    "newVercelPreview": "NOT_DEPLOYED",
+    "production": "UNCHANGED_BY_THIS_TASK",
+    "main": "UNCHANGED_BY_THIS_TASK"
+  },
+  "decision": "STATIC_STRUCTURE_PASS / CONTENT_APPROVAL_HOLD / PC_MOBILE_REGRESSION_HOLD / DEPLOYMENT_NOT_RUN",
+  "notes": [
+    "These are authored study drafts, not official model answers.",
+    "Original 181 parent IDs and scoring flags were not edited by this task.",
+    "The full source and official legal citations require independent review before approval."
+  ]
+}

@@ -1,0 +1,71 @@
+name: NOMUSA FIRST V62 cross-host 2013 A 80-page original source text comparison
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v62-2013-independent-host-pdf-compare.yml'
+      - 'scripts/nomusa-first-v62-2013-two-source-150-original-text-audit.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v62-2013-independent-host-source-only
+  cancel-in-progress: true
+jobs:
+  compare-native-original-text:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install native 2013 A booklet PDF comparison dependencies
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5
+      - name: Retrieve and SHA-check 2013 two separate alternative 39/41-page A-booklets, compare all 80 source pages
+        run: |
+          python -m py_compile scripts/nomusa-first-v62-2013-two-source-150-original-text-audit.py
+          python scripts/nomusa-first-v62-2013-two-source-150-original-text-audit.py
+      - name: Enforce zero official QNet equivalence or expert human content approvals
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=Path('review-artifacts/NOMUSA_FIRST_V62/NOMUSA_FIRST_V62_2013_80_PAGES_SOURCE_TEXT_DIFF.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          assert data['target2013AQuestionCandidates']==150
+          assert data['bookletPageCompareResults']==len(data['rows'])==80
+          assert data['individualExactStemsFiveOptionsApproved']==0
+          assert data['independentQNetOriginalSourceIdentityApproved']==0
+          assert data['newAppImports']==data['newScoringApprovals']==0
+          assert all(not q['officialOriginalQNetSameDocumentConfirmed'] and not q['scoringApproved'] for q in data['rows'])
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V62_2013_150_INDEPENDENT_MIRROR_TEXT_COMPARE_20261119.json'}),changed
+          print('PASS_V62_2013_PDF_PAGES_80_INDEPENDENT_HOST_CHECK_QNET_EQUIVALENCE_HOLD')
+          PY
+      - name: Commit only cross-host source evidence summary on existing Draft PR review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V62_2013_150_INDEPENDENT_MIRROR_TEXT_COMPARE_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v62): compare 2013 A source page texts across two public hosts, no scoring approvals'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve 80-page comparison diagnostics for independent proofreader
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v62-2013-80-pages-cross-host-original-text-diff
+          path: review-artifacts/NOMUSA_FIRST_V62/
+          if-no-files-found: warn
+          retention-days: 30

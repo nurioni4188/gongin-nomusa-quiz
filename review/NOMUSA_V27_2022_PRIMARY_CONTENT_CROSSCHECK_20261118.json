@@ -1,0 +1,256 @@
+{
+  "schema": "NOMUSA_V27_2022_EVIDENCE_CROSSCHECK/1",
+  "checkedDateKST": "2026-11-18",
+  "method": "Actual 2022 user-facing question and draft text examined from V26 packets; linked against official court HTML publisher records and independent arithmetic. Verification scope is claim-specific only.",
+  "reviewed2022IDs": 6,
+  "baseline2022Count": 19,
+  "remaining2022NotExternallyCrosschecked": 13,
+  "expertApproved": 0,
+  "finalApproval": "HOLD",
+  "productionDeployed": false,
+  "checks": [
+    {
+      "id": "2022-admin-2",
+      "type": "COURT_FULL_TEXT_RELEVANT_HOLD_EXAM_APPLICATION",
+      "findings": [
+        {
+          "claim": "대법원 2020.2.20. 2019두52386 전원합의체는 구제신청 중 정년/기간만료 시 소의 이익을 조건부 인정, 금전보상명령 신청에도 적용",
+          "url": "https://www.law.go.kr/LSW/precInfoP.do?mode=0&precSeq=226111",
+          "source": "국가법령정보센터 공식 판결문 HTML",
+          "verification": "OFFICIAL_JUDGMENT_RELEVANT_PARAGRAPHS_READ",
+          "judgmentDate": "2020-02-20"
+        },
+        {
+          "claim": "2021두46285는 구제신청 전에 이미 고용관계 종료된 경우를 구별",
+          "url": "https://law.go.kr/LSW/precInfoP.do?precSeq=232945",
+          "source": "국가법령정보센터 판결문·판시요지",
+          "verification": "OFFICIAL_JUDGMENT_SUMMARY_READ",
+          "judgmentDate": "2022-07-14"
+        }
+      ],
+      "flags": [
+        "금전보상과 임금상당액 지급명령의 법적 차이 및 2022 시험 당시 정년규정 효력 포섭은 독립 심사 HOLD"
+      ],
+      "requiredTokens": [
+        "2019두52386",
+        "2021두46285"
+      ],
+      "correction": "NO_SUBSTANTIVE_TEXT_CHANGE_RECOMMENDED_PENDING_EXPERT",
+      "year": 2022,
+      "subject": "행정쟁송법",
+      "points": 25,
+      "textSHA256": "95de80d9c07e69f5612fd4acc8254abebf88d59feb84196fca120066c9cdfe06",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "06886aad3d0500bbc3a63a6ca824a90ad7b455d3bd38ec0106da8e4b37767481",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    },
+    {
+      "id": "2022-labor1-2",
+      "type": "COURT_FULL_TEXT_RELEVANT_HOLD_COMPLETE_APPLICATION",
+      "findings": [
+        {
+          "claim": "대법원 2022.4.28. 2019다238053은 단체협약의 기간비례·지급실태·취업규칙을 종합해 정기상여금의 통상임금성을 인정",
+          "url": "https://www.law.go.kr/LSW/precInfoP.do?precSeq=220865",
+          "source": "국가법령정보센터 공식 판결문 HTML",
+          "verification": "OFFICIAL_JUDGMENT_RELEVANT_PARAGRAPHS_READ",
+          "judgmentDate": "2022-04-28"
+        }
+      ],
+      "flags": [
+        "2022년 시험 당시 통상임금 법리와 후속 변경법리를 엄격히 구분할 것",
+        "단협 문언/사건별 지급관행과 원판결 전체의 세부 인정사실 대조 HOLD"
+      ],
+      "requiredTokens": [
+        "2019다238053"
+      ],
+      "correction": "NO_SUBSTANTIVE_TEXT_CHANGE_RECOMMENDED_PENDING_EXPERT",
+      "year": 2022,
+      "subject": "노동법1",
+      "points": 25,
+      "textSHA256": "86d2fd7336a0cb013aecef851ea9b77c996b350b6258e35226c5520c7a1da744",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "b1b4e4592bce01e932e82cb93a708091cd0fc5bbe493b7d6733acb2acdee353a",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    },
+    {
+      "id": "2022-labor2-2",
+      "type": "COURT_HEADNOTE_AND_STATUTORY_REASONING_HOLD_FULL_PROOFREAD",
+      "findings": [
+        {
+          "claim": "2017도2478 (2020.7.29.) 산별노조 간부의 생산현장 순회, 목적·시기·방법·시설관리권·관행 평가",
+          "url": "https://www.law.go.kr/LSW/precInfoP.do?precSeq=226477",
+          "source": "국가법령정보센터 판시사항·판결요지",
+          "verification": "OFFICIAL_HEADNOTE_AND_RELEVANT_FACTS_READ",
+          "judgmentDate": "2020-07-29"
+        },
+        {
+          "claim": "공식 대법원 주요판결에서 같은 사건 사실 및 핵심 법리 안내",
+          "url": "https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=7248",
+          "source": "대법원 주요판결",
+          "verification": "OFFICIAL_COURT_SUMMARY_READ"
+        }
+      ],
+      "flags": [
+        "정당한 조합활동과 형법 제20조 위법성조각/민사시설관리권/노조법 사용자성 혼동 금지",
+        "원판결 전체 문장별 확인은 HOLD"
+      ],
+      "requiredTokens": [
+        "2017도2478"
+      ],
+      "correction": "NO_SUBSTANTIVE_TEXT_CHANGE_RECOMMENDED_PENDING_EXPERT",
+      "year": 2022,
+      "subject": "노동법2",
+      "points": 25,
+      "textSHA256": "1815fc011fdcdb9c59b2cf2a64a6c329d25e94cb0b518c9c402a55625ed22949",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "d34d4d7398f5ba385e38161099e1109be92bdffd47c9e1fbd32a4fb73769335b",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    },
+    {
+      "id": "2022-hr-1",
+      "type": "PUBLISHER_ORIGINAL_BIBLIOGRAPHY_AND_INTERNAL_CONTRADICTION",
+      "findings": [
+        {
+          "claim": "Goldstein (1978), The Pursuit of Validity in the Evaluation of Training Programs, Human Factors 20(2):131-144, DOI 10.1177/001872087802000202",
+          "url": "https://journals.sagepub.com/doi/10.1177/001872087802000202",
+          "source": "SAGE 저널 공식 서지·초록",
+          "verification": "PUBLISHER_METADATA_AND_ABSTRACT_VERIFIED",
+          "pubYear": 1978
+        },
+        {
+          "claim": "Goldstein 4단계 training/performance/intra-organizational/interorganizational validity는 공개 원문초록에 제시",
+          "url": "https://journals.sagepub.com/doi/10.1177/001872087802000202",
+          "source": "SAGE 저널 공식 초록",
+          "verification": "PUBLISHER_ABSTRACT_VERIFIED",
+          "pubYear": 1978
+        }
+      ],
+      "flags": [
+        "P1_CONFIRMABLE_EDITORIAL_ERROR: 본문 V16.2 메모에 Human Relations가 남고 V16.3에서 Human Factors로 정정: 구표기 삭제·원전 인용 한 곳으로 정리 필요",
+        "SIX_TECHNIQUES_EDITORIAL_INCONSISTENCY: 본문 6기법 여섯번째 액션러닝, V16.5는 경영 시뮬레이션으로 변경; 선택 목록을 일관화할 필요",
+        "Kirkpatrick 연재원본/Phillips ROI 원서 및 Goldstein 유료 원문 전문은 HOLD"
+      ],
+      "requiredTokens": [
+        "Human Relations",
+        "Human Factors",
+        "10.1177/001872087802000202",
+        "액션러닝",
+        "경영 시뮬레이션"
+      ],
+      "correction": "P1_REMOVE_OBSOLETE_HUMAN_RELATIONS_BIBLIOGRAPHY_AND_RECONCILE_SIX_TECHNIQUES_IN_REVIEW_DRAFT_ONLY",
+      "year": 2022,
+      "subject": "인사노무관리론",
+      "points": 50,
+      "textSHA256": "f009babeb757564b6dd2f91bf1462dcb49b920632ef2469d2b764a7747bff280",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "ad2346195ac44df4e29341748e2ed0091695696e385d648c8ad8cfc372858548",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    },
+    {
+      "id": "2022-org-2",
+      "type": "PUBLISHER_BIBLIOGRAPHY_VERIFIED_FULL_EXPERIMENT_INTERPRETATION_HOLD",
+      "findings": [
+        {
+          "claim": "Tversky & Kahneman(1974), Judgment under Uncertainty: Heuristics and Biases, Science 185:1124-1131",
+          "url": "https://www.science.org/doi/10.1126/science.185.4157.1124",
+          "source": "Science 저널 공식 출판 페이지",
+          "verification": "PUBLISHER_BIBLIOGRAPHY_CONFIRMED",
+          "pubYear": 1974
+        },
+        {
+          "claim": "Staw(1976), Knee-deep in the big muddy, Organizational Behavior and Human Performance 16(1):27-44",
+          "url": "https://www.sciencedirect.com/science/article/pii/0030507376900052",
+          "source": "Elsevier 원논문 서지",
+          "verification": "PUBLISHER_BIBLIOGRAPHY_CONFIRMED",
+          "pubYear": 1976
+        },
+        {
+          "claim": "Nickerson(1998), Confirmation Bias: A Ubiquitous Phenomenon in Many Guises, Review of General Psychology 2(2):175-220",
+          "url": "https://journals.sagepub.com/doi/10.1037/1089-2680.2.2.175",
+          "source": "SAGE 공식 저널 서지·초록",
+          "verification": "PUBLISHER_BIBLIOGRAPHY_AND_ABSTRACT_CONFIRMED",
+          "pubYear": 1998
+        },
+        {
+          "claim": "Fischhoff(1975) hindsight not equal to foresight, original JEP:HPP 1:288-299, publicly available reprint",
+          "url": "https://qualitysafety.bmj.com/content/12/4/304",
+          "source": "BMJ 2003년 공개 재간행물(1975 원논문 서지 명시)",
+          "verification": "AUTHOR_PAPER_REPRINT_METADATA_CONFIRMED_ORIGINAL_EXPERIMENT_DETAILS_HOLD",
+          "pubYear": 1975
+        }
+      ],
+      "flags": [
+        "5개 인지편향을 모두 Tversky & Kahneman(1974) 원저에 일괄 귀속하면 안됨(각 원전 구분함)",
+        "개별 실험설계 원논문 전문 대조 및 사안별 학술 적용 판단 HOLD"
+      ],
+      "requiredTokens": [
+        "Tversky",
+        "Kahneman",
+        "Staw",
+        "Nickerson",
+        "Fischhoff"
+      ],
+      "correction": "NO_SUBSTANTIVE_TEXT_CHANGE_RECOMMENDED_PENDING_EXPERT",
+      "year": 2022,
+      "subject": "경영조직론",
+      "points": 25,
+      "textSHA256": "338bc9c4e6106b566587d06380bcae3bbafd62426594e0308fe1ebba926195dc",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "e19ce3a363d5430eef05941db37facbc7dbf6025dd1f5d5ec9a06befa3161b97",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    },
+    {
+      "id": "2022-econ-2",
+      "type": "INDEPENDENT_DETERMINISTIC_CALCULATION",
+      "findings": [
+        {
+          "claim": "두 사람 소득점유율 0.2/0.8: Lorenz (0,0),(0.5,0.2),(1,1). 면적 0.35, G=1−2B=0.30",
+          "source": "2022년 기출 원문 수치 + 독립 수식 연산",
+          "url": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+          "verification": "INDEPENDENT_EQUATION_RECALCULATION_UNDER_STATED_2_PERSON_ASSUMPTIONS"
+        }
+      ],
+      "flags": [
+        "로렌츠 그래프 실제 인쇄조건·도형/축·수기 실측은 추가 원본 검토 필요",
+        "표본 보정 지니값 0.60을 표준 면적 정의값 0.30과 혼동하지 말 것"
+      ],
+      "requiredTokens": [
+        "0.30",
+        "0.35"
+      ],
+      "correction": "NO_CALC_CORRECTION_NEEDED_FORMULA_VERIFIED",
+      "year": 2022,
+      "subject": "노동경제학",
+      "points": 25,
+      "textSHA256": "d257c4bbec8b905466c8b06da353beac4d08bbe19e371a6e2a05a81c71f1e7d6",
+      "officialExamPostUrl": "https://www.q-net.or.kr/cst003.do?artlSeq=5210985&boardId=Q004&gId=05&gSite=L&id=cst00302",
+      "sourceHash": "d36f1ebfab2522b8aa5f0691fdb8362e3c92e6395099af776b9e4bb919e7f6be",
+      "sourceQNetBinaryPreviouslyVerified": true,
+      "checkedDateKST": "2026-11-18",
+      "expertApproved": false,
+      "finalApproval": "HOLD"
+    }
+  ],
+  "globalLimits": [
+    "Primary court HTML passages and publisher metadata/abstracts confirmed only for enumerated claims; no blanket approval of 19 full answer manuscripts.",
+    "Scholarly complete articles beyond visible publisher extracts not all independently read.",
+    "2022 exam-date historical statutory versions and every cited full-judgment's applicability not independently validated; HOLD.",
+    "Existing SHA and 328 learner manuscripts preserved; corrections are review suggestions only.",
+    "No independent expert attestation; no reviewer identity fabricated."
+  ]
+}

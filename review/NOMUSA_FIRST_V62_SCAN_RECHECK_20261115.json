@@ -1,0 +1,61 @@
+{
+  "answerRecheck": {
+    "source": "Q-Net 2020, 2021 final answer PDFs",
+    "checked": 600,
+    "glyphAgrees": 575,
+    "visualAgrees": 25,
+    "disagreements": 0,
+    "independentHumanApproval": "HOLD",
+    "remainingHistoricalRecords": 2800,
+    "visualRows": {
+      "legacy1-2020-A-labor1-019": "1",
+      "legacy1-2020-A-labor1-024": "1",
+      "legacy1-2020-A-labor2-029": "1",
+      "legacy1-2020-A-labor2-031": "1",
+      "legacy1-2020-A-economics-103": "1",
+      "legacy1-2020-B-labor1-023": "1",
+      "legacy1-2020-B-labor2-029": "1",
+      "legacy1-2020-B-civil-053": "1",
+      "legacy1-2020-B-civil-059": "1",
+      "legacy1-2020-B-civil-063": "1",
+      "legacy1-2020-B-civil-068": "1",
+      "legacy1-2020-B-economics-112": "1",
+      "legacy1-2020-B-economics-120": "1",
+      "legacy1-2020-B-management-105": "1",
+      "legacy1-2021-A-labor2-026": "1,2,3,4,5",
+      "legacy1-2021-A-civil-061": "1",
+      "legacy1-2021-A-civil-070": "3,4",
+      "legacy1-2021-A-management-111": "1",
+      "legacy1-2021-B-labor1-006": "1",
+      "legacy1-2021-B-labor2-026": "1,2,3,4,5",
+      "legacy1-2021-B-civil-058": "1",
+      "legacy1-2021-B-civil-072": "3,4",
+      "legacy1-2021-B-social-094": "1",
+      "legacy1-2021-B-economics-101": "1",
+      "legacy1-2021-B-economics-123": "3"
+    }
+  },
+  "bookletRecheck": {
+    "initialUnlocated": 44,
+    "secondOcrPages": 80,
+    "reliableNewOcrCandidates": 0,
+    "newVisualPages": {
+      "legacy1-2020-A-labor1-013": {
+        "pdf": 5,
+        "printed": 4
+      },
+      "legacy1-2021-A-economics-113": {
+        "pdf": 36,
+        "printed": 36
+      },
+      "legacy1-2021-B-economics-111": {
+        "pdf": 36,
+        "printed": 36
+      }
+    },
+    "remainingUnlocated": 41,
+    "remainingOcrCandidates": 556,
+    "fullStemChoicesFormulaGraphReview": "HOLD"
+  },
+  "release": "REVIEW_PREVIEW_ONLY"
+}

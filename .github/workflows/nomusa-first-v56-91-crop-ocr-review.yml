@@ -1,0 +1,84 @@
+name: NOMUSA FIRST V56 OCR 91 remaining 2016 management source crops review only
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v56-91-crop-ocr-review.yml'
+      - 'scripts/nomusa-first-v56-91-crop-ocr-source-risk.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v56-91-original-crops-review
+  cancel-in-progress: true
+jobs:
+  source-crop-ocr:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original PDF hash inspection and OCR
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13
+      - name: Reconstruct exact 2016 management original image evidence with QNet SHA
+        run: |
+          node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+          python scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+          git restore -- review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json
+      - name: Actually OCR 91 provisional original crops and issue content risk flags
+        run: |
+          python -m py_compile scripts/nomusa-first-v56-91-crop-ocr-source-risk.py
+          python scripts/nomusa-first-v56-91-crop-ocr-source-risk.py
+      - name: Fail closed on original source/image hashes, 91 unique IDs, and zero approvals
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          out=Path('review-artifacts/NOMUSA_FIRST_V56/NOMUSA_FIRST_V56_91_UNAPPROVED_OCR_TEXT_AND_RISK.json')
+          q=json.loads(out.read_text(encoding='utf8'))
+          assert q['newV55CropsOCRRequested']==q['imageSha256Passed']==q['uniqueIds']==91
+          assert q['newScoringApprovals']==q['newQDATAImports']==0
+          assert q['independentOriginalStemFiveOptionsApprovals']==0
+          assert len(q['rows'])==91 and len({r['id'] for r in q['rows']})==91
+          assert all(not r['scoringApproved'] and not r['readyForV44'] and not r['originalStemAndFiveOptionsVerified'] for r in q['rows'])
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changed).issubset({'review/NOMUSA_FIRST_V56_91_ORIGINAL_CROP_OCR_RISK_SUMMARY_20261118.json'}),changed
+          print('PASS_V56_91_OCR_CANDIDATES_SOURCE_SHA_MATCHED_EXPERT_CONTENT_HOLD')
+          PY
+      - name: Archive only summary in Draft PR; do not deploy or merge
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V56_91_ORIGINAL_CROP_OCR_RISK_SUMMARY_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v56): 91 original crop OCR candidates and 5-choice risk labels, no scoring'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Upload complete 91 candidate texts, 91 images, and review queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v56-91-original-crop-ocr-unapproved-evidence
+          path: |
+            review-artifacts/NOMUSA_FIRST_V56/
+            review-artifacts/NOMUSA_FIRST_V55/NOMUSA_FIRST_V55_125_QUESTION_PAGE_AND_CROP_REVIEW.json
+            review-artifacts/NOMUSA_FIRST_V55/original_pdf_candidate_crops/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,971 @@
+{
+  "schema": "NOMUSA_FIRST_V38_2020_2021_SHA_PAGE_REFERENCE/1",
+  "sourceStatus": "OFFICIAL_QNET_PDF_SHA_MATCH",
+  "examYears": [
+    2020,
+    2021
+  ],
+  "AFormCandidates": 300,
+  "OCRPageCandidates": 274,
+  "bookletOnlyHOLD": 26,
+  "uniqueImagePages": 88,
+  "sourceDocuments": [
+    {
+      "key": "2020-A-management",
+      "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "pdfSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "pageCount": 38,
+      "recordCount": 106,
+      "ocrPageCandidates": 95,
+      "unlocatedIds": [
+        "legacy1-2020-A-labor1-013",
+        "legacy1-2020-A-labor2-036",
+        "legacy1-2020-A-civil-063",
+        "legacy1-2020-A-civil-072",
+        "legacy1-2020-A-civil-073",
+        "legacy1-2020-A-civil-074",
+        "legacy1-2020-A-civil-075",
+        "legacy1-2020-A-social-078",
+        "legacy1-2020-A-social-086",
+        "legacy1-2020-A-social-092",
+        "legacy1-2020-A-management-110"
+      ],
+      "images": [
+        {
+          "page": 2,
+          "image": "2020-A-management-p002.jpg",
+          "sha256": "be0f613d110285c4d2c80160cec7d8a46db853282c4239a5786b98f9e20ae6de",
+          "bytes": 242110,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 3,
+          "image": "2020-A-management-p003.jpg",
+          "sha256": "b2e1e3c194ce2445381cc1190d7bceeaa0b9c08d393e3e42f6e583f73422970a",
+          "bytes": 251066,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 4,
+          "image": "2020-A-management-p004.jpg",
+          "sha256": "6b19882f66679df40a6d84c90b5e4cc0ca08b2697750b7e951b60683b596dcc4",
+          "bytes": 256586,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 5,
+          "image": "2020-A-management-p005.jpg",
+          "sha256": "c43d3be6f1a87c7edf631404b0f52f39a2e547e4d393a127a731cdc4a9c62331",
+          "bytes": 222551,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 6,
+          "image": "2020-A-management-p006.jpg",
+          "sha256": "dff2c5cfad8436688a86bf5be6f7adc43f3d1d4a1a60f90b50174928b5660823",
+          "bytes": 182557,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 7,
+          "image": "2020-A-management-p007.jpg",
+          "sha256": "5cf638e320dcef4c1c524cc9343e9194479f8f8c7fe06b60c6c6a72aad94c4ef",
+          "bytes": 227147,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 8,
+          "image": "2020-A-management-p008.jpg",
+          "sha256": "ce74ea2c4823ce4665a2c8fef6eb5b55820b02f30f32b22495eda2eba5850bf1",
+          "bytes": 197719,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 9,
+          "image": "2020-A-management-p009.jpg",
+          "sha256": "0efcba2046941f604c98b6e83dcd1c3bc2a254962cb4f91e4e43da64dff8dacd",
+          "bytes": 181113,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 10,
+          "image": "2020-A-management-p010.jpg",
+          "sha256": "96521d63708a25bef5e8b53e2ddcc3f043c356fe2b5fc7870a96565ff0774b38",
+          "bytes": 225876,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 11,
+          "image": "2020-A-management-p011.jpg",
+          "sha256": "f25c7f5b22e87ed7b954e3d3a66291e8f8e696f32355322ed09c73ab97f11246",
+          "bytes": 250410,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 12,
+          "image": "2020-A-management-p012.jpg",
+          "sha256": "7765c07898112aa1afbd181a71c46e27fb244b1a16db879f45ec2ea2624c0ca5",
+          "bytes": 222411,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 13,
+          "image": "2020-A-management-p013.jpg",
+          "sha256": "39cfeb3749c24f1a7c9702f1de905ff1468453130732fd7472b5ac5dfd278ac2",
+          "bytes": 219395,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 14,
+          "image": "2020-A-management-p014.jpg",
+          "sha256": "f747465916808dc38bc7fee1023f4b0781492e19b5b54500b6380e6235f93884",
+          "bytes": 273422,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 15,
+          "image": "2020-A-management-p015.jpg",
+          "sha256": "9b7c92910c906f7e18ebf9766c9f2a6e7970969561821bd3f87ad16d8c1e49df",
+          "bytes": 275749,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 16,
+          "image": "2020-A-management-p016.jpg",
+          "sha256": "159467b488a52de2a8ac4596b865768c0ef2a01286191acfb8890a35a134ff35",
+          "bytes": 217782,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 17,
+          "image": "2020-A-management-p017.jpg",
+          "sha256": "679b1165cc9bc5cf33b6ae5a72a5af925593f2c751c906b963e05bc9116c7b50",
+          "bytes": 251837,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 18,
+          "image": "2020-A-management-p018.jpg",
+          "sha256": "b5b3dda32ca2e7d1ce1394cb719e785c41a29a819d27983bc4e262a4de66abf4",
+          "bytes": 235496,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 19,
+          "image": "2020-A-management-p019.jpg",
+          "sha256": "03df39327f05bd86334d9e0192cbdc2df9a0cf0bff33d3f012066ae1edd74a5c",
+          "bytes": 250628,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 20,
+          "image": "2020-A-management-p020.jpg",
+          "sha256": "1702dce53610bccad530118c2622372bf5e7d07d43b3a03e8033d683143285cc",
+          "bytes": 250944,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 21,
+          "image": "2020-A-management-p021.jpg",
+          "sha256": "52515ad5099251964001d20ca32c32ef0e453895825847446a4608745d3d6f75",
+          "bytes": 232253,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 22,
+          "image": "2020-A-management-p022.jpg",
+          "sha256": "77678b16bfdc51a5e1d9dd55ef460a45530b5e1b2bb11327eec569eb0ef5b3b1",
+          "bytes": 201125,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 23,
+          "image": "2020-A-management-p023.jpg",
+          "sha256": "dc22565310a7881f8239722cc9e8c9eeebb8bfaecebae384d031571fbc7625d7",
+          "bytes": 216119,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 24,
+          "image": "2020-A-management-p024.jpg",
+          "sha256": "2e2c84a29958bf7582fef03be0af4f7336e7e1810bfc6223a7a969d14220eb29",
+          "bytes": 235050,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 31,
+          "image": "2020-A-management-p031.jpg",
+          "sha256": "d3029a43b944db179e295b0935bc1c7a27ec38da42b81c54f6d811d601494b7a",
+          "bytes": 249684,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 32,
+          "image": "2020-A-management-p032.jpg",
+          "sha256": "a3bed111d46833b4b85edb6594841093f134d9703792ca860e1210eb344d758e",
+          "bytes": 246496,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 33,
+          "image": "2020-A-management-p033.jpg",
+          "sha256": "a63f0c2981fd415b281da9753f5ae8bbbcb0408424b3946f745b87446b65bd82",
+          "bytes": 171801,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 34,
+          "image": "2020-A-management-p034.jpg",
+          "sha256": "06e50c83184158b2f1a13272c17d42c088f8145b05a56721eabda3d228077387",
+          "bytes": 191350,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 35,
+          "image": "2020-A-management-p035.jpg",
+          "sha256": "3d9879033bbf0f96e050e7df81c8ecee2adca519f9fbc187b2085f26ddf64d6c",
+          "bytes": 209661,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 36,
+          "image": "2020-A-management-p036.jpg",
+          "sha256": "af67db41cc380b99588a83fa6f9ddcce0ddbb17b81d8e80f539520e54b91ce78",
+          "bytes": 189793,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 37,
+          "image": "2020-A-management-p037.jpg",
+          "sha256": "54e40359248557830e8fed59b7fc72f9db5de6d65d978a45458333cf77d94768",
+          "bytes": 119071,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+          "pageLocationIndependentApproval": "HOLD"
+        }
+      ]
+    },
+    {
+      "key": "2020-A-economics",
+      "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194955&fileName=1.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%A0%9C%ED%95%99%EC%9B%90%EB%A1%A0%29.pdf&fileSeq=2194955&artlSeq=5207202&href=0",
+      "pdfSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+      "pageCount": 39,
+      "recordCount": 44,
+      "ocrPageCandidates": 35,
+      "unlocatedIds": [
+        "legacy1-2020-A-economics-102",
+        "legacy1-2020-A-economics-109",
+        "legacy1-2020-A-economics-111",
+        "legacy1-2020-A-economics-113",
+        "legacy1-2020-A-economics-114",
+        "legacy1-2020-A-economics-117",
+        "legacy1-2020-A-economics-118",
+        "legacy1-2020-A-economics-122",
+        "legacy1-2020-A-economics-123"
+      ],
+      "images": [
+        {
+          "page": 14,
+          "image": "2020-A-economics-p014.jpg",
+          "sha256": "3ba6ff26419df87d878f6ca3e50da0137881a67e54664318888681d516ed6ef0",
+          "bytes": 275743,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 15,
+          "image": "2020-A-economics-p015.jpg",
+          "sha256": "8586c0494f0a89c5093608f6d2514f6d88a0899400871d22a877e801212a6771",
+          "bytes": 273526,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 17,
+          "image": "2020-A-economics-p017.jpg",
+          "sha256": "514c98b12fe31cf360f6561ad9d2fce128ac9c51c8ca78e1ee1f13d4b245d49e",
+          "bytes": 250985,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 18,
+          "image": "2020-A-economics-p018.jpg",
+          "sha256": "8331674b423d72078ce98338ccb8bbe3829b45c4ebbe6b4ef8bb228aeb058404",
+          "bytes": 234103,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 26,
+          "image": "2020-A-economics-p026.jpg",
+          "sha256": "42f4d2dc550a09e9d483128b709328fb17f81609950a24f7e361ea012e4031f6",
+          "bytes": 190354,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 27,
+          "image": "2020-A-economics-p027.jpg",
+          "sha256": "e94bf8672dacab5b1136c7f7857c32c48227de068f2710717015fafbc60fa30a",
+          "bytes": 223588,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 28,
+          "image": "2020-A-economics-p028.jpg",
+          "sha256": "25fdee30df2e94cd17d1e1776f141735f36af68505728460e3aa02e6a327f12d",
+          "bytes": 185527,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 29,
+          "image": "2020-A-economics-p029.jpg",
+          "sha256": "248b814967ce4c6756ed40c6bf828d6f26242595a07df8cbe9bf6368ce707a74",
+          "bytes": 237430,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 30,
+          "image": "2020-A-economics-p030.jpg",
+          "sha256": "23f76ebffe597f50d27325873e5e9d707fb72aa115a0de4ef3a599481c556d78",
+          "bytes": 194159,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 33,
+          "image": "2020-A-economics-p033.jpg",
+          "sha256": "ea311203aa0fcbb5cffd27b12a5072332acaf0d08bfc222a5ed050cfbdde8b9e",
+          "bytes": 216014,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 34,
+          "image": "2020-A-economics-p034.jpg",
+          "sha256": "3ac372a8d080aff690b970340ec150705489f3245e275497c1bedcf1132b27ee",
+          "bytes": 197827,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 35,
+          "image": "2020-A-economics-p035.jpg",
+          "sha256": "9c49b3cb047a641a5fbf37e654e7204a176d8f4bada2ce5ccd325fc4bd49c899",
+          "bytes": 203427,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 36,
+          "image": "2020-A-economics-p036.jpg",
+          "sha256": "8542eca31ec5614b3b02e3fe72dc2319a0dd4379603d60965baedb8dda3a3d49",
+          "bytes": 200141,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 37,
+          "image": "2020-A-economics-p037.jpg",
+          "sha256": "0936fb2363a651a4edb745ecb485671965baf5838e90a2b39844442274bf13da",
+          "bytes": 232021,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 38,
+          "image": "2020-A-economics-p038.jpg",
+          "sha256": "50359f32a29d28585a4728eab4f9f2e594f37053498e5a84f185cc1fc8e1ecc1",
+          "bytes": 186313,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "6b30599acb6683d1d0a4bfe635ab04ca37d2ff126603e7b0bd50136d3e7c7552",
+          "pageLocationIndependentApproval": "HOLD"
+        }
+      ]
+    },
+    {
+      "key": "2021-A-management",
+      "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "pdfSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "pageCount": 38,
+      "recordCount": 118,
+      "ocrPageCandidates": 113,
+      "unlocatedIds": [
+        "legacy1-2021-A-management-101",
+        "legacy1-2021-A-management-102",
+        "legacy1-2021-A-management-103",
+        "legacy1-2021-A-management-104",
+        "legacy1-2021-A-management-105"
+      ],
+      "images": [
+        {
+          "page": 1,
+          "image": "2021-A-management-p001.jpg",
+          "sha256": "303f98cfaa2f54e0db6bf5dd0fb478f59a8b5f76254501fd3e3ea591109a1923",
+          "bytes": 183209,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 2,
+          "image": "2021-A-management-p002.jpg",
+          "sha256": "fa340a8076f622bccacffa65595ac55b44de51cdcf6a56174e01c02cae94a6a3",
+          "bytes": 195962,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 3,
+          "image": "2021-A-management-p003.jpg",
+          "sha256": "fa6223ef10d579a1976847392b7e9f24afd2ad2ab8d5d44c57a2749f5b189f87",
+          "bytes": 215563,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 4,
+          "image": "2021-A-management-p004.jpg",
+          "sha256": "1359375081479c2dadee769b8bc9f881f96b2d0d199beb6893ee437f739cb7f2",
+          "bytes": 205925,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 5,
+          "image": "2021-A-management-p005.jpg",
+          "sha256": "7a8a20368fe1412bc5f75c1027ddbbc8e7756a26f910d13e2fd1c0a124016f98",
+          "bytes": 246354,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 6,
+          "image": "2021-A-management-p006.jpg",
+          "sha256": "521bc9f6c44e8cc1b752e3d4162a1aa33ab23619768a925165b922d89e43e8d9",
+          "bytes": 241807,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 7,
+          "image": "2021-A-management-p007.jpg",
+          "sha256": "dd15a6d547aaf44c17e87274145fa5256140c2660eda7439db94fff786d87b40",
+          "bytes": 212680,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 8,
+          "image": "2021-A-management-p008.jpg",
+          "sha256": "bb6ef73c5b795622f64cff0f8226143f0efbc9a0d9282cc3521e01ddc12bc946",
+          "bytes": 209189,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 9,
+          "image": "2021-A-management-p009.jpg",
+          "sha256": "de84dba27c4ba0045c8565a3dcc5ba44d4f2c145a834ac0bd84201288f5d5c10",
+          "bytes": 144040,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 10,
+          "image": "2021-A-management-p010.jpg",
+          "sha256": "1261ac5dd3427a071c9777e5e4ad46f32d1fc106bae52e78d4050ffb91345eb6",
+          "bytes": 217627,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 11,
+          "image": "2021-A-management-p011.jpg",
+          "sha256": "8d68f3854d6c0c1ed40a1253bda39e5001cc6d8d679f1be13753c94e62be60b5",
+          "bytes": 196674,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 12,
+          "image": "2021-A-management-p012.jpg",
+          "sha256": "d634350dba549a45784ab57d3ef6c24a6754336915a39a5ee8e683c766ae4ff5",
+          "bytes": 229285,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 13,
+          "image": "2021-A-management-p013.jpg",
+          "sha256": "c626db1515586b2c92150aebd0771ddb6341d3ea4ed1457a133d7f121bba05ac",
+          "bytes": 183445,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 14,
+          "image": "2021-A-management-p014.jpg",
+          "sha256": "ae362a3957af6f7b40fad9871edd6fa5aa7336a7b0b4890f607b51d0b27742bb",
+          "bytes": 255510,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 15,
+          "image": "2021-A-management-p015.jpg",
+          "sha256": "1019465ffcca691f66b5f104b0786e2a20334f09eb65b0458f357f273b631581",
+          "bytes": 246346,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 16,
+          "image": "2021-A-management-p016.jpg",
+          "sha256": "e20f5a32d87ee7b4cb1db8cafa93ce18cd79d2d77a43374d970cbb568810bbcf",
+          "bytes": 186681,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 18,
+          "image": "2021-A-management-p018.jpg",
+          "sha256": "cc4457a51c6b7e5777bc3cc070fe837237aad980256ee8c7e03b16cf68afeb10",
+          "bytes": 200107,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 19,
+          "image": "2021-A-management-p019.jpg",
+          "sha256": "e3a0343ca567a29d80be6b9c0a84961dfcae5efae2f255ef105c52c53abfe992",
+          "bytes": 212604,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 20,
+          "image": "2021-A-management-p020.jpg",
+          "sha256": "09049c4c10e30b8fff8c99394010024ffe73c56d537d39e2568106ca677033ef",
+          "bytes": 203367,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 21,
+          "image": "2021-A-management-p021.jpg",
+          "sha256": "acbd599e1366b7bb0b79dd4ab4f7931e374cb849bee61d361f42bf4abebb6b5e",
+          "bytes": 213480,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 22,
+          "image": "2021-A-management-p022.jpg",
+          "sha256": "21d56c864a8a79801ba71a09f21fc001aed5be4dc96da3066818d3a54303c0f5",
+          "bytes": 202344,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 23,
+          "image": "2021-A-management-p023.jpg",
+          "sha256": "a5bc4337de6cd8a366cfd12313623614f35ec5f0e7ae76c7c3a9872ffed9bfc0",
+          "bytes": 216629,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 24,
+          "image": "2021-A-management-p024.jpg",
+          "sha256": "dc64b67694e42f6ab0d811a0cccfd46ea3b1fb1be31a998774c039c16810be29",
+          "bytes": 190135,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 25,
+          "image": "2021-A-management-p025.jpg",
+          "sha256": "729ae20f9e31c06356bb07698252bd2038931a5c2b4e7230a274e1bf49bbff1d",
+          "bytes": 245248,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 26,
+          "image": "2021-A-management-p026.jpg",
+          "sha256": "4435b02be892619c72d2e711a7b7ecebff7d599c4d0dfcae64edab3891f934e6",
+          "bytes": 238916,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 27,
+          "image": "2021-A-management-p027.jpg",
+          "sha256": "09862a9be695f8195379639f6781dfe0fe0104a2bf1ead5335bef862f18ab6d4",
+          "bytes": 195078,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 28,
+          "image": "2021-A-management-p028.jpg",
+          "sha256": "0facf2a35a8847365d0d912f93aa5a53a89c5fc01ab6ffebfc570dda68c5ceb8",
+          "bytes": 211345,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 29,
+          "image": "2021-A-management-p029.jpg",
+          "sha256": "fe1104adfed5aa1def5146a7840f1040c365af9a077e6c06b45a6f1093d03a1c",
+          "bytes": 214713,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 30,
+          "image": "2021-A-management-p030.jpg",
+          "sha256": "f13d96ebab1ab3878aae1f672c9638ba44b2a925d46fe7727cc3866afb9970ea",
+          "bytes": 204628,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 32,
+          "image": "2021-A-management-p032.jpg",
+          "sha256": "032bd37b2d2ac4ee00da7588c4e54f055a03ecf7a016b4aa8bffe363a87b7fff",
+          "bytes": 181705,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 33,
+          "image": "2021-A-management-p033.jpg",
+          "sha256": "ca9c7bb4e4fe9003a76be324ad31086d28b5ed569cef9a8a34749e3813d44358",
+          "bytes": 204548,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 35,
+          "image": "2021-A-management-p035.jpg",
+          "sha256": "8d4f80a56a0bb9570e14643edaee9dfd31fa44c3e999967388cca7f72501dcca",
+          "bytes": 155241,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 36,
+          "image": "2021-A-management-p036.jpg",
+          "sha256": "23c7fa753788b7d94359f1d0ba9aedc38c41d21a97ddd35853797502147c2632",
+          "bytes": 125549,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 37,
+          "image": "2021-A-management-p037.jpg",
+          "sha256": "0f4d6c7e0197917792b985870cf6c7356e344b5b0b14b608f01e6a179dd65e29",
+          "bytes": 190736,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 38,
+          "image": "2021-A-management-p038.jpg",
+          "sha256": "db9469044ab639da6d5ab43f57655b782177519b5e4cf0dd82e8305be55b79f0",
+          "bytes": 104153,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+          "pageLocationIndependentApproval": "HOLD"
+        }
+      ]
+    },
+    {
+      "key": "2021-A-economics",
+      "sourceURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199132&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%A0%9C%ED%95%99a%ED%98%95.pdf&fileSeq=2199132&artlSeq=5208528&href=0",
+      "pdfSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "pageCount": 39,
+      "recordCount": 32,
+      "ocrPageCandidates": 31,
+      "unlocatedIds": [
+        "legacy1-2021-A-economics-113"
+      ],
+      "images": [
+        {
+          "page": 17,
+          "image": "2021-A-economics-p017.jpg",
+          "sha256": "2d696b1a090acd118e6507ec0de028d61095efd6d00b89d4ba886032afb40c44",
+          "bytes": 210835,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 31,
+          "image": "2021-A-economics-p031.jpg",
+          "sha256": "da7f1c47e2a10ad2abccd8c7e47e0ba54c1b3563e4621610c3266aa66140b5a2",
+          "bytes": 188436,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 34,
+          "image": "2021-A-economics-p034.jpg",
+          "sha256": "62ecf55c695d21127a55a7b2d9ca310fbb86810780912877f3c401d6e45e2764",
+          "bytes": 173884,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 35,
+          "image": "2021-A-economics-p035.jpg",
+          "sha256": "6dd94aeb4a3435ba0c6680e949cfe73088529abdf47592d3c8ee57956037b979",
+          "bytes": 153876,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 36,
+          "image": "2021-A-economics-p036.jpg",
+          "sha256": "c4e014e096a8bd2b0588fb732a5e817f7c21a54999714d567530d8150d8641ee",
+          "bytes": 207647,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 37,
+          "image": "2021-A-economics-p037.jpg",
+          "sha256": "911f8a4574b17e49ffe131e6a6fa289dc54c37400242467e60a6e3cc06998f3c",
+          "bytes": 186576,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 38,
+          "image": "2021-A-economics-p038.jpg",
+          "sha256": "29200c9012d320497bda7037d5f8cf4739de39fa4f85f07f8e7a8b0de6d69b86",
+          "bytes": 201551,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        },
+        {
+          "page": 39,
+          "image": "2021-A-economics-p039.jpg",
+          "sha256": "0dea311096c3db671ce29d00dbf8533450db0cc41d51808f5160865b531c8b25",
+          "bytes": 210537,
+          "width": 1101,
+          "height": 1558,
+          "sourcePDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+          "pageLocationIndependentApproval": "HOLD"
+        }
+      ]
+    }
+  ],
+  "independentQuestionPageApproval": 0,
+  "scoringApproved": 0,
+  "recordedQDATAItemsAdded": 0
+}

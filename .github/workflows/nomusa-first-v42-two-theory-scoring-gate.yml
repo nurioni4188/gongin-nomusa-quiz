@@ -1,0 +1,52 @@
+name: NOMUSA FIRST V42 2 validated theory questions source, grading and mobile gate
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - 'study-hub/first-v42-two-theory-source-checked.js'
+      - 'scripts/nomusa-first-v42-two-theory-source-gate.mjs'
+      - 'scripts/nomusa-first-v42-two-theory-browser-e2e.py'
+      - '.github/workflows/nomusa-first-v42-two-theory-scoring-gate.yml'
+      - 'index.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v42-two-source-checked-theory-quiz-gate
+  cancel-in-progress: true
+jobs:
+  two-original-verified-theory-questions:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Only two source-verified history questions with unchanged 2279 bank and 4 repaired original crops
+        run: |
+          node --check study-hub/first-v42-two-theory-source-checked.js
+          node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+      - name: Install Chromium real-browser testing tools
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium --only-shell
+      - name: Check 2 official QNet A-form keys, wrong note, local restore and 0 other historical auto grades
+        run: python scripts/nomusa-first-v42-two-theory-browser-e2e.py .
+      - name: Check existing second-stage shared browser regression
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Upload exact browser QA proof, not a final expert approval
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v42-two-source-verified-theory-18-e2e
+          path: review-artifacts/NOMUSA_FIRST_V42_E2E
+          if-no-files-found: warn
+          retention-days: 30

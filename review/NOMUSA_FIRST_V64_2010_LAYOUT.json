@@ -1,0 +1,20 @@
+{
+  "questions": 125,
+  "layoutRestored": 125,
+  "bySubject": {
+    "노동법(1)": 25,
+    "노동법(2)": 25,
+    "민법": 25,
+    "사회보험법": 25,
+    "경영학개론": 25
+  },
+  "held": {},
+  "year": 2010,
+  "booklet": "A-management",
+  "answerCellsCompared": 150,
+  "answerDifferences": 0,
+  "answerPdfNotice": "https://www.q-net.or.kr/cst003.do?artlSeq=5021186&boardId=Q004&gId=05&gSite=L&id=cst00302",
+  "answerHwpSHA256": "d0728dbb283505479d25ecd226e25cfeeb327f351e776f1be793136fb9a34e32",
+  "questionHwpSHA256": "2a732adb0b65c5708877925c76bb686d6b76526c73fd4cab33b1a797b872b1dc",
+  "economicsQuestionBooklet": "PENDING"
+}

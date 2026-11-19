@@ -1,0 +1,109 @@
+name: NOMUSA canonical draft Chromium gate
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - 'second/**'
+      - 'study-hub/**'
+      - 'rc27_essay_catalog.js'
+      - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'scripts/nomusa_editorial_batch.py'
+      - 'scripts/nomusa-essay-quality-v19.py'
+      - '.github/workflows/nomusa-canonical-e2e.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-canonical-review-only
+  cancel-in-progress: true
+
+jobs:
+  chromium-review:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact review commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated browser test dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium --with-deps
+      - name: Run actual Chromium at PC 1440 and mobile 390/360
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: V19 editor audit self-test (stdlib only)
+        run: python scripts/nomusa-essay-quality-v19.py --self-test
+      - name: V19 structural 328-essay audit from real Chromium outputs
+        run: python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+      - name: Upload 2022 displayed answer editorial review candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-2022-19x32-editorial-candidate
+          path: review-artifacts/nomusa_2022_19questions_32parts_*
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Upload 2023 and 2025 editorial manuscript batches
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-2023-2025-38x69-editorial-candidates
+          path: |
+            review-artifacts/nomusa_2023_*
+            review-artifacts/nomusa_2025_*
+            review-artifacts/nomusa_2023_2025_editorial_manifest.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload remaining 17 year editorial candidates and evidence manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-remaining-17years-editorial-candidates
+          path: |
+            review-artifacts/nomusa_2007_editorial_*
+            review-artifacts/nomusa_2008_editorial_*
+            review-artifacts/nomusa_2009_editorial_*
+            review-artifacts/nomusa_2010_editorial_*
+            review-artifacts/nomusa_2011_editorial_*
+            review-artifacts/nomusa_2012_editorial_*
+            review-artifacts/nomusa_2013_editorial_*
+            review-artifacts/nomusa_2014_editorial_*
+            review-artifacts/nomusa_2015_editorial_*
+            review-artifacts/nomusa_2016_editorial_*
+            review-artifacts/nomusa_2017_editorial_*
+            review-artifacts/nomusa_2018_editorial_*
+            review-artifacts/nomusa_2019_editorial_*
+            review-artifacts/nomusa_2020_editorial_*
+            review-artifacts/nomusa_2021_editorial_*
+            review-artifacts/nomusa_2024_editorial_*
+            review-artifacts/nomusa_2026_editorial_*
+            review-artifacts/nomusa_remaining_17years_editorial_manifest.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload V19 328-answer priority queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v19-328-quality-priority-queue
+          path: |
+            review-artifacts/NOMUSA_V19_328_PRIORITY_REPORT.json
+            review-artifacts/NOMUSA_V19_328_PRIORITY_REPORT.md
+            review-artifacts/NOMUSA_V19_88_PRIORITY_QUEUE.csv
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Check review branch and refuse deployment
+        if: always()
+        run: |
+          echo 'NOMUSA_E2E_ONLY=1'
+          echo 'No Vercel deployment, no Production, no write token.'

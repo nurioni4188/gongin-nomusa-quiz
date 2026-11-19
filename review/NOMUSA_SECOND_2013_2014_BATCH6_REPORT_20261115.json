@@ -1,0 +1,67 @@
+{
+  "schema": "nomusa-2013-2014-essay-batch6-summary/1",
+  "checkedOn": "2026-11-15",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceVersion": "2026-11-15-batch6",
+  "added": [
+    "2013_p7_q1",
+    "2013_p7_q2",
+    "2013_p7_q3"
+  ],
+  "expanded": [
+    "2013_p6_q1"
+  ],
+  "counts": {
+    "existingCatalog": 309,
+    "parentLedger181": 181,
+    "originalQuestions2013_2014": 38,
+    "authoredDrafts": 19,
+    "remainingUnwritten": 19
+  },
+  "validations": {
+    "scripts/nomusa-2013-2014-answers-gate.mjs": {
+      "status": "PASS",
+      "errors": [],
+      "preservedFiles": 8,
+      "pointsAndIds": "PASS",
+      "minimumDraftLength": "PASS"
+    },
+    "scripts/nomusa_2013_2014_38_browser_qa.py": {
+      "status": "PASS",
+      "passed": 72,
+      "expected": 72,
+      "widths": [
+        1440,
+        390,
+        360
+      ]
+    },
+    "scripts/nomusa-second-v1110-181-qa.py": {
+      "status": "PASS",
+      "passed": 12,
+      "expected": 12
+    },
+    "scripts/nomusa-first-v6-fullhub-gate.py": {
+      "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+      "browserChecks": 13,
+      "sourceQuestionAlignment": "HOLD"
+    }
+  },
+  "citations": {
+    "laws": "2011-07-20-effective historical Korean Civil Procedure Act (used for 2013 source), independent as-of-date final verification HOLD",
+    "cases": "official Korean National Law Information Center verdict summaries checked; independent case application approval HOLD"
+  },
+  "safety": {
+    "existingParentIDs": "UNCHANGED",
+    "originalPdf": "UNCHANGED",
+    "rc35": "UNCHANGED",
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "vercelPreview": "NOT_DEPLOYED",
+    "autoScoring": "DISABLED",
+    "citationReview": "HOLD",
+    "humanApproval": "PENDING"
+  },
+  "note": "Source-linked learning drafts, not approved exam model answers; quality and substantive legal review remain HOLD."
+}

@@ -1,0 +1,91 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>공인노무사 1차 과거정답 검토</title><style>body{margin:0;background:#f5f7fb;color:#1f2d42;font:15px system-ui,'Malgun Gothic',sans-serif}.wrap{max-width:930px;margin:auto;padding:20px 14px 70px}h1{font-size:24px}.notice{padding:14px;border:1px solid #e8cd85;background:#fff7e4;border-radius:9px}.bar{display:flex;flex-wrap:wrap;gap:12px;padding:15px;background:white;border-radius:10px;margin-top:18px}label{display:grid;gap:4px;flex:1 1 145px}select,input{padding:10px;border:1px solid #ccd3dd;border-radius:6px;min-width:0}table{border-collapse:collapse;width:100%;background:white;margin-top:15px}td,th{padding:10px 8px;border-bottom:1px solid #e9edf3;text-align:left}th{background:#eaf0f9}.ans{font-weight:bold;color:#265d90}.muted{color:#687382}.source-links{display:grid;gap:3px;min-width:84px}@media(max-width:480px){h1{font-size:20px}td,th{padding:8px 5px;font-size:12px}} .v32-stage{font-size:12px;line-height:1.55;color:#344b62}.v32-stage .stage-label{display:block;margin:2px 0}.evidence-key{font-size:13px;color:#526274;margin:8px 0 14px}.evidence-key summary{cursor:pointer;font-weight:600}.notice{line-height:1.6}.status-emph{font-weight:700;color:#284c71}@media(max-width:640px){.bar{gap:8px;padding:10px}.wrap{padding:14px 10px 40px}table{border-collapse:separate;border-spacing:0 10px;background:transparent}thead{display:none}tbody,tr{display:block}tr{background:#fff;border:1px solid #e0e7f0;border-radius:12px;padding:7px 9px;margin-bottom:10px;box-shadow:0 2px 8px rgba(28,45,62,.035)}td{border:0!important;font-size:13px;line-height:1.5;padding:3px 6px!important;display:block;min-width:0;overflow-wrap:anywhere}td:nth-child(-n+4){display:inline-block;width:auto;font-size:12px;color:#516174}td:nth-child(3){font-weight:700;color:#1f2d42}td:nth-child(5)::before{content:'정답 후보 · ';font-weight:400;color:#687382}td:nth-child(6){border-top:1px solid #edf0f4!important;margin-top:4px;padding-top:8px!important}td:nth-child(7){border-top:1px solid #edf0f4!important;margin-top:6px;padding-top:7px!important}.source-links{font-size:12px}.notice{padding:12px}} </style></head><body><main class="wrap"><h1>1차 과거 기출 정답 조회 · 검토본</h1><p class="muted"><a href="index.html">학습 허브로 돌아가기</a> · 기존 2022~2026년 1,020문항 및 저장기록은 변경하지 않습니다.</p><p class="notice"><b>1차 과거 정답 후보 3,400건 · 자동채점 승인 0건</b> · 공식 Q-Net PDF 연결 900건, 2020·2021년 정답표 600셀 이미지 대조. <strong>원본 연결·이미지 대조는 정답 승인과 다릅니다.</strong> 현재 정답은 참고용이고 자동채점하지 않습니다.</p><details class="evidence-key"><summary>검증 단계 구분 · 한 번만 보기</summary><p>문제지: PDF 텍스트 연결 / OCR 위치 후보 / 문항번호 시각확인 / 개별 쪽수 미확정으로 구분합니다. 정답: 공식 PDF 연결 / 이미지 자동대조 / 특수셀 시각대조로 구분합니다. 정답표의 독립 검토와 문항별 채점승인은 모두 별도 대기입니다. 모든 문항에서 지문·선택지·수식의 독립 전수 대조가 완료된 것은 아닙니다.</p></details><section class="bar"><label>연도<select id="year"></select></label><label>형<select id="type"><option>A</option><option>B</option></select></label><label>과목<select id="subject"></select></label><label>문항번호<input id="number" placeholder="전체" type="number" min="1" max="125"></label></section><p id="state" class="muted" role="status" aria-live="polite"></p><div style="overflow-x:auto"><table><thead><tr><th>연도</th><th>시험형</th><th>과목</th><th>번호</th><th>정답(전사)</th><th>문제지 원문</th><th>검증</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted">2021년 A·B형 노동법Ⅱ 26번 전원정답(1~5) 및 민법 A형 70번·B형 72번 복수정답(3·4)은 별도 예외로 관리합니다. 해당 2021년 전원·복수정답은 신규 검토 데이터에도 반영되었으며, 독립 재검증은 HOLD입니다.</p></main><script src="legacy-first-answer-review.js"></script><script src="legacy-first-v2-staged.js"></script><script src="legacy-first-v4-2014-2021-review.js"></script><script src="legacy-first-v5-correction.js"></script><script src="legacy-first-v61-sources.js"></script><script src="first-v32-proof-status.js"></script><script src="first-v33-missing-year-coverage.js"></script><script>(function(){'use strict';const d=window.NOMUSA_FIRST_LEGACY_V5,$=x=>document.getElementById(x);if(!d){$('state').textContent='정답 데이터가 없습니다';return;}d.sourceOnlyYears.forEach(x=>$('year').add(new Option(x.year,x.year)));
+const params=new URLSearchParams(location.search),yearParam=Number(params.get('year'));
+$('year').value=d.sourceOnlyYears.some(r=>r.year===yearParam)?String(yearParam):'2021';
+$('type').value=params.get('type')==='B'?'B':'A';function subj(){const a=[...new Set(d.records.filter(x=>x.year==$('year').value).map(x=>x.subject))];$('subject').replaceChildren(new Option('전체',''),...a.map(x=>new Option(x,x)));}function run(){const y=+$('year').value;const a=d.records.filter(x=>x.year===y&&x.type===$('type').value&&(!$('subject').value||x.subject===$('subject').value)&&(!$('number').value||x.questionNo===+$('number').value));const missing=window.NOMUSA_FIRST_V33_COVERAGE?.missingYears.find(r=>r.year===y);
+$('state').textContent=missing?
+  `${y}년 ${$('type').value}형 · 정답 후보 ${a.length}건 · 원문 문제풀이 미편입 · 자동채점 불가`:
+  `${y}년 ${$('type').value}형 · 정답 후보 ${a.length}건 · 내용 승인 대기`;$('rows').replaceChildren(...a.map(x=>{const tr=document.createElement('tr');[x.year,x.type,x.subject,x.questionNo,x.answers.join(','),''].forEach((v,i)=>{const td=document.createElement('td');td.textContent=v;if(i===4)td.className='ans';tr.append(td);});
+const v32=window.NOMUSA_FIRST_V32_STATUS?.classify(x.id);
+const validation=tr.lastElementChild;validation.className='v32-stage';
+for(const txt of [v32?.sourceStatus||'원본 연결 검토',v32?.answerStatus||'정답 후보']){
+ const label=document.createElement('span');label.className='stage-label';label.textContent=txt;validation.append(label);
+}
+const src=document.createElement('td');
+const links=document.createElement('div');
+links.className='source-links';
+const sources=window.NOMUSA_FIRST_V61_SOURCES;
+const item=sources?.records[x.id];
+const visualPages={
+  'legacy1-2020-A-labor1-013': [5,4],
+  'legacy1-2021-A-economics-113': [36,36],
+  'legacy1-2021-B-economics-111': [36,36]
+};
+// V7.1: question headings visually located in exact SHA256-matched official PDF pages.
+ // Printed-page numbers and full stem/option verification remain HOLD.
+const visualPdfPagesV71={
+  'legacy1-2020-A-civil-072':24,
+  'legacy1-2020-A-civil-075':25,
+  'legacy1-2020-A-social-078':26,
+  'legacy1-2020-A-economics-114':36,
+  'legacy1-2020-B-labor1-004':3,
+  'legacy1-2020-B-labor1-005':3,
+  'legacy1-2020-B-labor1-006':3,
+  'legacy1-2020-B-labor1-010':4,
+  'legacy1-2020-B-labor2-036':12,
+  'legacy1-2020-B-civil-075':25,
+  'legacy1-2020-B-social-078':26,
+  'legacy1-2020-B-management-112':34,
+  'legacy1-2020-B-management-117':35,
+  'legacy1-2021-A-management-102':34
+};
+const v71PdfPage=visualPdfPagesV71[x.id];
+const verifiedPage=visualPages[x.id]||(Number.isInteger(v71PdfPage)?[v71PdfPage,null]:null);
+function addLink(url, label) {
+  const link=document.createElement('a');
+  link.href=url;
+  link.target='_blank';
+  link.rel='noopener noreferrer';
+  link.textContent=label;
+  links.append(link);
+}
+if(item) {
+  const booklet=sources.documents[item.source];
+  const printedPage=verifiedPage?.[1]??item.printedPage;
+  const paperPage=printedPage
+    ? ` · ${printedPage}쪽${item.pdfLastPage ? `–${item.pdfLastPage}쪽` : ''}`
+    : '';
+  const option=booklet.elective==='economics' ? '경제' : '경영';
+  const originalPdfPage=verifiedPage?.[0]||(item.status==='OCR_PAGE_CANDIDATE'?item.pdfPage:null);
+  const sourcePageURL=Number.isInteger(originalPdfPage)&&originalPdfPage>0?
+    booklet.download+'#page='+originalPdfPage:booklet.download;
+  addLink(sourcePageURL, `${x.type}형 ${option} 문제지${Number.isInteger(originalPdfPage)?' · PDF '+originalPdfPage+'쪽':''}${paperPage}`);
+  const linkStatus=document.createElement('span');
+  linkStatus.className='muted';
+  if(Number.isInteger(v71PdfPage)) {
+    linkStatus.textContent=`PDF ${v71PdfPage}쪽 · 문항번호 원본 시각확인 · 인쇄 쪽수·전체 지문 검증 HOLD`;
+  } else if(verifiedPage) {
+    linkStatus.textContent=`PDF ${verifiedPage[0]}쪽 · 원본 화면 확인`;
+  } else if(item.status==='OCR_PAGE_CANDIDATE') {
+    linkStatus.textContent=`PDF ${item.pdfPage}쪽 · 자동 판독 후보`;
+  } else if(!item.printedPage) {
+    linkStatus.textContent='개별 쪽수 확인 대기';
+  }
+  if(linkStatus.textContent) links.append(linkStatus);
+  addLink(sources.answerDocuments[item.answerSource].download,
+    `최종정답 PDF · ${item.answerPdfPage}쪽`);
+} else if(x.questionSourceUrl&&/^https:\/\//.test(x.questionSourceUrl)) {
+  addLink(x.questionSourceUrl,'원문 목록');
+} else if(x.questionSourceFile) {
+  const noted=document.createElement('span');noted.className='muted';
+  noted.textContent='기존 문제지 파일명 기록: '+x.questionSourceFile+' · 문항별 원문 미연결';
+  links.append(noted);
+  if(x.year===2016&&x.subject==='경제학원론') {
+    addLink('https://www.q-net.or.kr/cst003.do?artlSeq=5183001&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309','Q-Net 2016 경제학 A형 원본 게시물 · 개별 문항 대조 대기');
+  } else if(x.year===2018) {
+    addLink('https://www.q-net.or.kr/cst003.do?artlSeq=5203291&boardId=Q004&gId=05&gSite=L&id=cst00302&menuType=cst00309','Q-Net 2018 공식 문제지 ZIP · 개별 문항 대조 대기');
+  }
+} else {
+  links.textContent='문항 원문 미연결 · 정답 후보만 등록';
+}
+src.append(links);
+tr.insertBefore(src,tr.children[5]);return tr;}));} $('year').addEventListener('change',()=>{subj();run()});['type','subject','number'].forEach(x=>$(x).addEventListener('input',run));subj();run();})();</script></body></html>

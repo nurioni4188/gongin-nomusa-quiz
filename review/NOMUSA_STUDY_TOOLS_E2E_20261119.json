@@ -1,0 +1,113 @@
+{
+  "schema": "NOMUSA_STUDY_TOOLS_E2E/2",
+  "dateKST": "2026-11-19",
+  "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "testedGitCommit": "a7f4e85824e56f74cb1acb98b87de9e7f5643da8",
+  "testedPaths": [
+    "study-hub/study-tools/index.html",
+    "study-hub/study-tools/app.js",
+    "study-hub/study-tools/style.css",
+    "study-hub/app.js"
+  ],
+  "scope": "2008-2026 source-linked 2281 first-stage IDs in optional single-question focus; manual recall and Anki TSV; essay PDF selection from original 128 catalog units. Incomplete legacy years remain HOLD without grading.",
+  "dataCounts": {
+    "existingFirstQDATA": 1020,
+    "sourceLinkedLegacyFirst": 1259,
+    "sourceCheckedV42Two": 2,
+    "focusFirstTotal": 2281,
+    "essayCatalogUnits": 128,
+    "notAll2008to2026RegisteredQuestionsAdmitted": true
+  },
+  "toolStorageKey": "nomusa_study_tools_v1",
+  "readOnlyOriginalStorageKeys": [
+    "nomusa_preview_hub_v1",
+    "nomu1-progress-v2",
+    "nomusa_rc27_v103_essay_records_v1"
+  ],
+  "browser": "Playwright 1.65.1 Chromium headless, static local repository server in Vercel sandbox, full Git clone",
+  "assertions": [
+    "Local static route HTTP 200",
+    "Loaded first items = 1022 and essay catalog units = 128",
+    "No browser JS page errors at 1440/390/360 viewport",
+    "No document horizontal overflow at 1440/390/360",
+    "Year filter, single-question choice, existing final-key number reveal with approval disclaimer",
+    "Opt-in card selection, UTF-8 Anki text file download, separator/tab/tags header and stable item ID",
+    "Study-tool-only storage persisted and restored through reload",
+    "Original three study storage keys untouched",
+    "Second-stage PDF panel and print preview show original source and HOLD statement",
+    "Chromium generated PDF magic %PDF-, document A4",
+    "Existing hub contains two links to new learning tools",
+    "Additional legacy question source loading from existing 2008-2019 scripts and compressed pack; only checked answer keys can reveal numbers",
+    "Historical source-only unverified candidate answer numbers remain HOLD",
+    "Existing wrong-note record read-only filtering selects just one seeded wrong item; no mass empty local review records",
+    "Existing personal essay draft omitted from PDF by default; included only on opt-in",
+    "Original first/second-stage storage JSON bytes unchanged after practice/export/PDF"
+  ],
+  "results": [
+    {
+      "viewportPx": 1440,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885,
+      "firstStageLoaded": 2281,
+      "ankiExportRecords": 1
+    },
+    {
+      "viewportPx": 390,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885,
+      "firstStageLoaded": 2281,
+      "ankiExportRecords": 1
+    },
+    {
+      "viewportPx": 360,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885,
+      "firstStageLoaded": 2281,
+      "ankiExportRecords": 1
+    }
+  ],
+  "pdfInspection": {
+    "testCase": "2022-org-1 · 2022 경영조직론 50점",
+    "pageSize": "A4 594.96x841.92 pt",
+    "pageCount": 2,
+    "pdfBytes": 157885,
+    "textExtraction": "PASS, Korean text and HOLD wording visible",
+    "firstPageRenderedToJpeg": true,
+    "handwritingTargetNote": "8~10 handwriting sheets is guidance, not produced PDF page count",
+    "renderTool": "Poppler PDF render via pdftoppm verified, Korean extraction via pdftotext verified"
+  },
+  "approvalGate": {
+    "originalQuestionAndAnswerKeyContentIndependentApproval": "HOLD",
+    "historicalLegalAndPrecedentVerification": "HOLD",
+    "protectedPreviewAuthenticatedRealBrowserE2E": "NOT_RUN (SSO)",
+    "newProtectedPreviewDeployment": "NOT_REQUESTED_NOT_PERFORMED"
+  },
+  "preservation": {
+    "githubMainUnmodified": true,
+    "productionUnmodified": true,
+    "existingPreviewUnmodified": true,
+    "sourceQuestionIDsAndKeysUnmodified": true,
+    "externalAnkiSync": false,
+    "externalGoodnotesFlexcilDirectIntegration": false
+  },
+  "extraPrivacyRegression": {
+    "viewportPx": 390,
+    "pass": true,
+    "legacySource": 2281,
+    "originalWrongNoteFilter": true,
+    "emptyRecordsCreatedAfterWrongFilter": 1,
+    "privateEssayDraftDefaultHidden": true,
+    "privateEssayDraftOptInIncluded": true,
+    "existingStorageRecordsPreservedByteIdentical": true,
+    "unapproved2019CandidateAnswerKeyHidden": true
+  }
+}

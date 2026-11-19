@@ -1,0 +1,26 @@
+{
+  "schema": "NOMUSA_FIRST_V64_254_OFFICIAL_QNET_ORIGINAL_RECTANGLE_IMAGE_QA/1",
+  "asOfKST": "2026-11-19",
+  "targetProvisionalCropImages": 254,
+  "sourceGroupImages": {
+    "V48": 67,
+    "V51": 96,
+    "V55": 91
+  },
+  "originalSourcePdfSHAMatchedForAllCrops": 254,
+  "candidateCropFileSHA256Matched": 254,
+  "candidateImageComparedToRenderedOriginalRectangle": 254,
+  "rectangleImageSimilarityStates": {
+    "SOURCE_RECTANGLE_IMAGE_SIMILAR_CANDIDATE": 254
+  },
+  "top24OriginalPageAnnotationsForExpertReview": 24,
+  "independentOriginalStemAndFiveOptionsApproved": 0,
+  "officialFinalAFormAnswerCellsApproved": 0,
+  "historicalLawAndAcademicTheoryContentApproved": 0,
+  "independentHumanReviewApprovals": 0,
+  "newScoringApproved": 0,
+  "newAppImports": 0,
+  "status": "PASS_254_QNET_SOURCE_RECTANGLE_IMAGE_AUDIT_HOLD_EXACT_ORIGINAL_TEXT_AND_GRADING",
+  "warning": "Crop pixel similarity proves only that a candidate JPEG resembles the corresponding Q-Net PDF rectangle. No claim of complete original question or five choices, correct key or expert approval.",
+  "full254QueueInArtifact": "review-artifacts/NOMUSA_FIRST_V64/NOMUSA_FIRST_V64_254_ORIGINAL_REGION_IMAGE_QA.json"
+}

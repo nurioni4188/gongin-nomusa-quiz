@@ -1,0 +1,360 @@
+{
+  "schema": "NOMUSA_FIRST_V43_NINE_WEAK_OPTION_EXPLANATIONS_EXPANDED/1",
+  "questionCount": 9,
+  "rewrittenOptionReasons": 45,
+  "sourceOnlyReview": true,
+  "independentExpertApproved": 0,
+  "rows": [
+    {
+      "id": "legacy1-2021-A-management-114",
+      "officialAnswer": 5,
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄴ",
+          "reason": "ㄱ 징글과 ㄴ 캐릭터만 포함하고 ㄷ 슬로건·ㄹ 심벌을 누락하므로 전체 브랜드 요소를 고른 답이 아니다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄷ, ㄹ",
+          "reason": "ㄷ 슬로건·ㄹ 심벌은 브랜드 요소이지만 ㄱ 징글·ㄴ 캐릭터도 브랜드 요소이므로 불완전하다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ, ㄴ, ㄷ",
+          "reason": "ㄱ·ㄴ·ㄷ은 브랜드 요소지만 ㄹ 심벌 역시 브랜드 식별요소이므로 누락된 조합이다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄷ, ㄹ",
+          "reason": "ㄴ·ㄷ·ㄹ은 모두 브랜드 요소지만 ㄱ 징글도 포함해야 하므로 불완전하다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+          "reason": "징글·캐릭터·슬로건·심벌 네 가지 모두 브랜드를 식별하고 차별화하는 구성요소이므로 정답이다.",
+          "correct": true
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-management-116",
+      "officialAnswer": 2,
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "A, B, C",
+          "reason": "IRR A 32%, C 27.6%, B 26.5%이므로 B를 C보다 먼저 놓은 A,B,C는 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "A, C, B",
+          "reason": "순현재가치와 초기투자를 이용하면 IRR은 A 32%, C 27.6%, B 26.5% 순으로 정확히 정렬된다.",
+          "correct": true
+        },
+        {
+          "number": 3,
+          "text": "B, A, C",
+          "reason": "B 26.5%가 A 32%보다 낮은데 B를 선두에 둔 B,A,C 배열은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "C, A, B",
+          "reason": "C 27.6%는 A 32%보다 작으므로 C를 첫째로 배열한 C,A,B는 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "C, B, A",
+          "reason": "C 27.6%와 B 26.5%보다 A 32%가 높으므로 C,B,A의 역순은 틀리다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-economics-103",
+      "officialAnswer": 1,
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄴ",
+          "reason": "ㄱ 모든 공개정보 반영과 ㄴ 랜덤워크에 가까운 예측불가능성은 효율적 시장가설의 시험상 설명에 부합한다.",
+          "correct": true
+        },
+        {
+          "number": 2,
+          "text": "ㄱ, ㄷ",
+          "reason": "ㄷ은 주식가격의 미래 변화를 지속적으로 예측해 초과수익을 낼 수 있다는 주장으로 효율적 시장가설에 반한다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄴ, ㄷ",
+          "reason": "ㄴ 설명은 가능하지만 ㄷ의 체계적 가격변화 예측 가능성은 효율적 시장가설과 맞지 않는다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄹ",
+          "reason": "ㄹ은 예측 가능한 가격정보가 있어도 시장이 조정하지 않는다는 뜻으로 정보의 신속한 가격반영과 모순된다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄷ, ㄹ",
+          "reason": "ㄷ과 ㄹ 모두 주가가 이용가능한 정보에 즉시 반응한다는 시장효율성 가정과 배치된다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2020-A-economics-104",
+      "officialAnswer": 3,
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ",
+          "reason": "ㄱ 공공재의 무임승차 설명은 맞지만 ㄴ 코우즈정리의 자발적 외부성 해결도 맞아 ㄱ만 고를 수 없다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄴ",
+          "reason": "ㄴ 코우즈정리 설명은 맞지만 ㄱ의 비배제성에 기인한 공급부족 가능성도 참이어서 ㄴ만은 불완전하다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ, ㄴ",
+          "reason": "ㄱ과 ㄴ은 맞다. ㄷ은 비배제성이 아니라 비경합성을 정의한 것이므로 조합 ㄱ·ㄴ이 정확하다.",
+          "correct": true
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄷ",
+          "reason": "ㄴ은 옳지만 ㄷ은 한 사람의 소비가 타인 소비기회를 줄이지 않는 비경합성 설명이라 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ, ㄴ, ㄷ",
+          "reason": "ㄱ·ㄴ은 옳지만 ㄷ은 비배제성과 비경합성을 혼동한 것이므로 세 가지 모두를 고르면 틀리다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false
+    },
+    {
+      "id": "legacy1-2021-A-economics-106",
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "10",
+          "reason": "단기 최적생산량 Q=5에서 매출 210, 총비용 120이므로 이윤은 90이며 10은 고정비에 불과하다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "42",
+          "reason": "42는 시장의 단위당 가격으로 기업이 최대로 얻는 총이윤은 아니다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "52",
+          "reason": "최적 Q=5를 총비용과 총수입에 대입하면 이윤 52가 아니라 90이 나온다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "84",
+          "reason": "가격과 생산량을 혼동한 계산은 84가 될 수 있지만 비용함수 전체를 빼면 90이다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "90",
+          "reason": "MC=8Q+2=P=42이므로 Q=5, 이윤=210−120=90이어서 정답이다.",
+          "correct": true
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false,
+      "officialAnswer": 5
+    },
+    {
+      "id": "legacy1-2021-A-economics-110",
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "1.5",
+          "reason": "단위당 한계외부비용은 SMC−PMC=4로 일정하므로 1.5의 세금은 외부비용을 완전히 내부화하지 못한다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "2",
+          "reason": "사회적 한계비용 절편 10과 사적 한계비용 절편 6의 차이는 4이므로 2는 부족하다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "3",
+          "reason": "사회적 한계비용과 사적 한계비용 간 차액이 전 생산량에서 4라서 3의 세금은 과소하다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "4",
+          "reason": "피구세는 SMC−PMC=(10+Q)−(6+Q)=4로 계산되고 사회적 최적 생산량은 Q=5이다.",
+          "correct": true
+        },
+        {
+          "number": 5,
+          "text": "5",
+          "reason": "5의 세금은 단위당 한계외부비용 4보다 높아 최적산출량을 지나치게 감소시킬 수 있다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false,
+      "officialAnswer": 4
+    },
+    {
+      "id": "legacy1-2021-A-economics-115",
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄴ",
+          "reason": "통화량 감소는 LM곡선을 좌·상방 이동시키므로 ㄱ의 우방향 이동은 틀리다. ㄴ 금리 상승은 맞다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄱ, ㄷ",
+          "reason": "통화긴축만으로 총수요 자율지출의 IS곡선이 직접 좌측 이동하는 것은 아니므로 ㄷ은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ, ㄹ",
+          "reason": "통화긴축이 소득을 줄이는 ㄹ이 시험상 옳더라도 LM 우측 이동을 주장하는 ㄱ은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄹ",
+          "reason": "LM 좌측 이동으로 이자율이 상승하고 투자·소득이 감소한다는 ㄴ·ㄹ을 고르는 것이 출제 의도다. '구축효과' 표현은 별도 검토가 필요하다.",
+          "correct": true
+        },
+        {
+          "number": 5,
+          "text": "ㄴ, ㄷ, ㄹ",
+          "reason": "ㄴ 금리 상승은 맞지만 ㄷ IS곡선 좌측 이동은 통화량 변화의 직접 효과가 아니므로 틀리다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false,
+      "officialAnswer": 4
+    },
+    {
+      "id": "legacy1-2021-A-economics-118",
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄴ",
+          "reason": "ㄱ 고전학파의 화폐중립성과 ㄴ 실물경기변동이론의 신축성은 맞지만 ㄹ 신케인즈 메뉴비용을 누락했다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄱ, ㄹ",
+          "reason": "ㄱ과 ㄹ만 고르면 유연한 임금·가격을 가정하는 실물경기변동이론의 ㄴ을 빠뜨린다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄴ, ㄷ",
+          "reason": "ㄴ은 맞지만 ㄷ 케인즈 경기침체의 원인은 총공급 부족이라는 설명이 아니므로 이 조합은 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄹ",
+          "reason": "ㄴ은 맞고 ㄹ도 맞지만 ㄱ 고전학파의 장기 화폐중립성도 옳아 누락됐다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ, ㄴ, ㄹ",
+          "reason": "ㄱ·ㄴ·ㄹ은 모두 맞고 ㄷ의 총공급 부족 진술만 틀리므로 정답 조합이다.",
+          "correct": true
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false,
+      "officialAnswer": 5
+    },
+    {
+      "id": "legacy1-2021-A-economics-124",
+      "sourceQuestionHasFiveOptions": true,
+      "improvedChoices": [
+        {
+          "number": 1,
+          "text": "ㄱ, ㄹ",
+          "reason": "ㄱ이 맞아도 ㄹ의 동등가치론을 공정한 취업기회만으로 정의한 진술은 틀리므로 정답이 아니다.",
+          "correct": false
+        },
+        {
+          "number": 2,
+          "text": "ㄴ, ㄷ",
+          "reason": "ㄴ 통계적 차별과 ㄷ 집단 평균 생산성 추론은 맞지만 ㄱ의 경쟁 압력 설명도 맞아 누락됐다.",
+          "correct": false
+        },
+        {
+          "number": 3,
+          "text": "ㄱ, ㄴ, ㄷ",
+          "reason": "ㄱ 경쟁 하 취향차별의 비용압력, ㄴ 편견 없는 통계적 차별, ㄷ 집단 평균 추론 모두 출제 조건에 부합한다.",
+          "correct": true
+        },
+        {
+          "number": 4,
+          "text": "ㄴ, ㄷ, ㄹ",
+          "reason": "ㄴ·ㄷ은 맞지만 ㄹ의 동등가치론은 동일가치 직무에 대한 동일보수에 중점을 두므로 틀리다.",
+          "correct": false
+        },
+        {
+          "number": 5,
+          "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+          "reason": "ㄱ·ㄴ·ㄷ은 옳지만 ㄹ이 공정한 취업기회만을 정의한다는 주장은 동등가치론의 취지를 오해했다.",
+          "correct": false
+        }
+      ],
+      "independentExpertApproval": false,
+      "scoringApproved": false,
+      "officialAnswer": 3
+    }
+  ]
+}

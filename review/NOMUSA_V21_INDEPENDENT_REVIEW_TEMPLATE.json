@@ -1,0 +1,46 @@
+{
+  "schema": "nomusa-v21-independent-expert-review-attestation/1",
+  "purpose": "Independent reviewer evidence for ONE question. Template is not a completed approval.",
+  "questionId": "",
+  "draftTextSHA256": "",
+  "exam": {
+    "year": null,
+    "pdfSourceUrl": "",
+    "pdfSHA256": "",
+    "pageNumbers": [],
+    "sourceTextChecked": false,
+    "pointsAndPartsVerified": false
+  },
+  "authorities": {
+    "examDateApplicableLawChecked": false,
+    "statutesAndEffectiveDateEvidence": [],
+    "precedentVerified": [],
+    "academicOriginalPublications": [],
+    "modelEquationsChecked": false,
+    "graphConditionsChecked": false,
+    "notApplicableReason": ""
+  },
+  "substance": {
+    "issueCoverageVerified": false,
+    "lawApplicationOrTheoryVerified": false,
+    "contradictionCheckDone": false,
+    "independentRevisionNotes": ""
+  },
+  "handwriting": {
+    "measured": false,
+    "pages": null,
+    "minutes": null,
+    "writingConditions": "",
+    "evidenceLocation": ""
+  },
+  "reviewer": {
+    "name": "",
+    "qualification": "",
+    "independenceDeclaration": false,
+    "reviewedAtISO": "",
+    "evidenceUrls": [],
+    "writtenOpinion": ""
+  },
+  "decision": "HOLD_UNREVIEWED_TEMPLATE",
+  "notes": "An automated file or AI output cannot satisfy independent reviewer identity and original evidence checks. Any edit to draftTextSHA256 invalidates an earlier decision."
+}

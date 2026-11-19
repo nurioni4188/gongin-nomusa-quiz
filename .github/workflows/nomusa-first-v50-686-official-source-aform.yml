@@ -1,0 +1,289 @@
+name: NOMUSA FIRST V50 link 2018 150 and 2016 25 verified official A PDF booklets
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v50-686-official-source-aform.yml'
+      - 'scripts/nomusa-first-v50-686-official-aform-source-expansion.py'
+      - 'scripts/nomusa-first-v51-175-qnet-a-page-locator.py'
+      - 'scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py'
+      - 'scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py'
+      - 'scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py'
+      - 'scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py'
+      - 'scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v50-original-a-booklet-sha-no-score
+  cancel-in-progress: true
+jobs:
+  original-archive-a-form-linkage:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - name: Checkout Draft PR 3 review branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Load previous exact 686 source manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v48-686-original-review-193-crop-candidates-0-grading
+          run-id: 44279151283
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V48
+      - name: Restore six original 2020 and 2021 QNet source/answer PDF SHA archive for 67 V48 crop comparisons
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v42-six-official-original-pdfs-reference-only
+          run-id: 44239470952
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V42_OFFICIAL
+      - name: Re-fetch known Q-Net attachments directly and re-hash; no cross-run artifact token required
+        run: |
+          python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5 beautifulsoup4==4.13.4
+          python scripts/nomusa-first-v49-450-year-source-recovery.py
+          git restore -- review/NOMUSA_FIRST_V49_ARCHIVE_DISCOVERY_SUMMARY_20261118.json
+      - name: SHA validate official archive, extract only A originals, map 175 historical source candidates
+        run: |
+          python -m py_compile scripts/nomusa-first-v50-686-official-aform-source-expansion.py
+          python scripts/nomusa-first-v50-686-official-aform-source-expansion.py
+      - name: Strict source expansion but zero new grading or app modifications
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,subprocess
+          d=json.loads(Path('review-artifacts/NOMUSA_FIRST_V50/NOMUSA_FIRST_V50_686_ENRICHED_SOURCE_QUEUE.json').read_text(encoding='utf8'))
+          assert d['original686Preserved']==686 and len(d['rows'])==686 and len({x['id'] for x in d['rows']})==686
+          assert d['newOfficialAFormBookletSHAConnections']==175
+          assert d['newThirdParty2013MirrorCandidates']==150
+          assert d['remainingWithoutQNetOriginalPDF']==316
+          assert d['newAutoScoringApproved']==d['newAppQuestionImports']==0
+          assert all(x['readyForV44'] is False and x['scoringApproved'] is False for x in d['rows'])
+          for v in d['officialDocuments'].values():
+            p=Path('review-artifacts/NOMUSA_FIRST_V50')/v['file']
+            assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==v['sha256'],p
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changed).issubset({'review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json'}),changed
+          print('PASS_686_IDENTITY_2018_150_2016_ECON_25_A_SOURCE_SHA_NO_NEW_SCORE')
+          PY
+          node scripts/nomusa-first-v42-two-theory-source-gate.mjs .
+      - name: Recover original A-form question page anchors for all 175 source-linked candidates, OCR only as hints
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check pillow==11.3.0 pytesseract==0.3.13
+          python -m py_compile scripts/nomusa-first-v51-175-qnet-a-page-locator.py
+          python scripts/nomusa-first-v51-175-qnet-a-page-locator.py
+      - name: Check 175 source-page review evidence and zero invented original text or automatic scoring
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,subprocess
+          p=Path('review-artifacts/NOMUSA_FIRST_V51/NOMUSA_FIRST_V51_175_QUESTION_LOCATOR.json')
+          r=json.loads(p.read_text(encoding='utf8'))
+          assert r['officialSourceSHAValidation']==3 and r['targetQuestionIds']==175
+          assert r['yearCounts']=={'2016':25,'2018':150},r['yearCounts']
+          assert len(r['rows'])==175 and len({x['id'] for x in r['rows']})==175
+          assert r['independentFullSourceTextApprovals']==0
+          assert r['independentlyVerifiedOfficialAFormAnswerCells']==0
+          assert r['independentlyVerifiedFiveOptionExplanations']==0
+          assert r['newScoringApproved']==r['newAppImports']==0
+          for x in r['rows']:
+            crop=x['crop']
+            if not crop:continue
+            file=Path('review-artifacts/NOMUSA_FIRST_V51')/crop['file']
+            assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==crop['sha256']
+          changes=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changes).issubset({'review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json'}),changes
+          print('PASS_V51_175_OFFICIAL_BOOKLET_PAGE_DIGIT_TRIAGE_NO_GRADING')
+          PY
+      - name: Rebuild historical 791 answer-candidate ledger as read-only source for 163 OCR drafts
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: OCR both V48 67 and V51 96 original source crops, rank incomplete five choices and formula/law risks
+        run: |
+          python -m py_compile scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py
+          python scripts/nomusa-first-v52-163-original-crop-ocr-risk-triage.py
+      - name: Strict V52 163 text-candidate risk evidence and independent approval HOLD
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          f=Path('review-artifacts/NOMUSA_FIRST_V52/NOMUSA_FIRST_V52_163_OCR_SOURCE_RISK_REVIEW.json')
+          x=json.loads(f.read_text(encoding='utf-8'))
+          assert x['qnetPDFSHAOriginPrelimCrops']==x['uniqueQuestionIds']==163
+          assert x['v48Crops']==67 and x['v51Crops']==96
+          assert len(x['rows'])==163 and len(set(r['id'] for r in x['rows']))==163
+          assert x['independentFullQuestionTextProofread']==0
+          assert x['fiveOptionsVisuallyProven']==0
+          assert x['newScoringApproved']==x['newAppSourceImports']==0
+          assert all(r['readyForV44'] is False and r['scoringApproved'] is False
+                     and r['officialFinalAFormKeyCellIndependentlyChecked'] is False
+                     for r in x['rows'])
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({
+            'review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json'
+          }),modified
+          print('PASS_V52_163_ORIGINAL_SHA_CROP_OCR_DRAFTS_QA_RISKS_0_AUTO_GRADED')
+          PY
+      - name: Reanalyze 79 unresolved original 2016 and 2018 A-form page numbers using conservative ordered neighbors
+        run: |
+          python -m py_compile scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py
+          python scripts/nomusa-first-v59-79-official-a-page-bracket-recovery.py
+      - name: Enforce all 79 QNet candidate page preview SHA and zero original or score approvals
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V59')
+          x=json.loads((root/'NOMUSA_FIRST_V59_79_UNRESOLVED_PAGES_REVIEW.json').read_text(encoding='utf8'))
+          assert x['unresolvedQuestionIDs']==len(x['rows'])==79
+          assert len({q['id'] for q in x['rows']})==79
+          assert x['officialQnetAFormPDFHashesMatched']==3
+          assert x['fullQuestionAndFiveOptionsApproved']==x['officialFinalAnswerCellApproved']==0
+          assert x['newQDATAImports']==x['newScoringApproved']==0
+          for q in x['rows']:
+            assert q['independentPrintedQuestionPositionApproved'] is False and q['scoringApproved'] is False
+            for p in q['originalFullPagePreviews']:
+              f=root/p['path']
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==p['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json'}),changed
+          print('PASS_V59_79_UNRESOLVED_OFFICIAL_SOURCE_PAGE_BRACKETS_ALL_CONTENT_AND_SCORING_HOLD')
+          PY
+      - name: Rebuild 91 V55 official QNet A-form provisional crop regions and their first-pass OCR candidates
+        run: |
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13
+          python scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+          git restore -- review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json
+          python scripts/nomusa-first-v56-91-crop-ocr-source-risk.py
+          git restore -- review/NOMUSA_FIRST_V56_91_ORIGINAL_CROP_OCR_RISK_SUMMARY_20261118.json
+      - name: Cross-check all 254 crop images against SHA-locked original QNet PDF source pixel rectangles and OCR content risk
+        run: |
+          python -m py_compile scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py
+          python scripts/nomusa-first-v64-254-official-crop-geometry-content-gate.py
+      - name: Enforce V64 source-geometry and OCR risk auditing is not content approval or exam scoring
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V64')
+          s=json.loads((root/'NOMUSA_FIRST_V64_254_ORIGINAL_REGION_IMAGE_QA.json').read_text(encoding='utf8'))
+          assert s['targetProvisionalCropImages']==len(s['rows'])==254
+          assert len({q['id'] for q in s['rows']})==254
+          assert s['sourceGroupImages']=={'V48':67,'V51':96,'V55':91}
+          assert s['originalSourcePdfSHAMatchedForAllCrops']==254
+          assert s['candidateCropFileSHA256Matched']==254
+          assert s['candidateImageComparedToRenderedOriginalRectangle']==254
+          assert s['newScoringApproved']==s['newAppImports']==0
+          assert s['independentOriginalStemAndFiveOptionsApproved']==0
+          assert s['officialFinalAFormAnswerCellsApproved']==0
+          assert all(not q['scoringApproved'] and not q['readyForV44']
+                and not q['independentFullQNetStemAndFiveOptionsVerified'] for q in s['rows'])
+          for q in s['rows']:
+            if 'annotatedOriginalPage' in q:
+              img=q['annotatedOriginalPage']; p=root/img['path']
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==img['sha256']
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({'review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json'}),modified
+          print('PASS_V64_254_ORIGINAL_QNET_PDF_REGION_PIXEL_COMPARE_AND_CROP_RISK_REVIEW_NO_SCORING')
+          PY
+      - name: Generate 254 original full-page review references with marked provisional crops and gap/content risks
+        run: |
+          python -m py_compile scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py
+          python scripts/nomusa-first-v65-254-fullpage-safeguard-and-crop-risk.py
+      - name: Verify every original page image matches SHA ledger and no question, answer or grading was auto-approved
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          root=Path('review-artifacts/NOMUSA_FIRST_V65')
+          r=json.loads((root/'NOMUSA_FIRST_V65_254_FULLPAGE_SOURCE_RISK_QUEUE.json').read_text(encoding='utf8'))
+          assert r['targetUniqueSourceCropIds']==len(r['rows'])==254
+          assert r['originalOfficialQNetFullPageReviewerImagesGenerated']==254
+          assert r['sourceStages']=={'V48':67,'V51':96,'V55':91}
+          assert r['originalPageSHAValidated']==254
+          assert r['independentOriginalFiveOptionContentApproved']==0
+          assert r['independentOfficialAnswerCellApproved']==0
+          assert r['independentHistoricalLegalAcademicContentApproved']==0
+          assert r['newAppImports']==r['newScoringApproved']==0
+          assert (root/'NOMUSA_FIRST_V65_254_SOURCE_REVIEW_GALLERY.html').is_file()
+          for row in r['rows']:
+            assert row['scoringApproved'] is False and row['readyForV44'] is False
+            im=root/row['originalFullPageReviewImage']['file']
+            assert im.is_file() and hashlib.sha256(im.read_bytes()).hexdigest()==row['originalFullPageReviewImage']['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json'}),changed
+          print('PASS_V65_254_QNET_FULLPAGE_CONTEXT_AND_GAP_CONTENT_RISK_ANALYSIS_0_SCORE')
+          PY
+      - name: Propose 4 safe sequential source-boundary revisions, hold 12 unsafe or skipped-next-number candidates
+        run: |
+          python -m py_compile scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+          python scripts/nomusa-first-v68-16-source-boundary-repair-candidates.py
+      - name: Fail closed - exactly 4 SHA revised images, 12 unchanged unsafe anchors, zero scores
+        run: |
+          python - <<'PY'
+          import json,hashlib,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V68')
+          d=json.loads((root/'NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json').read_text(encoding='utf8'))
+          assert d['originalImageQAUniverse']==254
+          assert d['sourceGeometrySuspiciousTargets']==16
+          assert len(d['rows'])==4 and len({q['id'] for q in d['rows']})==4
+          assert len(d['unsafeHeldRows'])==12
+          assert d['unsafeNonsequentialOrCrossSubjectCandidatesHeld']==12
+          assert d['overlapSourceRevisedCandidates']==1 and d['inkGapSourceRevisedCandidates']==3
+          assert d['unchangedOriginalCandidateImagesPreserved']==254
+          assert d['newSeparateRevisedQNetCropImages']==d['oldVsNewComparisonImages']==4
+          assert d['newQdataImports']==d['newScoringApproved']==0
+          assert d['independentlyVerifiedFullQuestionAndAllFiveOptions']==0
+          for q in d['rows']:
+            assert not q['scoringApproved'] and not q['readyForV44']
+            for name in ('revisedSourceCrop','comparisonPreview'):
+              im=q[name];file=root/im['file'] if name=='revisedSourceCrop' else root/im['path']
+              assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==im['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json'}),changed
+          print('PASS_V68_4_SEQUENTIAL_SOURCE_REPAIRS_AND_12_UNSAFE_HELD_ZERO_GRADING')
+          PY
+      - name: Persist only SHA/URL/subject source manifest; keep large PDF in short-lived artifact
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_FIRST_V50_686_OFFICIAL_SOURCE_SHA_SUMMARY_20261118.json review/NOMUSA_FIRST_V51_175_QNET_AFORM_PAGE_TRIAGE_SUMMARY_20261118.json review/NOMUSA_FIRST_V52_163_CROPS_OCR_RISK_SUMMARY_20261118.json review/NOMUSA_FIRST_V59_79_QNET_PAGE_BRACKET_SUMMARY_20261118.json review/NOMUSA_FIRST_V64_254_OFFICIAL_CROP_GEOMETRY_QA_20261119.json review/NOMUSA_FIRST_V65_254_QNET_FULLPAGE_SAFE_REFERENCE_SUMMARY_20261119.json review/NOMUSA_FIRST_V68_16_QNET_CROP_BOUNDARY_CORRECTION_CANDIDATES_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v52): archive 163 OCR-only candidate drafts and source risk flags, no grading'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          else
+            echo 'SOURCE_SUMMARIES_UNCHANGED: no redundant commit'
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Export all 686 source-linked records and SHA-locked A PDF originals in temporary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v50-686-with-175-qnet-a-booklet-shas-and-150-mirror-holds
+          path: |
+            review-artifacts/NOMUSA_FIRST_V50/
+            review-artifacts/NOMUSA_FIRST_V51/
+            review-artifacts/NOMUSA_FIRST_V52/
+            review-artifacts/NOMUSA_FIRST_V59/
+            review-artifacts/NOMUSA_FIRST_V64/
+            review-artifacts/NOMUSA_FIRST_V65/
+            review-artifacts/NOMUSA_FIRST_V68/
+          if-no-files-found: warn
+          retention-days: 14

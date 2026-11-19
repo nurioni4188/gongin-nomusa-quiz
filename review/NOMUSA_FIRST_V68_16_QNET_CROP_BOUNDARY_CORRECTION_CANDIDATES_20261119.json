@@ -1,0 +1,43 @@
+{
+  "schema": "NOMUSA_FIRST_V68_16_QNET_IMAGE_SOURCE_REVISED_BOUNDARY_CANDIDATES/1",
+  "asOfKST": "2026-11-19",
+  "originalImageQAUniverse": 254,
+  "sourceGeometrySuspiciousTargets": 16,
+  "overlapSourceRevisedCandidates": 1,
+  "inkGapSourceRevisedCandidates": 3,
+  "unsafeNonsequentialOrCrossSubjectCandidatesHeld": 12,
+  "unchangedOriginalCandidateImagesPreserved": 254,
+  "newSeparateRevisedQNetCropImages": 4,
+  "oldVsNewComparisonImages": 4,
+  "sourceRepairTypes": {
+    "EXTEND_OVER_POTENTIALLY_OMITTED_INK": 3,
+    "SHORTEN_BEFORE_NEXT_HEADING_CANDIDATE": 1
+  },
+  "independentlyVerifiedFullQuestionAndAllFiveOptions": 0,
+  "officialAFormAnswerAndExamDateLawVerified": 0,
+  "newQdataImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_4_SEQUENTIAL_QNET_CROP_REVISED_12_UNSAFE_ANCHORS_HELD_NO_SCORING",
+  "warning": "Only contiguous printed sequence in same year/subject qualifies for a revised image candidate. 12 unsafe anchors are preserved unchanged; even 4 proposals lack independent full-question verification.",
+  "heldQuestionIDs": [
+    "legacy1-2020-A-social-090",
+    "legacy1-2016-A-economics-113",
+    "legacy1-2018-A-management-108",
+    "legacy1-2018-A-management-113",
+    "legacy1-2018-A-management-122",
+    "legacy1-2018-A-labor1-006",
+    "legacy1-2018-A-labor1-015",
+    "legacy1-2018-A-labor1-022",
+    "legacy1-2016-A-management-113",
+    "legacy1-2016-A-management-123",
+    "legacy1-2016-A-labor1-020",
+    "legacy1-2016-A-civil-056"
+  ],
+  "revisedCandidateQuestionIDs": [
+    "legacy1-2016-A-economics-107",
+    "legacy1-2016-A-economics-119",
+    "legacy1-2018-A-labor2-039",
+    "legacy1-2016-A-management-119"
+  ],
+  "full16SourceRepairEvidence": "review-artifacts/NOMUSA_FIRST_V68/NOMUSA_FIRST_V68_16_CROP_REPAIR_CANDIDATES.json"
+}

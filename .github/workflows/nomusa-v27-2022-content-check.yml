@@ -1,0 +1,70 @@
+name: NOMUSA V27 2022 pilot claim-specific primary-source review
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v27-2022-content-check.yml'
+      - 'scripts/nomusa-v27-2022-primary-content-check.py'
+      - 'review/NOMUSA_V27_2022_PRIMARY_CONTENT_CROSSCHECK_20261118.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v27-2022-source-claim-gate
+  cancel-in-progress: true
+
+jobs:
+  sources-and-editorial:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned Chromium
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium --with-deps
+      - name: Source-evidence self-test
+        run: python scripts/nomusa-v27-2022-primary-content-check.py --self-test
+      - name: Render original 328 SHA-locked manuscripts PC mobile
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Check 19 pilot IDs and 6 explicitly crosschecked claim sets
+        run: python scripts/nomusa-v27-2022-primary-content-check.py .
+      - name: Confirm no original content or human signature modification
+        run: |
+          git diff --exit-code
+          python - <<'PY'
+          import json
+          a=json.load(open('review-artifacts/NOMUSA_V27/NOMUSA_V27_2022_19_REVIEW_LEDGER.json'))
+          s=a['summary']
+          assert s['pilot2022']==19 and s['sixQuestionClaimChecks']==6 and s['remainingPilotQuestionsNotChecked']==13
+          assert s['expertApproved']==0 and s['finalApproval']=='HOLD'
+          assert not s['productionOrPreviewDeployed'] and not s['manuscriptModified']
+          print('PASS_V27_PILOT_SOURCE_CLAIMS_WITH_COMPLETE_APPROVAL_HOLD')
+          PY
+      - name: Upload limited-scope original-source evidence for human editorial review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v27-2022-6-source-claims-19-pilot-hold
+          path: |
+            review-artifacts/NOMUSA_V27/*
+            review/NOMUSA_V27_2022_PRIMARY_CONTENT_CROSSCHECK_20261118.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Declare approval boundary
+        if: always()
+        run: |
+          echo 'SOURCE_CLAIM_EVIDENCE_NOT_EXPERT_CERTIFICATION=1'
+          echo 'MAIN_PRODUCTION_PREVIEW_NO_CHANGES=1 NO_EMAIL=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'

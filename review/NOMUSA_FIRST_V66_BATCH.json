@@ -1,0 +1,153 @@
+{
+  "mode": "A_FORM_APPROVED_SOURCE_BATCH",
+  "added": 884,
+  "reports": [
+    {
+      "questions": 125,
+      "layoutRestored": 125,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 25,
+        "사회보험법": 25,
+        "경영학개론": 25
+      },
+      "held": {},
+      "year": 2011,
+      "bookletPart": "m"
+    },
+    {
+      "questions": 24,
+      "layoutRestored": 24,
+      "bySubject": {
+        "경제학원론": 24
+      },
+      "held": {
+        "legacy1-2011-A-economics-014": "CHOICE_SEQUENCE_REVIEW"
+      },
+      "year": 2011,
+      "bookletPart": "e"
+    },
+    {
+      "questions": 125,
+      "layoutRestored": 125,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 25,
+        "사회보험법": 25,
+        "경영학개론": 25
+      },
+      "held": {},
+      "year": 2012,
+      "bookletPart": "m"
+    },
+    {
+      "questions": 24,
+      "layoutRestored": 24,
+      "bySubject": {
+        "경제학원론": 24
+      },
+      "held": {
+        "legacy1-2012-A-economics-119": "UNRENDERED_DRAWING_OR_SYMBOL"
+      },
+      "year": 2012,
+      "bookletPart": "e"
+    },
+    {
+      "questions": 125,
+      "layoutRestored": 125,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 25,
+        "사회보험법": 25,
+        "경영학개론": 25
+      },
+      "held": {},
+      "year": 2015,
+      "bookletPart": "m"
+    },
+    {
+      "questions": 25,
+      "layoutRestored": 25,
+      "bySubject": {
+        "경제학원론": 25
+      },
+      "held": {},
+      "year": 2015,
+      "bookletPart": "e"
+    },
+    {
+      "year": 2017,
+      "form": "A",
+      "questions": 144,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 22,
+        "사회보험법": 25,
+        "경제학원론": 23,
+        "경영학개론": 24
+      },
+      "held": {
+        "legacy1-2017-A-civil-052": "VISUAL_LAYOUT_REVIEW",
+        "legacy1-2017-A-civil-053": "CHOICE_SEQUENCE_REVIEW",
+        "legacy1-2017-A-civil-064": "CHOICE_SEQUENCE_REVIEW",
+        "legacy1-2017-A-economics-107": "CHOICE_SEQUENCE_REVIEW",
+        "legacy1-2017-A-economics-112": "VISUAL_LAYOUT_REVIEW",
+        "legacy1-2017-A-management-117": "UNRECOGNIZED_SOURCE_CHARACTER"
+      },
+      "answerSHA256": "e9fed8b09db806d80325291c2e4110d5cfebaa6732c13f431eccf3982fabc537",
+      "bookletPart": "m"
+    },
+    {
+      "year": 2019,
+      "form": "A",
+      "questions": 142,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 24,
+        "사회보험법": 25,
+        "경제학원론": 18,
+        "경영학개론": 25
+      },
+      "held": {
+        "legacy1-2019-A-civil-056": "VISUAL_LAYOUT_REVIEW",
+        "legacy1-2019-A-economics-107": "UNRECOGNIZED_SOURCE_CHARACTER",
+        "legacy1-2019-A-economics-109": "VISUAL_LAYOUT_REVIEW",
+        "legacy1-2019-A-economics-111": "UNRECOGNIZED_SOURCE_CHARACTER",
+        "legacy1-2019-A-economics-113": "UNRECOGNIZED_SOURCE_CHARACTER",
+        "legacy1-2019-A-economics-117": "UNRECOGNIZED_SOURCE_CHARACTER",
+        "legacy1-2019-A-economics-119": "UNRECOGNIZED_SOURCE_CHARACTER",
+        "legacy1-2019-A-economics-124": "UNRECOGNIZED_SOURCE_CHARACTER"
+      },
+      "answerSHA256": "8fb66a2ad0cb0bcee0565b25efb28fa4cca90cabd44531eae5df45b198e0744e",
+      "bookletPart": "m"
+    },
+    {
+      "year": 2014,
+      "form": "A",
+      "questions": 150,
+      "bySubject": {
+        "노동법(1)": 25,
+        "노동법(2)": 25,
+        "민법": 25,
+        "사회보험법": 25,
+        "경제학원론": 25,
+        "경영학개론": 25
+      },
+      "held": {},
+      "answerSHA256": "8db082443b2d2d7ecc93baf4ac813184852bca3ab48700f887b16cf612bed3be"
+    }
+  ],
+  "yearStatus": {
+    "2010": "ECONOMICS_QUESTION_BOOKLET_UNRESOLVED",
+    "2013": "ORIGINAL_BOOKLET_UNRESOLVED",
+    "2016": "SCAN_QUESTION_LAYOUT_PENDING",
+    "2018": "SCAN_QUESTION_LAYOUT_PENDING",
+    "2020": "SCAN_QUESTION_LAYOUT_PENDING",
+    "2021": "SCAN_QUESTION_LAYOUT_PENDING"
+  }
+}

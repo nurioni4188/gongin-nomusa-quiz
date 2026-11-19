@@ -1,0 +1,39 @@
+{
+  "schema": "NOMUSA_FIRST_V48_686_SOURCE_RECOVERY/1",
+  "asOfKST": "2026-11-18",
+  "targetCount": 686,
+  "sourceGroups": {
+    "v42TwoLawCrops": 2,
+    "originalPdfConnectedOther": 193,
+    "noticeOnly": 314,
+    "noRecordedSource": 177
+  },
+  "statusBreakdown": {
+    "NO_OFFICIAL_QUESTION_SOURCE_RECORDED": 177,
+    "OFFICIAL_QNET_PDF_SHA_MATCH_PAGE_ONLY_NUMBER_ANCHOR_NOT_UNIQUE_OR_MISSING": 100,
+    "OFFICIAL_QNET_PDF_SHA_MATCH_PAGE_UNLOCATED": 26,
+    "PROVISIONAL_CROP_NUMBER_ANCHOR_NEEDS_ALL_FIVE_OPTIONS_CHECK": 67,
+    "QNET_NOTICE_ONLY_ATTACHMENT_AND_PDF_SHA_NOT_OBTAINED": 314,
+    "V42_SHA_PROVEN_IMAGE_2_LAW_HOLD": 2
+  },
+  "byYear": {
+    "2010": 25,
+    "2011": 1,
+    "2012": 1,
+    "2013": 150,
+    "2016": 150,
+    "2017": 6,
+    "2018": 150,
+    "2019": 8,
+    "2020": 111,
+    "2021": 84
+  },
+  "generatedProvisionalCrops": 67,
+  "officialSixQnetPdfSHAValidated": 6,
+  "native88QnetPagesJPEG_SHAValidated": 88,
+  "newScoringApprovals": 0,
+  "newAppDataImports": 0,
+  "independentSourceContentApprovals": 0,
+  "fullQueueInRunArtifact": "review-artifacts/NOMUSA_FIRST_V48/NOMUSA_FIRST_V48_686_FULL_SOURCE_QUEUE.json",
+  "caveat": "Only source and candidate crop triage, NOT 686 validated original full texts, correct answers, complete explanations or scoring."
+}

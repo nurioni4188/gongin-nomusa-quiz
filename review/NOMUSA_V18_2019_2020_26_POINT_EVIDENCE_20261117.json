@@ -1,0 +1,457 @@
+{
+  "schema": "nomusa-v18-score-evidence/1",
+  "verifiedDate": "2026-11-17",
+  "origin": "2019/2020 시험지 PDF 사본 10종 시각대조 + 통합 원장 기출 전사",
+  "sourceDisclaimer": "공단 원본 서버에 직접 접속한 것이 아니므로 PDF 유통 경로는 독립 운영 미러. 법리/학술 내용승인과 독립.",
+  "count": 26,
+  "years": {
+    "2019": 13,
+    "2020": 13
+  },
+  "rows": [
+    {
+      "id": "2019_p1_q1",
+      "year": 2019,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 25
+        },
+        {
+          "title": "물음 2",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/6a5fa6b998/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p1_q2",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/6a5fa6b998/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p1_q3",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/6a5fa6b998/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p3_q1",
+      "year": 2019,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 20
+        },
+        {
+          "title": "물음 2",
+          "points": 5
+        },
+        {
+          "title": "물음 3",
+          "points": 5
+        },
+        {
+          "title": "물음 4",
+          "points": 10
+        },
+        {
+          "title": "물음 5",
+          "points": 10
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/1063401adc/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p3_q2",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 10
+        },
+        {
+          "title": "물음 2",
+          "points": 15
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/1063401adc/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p3_q3",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 15
+        },
+        {
+          "title": "물음 2",
+          "points": 10
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/1063401adc/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p4_q1",
+      "year": 2019,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 30
+        },
+        {
+          "title": "물음 2",
+          "points": 20
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/3ae16e2dfd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p4_q2",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/3ae16e2dfd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p4_q3",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/3ae16e2dfd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p5_q1",
+      "year": 2019,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 25
+        },
+        {
+          "title": "물음 2",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/4423284e58/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p5_q2",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/4423284e58/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p6_q1",
+      "year": 2019,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 25
+        },
+        {
+          "title": "물음 2",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/7f0250d0fa/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2019_p6_q2",
+      "year": 2019,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/7f0250d0fa/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p1_q1",
+      "year": 2020,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 20
+        },
+        {
+          "title": "물음 2",
+          "points": 30
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/99dafd07b9/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p1_q2",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/99dafd07b9/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p2_q1",
+      "year": 2020,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 30
+        },
+        {
+          "title": "물음 2",
+          "points": 20
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/f084b4f1ea/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p2_q2",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/f084b4f1ea/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p4_q1",
+      "year": 2020,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 30
+        },
+        {
+          "title": "물음 2",
+          "points": 20
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/bab6cf58dd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p4_q2",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/bab6cf58dd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p4_q3",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/bab6cf58dd/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p6_q1",
+      "year": 2020,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 10
+        },
+        {
+          "title": "물음 2",
+          "points": 30
+        },
+        {
+          "title": "물음 3",
+          "points": 10
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/39c183c53c/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p6_q2",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 5
+        },
+        {
+          "title": "물음 2",
+          "points": 10
+        },
+        {
+          "title": "물음 3",
+          "points": 10
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/39c183c53c/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p6_q3",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 5
+        },
+        {
+          "title": "물음 2",
+          "points": 14
+        },
+        {
+          "title": "물음 3",
+          "points": 6
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/39c183c53c/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p7_q1",
+      "year": 2020,
+      "points": 50,
+      "parts": [
+        {
+          "title": "물음 1",
+          "points": 25
+        },
+        {
+          "title": "물음 2",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/f35def1941/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p7_q2",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/f35def1941/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    },
+    {
+      "id": "2020_p7_q3",
+      "year": 2020,
+      "points": 25,
+      "parts": [
+        {
+          "title": "전체 문제",
+          "points": 25
+        }
+      ],
+      "pdf": "https://cbtexam.kr/file/f35def1941/",
+      "scoreEvidence": "EXAM_PAPER_PDF_MIRROR_VISUAL_PLUS_CATALOG_SOURCE_TEXT",
+      "legalAcademicApproval": "HOLD"
+    }
+  ]
+}

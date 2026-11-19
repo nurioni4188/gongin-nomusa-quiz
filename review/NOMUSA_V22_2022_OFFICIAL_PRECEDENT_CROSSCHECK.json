@@ -1,0 +1,56 @@
+{
+  "schema": "NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK/1",
+  "checkedDate": "2026-11-17",
+  "evidenceScope": "official court case page and headnote corroboration only; not full case-law examination or expert approval",
+  "count": 4,
+  "distinctExamQuestionIDs": 3,
+  "rows": [
+    {
+      "id": "2022-labor1-2",
+      "caseId": "2019다238053",
+      "decisionDate": "2022-04-28",
+      "court": "대법원",
+      "topic": "정기상여금 재직조건과 근무기간 비례 지급 및 통상임금 해석",
+      "officialUrl": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&searchOption=&searchWord=&seqnum=2160",
+      "officialCaseUrl": "https://scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=8404",
+      "scope": "대법원 공식 주요판결/보도자료에서 사건번호·판결일·핵심 요지 확인. 2022 답안의 전체 적용 논증 및 판결문 전수 검증은 HOLD",
+      "verificationStatus": "OFFICIAL_HEADNOTE_CONFIRMED_FULL_JUDGMENT_AND_APPLICATION_HOLD",
+      "expertApproval": "HOLD"
+    },
+    {
+      "id": "2022-admin-2",
+      "caseId": "2019두52386",
+      "decisionDate": "2020-02-20",
+      "court": "대법원 전원합의체",
+      "topic": "부당해고 구제절차 도중 정년·계약만료로 복직 불가능하나 임금상당액 구제실익이 남는 경우 소의 이익",
+      "officialUrl": "https://scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&seqnum=7000",
+      "scope": "법원 공식 주요판결에서 사건번호·선고일·판시 취지 확인. 실제 사안 및 2022 시험 당시 적용 결론 별도 검토 HOLD",
+      "verificationStatus": "OFFICIAL_HEADNOTE_CONFIRMED_FULL_JUDGMENT_AND_APPLICATION_HOLD",
+      "expertApproval": "HOLD"
+    },
+    {
+      "id": "2022-admin-2",
+      "caseId": "2021두46285",
+      "decisionDate": "2022-07-14",
+      "court": "대법원",
+      "topic": "부당해고 등 구제신청 당시 이미 정년 등으로 근로자 지위를 상실한 경우 구제이익 부정",
+      "officialUrl": "https://law.go.kr/LSW/precInfoP.do?precSeq=232945",
+      "officialCaseUrl": "https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&seqnum=8655",
+      "scope": "국가법령정보센터 판례 및 대법원 공식 주요판결의 사건번호·선고일·요지 확인. 2019두52386과 신청 시점·소송 계속 중 종료 구별 필요. 해당 시험 정확한 시험일 대조 HOLD",
+      "verificationStatus": "OFFICIAL_HEADNOTE_CONFIRMED_FULL_JUDGMENT_AND_APPLICATION_HOLD",
+      "expertApproval": "HOLD"
+    },
+    {
+      "id": "2022-labor2-2",
+      "caseId": "2017도2478",
+      "decisionDate": "2020-07-29",
+      "court": "대법원",
+      "topic": "산별노조 간부의 사업장 출입과 조합활동 정당성의 주체·목적·시기·수단 및 비교형량 기준",
+      "officialUrl": "https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=7248",
+      "officialCaseUrl": "https://www.law.go.kr/LSW/precInfoP.do?precSeq=226477",
+      "scope": "대법원 공식 주요판결 및 국가법령정보센터 판시사항/요지 확인. 본 시험 사례의 사실포섭과 원문 전문·후속 판례는 독립 검토 HOLD",
+      "verificationStatus": "OFFICIAL_HEADNOTE_CONFIRMED_FULL_JUDGMENT_AND_APPLICATION_HOLD",
+      "expertApproval": "HOLD"
+    }
+  ]
+}

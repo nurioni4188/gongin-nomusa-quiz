@@ -1,0 +1,128 @@
+{
+  "schema": "nomusa-first-legacy-v2-qa/2026-11-15",
+  "dateKST": "2026-11-15",
+  "draftPR": 3,
+  "mode": "SOURCE_ONLY_NO_SCORING",
+  "data": {
+    "existingBaseline": 250,
+    "additionalStaged": 2250,
+    "totalStaged": 2500,
+    "uniqueIds": 2500,
+    "duplicates": 0,
+    "newBitmapExact": 1949,
+    "exception2011EconomicsQ20": "A형 ③·⑤",
+    "distribution": {
+      "2008A": 125,
+      "2009A": 125,
+      "2011A": 150,
+      "2013A": 150,
+      "2013B": 150,
+      "2015A": 150,
+      "2015B": 150,
+      "2016A": 150,
+      "2016B": 150,
+      "2017A": 150,
+      "2017B": 150,
+      "2018A": 150,
+      "2018B": 150,
+      "2019A": 150,
+      "2019B": 150,
+      "2010A": 150,
+      "2012A": 150
+    },
+    "manualAdded2010And2012": 300
+  },
+  "pendingSourceOnlyYears": [
+    2014,
+    2020,
+    2021
+  ],
+  "pendingReasons": {
+    "2010": "150 A-type answers manually transcribed; independent source-image QC HOLD",
+    "2012": "150 A-type answers manually transcribed; independent source-image QC HOLD",
+    "2014": "Scanned PDFs A/B: digit-classifier ambiguous; no values merged",
+    "2020": "Split PDF images A/B: classifier uncertain; no values merged",
+    "2021": "Scanned PDFs A/B: complete 150-per-form extraction unapproved; exceptional answers recorded separately"
+  },
+  "exceptions2021": [
+    {
+      "type": "A",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "B",
+      "subject": "노동법Ⅱ",
+      "number": 26,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "A",
+      "subject": "민법",
+      "number": 70,
+      "answers": [
+        3,
+        4
+      ]
+    },
+    {
+      "type": "B",
+      "subject": "민법",
+      "number": 72,
+      "answers": [
+        3,
+        4
+      ]
+    }
+  ],
+  "questionTextAlignment": "HOLD - only file-level source pointers, no per-question source text/page approval",
+  "officialApproval": "0 items",
+  "staticChecks": [
+    "Baseline data.js blob SHA unchanged from preview source branch",
+    "2500 staged record IDs unique",
+    "viewer loads isolated historic staging alongside old 250 items",
+    "2011 and 2021 multi-answer exceptions retained"
+  ],
+  "isolatedViewerBrowser": {
+    "runtime": "Chromium page.set_content against standalone local copy, not deployed GitHub checkout",
+    "desktop1440": "PASS",
+    "mobile390": "PASS",
+    "mobile360": "PASS",
+    "screenOverflow": "NONE",
+    "jsErrors": 0,
+    "tested": [
+      "2011 multi-answer",
+      "2015 B 150 records",
+      "2020 HOLD absence"
+    ],
+    "note": "Standalone 2500-record HTML tested at 1440/390/360; full GitHub review checkout E2E still HOLD"
+  },
+  "sourceRepoBrowserE2E": "HOLD_NOT_EXECUTED",
+  "preview": "NOT_DEPLOYED",
+  "main": "NOT_CHANGED_BY_THIS_TASK",
+  "production": "NOT_CHANGED_BY_THIS_TASK",
+  "requiredNext": [
+    "2010/2012 independent image review",
+    "2014/2020/2021 full answer extraction",
+    "question text/page and A/B original alignment",
+    "complete hub save/restore mobile E2E before Preview"
+  ],
+  "manualImageReviewPendingYears": [
+    2010,
+    2012
+  ],
+  "recordStageVersion": "V3"
+}

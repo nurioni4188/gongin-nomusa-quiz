@@ -1,0 +1,107 @@
+{
+  "schema": "nomusa-second-essay-content-v1116/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPr": 3,
+  "objective": "Actually author full question-specific 50pt HRM essays 2009 sustainability and 2010 early-mid-late career stages, preserving 181 original ID keys and 2013-14 38 split essays.",
+  "newEssays": [
+    {
+      "id": "legacy2-2009-hrm-q1",
+      "year": 2009,
+      "subject": "인사노무관리론",
+      "question": "지속가능경영의 인사노무관리 차원의 관리사항",
+      "points": 50,
+      "previousChars": 883,
+      "authoredDetailedChars": 6543,
+      "compressedChars": 684,
+      "sections": 7,
+      "keywords333": "3x3",
+      "allocationTotalPoints": 50,
+      "sourcePage": 2,
+      "file": "second/deep-essay-2009-hrm-q1.js",
+      "originals": [
+        "Elkington (1997), Cannibals with Forks",
+        "ILO (1998) Declaration on Fundamental Principles and Rights at Work (1998 contents; 2022 amendment separated)",
+        "ILO (1999) Decent Work four strategic objectives"
+      ],
+      "sourceUrls": [
+        "https://books.google.com/books/about/Cannibals_with_Forks.html?id=QLg9PgAACAAJ",
+        "https://www.ilo.org/public/english/standards/relm/ilc/ilc87/rep-i.htm",
+        "https://www.ilo.org/ilo-declaration-fundamental-principles-and-rights-work/about-declaration"
+      ],
+      "legalApproval": "HOLD"
+    },
+    {
+      "id": "legacy2-2010-hrm-q1",
+      "year": 2010,
+      "subject": "인사노무관리론",
+      "question": "경력 초기·중기·후기별 기업의 관리활동",
+      "points": 50,
+      "previousChars": 909,
+      "authoredDetailedChars": 7825,
+      "compressedChars": 687,
+      "sections": 7,
+      "keywords333": "3x3",
+      "allocationTotalPoints": 50,
+      "sourcePage": 2,
+      "file": "second/deep-essay-2010-hrm-q1.js",
+      "originals": [
+        "Schein (1978), Career Dynamics: Matching Individual and Organizational Needs",
+        "Super (1980), A Life-Span, Life-Space Approach to Career Development",
+        "Greenhaus, Callanan, Godshalk (2000), Career Management, 3rd ed."
+      ],
+      "sourceUrls": [
+        "https://books.google.com/books/about/Career_Dynamics.html?id=K59PAAAAMAAJ",
+        "https://doi.org/10.1016/0001-8791(80)90056-1",
+        "https://books.google.com/books/about/Career_Management.html?id=vqrZAAAAMAAJ"
+      ],
+      "academicApproval": "HOLD"
+    }
+  ],
+  "integratedScript": "study-hub/index.html",
+  "displayedUsing": "study-hub/app.js:hasIndividuallyAuthoredEssay",
+  "newHtmlScriptImports": [
+    "../second/deep-essay-2009-hrm-q1.js",
+    "../second/deep-essay-2010-hrm-q1.js"
+  ],
+  "originalSourceCatalogFile": "second/legacy_2007_2012_source_only.js",
+  "originalLegacyDrafts": "second/legacy-181-answer-drafts-v1110.js",
+  "noChangesTo": [
+    "main",
+    "Production",
+    "RC27",
+    "RC35",
+    "existing question IDs",
+    "save keys",
+    "original HWP/PDF"
+  ],
+  "regression": {
+    "method": "In-memory JS evaluation of GitHub fetched branch JS files and HTML; not Playwright",
+    "assertions": 304,
+    "failures": 0,
+    "pass": true,
+    "originalRegistryCount": 181,
+    "unalteredGenericDrafts": 174,
+    "deepenedGenericDraftsTotal": 7,
+    "split2013_2014": 38,
+    "originalQuestionCatalogCount": 309,
+    "scoringApprovedCount": 0
+  },
+  "holds": {
+    "fullTextSourceApplicability": "HOLD",
+    "legalAccuracyIndependentReview": "HOLD",
+    "realHandwrittenSheets8to10": "HOLD",
+    "pc1440Browser": "NOT_RUN",
+    "mobile390Browser": "NOT_RUN",
+    "mobile360Browser": "NOT_RUN",
+    "saveRestoreBrowser": "NOT_RUN",
+    "newPreview": "NOT_DEPLOYED",
+    "production": "NOT_CHANGED"
+  },
+  "decision": "2_SOURCE_GROUNDED_ESSAYS_COMMITTED / 304_STATIC_CHECKS_PASS / FULL_CONTENT_APPROVAL_HOLD / BROWSER_HOLD",
+  "nextPriorities": [
+    "2011년 인사노무관리론 50점 원문·기존 초안 점검 후 심화",
+    "2012년 인사노무관리론 50점 원문·기존 초안 점검 후 심화"
+  ]
+}

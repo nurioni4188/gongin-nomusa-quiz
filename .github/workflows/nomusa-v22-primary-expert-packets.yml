@@ -1,0 +1,80 @@
+name: NOMUSA V22 source PDF and expert packet audit
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v22-primary-expert-packets.yml'
+      - 'scripts/nomusa-v22-original-expert-packets.py'
+      - 'review/NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK.json'
+      - 'scripts/nomusa-essay-approval-v21.py'
+      - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'source_pdf/**'
+      - 'second/**'
+      - 'study-hub/**'
+      - 'rc27_essay_catalog.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v22-primary-expert-packets
+  cancel-in-progress: true
+
+jobs:
+  audit-source:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out original PDFs and review-only code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium and PDF text-rendering engine
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7
+          python -m playwright install chromium --with-deps
+      - name: Local reproducible V19 V21 V22 tests
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+      - name: Chromium desktop mobile source answer export
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: V21 328-answer approval triage
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+      - name: Compare actual 2022 original PDF text and render pages for expert checks
+        run: python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Upload V22 original source and 19 expert review packets
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nomusa-v22-original-pdf-328-routing-2022-expert-packets
+          path: |
+            review-artifacts/NOMUSA_V22_328_SOURCE_EXPERT_ROUTING.csv
+            review-artifacts/NOMUSA_V22_328_ORIGINAL_AUDIT.json
+            review-artifacts/NOMUSA_V22_ORIGINAL_COMPARE_REPORT.md
+            review/NOMUSA_V22_2022_OFFICIAL_PRECEDENT_CROSSCHECK.json
+            review-artifacts/NOMUSA_V22_2022_EXPERT_PACKETS/*.md
+            review-artifacts/NOMUSA_V22_2022_PDF_PAGE_PREVIEWS/*.png
+            review-artifacts/NOMUSA_V21_2022_PILOT_19X32.md
+            review-artifacts/NOMUSA_V21_328_APPROVAL_TRIAGE.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Protect existing production and expert approval controls
+        if: always()
+        run: |
+          echo 'V22_SOURCES_AND_EXPERT_PACKETS_ONLY=1'
+          echo 'NO_QNET_ATTACHMENT_HASH_IDENTITY_YET=1'
+          echo 'NO_EXPERT_SIGNOFF=1'
+          echo 'NO_PREVIEW_OR_PRODUCTION_DEPLOY=1'

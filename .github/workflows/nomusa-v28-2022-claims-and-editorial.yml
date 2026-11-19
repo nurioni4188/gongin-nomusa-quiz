@@ -1,0 +1,131 @@
+name: NOMUSA V28 2022 remaining 13 source claims Goldstein editor review
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v28-2022-claims-and-editorial.yml'
+      - 'scripts/nomusa-v28-2022-13-and-goldstein-gate.py'
+      - 'scripts/nomusa-v28-browser-editorial-smoke.py'
+      - 'second/nomusa-v28-goldstein-2022-hr1.js'
+      - 'review/NOMUSA_V28_2022_REMAINING_13_SOURCE_CROSSCHECK_20261118.json'
+      - 'second/index.html'
+      - 'study-hub/index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nomusa-v28-2022-review-only
+  cancel-in-progress: true
+
+jobs:
+  source-editorial:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Review branch checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install existing portable browser/PDF/HWP/arithmetics tools
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --with-deps
+      - name: Self test existing evidence and new V28 checker
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+          python scripts/nomusa-v22-original-expert-packets.py --self-test
+          python scripts/nomusa-v23-validation-ledger.py --self-test
+          python scripts/nomusa-v28-2022-13-and-goldstein-gate.py --self-test
+      - name: Verify V28 editorial overlay on both review pages before E2E
+        run: python scripts/nomusa-v28-browser-editorial-smoke.py .
+      - name: Reuse 20-year PC 1440px mobile 390px 360px and storage E2E
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Reuse V19/V21/V22 baseline quality and origin routing
+        run: |
+          python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+          python scripts/nomusa-essay-approval-v21.py .
+          python scripts/nomusa-v22-original-expert-packets.py .
+      - name: Audit 13 limited claim crosschecks and exactly one 2022 Goldstein draft
+        run: python scripts/nomusa-v28-2022-13-and-goldstein-gate.py .
+      - name: Regenerate existing 328-row V23 ledger with one new approved-for-review draft hash
+        run: |
+          cp review/NOMUSA_V23_VALIDATION_LEDGER.json /tmp/v28_ledger_before.json
+          python scripts/nomusa-v23-validation-ledger.py .
+      - name: Assert original official file byte match and 327 unaffected answer SHA
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          prev=json.load(open('/tmp/v28_ledger_before.json'))
+          now=json.load(open('review/NOMUSA_V23_VALIDATION_LEDGER.json'))
+          old={r['id']:r for r in prev['rows']}
+          new={r['id']:r for r in now['rows']}
+          assert set(old)==set(new) and len(new)==328
+          changed=[i for i in old if old[i]['textSHA256']!=new[i]['textSHA256']]
+          assert changed==['2022-hr-1'],changed
+          assert all(old[i]['textSHA256']==new[i]['textSHA256'] for i in old if i!='2022-hr-1')
+          assert now['summary']['qnetOfficialByteIdentical']==328
+          assert now['summary']['sourceVerifiedQuestion']==328
+          assert now['summary']['storedQuestionIsSummary']==0
+          assert now['summary']['independentExpertApproved']==0
+          assert now['summary']['finalApproval']=='HOLD (0/328)'
+          assert all(r['verdicts']['finalApproval']=='HOLD' for r in new.values())
+          pathlib.Path('review-artifacts/NOMUSA_V28').mkdir(parents=True,exist_ok=True)
+          data={'modifiedId':'2022-hr-1','beforeSHA':old['2022-hr-1']['textSHA256'],
+           'afterSHA':new['2022-hr-1']['textSHA256'],
+           'unmodified':327,'originalQNetByteMatched':328,
+           'verifiedSourceQuestion':328,'independentExpertApproved':0,
+           'finalApproval':'HOLD','oldV27EvidenceUsesPriorSHA':True}
+          pathlib.Path('review-artifacts/NOMUSA_V28/NOMUSA_V28_328_LEDGER_SHA_DIFF.json').write_text(
+            json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('PASS_V28_1_GOLDSTEIN_SHA_327_PRESERVED_328_QNET_EXPERT_HOLD')
+          PY
+      - name: Regenerate seven 328 expert packets and priority 96 for exact NEW draft SHA
+        run: python scripts/nomusa-v26-substantive-review-packets.py .
+      - name: Preserve immutable baselines except review ledger
+        run: |
+          python - <<'PY'
+          import subprocess
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert changed==['review/NOMUSA_V23_VALIDATION_LEDGER.json'], changed
+          print('PASS_ONLY_REVIEW_LEDGER_REGENERATED')
+          PY
+      - name: Commit SHA ledger to current review branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_V23_VALIDATION_LEDGER.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(v28): lock Goldstein 2022-hr-1 editorial revision in 328-row SHA ledger'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo "NEW_REVIEW_LEDGER_SHA=$(git rev-parse HEAD)"
+      - name: Upload all V28 evidence, exact-SHA replacement expert review files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v28-2022-19-limited-sources-goldstein-1edit-new-sha-328-packets
+          path: |
+            review-artifacts/NOMUSA_V28/**
+            review-artifacts/NOMUSA_V26/**
+            review/NOMUSA_V28_2022_REMAINING_13_SOURCE_CROSSCHECK_20261118.json
+            review/NOMUSA_V23_VALIDATION_LEDGER.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Protect operations and independent expert signoff
+        if: always()
+        run: |
+          echo 'NO_MAIN_NO_PRODUCTION_NO_PREVIEW_NO_EMAIL=1'
+          echo 'TECHNICAL_SOURCE_REVIEW_NOT_FINAL_EXPERT_SIGNOFF=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'

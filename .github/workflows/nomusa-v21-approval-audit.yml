@@ -1,0 +1,75 @@
+name: NOMUSA V21 328-answer independent approval precheck
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v21-approval-audit.yml'
+      - 'scripts/nomusa-essay-approval-v21.py'
+      - 'scripts/nomusa-essay-quality-v19.py'
+      - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'second/**'
+      - 'study-hub/**'
+      - 'rc27_essay_catalog.js'
+      - 'review/NOMUSA_V18_2019_2020_26_POINT_EVIDENCE_20261117.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v21-independent-approval-precheck
+  cancel-in-progress: true
+
+jobs:
+  audit-v21:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout immutable reviewed V21 draft
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated Chromium
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium --with-deps
+      - name: V21 reproducible source and scoring self-tests
+        run: |
+          python scripts/nomusa-essay-quality-v19.py --self-test
+          python scripts/nomusa-essay-approval-v21.py --self-test
+      - name: PC/mobile Chromium display, answer preservation and 20-year export
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: V20 328/88 prior audit and 77-risk baseline
+        run: python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+      - name: V21 compute 328 evidence-precheck, 2022 first approval packet and real runtime
+        run: python scripts/nomusa-essay-approval-v21.py .
+      - name: Upload V21 audit evidence and reviewer queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v21-328-approval-precheck-2022-pilot
+          path: |
+            review-artifacts/NOMUSA_V21_328_APPROVAL_TRIAGE.json
+            review-artifacts/NOMUSA_V21_328_APPROVAL_LEDGER.csv
+            review-artifacts/NOMUSA_V21_77_PRIORITY_AND_PILOT_QUEUE.csv
+            review-artifacts/NOMUSA_V21_2022_PILOT_19X32.md
+            review-artifacts/NOMUSA_V21_AUTOMATED_PREAPPROVAL_REPORT.md
+            review-artifacts/NOMUSA_V21_RUNTIME.json
+            review-artifacts/NOMUSA_V19_328_PRIORITY_REPORT.json
+            review-artifacts/nomusa_2022_19questions_32parts_rendered_review.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Verify release guardrail
+        if: always()
+        run: |
+          echo 'V21_PRECHECK_ONLY=1'
+          echo 'INDEPENDENT_CONTENT_APPROVAL=HOLD'
+          echo 'Production, main, Preview, IDs and storage keys were not written.'

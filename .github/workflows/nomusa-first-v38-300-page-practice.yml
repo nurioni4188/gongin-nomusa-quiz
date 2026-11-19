@@ -1,0 +1,104 @@
+name: NOMUSA FIRST V38 2020 2021 native PDF 88 page candidates and statute-checked SI
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v38-300-page-practice.yml'
+      - 'scripts/nomusa-first-v38-2020-2021-native-page-source.py'
+      - 'scripts/nomusa-first-v38-300-page-practice-browser-gate.py'
+      - 'study-hub/first-v38-2020-2021-source-pages-practice.html'
+      - 'study-hub/first-v38-2020-2021-source-pages-app.js'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v38-source-300-original-2020-21
+  cancel-in-progress: true
+jobs:
+  generate-verify-commit:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 27
+    steps:
+      - name: Checkout existing review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source PDF and Chromium testing utilities
+        run: |
+          python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5 playwright==1.56.0 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: 791 exact missing IDs and QNet source provenance preserved
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Generate only 88 unique original QNet scanned PDF page images using 4 known SHAs
+        run: python scripts/nomusa-first-v38-2020-2021-native-page-source.py
+      - name: Validate genuine 2020/2021 original-page study across 1440 390 360 viewports
+        run: python scripts/nomusa-first-v38-300-page-practice-browser-gate.py .
+      - name: Recheck 2026 social law 40/40 and 14 2017/2019 original item practice
+        run: |
+          node --check explanations-2026-social-v36.js
+          python scripts/nomusa-first-v36-social-40-browser-gate.py .
+          python scripts/nomusa-first-v37-14-image-practice-gate.py .
+      - name: Original first-stage RC35 scoring protection and 2nd-stage canonical
+        run: |
+          python scripts/nomusa-first-v32-status-ui-gate.py
+          python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Connect original source candidate practice only after original image E2E PASS
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('review-artifacts/NOMUSA_FIRST_V38/NOMUSA_FIRST_V38_88_NATIVE_SOURCE_PAGE_MANIFEST.json').read_text())
+          test=json.loads(Path('review-artifacts/NOMUSA_FIRST_V38/NOMUSA_FIRST_V38_300_NATIVE_SOURCE_PRACTICE_E2E.json').read_text())
+          assert manifest['OCRPageCandidates']==274 and manifest['bookletOnlyHOLD']==26 and manifest['uniqueImagePages']==88
+          assert len(manifest['sourceDocuments'])==4
+          assert test['status']=='PASS' and test['tests']==18 and test['autoScoringApproved']==0
+          assert test['actualQDATAAdditions']==test['actualOriginalStemOptionsIndependentValidation']==0
+          Path('review/NOMUSA_FIRST_V38_88_NATIVE_PAGE_SOURCE_20261118.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+          p=Path('index.html');s=p.read_text();a='<a href="study-hub/first-v37-native14-practice.html">2017·2019년 공식 원문 이미지 14건 검토</a>'
+          b=a+' · <a href="study-hub/first-v38-2020-2021-source-pages-practice.html">2020·2021년 공식 PDF 페이지 후보 274문항 선택연습</a>'
+          assert s.count(a)==1
+          p.write_text(s.replace(a,b))
+          p=Path('study-hub/app.js');s=p.read_text();a='<a href="first-v37-native14-practice.html">2017·2019년 원본 이미지 14문항</a>'
+          b=a+' · <a href="first-v38-2020-2021-source-pages-practice.html">2020·2021년 원본 PDF 페이지 연습(274후보·26위치HOLD)</a>'
+          assert s.count(a)==1
+          p.write_text(s.replace(a,b))
+          PY
+      - name: Safety-check only source JPG artifacts and two added links
+        run: |
+          python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert set(changed)=={'index.html','study-hub/app.js'},changed
+          images=list(Path('study-hub/first-v38-qnet-pages-2020-2021').glob('*.jpg'))
+          assert len(images)==88,len(images)
+          assert all(p.stat().st_size>14000 for p in images)
+          print('PASS_88_ORIGINAL_IMAGES_2_REVIEW_LINKS_0_QDATA_CHANGES')
+          PY
+          git add -- index.html study-hub/app.js review/NOMUSA_FIRST_V38_88_NATIVE_PAGE_SOURCE_20261118.json study-hub/first-v38-qnet-pages-2020-2021/
+          git diff --cached --check
+      - name: Commit source-provenance-only review assets to existing branch (no main/Production)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'review(first-v38): QNet 88 original PDF page crops and 274 conditional image choice practice'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo V38_COMMITTED_SHA=$(git rev-parse HEAD)
+      - name: Archive 2020/21 4-SHA 88-image manifest and browser results (not original PDFs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v38-qnet-88-page-274-candidate-practice-proof
+          path: |
+            review-artifacts/NOMUSA_FIRST_V38/NOMUSA_FIRST_V38_88_NATIVE_SOURCE_PAGE_MANIFEST.json
+            review-artifacts/NOMUSA_FIRST_V38/NOMUSA_FIRST_V38_300_NATIVE_SOURCE_PRACTICE_E2E.json
+          if-no-files-found: warn
+          retention-days: 30

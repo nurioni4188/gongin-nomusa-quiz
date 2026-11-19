@@ -1,0 +1,23 @@
+{
+  "schema": "NOMUSA_FIRST_V57_2016_A_MANAGEMENT_34_MISSING_HEADING_SOURCE_PAGES/1",
+  "asOfKST": "2026-11-18",
+  "targetUnresolvedQuestionIds": 34,
+  "sourceOfficialQNetPdfSha256": "328d2a7e12623abfb958b3cbfb2ac094688da295f644c502e22ea575c2a4554a",
+  "priorUniqueSourceCropsPreserved": 91,
+  "orderedAdjacentQuestionPageBrackets": 30,
+  "noTightBrackets": 4,
+  "uniqueFullPagePreviewImages": 27,
+  "statusCounts": {
+    "MULTIPLE_ANCHORS_FILTERED_TO_BRACKET_PAGE_PREVIEW_ONLY": 6,
+    "NO_TIGHT_BOUNDED_PAGE_CANDIDATE_HOLD": 4,
+    "ORDERED_NEIGHBOR_PAGE_BRACKET_REVIEW": 24
+  },
+  "nativeQuestionOriginalTextApproved": 0,
+  "fullFiveOptionsApproved": 0,
+  "independentAnswerKeyApproved": 0,
+  "newScoringApproved": 0,
+  "newAppImports": 0,
+  "warning": "Only candidates inferred from neighboring provisional question anchors. Full page images may show many questions. No exact source-page or question-text approval.",
+  "status": "PASS_34_NEIGHBOR_PAGE_TRIAGE_HOLD_INDIVIDUAL_SOURCE_AND_SCORING",
+  "complete34Artifact": "review-artifacts/NOMUSA_FIRST_V57/NOMUSA_FIRST_V57_34_UNRESOLVED_ORDERED_PAGE_QUEUE.json"
+}

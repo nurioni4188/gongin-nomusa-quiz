@@ -1,0 +1,103 @@
+{
+  "schema": "NOMUSA_V23_CASE_CORROBORATION_BATCH/1",
+  "checkedDateKST": "2026-11-17",
+  "basis": "Independent public-source crosscheck supplement to historic V23 law.go.kr search cache; does not overwrite cache or 328-row baseline ledger.",
+  "cases": [
+    {
+      "caseNo": "2012다81609",
+      "questionId": "2022-labor1-1",
+      "year": 2022,
+      "textSHA256": "f3ca42f0a085d5164f4c6b2100a2008e96ba0edc77cd13cbf588842d75ac0553",
+      "court": "대법원",
+      "decisionDate": "2014-12-24",
+      "decisionDateEvidence": "PRIMARY_COURT_LATER_OPINION_CITES_ORIGINAL",
+      "issue": "해고사유를 축약하여 서면 통지한 경우 제27조 적법 요건",
+      "existence": "CORROBORATED_BY_OFFICIAL_COURT_CITATION",
+      "originalFullJudgment": "HOLD_NOT_READ",
+      "examTimeApplicability": "HOLD_INDEPENDENT_REVIEW",
+      "authority": "대법원 공식 주요판결에서 2014.12.24. 선고 2012다81609 판결을 명시적으로 인용",
+      "sources": [
+        {
+          "url": "https://scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&searchOption=&searchWord=&seqnum=7547",
+          "publisher": "대한민국 대법원",
+          "evidence": "2021년 대법원 중요판결 사건 설명에서 선고일·사건번호·해고통지 요건 언급"
+        },
+        {
+          "url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&pageIndex=1&searchOption=&searchWord=&seqnum=8203&type=5",
+          "publisher": "대한민국 대법원",
+          "evidence": "2022년 서면해고통지 판시요지에서 2012다81609 인용"
+        },
+        {
+          "url": "https://www.law.go.kr/LSW/precInfoP.do?precSeq=222729",
+          "publisher": "국가법령정보센터",
+          "evidence": "후속 2021두50642 관련 판례 본문 인용"
+        }
+      ]
+    },
+    {
+      "caseNo": "2011두7526",
+      "questionId": "2014_p2_q1",
+      "year": 2014,
+      "textSHA256": "cf8201b7b7ec5445e04e4279df8700ef458e9e13058782f4a3ea8afd07c1021c",
+      "court": "대법원",
+      "decisionDate": "2011-05-26",
+      "decisionDateEvidence": "SECONDARY_PUBLIC_RESEARCH_INSTITUTE",
+      "issue": "고용안정협약의 규범적 효력과 예외적 사정변경",
+      "existence": "CORROBORATED_BY_KOREA_LABOR_INSTITUTE",
+      "originalFullJudgment": "HOLD_NOT_READ",
+      "examTimeApplicability": "HOLD_INDEPENDENT_REVIEW",
+      "authority": "한국노동연구원 노동판례리뷰에서 2011.5.26. 대법원 선고 2011두7526 및 고용안정협약 법리를 인용",
+      "sources": [
+        {
+          "url": "https://www.kli.re.kr/kli/prcdntView.es?currentPage=90&keyField=&keyWord=&keyYear=&mid=a10202000000&prcdnt_no=126968",
+          "publisher": "한국노동연구원",
+          "evidence": "고용안정협약 관련 노동판례리뷰 원문에서 사건번호·선고일·요지 인용"
+        },
+        {
+          "url": "https://www.kli.re.kr/kli/prcdntView.es?currentPage=76&keyField=&keyWord=&keyYear=&mid=a10202000000&prcdnt_no=129412",
+          "publisher": "한국노동연구원",
+          "evidence": "다른 노동판례리뷰에서 같은 사건 법리 언급"
+        }
+      ]
+    },
+    {
+      "caseNo": "2024구합76393",
+      "questionId": "2026-행정쟁송법|2|0",
+      "year": 2026,
+      "textSHA256": "0e405d0ee66195613d5d13a011a2c43ddf81e3470185fa5715c5dd3abbf9e608",
+      "court": "서울행정법원",
+      "decisionDate": "2025-08-21",
+      "decisionDateEvidence": "SECONDARY_REPORT_WITH_OFFICIAL_COURT_CASE_LISTING",
+      "issue": "사고사망만인율 통보의 처분성 및 통보 적법성",
+      "existence": "CORROBORATED_BY_OFFICIAL_SEOUL_ADMINISTRATIVE_COURT_LISTING",
+      "originalFullJudgment": "HOLD_OFFICIAL_ATTACHMENT_NOT_READ",
+      "examTimeApplicability": "HOLD_INDEPENDENT_REVIEW",
+      "authority": "서울행정법원 공식 주요판결 게시물은 사건번호·판단주제·첨부파일을 명시; 선고일 2025.8.21.은 외부 판결문 전재 사이트 확인, 공식 원본 표지는 미확인",
+      "sources": [
+        {
+          "url": "https://www.scourt.go.kr/portal/dcboard/DcNewsViewAction.work?cbub_code=000220&gubun=44&scode_kname=&searchOption=&searchWord=&seqnum=27433",
+          "publisher": "서울행정법원 공식",
+          "evidence": "2024구합76393 주요판결 사건번호·사고사망만인율 판단·판결 PDF 첨부파일 확인"
+        },
+        {
+          "url": "https://weverlabor.com/25/?bmode=view&idx=168365725",
+          "publisher": "노무법인 위버 판결문 소개",
+          "evidence": "판결선고 2025.8.21. 표기; 공식 판결문 일자와 직접 대조 필요"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "distinctCases": 3,
+    "distinctQuestions": 3,
+    "priorFlaggedOccurrences": 5,
+    "expertApprovals": 0
+  },
+  "generalNotes": [
+    "A law.go.kr search miss is not evidence that the case does not exist.",
+    "Existence/date corroboration does not establish original full judgment, historical statute scope, fact-specific ratio, or model-answer correctness.",
+    "For 2024구합76393 court listing verifies identity; 2025-08-21 is from independent non-court source pending official judgment image/date crosscheck.",
+    "Do not change answer text, ID, SHA, scoring, legal-content expert approval, or remaining historical issues based on this file alone."
+  ],
+  "finalApproval": "HOLD_0_OF_328"
+}

@@ -1,0 +1,758 @@
+{
+  "schema": "NOMUSA_FIRST_V43_2021_ECONOMICS_REMAINING_19_THEORY_GRAPH_CALCULATIONS/1",
+  "dateKST": "2026-11-18",
+  "sourceReviewedCount": 19,
+  "officialAFormAnswerMatched": 19,
+  "calculationDerivations": 17,
+  "explicitSecondReviewerHolds": [
+    "legacy1-2021-A-economics-115",
+    "legacy1-2021-A-economics-120",
+    "legacy1-2021-A-economics-122"
+  ],
+  "independentContentApproved": 0,
+  "scoringApproved": 0,
+  "note": "All 19 official image/answer candidates verified for five-choice scope and explanatory drafts. No individual admission until separate second reviewer, exam-time legal definitions where relevant, formula/diagram proof.",
+  "rows": [
+    {
+      "id": "legacy1-2021-A-economics-106",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 106,
+      "question": "완전경쟁시장에서 A기업의 단기 총비용함수가 TC(Q)=4Q²+2Q+10이다. 재화의 시장가격이 42일 경우 극대화된 단기 이윤은? (단, Q는 생산량, Q>0이다.)",
+      "optionTexts": [
+        "10",
+        "42",
+        "52",
+        "84",
+        "90"
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "MC=8Q+2이며 P=MC로 Q*=5를 얻는다. 총수입 42×5=210, 총비용 4×25+2×5+10=120이다. 따라서 최대 단기이윤은 90이다.",
+      "eachOptionExplanation": [
+        "고정비 10과 한계비용 조건을 잘못 반영했다.",
+        "시장가격 42는 기업 전체 이윤이 아니다.",
+        "생산량 5를 적용한 총이익이 아니다.",
+        "총비용 계산 오류다.",
+        "TR−TC=210−120=90이다."
+      ],
+      "calculationProof": "MC=dTC/dQ=8Q+2;42=8Q+2→Q=5;π=42×5−(4×25+2×5+10)=90",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/8-3-how-perfectly-competitive-firms-make-output-decisions",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-106.jpg",
+      "originalImageSHA256": "5d37d84f0c57d837c8f634d743fbe08165093d01a907611a7e8d601b4488ea81",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 35,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-107",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 107,
+      "question": "상품 A의 수요함수가 Q=4P^(−2)Y^0.4일 때, 이에 관한 설명으로 옳은 것은? (단, Q는 수요량, P는 가격, Y는 소득이다.)",
+      "optionTexts": [
+        "가격이 상승하면, 총수입은 증가한다.",
+        "소득이 2% 감소하면, 수요량은 0.4% 감소한다.",
+        "소득탄력성의 부호는 음(−)이다.",
+        "가격이 상승함에 따라 수요의 가격탄력성도 증가한다.",
+        "수요의 가격탄력성(절댓값)은 2이다."
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "멱함수 Q=4P^-2Y^0.4의 가격탄력성은 P의 지수 −2, 소득탄력성은 Y의 지수 0.4다. 따라서 가격탄력성 절댓값은 2로 일정하므로 ⑤가 맞다.",
+      "eachOptionExplanation": [
+        "가격탄력성 2>1인 수요에서는 가격 상승 시 총수입이 감소한다.",
+        "소득 2% 감소 시 작은 변화 근사로 수요량은 약 0.8% 감소한다.",
+        "소득탄력성은 +0.4이다.",
+        "탄력성은 가격에 무관하게 −2로 일정하다.",
+        "|∂lnQ/∂lnP|=2이다."
+      ],
+      "calculationProof": "ε_P=(∂Q/∂P)(P/Q)=−2; ε_Y=(∂Q/∂Y)(Y/Q)=0.4",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-107.jpg",
+      "originalImageSHA256": "c77c769438230295e8fc98ae627cc9c11736451064daa28ddafa6e79552df857",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 35,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-108",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 108,
+      "question": "완전경쟁시장에서 이윤극대화를 추구하는 개별 기업에 관한 설명으로 옳은 것은? (단, 개별 기업의 평균비용곡선은 U-자 형태로 동일하며, 생산요소시장도 완전경쟁이다.)",
+      "optionTexts": [
+        "한계수입곡선은 우하향하는 형태이다.",
+        "이윤은 단기에도 항상 영(0)이다.",
+        "수요의 가격탄력성은 영(0)이다.",
+        "단기에는 평균 가변비용곡선의 최저점이 조업중단점이 된다.",
+        "이윤극대화 생산량에서 평균수입은 한계비용보다 크다."
+      ],
+      "officialAFormAnswer": [
+        4
+      ],
+      "explanationDraft": "완전경쟁기업의 MR=P는 수평이고, 단기에는 양·음의 경제적 이윤이 가능하다. 가격이 최저 AVC 미만이면 영업을 중단하는 것이 유리하므로 최저 AVC 지점이 단기 조업중단점이다. ④.",
+      "eachOptionExplanation": [
+        "가격수용자인 기업은 수평 한계수입곡선을 갖는다.",
+        "장기 자유진입 균형의 경제적 이윤 0을 단기에 일반화할 수 없다.",
+        "개별기업 수요는 완전탄력적이다.",
+        "최저 AVC가 단기 조업중단점이다.",
+        "내부해에서는 MR=P=MC이므로 평균수입 AR도 MC와 같다."
+      ],
+      "calculationProof": "단기 가동조건 P≥min AVC; 생산 최적조건 P=MC",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/8-4-efficiency-in-perfectly-competitive-markets",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-108.jpg",
+      "originalImageSHA256": "071b88bb61c306e5631021b8105425683af59a7d68eba20313b982c6c667a5f5",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 35,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-109",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 109,
+      "question": "효용극대화를 추구하는 소비자 A의 효용함수가 U=4X^(1/2)Y^(1/2)일 때, 이에 관한 설명으로 옳지 않은 것은? (단, A는 모든 소득을 X재와 Y재의 소비에 지출한다. Px와 Py는 각각 X재와 Y재의 가격, MUx와 MUy는 각각 X재와 Y재의 한계효용이다.)",
+      "optionTexts": [
+        "X재와 Y재는 모두 정상재이다.",
+        "Px=2Py일 때, 최적 소비조합점에서 MUx=0.5MUy를 충족한다.",
+        "Px=2Py일 때, 최적 소비조합점은 Y=2X의 관계식을 충족한다.",
+        "한계대체율은 체감한다.",
+        "Y재 가격이 상승하여도 X재 소비는 불변이다."
+      ],
+      "officialAFormAnswer": [
+        2
+      ],
+      "explanationDraft": "U=4√(XY)에서 MUx/MUy=Y/X다. 최적 내부해의 한계효용비율은 Px/Py이며 Px=2Py이면 MUx=2MUy, Y=2X다. 따라서 MUx=0.5MUy라고 한 ②는 틀리다.",
+      "eachOptionExplanation": [
+        "Cobb–Douglas의 두 재화 수요는 소득에 비례해 정상재다.",
+        "MUx/MUy=Px/Py=2이므로 0.5가 아니다.",
+        "Y/X=2이므로 Y=2X가 성립한다.",
+        "볼록한 무차별곡선에서 MRS는 체감한다.",
+        "Cobb–Douglas의 X수요는 X*=M/(2Px)라서 Py 변화에 직접 영향이 없다."
+      ],
+      "calculationProof": "MUx=2√(Y/X), MUy=2√(X/Y); MUx/MUy=Y/X=Px/Py=2; X*=M/(2Px)",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/6-1-consumption-choices",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-109.jpg",
+      "originalImageSHA256": "8b45b8a642033dc30b2878c65bb23860b967abc912b3ce662b3e975de3388f13",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 36,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-110",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 110,
+      "question": "오염물질을 발생시키는 상품 A의 시장 수요곡선은 Q=20−P이고, 사적 한계비용곡선과 사회적 한계비용곡선이 각각 PMC=6+Q, SMC=10+Q이다. 사회적 최적 생산량을 달성하기 위해 부과해야 하는 생산 단위당 세금은? (단, Q는 생산량, P는 가격이고 완전경쟁시장을 가정한다.)",
+      "optionTexts": [
+        "1.5",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "officialAFormAnswer": [
+        4
+      ],
+      "explanationDraft": "오염의 단위당 한계외부비용은 SMC−PMC=(10+Q)−(6+Q)=4이다. 사회적 최적에서 P=SMC, 즉 20−Q=10+Q로 Q*=5이며, 피구세 4를 부과하면 사적비용에 외부비용을 내부화한다.",
+      "eachOptionExplanation": [
+        "한계외부비용을 과소평가한 값이다.",
+        "사적·사회적 비용의 절편 차이는 2가 아니다.",
+        "한계외부비용은 4다.",
+        "SMC−PMC=4로 정확하다.",
+        "한계외부비용을 과대평가한 값이다."
+      ],
+      "calculationProof": "MEC(Q)=SMC−PMC=4; 20−Q=10+Q⇒Q*=5; t*=4",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/12-1-the-economics-of-pollution",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-110.jpg",
+      "originalImageSHA256": "0f11786d947b392c9ba126351ef94da8e58280b2ec291b467c55a7f5339c20ee",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 36,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-111",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 111,
+      "question": "솔로우(R. Solow) 경제성장모형에서 1인당 생산함수는 y=f(k)=4k^(1/2)이고, 저축률은 5%, 감가상각률은 2%, 그리고 인구증가율은 2%이다. 균제상태(steady state)에서 1인당 자본량은? (단, y는 1인당 산출량, k는 1인당 자본량이다.)",
+      "optionTexts": [
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "정상상태 투자 sf(k)는 손익분기 투자 (n+δ)k와 같다. 0.05×4√k=0.04k → 0.2√k=0.04k → √k=5 → k*=25다. 기술진보율은 문제에서 주어지지 않아 0으로 본다.",
+      "eachOptionExplanation": [
+        "정상상태 균형식을 만족하지 않는다.",
+        "정상상태 저축·투자와 자본유지투자가 일치하지 않는다.",
+        "같은 이유로 균형이 아니다.",
+        "같은 이유로 균형이 아니다.",
+        "정상상태 k=25이다."
+      ],
+      "calculationProof": "s f(k)=(n+δ)k;0.05·4√k=0.04k ⇒√k=5 ⇒k*=25",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/20-4-economic-convergence",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-111.jpg",
+      "originalImageSHA256": "8c47a6c61add4ca480cc360bdda888ed83c20fea7120b5bc67be913c3a8cf5b3",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 36,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-112",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 112,
+      "question": "균형국민소득은 Y=C(Y−T)+G이다. 정부가 민간분야에 대해 5,000억 원의 조세삭감과 5,000억 원의 지출증가를 별도로 실시할 경우, 조세삭감과 정부지출로 인한 균형국민소득의 변화(절댓값)를 옳게 설명한 것은? (단, Y: 균형국민소득, C(Y−T): 소비함수, T: 조세, G: 정부지출, 0<한계소비성향(MPC)<1이다.)",
+      "optionTexts": [
+        "조세삭감 효과가 정부지출 효과보다 크다.",
+        "조세삭감 효과와 정부지출 효과는 동일하다.",
+        "조세삭감 효과가 정부지출 효과보다 작다.",
+        "조세승수는 −1/(1−MPC)이다.",
+        "정부지출승수는 MPC/(1−MPC)이다."
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "조세승수 절댓값은 MPC/(1−MPC), 정부지출승수는 1/(1−MPC)이다. 0<MPC<1이므로 동일 금액일 때 조세삭감 효과는 정부지출 증가 효과보다 작다. ③.",
+      "eachOptionExplanation": [
+        "조세승수 절댓값이 정부지출승수보다 작다.",
+        "두 승수는 같지 않다.",
+        "MPC/(1−MPC)<1/(1−MPC)가 성립한다.",
+        "조세승수는 −MPC/(1−MPC)이다.",
+        "정부지출승수는 1/(1−MPC)이다."
+      ],
+      "calculationProof": "ΔY_G=ΔG/(1−c); |ΔY_T|=c|ΔT|/(1−c); c∈(0,1) ⇒ |ΔY_T|<ΔY_G",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/17-4-using-fiscal-policy-to-fight-recession-unemployment-and-inflation",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-112.jpg",
+      "originalImageSHA256": "fee7cc056ff15e2d13bc03869bf1672f0561496a75d36944d0b4dab746c33ec9",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 36,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-114",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 114,
+      "question": "먼델–플레밍 모형을 이용하여 고정환율제 하에서 정부지출을 감소시킬 경우 나타나는 변화로 옳은 것은? (단, 소규모 개방경제 하에서 국가 간 자본의 완전이동과 물가불변을 가정하고, IS곡선은 우하향, LM곡선은 수직선이다.)",
+      "optionTexts": [
+        "IS곡선은 오른쪽 방향으로 이동한다.",
+        "LM곡선은 오른쪽 방향으로 이동한다.",
+        "통화량은 감소한다.",
+        "고정환율수준 대비 자국의 통화가치는 일시적으로 상승한다.",
+        "균형국민소득은 증가한다."
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "고정환율·완전자본이동 조건에서 재정지출 감소는 IS를 왼쪽으로 이동시켜 자국 통화의 평가절하 압력을 만든다. 환율 방어를 위해 중앙은행이 외환을 매도하고 국내 통화를 흡수해 통화량과 LM이 줄어든다. ③.",
+      "eachOptionExplanation": [
+        "재정축소는 IS를 왼쪽으로 이동시킨다.",
+        "LM은 환율 방어 과정에서 왼쪽으로 이동한다.",
+        "중앙은행의 국내 통화 흡수로 통화량이 감소한다.",
+        "재정축소 후에는 자국 통화의 평가절하 압력이 예상된다.",
+        "재정축소와 통화수축으로 산출량이 감소한다."
+      ],
+      "calculationProof": "G↓→IS←→자본유출·평가절하압력→고정환율 방어 외환매도/통화흡수→LM←,M↓",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/16-2-shifting-the-aggregate-demand-curve",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-114.jpg",
+      "originalImageSHA256": "7dfe3a1b06fabbd34854bfda879b080d5ca476f72f173dd2f99ff90ac863a00a",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 37,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-115",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 115,
+      "question": "폐쇄경제 하 중앙은행이 통화량을 감소시킬 때 나타나는 변화를 IS-LM모형을 이용하여 설명한 것으로 옳은 것을 모두 고른 것은? (단, IS곡선은 우하향, LM곡선은 우상향한다.)\nㄱ. LM곡선은 오른쪽 방향으로 이동한다.\nㄴ. 이자율은 상승한다.\nㄷ. IS곡선은 왼쪽 방향으로 이동한다.\nㄹ. 구축효과로 소득은 감소한다.",
+      "optionTexts": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄱ, ㄹ",
+        "ㄴ, ㄹ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "officialAFormAnswer": [
+        4
+      ],
+      "explanationDraft": "통화긴축은 LM을 왼쪽/위로 이동시키고 이자율 상승과 투자 감소·국민소득 감소를 가져온다. IS는 통화량 변화만으로 이동하지 않는다. ㄴ·ㄹ이 옳아 ④. 다만 ㄹ의 '구축효과' 표현은 교과서 맥락별로 해석 차이가 있어 원전 검토 대상이다.",
+      "eachOptionExplanation": [
+        "LM은 오른쪽이 아니라 왼쪽으로 이동한다.",
+        "IS는 기본적으로 이동하지 않는다.",
+        "ㄱ이 틀리다.",
+        "이자율 상승과 투자·소득 감소 설명에 해당한다.",
+        "ㄷ의 IS 이동은 직접적인 통화긴축 효과가 아니다."
+      ],
+      "calculationProof": "M↓⇒LM←⇒r↑,I↓,Y↓; IS unchanged holding autonomous spending fixed",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/15-3-monetary-policy-and-economic-outcomes",
+      "independentReviewFlag": "CROWDING_OUT_TERM_APPLIED_TO_MONETARY_CONTRACTION_RECHECK",
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-115.jpg",
+      "originalImageSHA256": "b8793fd4c8ceeaf2b81c0d6a13705a70d0e58f1f6873d50531980fc08f0202a3",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 37,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-116",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 116,
+      "question": "폐쇄경제 균형국민소득은 Y=C+I+G이고 다른 조건이 일정할 때, 재정적자가 대부자금시장에 미치는 효과로 옳은 것은? (단, 총투자곡선은 우하향, 총저축곡선은 우상향, Y: 균형국민소득, C: 소비, I: 투자, G: 정부지출이다.)",
+      "optionTexts": [
+        "대부자금공급량은 감소한다.",
+        "이자율은 하락한다.",
+        "공공저축은 증가한다.",
+        "저축곡선은 오른쪽 방향으로 이동한다.",
+        "투자곡선은 왼쪽 방향으로 이동한다."
+      ],
+      "officialAFormAnswer": [
+        1
+      ],
+      "explanationDraft": "재정적자가 확대되면 공공저축(T−G)이 감소해 국민저축과 대부자금 공급이 축소한다. 저축공급곡선은 왼쪽으로 이동하고 이자율 상승·투자 위축이 발생할 수 있다. ①.",
+      "eachOptionExplanation": [
+        "국민저축 감소에 따라 대부자금공급이 축소한다.",
+        "일반적으로 금리 상승 압력이다.",
+        "재정적자 확대는 공공저축 감소다.",
+        "저축공급곡선은 왼쪽으로 이동한다.",
+        "투자 수요 자체가 직접 왼쪽으로 이동하는 것은 아니다."
+      ],
+      "calculationProof": "S=Y−C−G; public S=T−G; deficit↑ ⇒ S↓ ⇒ loanable funds supply←",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/17-4-using-fiscal-policy-to-fight-recession-unemployment-and-inflation",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-116.jpg",
+      "originalImageSHA256": "ea1e98b6af5f4d0f0135981b4e2cab80f77b952a6255f370a7a4ac51c362b22b",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 37,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-117",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 117,
+      "question": "폐쇄경제 하 총수요(AD)-총공급(AS)모형을 이용하여 정부 지출증가로 인한 변화에 관한 설명으로 옳지 않은 것을 모두 고른 것은? (단, AD곡선은 우하향, 단기 AS곡선은 우상향, 장기 AS곡선은 수직선이다.)\nㄱ. 단기에 균형소득수준은 증가한다.\nㄴ. 장기에 균형소득수준은 증가한다.\nㄷ. 장기에 고전학파의 이분법이 적용되지 않는다.\nㄹ. 장기 균형소득수준은 잠재산출량 수준에서 결정된다.",
+      "optionTexts": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄹ"
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "정부지출 증가로 AD가 우측 이동하면 단기에는 Y가 증가할 수 있다(ㄱ 참). 장기에는 물가 조정으로 잠재산출량 수준으로 돌아가므로 장기 Y 증가라는 ㄴ은 거짓이다. 장기 고전학파 이분법은 적용 가능하므로 ㄷ도 거짓이다. ㄹ은 참. 옳지 않은 항목 ㄴ·ㄷ → ③.",
+      "eachOptionExplanation": [
+        "ㄱ은 맞아 제외해야 한다.",
+        "ㄱ이 맞고 ㄷ이 틀려 선택이 부적절하다.",
+        "장기 산출량 증가 주장 ㄴ과 이분법 미적용 주장 ㄷ이 모두 틀리다.",
+        "ㄹ은 장기 산출량이 잠재수준이라는 옳은 설명이다.",
+        "ㄱ·ㄹ은 옳은 설명이다."
+      ],
+      "calculationProof": "단기 G↑⇒AD→⇒Y↑; 장기 Y=Y* (잠재산출량), P 조정",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/11-3-shifts-in-aggregate-supply",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-117.jpg",
+      "originalImageSHA256": "14b45e07ad96eeb0247016cbd33b07c243a0f69615bafd6b2a40e9ee5fc09b3c",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 37,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-118",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 118,
+      "question": "경제학파별 이론에 관한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 고전학파는 화폐의 중립성을 주장한다.\nㄴ. 실물경기변동이론은 임금과 가격의 신축성을 전제한다.\nㄷ. 케인즈 학파는 경기침체의 원인이 총 공급의 부족에 있다고 주장한다.\nㄹ. 가격의 경직성을 설명하는 메뉴 비용(menu cost) 이론은 새 케인즈 학파(new Keynesian)의 주장이다.",
+      "optionTexts": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄹ",
+        "ㄴ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄹ"
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "고전학파는 장기의 화폐중립성을, 실물경기변동이론은 가격·임금의 신축성을, 새 케인즈학파는 메뉴비용을 포함한 명목경직성을 설명한다. 케인즈학파는 경기침체의 원인을 총수요 부족과 연결하므로 총공급 부족이라는 ㄷ은 거짓이다. 따라서 ㄱ·ㄴ·ㄹ인 ⑤.",
+      "eachOptionExplanation": [
+        "ㄹ이 빠졌다.",
+        "ㄴ이 빠졌다.",
+        "ㄷ은 케인즈학파 설명과 다르다.",
+        "ㄱ이 빠졌다.",
+        "ㄱ·ㄴ·ㄹ이 모두 옳다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/13-3-balancing-keynesian-and-neoclassical-models",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-118.jpg",
+      "originalImageSHA256": "e2a9eb2750d76d6aafcfdaefbb811c039900aa2c4d7f7fe60714ec28059ddbba",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 38,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-119",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 119,
+      "question": "A국가는 경제활동인구가 1,000만 명이고, 매 기간 동안 실직률(취업자 중 실직하는 사람의 비율)과 구직률(실직자 중 취업하는 사람의 비율)은 각각 2%와 18%이다. 균제상태(steady state)의 실업자 수는?",
+      "optionTexts": [
+        "25만 명",
+        "40만 명",
+        "50만 명",
+        "75만 명",
+        "100만 명"
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "정상상태 유입·유출 균형에서 실직률 s와 취업확률 f에 대한 실업률 u=s/(s+f)=0.02/(0.02+0.18)=0.10이다. 경제활동인구 1,000만 명의 10%인 100만 명이 실업자다.",
+      "eachOptionExplanation": [
+        "실업률 2.5%가 아니므로 틀리다.",
+        "실업률 4%가 아니므로 틀리다.",
+        "실업률 5%가 아니다.",
+        "실업률 7.5%가 아니다.",
+        "1000만×0.10=100만 명이다."
+      ],
+      "calculationProof": "s(1−u)=fu⇒u=s/(s+f)=0.02/(0.02+0.18)=0.10;U=10,000,000×0.10=1,000,000",
+      "referenceCandidate": "https://openstax.org/books/principles-macroeconomics-3e/pages/8-2-how-economists-define-and-compute-unemployment-rate",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-119.jpg",
+      "originalImageSHA256": "188c629a5aca7b7210e8b7fb118c3130555341e2113d3a17e59f9dcc362dfac2",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 38,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-120",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 120,
+      "question": "2021년 현재 우리나라 통계청의 고용통계 작성기준에 관한 설명으로 옳지 않은 것은? (단, 만 15세 이상 인구를 대상으로 한다.)",
+      "optionTexts": [
+        "아버지가 수입을 위해 운영하는 편의점에서 조사대상주간에 무상으로 주당 20시간 근로한 자녀는 비경제활동인구로 분류된다.",
+        "다른 조건이 같을 때, 실업자가 구직활동을 포기하면 경제활동참가율은 하락한다.",
+        "질병으로 입원하여 근로가 불가능한 상태에서 구직활동을 하는 경우에는 실업자로 분류되지 않는다.",
+        "대학생이 수입을 목적으로 조사대상주간에 주당 1시간 이상 아르바이트를 하는 경우 취업자로 분류된다.",
+        "실업률은 경제활동인구 대비 실업자 수의 비율이다."
+      ],
+      "officialAFormAnswer": [
+        1
+      ],
+      "explanationDraft": "2021년 경제활동인구조사의 무급가족종사자는 조사대상주간 18시간 이상 일한 경우 취업자로 분류한다. 따라서 편의점에서 20시간 무급으로 일한 자녀는 비경제활동인구가 아니라 취업자여서 ①이 틀리다. 다른 보기들은 실업·취업 정의에 부합한다.",
+      "eachOptionExplanation": [
+        "20시간 무급가족종사자는 18시간 기준을 충족해 취업자다.",
+        "실업자가 구직을 포기하면 비경제활동인구로 이동해 참가율이 하락한다.",
+        "구직 외에 즉시 취업 가능한 상태도 실업 인정에 중요하다.",
+        "유급 1시간 이상 근로는 취업자로 분류한다.",
+        "실업률은 실업자/경제활동인구이다."
+      ],
+      "calculationProof": "무급가족종사자 취업자 판단: 주당 18시간 이상; 유급근로는 주당 1시간 이상",
+      "referenceCandidate": "https://kostat.go.kr/understand/info/info_lge/1/index.action",
+      "independentReviewFlag": "HISTORICAL_2021_KOSTAT_CLASSIFICATION_EXACT_PUBLICATION_RECHECK",
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-120.jpg",
+      "originalImageSHA256": "a0f2f3739d645bf55540b5026e5db0128cce422727fec3662c2225b02c53be8e",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 38,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-121",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 121,
+      "question": "소득–여가 선택모형에서 효용극대화를 추구하는 개인의 노동공급 의사결정에 관한 설명으로 옳지 않은 것은? [단, 여가(L)와 소득(Y)은 효용을 주는 재화이며 한계대체율(MRS=|ΔY/ΔL|)은 체감한다.]",
+      "optionTexts": [
+        "여가가 정상재인 경우 복권당첨은 근로시간의 감소를 초래한다.",
+        "여가가 열등재라면 노동공급곡선은 우하향한다.",
+        "임금률이 한계대체율보다 크다면 효용극대화를 위해 근로시간을 늘려야 한다.",
+        "개인 간 선호의 차이는 무차별곡선의 모양 차이로 나타난다.",
+        "시장임금이 유보임금(reservation wage)보다 낮다면 노동을 제공하지 않는다."
+      ],
+      "officialAFormAnswer": [
+        2
+      ],
+      "explanationDraft": "여가가 열등재일 경우 임금상승에 따른 소득효과도 여가를 줄이는 방향이어서 대체효과와 함께 노동공급을 늘릴 수 있다. 노동공급곡선이 우하향한다는 ②는 일반적으로 옳지 않다.",
+      "eachOptionExplanation": [
+        "정상재 여가의 소득증가 효과는 근로시간 감소 방향이다.",
+        "여가가 열등재면 임금 상승 시 노동공급이 증가할 수 있다.",
+        "임금이 여가의 한계대체율보다 높으면 노동의 기회비용이 커져 근로시간 증가 유인이 있다.",
+        "선호차이는 무차별곡선으로 나타난다.",
+        "시장임금이 유보임금보다 낮으면 취업하지 않는다."
+      ],
+      "calculationProof": "여가 수요는 임금(기회비용) 증가 시 대체효과로 감소; 열등재 여가의 소득효과도 감소방향",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/6-3-how-changes-in-income-and-prices-affect-consumption-choices",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-121.jpg",
+      "originalImageSHA256": "4988994870a062185f7c33d2420d003c52c5692a138cf48d4fc67c28812b7899",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 38,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-122",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 122,
+      "question": "이윤극대화를 추구하는 완전경쟁기업의 단기 노동수요에 관한 설명으로 옳은 것은? (단, 단기 총생산곡선의 형태는 원점으로부터 고용량 증가에 따라 체증하다가 체감하며, 노동시장은 완전경쟁이다.)",
+      "optionTexts": [
+        "노동의 평균생산이 증가하고 있는 구간에서 노동의 한계생산은 노동의 평균생산보다 작다.",
+        "노동의 한계생산이 최대가 되는 점에서 노동의 한계생산과 노동의 평균생산은 같다.",
+        "완전경쟁기업은 이윤극대화를 위해 자신의 노동의 한계생산가치와 동일한 수준으로 임금을 결정해야 한다.",
+        "노동의 평균생산이 감소하고 있는 구간에서 노동의 한계생산은 감소한다.",
+        "단기 노동수요곡선은 노동의 평균생산가치곡선과 같다."
+      ],
+      "officialAFormAnswer": [
+        4
+      ],
+      "explanationDraft": "평균생산(AP)이 증가하면 MP>AP이고 AP가 최대인 곳에서 MP=AP다. 주어진 S자형 총생산 및 체감하는 한계생산 구간이라는 조건에서 AP가 감소하는 구간에는 MP도 감소한다. ④. 다만 AP 감소만으로 모든 가능한 생산함수에서 MP 감소가 논리필연인 것은 아니므로 원전 가정 확인을 권고한다.",
+      "eachOptionExplanation": [
+        "AP 증가 구간은 MP>AP다.",
+        "MP=AP는 AP 극대점에 해당한다.",
+        "임금은 완전경쟁 노동시장에서 주어진 시장임금이며 기업은 VMPL=w가 되도록 고용량을 결정한다.",
+        "문항이 전제한 생산곡선의 체감구간에서는 MP가 감소한다.",
+        "노동수요는 평균생산이 아닌 한계생산가치(VMPL)에 근거한다."
+      ],
+      "calculationProof": "AP=Q/L; dAP/dL=(MP−AP)/L; 고용량 내부 최적점 w=P×MP",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/14-1-the-theory-of-labor-markets",
+      "independentReviewFlag": "PRODUCTION_SHAPE_IMPLICATION_FOR_MP_NEEDS_EXPLICIT_SECOND_REVIEW",
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-122.jpg",
+      "originalImageSHA256": "bfc4a3c9ddddf6ca09a86a32311d159f8c2b1c5d1215d62f570108f91e17de35",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 39,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-123",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 123,
+      "question": "노동시장에서 수요독점자인 A기업의 생산함수는 Q=2L+100이다. 생산물시장은 완전경쟁이고 생산물가격은 100이다. 노동공급곡선이 W=10L인 경우 다음을 구하시오. (단, Q는 산출량, L은 노동투입량, W는 임금이며 기업은 모든 근로자에게 동일한 임금을 지급한다.)\nㄱ. A기업의 이윤극대화 임금\nㄴ. 노동시장의 수요독점에 따른 사회후생 감소분(절댓값)의 크기",
+      "optionTexts": [
+        "ㄱ: 50, ㄴ: 100",
+        "ㄱ: 50, ㄴ: 200",
+        "ㄱ: 100, ㄴ: 300",
+        "ㄱ: 100, ㄴ: 400",
+        "ㄱ: 100, ㄴ: 500"
+      ],
+      "officialAFormAnswer": [
+        5
+      ],
+      "explanationDraft": "MRPL=P·MPL=100×2=200이고, 노동비용 W·L=10L², MFC=20L이다. 수요독점의 최적 고용 Lm=10, 지급임금 Wm=100이다. 경쟁의 효율적 고용은 공급 W=200과 MRPL이 만나는 Lc=20. 후생손실은 ∫10^20(200−10L)dL=500이다. ⑤.",
+      "eachOptionExplanation": [
+        "임금 50도, 손실 100도 아니다.",
+        "임금 50과 손실 200 모두 틀리다.",
+        "임금 100은 맞지만 손실은 500이다.",
+        "임금 100은 맞지만 사중손실은 400이 아니다.",
+        "임금 100, 사회후생 감소분 500이 맞다."
+      ],
+      "calculationProof": "MPL=2;MRPL=200;TLC=10L²;MFC=20L⇒Lm=10,Wm=100; Lc=20; DWL=1/2×(20−10)×(200−100)=500",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/10-2-monopsony-and-the-minimum-wage",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-123.jpg",
+      "originalImageSHA256": "f8860b2776d419fc313a2c559bd8e776f2b3fa72efbcbf44f80a052ae4879f87",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 39,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-124",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 124,
+      "question": "노동시장에서의 차별에 관한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 제품시장과 요소시장이 완전경쟁이라면 고용주의 선호(기호)차별은 정부 개입 없이 기업 간 경쟁에 의해 사라지게 된다.\nㄴ. 통계적 차별은 개인적인 편견이 존재하지 않더라도 발생한다.\nㄷ. 통계적 차별은 개인이 속한 집단의 평균적 생산성을 기초로 개인의 생산성을 예측하는데서 발생한다.\nㄹ. 동등가치론(comparable worth)은 차별시정을 위해 공정한 취업의 기회를 주장한다.",
+      "optionTexts": [
+        "ㄱ, ㄹ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "완전경쟁의 베커(적대적 차별비용) 모형에서는 고용주가 취향으로 차별하면 비용열위가 발생해 장기 경쟁압력을 받는다(ㄱ). 통계적 차별은 편견이 없어도 집단 평균으로 개인을 추정할 때 발생한다(ㄴ·ㄷ). 동등가치론은 가치가 유사한 직무의 동등보수를 주장하지 취업기회의 평등 자체를 정의하는 개념이 아니다. ③.",
+      "eachOptionExplanation": [
+        "ㄹ은 동등가치론을 잘못 설명한다.",
+        "ㄱ을 누락한다.",
+        "ㄱ·ㄴ·ㄷ 모두 타당하다.",
+        "ㄹ이 틀리다.",
+        "ㄹ이 포함돼 틀리다."
+      ],
+      "calculationProof": null,
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/14-3-market-forces-of-supply-and-demand",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-124.jpg",
+      "originalImageSHA256": "1744a012cb78084a992f432300a951c33d11dfc9cdb44d2706c106531b1ee6a8",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 39,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-125",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 125,
+      "question": "노동시장에서 노동수요와 노동공급곡선은 각각 Ld=−W+70, Ls=2W−20이다. 정부가 최저임금을 W=40으로 결정하여 시행하는 경우 고용량은? (단, Ld는 노동수요량, Ls는 노동공급량, W는 노동 1단위당 임금이다.)",
+      "optionTexts": [
+        "30",
+        "40",
+        "50",
+        "60",
+        "70"
+      ],
+      "officialAFormAnswer": [
+        1
+      ],
+      "explanationDraft": "법정 최저임금 W=40에서 노동수요 Ld=70−40=30, 노동공급 Ls=80−20=60이다. 수요보다 공급이 30명 많지만 실제 고용량은 기업의 노동수요 30으로 제한된다. ①.",
+      "eachOptionExplanation": [
+        "노동수요 30이 실제 고용량이다.",
+        "주어진 임금에서 노동수요 40이 아니다.",
+        "균형임금과 최저임금을 혼동한 수량이다.",
+        "노동공급 60을 실제 고용량과 혼동했다.",
+        "일자리 수요를 초과한다."
+      ],
+      "calculationProof": "W=40⇒Ld=−40+70=30,Ls=2×40−20=60;Employment=min(Ld,Ls)=30",
+      "referenceCandidate": "https://openstax.org/books/principles-microeconomics-3e/pages/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market",
+      "independentReviewFlag": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-economics-125.jpg",
+      "originalImageSHA256": "f925b19ede55a903ef66d12458062d8f586d1161b32e187549b865c47605e344",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPDFPage": 39,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "imageHasFullQuestionAndFiveOptions": true,
+      "officialKeyDigitCrossChecked": true,
+      "independentSecondExpertReviewCompleted": false,
+      "readyForV44Import": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_2021_ORIGINAL_THEORY_CALCULATION_DRAFT_HOLD"
+    }
+  ]
+}

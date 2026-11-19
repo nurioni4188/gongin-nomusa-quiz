@@ -1,0 +1,29 @@
+{
+  "schema": "NOMUSA_FIRST_V51_175_OFFICIAL_PDF_NATIVE_PAGE_DIGIT_LOCATOR/1",
+  "asOfKST": "2026-11-18",
+  "officialAformBooklets": 3,
+  "officialSourceSHAValidation": 3,
+  "targetQuestionIds": 175,
+  "yearCounts": {
+    "2016": 25,
+    "2018": 150
+  },
+  "stateCounts": {
+    "MULTIPLE_HEADING_PAGE_CANDIDATES_HOLD": 7,
+    "SINGLE_HEADING_CROP_PROVISIONAL": 96,
+    "UNDETECTED_QUESTION_HEADING_HOLD": 72
+  },
+  "pageOCRModes": {
+    "NO_RELIABLE_HEADING": 13,
+    "OCR_DIGIT_GUESS": 99
+  },
+  "provisionalIndividualCrops": 96,
+  "independentFullSourceTextApprovals": 0,
+  "independentlyVerifiedOfficialAFormAnswerCells": 0,
+  "independentlyVerifiedFiveOptionExplanations": 0,
+  "newScoringApproved": 0,
+  "newAppImports": 0,
+  "status": "PASS_OFFICIAL_PDF_SHA_PAGE_ANCHOR_TRIAGE_HOLD_ALL_INDEPENDENT_SOURCE_PROOFREAD",
+  "meaning": "Numerical headers and provisional JPGs locate potential source pages only. May include adjacent questions or omit required options; no OCR transcription or scoring approval.",
+  "fullEvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V51/NOMUSA_FIRST_V51_175_QUESTION_LOCATOR.json"
+}

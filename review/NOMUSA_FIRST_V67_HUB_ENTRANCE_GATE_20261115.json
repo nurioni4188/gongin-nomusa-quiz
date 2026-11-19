@@ -1,0 +1,68 @@
+{
+  "schema": "nomusa-first-v67-integrated-entrance-review/1",
+  "date": "2026-11-15",
+  "scope": "Review branch and existing Draft PR #3 only. No deployment.",
+  "appChangeCommit": "24228cfce1e3fe2ecf2933c16235431bee81d636",
+  "appChangeFile": "study-hub/app.js",
+  "appChangeBlobSha": "96d0501ef66a8e50cae210b99aff32a2816df710",
+  "baseMainShaObserved": "9ea46fc9134c55a4312241b55a82b237e86ed4a8",
+  "firstCoverage": {
+    "yearRange": "2008-2026",
+    "existingHubYears": "2022-2026",
+    "existingHubQuestions": 1020,
+    "legacyAdded": 1259,
+    "totalIncluded": 2279,
+    "byYearLegacy": {
+      "2008": 125,
+      "2009": 125,
+      "2010": 125,
+      "2011": 149,
+      "2012": 149,
+      "2014": 150,
+      "2015": 150,
+      "2017": 144,
+      "2019": 142
+    },
+    "excludedYears": [
+      2013,
+      2016,
+      2018,
+      2020,
+      2021
+    ],
+    "otherHolds": [
+      "2010 optional economics booklet 25 questions",
+      "16 layout/text candidates excluded in V6.6"
+    ]
+  },
+  "changes": [
+    "Dashboard source-ledger count and 2008-2026 year-by-year coverage",
+    "Same-origin navigation to original RC35 full first-stage application (no ID or storage key changes)",
+    "Explicit split between original 1,020-item embedded hub and 2,279-item legacy-inclusive RC35",
+    "Candidate answer does not cause new wrong-item classification inside the hub",
+    "Keep manual review and existing RC35 history; do not call a staged answer scoring approved"
+  ],
+  "quality": {
+    "javascriptSyntax": "PASS_NEW_FUNCTION_PARSE",
+    "fetchedGitHubBlobMatchesCommit": "PASS",
+    "countLedger": "PASS_1259_PLUS_1020_EQUALS_2279",
+    "fullSourceBrowserE2E": "HOLD_NOT_EXECUTED",
+    "playwright1440_390_360": "HOLD_NOT_EXECUTED_ON_NEW_COMMIT",
+    "sourceTextAndPageIndependentComparison": "HOLD",
+    "scoringApprovedForStagedLegacyAnswers": 0,
+    "RC35PreexistingScoring": "UNCHANGED_NOT_VALIDATED_IN_THIS_PATCH",
+    "saveRestoreAfterPatch": "HOLD_NEW_COMMIT",
+    "actualPreviewDeployment": "NOT_DEPLOYED",
+    "latestPriorPreview": "https://gongin-nomusa-rc27-preview-3x0ku5lvz.vercel.app/",
+    "latestPriorDeploymentState": "READY",
+    "production": "UNCHANGED_BY_THIS_PATCH",
+    "main": "UNCHANGED_BY_THIS_PATCH"
+  },
+  "nextGate": [
+    "Check out the review branch with all source assets in a browser-capable environment",
+    "Run existing whole-hub Playwright gates for 1440,390,360 and first/second/hub storage after refresh",
+    "Check year counts against loaded source and mark missing items HOLD",
+    "Keep legacy answer evidence/scoring approval distinct from UI test",
+    "Deploy to the same Vercel project preview only if all pre-deployment gates pass and deployment is authorized"
+  ]
+}

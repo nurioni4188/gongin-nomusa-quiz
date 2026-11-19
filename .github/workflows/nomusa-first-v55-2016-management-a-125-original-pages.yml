@@ -1,0 +1,84 @@
+name: NOMUSA FIRST V55 2016 management 125 official A PDF question page/source review
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v55-2016-management-a-125-original-pages.yml'
+      - 'scripts/nomusa-first-v55-2016-management-125-primary-page-review.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v55-2016-management-original-pages
+  cancel-in-progress: true
+jobs:
+  official-2016-125-page-review:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Tesseract Korean/English and exact source PDF and image dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor
+          python -m pip install --disable-pip-version-check requests==2.32.5 pymupdf==1.26.7 pillow==11.3.0 pytesseract==0.3.13
+      - name: Rebuild exact 791 source queue and identify 2016 management 125 A candidates
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Re-verify 2016 QNet management A PDF SHA then locate 125 printed page headings without approval
+        run: |
+          python -m py_compile scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+          python scripts/nomusa-first-v55-2016-management-125-primary-page-review.py
+      - name: Fail closed on source crop hashes, ID collision, app or grading changes
+        run: |
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V55')
+          z=json.loads((root/'NOMUSA_FIRST_V55_125_QUESTION_PAGE_AND_CROP_REVIEW.json').read_text(encoding='utf-8'))
+          assert z['officialQnetPDFSHAValidated'] is True and z['officialPdfPages']==36
+          assert z['2016ManagementATargets']==len(z['rows'])==125
+          assert len({q['id'] for q in z['rows']})==125
+          assert sum(z['byStatus'].values())==125
+          assert z['newScoringApproved']==z['newQdataImports']==0
+          for q in z['rows']:
+            assert q['scoringApproved'] is False and q['fullOriginalStemFiveOptionsVerified'] is False
+            img=q['provisionalImage']
+            if not img:continue
+            f=root/img['image']
+            assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==img['sha256']
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed.issubset({'review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json'}),changed
+          print('PASS_V55_2016_MANAGEMENT_125_SHA_PAGE_CROP_REVIEW_ONLY_NO_SCORING')
+          PY
+      - name: Commit only summary into Draft PR 3; keep original crops in 14-day review artifact
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V55_2016_MGMT125_QNET_PAGE_TRIAGE_SUMMARY_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v55): stage 2016 management 125 original QNet page and provisional crop HOLD'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Upload full 125 original-page review queue and crop assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v55-2016-management-125-original-qnet-page-crops-0-scoring
+          path: review-artifacts/NOMUSA_FIRST_V55/
+          if-no-files-found: warn
+          retention-days: 14

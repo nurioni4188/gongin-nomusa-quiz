@@ -1,0 +1,48 @@
+{
+  "schema": "nomusa-auto-v1.3-prepreview-gate",
+  "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "inspectedHead": "a3979c4eb34341e91aa8833c79ddb4c2f6fe32ab",
+  "stage": "PREVIEW_DEPLOYMENT_NOT_AUTHORIZED",
+  "staticChecks": {
+    "executedViaConnectedGitHubSource": true,
+    "checksTotal": 12,
+    "checksPassed": 12,
+    "checksFailed": 0,
+    "scope": "source-only item counts/IDs/points/HOLD/script loading order/expected viewports",
+    "status": "PASS_STATIC_ONLY"
+  },
+  "rawHwpReview": {
+    "sourceFilesReceived": 6,
+    "sourcePageNumberVerification": "HOLD",
+    "visualMathGraphVerification": "HOLD",
+    "all94QuestionsVisualApproval": "HOLD"
+  },
+  "browser": {
+    "chromiumAvailableInLocalContainer": true,
+    "playwrightPythonAvailable": true,
+    "fullCheckoutAvailable": false,
+    "cloneError": "github.com DNS resolution failed",
+    "runAgainstExactPRHead": false,
+    "desktop1440": "HOLD_NOT_EXECUTED",
+    "mobile390": "HOLD_NOT_EXECUTED",
+    "mobile360": "HOLD_NOT_EXECUTED",
+    "draftAutosaveAndRefresh": "HOLD_NOT_EXECUTED",
+    "questionNavigation": "HOLD_NOT_EXECUTED",
+    "JSONBackupRestore": "HOLD_NOT_EXECUTED",
+    "scriptHardening": "Both second-stage and hub draft tests now wait for persisted essay localStorage and check post-reload restoration at desktop1440/mobile390/mobile360",
+    "scriptStatus": "COMMITTED_NOT_EXECUTED"
+  },
+  "githubActions": {
+    "currentCommitPrWorkflowRuns": 0,
+    "autoStart": false
+  },
+  "release": {
+    "draftPr": 3,
+    "mainChanged": false,
+    "baselinePreviewBranchChanged": false,
+    "newPreviewCreated": false,
+    "productionChanged": false
+  },
+  "nextGate": "Full exact review-branch checkout unavailable in local runtime; no E2E PASS claim or new Preview.",
+  "final": "HOLD_PREVIEW_GATE"
+}

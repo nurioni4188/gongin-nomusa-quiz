@@ -1,0 +1,81 @@
+name: NOMUSA FIRST V41 107 visual crop audit and 103 source-only staged images
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v41-stage-103-original-crops.yml'
+      - 'scripts/nomusa-first-v41-stage-103-official-crops.py'
+      - 'review/NOMUSA_FIRST_V41_107_SOURCE_IMAGE_TRIAGE_20261118.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v41-review-only-103-source-crops
+  cancel-in-progress: true
+jobs:
+  source-only-sha-gate:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout existing review branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Revalidate 791 absent question IDs and 2279 existing QDATA records
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Download exact V40 original-source proof (run 44235916434)
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v40-300-unapproved-question-location-review
+          run-id: 44235916434
+          github-token: ${{ github.token }}
+          path: review-artifacts/NOMUSA_FIRST_V40_IMPORTED
+      - name: SHA-verify original PDF source crop evidence and stage only 103 provisional images
+        run: python3 scripts/nomusa-first-v41-stage-103-official-crops.py review-artifacts/NOMUSA_FIRST_V40_IMPORTED
+      - name: Ensure no QDATA, grading, app, or production files changed
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          p = Path('review/NOMUSA_FIRST_V41_103_CROP_SHA_20261118.json')
+          d = json.loads(p.read_text(encoding='utf-8'))
+          assert d['sourceCropsStagedForFurtherIndependentReview'] == 103
+          assert d['visualCropHOLD'] == 4
+          assert d['actualQDATAItemsAdded'] == d['approvedOfficialAnswers'] == d['scoringApproved'] == 0
+          assert len(d['files']) == 103
+          assert all(not row['readyForQDATAImport'] and not row['scoringApproved'] for row in d['files'])
+          changed = subprocess.check_output(['git','status','--porcelain'], text=True).splitlines()
+          allowed = ('review/NOMUSA_FIRST_V41_103_CROP_SHA_20261118.json',
+                     'review/first-v41-native-crops/')
+          for line in changed:
+              file = line[3:]
+              assert file == allowed[0] or file.startswith(allowed[1]), ('UNEXPECTED_REPO_CHANGE',file)
+          assert len(list(Path('review/first-v41-native-crops').glob('*.jpg'))) == 103
+          print('PASS_103_ORIGINAL_CROP_SHA_4_VISUAL_HOLD_0_QDATA_0_SCORING')
+          PY
+          git add -- review/NOMUSA_FIRST_V41_103_CROP_SHA_20261118.json review/first-v41-native-crops/
+          git diff --cached --check
+      - name: Commit staged source-only images to review branch (never main, Preview, Production)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'review(first-v41): preserve 103 SHA-gated source images (unapproved, ungraded)'
+          git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+          git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+          git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          echo "REVIEW_ONLY_SHA=$(git rev-parse HEAD)"
+      - name: Archive SHA integrity summary (not official grading approval)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v41-103-crop-sha-integrity
+          path: review/NOMUSA_FIRST_V41_103_CROP_SHA_20261118.json
+          if-no-files-found: warn
+          retention-days: 30

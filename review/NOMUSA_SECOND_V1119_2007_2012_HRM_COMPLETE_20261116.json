@@ -1,0 +1,142 @@
+{
+  "schema": "nomusa-second-essay-v1119-2007-2012-hrm-batch/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "purpose": "Substantive 2007–2010 HRM 25pt-by-subquestion authored model-answer drafts, integration with existing source and consolidated 2007–2012 HRM completion, holding academic approval.",
+  "thisTurnNewParentSources": [
+    {
+      "id": "legacy2-2010-hrm-q2",
+      "year": 2010,
+      "parts": [
+        {
+          "id": "legacy2-2010-hrm-q2-s1",
+          "topic": "본국인·현지인·제3국인 채용 장단점",
+          "points": 25,
+          "chars": 3021
+        },
+        {
+          "id": "legacy2-2010-hrm-q2-s2",
+          "topic": "Hackman-Oldham 직무특성모형 내용·비판",
+          "points": 25,
+          "chars": 2829
+        }
+      ],
+      "file": "second/deep-essay-2010-hrm-q2.js"
+    },
+    {
+      "id": "legacy2-2009-hrm-q2",
+      "year": 2009,
+      "parts": [
+        {
+          "id": "legacy2-2009-hrm-q2-s1",
+          "topic": "고령인력 활용 인력예측기법",
+          "points": 25,
+          "chars": 2801
+        },
+        {
+          "id": "legacy2-2009-hrm-q2-s2",
+          "topic": "직무중심·인간중심 평가관리제도",
+          "points": 25,
+          "chars": 2636
+        }
+      ],
+      "file": "second/deep-essay-2009-hrm-q2.js"
+    },
+    {
+      "id": "legacy2-2008-hrm-q2",
+      "year": 2008,
+      "parts": [
+        {
+          "id": "legacy2-2008-hrm-q2-s1",
+          "topic": "교육훈련 프로그램 필요성 분석",
+          "points": 25,
+          "chars": 2017
+        },
+        {
+          "id": "legacy2-2008-hrm-q2-s2",
+          "topic": "선발도구 타당도 평가와 선발비율",
+          "points": 25,
+          "chars": 2194
+        }
+      ],
+      "file": "second/deep-essay-2008-hrm-q2.js"
+    },
+    {
+      "id": "legacy2-2007-hrm-q2",
+      "year": 2007,
+      "parts": [
+        {
+          "id": "legacy2-2007-hrm-q2-s1",
+          "topic": "다면평가 의의·목적·문제점·효과적 관리",
+          "points": 25,
+          "chars": 2310
+        },
+        {
+          "id": "legacy2-2007-hrm-q2-s2",
+          "topic": "해외투자기업 현지 인력관리 문제와 해결방안",
+          "points": 25,
+          "chars": 2546
+        }
+      ],
+      "file": "second/deep-essay-2007-hrm-q2.js"
+    }
+  ],
+  "all2007To2012HRM": {
+    "parentQuestions": 13,
+    "individualAnswerUnits": 18,
+    "units50Point": 6,
+    "units25Point": 12,
+    "originalHwpPageAndSubquestionIdsPreserved": true,
+    "sourceFilesAllConnectedInHub": true,
+    "allContentState": "DRAFT_UNVERIFIED_HOLD",
+    "allScoringApproved": false
+  },
+  "globalPreservation": {
+    "legacy181ParentIDsUnchanged": true,
+    "nonHrmBaseDrafts168Unchanged": true,
+    "previouslyDeepenedOrganization3Preserved": true,
+    "totalDeepenedParentDrafts": 16,
+    "historical2013And2014Split38Preserved": true,
+    "studyHubEntrypoint": "study-hub/index.html",
+    "totalScriptImports": 51,
+    "main": "NOT_MODIFIED",
+    "production": "NOT_MODIFIED",
+    "previousPreview": "NOT_MODIFIED",
+    "originalExamDocuments": "NOT_MODIFIED",
+    "savedAnswerStorageKeys": "NOT_MODIFIED"
+  },
+  "validation": {
+    "source": "GitHub connected fetch_file content and in-memory JS evaluation; actual browser E2E not performed",
+    "hrmParentAndNonTargetAssertions": 269,
+    "historicalAndIndexAssertions": 66,
+    "totalStaticAssertions": 335,
+    "issues": 0,
+    "result": "PASS_STATIC"
+  },
+  "bibliographicExamples": [
+    "Perlmutter (1969), The Tortuous Evolution of the Multinational Corporation",
+    "Hackman & Oldham (1976), Motivation Through the Design of Work",
+    "Fried & Ferris (1987), Job Characteristics Model meta-analysis",
+    "Borman & Motowidlo (1997), Task and Contextual Performance",
+    "McGehee & Thayer (1961), Training in Business and Industry",
+    "Schmidt & Hunter (1998), Validity and Utility of Selection Methods",
+    "Smither, London & Reilly (2005), Does Performance Improve Following Multisource Feedback?",
+    "Hofstede (1980), Culture's Consequences",
+    "Bartlett & Ghoshal (1989), Managing Across Borders"
+  ],
+  "holds": {
+    "primaryResearchFullTextValidation": "HOLD",
+    "handwriting25Point4Sheets": "HOLD",
+    "PC1440_390_360Browser": "NOT_RUN",
+    "saveRestoreE2E": "NOT_RUN",
+    "learningAnswerContentApproval": "HOLD",
+    "newVercelPreview": "NOT_DEPLOYED"
+  },
+  "decision": "EIGHT_NEW_25PT_ESSAYS_COMMITTED / HISTORICAL_2007_2012_HRM_ALL_PARENT_DRAFTS_ENHANCED / 335_STATIC_PASS / BROWSER_AND_CONTENT_APPROVAL_HOLD",
+  "nextContentPriority": [
+    "2007–2012 경영조직론 제2문 미고도화 목록과 원문 정확한 매핑 확인",
+    "2013–2026 기존 181개 학습답안의 실제 내용 고도화 확대"
+  ]
+}

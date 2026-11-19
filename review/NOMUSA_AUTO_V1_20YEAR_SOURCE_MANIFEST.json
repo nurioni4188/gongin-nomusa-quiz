@@ -1,0 +1,90 @@
+{
+  "schema": "nomusa-auto-v1-source-intake",
+  "baselineCommit": "966f59e205c406f33ebe3c4c70e4ebb2db88dab9",
+  "scope": "second-stage 2007-2026",
+  "existingYears": {
+    "from": 2013,
+    "to": 2026
+  },
+  "newSources": [
+    {
+      "year": 2007,
+      "filename": "2007년 제16회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "3897982544908991603a2de076fd455a9149944acb99360bb15f74bc1e3d4cc3",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    },
+    {
+      "year": 2008,
+      "filename": "2008년 제17회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "be7f6e8c1896cf490127b96cd8e4d64549a1b360c5b1559a2cf8e206493fe058",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    },
+    {
+      "year": 2009,
+      "filename": "2009년 제18회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "9c277bae2acd961b57df366b2827427bfee7ef13bace619f54883cccb10dc8fe",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    },
+    {
+      "year": 2010,
+      "filename": "2010년 제19회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "73d4b571d119335dba6a3bcf6f956765c54d08b744ab4c3834fb9dea226fb4d4",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    },
+    {
+      "year": 2011,
+      "filename": "2011년 제20회 공인노무사 2차시험 기출문제.hwp",
+      "sha256": "af61a2c6abb5c498190b55e7e69dd8b4b5c18b48f2460408852f1160d0d3836d",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    },
+    {
+      "year": 2012,
+      "filename": "2012년 제21회 공인노무사 2차 시험문제지.hwp",
+      "sha256": "5ea416a47d82e673789807800e8f8aa59f7d0946d9b5338491fbd7992674a53a",
+      "sourceFormat": "HWP5",
+      "extractionStatus": "SOURCE_FILE_HASHED; QUESTION_LEVEL_REVIEW_REQUIRED",
+      "questionCount": null,
+      "approved": false
+    }
+  ],
+  "duplicateEvidence": {
+    "year": 2009,
+    "duplicateUploadCount": 2,
+    "sha256": "9c277bae2acd961b57df366b2827427bfee7ef13bace619f54883cccb10dc8fe",
+    "action": "SINGLE_SOURCE_RECORD"
+  },
+  "boundary2013": {
+    "uploadedFilename": "2013년 제22회 공인노무사 2차 시험문제지(1).pdf",
+    "uploadedSha256": "d7b3e2c4cdd4da8f505a67db50f8e0112d80db061c4a88907fadd74f8fe45181",
+    "existingPath": "source_pdf/2013/2013_second_full_original.pdf",
+    "existingManifestSha256": "d7b3e2c4cdd4da8f505a67db50f8e0112d80db061c4a88907fadd74f8fe45181",
+    "action": "REUSE_EXISTING_2013_NO_INSERT"
+  },
+  "idPolicy": {
+    "newNamespace": "legacy2-{year}-{subjectSlug}-q{questionNumber}-s{subNumber}",
+    "existingIds": "IMMUTABLE",
+    "existingStorageKeys": "IMMUTABLE",
+    "onCollision": "HOLD"
+  },
+  "deployment": {
+    "main": "FORBIDDEN",
+    "production": "FORBIDDEN",
+    "preview": "FORBIDDEN_UNTIL_USER_APPROVAL"
+  },
+  "status": "HOLD_QUESTION_EXTRACTION_AND_WEBAPP_INTEGRATION"
+}

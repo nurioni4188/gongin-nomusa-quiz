@@ -1,0 +1,837 @@
+{
+  "schema": "NOMUSA_FIRST_V43_REMAINING_17_MANAGEMENT_SOURCE_READ_DRAFT/1",
+  "timestampKST": "2026-11-18",
+  "source": "QNet official A-form scanned originals, SHA-pinned V41 individual crops, 2020/2021 official A-form final-answer PDF",
+  "reviewedManagementQuestionCount": 17,
+  "officialKeyGridAligned": 17,
+  "fifthChoiceVisible": 17,
+  "fullQuestionAndFiveChoiceTranscriptions": 17,
+  "fiveChoiceExplanations": 17,
+  "formulaDerivations": 2,
+  "independentDoubleReviewerApproval": 0,
+  "newlyPromotedToV44": 0,
+  "notes": "Second independent proofread and exam-period statute checks still required. In particular 2020 Q104 labor-law historical statute and 2021 Q116 NPV-to-IRR requires reviewer confirmation; no direct grading approval.",
+  "records": [
+    {
+      "id": "legacy1-2020-A-management-104",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 104,
+      "question": "사용자가 노동조합의 정당한 활동을 방해하는 것은?",
+      "options": [
+        "태업",
+        "단체교섭",
+        "부당노동행위",
+        "노동쟁의",
+        "준법투쟁"
+      ],
+      "officialAFormKey": [
+        3
+      ],
+      "explanationDraft": "사용자가 노동조합의 조직·운영 또는 근로자의 정당한 노조활동을 법이 금지하는 방식으로 침해하는 행위는 부당노동행위이다. 단체교섭 자체는 노사 간 교섭 절차이며 태업·쟁의·준법투쟁은 근로자 측 행위와 관련된다.",
+      "optionExplanations": [
+        "태업은 근로자 측 쟁의행위의 한 형태이다.",
+        "단체교섭은 노동조합과 사용자 간 교섭 자체를 뜻한다.",
+        "정당한 노동조합 활동을 방해하는 사용자 측 금지행위는 부당노동행위이다.",
+        "노동쟁의는 노사 간 근로조건 결정에 관한 주장 불일치 상태를 뜻한다.",
+        "준법투쟁은 근로자들이 규정을 엄격히 지키는 방식의 집단행동이다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "국가법령정보센터 노동조합 및 노동관계조정법 제81조",
+          "url": "https://law.go.kr/LSW/lsInfoP.do?lsId=000143",
+          "basis": "시험 당시 법조문·시행일 재대조 필요"
+        }
+      ],
+      "examDateLawOrTerminologyHold": "2020_EXAM_DATE_LABOR_LAW_PROVISION_AND_PRECISE_SCOPE",
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-104.jpg",
+      "originalImageSHA256": "d6b0e5893d4350cf550423fb4205a039b8352d8ed6cee61e7d3bea2e06f66ca5",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 33,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-106",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 106,
+      "question": "구성원들 간 의사소통이 강력한 특정 리더에게 집중되는 유형은?",
+      "options": [
+        "원형",
+        "Y자형",
+        "수레바퀴형",
+        "사슬형",
+        "전체연결형"
+      ],
+      "officialAFormKey": [
+        3
+      ],
+      "explanationDraft": "의사소통 네트워크 중 수레바퀴형(wheel pattern)은 중앙의 한 구성원에게 정보 흐름이 집중되는 고도로 집권화된 구조이다. 특정 리더가 모든 메시지의 중심에 선다는 점에서 ③이다.",
+      "optionExplanations": [
+        "원형은 이웃 구성원 중심으로 순환한다.",
+        "Y자형은 분기된 계층형 흐름이다.",
+        "수레바퀴형에서는 중심 구성원이 모든 말단 구성원과 연결된다.",
+        "사슬형은 직렬 흐름에 가깝다.",
+        "전체연결형은 다수 구성원이 직접 소통할 수 있는 분권형이다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "의사소통 네트워크 구조 학습자료",
+          "url": "https://icanig.org/ican/assets/docs/pro-study-texts-2021/BMF.pdf",
+          "basis": "원형·사슬형·수레바퀴형 비교"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-106.jpg",
+      "originalImageSHA256": "202e9491ef4815647c1df9161a0ddfd00dafe168760d0caef3ac58ab19122fb5",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 33,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-107",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 107,
+      "question": "기업의 사회적 책임 중에서 제1의 책임에 해당하는 것은?",
+      "options": [
+        "법적 책임",
+        "경제적 책임",
+        "윤리적 책임",
+        "자선적 책임",
+        "환경적 책임"
+      ],
+      "officialAFormKey": [
+        2
+      ],
+      "explanationDraft": "캐럴(A. B. Carroll)의 CSR 피라미드는 경제적 책임을 기초층으로, 그 위에 법적·윤리적·자선적 책임을 둔다. 정당한 경제활동과 존속 가능성을 확보하는 경제적 책임이 제1의 기초적 책임이다.",
+      "optionExplanations": [
+        "법적 책임은 두 번째 층에 해당한다.",
+        "경제적 책임은 CSR 피라미드의 바탕이다.",
+        "윤리적 책임은 법 준수를 넘어 사회적으로 옳은 행위를 뜻한다.",
+        "자선적 책임은 자발적 사회공헌이다.",
+        "환경적 책임은 중요하나 제시된 캐럴 4층의 제1 책임으로 분류되지는 않는다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Archie Carroll, The Pyramid of Corporate Social Responsibility (1991)",
+          "url": "https://pim.wzr.ug.edu.pl/fid/upload/files/Carroll%20Pyramid.CSR.1991.pdf",
+          "basis": "경제·법·윤리·자선 책임 순위"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-107.jpg",
+      "originalImageSHA256": "a45f039a4b3fc989d04c04ff1e76ace590d0ced04f02a193e14f9cdb0dc4c964",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 33,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-109",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 109,
+      "question": "브룸(V. Vroom)이 제시한 기대이론의 작동순서로 올바른 것은?",
+      "options": [
+        "기대감 → 수단성 → 유의성",
+        "기대감 → 유의성 → 수단성",
+        "수단성 → 유의성 → 기대감",
+        "유의성 → 수단성 → 기대감",
+        "유의성 → 기대감 → 수단성"
+      ],
+      "officialAFormKey": [
+        1
+      ],
+      "explanationDraft": "브룸의 기대이론은 노력→성과의 기대감(expectancy), 성과→보상의 수단성(instrumentality), 보상 가치인 유의성(valence)이 동기를 결정한다고 본다. 문항의 작동순서는 기대감→수단성→유의성이다.",
+      "optionExplanations": [
+        "기대감→수단성→유의성의 연결에 맞다.",
+        "유의성은 보상의 가치로 수단성의 다음 단계에서 평가한다.",
+        "성과→보상 연결보다 노력→성과 기대가 선행한다.",
+        "유의성을 첫 단계로 배치했다.",
+        "유의성을 앞에 놓아 이론의 작동순서와 맞지 않는다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Vroom expectancy theory",
+          "url": "https://www.simplypsychology.org/expectancy-theory.html",
+          "basis": "기대감·수단성·유의성"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-109.jpg",
+      "originalImageSHA256": "627398013b8c571d7509164221ec2cf0092644e870477f96aba0b43cc8acfc5f",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 34,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-112",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 112,
+      "question": "마약퇴치 운동과 같이 불건전한 수요를 파괴시키는 데 활용되는 마케팅은?",
+      "options": [
+        "동시화 마케팅(synchro marketing)",
+        "재마케팅(remarketing)",
+        "디마케팅(demarketing)",
+        "대항 마케팅(counter marketing)",
+        "터보 마케팅(turbo marketing)"
+      ],
+      "officialAFormKey": [
+        4
+      ],
+      "explanationDraft": "유해하거나 사회적으로 불건전한 수요 자체를 없애려는 활동은 대항 마케팅(countermarketing)이다. 디마케팅은 일반적으로 과잉수요나 특정 수요를 감소시키려는 목적이므로 목적상 구분된다.",
+      "optionExplanations": [
+        "동시화 마케팅은 시간대별로 불규칙한 수요를 평준화한다.",
+        "재마케팅은 감소한 수요를 회복한다.",
+        "디마케팅은 과잉·부적절한 수요를 억제하지만 불건전한 수요의 파괴라는 표현과 구분된다.",
+        "대항 마케팅은 마약 등 유해한 수요를 제거하려는 전략이다.",
+        "터보 마케팅은 신속한 대응·시간 경쟁에 초점을 둔다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Kotler social marketing / countermarketing 개념 검토 필요",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3222495/",
+          "basis": "유해수요 감소와 사회마케팅의 구분 · 문헌 적합성 재검토"
+        }
+      ],
+      "examDateLawOrTerminologyHold": "SECONDARY_MARKETING_THEORY_SOURCE_RECHECK",
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-112.jpg",
+      "originalImageSHA256": "b733f294b512ce9afb3b7ba39131b847e4e9936e9a379544f8fb72c5d5b5bf3a",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 34,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-113",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 113,
+      "question": "마케팅전략에 관한 설명으로 옳은 것은?",
+      "options": [
+        "마케팅 비용을 절감하기 위해 차별화 마케팅전략을 도입한다.",
+        "제품전문화 전략은 표적시장 선정전략의 일종이다.",
+        "포지셔닝은 전체 시장을 목표로 하는 마케팅전략이다.",
+        "제품의 확장속성이란 판매자가 제공하거나 구매자가 추구하는 본질적 편익을 말한다.",
+        "시장세분화 전제조건으로서의 실질성이란 세분시장의 구매력 등이 측정가능해야 함을 의미한다."
+      ],
+      "officialAFormKey": [
+        2
+      ],
+      "explanationDraft": "시장전문화를 비롯한 표적시장 선택 전략 중 제품전문화는 한 제품 분야를 여러 세분시장에 공급하는 형태다. 차별화 전략은 보통 비용이 더 들 수 있고, 포지셔닝은 고객 인식 속에 제품 위치를 설정하며, 핵심편익과 확장제품은 구분된다. '측정가능성'과 '실질성'도 다른 요건이다.",
+      "optionExplanations": [
+        "차별화 마케팅은 세분시장별 믹스로 비용이 증가할 수 있다.",
+        "제품전문화는 표적시장 선정의 한 방식이다.",
+        "포지셔닝은 대상 고객의 인지적 위치를 구성하는 활동이다.",
+        "본질적 편익은 핵심제품에 해당한다.",
+        "구매력·규모 측정가능성은 측정가능성; 실질성은 규모·수익성이 충분해야 한다는 조건이다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Marketing segmentation targeting and positioning",
+          "url": "https://openstax.org/books/principles-marketing/pages/5-3-selecting-target-markets-and-target-market-strategies",
+          "basis": "표적시장 전략 및 세분화 요건"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-113.jpg",
+      "originalImageSHA256": "dc6ab6208aefda9ac3e2079a2a514a505e7eabccaaad3e330e5776a2594d10ca",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 34,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-115",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 115,
+      "question": "경영정보시스템 용어에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "비즈니스 프로세스 리엔지니어링(business process reengineering)은 새로운 방식으로 최대한의 이득을 얻기 위해 기존의 비즈니스 프로세스를 변경하는 것이다.",
+        "비즈니스 인텔리전스(business intelligence)는 사용자가 정보에 기반하여 보다 나은 비즈니스 의사결정을 돕기 위한 응용프로그램, 기술 및 데이터 분석 등을 포함하는 시스템이다.",
+        "의사결정지원시스템(decision support system)은 컴퓨터를 이용하여 의사결정자가 효과적인 의사결정을 할 수 있도록 지원하는 시스템이다.",
+        "위키즈(Wikis)는 사용자들이 웹페이지 내용을 쉽게 추가·편집할 수 있는 웹사이트의 일종이다.",
+        "자율컴퓨팅(autonomous computing)은 지리적으로 분산된 네트워크 환경에서 수많은 컴퓨터와 데이터베이스 등을 고속 네트워크로 연결하여 공유할 수 있도록 한다."
+      ],
+      "officialAFormKey": [
+        5
+      ],
+      "explanationDraft": "⑤는 분산된 다수의 컴퓨팅 자원을 네트워크로 연계하는 그리드 컴퓨팅(grid computing)의 설명에 가깝다. 자율컴퓨팅(autonomic computing)은 변화 상황에 스스로 설정·최적화·복구·보호하는 시스템을 뜻한다. ①~④는 관련 개념 설명과 대체로 부합한다.",
+      "optionExplanations": [
+        "BPR은 업무 프로세스를 근본적으로 재설계한다.",
+        "BI는 데이터 분석 기반 의사결정을 지원한다.",
+        "DSS는 의사결정자의 판단을 보조한다.",
+        "위키는 협업 기반 웹페이지 편집·추가가 가능한 서비스다.",
+        "그리드 컴퓨팅을 자율컴퓨팅으로 잘못 설명하고 있다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "IBM autonomic computing overview",
+          "url": "https://www.ibm.com/think/topics/autonomic-computing",
+          "basis": "자율컴퓨팅과 그리드컴퓨팅 개념의 구분"
+        }
+      ],
+      "examDateLawOrTerminologyHold": "AUTONOMOUS_AUTONOMIC_TERM_VARIATION_CHECK",
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-115.jpg",
+      "originalImageSHA256": "46f9f5a0d4c7b67b33d8bc8c3309f228d07f02b620917b0539acd35467e7f3c1",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 35,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-118",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 118,
+      "question": "선물거래에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "조직화된 공식시장에서 거래가 이루어진다.",
+        "다수의 불특정 참가자가 자유롭게 시장에 참여한다.",
+        "거래대상, 거래단위 등의 거래조건이 표준화되어 있다.",
+        "계약의 이행을 보증하려는 제도적 장치로 일일정산, 증거금 등이 있다.",
+        "반대매매를 통한 중도청산이 어려워 만기일에 실물의 인수·인도가 이루어진다."
+      ],
+      "officialAFormKey": [
+        5
+      ],
+      "explanationDraft": "선물은 표준화된 거래소 계약으로 증거금과 일일정산이 적용된다. 만기 전 반대매매(offset)로 포지션을 청산할 수 있으며 많은 거래가 실물인도 없이 종료하므로 ⑤는 틀리다.",
+      "optionExplanations": [
+        "거래소 선물의 일반적 특징이다.",
+        "거래소의 거래참가자들이 공개된 표준계약을 거래한다.",
+        "선물계약은 기초자산·수량·만기 등을 표준화한다.",
+        "증거금과 일일정산은 이행위험 관리를 위한 제도다.",
+        "반대매매 청산이 가능하고 상품에 따라 현금정산도 가능하다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "CME Group Managing Contract Expiration",
+          "url": "https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/managing-contract-expiration",
+          "basis": "만기 전 offset과 물리적 인도 여부"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-118.jpg",
+      "originalImageSHA256": "4a618d66967a0ab44f6d2a8600697b4a5950c957c3a91f5a88acab77ab2e52b9",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 36,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-122",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 122,
+      "question": "부채에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "매입채무는 일반적인 상거래에서 발생한 외상매입금과 지급어음을 말한다.",
+        "예수금은 거래처나 종업원을 대신하여 납부기관에 납부할 때 소멸하는 부채이다.",
+        "미지급금은 비유동자산의 취득 등 일반적인 상거래 이외에서 발생한 채무를 말한다.",
+        "장기차입금의 상환기일이 결산일로부터 1년 이내에 도래하는 경우 유동성장기차입금으로 대체하고 유동부채로 분류한다.",
+        "매입채무, 차입금, 선수금, 사채 등은 금융부채에 속한다."
+      ],
+      "officialAFormKey": [
+        5
+      ],
+      "explanationDraft": "매입채무·차입금·사채는 일반적으로 금융부채이지만, 고객에게 상품·서비스를 제공할 의무를 나타내는 선수금은 통상 비금융부채(계약부채)이다. 따라서 이를 일괄 금융부채라고 한 ⑤가 틀리다.",
+      "optionExplanations": [
+        "상품·원재료의 외상매입·지급어음은 매입채무이다.",
+        "예수금은 제3자를 위해 일시 보관하거나 공제한 금액이다.",
+        "미지급금은 상거래 외 비용·자산 취득 등 미지급 거래를 포함한다.",
+        "1년 내 상환 예정인 장기차입금은 유동부채로 재분류한다.",
+        "선수금의 이행의무는 통상 현금지급 의무가 아니므로 금융부채라고 일반화할 수 없다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "IFRS IAS 32 financial liability definition",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-32-financial-instruments-presentation/",
+          "basis": "현금 등 금융자산을 인도할 계약상 의무와 서비스 이행 의무의 차이"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-122.jpg",
+      "originalImageSHA256": "4f5de3278f81f377b66673c04462441ef4a03c83489c10fcc4ba450e47d63621",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 36,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2020-A-management-123",
+      "year": 2020,
+      "subject": "경영학개론",
+      "questionNumber": 123,
+      "question": "재무상태표와 관련되는 것을 모두 고른 것은?\nㄱ. 수익·비용대응의 원칙\nㄴ. 일정시점의 재무상태\nㄷ. 유동성배열법\nㄹ. 일정기간의 경영성과\nㅁ. 자산, 부채 및 자본",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄹ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㅁ",
+        "ㄷ, ㄹ, ㅁ"
+      ],
+      "officialAFormKey": [
+        4
+      ],
+      "explanationDraft": "재무상태표는 특정 시점의 자산·부채·자본을 나타내며 유동성 배열방식과 관련된다. ㄴ·ㄷ·ㅁ이 해당한다. 수익·비용대응 및 일정기간 경영성과는 손익보고와 연관된다.",
+      "optionExplanations": [
+        "ㄱ은 손익계산서 관련 원칙이다.",
+        "ㄱ·ㄹ은 손익측정과 관계한다.",
+        "ㄹ은 일정기간 경영성과로 재무상태표의 직접 표시목적이 아니다.",
+        "ㄴ·ㄷ·ㅁ이 모두 재무상태표와 관련된다.",
+        "ㄹ은 손익계산서의 기간 성과를 나타낸다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "IFRS IAS 1 Presentation of Financial Statements",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-1-presentation-of-financial-statements/",
+          "basis": "재무상태표의 재무상태와 자산·부채·자본 표시"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2020-A-management-123.jpg",
+      "originalImageSHA256": "2b3d9b9af8e21cf18d665734f302530e8124a35fb1e45051644ab984960a3eee",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2194957&fileName=3.+2020%EB%85%84%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%ACA%28%EA%B2%BD%EC%98%81%ED%95%99%EA%B0%9C%EB%A1%A0%29.pdf&fileSeq=2194957&artlSeq=5207203&href=0",
+      "officialQuestionPDFSHA256": "87e3913d8a6fe5a7973356d8e3063a8165ca36327874562268fc8b3e1b61c23d",
+      "officialQuestionPdfPage": 37,
+      "officialAnswerPdfSHA256": "cd2db026287beee6869cd53c4c37bcd1dcda1a766a7239c780b0f931d1adc51b",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-109",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 109,
+      "question": "마키아벨리즘(machiavellism)에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "마키아벨리즘은 자신의 이익을 위해 타인을 이용하고 조작하려는 성향이다.",
+        "마키아벨리즘이 높은 사람은 감정적 거리를 잘 유지한다.",
+        "마키아벨리즘이 높은 사람은 남을 잘 설득하며 자신도 잘 설득된다.",
+        "마키아벨리즘이 높은 사람은 최소한의 규정과 재량권이 있을 때 높은 성과를 보이는 경향이 있다.",
+        "마키아벨리즘이 높은 사람은 목적이 수단을 정당화시킬 수 있다고 믿는 경향이 있다."
+      ],
+      "officialAFormKey": [
+        3
+      ],
+      "explanationDraft": "높은 마키아벨리즘 성향의 사람은 타인을 조종·설득하려 하지만 스스로 타인의 설득에 쉽게 영향을 받지는 않는다는 점이 중요하다. 따라서 '자신도 잘 설득된다'는 ③이 틀린 설명이다.",
+      "optionExplanations": [
+        "높은 Mach 성향의 도구적 조작 경향을 설명한다.",
+        "타인과 감정적 거리를 유지하는 경향이다.",
+        "자신도 쉽게 설득된다는 부분이 부적절하다.",
+        "통제가 약하고 재량이 많은 상황에서 도구적 행동이 두드러질 수 있다.",
+        "목적을 위해 수단을 정당화하는 태도를 가리킨다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Christie and Geis (1970), Studies in Machiavellianism",
+          "url": "https://psycnet.apa.org/record/1970-22515-000",
+          "basis": "조작 성향·설득·감정적 거리의 이론적 출처 후보"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-109.jpg",
+      "originalImageSHA256": "96bbe0c6e255224bad3880c224369a36097b9fc937844a4f8d007515594d67bb",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 35,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-114",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 114,
+      "question": "브랜드(brand) 요소를 모두 고른 것은?\nㄱ. 징글(jingle)\nㄴ. 캐릭터(character)\nㄷ. 슬로건(slogan)\nㄹ. 심벌(symbol)",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "officialAFormKey": [
+        5
+      ],
+      "explanationDraft": "브랜드 요소에는 이름·로고·심벌·캐릭터·슬로건·징글 등의 식별 수단이 포함된다. ㄱ~ㄹ 모두 해당하므로 ⑤이다.",
+      "optionExplanations": [
+        "슬로건·심벌이 빠져 있다.",
+        "징글·캐릭터가 빠져 있다.",
+        "심벌이 빠져 있다.",
+        "징글이 빠져 있다.",
+        "징글·캐릭터·슬로건·심벌을 모두 포함한다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Keller, Strategic Brand Management—brand elements",
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/strategic-brand-management/P200000003633",
+          "basis": "브랜드 이름·로고·캐릭터·슬로건·징글 등 개념"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-114.jpg",
+      "originalImageSHA256": "8d2a6bf7492cbb4d70378f53e815f068fee5e6cd7589a2ddb918a646e101cac9",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 36,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-115",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 115,
+      "question": "서비스의 특성으로 옳지 않은 것은?",
+      "options": [
+        "무형성",
+        "비분리성",
+        "반응성",
+        "소멸성",
+        "변동성(이질성)"
+      ],
+      "officialAFormKey": [
+        3
+      ],
+      "explanationDraft": "서비스의 전형적 4가지 특성은 무형성·비분리성(생산과 소비의 동시성)·변동성(이질성)·소멸성이다. '반응성'은 SERVQUAL 서비스 품질 차원이므로 해당 4가지 특성이 아니다.",
+      "optionExplanations": [
+        "무형성은 재고·실체 파악이 어렵다는 서비스 특성이다.",
+        "비분리성은 생산과 소비의 동시성 관련 특성이다.",
+        "반응성은 SERVQUAL 품질평가의 차원이다.",
+        "소멸성은 팔리지 않은 서비스 수용능력을 저장할 수 없다는 의미다.",
+        "변동성은 제공자·상황에 따라 품질이 달라질 수 있다는 의미다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "Kotler/Keller, Distinctive Characteristics of Services",
+          "url": "https://www.oreilly.com/library/view/marketing-management-16th/9780135323199/xhtml/fileP7001017702000000000000000001795.xhtml",
+          "basis": "서비스의 전형적 4특성과 반응성 구분"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-115.jpg",
+      "originalImageSHA256": "3603fc2dcc653ae59b2d00ee63d3572ee6bb0a434af1bb5036f3365bebe22df9",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 36,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-116",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 116,
+      "question": "K사는 A, B, C 세 투자안을 검토하고 있다. 모든 투자안의 내용연수는 1년으로 동일하며, 투자안의 자본비용은 10%이다. 투자액은 투자 실행 시 일시에 지출되며 모든 현금흐름은 기간 말에 발생한다. 투자안의 투자액과 순현재가치(NPV)가 다음과 같을 경우 내부수익률(IRR)이 높은 순서대로 나열한 것은?\n투자안 | A | B | C\n투자액 | 100억원 | 200억원 | 250억원\n순현재가치 | 20억원 | 30억원 | 40억원",
+      "options": [
+        "A, B, C",
+        "A, C, B",
+        "B, A, C",
+        "C, A, B",
+        "C, B, A"
+      ],
+      "officialAFormKey": [
+        2
+      ],
+      "explanationDraft": "만기가 1년이고 요구수익률 10%에서 계산한 NPV가 주어졌으므로 기말현금흐름은 (투자액+NPV)×1.10이다. 따라서 IRR=(기말현금흐름/투자액)−1 = 0.10 + 1.10×NPV/투자액이다. A=32%, B=26.5%, C=27.6%이므로 A>C>B, ②이다.",
+      "optionExplanations": [
+        "C의 IRR가 B보다 높으므로 A,B,C는 틀리다.",
+        "A 32%, C 27.6%, B 26.5%이므로 옳다.",
+        "B가 가장 낮으므로 틀리다.",
+        "A가 C보다 높다.",
+        "A가 가장 높은데 마지막으로 놓여 틀리다."
+      ],
+      "calculationOrFormula": "IRR_A=0.10+1.10×20/100=0.32, IRR_B=0.10+1.10×30/200=0.265, IRR_C=0.10+1.10×40/250=0.276",
+      "referenceCandidates": [
+        {
+          "title": "OpenStax Principles of Finance: NPV and IRR",
+          "url": "https://openstax.org/books/principles-finance/pages/16-3-internal-rate-of-return-irr-method",
+          "basis": "투자액·요구수익률·NPV와 IRR 관계"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-116.jpg",
+      "originalImageSHA256": "879670589b7d031679d4615e438b4f09823ca90f58c1644f7ee791c8a6d3132c",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 37,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-117",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 117,
+      "question": "증권시장선(SML)과 자본시장선(CML)에 관한 설명으로 옳지 않은 것은?",
+      "options": [
+        "증권시장선의 기울기는 표준편차로 측정된 위험 1단위에 대한 균형가격을 의미한다.",
+        "증권시장선 아래에 위치한 자산은 과대평가된 자산이다.",
+        "자본시장선은 효율적 자산의 기대수익률과 표준편차의 선형관계를 나타낸다.",
+        "자본시장선에 위치한 위험자산은 무위험자산과 시장포트폴리오의 결합으로 구성된 자산이다.",
+        "자본시장선에 위치한 위험자산과 시장포트폴리오의 상관계수는 1이다."
+      ],
+      "officialAFormKey": [
+        1
+      ],
+      "explanationDraft": "SML의 가로축 위험은 베타(β)이며 기울기는 시장위험프리미엄이다. 표준편차 단위당 위험가격을 나타내는 관계는 CML과 연결된다. 따라서 ①이 틀리다.",
+      "optionExplanations": [
+        "SML의 위험 척도는 표준편차가 아니라 베타다.",
+        "SML 아래 자산은 요구수익률에 비해 기대수익률이 낮아 과대평가로 해석된다.",
+        "CML은 효율적 포트폴리오의 기대수익률과 총위험(표준편차) 관계다.",
+        "CML은 무위험자산과 시장포트폴리오를 결합한 조합으로 구성된다.",
+        "CML 상 위험자산의 위험 부분은 시장포트폴리오와 완전상관이다."
+      ],
+      "calculationOrFormula": "SML: E(R_i)=R_f+β_i(E(R_M)−R_f); CML: E(R_p)=R_f+[(E(R_M)−R_f)/σ_M]σ_p",
+      "referenceCandidates": [
+        {
+          "title": "CFA Institute CAPM and SML model materials",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/portfolio-risk-return-part-ii",
+          "basis": "SML의 베타와 CML의 표준편차 차원 구분"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-117.jpg",
+      "originalImageSHA256": "749707762ecbb95f086eebf7902fad702088f128903536196b66d0214a3a079b",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 37,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-120",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 120,
+      "question": "식스시그마의 성공적 수행을 위한 5단계 활동으로 옳은 순서는?",
+      "options": [
+        "계획 → 분석 → 측정 → 개선 → 평가",
+        "계획 → 분석 → 측정 → 평가 → 개선",
+        "계획 → 측정 → 평가 → 통제 → 개선",
+        "정의 → 측정 → 분석 → 개선 → 통제",
+        "정의 → 측정 → 평가 → 통제 → 개선"
+      ],
+      "officialAFormKey": [
+        4
+      ],
+      "explanationDraft": "6시그마 공정개선의 DMAIC는 정의(Define)→측정(Measure)→분석(Analyze)→개선(Improve)→통제(Control)의 다섯 단계다. ④가 공식 순서와 일치한다.",
+      "optionExplanations": [
+        "분석을 측정보다 앞에 놓았고 평가로 끝난다.",
+        "DMAIC의 정의·측정·분석·개선·통제와 다르다.",
+        "통제와 개선의 순서가 뒤바뀌고 평가가 들어간다.",
+        "정의→측정→분석→개선→통제가 맞다.",
+        "분석 단계 없이 평가를 넣어 잘못됐다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "ASQ DMAIC Process",
+          "url": "https://asq.org/quality-resources/dmaic",
+          "basis": "DMAIC의 정확한 다섯 단계"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-120.jpg",
+      "originalImageSHA256": "1dc41b502186317a10398790ed450c5607851d440426be76ac6f02cc8c2c71b5",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 37,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-management-123",
+      "year": 2021,
+      "subject": "경영학개론",
+      "questionNumber": 123,
+      "question": "유형자산에 해당하는 항목을 모두 고른 것은?\nㄱ. 특허권\nㄴ. 건물\nㄷ. 비품\nㄹ. 라이선스",
+      "options": [
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "officialAFormKey": [
+        2
+      ],
+      "explanationDraft": "건물과 비품은 물리적 실체가 있어 기업 영업활동 등에 사용하는 유형자산이다. 특허권·라이선스는 일반적으로 무형자산이므로 ㄴ,ㄷ인 ②가 정답이다.",
+      "optionExplanations": [
+        "특허권은 무형자산이므로 틀리다.",
+        "건물과 비품이 유형자산이다.",
+        "특허권이 포함돼 틀리다.",
+        "라이선스가 포함돼 틀리다.",
+        "특허권·라이선스가 포함돼 틀리다."
+      ],
+      "calculationOrFormula": null,
+      "referenceCandidates": [
+        {
+          "title": "IAS 16 Property, Plant and Equipment",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+          "basis": "물리적 실체 있는 유형자산의 정의"
+        },
+        {
+          "title": "IAS 38 Intangible Assets",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-38-intangible-assets/",
+          "basis": "특허권·라이선스 등 무형자산 분류"
+        }
+      ],
+      "examDateLawOrTerminologyHold": null,
+      "originalImage": "review/first-v41-native-crops/legacy1-2021-A-management-123.jpg",
+      "originalImageSHA256": "43e5b4a436f1aaff8358af24b81aa8ea714d583dbe9156b87b98cd3c92a49ff7",
+      "officialQuestionPDFURL": "https://www.q-net.or.kr/cst003.do?id=cst00302s01&gSite=L&gId=05&fileCode=R001&filePath=bbs%2FQ004%2FQ004_2199124&fileName=2021%EB%85%84%EB%8F%84+%EA%B3%B5%EC%9D%B8%EB%85%B8%EB%AC%B4%EC%82%AC+%EA%B2%BD%EC%98%81%ED%95%99a%ED%98%95.pdf&fileSeq=2199124&artlSeq=5208526&href=0",
+      "officialQuestionPDFSHA256": "d2e056f47d3debf41e016e3cba71ec7d2416b07fc4a692eb9c1d080257e3dd52",
+      "officialQuestionPdfPage": 38,
+      "officialAnswerPdfSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "officialAnswerGridStatus": "SECOND_READ_DIGIT_TEMPLATE_MATCH",
+      "preliminaryStemAndFiveOptionsVisuallyCompared": true,
+      "officialAnswerNumberAligned": true,
+      "independentSecondProofread": false,
+      "independentReviewerApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "SOURCE_IMAGE_KEY_ALIGNED_THEORY_EXPLANATION_DRAFT_SECOND_REVIEW_HOLD"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "nomusa-second-v1123-academic-2022-2023-2025/1",
+  "date": "2026-11-16",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "pr": 3,
+  "goal": "Deepen existing source-backed V10.3 essay records (2022, 2023 HRM 50pt; 2025 organization LMX and expectancy 25pt each) with detailed essays, compact answers and 3x3 keywords without replacing old ids or storage.",
+  "sourceIndex": "rc27_essay_catalog.js",
+  "newFiles": [
+    {
+      "id": "2022-hr-1",
+      "year": 2022,
+      "subject": "인사노무관리론",
+      "topic": "관리층 교육훈련 6기법; Kirkpatrick, Goldstein and ROI training evaluation",
+      "points": 50,
+      "parts": [
+        20,
+        30
+      ],
+      "detailCodepoints": 5061,
+      "byPartCodepoints": [
+        2254,
+        2807
+      ],
+      "file": "second/deep-essay-2022-hrm-q1-v1123.js"
+    },
+    {
+      "id": "2023-hr-1",
+      "year": 2023,
+      "subject": "인사노무관리론",
+      "topic": "EPRG 4 orientations and expatriate selection/training/rewards/retention/repatriation",
+      "points": 50,
+      "parts": [
+        20,
+        30
+      ],
+      "detailCodepoints": 4906,
+      "byPartCodepoints": [
+        2274,
+        2632
+      ],
+      "file": "second/deep-essay-2023-hrm-q1-v1123.js"
+    },
+    {
+      "id": "2025-org-2",
+      "year": 2025,
+      "subject": "경영조직론",
+      "topic": "LMX concept and role formation; Graen-Uhl-Bien 3 phases",
+      "points": 25,
+      "parts": [
+        15,
+        10
+      ],
+      "detailCodepoints": 2557,
+      "byPartCodepoints": [
+        1551,
+        1006
+      ],
+      "file": "second/deep-essay-2025-organization-q2-v1123.js"
+    },
+    {
+      "id": "2025-org-3",
+      "year": 2025,
+      "subject": "경영조직론",
+      "topic": "Vroom expectancy/instrumentality/valence; exactly 3 implications and 3 critiques",
+      "points": 25,
+      "parts": [
+        15,
+        10
+      ],
+      "detailCodepoints": 2462,
+      "byPartCodepoints": [
+        1485,
+        977
+      ],
+      "file": "second/deep-essay-2025-organization-q3-v1123.js"
+    }
+  ],
+  "contentSpecificQuality": [
+    "2022 Goldstein 1978 original distinguishes training/performance(in job transfer)/intra-organizational/interorganizational validity; correct journal: Human Factors 20(2),131–144",
+    "2022 Kirkpatrick reaction-learning-behavior-results and ROI=(benefit attributable to training-cost)/cost x100",
+    "2023 Perlmutter EPG 1969 distinguished from EPRG extended Heenan and Perlmutter 1979",
+    "2023 five expatriate lifecycle elements: selection training compensation retention repatriation",
+    "2025 LMX initial VDL formation distinguished from Graen-Uhl-Bien stranger/acquaintance/mature partnership",
+    "2025 Vroom E/I/V simplified mnemonic distinguished from full theoretical outcome valuation and subjective estimation"
+  ],
+  "integration": {
+    "catalog": "window.N27_CATALOG.items replacement by id with preserved original id, sourceText, pdfPath, pdfPage, points, subject, year, topic, sourceStatus, origin",
+    "hubHtml": "study-hub/index.html",
+    "hubApp": "study-hub/app.js",
+    "scriptCount": 71,
+    "previousScriptsPreserved": true,
+    "mainProductionPreview": "UNCHANGED",
+    "oldRC27AndRC35": "UNCHANGED",
+    "legacy181": "PRESERVED",
+    "splitHistorical38": "PRESERVED",
+    "unchanged128CatalogEntries": 124,
+    "sourcePdfBytes": "UNCHANGED",
+    "localStorageKeys": "UNCHANGED"
+  },
+  "staticValidation": {
+    "initialFourOverlayUnitAssertions": 158,
+    "integratedScriptAndHistoricalAssertions": 90,
+    "passedTotal": 248,
+    "failed": 0,
+    "result": "PASS_STATIC",
+    "environment": "GitHub connector reads + in-memory JS evaluation + study-hub app syntax/load-order static inspection; not an actual Playwright/browser E2E",
+    "earlierGateFalseAlarm": "A 30-character minimum for every compressed subheading was overly strict. Replaced with >=20 Unicode codepoints; all sections contain full detailed source-aligned prose and usable compact key phrases."
+  },
+  "holds": {
+    "sourcePDFVisualPageReview": "HOLD",
+    "bibliographyIndependentFullTextReview": "HOLD",
+    "handwritten8To10Sheets50And4Sheets25": "HOLD",
+    "contentFinalApproval": "HOLD",
+    "scoringApproved": false,
+    "PC_1440": "NOT_RUN",
+    "mobile390": "NOT_RUN",
+    "mobile360": "NOT_RUN",
+    "saveRestoreE2E": "NOT_RUN",
+    "newPreview": "NOT_DEPLOYED"
+  },
+  "nextContentWork": [
+    "2022/2023 25-point other source-backed HRM and organization essays",
+    "2025 50-point HRM or organization questions with mixed marks",
+    "2015–2018 and 2021 source-image transcription before claiming reliable point-specific model answers"
+  ]
+}

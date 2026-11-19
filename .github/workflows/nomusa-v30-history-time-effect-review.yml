@@ -1,0 +1,77 @@
+name: NOMUSA V30 historical answer corrections reuse and exam-time law audit
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v30-history-time-effect-review.yml'
+      - 'scripts/nomusa-v30-reuse-history-time-gate.py'
+      - '.claude/skills/nomusa-v30-reuse-history-time-gate/SKILL.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v30-review-only
+  cancel-in-progress: true
+
+jobs:
+  historical-review:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout immutable review branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fast V30 source and historic editing baseline
+        run: |
+          python scripts/nomusa-v30-reuse-history-time-gate.py --self-test
+          python scripts/nomusa-v30-reuse-history-time-gate.py .
+      - name: Install portable Chrome for existing PC and mobile E2E
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0 pymupdf==1.26.7
+          python -m playwright install chromium --with-deps
+      - name: Export 328 actual original/long/short answer texts and storage tests
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Audit manuscript hashes, V20 88 actual supplements and postexam citations
+        run: python scripts/nomusa-v30-reuse-history-time-gate.py . --rendered
+      - name: Assert 328 classified without fabricated corrections or approvals
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          f=Path('review-artifacts/NOMUSA_V30/NOMUSA_V30_328_REUSED_HISTORY_AND_TIME_GATE.json')
+          s=json.loads(f.read_text(encoding='utf-8'))['summary']
+          assert s['answers']==328 and s['years']==20
+          assert s['reviewStateCounts']=={'기존 부분 근거 연결':19,'추가 원전·전문 검증 필요':309}
+          assert s['actualRenderedSHACompared']==328
+          assert s['historyEvidenceCounts']['V20_SOURCE_SPECIFIC_88_SUPPLEMENT']==88
+          assert s['expertApproved']==0 and s['expertSignoffPending']==328
+          assert s['previouslyCorrectedV28']==1 and s['confirmedOutstandingCorrections']==0
+          assert s['finalApproval']=='HOLD_0_OF_328' and s['noSourceOrDeploymentChanges']
+          print('PASS_V30_328_HISTORY_REUSED_88_V20_19_PILOT_0_EXPERT_APPROVAL')
+          PY
+          git diff --exit-code
+      - name: Archive read-only V30 328-answer evidence and review CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v30-328-historic-legal-timeline-existing-edits
+          path: |
+            review-artifacts/NOMUSA_V30/**
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Final read-only decision
+        if: always()
+        run: |
+          echo 'MAIN_PRODUCTION_PREVIEW_UNCHANGED_BY_WORKFLOW=1'
+          echo 'SOURCE_NO_MUTATION=1 NO_EMAIL_NO_EXPERT_CERTIFICATION=1'
+          echo 'FINAL_APPROVAL=HOLD_0_OF_328'

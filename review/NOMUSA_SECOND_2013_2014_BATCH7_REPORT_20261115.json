@@ -1,0 +1,81 @@
+{
+  "schema": "nomusa-2013-2014-essay-batch7-summary/1",
+  "checkedOn": "2026-11-15",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceVersion": "2026-11-15-batch7",
+  "sourceAnswerFile": "second/historical-2013-2014-answers-v1.js",
+  "added": [
+    "2014_p1_q1",
+    "2014_p1_q2"
+  ],
+  "previousBatch6": [
+    "2013_p7_q1",
+    "2013_p7_q2",
+    "2013_p7_q3"
+  ],
+  "expandedBatch6": [
+    "2013_p6_q1"
+  ],
+  "counts": {
+    "catalog": 309,
+    "preservedParentLedger": 181,
+    "individual2013_2014Questions": 38,
+    "authoredDrafts": 21,
+    "remainingUnwritten": 17
+  },
+  "validation": {
+    "nodeSyntax": "PASS",
+    "answerGate": {
+      "status": "PASS",
+      "authored": 21,
+      "remaining": 17,
+      "protectedFilesUnchanged": 8,
+      "errors": []
+    },
+    "browser": {
+      "status": "PASS",
+      "passed": 78,
+      "expected": 78,
+      "viewportWidths": [
+        1440,
+        390,
+        360
+      ],
+      "jsErrors": []
+    },
+    "legacy181": {
+      "status": "PASS",
+      "passed": 12,
+      "expected": 12
+    },
+    "fullHub": {
+      "status": "PASS_BROWSER_AND_ANSWER_AUDIT_SOURCE_ALIGNMENT_HOLD",
+      "browserChecksPass": 13,
+      "sourceAlignmentIndependentApproval": "HOLD"
+    }
+  },
+  "historicalCaseCitations": {
+    "2014_p1_q1": [
+      "2006다25240",
+      "2011다42324"
+    ],
+    "2014_p1_q2": [
+      "2001다25184",
+      "94다26721"
+    ]
+  },
+  "safety": {
+    "officialAnswer": false,
+    "citationReview": "HOLD",
+    "humanApproval": "PENDING",
+    "scoringApproved": false,
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "rc35": "UNCHANGED",
+    "preview": "NOT_DEPLOYED",
+    "originalPdf": "UNCHANGED",
+    "preservedStorageKeys": true
+  },
+  "note": "Pass here is a technical/source schema and browser regression gate; law/case application and handwritten page equivalence require independent review."
+}

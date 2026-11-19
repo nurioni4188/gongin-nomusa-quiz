@@ -1,0 +1,108 @@
+{
+  "schema": "nomusa-second-v1121-org-2010-2012-final-three-50pt/1",
+  "date": "2026-11-16",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "goal": "2010–2012 경영조직론 미작성 50점 3개를 실제 원문기반 상세·압축·3x3 답안으로 완성하고 기존 허브에 연결. 기존 데이터·운영 배포 보존.",
+  "newEssays": [
+    {
+      "id": "legacy2-2010-organization-q1",
+      "year": 2010,
+      "topic": "자원의존관점과 외부자원 통제 전략",
+      "points": 50,
+      "detailChars": 4155,
+      "sections": 8,
+      "sourcePage": 2,
+      "file": "second/deep-essay-2010-organization-q1.js",
+      "academicSource": "Pfeffer and Salancik (1978); Emerson (1962)",
+      "status": "DRAFT_UNVERIFIED"
+    },
+    {
+      "id": "legacy2-2011-organization-q1",
+      "year": 2011,
+      "topic": "Chandler·Porter·Miles와 Snow의 전략과 구조",
+      "points": 50,
+      "detailChars": 5254,
+      "sections": 9,
+      "sourcePage": 3,
+      "file": "second/deep-essay-2011-organization-q1.js",
+      "academicSource": "Chandler (1962); Porter (1980,1985); Miles and Snow (1978)",
+      "status": "DRAFT_UNVERIFIED"
+    },
+    {
+      "id": "legacy2-2012-organization-q1",
+      "year": 2012,
+      "topic": "카리스마·서번트 리더십 개념·특징·장단점",
+      "points": 50,
+      "detailChars": 5063,
+      "sections": 10,
+      "sourcePage": 5,
+      "file": "second/deep-essay-2012-organization-q1.js",
+      "academicSource": "Greenleaf (1970); Conger and Kanungo (1987); Shamir et al. (1993); Liden et al. (2008)",
+      "status": "DRAFT_UNVERIFIED"
+    }
+  ],
+  "coverage": {
+    "years": "2007–2012",
+    "subjectParents": {
+      "organization": 15,
+      "HRM": 13,
+      "total": 28
+    },
+    "answerUnits": {
+      "organization": 18,
+      "HRM": 18,
+      "total": 36
+    },
+    "separateHistorical2013And2014Answers": 38,
+    "legacyParentRegistryTotal": 181,
+    "remainingGenericLegacyParentDrafts": 153
+  },
+  "integration": {
+    "entrypoint": "study-hub/index.html",
+    "newScriptImports": [
+      "../second/deep-essay-2010-organization-q1.js",
+      "../second/deep-essay-2011-organization-q1.js",
+      "../second/deep-essay-2012-organization-q1.js"
+    ],
+    "all28Legacy2007To2012DeepenedParentsLinked": true,
+    "scriptCount": 63,
+    "previousReviewBranchSourcesPreserved": true,
+    "originalSourcePageAndIDsPreserved": true,
+    "localStorageKeysUnchanged": true
+  },
+  "validation": {
+    "method": "GitHub connector read + in-memory JavaScript syntax/evaluation and static index/source checks",
+    "newEssayRegistryAndHubAssertions": 216,
+    "fullCoverageAndHistoricalSplitAssertions": 74,
+    "total": 290,
+    "failures": 0,
+    "result": "PASS_STATIC",
+    "warnings": [
+      "Browser real E2E not run",
+      "Original academic texts not independently fully reviewed",
+      "Draft does not mean scoring-approved"
+    ]
+  },
+  "holds": {
+    "handwritten50pt8To10Sheets": "HOLD",
+    "academicFullTextIndependentVerification": "HOLD",
+    "contentApproval": "HOLD",
+    "scoringApproved": false,
+    "PC1440AndMobile390_360E2E": "HOLD_NOT_RUN",
+    "saveRestoreBrowserE2E": "HOLD_NOT_RUN",
+    "newPreviewDeploy": "NOT_DEPLOYED"
+  },
+  "protected": {
+    "main": "UNCHANGED",
+    "production": "UNCHANGED",
+    "RC27": "UNCHANGED",
+    "RC35": "UNCHANGED",
+    "previousPreview": "UNCHANGED",
+    "historicalSplit38": "UNCHANGED",
+    "existingQuestionIDs": "UNCHANGED",
+    "savedAnswersAndKeys": "UNCHANGED"
+  },
+  "nextRecommended": "2013~2026년 기존 181부모문항 중 2007~2012년 28개 제외한 153개를 원문·배점 우선으로 상세답안 고도화; 실제 브라우저 E2E는 별도 검증."
+}

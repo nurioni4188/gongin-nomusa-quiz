@@ -1,0 +1,71 @@
+name: NOMUSA FIRST V34 791 official source queue and mobile
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v34-791-source-queue.yml'
+      - 'scripts/nomusa-first-v34-791-original-source-queue.mjs'
+      - 'scripts/nomusa-first-v33-missing-year-browser-gate.py'
+      - 'study-hub/first-legacy-answers.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nomusa-first-v34-791-verified-original-review
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium test dependencies
+        run: |
+          python -m pip install playwright==1.56.0 pymupdf==1.26.7 olefile==0.47 cryptography==44.0.0 sympy==1.13.3
+          python -m playwright install chromium --only-shell
+      - name: Real 791 absent A-form IDs matched against 2279 bank 3400 candidates and Q-Net source index
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: Check 791 manifest exact scope, source status and no new grading or fake questions
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          obj=json.loads(Path('review-artifacts/NOMUSA_FIRST_V34/NOMUSA_FIRST_V34_791_SOURCE_TARGETS.json').read_text())
+          s=obj['summary'];r=obj['rows']
+          assert len(r)==791 and s['missingAllFiveYears']==750 and s['partialYearTargets']==41
+          assert s['sourceLinkedQNetRecords']==300 and s['contentOneToOneVerified']==0
+          assert s['allowedQDATAImport']==0 and s['scoringApproved']==0
+          assert len(set(x['id'] for x in r))==791
+          assert all(not x['readyForQDATAImport'] and not x['scoringApproved'] for x in r)
+          assert all(x['sourceDocumentSHA256'] and x['originalURL'] for x in r if x['year'] in (2020,2021))
+          print('PASS_791_0_FABRICATED_300_OFFICIAL_QNET_DOCUMENT_LINKS')
+          PY
+      - name: Check 5 missing years on mobile and new official source landing links
+        run: python scripts/nomusa-first-v33-missing-year-browser-gate.py .
+      - name: Preserve V32 17 view and mobile checks
+        run: python scripts/nomusa-first-v32-status-ui-gate.py
+      - name: Preserve V71 42 official Q-Net page-location checks
+        run: python scripts/nomusa-first-v71-visual-page-gate.py
+      - name: Preserve RC35 1st-stage saved record and no grading
+        run: python scripts/nomusa-auto-v12-browser-gate.py . --first-only
+      - name: Preserve canonical 328 second-stage answers and study hub
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: Immutable working files and strict branch scope
+        run: git diff --exit-code
+      - name: Upload 791 one-to-one recovery-target proof JSON and CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v34-791-id-qnet-source-recovery-queue
+          path: |
+            review-artifacts/NOMUSA_FIRST_V34/NOMUSA_FIRST_V34_791_SOURCE_TARGETS.json
+            review-artifacts/NOMUSA_FIRST_V34/NOMUSA_FIRST_V34_791_SOURCE_TARGETS.csv
+          if-no-files-found: warn
+          retention-days: 30

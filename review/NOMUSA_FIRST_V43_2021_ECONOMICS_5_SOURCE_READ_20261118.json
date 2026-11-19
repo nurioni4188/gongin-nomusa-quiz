@@ -1,0 +1,183 @@
+{
+  "schema": "NOMUSA_FIRST_V43_2021_ECONOMICS_5_SOURCE_READ_THEORY_DRAFTS/1",
+  "asOf": "2026-11-18",
+  "questionCount": 5,
+  "sourcePriority103": 103,
+  "officialKeyCellsSourceChecked": 103,
+  "combinedFullQuestionWithStudyExplanationDrafts": 26,
+  "expertIndependentContentApproved": 0,
+  "scoringApproved": 0,
+  "note": "Exact original source image controls; AI-typed question/options and solution logic require independent second pass. No V44 scoring eligibility automatically set.",
+  "rows": [
+    {
+      "id": "legacy1-2021-A-economics-101",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 101,
+      "question": "수요의 가격탄력성에 관한 설명으로 옳지 않은 것은? (단, Q는 수량, P는 가격이다.)",
+      "optionTexts": [
+        "상품 가격이 변화할 때 상품 수요가 얼마나 변하는가를 측정하는 척도이다.",
+        "수요곡선이 수직선이면 언제나 일정하다.",
+        "수요곡선이 Q=5/P인 경우, 수요의 가격탄력성(절댓값)은 수요곡선 상 모든 점에서 항상 1이다.",
+        "정상재인 경우 수요의 가격탄력성이 1보다 클 때 가격이 하락하면 기업의 총수입은 증가한다.",
+        "사치재에 비하여 생활필수품은 수요의 가격탄력성이 작다."
+      ],
+      "officialAFormAnswer": [
+        1
+      ],
+      "explanationDraft": "①의 '수요'는 수요곡선 전체의 이동과 혼동되는 표현이다. 가격이 변하면 다른 조건이 일정할 때 같은 수요곡선 상의 수요량이 변하며, 그 백분율 변화 비율을 측정한다. 수직 수요곡선의 탄력성은 0, Q=5/P인 수요곡선의 탄력성은 절댓값 1이다.",
+      "economicsProof": "ε=|(dQ/dP)·P/Q|; Q=5/P이면 ε=|(-5/P²)·P/(5/P)|=1.",
+      "academicReferences": [
+        "https://openstax.org/books/principles-economics-3e/pages/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply"
+      ],
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-economics-101.jpg",
+      "sourceImageSHA256": "c7fea0456f9d7df41bf5616d99cfc68ef4b48f8899f5da74d14efd62ad00c400",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPage": 34,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "assistantVisualAllFiveOptionsCompared": true,
+      "officialAnswerGridSecondRead": true,
+      "figureFormulaHasIndependentSecondReviewer": false,
+      "contentFinalApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_VISUAL_AND_THEORY_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-102",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 102,
+      "question": "기펜재(Giffen goods)에 관한 설명으로 옳지 않은 것은?",
+      "optionTexts": [
+        "가격이 하락하면 재화의 소비량은 감소한다.",
+        "소득효과가 대체효과보다 큰 재화이다.",
+        "가격 상승 시 소득효과는 재화의 소비량을 감소시킨다.",
+        "기펜재는 모두 열등재이지만 열등재가 모두 기펜재는 아니다.",
+        "가격 하락 시 대체효과는 재화의 소비량을 증가시킨다."
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "기펜재는 열등재 중 음(-)의 소득효과가 가격변화에 따른 대체효과를 압도하여 가격 상승 시 수요량이 증가할 수 있는 경우다. 가격 상승으로 실질소득이 감소하면 열등재 소비를 늘리는 방향의 소득효과가 있으므로 ③은 틀리다.",
+      "economicsProof": "가격↑ → 실질소득↓ → 열등재 소비↑(소득효과); 상대가격↑ → 소비↓(대체효과); 기펜재는 첫 효과의 절댓값이 큼.",
+      "academicReferences": [
+        "https://catalogimages.wiley.com/images/db/pdf/9781119435297.excerpt.pdf"
+      ],
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-economics-102.jpg",
+      "sourceImageSHA256": "9fc002a70d57d0b19d8f1bba131d47e64f69943d258790b98d7b096060ec7292",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPage": 34,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "assistantVisualAllFiveOptionsCompared": true,
+      "officialAnswerGridSecondRead": true,
+      "figureFormulaHasIndependentSecondReviewer": false,
+      "contentFinalApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_VISUAL_AND_THEORY_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-103",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 103,
+      "question": "시장실패에 관한 설명으로 옳은 것은?",
+      "optionTexts": [
+        "순수공공재는 배제성은 없으나 경합성은 있다.",
+        "상호 이익이 되는 거래를 방해할 경우 시장실패가 발생한다.",
+        "시장실패의 존재는 정부개입의 필요조건이자 충분조건이다.",
+        "완전경쟁시장은 자원배분의 효율성은 물론 분배의 공평성도 보장해주는 시장이다.",
+        "긍정적 외부경제는 시장실패를 유발하지 않는다."
+      ],
+      "officialAFormAnswer": [
+        2
+      ],
+      "explanationDraft": "상호 이익이 가능한 거래가 제약되면 잠재적 잉여의 실현을 막아 비효율성이 발생할 수 있으므로 ②가 맞다. 순수공공재는 비배제성과 비경합성을 가지며, 시장실패가 있어도 정부개입의 순편익은 따져야 한다. 완전경쟁은 분배의 공평성을 보장하지 않으며 긍정적 외부효과도 시장실패 원인이다.",
+      "economicsProof": null,
+      "academicReferences": [
+        "https://openstax.org/books/principles-microeconomics-3e/pages/13-3-public-goods"
+      ],
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-economics-103.jpg",
+      "sourceImageSHA256": "e17f7783054e82be97b47b59b5bd0faacad62e2477ccdc85ca2178cf3149fe98",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPage": 34,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "assistantVisualAllFiveOptionsCompared": true,
+      "officialAnswerGridSecondRead": true,
+      "figureFormulaHasIndependentSecondReviewer": false,
+      "contentFinalApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_VISUAL_AND_THEORY_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-104",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 104,
+      "question": "지니계수에 관한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 대표적인 소득분배 측정방법 중 하나이다.\nㄴ. 45도 대각선 아래의 삼각형 면적을 45도 대각선과 로렌츠 곡선 사이에 만들어진 초승달 모양의 면적으로 나눈 비율이다.\nㄷ. -1과 1 사이의 값을 갖는다.\nㄹ. 계수의 값이 클수록 평등한 분배 상태를 나타낸다.",
+      "optionTexts": [
+        "ㄱ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "officialAFormAnswer": [
+        1
+      ],
+      "explanationDraft": "ㄱ만 옳다. 지니계수는 45도 완전평등선과 로렌츠 곡선 사이 면적 A를 45도 선 아래 삼각형 전체 면적 A+B로 나눈 값이다. 통상 0~1 범위이고 값이 클수록 불평등도가 커진다. ㄴ은 분자·분모가 뒤집혀 있고, ㄷ·ㄹ도 틀리다.",
+      "economicsProof": "G=A/(A+B), 0≤G≤1; G↑ ⇔ 소득불평등↑.",
+      "academicReferences": [
+        "https://books.core-econ.org/doing-economics/book/text/05-03.html"
+      ],
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-economics-104.jpg",
+      "sourceImageSHA256": "fa37cf4bcacd456c0bb34ab6e2fe6f4946b1f2b31322d766c9f3b8300ed0036d",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPage": 34,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "assistantVisualAllFiveOptionsCompared": true,
+      "officialAnswerGridSecondRead": true,
+      "figureFormulaHasIndependentSecondReviewer": false,
+      "contentFinalApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_VISUAL_AND_THEORY_DRAFT_SECOND_REVIEW_HOLD"
+    },
+    {
+      "id": "legacy1-2021-A-economics-105",
+      "year": 2021,
+      "subject": "경제학원론",
+      "questionNumber": 105,
+      "question": "독점기업의 시장 수요와 공급에 관한 설명으로 옳지 않은 것은? (단, 시장 수요곡선은 우하향한다.)",
+      "optionTexts": [
+        "독점기업은 시장의 유일한 공급자이기 때문에 수요곡선은 우하향한다.",
+        "독점기업의 공급곡선은 존재하지 않는다.",
+        "독점기업의 한계수입은 가격보다 항상 높다.",
+        "한계수입과 한계비용이 일치하는 점에서 독점기업의 이윤이 극대화된다.",
+        "독점기업의 한계수입곡선은 항상 수요곡선의 아래쪽에 위치한다."
+      ],
+      "officialAFormAnswer": [
+        3
+      ],
+      "explanationDraft": "우하향하는 시장수요에 직면한 독점기업은 판매량을 늘리려면 기존 판매분에도 가격을 낮춰야 하므로 한계수입(MR)은 가격(P)보다 낮다. 따라서 ③은 틀리다. 일반적으로 이윤극대화 생산량은 MR=MC 조건에서 결정되고, 독점에는 경쟁시장과 같은 단일 공급곡선이 없다.",
+      "economicsProof": "P=a−bQ (b>0)이면 TR=aQ−bQ², MR=a−2bQ<P(Q)=a−bQ (Q>0).",
+      "academicReferences": [
+        "https://openstax.org/books/principles-microeconomics-3e/pages/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price"
+      ],
+      "sourceImage": "review/first-v41-native-crops/legacy1-2021-A-economics-105.jpg",
+      "sourceImageSHA256": "7bd434635c5b7fdbafe788356a905214ff00561c9bf1663727382216cd818bc9",
+      "officialQuestionPDFSHA256": "df53b6c7474281984a8155fea25762cbb6f175f7aeaa721236c523aac87f7531",
+      "originalPage": 35,
+      "officialAnswerPDFSHA256": "2116f86bd664e73f8c02051ef5528f4978504d60a6f24e98b16b1118d579b2ad",
+      "assistantVisualAllFiveOptionsCompared": true,
+      "officialAnswerGridSecondRead": true,
+      "figureFormulaHasIndependentSecondReviewer": false,
+      "contentFinalApproved": false,
+      "readyForV44": false,
+      "scoringApproved": false,
+      "status": "ECONOMICS_SOURCE_VISUAL_AND_THEORY_DRAFT_SECOND_REVIEW_HOLD"
+    }
+  ]
+}

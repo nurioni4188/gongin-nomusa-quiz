@@ -1,0 +1,65 @@
+{
+  "schema": "NOMUSA_FIRST_V66_2017_2019_14_SECONDARY_A_FORM_SOURCE_SHA/1",
+  "asOfKST": "2026-11-19",
+  "targetYears": {
+    "2017": 6,
+    "2019": 8
+  },
+  "targetMissingQNetPDFSourceIds": 14,
+  "secondaryHostMirrorBookletPdfShaValidated": 4,
+  "individualNativeHeadingStates": {
+    "ONE_SECONDARY_AFORM_PDF_NATIVE_HEADING_CANDIDATE": 14
+  },
+  "thirdPartyPdfSHAConnectedCandidateIDs": 14,
+  "officialQNetOriginalPdfEqualityApproved": 0,
+  "independentFullTextFiveOptionProofread": 0,
+  "officialFinalAFormKeyCellApproved": 0,
+  "historicalLawAcademicTheoryProofread": 0,
+  "newQdataImports": 0,
+  "newScoringApproved": 0,
+  "status": "PASS_14_SECONDARY_PDF_SOURCE_CANDIDATES_HOLD_OFFICIAL_ORIGINAL_AND_CONTENT_APPROVAL",
+  "notes": "Neither the secondary host's attribution nor matching an A-form label certifies the independently authenticated Q-Net original, correct question/choice boundaries or final answer.",
+  "booklets": {
+    "2017-management": {
+      "url": "https://cbtexam.kr/file/e69ef0b86a/",
+      "pdfSha256": "9e0d1215eff779b8b0dffb79200c2293c557529953dbee9a26823a04b90b9aa4",
+      "pages": 36,
+      "bytes": 779798,
+      "sourceProvenance": "SECONDARY_ARCHIVE_OF_QNET_EXAM_PDF_NOT_OFFICIAL_SHA_AUTHENTICATED",
+      "firstPageAFormMarker": true,
+      "file": "secondary_host_source_pdfs/2017-management.pdf",
+      "actualOfficialQNetSamePdfVerified": false
+    },
+    "2017-economics": {
+      "url": "https://cbtexam.kr/file/dcd44dc069/",
+      "pdfSha256": "6ee5f200956d09d83c71d883cbd559e4c3298a929d2bf67fd30112308ffb018c",
+      "pages": 37,
+      "bytes": 798176,
+      "sourceProvenance": "SECONDARY_ARCHIVE_OF_QNET_EXAM_PDF_NOT_OFFICIAL_SHA_AUTHENTICATED",
+      "firstPageAFormMarker": true,
+      "file": "secondary_host_source_pdfs/2017-economics.pdf",
+      "actualOfficialQNetSamePdfVerified": false
+    },
+    "2019-management": {
+      "url": "https://cbtexam.kr/file/873c31e2f7/",
+      "pdfSha256": "0e25387feb54b46e004c62074b905a795dd42d64df8bed231a7d1c3be0506fdf",
+      "pages": 37,
+      "bytes": 225157,
+      "sourceProvenance": "SECONDARY_ARCHIVE_OF_QNET_EXAM_PDF_NOT_OFFICIAL_SHA_AUTHENTICATED",
+      "firstPageAFormMarker": true,
+      "file": "secondary_host_source_pdfs/2019-management.pdf",
+      "actualOfficialQNetSamePdfVerified": false
+    },
+    "2019-economics": {
+      "url": "https://cbtexam.kr/file/1c888d2970/",
+      "pdfSha256": "2c51016c52266a69018e3b2be550de2c71b9c669632264736e8c303fdddb3e4c",
+      "pages": 38,
+      "bytes": 254289,
+      "sourceProvenance": "SECONDARY_ARCHIVE_OF_QNET_EXAM_PDF_NOT_OFFICIAL_SHA_AUTHENTICATED",
+      "firstPageAFormMarker": true,
+      "file": "secondary_host_source_pdfs/2019-economics.pdf",
+      "actualOfficialQNetSamePdfVerified": false
+    }
+  },
+  "complete14ProofreadingQueue": "review-artifacts/NOMUSA_FIRST_V66/NOMUSA_FIRST_V66_14_SECONDARY_PDF_ORIGINAL_CANDIDATES.json"
+}

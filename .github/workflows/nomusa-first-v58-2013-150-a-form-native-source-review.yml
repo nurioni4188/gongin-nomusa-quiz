@@ -1,0 +1,105 @@
+name: NOMUSA FIRST V58 2013 150 A form mirror native text and original crop source review
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v58-2013-150-a-form-native-source-review.yml'
+      - 'scripts/nomusa-first-v58-2013-native-150-external-original-candidates.py'
+      - 'scripts/nomusa-first-v60-2013-150-five-option-native-source-drafts.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nomusa-first-v58-2013-external-source-only
+  cancel-in-progress: true
+jobs:
+  external-aform-native-source-audit:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PDF original text and figure source inspectors
+        run: python -m pip install --disable-pip-version-check pymupdf==1.26.7 requests==2.32.5
+      - name: Generate 791 historical A-form unique-ID source register
+        run: node scripts/nomusa-first-v34-791-original-source-queue.mjs .
+      - name: SHA-check 2013 third-party source and extract 150 A-form original candidate texts and cropped images
+        run: |
+          python -m py_compile scripts/nomusa-first-v58-2013-native-150-external-original-candidates.py
+          python scripts/nomusa-first-v58-2013-native-150-external-original-candidates.py
+      - name: Enforce no official-QNet equivalence, no answer/score approvals and no app mutation
+        run: |
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('review-artifacts/NOMUSA_FIRST_V58')
+          v=json.loads((root/'NOMUSA_FIRST_V58_2013_150_NATIVE_TEXT_SOURCE_REVIEW.json').read_text(encoding='utf8'))
+          assert v['targetQuestionIDs']==len(v['rows'])==150
+          assert len({r['id'] for r in v['rows']})==150
+          assert v['mirrorPDFSHA256']=='57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677'
+          assert v['officialQNetSourceEqualityApproved']==v['independentOriginalQuestionsApproved']==0
+          assert v['newQdataImports']==v['newScoringApprovals']==0
+          assert all(r['officialQNetOriginalIdentityConfirmed'] is False and
+                     r['scoringApproved'] is False and
+                     r['exactOriginalStemFiveChoicesVisuallyApproved'] is False
+                     for r in v['rows'])
+          for r in v['rows']:
+            for p in r['provisionalImageParts'] or []:
+              file=root/p['path']
+              assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==p['sha256']
+          touched=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert touched.issubset({'review/NOMUSA_FIRST_V58_2013_150_NATIVE_SOURCE_DRAFT_SUMMARY_20261118.json'}),touched
+          print('PASS_V58_EXTERNAL_SOURCE_2013_150_A_FORM_CANDIDATES_OFFICIAL_QNET_IDENTITY_HOLD')
+          PY
+      - name: Parse source text into unapproved five-option candidate drafts for 2013 150 IDs
+        run: |
+          python -m py_compile scripts/nomusa-first-v60-2013-150-five-option-native-source-drafts.py
+          python scripts/nomusa-first-v60-2013-150-five-option-native-source-drafts.py
+      - name: Enforce all five-option source candidates are unapproved, with no official-QNet equivalence claim
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          file=Path('review-artifacts/NOMUSA_FIRST_V60/NOMUSA_FIRST_V60_2013_150_STEM_AND_OPTIONS_CANDIDATE_REVIEW.json')
+          z=json.loads(file.read_text(encoding='utf8'))
+          assert z['targetQuestionIDs']==len(z['rows'])==150 and len({r['id'] for r in z['rows']})==150
+          assert z['officialQNetMirrorEqualityApproved']==0
+          assert z['independentFiveOptionProofread']==z['newScoringApproved']==z['newQdataImports']==0
+          assert all(r['readyForV44'] is False and r['scoringApproved'] is False and
+             r['officialQNetSourceContentIdentityApproved'] is False for r in z['rows'])
+          modified=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert modified.issubset({'review/NOMUSA_FIRST_V58_2013_150_NATIVE_SOURCE_DRAFT_SUMMARY_20261118.json',
+            'review/NOMUSA_FIRST_V60_2013_150_STEM_FIVE_OPTION_CANDIDATE_SUMMARY_20261118.json'}),modified
+          print('PASS_V60_2013_150_NATIVE_FIVE_OPTION_CANDIDATES_0_VERIFIED_ORIGINALS_0_SCORING')
+          PY
+      - name: Commit summary only into existing Draft PR; no 1st/2nd stage changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- review/NOMUSA_FIRST_V58_2013_150_NATIVE_SOURCE_DRAFT_SUMMARY_20261118.json review/NOMUSA_FIRST_V60_2013_150_STEM_FIVE_OPTION_CANDIDATE_SUMMARY_20261118.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v58): 2013 A native original draft candidates from unverified mirror, zero grading'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Keep full source draft and page snippets in review artifact, not the live app
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v58-2013-external-mirror-150-unapproved-native-text-crops
+          path: review-artifacts/NOMUSA_FIRST_V58/
+          if-no-files-found: warn
+          retention-days: 14

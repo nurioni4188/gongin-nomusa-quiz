@@ -1,0 +1,259 @@
+{
+  "schema": "nomusa-first-v71-independent-original-image-and-final-answer-cell-review/1",
+  "dateKST": "2026-11-15",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "draftPR": 3,
+  "priorAudit": "review/NOMUSA_FIRST_V70_QNET_44_PAGE_OCR_AND_ANSWERS_20261115.json",
+  "sourceDocuments": {
+    "years": [
+      2020,
+      2021
+    ],
+    "official": "한국산업인력공단 Q-Net",
+    "reacquired": "Original Q-Net downloadable PDFs; SHA-256 matches indexed source",
+    "sourceIndexPath": "study-hub/legacy-first-v61-sources.js",
+    "inspectedQuestionBooks": [
+      "2020-A-management",
+      "2020-A-economics",
+      "2020-B-management",
+      "2021-A-management"
+    ],
+    "answerPDFs": [
+      "2020-AB",
+      "2021-AB"
+    ],
+    "officialFileSHAStatus": "PASS_ALL_SIX_FRESHLY_REDOWNLOADED"
+  },
+  "originalPageVisualReview": {
+    "requestedHoldItems": 14,
+    "reviewed": 14,
+    "pdfPagesVerified": 14,
+    "printedPageVerified": 0,
+    "verificationScope": "Question-number heading located on original rendered PDF page by direct visual inspection, not proof of full stem/options/formula transcription",
+    "items": [
+      {
+        "id": "legacy1-2020-A-civil-072",
+        "source": "2020-A-management",
+        "pdfPage": 24,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-A-civil-075",
+        "source": "2020-A-management",
+        "pdfPage": 25,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-A-social-078",
+        "source": "2020-A-management",
+        "pdfPage": 26,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-A-economics-114",
+        "source": "2020-A-economics",
+        "pdfPage": 36,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-labor1-004",
+        "source": "2020-B-management",
+        "pdfPage": 3,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-labor1-005",
+        "source": "2020-B-management",
+        "pdfPage": 3,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-labor1-006",
+        "source": "2020-B-management",
+        "pdfPage": 3,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-labor1-010",
+        "source": "2020-B-management",
+        "pdfPage": 4,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-labor2-036",
+        "source": "2020-B-management",
+        "pdfPage": 12,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-civil-075",
+        "source": "2020-B-management",
+        "pdfPage": 25,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-social-078",
+        "source": "2020-B-management",
+        "pdfPage": 26,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-management-112",
+        "source": "2020-B-management",
+        "pdfPage": 34,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2020-B-management-117",
+        "source": "2020-B-management",
+        "pdfPage": 35,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      },
+      {
+        "id": "legacy1-2021-A-management-102",
+        "source": "2021-A-management",
+        "pdfPage": 34,
+        "printedPage": null,
+        "evidence": "Original SHA256-matched Q-Net question booklet image; question heading visible on referenced PDF page",
+        "status": "VISUAL_PDF_PAGE_CONFIRMED_PRINTED_PAGE_UNVERIFIED"
+      }
+    ],
+    "previousHold44": "44 original ledger rows still remain HOLD in baseline source index until safe integration; additional per-item visual evidence is in this review artifact",
+    "remainingReviewForThese14": "Printed-page numbering and full question text/figures; test against UI overlay after implementation"
+  },
+  "officialAnswerCellReview": {
+    "year2020": {
+      "formA": {
+        "cells": 150,
+        "singleAnswerImageTemplateConcordant": 150
+      },
+      "formB": {
+        "cells": 150,
+        "singleAnswerImageTemplateConcordant": 150
+      }
+    },
+    "year2021": {
+      "formA": {
+        "cells": 150,
+        "singleAnswerImageTemplateConcordant": 148,
+        "multiAnswerExceptions": 2
+      },
+      "formB": {
+        "cells": 150,
+        "singleAnswerImageTemplateConcordant": 148,
+        "multiAnswerExceptions": 2
+      }
+    },
+    "total": {
+      "cellsSegmentedFromRasterGrid": 600,
+      "singleAnswerNumericTemplateConcordant": 596,
+      "exceptionsVisuallyChecked": 4,
+      "unexplainedConflicts": 0
+    },
+    "cellMethod": "OpenCV grid line segmentation of each official scanned final-answer PDF A/B page (6 subject tables per page, 25 answer cells per table). Five digit shapes were read from 2020 A Q1-Q5: 2,4,5,3,1; unlabeled-image centroid clustering was applied independently of staged candidate answer labels. Source comparison keyed by year+form+subject+questionNo; 596 single-number cells match staged candidates. This automatic image-template match is not per-cell independent human visual signoff.",
+    "exceptionRecords": [
+      {
+        "year": 2021,
+        "form": "A",
+        "subject": "노동법Ⅱ",
+        "number": 26,
+        "officialPdfPage": 1,
+        "officialCell": "1,2,3,4,5",
+        "stagedAnswers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "visuallyVerified": true
+      },
+      {
+        "year": 2021,
+        "form": "A",
+        "subject": "민법",
+        "number": 70,
+        "officialPdfPage": 1,
+        "officialCell": "3,4",
+        "stagedAnswers": [
+          3,
+          4
+        ],
+        "visuallyVerified": true
+      },
+      {
+        "year": 2021,
+        "form": "B",
+        "subject": "노동법Ⅱ",
+        "number": 26,
+        "officialPdfPage": 2,
+        "officialCell": "1,2,3,4,5",
+        "stagedAnswers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "visuallyVerified": true
+      },
+      {
+        "year": 2021,
+        "form": "B",
+        "subject": "민법",
+        "number": 72,
+        "officialPdfPage": 2,
+        "officialCell": "3,4",
+        "stagedAnswers": [
+          3,
+          4
+        ],
+        "visuallyVerified": true
+      }
+    ],
+    "warning": "A/B and elective economics/management group order in the official table must be distinguished; groups 5/6 correspond to economics first, management second. A mismatch count from question-number-only joins is invalid.",
+    "approval": {
+      "numericAutomaticCellConcordance": "PASS_PROVISIONAL",
+      "fourExceptionCells": "PASS_VISUAL",
+      "officialAnswerApprovalForScoring": 0,
+      "perCellHumanFullAudit": "HOLD"
+    }
+  },
+  "safety": {
+    "preserveOld2022_2026RC35Scoring": true,
+    "legacy2008_2021AutomaticScoring": "REMAINS_BLOCKED",
+    "problemIds": "UNCHANGED",
+    "storageKeys": "UNCHANGED",
+    "main": "NO_CHANGE",
+    "production": "NO_CHANGE",
+    "newPreview": "NOT_DEPLOYED"
+  },
+  "nextGate": "Add a non-grading page-verified overlay for the fourteen items, rerun browser QA; independently verify printed pages and 596 singleton answer cells before any scored release."
+}

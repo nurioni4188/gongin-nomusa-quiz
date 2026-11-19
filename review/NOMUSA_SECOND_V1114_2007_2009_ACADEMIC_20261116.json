@@ -1,0 +1,83 @@
+{
+  "schema": "nomusa-second-v1114-academic-essay-batch/1",
+  "date": "2026-11-16",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "scope": "Three distinct individually authored 50-point essay improvements replacing displayed generic 2007-2009 management drafts. Original drafts preserved in second/legacy-181-answer-drafts-v1110.js.",
+  "questions": [
+    {
+      "id": "legacy2-2007-organization-q1",
+      "year": 2007,
+      "subject": "경영조직론",
+      "question": "리더십 특성이론·행동이론·상황이론의 한계를 중심으로 설명",
+      "points": 50,
+      "previousDetailedChars": 1033,
+      "authoredDetailedChars": 5054,
+      "file": "second/deep-essay-2007-organization-q1.js",
+      "academicReferences": [
+        "Stogdill (1948)",
+        "Blake and Mouton (1964)",
+        "Fiedler (1967)"
+      ]
+    },
+    {
+      "id": "legacy2-2008-organization-q1",
+      "year": 2008,
+      "subject": "경영조직론",
+      "question": "조직수명주기 단계별 위기·대응·구조·통제",
+      "points": 50,
+      "previousDetailedChars": 974,
+      "authoredDetailedChars": 5526,
+      "file": "second/deep-essay-2008-organization-q1.js",
+      "academicReferences": [
+        "Greiner (1972)",
+        "Greiner (1998)"
+      ]
+    },
+    {
+      "id": "legacy2-2009-organization-q1",
+      "year": 2009,
+      "subject": "경영조직론",
+      "question": "기대이론과 공정성이론의 내용·공통점·차이점",
+      "points": 50,
+      "previousDetailedChars": 939,
+      "authoredDetailedChars": 6099,
+      "file": "second/deep-essay-2009-organization-q1.js",
+      "academicReferences": [
+        "Vroom (1964)",
+        "Adams (1965)"
+      ]
+    }
+  ],
+  "uiIntegration": {
+    "file": "study-hub/index.html",
+    "loadedAfter": "second/legacy-181-answer-drafts-v1110.js",
+    "appMetadataLabelFix": "study-hub/app.js",
+    "mainAndProduction": "NOT_TOUCHED"
+  },
+  "staticValidation": {
+    "result": "PASS",
+    "checks": 209,
+    "failures": 0,
+    "protectedOriginalDraftCount": 178,
+    "preservedParentIds": 181,
+    "preservedSplitDrafts": 38,
+    "contentApprovalCount": 0
+  },
+  "separateHolds": {
+    "historicalOriginalVisualQuestionCheck": "HOLD",
+    "scholarlyClaimsFullTextAndApplicability": "HOLD",
+    "sheetCount8To10ActualHandwriting": "HOLD",
+    "playwright1440_390_360": "NOT_RUN",
+    "saveRestoreBrowser": "NOT_RUN",
+    "preview": "NOT_DEPLOYED",
+    "finalAnswerApproval": "HOLD"
+  },
+  "decision": "THREE_DEEP_DRAFTS_IN_REVIEW_BRANCH / STATIC_PASS / CONTENT_HOLD / BROWSER_HOLD",
+  "academicMetadataSources": [
+    "https://doi.org/10.1080/00223980.1948.9917362",
+    "https://eric.ed.gov/?id=ED015354",
+    "https://store.hbr.org/product/evolution-and-revolution-as-organizations-grow/98308",
+    "https://books.google.com/books/about/Work_and_Motivation.html?id=89O7AAAAIAAJ",
+    "https://doi.org/10.1016/S0065-2601(08)60108-2"
+  ]
+}

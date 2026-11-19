@@ -1,0 +1,86 @@
+name: NOMUSA FIRST V76 19-year coverage audit and 25 fully reasoned management question drafts
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-first-v76-19year-content-25-detailed-explanations.yml'
+      - 'scripts/nomusa-first-v76-2008-2026-19year-explanations-audit.mjs'
+      - 'review/NOMUSA_FIRST_V76_2013_MANAGEMENT_25_FIVE_CHOICE_DETAILED_EXPLANATIONS_20261119.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nomusa-first-v76-19year-25-option-explanations-review
+  cancel-in-progress: true
+jobs:
+  inspect-and-verify-real-answers:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore source-verified historical 686 original ID and five-choice drafts
+        uses: actions/download-artifact@v4
+        with:
+          name: nomusa-first-v74-686-all-source-leads-191-choices-254-ocr-241-source-only
+          run-id: 44415908136
+          github-token: ${{ github.token }}
+          path: review-artifacts/V76_V74_BUNDLE
+      - name: Run 19-year baseline inventory and verify 25 original stem/five-choice candidate links
+        run: |
+          node --check scripts/nomusa-first-v76-2008-2026-19year-explanations-audit.mjs
+          node scripts/nomusa-first-v76-2008-2026-19year-explanations-audit.mjs
+      - name: Independently verify two numeric worked-answer formulas and all 25 academic answer flags
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,math
+          p=Path('review/NOMUSA_FIRST_V76_2013_MANAGEMENT_25_FIVE_CHOICE_DETAILED_EXPLANATIONS_20261119.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert len(d['entries'])==25 and d['optionReasons']==125
+          assert round(100000*(1.1**2))==121000
+          eoq=math.sqrt(2*10000*100/200)
+          assert eoq==100 and 10000/eoq==100
+          assert d['entries']['legacy1-2013-A-management-104']['correctCandidateUnapproved']==[4]
+          assert d['entries']['legacy1-2013-A-management-116']['correctCandidateUnapproved']==[3]
+          assert d['entries']['legacy1-2013-A-management-106']['correctCandidateUnapproved']==[1]
+          assert all(not x['gradingAllowed'] and not x['independentExpertApproved'] for x in d['entries'].values())
+          s=json.loads(Path('review/NOMUSA_FIRST_V76_19_YEAR_AUDIT_SUMMARY_20261119.json').read_text(encoding='utf-8'))
+          assert s['periodYearCount']==19 and s['original2022to2026QDATAItems']==1020
+          assert s['substantive2013ManagementDetailedNewDrafts']==25
+          assert s['substantive2013ManagementIndividualChoiceReasons']==125
+          assert s['newScoringApprovals']==s['newQDATAImports']==0
+          print('PASS_V76_25_INDIVIDUAL_ACADEMIC_EXPLANATIONS_125_FIVE_CHOICE_REASONS_19_YEARS_AUDITED')
+          PY
+      - name: Commit audit summary only with review status, no QDATA or production change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add review/NOMUSA_FIRST_V76_19_YEAR_AUDIT_SUMMARY_20261119.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'review(first-v76): audit 2008-2026 19-year question/explanation coverage; 25 detailed 5-choice theory drafts'
+            git fetch origin review/nomusa-auto-v1-20year-gate-20261115
+            git rebase origin/review/nomusa-auto-v1-20year-gate-20261115
+            git push origin HEAD:review/nomusa-auto-v1-20year-gate-20261115
+          fi
+          echo NO_MAIN_NO_PRODUCTION_NO_PREVIEW_DEPLOYMENT
+      - name: Preserve historical year-by-year verification and 25 authored choice-by-choice content
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-first-v76-19year-explanation-audit-and-25-detailed-answers
+          path: |
+            review-artifacts/NOMUSA_FIRST_V76/
+            review/NOMUSA_FIRST_V76_2013_MANAGEMENT_25_FIVE_CHOICE_DETAILED_EXPLANATIONS_20261119.json
+            review/NOMUSA_FIRST_V76_19_YEAR_AUDIT_SUMMARY_20261119.json
+          if-no-files-found: warn
+          retention-days: 30

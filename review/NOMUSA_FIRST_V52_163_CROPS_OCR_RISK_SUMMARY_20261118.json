@@ -1,0 +1,34 @@
+{
+  "schema": "NOMUSA_FIRST_V52_163_PROVISIONAL_SOURCE_OCR_DRAFT_AND_RISK/1",
+  "asOfKST": "2026-11-18",
+  "qnetPDFSHAOriginPrelimCrops": 163,
+  "v48Crops": 67,
+  "v51Crops": 96,
+  "uniqueQuestionIds": 163,
+  "byYear": {
+    "2016": 19,
+    "2018": 77,
+    "2020": 35,
+    "2021": 32
+  },
+  "ocrWorkedCount": 163,
+  "ocrSourceDiffCandidates": 163,
+  "ocrFlagCounts": {
+    "ACADEMIC_THEORY_AND_ALL_FIVE_CHOICES_NOT_INDEPENDENTLY_APPROVED": 20,
+    "ADJACENT_QUESTION_NUMBER_CANDIDATE": 60,
+    "EQUATIONS_GRAPHS_CALCULATIONS_NOT_INDEPENDENTLY_CHECKED": 38,
+    "EXAM_DATE_STATUTE_AMENDMENTS_PRECEDENTS_NOT_APPROVED": 105,
+    "OCR_DRAFT_UNVERIFIED_NO_SCORING": 163,
+    "ONE_OR_MORE_FIVE_OPTIONS_NOT_RECOGNIZED_BY_OCR": 163,
+    "SCANNED_PDF_NUMBER_CROP_BOUNDARY_NOT_INDEPENDENTLY_PROOFREAD": 96
+  },
+  "independentFullQuestionTextProofread": 0,
+  "fiveOptionsVisuallyProven": 0,
+  "examDateLawPrecedentTheoreticalApproved": 0,
+  "independentExpertSignoffs": 0,
+  "newScoringApproved": 0,
+  "newAppSourceImports": 0,
+  "status": "PASS_163_CROP_OCR_SOURCE_PROVENANCE_HOLD_163_ORIGINAL_CONTENT_EXPERT_VERIFICATION",
+  "warning": "These 163 text blobs come from OCR of provisional images; they are not full Q-Net original texts, authoritative A-form answers, five-option checked explanations or independent proofreading.",
+  "full163ReviewArtifact": "review-artifacts/NOMUSA_FIRST_V52/NOMUSA_FIRST_V52_163_OCR_SOURCE_RISK_REVIEW.json"
+}

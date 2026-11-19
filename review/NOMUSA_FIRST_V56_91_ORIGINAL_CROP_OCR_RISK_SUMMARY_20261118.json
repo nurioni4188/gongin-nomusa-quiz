@@ -1,0 +1,31 @@
+{
+  "schema": "NOMUSA_FIRST_V56_91_ORIGINAL_CROP_OCR_RISK/1",
+  "asOfKST": "2026-11-18",
+  "newV55CropsOCRRequested": 91,
+  "ocrCandidatesGenerated": 91,
+  "uniqueIds": 91,
+  "sourcePDFSHA256": "328d2a7e12623abfb958b3cbfb2ac094688da295f644c502e22ea575c2a4554a",
+  "imageSha256Passed": 91,
+  "ocrSuccessCount": 91,
+  "potentialAdjacentQuestionHeadings": 10,
+  "ocrCircledChoiceCountLessThanFive": 91,
+  "riskCounts": {
+    "ASCII_FIVE_CHOICES_NOT_FULLY_RECOGNIZED": 91,
+    "CIRCLED_FIVE_CHOICES_NOT_FULLY_RECOGNIZED": 91,
+    "INDEPENDENT_EXAM_DATE_LAW_AND_THEORY_REVIEW_HOLD": 91,
+    "LAW_EFFECTIVE_DATE_AMENDMENTS_CASES_UNVERIFIED": 69,
+    "MANAGEMENT_ACADEMIC_THEORY_UNVERIFIED": 22,
+    "MULTIPLE_QUESTION_HEADINGS_POSSIBLE_ADJACENT_TEXT": 10,
+    "OFFICIAL_FINAL_ANSWER_KEY_CELL_NOT_APPROVED": 91,
+    "ORIGINAL_FIVE_CHOICES_VISUAL_COMPARE_HOLD": 91,
+    "QUESTION_CROP_BOUNDARY_VISUAL_COMPARE_HOLD": 91
+  },
+  "independentOriginalStemFiveOptionsApprovals": 0,
+  "examDateLawTheoryApprovals": 0,
+  "officialKeyCellApprovals": 0,
+  "newQDATAImports": 0,
+  "newScoringApprovals": 0,
+  "status": "PASS_91_OCR_SOURCE_DRAFTS_NOT_CONTENT_APPROVAL",
+  "warning": "No OCR string, apparent option count or source crop is independent original text, official key, or legal/theory approval.",
+  "full91ReviewEvidenceArtifact": "review-artifacts/NOMUSA_FIRST_V56/NOMUSA_FIRST_V56_91_UNAPPROVED_OCR_TEXT_AND_RISK.json"
+}

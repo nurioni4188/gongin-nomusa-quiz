@@ -1,0 +1,88 @@
+{
+  "schema": "NOMUSA_FULL_LEARNING_E2E/1",
+  "asOfKST": "2026-11-19",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "verifiedCodeCommit": "8f41310b56a9858a1a5999c5dc44e76c898091d7",
+  "landingPath": "/study-hub/study-tools/",
+  "tested": "actual Chromium headless Playwright in Vercel isolated sandbox, local repository static HTTP server, mobile and desktop",
+  "sourceSummary": {
+    "first": {
+      "yearRange": "2008-2026",
+      "totalUniqueIDs": 3070,
+      "legacySourceBank": 2279,
+      "V42SourceCheckedAndAlreadyInBank": 2,
+      "V43TextAndFiveOptionsDraft": 103,
+      "V54SourceOnlyWithoutQuestionText": 686,
+      "v43SourceFilesRead": 8,
+      "v43SourceCompleteFiveChoices": 103,
+      "unapprovedAnswerNumbersIn103And686ExposedForScoring": 0,
+      "note": "ID and learning workspace entry is not confirmation of original text, answer key, or legal/academic explanations for all 3070"
+    },
+    "second": {
+      "yearRange": "2007-2026",
+      "ledgerIDs": 328,
+      "individualSourceTextLinked": 316,
+      "wholeSubjectBookletSourceOnly": 6,
+      "noSourceText": 6,
+      "note": "Some texts are OCR/transcription drafts pending word-for-word original, points, law, precedent and independent expert review. An A4 print PDF does not assert actual handwriting pages or answer approval."
+    }
+  },
+  "testedViewports": [
+    {
+      "widthPx": 1440,
+      "documentOverflowPx": 0,
+      "jsErrors": 0,
+      "test": "PASS",
+      "examplePdfBytes": 184622
+    },
+    {
+      "widthPx": 390,
+      "documentOverflowPx": 0,
+      "jsErrors": 0,
+      "test": "PASS",
+      "examplePdfBytes": 184622
+    },
+    {
+      "widthPx": 360,
+      "documentOverflowPx": 0,
+      "jsErrors": 0,
+      "test": "PASS",
+      "examplePdfBytes": 184622
+    }
+  ],
+  "browserAssertions": [
+    "Total unique first-stage IDs exactly 3070",
+    "Second-stage ledger ID count exactly 328 without adding untracked source-only catalog rows",
+    "V43 group exactly 103 question stems and five choice texts loaded from 8 original review files",
+    "V54 686 individually searchable with provenance link and source-HOLD disclosure",
+    "V54 unverified candidate answer reveal button disabled",
+    "Second-stage ID search, independent study-writing text saved in dedicated localStorage key and restored after page reload",
+    "PDF print generation includes opted-in personal text and valid PDF file signature",
+    "Original legacy first/second-stage storage key bytes unchanged",
+    "No JS page errors and no horizontal overflow at widths 1440,390,360",
+    "Existing study hub entry route remains discoverable"
+  ],
+  "newStorageKeys": [
+    "nomusa_study_tools_v1",
+    "nomusa_study_tools_essay_writing_v1"
+  ],
+  "legacyStorageReadOnly": [
+    "nomusa_preview_hub_v1",
+    "nomu1-progress-v2",
+    "nomusa_rc27_v103_essay_records_v1"
+  ],
+  "holds": [
+    "686 first-stage question texts and choices not present in source ledger",
+    "Six second-stage entries have no isolated original text",
+    "Six second-stage entries linked only to whole subject exam source not exact sub-question",
+    "103 source texts and options remain independently unapproved",
+    "Historical legal case and enactment status not independently approved",
+    "Full answer/explanation expert approvals remain HOLD",
+    "Authenticated protected Preview usage test not yet performed"
+  ],
+  "mainUntouched": true,
+  "productionUntouched": true,
+  "rc27rc35Preserved": true,
+  "releaseGate": "Local E2E PASS. New protected Preview deployment may be created once from this reviewed branch; Production prohibited."
+}

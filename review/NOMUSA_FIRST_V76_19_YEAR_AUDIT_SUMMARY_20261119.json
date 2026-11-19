@@ -1,0 +1,207 @@
+{
+  "schema": "NOMUSA_FIRST_V76_19_YEAR_CONTENT_SCOPE_AND_2013_MANAGEMENT_25_AUDIT/1",
+  "asOfKST": "2026-11-19",
+  "requestedHistoricalPeriod": "2008-2026",
+  "periodYearCount": 19,
+  "yearsCovered": [
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "sourceWorkStatus": "AUDIT_ONLY_NOT_A_COMPLETE_EXAM_ANSWER_BANK",
+  "original2022to2026QDATAItems": 1020,
+  "first2022to2026FiveOptionOriginalQuestionRecords": 929,
+  "existingOriginalAndV36ExplanationDrafts": 399,
+  "existingExplanationDraftsMatchingQDATA": 399,
+  "existingExplanationDraftsNotMatchingQDATA": 0,
+  "socialInsurance2026ExistingDrafts": 40,
+  "existingFiveReasonListsFor2022to2026": 399,
+  "prior686ReviewRows": 686,
+  "substantive2013ManagementDetailedNewDrafts": 25,
+  "substantive2013ManagementIndividualChoiceReasons": 125,
+  "substantive2013ManagementCorrectCandidateLinksValidated": 25,
+  "newQDATAImports": 0,
+  "newScoringApprovals": 0,
+  "independentOfficialFinalKeyCellsApprovedForThese25": 0,
+  "independentReviewerApprovedForThese25": 0,
+  "legacyPackedAudit": {
+    "kind": "array",
+    "count": 884,
+    "byYear": {
+      "2011": 149,
+      "2012": 149,
+      "2014": 150,
+      "2015": 150,
+      "2017": 144,
+      "2019": 142
+    },
+    "sample": {
+      "k": "legacy1-2011-A-labor1-001",
+      "y": 2011,
+      "r": 20,
+      "form": "A",
+      "s": "노동법(1)",
+      "n": 1,
+      "q": "헌법 제32조(근로의 권리)에서 보장하고 있는 내용으로 옳지 않은 것은?",
+      "t": true,
+      "o": [
+        "근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다.",
+        "장애인의 근로는 특별한 보호를 받으며, 고용ㆍ임금 및 근로조건에 있어서 부당한 차별을 받지 아니한다.",
+        "연소자의 근로는 특별한 보호를 받는다.",
+        "국가유공자ㆍ상이군경 및 전몰군경의 유가족은 법률이 정하는 바에 의하여 우선적으로 근로의 기회를 부여받는다.",
+        "국가는 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다."
+      ],
+      "a": [
+        2
+      ],
+      "sourceUrl": null,
+      "answerSourceUrl": "https://court.lawschool.co.kr/nlawschool/board/infomation/view.asp?bbsCode=1502&num=33021"
+    },
+    "error": null
+  },
+  "fullHistoricalYearSourceInventory": {
+    "2008": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyDirectQuestionItems": 125,
+      "legacyDirectFiveChoices": 125
+    },
+    "2009": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyDirectQuestionItems": 125,
+      "legacyDirectFiveChoices": 125
+    },
+    "2010": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyDirectQuestionItems": 125,
+      "legacyDirectFiveChoices": 125
+    },
+    "2011": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 149
+    },
+    "2012": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 149
+    },
+    "2013": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0
+    },
+    "2014": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 150
+    },
+    "2015": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 150
+    },
+    "2016": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0
+    },
+    "2017": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 144
+    },
+    "2018": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0
+    },
+    "2019": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0,
+      "legacyPackedQuestions": 142
+    },
+    "2020": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0
+    },
+    "2021": {
+      "originalQDATAItems": 0,
+      "existingExplanationDrafts": 0,
+      "questionTextsWithFiveOptions": 0,
+      "existingOptionReasonListsFive": 0
+    },
+    "2022": {
+      "originalQDATAItems": 150,
+      "existingExplanationDrafts": 55,
+      "questionTextsWithFiveOptions": 150,
+      "existingOptionReasonListsFive": 55
+    },
+    "2023": {
+      "originalQDATAItems": 150,
+      "existingExplanationDrafts": 50,
+      "questionTextsWithFiveOptions": 59,
+      "existingOptionReasonListsFive": 50
+    },
+    "2024": {
+      "originalQDATAItems": 240,
+      "existingExplanationDrafts": 80,
+      "questionTextsWithFiveOptions": 240,
+      "existingOptionReasonListsFive": 80
+    },
+    "2025": {
+      "originalQDATAItems": 240,
+      "existingExplanationDrafts": 83,
+      "questionTextsWithFiveOptions": 240,
+      "existingOptionReasonListsFive": 83
+    },
+    "2026": {
+      "originalQDATAItems": 240,
+      "existingExplanationDrafts": 131,
+      "questionTextsWithFiveOptions": 240,
+      "existingOptionReasonListsFive": 131
+    }
+  },
+  "status": "PASS_19_YEAR_SCOPE_AUDIT_PLUS_25_FIVE_CHOICE_EXPLANATIONS_ZERO_APPROVED"
+}

@@ -1,0 +1,62 @@
+name: NOMUSA V20 isolated Chromium content review
+
+on:
+  push:
+    branches:
+      - review/nomusa-auto-v1-20year-gate-20261115
+    paths:
+      - '.github/workflows/nomusa-v20-content-review.yml'
+      - 'scripts/nomusa-canonical-shared-browser-gate.py'
+      - 'second/nomusa-v20-apply-substantive-88.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomusa-v20-isolated-content-review
+  cancel-in-progress: true
+
+jobs:
+  v20-essay-content-check:
+    if: github.ref == 'refs/heads/review/nomusa-auto-v1-20year-gate-20261115'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out exact review branch commit without credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium isolated test dependencies
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium --with-deps
+      - name: V20 run shared real Chromium 1440 / 390 / 360, export actual canonical draft manuscripts
+        run: python scripts/nomusa-canonical-shared-browser-gate.py .
+      - name: V20 run audit self-test
+        run: python scripts/nomusa-essay-quality-v19.py . --self-test
+      - name: V20 check 20 years / 328 IDs / 88 source-specific supplements / baseline triage
+        run: python scripts/nomusa-essay-quality-v19.py . --expected-total 328 --baseline 88
+      - name: Publish 20-year 328-answer content review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nomusa-v20-328-essay-88-substantive-draft-review
+          path: |
+            review-artifacts/nomusa_*_rendered*.json
+            review-artifacts/nomusa_*_editorial*.md
+            review-artifacts/NOMUSA_V19_328_PRIORITY_REPORT.json
+            review-artifacts/NOMUSA_V19_328_PRIORITY_REPORT.md
+            review-artifacts/NOMUSA_V19_88_PRIORITY_QUEUE.csv
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Confirm no release code or production credentials
+        if: always()
+        run: |
+          echo 'NOMUSA_V20_CONTENT_REVIEW_ONLY=1'
+          echo 'No Vercel deployment, no main merge, no Production, no writes to GitHub.'

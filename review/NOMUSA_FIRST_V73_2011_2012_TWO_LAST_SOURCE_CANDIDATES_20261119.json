@@ -1,0 +1,21 @@
+{
+  "schema": "NOMUSA_FIRST_V73_2011_2012_TWO_LAST_PUBLIC_CBT_SOURCE_CANDIDATES/1",
+  "asOfKST": "2026-11-19",
+  "historicalTwoUnlinkedIDs": [
+    "legacy1-2011-A-economics-014",
+    "legacy1-2012-A-economics-119"
+  ],
+  "reprintTextFiveOptionCandidates": 2,
+  "years": {
+    "2011": 1,
+    "2012": 1
+  },
+  "independentlyCertifiedQnetOriginalFiles": 0,
+  "independentlyConfirmedFinalAnswerCells": 0,
+  "independentEconomicsExplanations": 0,
+  "newScoringApprovals": 0,
+  "newAppImports": 0,
+  "status": "PASS_TWO_MISSING_IDS_SECONDARY_HTML_REPRINT_DRAFTS_HOLD_OFFICIAL_ORIGINAL_AND_SCORING",
+  "warning": "2012 legacy Q119 ↔ external section Q19 mapping and its figure require independent official original booklet comparison. Both external CBT reconstructions are unapproved drafts.",
+  "fullTwoSourceDraftArtifact": "review-artifacts/NOMUSA_FIRST_V73/NOMUSA_FIRST_V73_LAST_2_NATIVE_STEM_FIVE_OPTION_DRAFTS.json"
+}

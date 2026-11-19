@@ -1,0 +1,48 @@
+{
+  "schema": "NOMUSA_FIRST_V62_2013_A_CROSS_HOST_NATIVE_PAGE_TEXT_150/1",
+  "asOfKST": "2026-11-19",
+  "target2013AQuestionCandidates": 150,
+  "sourceA": {
+    "url": "https://renew.primeedunet.com/public/file/board/03063ffb-3bd2-4a86-93b9-38fc71a51fbf.pdf",
+    "sha256": "57709f98343d157e7a10ebc73c1a3113661970b22a561a101a0e781cfc5e0677",
+    "pages": 80,
+    "tlsCertificateVerified": true
+  },
+  "independentPublicHosts": 2,
+  "sourceBByBooklet": {
+    "management": {
+      "status": "SHA_VERIFIED_ALTERNATE_PUBLIC_PDF",
+      "sourceURL": "https://gosi24.com/wp-content/uploads/2026/10/2013-exam-2793-6ce7521fd988.pdf",
+      "resolvedURL": "https://gosi24.com/wp-content/uploads/2026/10/2013-exam-2793-6ce7521fd988.pdf",
+      "sha256": "ecec5234115900e3fc6b01515931af2048ec4948cf266e725890ac2993bc6ce7",
+      "pages": 39,
+      "bytes": 519015,
+      "tlsCertificateVerified": true,
+      "notOfficialQNetSource": true
+    },
+    "economics": {
+      "status": "SHA_VERIFIED_ALTERNATE_PUBLIC_PDF",
+      "sourceURL": "https://gosi24.com/wp-content/uploads/2026/10/2013-exam-2793-0bab7f9a7ba3.pdf",
+      "resolvedURL": "https://gosi24.com/wp-content/uploads/2026/10/2013-exam-2793-0bab7f9a7ba3.pdf",
+      "sha256": "8d1011a047a9985948931509c404d9b626204063e105b72d8a7975c7c6373673",
+      "pages": 41,
+      "bytes": 510308,
+      "tlsCertificateVerified": true,
+      "notOfficialQNetSource": true
+    }
+  },
+  "bookletPageCompareResults": 80,
+  "pageTextStates": {
+    "EXACT_PAGE_TEXT_MATCH": 80
+  },
+  "pageTextsHighConfidenceMatched": 80,
+  "individualExactStemsFiveOptionsApproved": 0,
+  "independentQNetOriginalSourceIdentityApproved": 0,
+  "independentHistoricalLawsCasesApproved": 0,
+  "officialAFormFinalAnswerCellApproved": 0,
+  "newAppImports": 0,
+  "newScoringApprovals": 0,
+  "status": "PASS_TWO_HOST_PDF_NATIVE_TEXT_COMPARE_QNET_SOURCE_EQUALITY_HOLD",
+  "warning": "Two public hosts are not two independent human proofreaders and are not the official Q-Net release. Similarity only concerns extracted PDF page text, not figures, options correctness or exam-time law.",
+  "full80PageCompareArtifact": "review-artifacts/NOMUSA_FIRST_V62/NOMUSA_FIRST_V62_2013_80_PAGES_SOURCE_TEXT_DIFF.json"
+}
