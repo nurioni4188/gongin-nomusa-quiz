@@ -23,10 +23,25 @@ if(window.NOMUSA_FIRST_BATCH_PACK && 'DecompressionStream' in window){
 const complete=await window.NOMUSA_COMPLETE_LOAD();
 const questions=[...new Map([...(window.QDATA||[]),...legacy,...(window.NOMUSA_FIRST_V42_TWO_THEORY||[]),...complete.first].filter(q=>q&&q.k).map(q=>[q.k,q])).values()];
 const questionById=new Map(questions.map(q=>[q.k,q]));
-const officialEssayMeta=new Map(complete.essay.map(row=>[row.id,row]));
-const essay=[...new Map([...complete.essay,...(window.N27_CATALOG?.items||[])].map(row=>[row.id,{
-  ...(officialEssayMeta.get(row.id)||{}),...row
-}])).values()];
+const essaySources=new Map([
+ ...(window.N27_CATALOG?.items||[]),
+ ...(window.NOMUSA_2013_2014_SPLIT_V1?.items||[])
+].map(row=>[row.id,row]));
+// Fixed to the 328 ledger IDs; source-only archive records do not inflate the count.
+const essay=complete.essay.map(base=>{
+ const original=essaySources.get(base.id);
+ if(original)return {...base,...original,sourceFile:base.sourceFile,sourceUrl:base.sourceUrl};
+ // Where subquestions are still unsplit, show the whole original paper with an
+ // explicit warning, never pretend it is the exact isolated question.
+ let parentId='';
+ if(/^2018_p[35]_q[1-3]$/.test(base.id))parentId=base.id.split('_q')[0];
+ if(/^2021-경영조직론-q[1-3]$/.test(base.id))parentId='2021_p5';
+ if(/^2021-인사노무관리론-q[1-3]$/.test(base.id))parentId='2021_p3';
+ const parent=essaySources.get(parentId);
+ if(parent?.sourceText)return {...base,sourceText:'[해당 과목 전체 문제지 — 선택한 소문항의 개별 전사·배점은 추가 검토 필요]\n\n'+parent.sourceText,
+   topic:'원문 묶음 확인 · '+base.id,sourceBundleOnly:true};
+ return base;
+});
 const ESSAY_NOTE_KEY='nomusa_study_tools_essay_writing_v1';
 let essayNotes={schema:'nomusa_study_essay_notes/1',items:{}},essayStorageBlocked=false;
 try{
