@@ -198,6 +198,7 @@
         <div class="sidebar-bottom">
           <div class="protect">${icon('shield')}<div><b>Preview 전용</b><br>이 브라우저에 학습 기록 저장</div></div>
           ${locked() || S.qa ? '' : link(sourcePath('index.html'), '1차 전체 문제풀이 · RC35')}
+          ${locked() || S.qa ? '' : link('quality-console/', '문항 품질관리 · 1·2차')}
         </div>
       </aside>
       <div class="page">
@@ -231,6 +232,7 @@
           <div class="hero-actions">
             ${button('2차 답안학습 시작 ' + icon('arrow'), 'start-essay', 'white')}
             ${button('최근 문항 이어풀기', 'continue', 'ghost')}
+            ${locked() || S.qa ? '' : '<a class="button ghost" href="quality-console/">문항 품질관리</a>'}
           </div>
         </div>
       </section>
