@@ -10,14 +10,30 @@
       "lane": "A",
       "description": "1차 686개 원문 복구 — 공식 Q-Net A형 크롭 이미지 25문항 시각 전사 및 법리 근거 후보정답",
       "targetIds": [
-        "legacy1-2020-A-labor1-010", "legacy1-2020-A-labor1-014", "legacy1-2020-A-labor1-015",
-        "legacy1-2020-A-labor1-017", "legacy1-2020-A-labor1-018", "legacy1-2020-A-labor1-020",
-        "legacy1-2020-A-labor1-025", "legacy1-2021-A-labor1-010", "legacy1-2021-A-labor1-014",
-        "legacy1-2021-A-labor1-016", "legacy1-2021-A-labor1-022", "legacy1-2021-A-labor1-023",
-        "legacy1-2021-A-labor1-024", "legacy1-2020-A-labor2-028", "legacy1-2020-A-labor2-030",
-        "legacy1-2020-A-labor2-034", "legacy1-2020-A-labor2-035", "legacy1-2020-A-labor2-037",
-        "legacy1-2020-A-labor2-040", "legacy1-2020-A-labor2-047", "legacy1-2020-A-labor2-050",
-        "legacy1-2021-A-labor2-026", "legacy1-2021-A-labor2-027", "legacy1-2021-A-labor2-028",
+        "legacy1-2020-A-labor1-010",
+        "legacy1-2020-A-labor1-014",
+        "legacy1-2020-A-labor1-015",
+        "legacy1-2020-A-labor1-017",
+        "legacy1-2020-A-labor1-018",
+        "legacy1-2020-A-labor1-020",
+        "legacy1-2020-A-labor1-025",
+        "legacy1-2021-A-labor1-010",
+        "legacy1-2021-A-labor1-014",
+        "legacy1-2021-A-labor1-016",
+        "legacy1-2021-A-labor1-022",
+        "legacy1-2021-A-labor1-023",
+        "legacy1-2021-A-labor1-024",
+        "legacy1-2020-A-labor2-028",
+        "legacy1-2020-A-labor2-030",
+        "legacy1-2020-A-labor2-034",
+        "legacy1-2020-A-labor2-035",
+        "legacy1-2020-A-labor2-037",
+        "legacy1-2020-A-labor2-040",
+        "legacy1-2020-A-labor2-047",
+        "legacy1-2020-A-labor2-050",
+        "legacy1-2021-A-labor2-026",
+        "legacy1-2021-A-labor2-027",
+        "legacy1-2021-A-labor2-028",
         "legacy1-2021-A-labor2-030"
       ],
       "changedFiles": [
@@ -47,8 +63,12 @@
       "lane": "B",
       "description": "2차 328개 중 50점 슬롯 고위험(법률과목) 답안 6건 상세논술·압축답안 보강",
       "targetIds": [
-        "legacy2-2007-labor1-q1", "legacy2-2009-labor1-q1", "legacy2-2009-administrative-q1",
-        "legacy2-2008-administrative-q2", "legacy2-2009-administrative-q2", "legacy2-2011-civil-procedure-q2"
+        "legacy2-2007-labor1-q1",
+        "legacy2-2009-labor1-q1",
+        "legacy2-2009-administrative-q1",
+        "legacy2-2008-administrative-q2",
+        "legacy2-2009-administrative-q2",
+        "legacy2-2011-civil-procedure-q2"
       ],
       "changedFiles": [
         "second/legacy_2007_2012_source_only.js (6 target items filled; intake self-check widened to accept the new EXPLANATION_DRAFT shape without weakening the approved!==false guard)"
@@ -79,5 +99,54 @@
     "laneA": "Pick the next 25 of the remaining 661 686-items from review/first-v48-provisional-crops (42 labor1/labor2 2020-21 items remain unused in that crop set) or move to review/first-v41-native-crops/first-v42-four-corrected-crops subjects (economics/management/social, already partially covered by the 103-pilot — verify no overlap first); follow the same visual-transcription + statute-reasoning + Node-simulation-before-commit method.",
     "laneB": "Next 5-10 50-point-slot items from the same V21 P1_77_PROXY_SHORTFALL list not yet covered: legacy2-2007-hrm-q2, legacy2-2007-organization-q2, legacy2-2008-hrm-q2, legacy2-2008-organization-q2, legacy2-2009-organization-q1/q2, legacy2-2011-hrm-q1, legacy2-2011-organization-q1 (academic/theory domain — requires 학자/저서/논문 사실관계, different sourcing approach than the law-citation items in this batch).",
     "beforeNextBatch": "Re-fetch GitHub HEAD on feature/nomusa-prd-v80 and re-read this ledger plus review/NOMUSA_COWORK_MASTER_EXECUTION_20261119.md before resuming, per the GATE-0 baseline rule."
+  },
+  "batch2_confirmKeyAndConnections_20261119": {
+    "description": "토큰절약모드 지시 이행: confirmKey() 증거기반 교체, 1차/2차 해설·상세·압축 연결 복구, 실제 Chromium E2E 1440/390/360",
+    "headBefore": "0f24992f96e0c07fe157d936583c469df98f38cc",
+    "changedFiles": [
+      "study-hub/study-tools/app.js",
+      "study-hub/study-tools/index.html"
+    ],
+    "fixes": [
+      {
+        "id": "confirmKey-evidence-gate",
+        "before": "q.chk==='MATCH' || String(q.sourceReviewStatus||'').includes('CHECKED')",
+        "after": "(chk==='MATCH' AND q.img AND q.src 모두 존재) OR (sourceReviewStatus===정확한 V42 크로스체크 문자열 AND finalAnswerPDFSHA256 AND sourcePDFSHA256 모두 존재)",
+        "verifiedWith": "Node vm 시뮬레이션 (data.js/explanations-v108.js/first-v42-two-theory-source-checked.js 실데이터 로드)",
+        "result": "chk=MATCH 1019개 중 기존 o/a 구조조건 통과 924개 전원 img+src 증거 보유(회귀 0), V42 2개 전원 통과, UNCHECKED/NOT_CHECKED/맨 flag만/686-overlay pending/103-draft/V42 status위조 등 6개 적대적 케이스 전원 차단 확인"
+      },
+      {
+        "id": "first-stage-explanation-link",
+        "issue": "study-hub/study-tools/index.html이 explanations-v108.js, explanations-2026-social-v36.js를 로드하지 않아 window.NOMUSA_V108_EXPLANATIONS가 항상 빈 스텁이었고, app.js는 애초에 이를 읽지도 않았음 (2026 사회보험법 포함 전체 해설 비표시)",
+        "fix": "index.html에 두 explanations 스크립트 추가, app.js renderQuestion()에 officialExplanation 블록 추가 (revealed 이후만 노출, 초안 명시, approved인데 entry 없으면 해설 미작성 표시)",
+        "verifiedWith": "Node vm 시뮬레이션 + Playwright 실제 Chromium",
+        "result": "2026 사회보험법 QDATA 40개 전원 해설 entry 연결 확인(이전 0). 2022-노동법(1)-001 실제 reveal 시 해설 노출 확인"
+      },
+      {
+        "id": "second-stage-content-link",
+        "issue": "study-hub/study-tools 상호작용 화면(updateEssayWorkspace)은 essay.sections(상세/압축/암기키워드)를 전혀 렌더링하지 않고 PDF 미리보기에서만 사용 — 학습자가 직접작성 전에 상세·압축 내용을 화면에서 볼 수 없었음",
+        "fix": "index.html에 #essayContent 컨테이너 추가, app.js updateEssayWorkspace()에서 원문 + 배점별 목표분량(sheets()) + sections(상세/압축/암기키워드, 없으면 HOLD 표시) 렌더링",
+        "verifiedWith": "Node vm 시뮬레이션(N27_CATALOG 327개 중 152개가 실제 sections 보유, 이전엔 전부 비표시) + Playwright 실제 Chromium",
+        "result": "legacy2-2007-labor1-q1 등 Lane B 신규 항목 및 기존 152개 항목 모두 상세/압축 텍스트 화면 노출 확인"
+      }
+    ],
+    "e2e": {
+      "tool": "Playwright 1.65.1 (npm 캐시 playwright 패키지 + 로컬 캐시된 chromium-1248 실행파일, 신규 브라우저 다운로드 없음), 독립 Node http 정적 서버로 저장소 루트 서빙",
+      "viewports": [
+        1440,
+        390,
+        360
+      ],
+      "checks_per_viewport": 12,
+      "total": 36,
+      "pass": 35,
+      "fail": 1,
+      "failDetail": "[1440px] favicon.ico 404 (console error) — 테스트용 임시 정적서버가 favicon을 서빙하지 않아 브라우저가 자동 요청한 것으로, index.html 코드·앱 로직과 무관. 390/360px에서는 재현되지 않음(동일 브라우저 세션 내 1회성). 실제 Vercel 배포본과는 무관.",
+      "notFabricated": "이전 실행 결과 JSON을 재사용하지 않고 이번 세션에서 실제 재실행"
+    },
+    "notRunThisBatch": [
+      "JSON 백업/복원 파일이 신규 학습키(nomusa_study_tools_v1, nomusa_study_tools_essay_writing_v1)까지 처리하는지 여부 — 관련 코드 미변경이라 별도 검증 생략",
+      "원격 인증 Preview E2E (REMOTE_E2E_HOLD 유지)"
+    ]
   }
 }
