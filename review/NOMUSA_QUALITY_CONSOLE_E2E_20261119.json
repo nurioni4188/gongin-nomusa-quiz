@@ -1,0 +1,62 @@
+{
+  "schema": "NOMUSA_QUALITY_CONSOLE_CHROMIUM_E2E/1",
+  "asOf": "2026-11-19",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "testedCommit": "587607d363aada41fab4dc41897db7fa8a7c4590",
+  "environment": "Vercel Sandbox, existing project prj_J1hv2uJ6EzuWEcYtb6x4GYKpXV0i, Ubuntu 26.04, isolated temporary full GitHub branch checkout",
+  "browser": "Playwright 1.65.1 / Chromium 159.0.8154.6",
+  "testedEntrypoint": "/study-hub/quality-console/",
+  "testMode": "localhost temporary static test server, not remote SSO-protected Preview",
+  "testScope": [
+    "console startup",
+    "103 first-stage ledger",
+    "686 pending original ledger",
+    "328 second-stage ledger",
+    "first-stage filter",
+    "status update",
+    "editorial memo autosave",
+    "refresh restore",
+    "JSON export",
+    "JSON import restore",
+    "essay answer write/restore",
+    "existing first/hub/second URLs HTTP200",
+    "root page horizontal overflow",
+    "browser page errors"
+  ],
+  "verifiedLoadedCounts": {
+    "all": 3396,
+    "first103": 103,
+    "remaining686": 686,
+    "second328": 328
+  },
+  "executedResults": [
+    {
+      "viewportPx": 1440,
+      "status": "PASS",
+      "documentWidthPx": 1440,
+      "browserPageErrors": 0
+    },
+    {
+      "viewportPx": 390,
+      "status": "PASS",
+      "documentWidthPx": 390,
+      "browserPageErrors": 0
+    },
+    {
+      "viewportPx": 360,
+      "status": "PASS",
+      "documentWidthPx": 360,
+      "browserPageErrors": 0
+    }
+  ],
+  "limitations": [
+    "기존 학습 앱의 문제풀이 자체를 새 화면에서 재구현/변경하지 않았으며 현재 테스트는 세 기존 URL의 HTTP200만 확인",
+    "실제 Vercel SSO 인증 후 작업 저장·복원 원격 E2E 미실행",
+    "법령·판례·독립 내용심사·답안승인 미실행",
+    "기존 QDATA·RC27·RC35·main·Production 파일을 변경하지 않음"
+  ],
+  "previewGate": "HOLD_REMOTE_AUTH_AND_E2E",
+  "expertContentApproval": "HOLD",
+  "result": "PASS_LOCAL_1440_390_360_NO_HORIZONTAL_OVERFLOW"
+}
