@@ -1,0 +1,88 @@
+{
+  "schema": "NOMUSA_STUDY_TOOLS_E2E/1",
+  "dateKST": "2026-11-19",
+  "sourceBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "testedGitCommit": "5e9ee06a3aeb27bd7c8ae578116634527039ee1a",
+  "testedPaths": [
+    "study-hub/study-tools/index.html",
+    "study-hub/study-tools/app.js",
+    "study-hub/study-tools/style.css",
+    "study-hub/app.js"
+  ],
+  "scope": "1st stage distraction-minimized practice, original wrong-note read-only integration, selected Anki tab-separated text export, 2nd stage A4 print/PDF for current 128 catalog units",
+  "dataCounts": {
+    "existingFirstQDATA": 1020,
+    "sourceCheckedV42Two": 2,
+    "focusFirstTotal": 1022,
+    "essayCatalogUnits": 128
+  },
+  "toolStorageKey": "nomusa_study_tools_v1",
+  "readOnlyOriginalStorageKeys": [
+    "nomusa_preview_hub_v1",
+    "nomu1-progress-v2",
+    "nomusa_rc27_v103_essay_records_v1"
+  ],
+  "browser": "Playwright 1.65.1 Chromium headless, static local repository server in Vercel sandbox, full Git clone",
+  "assertions": [
+    "Local static route HTTP 200",
+    "Loaded first items = 1022 and essay catalog units = 128",
+    "No browser JS page errors at 1440/390/360 viewport",
+    "No document horizontal overflow at 1440/390/360",
+    "Year filter, single-question choice, existing final-key number reveal with approval disclaimer",
+    "Opt-in card selection, UTF-8 Anki text file download, separator/tab/tags header and stable item ID",
+    "Study-tool-only storage persisted and restored through reload",
+    "Original three study storage keys untouched",
+    "Second-stage PDF panel and print preview show original source and HOLD statement",
+    "Chromium generated PDF magic %PDF-, document A4",
+    "Existing hub contains two links to new learning tools"
+  ],
+  "results": [
+    {
+      "viewportPx": 1440,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885
+    },
+    {
+      "viewportPx": 390,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885
+    },
+    {
+      "viewportPx": 360,
+      "pass": true,
+      "scrollOverflowPx": 0,
+      "consoleErrors": 0,
+      "ankiExportLines": 5,
+      "pdfBytes": 157885
+    }
+  ],
+  "pdfInspection": {
+    "testCase": "2022-org-1 · 2022 경영조직론 50점",
+    "pageSize": "A4 594.96x841.92 pt",
+    "pageCount": 2,
+    "pdfBytes": 157885,
+    "textExtraction": "PASS, Korean text and HOLD wording visible",
+    "firstPageRenderedToJpeg": true,
+    "handwritingTargetNote": "8~10 handwriting sheets is guidance, not produced PDF page count"
+  },
+  "approvalGate": {
+    "originalQuestionAndAnswerKeyContentIndependentApproval": "HOLD",
+    "historicalLegalAndPrecedentVerification": "HOLD",
+    "protectedPreviewAuthenticatedRealBrowserE2E": "NOT_RUN",
+    "newProtectedPreviewDeployment": "NOT_REQUESTED_NOT_PERFORMED"
+  },
+  "preservation": {
+    "githubMainUnmodified": true,
+    "productionUnmodified": true,
+    "existingPreviewUnmodified": true,
+    "sourceQuestionIDsAndKeysUnmodified": true,
+    "externalAnkiSync": false,
+    "externalGoodnotesFlexcilDirectIntegration": false
+  }
+}
