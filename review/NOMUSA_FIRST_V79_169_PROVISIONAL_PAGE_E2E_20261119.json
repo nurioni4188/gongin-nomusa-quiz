@@ -1,0 +1,87 @@
+{
+  "schema": "NOMUSA_FIRST_V79_CANDIDATE_ORIGINAL_PAGE_BOUNDS_AND_BROWSER_GATE/1",
+  "asOfKST": "2026-11-19",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "sourceLedger": "review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json",
+  "officialPDFIntegrity": "review/NOMUSA_FIRST_V78_495_QNET_PDF_SHA_MATCH_20261119.json",
+  "firstStageTotalIDs": 3070,
+  "secondStageTotalIDs": 328,
+  "officialOriginalBookletSHAConfirmed": {
+    "uniquePDFs": 8,
+    "linkedFirstStageIDs": 495
+  },
+  "candidateOriginalPDFPage": {
+    "total": 169,
+    "year2020": 91,
+    "year2021": 78,
+    "none2020": 20,
+    "none2021": 6,
+    "none2016_2018": 300,
+    "verifiedWithinSourcePDFBounds": 169,
+    "outsideSourcePDFBounds": 0,
+    "questionOrderedGroupCount": 14,
+    "groupsWithPageIndexDecrease": 0,
+    "candidatePageIndependentlyVisuallyApproved": 0,
+    "important": "Candidate PDF page numbers are not individual question, full five-choice, formula, table, image or final answer proof."
+  },
+  "actualChromiumE2E": {
+    "engine": "Playwright 1.65.1 in isolated Vercel sandbox against local static Git checkout",
+    "testedSourceCommit": "431a4a9d11447206530f12e0e55db9967bfbe5bd",
+    "viewports": [
+      {
+        "widthPx": 1440,
+        "horizontalOverflowPx": 0,
+        "pageErrors": 0,
+        "result": "PASS"
+      },
+      {
+        "widthPx": 390,
+        "horizontalOverflowPx": 0,
+        "pageErrors": 0,
+        "result": "PASS"
+      },
+      {
+        "widthPx": 360,
+        "horizontalOverflowPx": 0,
+        "pageErrors": 0,
+        "result": "PASS"
+      }
+    ],
+    "functionalChecks": [
+      "Exactly 3070 first-stage study IDs, 328 second-stage essay IDs",
+      "495 official first-stage source-linked items and 8 SHA-confirmed original PDF files",
+      "169 provisional candidate pages from V54 ledger within verified original book page count",
+      "Zero out-of-range candidate pages",
+      "2020 original-page candidate shown as 35쪽 잠정 참고",
+      "2021 candidate or not-yet-confirmed indicator shown",
+      "2016 missing page candidate explicitly marked no page, not guessed",
+      "2013 third-party mirror never treated as verified official page",
+      "Unverified answer key reveal remains disabled",
+      "Existing 2020 crop image loads successfully",
+      "Local personal five-choice study note and PDF render",
+      "Existing first/second-stage storage bytes remain unchanged",
+      "A4 PDF generation valid with 91521 bytes in smoke test",
+      "Zero JS page errors and zero mobile horizontal overflow"
+    ]
+  },
+  "preservation": {
+    "githubMainUnmodified": true,
+    "vercelProductionUnmodified": true,
+    "existingProtectedPreviewPreserved": true,
+    "sourceIDsUnmodified": true,
+    "originalLocalStorageKeysUnmodified": true,
+    "noNewProjectOrDatabase": true,
+    "independentLegalAcademicExpertApprovalsGranted": 0,
+    "newGradingApproved": 0
+  },
+  "decision": "LOCAL_BROWSER_PASS_PDF_PAGE_BOUND_VERIFICATION_PASS; EXACT_QUESTION_CONTENT_AND_GRADING_HOLD",
+  "remaining": [
+    "169 provisional pages require word-by-word comparison against original QNet scanned images",
+    "26 2020-2021 source-linked items lack candidate page numbers",
+    "300 2016-2018 source-linked items lack candidate page numbers",
+    "686 first-stage items still lack fully approved stem and five-option transcriptions",
+    "103 draft explanations and 52 five-option note sets still independent human review HOLD",
+    "Remote SSO-protected preview authenticated E2E not run"
+  ]
+}
