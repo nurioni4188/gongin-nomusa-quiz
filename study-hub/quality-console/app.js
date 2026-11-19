@@ -290,7 +290,7 @@
       ['V77 · 3,070문항 ID 전수','자료 확인','ID 연결만 완료 · 해설·승인 아님','review/NOMUSA_FIRST_V77_2008_2026_3070_RECONCILIATION_SUMMARY_20261119.json'],
       ['103문항 독립 2차 교열','HOLD','독립 원문·학술·법리 내용심사 0/103','review/NOMUSA_FIRST_V43_103_SECOND_PASS_515_CHOICES_AND_LAW_QA_20261118.json'],
       ['2차 328문항 최종 승인','HOLD','검토자 서명과 원고 SHA별 승인 없음','review/NOMUSA_V23_VALIDATION_LEDGER.json'],
-      ['신규 콘솔 PC1440/M390/M360 E2E','미실행','실제 Playwright 실행증빙 확인 전 PASS 표시 금지',''],
+      ['신규 콘솔 PC1440/M390/M360 E2E','PASS (로컬 검증)','Chromium 직접 실행 · 저장/복원/JSON/가로 넘침 검증','review/NOMUSA_QUALITY_CONSOLE_E2E_20261119.json'],
       ['보호 Preview 실사용 점검','HOLD','SSO 인증·실제 저장복원·문항 이동 검증 필요','']
     ];
     E('rows').innerHTML=rows.map(r=>'<tr><td><strong>'+esc(r[0])+'</strong></td><td colspan="2"><span class="tag '+(r[1].startsWith('PASS')?'green':'hold')+'">'+esc(r[1])+'</span></td>'
@@ -521,7 +521,7 @@
     addSocial();
     all=[...bucket.values()].sort((a,b)=>(b.year-a.year)||a.stage.localeCompare(b.stage)||a.subject.localeCompare(b.subject,'ko')||a.id.localeCompare(b.id));
     fillSelect();
-    E('alerts').innerHTML='<div class="alert"><strong>승인 게이트:</strong> V43 103문항의 선택지 해설은 초안 구조검사를 마쳤지만 독립교열 0건입니다. 2차 328개도 독립 전문가 최종승인 0건입니다. <strong>새 관리 콘솔의 브라우저 E2E와 보호 Preview 검증은 실행 증거 확인 전 HOLD</strong>입니다.'
+    E('alerts').innerHTML='<div class="alert"><strong>승인 게이트:</strong> V43 103문항의 선택지 해설은 초안 구조검사를 마쳤지만 독립교열 0건입니다. 2차 328개도 독립 전문가 최종승인 0건입니다. <strong>새 콘솔의 PC1440/모바일390·360 로컬 Chromium E2E PASS, 보호 Preview 인증 후 실사용 검증 HOLD</strong>입니다.'
       +(failures.length?'<details><summary>자료 로드 제한 '+failures.length+'건</summary>'+failures.map(esc).join(' · ')+'</details>':'')+'</div>';
     switchView('all');
     window.NOMUSA_QUALITY_CONSOLE_READONLY = Object.freeze({
