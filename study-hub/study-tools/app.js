@@ -128,7 +128,8 @@ function renderQuestion(){
  store.lastId=q.k;save();
  const optionHTML=Array.isArray(q.o)&&q.o.length===5?
   '<div class="options">'+q.o.map((value,i)=>'<button type="button" class="choice'+(rec.choice===i+1?' chosen':'')+'" data-choice="'+(i+1)+'"><span class="num">'+(i+1)+'</span><span>'+esc(value)+'</span></button>').join('')+'</div>':
-  '<div class="hold">이 문항의 선택지 전사·구조화는 확인되지 않았습니다. 기존 기출화면의 원문 페이지에서 대조해 주세요.</div>';
+  '<div class="hold">이 문항의 선택지 전사·구조화는 확인되지 않았습니다. 원본 문제지를 열어 직접 확인해야 합니다.</div>'+
+  '<div class="manual-choice" role="group" aria-label="원전 확인 후 예상 답안 선택"><p>원문을 확인했다면 본인의 예상 답안을 선택하세요. <strong>자동채점·정답 확정이 아닙니다.</strong></p><div class="manual-choice-buttons">'+[1,2,3,4,5].map(n=>'<button type="button" class="choice'+(rec.choice===n?' chosen':'')+'" data-choice="'+n+'" aria-label="내 예상 선택지 '+n+'번">'+n+'번</button>').join('')+'</div></div>';
  const approved=confirmKey(q);
  E('reveal').disabled=!approved;
  const evidenceLinks=[];
