@@ -67,8 +67,12 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       k:row.id,y:row.year,s:row.subject,n:row.questionNumber,
       q:'',o:[],a:[],form:'A',
       fullStage:'source686',provisional:true,
-      sourceOriginal:paths.first686.slice(1),sourceCrop:row.originalCropProvisional||'',
-      sourceEvidence:row.knownQNetNoticeOrOriginalURL||row.officialAFormOriginalBooklet||'',
+      sourceOriginal:paths.first686.slice(1),
+      sourceCrop:row.originalCropProvisional?.path||'',
+      sourceCropSHA:row.originalCropProvisional?.sha256||'',
+      sourceOfficialURL:row.officialAFormOriginalBooklet?.officialQNetSourceURL||row.knownQNetNoticeOrOriginalURL||'',
+      sourceCandidateURL:row.thirdPartyMirrorOnly?.candidateURL||'',
+      sourceEvidence:row.knownQNetNoticeOrOriginalURL||'',
       sourceReviewStatus:row.sourceGrade||'원문·5개 선택지·정답 검증 필요'
     });
   }
@@ -87,6 +91,10 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
     first,essay,failures,
     report:{expectedFirstMissing:789,first103:(a?.rows||[]).length,first686:(b?.rows||[]).length,
       essay328:(c?.rows||[]).length,sourceFileCount:sourcePaths.length,
+      first686ProvisionalCrop: first.filter(x=>x.fullStage==='source686' && !!x.sourceCrop).length,
+      first686WithOfficialBooklet: (b?.rows||[]).filter(x=>x.sourceGrade==='OFFICIAL_QNET_A_PDF_AT_BOOKLET_LEVEL').length,
+      first686ThirdPartyOnly: (b?.rows||[]).filter(x=>x.sourceGrade==='THIRD_PARTY_2013_MIRROR_ONLY_HOLD').length,
+      first686NoVerifiedOfficialA: (b?.rows||[]).filter(x=>x.sourceGrade==='NO_VERIFIED_OFFICIAL_A_PDF_HOLD').length,
       originalStems103:first.filter(x=>x.fullStage==='source103'&&!!x.q).length,
       fiveOptions103:first.filter(x=>x.fullStage==='source103'&&x.o.length===5).length}
   });
