@@ -148,5 +148,65 @@
       "JSON 백업/복원 파일이 신규 학습키(nomusa_study_tools_v1, nomusa_study_tools_essay_writing_v1)까지 처리하는지 여부 — 관련 코드 미변경이라 별도 검증 생략",
       "원격 인증 Preview E2E (REMOTE_E2E_HOLD 유지)"
     ]
+  },
+  "batch3_backupAndHoldAudit_20261119": {
+    "description": "327/328 표기 정리, 신규 학습키 JSON 백업·복원 추가, confirmKey 증거 교차검증, HOLD 분류 정리",
+    "headBefore": "9198732f96e0c07fe157d936583c469df98f38cc",
+    "changedFiles": [
+      "study-hub/study-tools/app.js",
+      "study-hub/study-tools/index.html"
+    ],
+    "item1_327vs328": {
+      "finding": "단순 표기 혼선이며 코드 결함 아님. N27_CATALOG.items는 327개(중복 없음, 과목전체/연도전체 번들 레코드 49개 포함)이고, 실제 런타임 essay 배열은 항상 review/NOMUSA_V23_VALIDATION_LEDGER.json의 328개 행을 1:1 기준으로 구성되어 328개 고유 ID 그대로 렌더링됨(코드 재현 검증 완료, app.js 로직 미변경).",
+      "breakdown": {
+        "totalEssayIds": 328,
+        "withRealSections": 152,
+        "noSourceTextAtAll": 6,
+        "sourceTextButNoSections": 170
+      },
+      "action": "code unchanged; this ledger note is the correction (no separate report file created)"
+    },
+    "item2_backupRestore": {
+      "gap": "study-hub/study-tools/index.html에는 nomusa_study_tools_v1 / nomusa_study_tools_essay_writing_v1 두 신규 키를 위한 JSON 백업/복원 UI가 전혀 없었음(기존 Anki TSV 내보내기만 존재). 기존 3개 레거시 키(nomusa_preview_hub_v1 등)의 백업은 별도 페이지 study-hub/app.js + state.js에서 담당하며 이번 변경과 무관, 미변경.",
+      "fix": "index.html에 JSON 백업 다운로드/가져오기 버튼 추가, app.js에 exportStudyBackup/importStudyBackup 핸들러 추가(스키마·ID 검증, 손상/이질적 파일은 기존 기록 보존하고 거부)",
+      "verifiedWith": "Playwright 실제 Chromium, 서로 다른 브라우저 컨텍스트(격리된 localStorage)로 합성 기록 내보내기→가져오기→새로고침→재내보내기 라운드트립",
+      "result": "11개 체크 전부 PASS: 내보낸 JSON에 1차 선택지·2차 작성본 원값 포함, 별도 컨텍스트에서 가져오기 후 새로고침해도 값 일치 복원, 재내보내기 값도 원본과 일치, 손상/무관 JSON 가져오기 시 기존 유효 기록 훼손되지 않음 확인. 실제 사용자 기록은 건드리지 않음(테스트는 전용 Chromium 프로파일에서만 수행)."
+    },
+    "item3_confirmKeyEvidenceCrossCheck": {
+      "qdataPath": "chk=MATCH 1019개는 data.js의 QMETA.answerSources(2022~2026년 공식 최종정답 문서명 매핑, 예: 2022년도 제31회 최종정답(PDF))에 근거. img/src 필드는 단순 값 존재가 아니라 이 공식 정답 문서가 연결된 연도·과목의 실제 크롭/소스 PDF 파일명.",
+      "v42Path": "sourcePDFSHA256 값(예: 87e3913d...)이 review/NOMUSA_FIRST_V78_495_QNET_PDF_SHA_MATCH_20261119.json 및 NOMUSA_FIRST_V54_686...json 두 기존 감사 원장에 모두 존재함을 확인. finalAnswerPDFSHA256 두 값(cd2db026..., 2116f86b...)은 review/ 내 최소 7개의 독립적인 기존 V4/V42/V43/V69/V75 원장·보고서에서 동일 값으로 반복 확인되어, 이 파일 하나만의 자기주장이 아님을 교차검증함.",
+      "action": "code unchanged (confirmKey already matched); this is confirmation that the evidence gate added on 2026-11-19 ties to real, pre-existing cross-referenced verification records, not bare field presence."
+    },
+    "item4_secondStageRestoreRecap": {
+      "flow": "직접작성 → 다른 문항(#pItem) 이동 → 원문항 복귀 → 새로고침 후 본문 복원",
+      "result": "PASS at 1440/390/360px (재확인: 오늘 추가한 백업 기능 반영 후 1회 회귀 재실행, 신규 실패 없음, 36건 중 35 PASS/1440px favicon 404만 비관련)"
+    },
+    "item5_holdClassification": {
+      "first686": {
+        "total": 686,
+        "visuallyTranscribedWithReasonedCandidate": 35,
+        "stillNoStemOrOptions": 651,
+        "note": "651 = 686 - 35(review/NOMUSA_FIRST_V80_LANE_A_BATCH1+BATCH2); confirmKey는 이 35개 전부를 포함해 686 오버레이 항목 전체를 차단함(sourceReviewStatus가 CROSSCHECK_PENDING이라 confirmKey 두 경로 중 어느 것도 통과 못함) — 전사됨=정답승인 아님을 코드로 보장."
+      },
+      "first103": {
+        "total": 103,
+        "expertApproved": 0,
+        "note": "변경 없음, 전원 해설초안 상태 유지"
+      },
+      "essay328": {
+        "total": 328,
+        "laneB6": [
+          "legacy2-2007-labor1-q1",
+          "legacy2-2009-labor1-q1",
+          "legacy2-2009-administrative-q1",
+          "legacy2-2008-administrative-q2",
+          "legacy2-2009-administrative-q2",
+          "legacy2-2011-civil-procedure-q2"
+        ],
+        "laneB6Status": "answerStatus=EXPLANATION_DRAFT, approved=false, scoringApproved=false, contentApproval=HOLD, citationReview=HOLD — 원문/기술검증 완료와 전문가 최종 내용승인을 코드 필드로 명확히 분리, 독립 승인 기록 없는 한 HOLD 유지"
+      }
+    },
+    "vercelConnection": ".vercel/project.json 로컬 부재 확인(2회차 재확인 동일) — 연결 정보 없음으로만 기록, 중단 사유 아님",
+    "pushDeploy": "not executed; no new approval granted in this turn beyond continuing local work"
   }
 }
