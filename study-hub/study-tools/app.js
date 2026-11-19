@@ -89,9 +89,17 @@ let pool=[],cursor=0,revealed=false,start=Date.now(),currentSection='focus';
 function notice(s){
  E('toast').textContent=plain(s);clearTimeout(notice.timer);notice.timer=setTimeout(()=>E('toast').textContent='',4400);
 }
+// Explicit official-answer-evidence gate. No substring matching: a status value
+// that merely *contains* "CHECKED" (e.g. a hypothetical "UNCHECKED"/"NOT_CHECKED")
+// must never pass. Each accepted path requires the verification flag AND the
+// real evidence pointers that back it, not the flag alone.
+const hasLegacyQdataEvidence=q=>q.chk==='MATCH'&&typeof q.img==='string'&&q.img.length>0&&typeof q.src==='string'&&q.src.length>0;
+const hasV42CrosscheckedEvidence=q=>q.sourceReviewStatus==='V42_FULL_IMAGE_FIVE_OPTIONS_OFFICIAL_KEY_AND_THEORY_CROSSCHECKED'
+ &&typeof q.finalAnswerPDFSHA256==='string'&&q.finalAnswerPDFSHA256.length>0
+ &&typeof q.sourcePDFSHA256==='string'&&q.sourcePDFSHA256.length>0;
 const confirmKey=q=>q&&Array.isArray(q.o)&&q.o.length===5&&Array.isArray(q.a)&&q.a.length===1
  &&Number.isInteger(Number(q.a[0]))&&Number(q.a[0])>=1&&Number(q.a[0])<=5
- &&(q.chk==='MATCH'||String(q.sourceReviewStatus||'').includes('CHECKED'));
+ &&(hasLegacyQdataEvidence(q)||hasV42CrosscheckedEvidence(q));
 const sel=(id,values,label,valueFn)=>{
  const select=E(id),keep=select.value;
  select.innerHTML='<option value="">'+esc(label)+'</option>'+values.map(v=>'<option value="'+esc(v)+'">'+esc(valueFn?valueFn(v):v)+'</option>').join('');
@@ -157,6 +165,16 @@ function renderQuestion(){
   (q.fullStage?'<div class="hold">원문 전사 초안 · 독립 교열 대기 · 정답·해설 최종승인 HOLD</div>':'');
  const answer=revealed?
   '<div class="'+(approved?'answer':'hold')+'">'+(approved?'기존 정답표 번호 <strong>'+Number(q.a[0])+'번</strong> · 최종 내용 승인과 별개입니다.':'원본 선택지·정답표 일대일 대조 미확인 · 정답 공개 HOLD')+'</div>':'';
+ const explEntry=revealed?window.NOMUSA_V108_EXPLANATIONS?.entries?.[q.k]:null;
+ const officialExplanation=!revealed?'':
+  explEntry?
+   '<details class="learning-rationale" open><summary>기존 해설 검토 중 · 공식 전문가 승인 0</summary>'+
+   (explEntry.summary?'<p class="rationale-text">'+esc(plain(explEntry.summary).slice(0,4000))+'</p>':'')+
+   (Array.isArray(explEntry.options)&&explEntry.options.length===5?
+     '<h4>선택지별 해설</h4><ol>'+explEntry.options.map(v=>'<li>'+esc(plain(v).slice(0,1600))+'</li>').join('')+'</ol>':'')+
+   '<p class="rationale-notice">학습용 초안입니다. 법령·판례 원문 독립 교열 및 전문가 최종승인은 별도이며, 정답 확인과는 다른 축입니다.</p>'+
+   '</details>':
+  (approved?'<div class="hold">해설 미작성</div>':'');
  const draftRationale=(q.fullStage==='source103'||q.fullStage==='source686')&&q.learningExplanationDraft?
    '<details class="learning-rationale"><summary>기존 학습 해설 초안 확인 · 독립검증 HOLD</summary>'+
    '<p class="rationale-notice">이 해설은 학습 초안입니다. 선택지별 법령·판례·계산과 공식 답안의 독립 교열은 완료되지 않았고, 자동채점 근거가 아닙니다.</p>'+
@@ -168,7 +186,7 @@ function renderQuestion(){
  const reviewStatus=rec.dueAt?'다음 복습: '+new Date(rec.dueAt).toLocaleDateString('ko-KR'):'복습 간격 미설정';
  E('question').innerHTML='<div class="question-head"><span class="eyebrow">'+esc(q.y+'년 · '+q.s+' · '+q.n+'번')+'</span><span class="tag hold">'+(approved?'정답표 대조 · 전문가 승인 HOLD':'정답 근거 HOLD')+'</span></div>'
   +'<div class="question-id">'+esc(q.k)+'</div><div class="stem">'+esc(q.q||'텍스트 원문 대조 필요 · 기존 1차 문제지에서 확인하세요.')+'</div>'
-  +sourceIntegrity+sourcePageHelp+sourceNote+cropHTML+optionHTML+answer+draftRationale
+  +sourceIntegrity+sourcePageHelp+sourceNote+cropHTML+optionHTML+answer+officialExplanation+draftRationale
   +(q.fullStage?'<div class="evidence-links">'+evidenceLinks.join(' ')+'</div>':'')
   +(!q.q||!Array.isArray(q.o)||q.o.length!==5?
      '<label class="first-note-label">원전 대조·학습 메모 (개인 기록)<textarea id="firstNote" maxlength="15000" placeholder="원본을 확인하면서 개인 메모를 남기세요. 공식 문제로 자동 확정되지 않습니다.">'+esc(rec.note||'')+'</textarea></label>':'')
@@ -241,7 +259,7 @@ function selectPItems(){
 }
 function updateEssayWorkspace(){
  const r=essay.find(x=>x.id===E('pItem').value);
- if(!r){E('essaySourceStatus').textContent='문항을 선택하세요.';E('essayOwnWriting').value='';return}
+ if(!r){E('essaySourceStatus').textContent='문항을 선택하세요.';E('essayContent').innerHTML='';E('essayOwnWriting').value='';return}
  const links=[];
  const url=r.sourceOfficialUrl||r.sourceUrl||r.source?.qnetPostUrl||'';
  if(/^https:\/\/[a-z0-9.-]+\//i.test(url))links.push('<a href="'+esc(url)+'" target="_blank" rel="noopener">공식 기출 게시물</a>');
@@ -251,6 +269,19 @@ function updateEssayWorkspace(){
   links.push('<a href="'+esc(link)+'" target="_blank" rel="noopener">원본문서 저장소</a>');
  }
  E('essaySourceStatus').innerHTML='<strong>'+(r.sourceSummaryOnly?'학습용 출제요지 · 공식 원문 전문 대조 HOLD':r.sourceBundleOnly?'과목 전체 원본문서 연결 · 개별 소문항 분리 HOLD':r.sourceText?'학습용 원문 텍스트 연결 · 검증/승인 별도 HOLD':'원문 텍스트 미연결 · 원본문서 확인 필요 HOLD')+'</strong> · '+esc(r.id)+' · '+links.join(' · ');
+ const contentParts=['<p class="essay-meta">'+esc((r.points||'배점 미확인')+'점')+' · 목표 분량 '+esc(sheets(Number(r.points)))+'</p>'];
+ contentParts.push('<details class="essay-source" open><summary>기출 원문'+(r.sourceSummaryOnly?' (출제요지 요약)':r.sourceBundleOnly?' (과목 전체 묶음)':'')+'</summary><div class="rationale-text">'+esc(plain(r.sourceText||'원문 텍스트 미확인 · 공식 문제지 대조 필요').slice(0,8000))+'</div></details>');
+ if(Array.isArray(r.sections)&&r.sections.length>0){
+  for(const section of r.sections){
+   contentParts.push('<details class="essay-section" open><summary>'+esc(section.title||'소문항')+' · 상세·압축·암기 키워드</summary>'
+    +'<h4>상세 학습답안</h4><p class="rationale-text">'+esc(plain(section.detailed||'상세답안 미확인').slice(0,8000))+'</p>'
+    +'<h4>시험장 압축답안 · 암기 키워드</h4><p class="rationale-text">'+esc(plain(section.compressed||'압축답안 미확인').slice(0,4000))+'</p>'
+    +'<p class="rationale-notice">학습 초안입니다. 법령·판례·학술 독립 교열 및 전문가 최종승인은 별도(HOLD)입니다.</p></details>');
+  }
+ }else{
+  contentParts.push('<div class="hold">상세·압축·암기 키워드 HOLD · 아직 작성되지 않았습니다. 원문을 직접 확인하며 아래에 답안을 작성해 주세요.</div>');
+ }
+ E('essayContent').innerHTML=contentParts.join('');
  E('essayOwnWriting').value=essayNotes.items[r.id]||'';
  E('essayOwnSaveStatus').textContent=essayStorageBlocked?'저장기록 오류 · 자동저장 HOLD':'이 페이지에서만 별도 자동저장';
 }
