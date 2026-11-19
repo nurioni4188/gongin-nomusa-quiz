@@ -7,7 +7,8 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
     first103:'/review/NOMUSA_FIRST_V43_103_SECOND_PASS_515_CHOICES_AND_LAW_QA_20261118.json',
     first686:'/review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json',
     essay328:'/review/NOMUSA_V23_VALIDATION_LEDGER.json',
-    laneA1:'/review/NOMUSA_FIRST_V80_LANE_A_BATCH1_25Q_LABOR_LAW_20261119.json'
+    laneA1:'/review/NOMUSA_FIRST_V80_LANE_A_BATCH1_25Q_LABOR_LAW_20261119.json',
+    laneA2:'/review/NOMUSA_FIRST_V80_LANE_A_BATCH2_10Q_20261119.json'
   };
   const failures=[];
   const fetchJSON=async path=>{
@@ -17,14 +18,19 @@ window.NOMUSA_COMPLETE_LOAD = async function(){
       return await r.json();
     }catch(err){failures.push(path+': '+err.message);return null}
   };
-  const [a,b,c,laneA1]=await Promise.all([fetchJSON(paths.first103),fetchJSON(paths.first686),fetchJSON(paths.essay328),fetchJSON(paths.laneA1)]);
+  const [a,b,c,laneA1,laneA2]=await Promise.all([fetchJSON(paths.first103),fetchJSON(paths.first686),fetchJSON(paths.essay328),fetchJSON(paths.laneA1),fetchJSON(paths.laneA2)]);
   if(!Array.isArray(a?.rows)||a.rows.length!==103)failures.push('103 원장 행수 불일치');
   if(!Array.isArray(b?.rows)||b.rows.length!==686)failures.push('686 원장 행수 불일치');
   if(!Array.isArray(c?.rows)||c.rows.length!==328)failures.push('328 원장 행수 불일치');
   if(!Array.isArray(laneA1?.rows)||laneA1.rows.length!==25)failures.push('V80 Lane A 1차 배치(25문항) 원장 행수 불일치');
+  if(!Array.isArray(laneA2?.rows)||laneA2.rows.length!==10)failures.push('V80 Lane A 2차 배치(10문항) 원장 행수 불일치');
   // Overlay only: never mutates the 686 ledger itself, only supplies transcribed
-  // stem/options/reasoned-candidate content for rows whose id matches.
-  const laneA1ById=new Map((laneA1?.rows||[]).filter(row=>typeof row?.id==='string').map(row=>[row.id,row]));
+  // stem/options/reasoned-candidate content for rows whose id matches. Later
+  // batches take priority over earlier ones on id collision (none expected).
+  const laneA1ById=new Map([
+    ...(laneA1?.rows||[]).filter(row=>typeof row?.id==='string').map(row=>[row.id,row]),
+    ...(laneA2?.rows||[]).filter(row=>typeof row?.id==='string').map(row=>[row.id,row])
+  ]);
   const sourcePaths=[...new Set((a?.rows||[]).map(row=>row.originalRecord).filter(path=>/^review\/[A-Za-z0-9_./-]+\.json$/.test(path)))];
   const sources=await Promise.all(sourcePaths.map(async path=>[path,await fetchJSON('/'+path)]));
   const sourceById=new Map();

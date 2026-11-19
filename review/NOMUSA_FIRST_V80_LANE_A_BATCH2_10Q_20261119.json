@@ -1,0 +1,356 @@
+{
+  "schema": "NOMUSA_FIRST_V80_LANE_A_BATCH2_10Q/1",
+  "asOfKST": "2026-11-19",
+  "repo": "nurioni4188/gongin-nomusa-quiz",
+  "branch": "feature/nomusa-prd-v80",
+  "sourceLedger": "review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json",
+  "method": "Token-saving-mode batch 2. Visual read of 10 more official QNet A-form crops (6 labor-law 2021, 4 civil-law 2020) from the 42 still-remaining crops after batch 1 (25 done). Answers reasoned independently from exam-date statute text; one item (civil-057) left HOLD with no candidate because reasoning conflicted with the available answer-option structure.",
+  "countsByYearSubject": {
+    "2021-labor2": 6,
+    "2020-civil": 4
+  },
+  "crossCheckAgainstPriorUnapprovedLedgerCandidate": {
+    "totalItems": 10,
+    "independentlyMatchingPriorCandidate": 9,
+    "heldNoCandidate": 1
+  },
+  "importantLimits": [
+    "officialAnswerTableVerified is false for all 10 items.",
+    "independentHumanReviewerSignoff is false for all 10 items.",
+    "legacy1-2021-A-labor2-037 is MEDIUM confidence (필수공익사업 도급제한 예외 조문 재확인 필요).",
+    "legacy1-2020-A-civil-057 is left with reasonedCandidateAnswer=null (HOLD): this reviewers legal analysis of the three true/false clauses does not match any available answer-option combination, so no candidate is asserted rather than guessing.",
+    "This file does not modify review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json; additive overlay only."
+  ],
+  "rows": [
+    {
+      "id": "legacy1-2021-A-labor2-032",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 32,
+      "form": "A",
+      "sourcePdfPage": 12,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-032.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "노동조합 및 노동관계조정법령상 단체협약에 관한 설명으로 옳지 않은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "노동조합과 사용자 또는 사용자단체는 정당한 이유없이 단체협약의 체결을 거부하거나 해태하여서는 아니된다.",
+        "이미 구체적으로 지급청구권이 발생한 임금은 노동조합이 근로자들로부터 개별적인 동의나 수권을 받지 않더라도, 단체협약만으로 이에 대한 반환이나 포기 및 지급유예와 같은 처분행위를 할 수 있다.",
+        "단체협약의 당사자는 단체협약의 체결일부터 15일 이내에 당사자 쌍방의 연명으로 단체협약을 행정관청에게 신고하여야 한다.",
+        "단체협약은 노동조합이 사용자 또는 사용자단체와 근로조건 기타 노사관계에서 발생하는 사항에 관한 합의를 문서로 작성하여 당사자 쌍방이 서명날인함으로써 성립하는 것이고, 그 합의가 반드시 정식의 단체교섭절차를 거쳐서 이루어져야만 하는 것은 아니다.",
+        "단체협약이 실효되었다고 하더라도 임금 등 그 밖에 개별적인 근로조건에 관한 부분은 그 단체협약의 적용을 받고 있던 근로자의 근로계약 내용이 되어 그것을 변경하는 새로운 단체협약, 취업규칙이 체결ㆍ작성되거나 또는 개별적인 근로자의 동의를 얻지 아니하는 한 개별적인 근로자의 근로계약 내용으로서 효력을 갖는다."
+      ],
+      "reasonedCandidateAnswer": 2,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "이미 구체적으로 발생한 임금채권은 근로자 개인에게 귀속되므로, 판례(대법원 2000다18608 등)는 노동조합이 개별 근로자의 동의·수권 없이 단체협약만으로 이를 포기·유예·반환하는 처분을 할 수 없다고 본다. ②가 이와 반대로 서술되어 정답이다. 나머지는 제30조(성실교섭의무)ㆍ제31조 제2항(신고)ㆍ판례(정식절차 불요)ㆍ판례(여후효)와 일치한다.",
+      "optionExplanations": [
+        "옳음 - 제30조 성실교섭의무 규정과 일치.",
+        "틀림(정답) - 판례상 이미 구체적으로 발생한 임금채권은 개별 근로자 동의·수권 없이 단체협약만으로 처분할 수 없다.",
+        "옳음 - 제31조 제2항의 15일 이내 신고 규정과 일치.",
+        "옳음 - 단체협약 성립에 정식 교섭절차가 필수는 아니라는 판례 법리와 일치.",
+        "옳음 - 단체협약 실효 후에도 개별 근로조건 부분이 근로계약 내용으로 남는다는 '여후효' 판례 법리와 일치."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2021-A-labor2-033",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 33,
+      "form": "A",
+      "sourcePdfPage": 12,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-033.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "노동조합 및 노동관계조정법상 교섭대표노동조합 등에 관한 설명으로 옳지 않은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "교섭대표노동조합의 대표자는 교섭을 요구한 모든 노동조합 또는 조합원을 위하여 사용자와 교섭하고 단체협약을 체결할 권한을 가진다.",
+        "교섭대표노동조합 결정 절차에 참여한 모든 노동조합은 대통령령으로 정하는 기한 내에 자율적으로 교섭대표노동조합을 정한다.",
+        "교섭창구 단일화 절차에서 교섭대표노동조합이 가지는 대표권은 법령에서 특별히 권한으로 규정하지 아니한 이상 단체교섭 및 단체협약 체결(보충교섭이나 보충협약 체결을 포함한다)과 체결된 단체협약의 구체적인 이행 과정에만 미치는 것이고, 이와 무관하게 노사관계 전반에까지 당연히 미친다고 볼 수는 없다.",
+        "공동교섭대표단에 참여할 수 있는 노동조합은 그 조합원 수가 교섭창구 단일화 절차에 참여한 노동조합의 전체 조합원 100분의 10 이상인 노동조합으로 한다.",
+        "공동교섭대표단의 구성에 합의하지 못할 경우에 고용노동부장관은 해당 노동조합의 신청에 따라 조합원 비율을 고려하여 이를 결정할 수 있다."
+      ],
+      "reasonedCandidateAnswer": 5,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "노조법 제29조의2 제4항은 공동교섭대표단 구성 합의가 안 될 때 '노동위원회'가 조합원 비율을 고려해 결정하도록 정한다. ⑤는 그 주체를 '고용노동부장관'으로 잘못 서술해 정답이다. ①(제29조 제2항)ㆍ②ㆍ③(판례)ㆍ④(제29조의2 제3항)는 조문ㆍ판례와 일치한다.",
+      "optionExplanations": [
+        "옳음 - 제29조 제2항과 일치.",
+        "옳음 - 시행령상 자율적 결정기한 규정과 일치.",
+        "옳음 - 교섭대표노조 대표권의 범위를 한정한 대법원 판례 법리와 일치.",
+        "옳음 - 제29조의2 제3항의 10% 기준과 일치.",
+        "틀림(정답) - 공동교섭대표단 구성 합의 불성립시 결정 주체는 '노동위원회'이며 '고용노동부장관'이 아니다(제29조의2 제4항)."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2021-A-labor2-037",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 37,
+      "form": "A",
+      "sourcePdfPage": 14,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-037.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "노동조합 및 노동관계조정법령상 쟁의행위에 관한 설명으로 옳지 않은 것은?",
+      "originalFiveOptionsDraft": [
+        "「방위사업법」에 의하여 지정된 주요방위산업체에 종사하는 근로자 중 방산물자의 완성에 필요한 개량 업무에 종사하는 자는 쟁의행위를 할 수 없다.",
+        "근로자는 쟁의행위 기간중에는 현행범외에는 노동조합 및 노동관계조정법 위반을 이유로 구속되지 아니한다.",
+        "교섭대표노동조합이 결정된 경우에는 그 절차에 참여한 노동조합의 전체 조합원(해당 사업 또는 사업장 소속 조합원으로 한정한다)의 직접ㆍ비밀ㆍ무기명투표에 의한 과반수의 찬성으로 결정하지 아니하면 쟁의행위를 할 수 없다.",
+        "필수공익사업의 사용자라 하더라도 쟁의행위 기간 중에 그 쟁의행위로 중단된 업무를 도급 줄 수 없다.",
+        "쟁의행위는 그 쟁의행위와 관계없는 자 또는 근로를 제공하고자 하는 자의 출입ㆍ조업 기타 정상적인 업무를 방해하는 방법으로 행하여져서는 아니된다."
+      ],
+      "reasonedCandidateAnswer": 4,
+      "reasonedConfidence": "MEDIUM",
+      "explanationDraft": "노조법 제43조는 쟁의행위 기간 중 대체근로ㆍ도급을 원칙적으로 금지하되, 필수공익사업에 한하여 일부 예외(대체근로 허용 등)를 두고 있다. ④는 필수공익사업에도 도급 제한이 예외 없이 그대로 적용된다고 단정하는데, 예외조항의 정확한 적용범위는 조문 원문 재확인이 필요하여 중간 신뢰도로 둔다. ①(시행령상 개량업무 포함)ㆍ②(제39조)ㆍ③(제41조 제1항)ㆍ⑤(제38조 제1항)는 조문과 일치한다.",
+      "optionExplanations": [
+        "옳음 - 시행령상 방산물자 생산업무에 '개량' 업무가 포함된다.",
+        "옳음 - 제39조 현행범 외 불구속 규정과 일치.",
+        "옳음 - 제41조 제1항 쟁의행위 찬반투표 요건과 일치.",
+        "불확실(정답 후보) - 필수공익사업에 대한 도급 제한의 예외 적용범위는 조문 원문 재확인이 필요하다.",
+        "옳음 - 제38조 제1항 업무방해 금지 규정과 일치."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2021-A-labor2-045",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 45,
+      "form": "A",
+      "sourcePdfPage": 17,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-045.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "노동조합 및 노동관계조정법상 부당노동행위에 관한 설명으로 옳지 않은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "노동조합을 조직하려고 하였다는 이유로 근로자에 대하여 한 부당노동행위에 대하여는 후에 설립된 노동조합은 독자적인 구제신청권을 가지지 않는다.",
+        "단체협약 등 노사 간 합의에 의한 경우라도 타당한 근거 없이 과다하게 책정된 급여를 근로시간 면제자에게 지급하는 사용자의 행위는 부당노동행위가 될 수 있다.",
+        "근로자가 노동조합의 업무를 위한 정당한 행위를 한 것을 이유로 그 근로자에게 불이익을 주는 사용자의 행위는 부당노동행위에 해당한다.",
+        "특정 근로자가 파업에 참가하였거나 노조활동에 적극적이라는 이유로 해당 근로자에게 연장근로 등을 거부하는 것은 해당 근로자에게 경제적 내지 업무상의 불이익을 주는 행위로서 부당노동행위에 해당할 수 있다.",
+        "부당노동행위에 대한 사실의 주장 및 증명책임은 부당노동행위임을 주장하는 측에 있다."
+      ],
+      "reasonedCandidateAnswer": 1,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "판례는 노조 결성을 준비하던 근로자에 대한 불이익취급이라도 그 후 설립된 노동조합이 설립 전 부당노동행위에 대해 독자적 구제신청권을 가진다고 본다. ①은 이를 반대로 서술해 정답이다. ②는 2013년 전원합의체 판례(2010다73957 등 근로시간면제자 급여 법리), ③(제81조 제1항 제1호)ㆍ④ㆍ⑤(증명책임 일반원칙)는 판례ㆍ조문과 일치한다.",
+      "optionExplanations": [
+        "틀림(정답) - 판례는 노조 결성 준비 단계의 불이익취급에 대해서도 그 후 설립된 노동조합의 독자적 구제신청권을 인정한다.",
+        "옳음 - 근로시간면제자 과다 급여에 관한 전원합의체 판례 법리와 일치.",
+        "옳음 - 제81조 제1항 제1호와 일치.",
+        "옳음 - 파업 참가ㆍ조합활동을 이유로 한 불이익 처우는 부당노동행위가 될 수 있다는 판례 법리와 일치.",
+        "옳음 - 부당노동행위 주장자가 증명책임을 진다는 일반 원칙과 일치."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2021-A-labor2-049",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 49,
+      "form": "A",
+      "sourcePdfPage": 18,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-049.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "교원의 노동조합 설립 및 운영에 관한 법률에 관한 설명으로 옳지 않은 것은?",
+      "originalFiveOptionsDraft": [
+        "교원의 노동조합을 설립하려는 사람은 교육부장관에게 설립신고서를 제출하여야 한다.",
+        "교원의 노동조합과 그 조합원은 업무의 정상적인 운영을 방해하는 어떠한 쟁의행위도 하여서는 아니 된다.",
+        "교원의 노동쟁의를 조정ㆍ중재하기 위하여 중앙노동위원회에 교원 노동관계 조정위원회를 둔다.",
+        "교원은 임용권자의 허가가 있는 경우에는 노동조합의 업무에만 종사할 수 있다.",
+        "중앙노동위원회가 제시한 조정안을 당사자의 어느 한쪽이라도 거부한 경우 중앙노동위원회는 중재를 한다."
+      ],
+      "reasonedCandidateAnswer": 1,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "교원노조법 제4조 제1항의 설립신고서 제출처는 '고용노동부장관'이며 '교육부장관'이 아니다(동일 법률의 다른 50점 배점 기출에서도 '고용노동부장관'으로 확인됨). ①이 이를 잘못 서술해 정답이다. ②(제8조)ㆍ③(제11조)ㆍ④ㆍ⑤는 조문과 일치하는 것으로 알려져 있다.",
+      "optionExplanations": [
+        "틀림(정답) - 교원노조 설립신고서 제출처는 교육부장관이 아니라 고용노동부장관이다(제4조 제1항).",
+        "옳음 - 제8조의 쟁의행위 금지 규정과 일치.",
+        "옳음 - 제11조의 중앙노동위원회 내 교원 노동관계 조정위원회 설치 규정과 일치.",
+        "대체로 옳음 - 임용권자 허가에 따른 노조 전임 규정과 부합하는 것으로 보인다.",
+        "대체로 옳음 - 조정안 거부시 중재 절차 규정과 부합하는 것으로 보인다."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2021-A-labor2-050",
+      "year": 2021,
+      "subject": "노동법2",
+      "questionNumber": 50,
+      "form": "A",
+      "sourcePdfPage": 18,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2021-A-labor2-050.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "공무원의 노동조합 설립 및 운영 등에 관한 법률에 관한 설명으로 옳지 않은 것은?",
+      "originalFiveOptionsDraft": [
+        "노동조합과 그 조합원은 정치활동을 하여서는 아니 된다.",
+        "정부교섭대표는 효율적인 교섭을 위하여 필요한 경우 다른 정부교섭대표와 공동으로 교섭하거나, 다른 정부교섭대표에게 교섭 및 단체협약 체결 권한을 위임할 수 있다.",
+        "노동조합은 단체교섭을 위하여 노동조합의 대표자와 조합원으로 교섭위원을 구성하여야 한다.",
+        "국가와 지방자치단체는 공무원이 전임자임을 이유로 승급이나 그 밖에 신분과 관련하여 불리한 처우를 하여서는 아니 된다.",
+        "단체교섭이 결렬된 경우에는 당사자 어느 한쪽 또는 양쪽은 중앙노동위원회에 조정을 신청할 수 있고, 조정은 신청을 받은 날부터 15일 이내에 마쳐야 한다."
+      ],
+      "reasonedCandidateAnswer": 5,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "공무원노조법상 조정 기간은 '30일 이내'로 알려져 있어(제12조), ⑤의 '15일'은 틀린 지문으로 정답이다. ①(제4조)ㆍ②(제8조 제3항)ㆍ③(제9조 제1항)ㆍ④(제7조 제4항)는 조문과 일치한다.",
+      "optionExplanations": [
+        "옳음 - 제4조 정치활동 금지 규정과 일치.",
+        "옳음 - 제8조 제3항 공동교섭ㆍ위임 규정과 일치.",
+        "옳음 - 제9조 제1항 교섭위원 구성 규정과 일치.",
+        "옳음 - 제7조 제4항 불이익처우 금지 규정과 일치.",
+        "틀림(정답) - 공무원노조법상 조정 기간은 15일이 아니라 30일 이내로 알려져 있다."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2020-A-civil-052",
+      "year": 2020,
+      "subject": "민법",
+      "questionNumber": 52,
+      "form": "A",
+      "sourcePdfPage": 18,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2020-A-civil-052.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "민법상 법인에 관한 설명으로 옳은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "사단법인 정관의 법적 성질은 자치법규이다.",
+        "청산종결등기가 행해졌다면 청산사무가 아직 남아있다 하더라도 그 법인의 권리능력은 소멸된다.",
+        "대표이사의 불법행위가 법인의 불법행위로 되는 경우에 대표이사는 자기의 불법행위책임을 면한다.",
+        "법인의 대표권을 가진 자가 하는 법률행위는 성립상 효과만 법인에게 귀속할 뿐 그 위반의 효과인 채무불이행책임까지 법인에 귀속하는 것은 아니다.",
+        "사단법인 사원의 지위는 정관에 의하여도 상속할 수 없다."
+      ],
+      "reasonedCandidateAnswer": 1,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "통설ㆍ판례는 사단법인 정관의 성질을 자치법규로 본다(①옳음=정답). ②는 판례상 청산종결등기와 무관하게 청산사무가 남아있으면 권리능력이 존속한다고 보아 틀리다. ③은 법인과 대표이사의 책임이 부진정연대책임으로 병존해 대표이사가 면책되지 않으므로 틀리다. ④는 대표기관의 법률행위 효과(채무불이행책임 포함)가 당연히 법인에 귀속하므로 틀리다. ⑤는 민법 제56조가 임의규정으로 정관으로 상속을 허용할 수 있다는 것이 판례이므로 틀리다.",
+      "optionExplanations": [
+        "옳음(정답) - 통설ㆍ판례상 정관의 성질은 자치법규(규범설)이다.",
+        "틀림 - 청산종결등기와 무관하게 청산사무가 남아있으면 청산법인으로서 권리능력이 존속한다는 것이 판례다.",
+        "틀림 - 법인의 불법행위책임(민법 제35조)과 대표이사 개인의 불법행위책임은 부진정연대책임으로 병존한다.",
+        "틀림 - 대표기관의 법률행위 효과는 그 위반에 따른 채무불이행책임까지 포함하여 법인에 귀속한다.",
+        "틀림 - 민법 제56조는 임의규정이므로 정관으로 사원지위의 상속을 허용할 수 있다는 것이 판례다."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2020-A-civil-055",
+      "year": 2020,
+      "subject": "민법",
+      "questionNumber": 55,
+      "form": "A",
+      "sourcePdfPage": 19,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2020-A-civil-055.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "무자력한 甲은 乙에게 3억 원의 금전채무를 부담하고 있으나, 乙의 강제집행을 피하기 위해 자신의 유일한 재산인 A부동산을 丙에게 가장매매하고 소유권이전등기를 해주었다. 이에 관한 설명으로 옳은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "乙은 甲에 대한 자신의 채권을 보전하기 위하여 甲의 丙에 대한 소유권이전등기의 말소등기청구권을 대위행사할 수 있다.",
+        "甲과 丙 간의 가장매매는 무효이므로 乙은 이것이 사해행위라는 것을 이유로 하여 채권자취소권을 행사할 수 없다.",
+        "허위표시는 불법원인이므로 甲은 丙에게 자신의 소유권에 기하여 A부동산의 반환을 청구할 수 없다.",
+        "만약 丙이 丁에게 A부동산을 매도하였다면, 丁은 선의ㆍ무과실이어야 제3자로서 보호를 받을 수 있다.",
+        "甲과 丙이 A부동산의 가장매매계약을 추인하면 그 계약은 원칙적으로 체결시로 소급하여 유효한 것이 된다."
+      ],
+      "reasonedCandidateAnswer": 1,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "통정허위표시로 무효인 매매에 기해 경료된 丙 명의 등기에 대해, 乙은 甲의 丙에 대한 말소등기청구권을 채권자대위권(제404조)으로 대위행사할 수 있다(①옳음=정답). ②는 무효인 법률행위도 사해행위취소의 대상이 될 수 있다는 판례와 반대로 틀리다. ③은 통정허위표시가 불법원인급여의 '불법'에 해당하지 않는다는 판례와 반대로 틀리다. ④는 제108조 제2항의 제3자 보호에 '선의'만 요구되고 무과실은 불요라는 통설ㆍ판례와 반대로 틀리다. ⑤는 무효행위 추인은 원칙적으로 소급효가 없다는 제139조와 반대로 틀리다.",
+      "optionExplanations": [
+        "옳음(정답) - 乙은 채권자대위권(제404조)으로 甲의 丙에 대한 말소등기청구권을 대위행사할 수 있다.",
+        "틀림 - 무효인 법률행위(통정허위표시)도 사해행위취소권의 대상이 될 수 있다는 것이 판례다.",
+        "틀림 - 통정허위표시는 불법원인급여의 '불법'에 해당하지 않으므로 소유권에 기한 반환청구가 가능하다.",
+        "틀림 - 제108조 제2항의 제3자 보호에는 '선의'만 요구되며 무과실까지 요구하지 않는다.",
+        "틀림 - 무효행위의 추인(제139조)은 원칙적으로 소급효가 없고 장래를 향해서만 효력이 생긴다."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    },
+    {
+      "id": "legacy1-2020-A-civil-057",
+      "year": 2020,
+      "subject": "민법",
+      "questionNumber": 57,
+      "form": "A",
+      "sourcePdfPage": 20,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2020-A-civil-057.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "의사표시를 한 자가 착오를 이유로 그 의사표시를 취소할 수 없는 경우를 모두 고른 것은? (단, 표의자의 중대한 과실은 없으며 다툼이 있으면 판례에 따름) ㄱ. 매매에서 매도인이 목적물의 시가를 몰라서 대금과 시가에 근소한 차이가 있는 경우 ㄴ. 주채무자의 차용금반환채무를 보증할 의사로 공정증서에 서명ㆍ날인하였으나 그 공정증서가 주채무자의 기존 구상금채무에 관한 준소비대차계약의 공정증서이었던 경우 ㄷ. 건물 및 부지를 현상태로 매수하였으나 그 부지의 지분이 근소하게 부족한 경우",
+      "originalFiveOptionsDraft": [
+        "ㄱ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "reasonedCandidateAnswer": null,
+      "reasonedConfidence": "HOLD",
+      "explanationDraft": "ㄱ(시가에 관한 단순 가격차이)과 ㄷ(지분의 근소한 부족)은 통상 '중요부분의 착오'로 보기 어려워 취소가 제한되는 유형으로 보이나, ㄴ은 보증 의사와 실제 공정증서의 법적 성질이 근본적으로 달라 판례상 중요부분의 착오로 취소가 허용되는 사례로 보여 ㄱ·ㄷ·ㄴ의 결론이 혼재한다. 정답 선택지에 'ㄱ,ㄷ' 조합이 없어(①~⑤ 중 ㄱ단독·ㄷ단독·ㄱㄴ·ㄴㄷ·ㄱㄴㄷ뿐) 이 검토자의 1차 판단과 선택지 구성이 맞지 않으며, 세 사실관계 모두 구체적 대법원 판례(사건번호)를 직접 대조하지 않고는 확정할 수 없어 추측하지 않고 HOLD로 남긴다.",
+      "optionExplanations": [
+        "불확실 - 시가에 관한 단순 가격차이는 통상 중요부분의 착오로 보기 어려워 취소가 제한될 수 있다.",
+        "불확실 - 보증 의사와 실제 공정증서의 법적 성질이 근본적으로 다른 경우로, 중요부분의 착오로 취소가 허용되는 유형으로 보이나 정확한 판례 확인이 필요하다.",
+        "불확실 - 지분의 근소한 부족이 중요부분의 착오에 해당하는지는 구체적 판례(사건번호) 대조가 필요하다.",
+        "HOLD - 선택지 구성(①ㄱ ②ㄷ ③ㄱㄴ ④ㄴㄷ ⑤ㄱㄴㄷ)과 1차 법리 판단이 정합되지 않아 정답을 추정하지 않는다.",
+        "HOLD - 원문 조문ㆍ판례 재대조 전까지 후보 정답을 제시하지 않는다."
+      ],
+      "priorUnapprovedCandidateMatches": false,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_ANSWER_HOLD_INSUFFICIENT_CONFIDENCE"
+    },
+    {
+      "id": "legacy1-2020-A-civil-059",
+      "year": 2020,
+      "subject": "민법",
+      "questionNumber": 59,
+      "form": "A",
+      "sourcePdfPage": 20,
+      "sourceCropImage": "review/first-v48-provisional-crops/legacy1-2020-A-civil-059.jpg",
+      "transcriptionMethod": "VISUAL_READ_OF_OFFICIAL_QNET_CROP_IMAGE_BY_AI_REVIEWER",
+      "exactStemFromImageDraft": "민법상 조건에 관한 설명으로 옳은 것은? (다툼이 있으면 판례에 따름)",
+      "originalFiveOptionsDraft": [
+        "'대금이 완납되면 매매목적물의 소유권이 이전된다'는 조항이 있는 소유권유보부 매매에서 대금완납은 해제조건이다.",
+        "선량한 풍속에 반하는 불법조건이 붙은 법률행위는 조건 없는 법률행위가 된다.",
+        "당사자의 의사표시로 조건성취의 효력을 소급시킬 수 없다.",
+        "조건은 법률행위의 내용을 이룬다.",
+        "유언에는 조건을 붙일 수 없다."
+      ],
+      "reasonedCandidateAnswer": 4,
+      "reasonedConfidence": "HIGH",
+      "explanationDraft": "통설상 조건은 법률행위의 부관으로서 그 내용의 일부를 이룬다(④옳음=정답). ①은 대금완납을 소유권이전의 '정지조건'으로 보는 것이 통설ㆍ판례이므로 틀리다. ②는 불법조건이 붙으면 '법률행위 전부가 무효'가 된다는 제151조 제1항과 반대로 틀리다. ③은 제147조 제3항이 당사자 의사표시에 의한 소급효 부여를 허용하므로 틀리다. ⑤는 유언에도 조건(조건부 유증 등)을 붙일 수 있다는 것이 일반적 법리이므로 틀리다.",
+      "optionExplanations": [
+        "틀림 - 소유권유보부 매매에서 대금완납은 소유권이전의 '정지조건'이지 해제조건이 아니다.",
+        "틀림 - 불법조건이 붙은 법률행위는 조건만 무효가 아니라 '법률행위 전부'가 무효가 된다(제151조 제1항).",
+        "틀림 - 제147조 제3항에 따라 당사자가 의사표시로 조건성취 효력의 소급을 정할 수 있다.",
+        "옳음(정답) - 조건은 법률행위의 부관으로서 그 내용의 일부를 이룬다는 것이 통설이다.",
+        "틀림 - 유언에도 조건(조건부 유증 등)을 붙이는 것이 일반적으로 허용된다."
+      ],
+      "priorUnapprovedCandidateMatches": true,
+      "officialAnswerTableVerified": false,
+      "independentHumanReviewerSignoff": false,
+      "scoringApproved": false,
+      "reviewStatus": "VISUALLY_TRANSCRIBED_REASONED_CANDIDATE_OFFICIAL_KEY_CROSSCHECK_PENDING"
+    }
+  ]
+}
