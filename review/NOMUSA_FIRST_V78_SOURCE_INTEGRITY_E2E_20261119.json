@@ -1,0 +1,65 @@
+{
+  "schema": "NOMUSA_FIRST_V78_OFFICIAL_SOURCE_AND_BROWSER_GATE/1",
+  "asOfKST": "2026-11-19",
+  "repository": "nurioni4188/gongin-nomusa-quiz",
+  "reviewBranch": "review/nomusa-auto-v1-20year-gate-20261115",
+  "verifiedOfficialArtifact": "review/NOMUSA_FIRST_V78_495_QNET_PDF_SHA_MATCH_20261119.json",
+  "shaVerifiedPDFs": 8,
+  "officialSourceLinkedQuestionIDs": 495,
+  "sourcePDFsDirect": 6,
+  "sourceZIPwithEmbeddedAFormPDF": 2,
+  "digitalTextPagesAcross8": 0,
+  "pdfSourceIntegrityPass": true,
+  "questionTextIndependentApproval": false,
+  "sourceNoScoringApproved": true,
+  "localBrowser": {
+    "engine": "Playwright 1.65.1 Chromium, static repository HTTP server in sandbox",
+    "testedViewports": [
+      1440,
+      390,
+      360
+    ],
+    "eachViewport": {
+      "expectedFirstIDs": 3070,
+      "expectedEssayIDs": 328,
+      "shaVerifiedQuestionIDs": 495,
+      "verifiedSourceBooks": 8,
+      "horizontalOverflowPixels": 0,
+      "javascriptPageErrors": 0,
+      "validA4PDF": true,
+      "examplePDFBytes": 91521
+    },
+    "tests": [
+      "first 3070/second 328 source ID loading",
+      "495 original file hash-verified QNet item counts and 8 distinct A-form PDFs",
+      "2018 source link correctly labeled ZIP / select A-form PDF",
+      "2016 directly downloaded PDF labeled and SHA-confirmed",
+      "official booklet byte-integrity statement separate from per-question verification HOLD",
+      "2013 external mirror records not misleadingly labeled official SHA pass",
+      "2010 no-source records not misleadingly labeled official SHA pass",
+      "unapproved answer reveal remains disabled",
+      "legacy personal answer storage stays unchanged",
+      "2nd stage print-to-PDF works",
+      "360/390 desktop/mobile overflow zero",
+      "no JS errors in all tested viewports"
+    ]
+  },
+  "protections": {
+    "originalQuestionIdsRetained": true,
+    "originalLocalStorageKeysUnchanged": true,
+    "mainUnmodified": true,
+    "productionUnmodified": true,
+    "rc27rc35Retained": true,
+    "aiScoringExcluded": true,
+    "remoteAuthenticatedProtectedPreviewE2E": "HOLD"
+  },
+  "remaining": {
+    "first686WithoutApprovedStemsOptions": 686,
+    "first495WithFileIntegrityButNotPerQuestionText": 495,
+    "otherFirst151ThirdPartyOrMissingOfficialSource": 191,
+    "secondEssayStudySummaryNeedsOriginal": 10,
+    "first103RationaleDraftsIndependentContentReview": "HOLD",
+    "formalAnswerAndStatuteCaseAcademicReview": "HOLD"
+  },
+  "decision": "LOCAL_BROWSER_AND_OFFICIAL_FILE_SHA_PASS; QUESTION_TEXT_AND_SCORING_APPROVAL_HOLD"
+}
