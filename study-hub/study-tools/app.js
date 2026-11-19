@@ -136,7 +136,11 @@ function renderQuestion(){
  const toRepo=path=>'https://github.com/nurioni4188/gongin-nomusa-quiz/blob/review/nomusa-auto-v1-20year-gate-20261115/'+path.split('/').map(encodeURIComponent).join('/');
  if(/^review\/[A-Za-z0-9_./-]+$/.test(q.sourceOriginal||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo(q.sourceOriginal))+'">문항 근거 원장 열기</a>');
  if(/^https:\/\/[a-z0-9.-]+\//i.test(q.sourceEvidence||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceEvidence)+'">공식 원문 게시물</a>');
- if(/^https:\/\/www\.q-net\.or\.kr\//i.test(q.sourceOfficialURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceOfficialURL)+'">Q-Net 원본 문제지 열기</a>');
+ const verifiedBook=window.NOMUSA_QNET_SOURCE_AUDIT?.[q.sourceOfficialSHA]||null;
+ if(/^https:\/\/www\.q-net\.or\.kr\//i.test(q.sourceOfficialURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceOfficialURL)+'">'+(verifiedBook?.downloadContainerType==='ZIP_A_AND_B'?'Q-Net 공식 ZIP 받기 · A형 PDF 선택':'Q-Net 공식 PDF 원본 열기')+'</a>');
+ const sourceIntegrity=verifiedBook?.integrity==='SHA256_MATCH'?
+  '<div class="source-proof"><strong>공식 Q-Net A형 PDF 파일 SHA-256 일치 확인</strong> · '+esc(verifiedBook.pdfPageCount)+'쪽 책자 · '+esc(verifiedBook.downloadContainerType==='ZIP_A_AND_B'?'ZIP 내부 A형 PDF 일치':'직접 내려받은 PDF 일치')+
+  '<p>검증 범위: 공식 파일의 바이트 무결성만 확인. 이 문항의 원문 위치·지문·5개 선택지·정답·법령·해설의 개별 검증은 HOLD입니다. 자료 출처: 한국산업인력공단 Q-Net.</p></div>':'';
  if(/^https:\/\/renew\.primeedunet\.com\//i.test(q.sourceCandidateURL||''))evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(q.sourceCandidateURL)+'">외부 재게시 후보 · 공식 원전 대조 HOLD</a>');
  if(!evidenceLinks.length&&q.fullStage)evidenceLinks.push('<a target="_blank" rel="noopener" href="'+esc(toRepo('review/NOMUSA_FIRST_V54_686_UNIFIED_PRIMARY_SOURCE_LEDGER_20261118.json'))+'">원문 수집·검토 장부</a>');
  const cropPath=typeof q.sourceCrop==='string' && /^review\/first-v(?:41-native-crops|48-provisional-crops|42-four-corrected-crops)\/legacy1-[A-Za-z0-9-]+\.jpg$/.test(q.sourceCrop)?q.sourceCrop:'';
@@ -157,7 +161,7 @@ function renderQuestion(){
  const reviewStatus=rec.dueAt?'다음 복습: '+new Date(rec.dueAt).toLocaleDateString('ko-KR'):'복습 간격 미설정';
  E('question').innerHTML='<div class="question-head"><span class="eyebrow">'+esc(q.y+'년 · '+q.s+' · '+q.n+'번')+'</span><span class="tag hold">'+(approved?'정답표 대조 · 전문가 승인 HOLD':'정답 근거 HOLD')+'</span></div>'
   +'<div class="question-id">'+esc(q.k)+'</div><div class="stem">'+esc(q.q||'텍스트 원문 대조 필요 · 기존 1차 문제지에서 확인하세요.')+'</div>'
-  +sourceNote+cropHTML+optionHTML+answer+draftRationale
+  +sourceIntegrity+sourceNote+cropHTML+optionHTML+answer+draftRationale
   +(q.fullStage?'<div class="evidence-links">'+evidenceLinks.join(' ')+'</div>':'')
   +(!q.q||!Array.isArray(q.o)||q.o.length!==5?
      '<label class="first-note-label">원전 대조·학습 메모 (개인 기록)<textarea id="firstNote" maxlength="15000" placeholder="원본을 확인하면서 개인 메모를 남기세요. 공식 문제로 자동 확정되지 않습니다.">'+esc(rec.note||'')+'</textarea></label>':'')
